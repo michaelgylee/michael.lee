@@ -495,7 +495,7 @@ function generateSimulatedCard(news, mode) {
     
     // Ensure we have exactly 5 news items for slides 2-6
     let paddedNews = [...news];
-    const fallbackPool = AI_NEWS_DATABASE[mode === 'daily' ? 'weekly' : 'daily'];
+    const fallbackPool = AI_NEWS_DATABASE[mode];
     let poolIndex = 0;
     while (paddedNews.length < 5) {
         paddedNews.push(fallbackPool[poolIndex % fallbackPool.length]);

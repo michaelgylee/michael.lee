@@ -382,7 +382,17 @@ class ResearcherAgent:
             for b_art in backup:
                 if len(verified_articles) >= limit:
                     break
-                if not any(x["link"] == b_art["link"] for x in verified_articles):
+                b_url = b_art.get("link", "").split("?")[0].strip()
+                
+                # Check for duplicates based on normalized link or source
+                is_duplicate = False
+                for x in verified_articles:
+                    x_url = x.get("link", "").split("?")[0].strip()
+                    if x_url == b_url or x.get("source") == b_art.get("source"):
+                        is_duplicate = True
+                        break
+                        
+                if not is_duplicate:
                     verified_articles.append(b_art)
                     
         log(self.name, f"최종 수집 및 검증 완료: 총 {len(verified_articles)}개 기사 선정 완료.", Colors.GREEN)
