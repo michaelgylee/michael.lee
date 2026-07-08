@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAY News Maker</title>
+    <!-- Google Fonts: Outfit & Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Kakao SDK -->
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" integrity="sha384-ihxb5W4KysbQ+oTyEa50uqh9A9qnryRu1UPfAp75y0VYg/jog3L5TYgzeGo5fUMG" crossorigin="anonymous"></script>
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar: Agent Settings & Status -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i data-lucide="bot" class="logo-icon"></i>
+                    <div>
+                        <h1>SAY News Maker</h1>
+                        <span class="version">v2.2 (Official Release)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Section -->
+            <section class="sidebar-section">
+                <h2><i data-lucide="settings"></i> 에이전트 설정</h2>
+                
+                <div class="form-group">
+                    <label>배포 주기</label>
+                    <div class="toggle-group">
+                        <input type="radio" id="mode-daily" name="news-mode" value="daily" checked>
+                        <label for="mode-daily">일간 브리핑</label>
+                        <input type="radio" id="mode-weekly" name="news-mode" value="weekly">
+                        <label for="mode-weekly">주간 트렌드</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>뉴스 카테고리</label>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="cat-genai" checked>
+                            <span class="checkmark"></span> 생성형 AI / LLM
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="cat-biz" checked>
+                            <span class="checkmark"></span> 비즈니스 / 기업
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="cat-tech" checked>
+                            <span class="checkmark"></span> 최신 기술 / 오픈소스
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="cat-policy" checked>
+                            <span class="checkmark"></span> 정책 / 트렌드
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group API-key-group">
+                    <label>Google Gemini API Key (선택)</label>
+                    <div class="input-with-icon">
+                        <i data-lucide="key" class="input-icon"></i>
+                        <input type="password" id="api-key" placeholder="AI 실시간 생성용 API 키 입력">
+                    </div>
+                    <p class="help-text">키 입력 시 Gemini가 실시간 크롤링 뉴스를 기반으로 맞춤 카드뉴스를 자동 생성합니다.</p>
+                </div>
+                
+                <div class="form-group API-key-group" style="margin-top: 12px;">
+                    <label>Kakao JavaScript Key (선택)</label>
+                    <div class="input-with-icon">
+                        <i data-lucide="message-square" class="input-icon"></i>
+                        <input type="password" id="kakao-key" placeholder="카카오 공유용 JavaScript 키 입력">
+                    </div>
+                    <p class="help-text">카카오 개발자 포털에서 발급받은 키 입력 시 생성된 카드뉴스를 카카오톡(나에게/친구에게)으로 즉시 전송할 수 있습니다.</p>
+                </div>
+                
+                <button id="btn-run" class="btn-primary animate-pulse">
+                    <i data-lucide="play"></i> 에이전트 팀 가동하기
+                </button>
+            </section>
+
+            <!-- Agent Team Status -->
+            <section class="sidebar-section agent-status-section">
+                <h2><i data-lucide="users"></i> 에이전트 팀 상태</h2>
+                
+                <div class="agent-card id-researcher">
+                    <div class="agent-info">
+                        <div class="agent-title">
+                            <i data-lucide="search" class="icon-res"></i>
+                            <span>조사 에이전트 (Researcher)</span>
+                        </div>
+                        <span class="badge badge-idle" id="status-researcher">대기 중</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progress-researcher"></div>
+                    </div>
+                </div>
+
+                <div class="agent-card id-creator">
+                    <div class="agent-info">
+                        <div class="agent-title">
+                            <i data-lucide="pen-tool" class="icon-cre"></i>
+                            <span>제작 에이전트 (Creator)</span>
+                        </div>
+                        <span class="badge badge-idle" id="status-creator">대기 중</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progress-creator"></div>
+                    </div>
+                </div>
+
+                <div class="agent-card id-publisher">
+                    <div class="agent-info">
+                        <div class="agent-title">
+                            <i data-lucide="shield-check" class="icon-pub"></i>
+                            <span>검증 에이전트 (Verifier)</span>
+                        </div>
+                        <span class="badge badge-idle" id="status-publisher">대기 중</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progress-publisher"></div>
+                    </div>
+                </div>
+            </section>
+            <div class="sidebar-footer" style="padding: 15px 20px; font-size: 11px; color: #64748b; border-top: 1px solid #1e293b; line-height: 1.5;">
+                <p style="margin: 0;">© 2026, Michael GY Lee (michael.gy.lee@gmail.com)</p>
+                <p style="margin: 3px 0 0 0;">Antigravity with Gemini 3.5 Flash</p>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="main-content">
+            <!-- Top Dashboard Header -->
+            <header class="main-header">
+                <div class="title-area">
+                    <h2 id="dashboard-status-text">에이전트 가동을 시작해주세요</h2>
+                    <p class="subtitle" id="dashboard-sub-text">AI 에이전트 협업으로 최신 소식을 빠르게 전달합니다.</p>
+                </div>
+                <div class="header-actions" style="display: flex; gap: 10px;">
+                    <button id="btn-copy-text" class="btn-secondary" style="background: rgba(56, 189, 248, 0.1); border: 1px solid #38bdf8; color: #38bdf8;" disabled>
+                        <i data-lucide="copy"></i> 카드뉴스 텍스트 복사
+                    </button>
+                    <button id="btn-export-all" class="btn-secondary" disabled>
+                        <i data-lucide="download"></i> 카드뉴스 다운로드 (ZIP)
+                    </button>
+                </div>
+            </header>
+
+            <!-- Agent Workflow Visualization -->
+            <div class="workflow-visual-panel">
+                <div class="node node-researcher" id="node-res">
+                    <div class="node-icon-wrapper"><i data-lucide="search"></i></div>
+                    <span>조사 에이전트</span>
+                </div>
+                <div class="connector-line">
+                    <div class="glow-pulse" id="pulse-res-cre"></div>
+                </div>
+                <div class="node node-creator" id="node-cre">
+                    <div class="node-icon-wrapper"><i data-lucide="pen-tool"></i></div>
+                    <span>제작 에이전트</span>
+                </div>
+                <div class="connector-line">
+                    <div class="glow-pulse" id="pulse-cre-pub"></div>
+                </div>
+                <div class="node node-publisher" id="node-pub">
+                    <div class="node-icon-wrapper"><i data-lucide="shield-check"></i></div>
+                    <span>검증 에이전트</span>
+                </div>
+            </div>
+
+            <!-- Dashboard Split Layout -->
+            <div class="dashboard-grid">
+                <!-- Center Editor & Carousel -->
+                <div class="card-editor-area">
+                    <div class="carousel-section">
+                        <div class="section-title-bar">
+                            <h3><i data-lucide="layout"></i> 카드뉴스 슬라이드 프리뷰</h3>
+                            <span class="help-hint">원하는 슬라이드를 클릭하면 실시간 편집이 가능합니다.</span>
+                        </div>
+                        
+                        <!-- Slide Cards Container (Vellum UI) -->
+                        <div class="slides-carousel" id="slides-container">
+                            <!-- Template slides will render here -->
+                            <div class="empty-state">
+                                <i data-lucide="sparkles" class="empty-icon animate-bounce"></i>
+                                <p>에이전트를 가동하면 카드뉴스가 실시간 생성됩니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide Editor Detail Panel -->
+                    <div class="editor-detail-panel" id="editor-panel" style="display: none;">
+                        <h3><i data-lucide="edit-3"></i> 슬라이드 상세 편집 (<span id="edit-slide-num">1</span>/7)</h3>
+                        <div class="editor-grid">
+                            <div class="edit-inputs">
+                                <div class="form-group edit-title-group">
+                                    <label for="edit-title">슬라이드 제목</label>
+                                    <textarea id="edit-title" rows="2" placeholder="제목을 입력하세요"></textarea>
+                                </div>
+                                <div class="form-group edit-body-group" id="bullet-edit-container">
+                                    <label>본문 불릿 포인트</label>
+                                    <div class="bullet-inputs-list">
+                                        <div class="bullet-input-item">
+                                            <span class="bullet-bullet"></span>
+                                            <input type="text" class="bullet-field" data-index="0" placeholder="첫 번째 내용">
+                                        </div>
+                                        <div class="bullet-input-item">
+                                            <span class="bullet-bullet"></span>
+                                            <input type="text" class="bullet-field" data-index="1" placeholder="두 번째 내용">
+                                        </div>
+                                        <div class="bullet-input-item">
+                                            <span class="bullet-bullet"></span>
+                                            <input type="text" class="bullet-field" data-index="2" placeholder="세 번째 내용">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group edit-subtitle-group" id="subtitle-edit-container" style="display: none;">
+                                    <label for="edit-subtitle">슬라이드 부제목</label>
+                                    <input type="text" id="edit-subtitle" placeholder="부제목을 입력하세요">
+                                </div>
+                                <div class="form-group edit-source-group" id="source-edit-container" style="display: none;">
+                                    <div style="display: flex; gap: 12px; margin-top: 10px;">
+                                        <div style="flex: 1;">
+                                            <label for="edit-source-name">출처 이름</label>
+                                            <input type="text" id="edit-source-name" placeholder="출처 이름">
+                                        </div>
+                                        <div style="flex: 2;">
+                                            <label for="edit-source-url">출처 URL</label>
+                                            <input type="text" id="edit-source-url" placeholder="출처 링크">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="edit-styles">
+                                <div class="form-group">
+                                    <label>카드 테마 및 그라데이션</label>
+                                    <div class="gradient-presets">
+                                        <button class="gradient-btn preset-purple active" data-gradient="preset-purple" title="Deep Purple"></button>
+                                        <button class="gradient-btn preset-navy" data-gradient="preset-navy" title="Navy Blue"></button>
+                                        <button class="gradient-btn preset-teal" data-gradient="preset-teal" title="Dark Teal"></button>
+                                        <button class="gradient-btn preset-wine" data-gradient="preset-wine" title="Wine Red"></button>
+                                        <button class="gradient-btn preset-cyber" data-gradient="preset-cyber" title="Cyber Indigo"></button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>글꼴 크기 조절</label>
+                                    <div class="range-slider">
+                                        <i data-lucide="type" class="range-icon-s"></i>
+                                        <input type="range" id="font-size-slider" min="20" max="60" value="40">
+                                        <i data-lucide="type" class="range-icon-l"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar: KakaoTalk Share Preview -->
+                <div class="kakaotalk-preview-area">
+                    <div class="section-title-bar">
+                        <h3><i data-lucide="smartphone"></i> 카카오톡 공유 미리보기</h3>
+                    </div>
+                    
+                    <div class="phone-mockup">
+                        <div class="phone-header">
+                            <div class="speaker"></div>
+                        </div>
+                        <div class="phone-screen">
+                            <div class="chat-header">
+                                <i data-lucide="chevron-left"></i>
+                                <span>인공지능 뉴스방</span>
+                                <i data-lucide="menu"></i>
+                            </div>
+                            <div class="chat-body">
+                                <div class="chat-time">오늘 오전 11:45</div>
+                                
+                                <div class="message-bubble-container">
+                                    <div class="profile-pic"><i data-lucide="bot"></i></div>
+                                    <div class="bubble-content-wrapper">
+                                        <span class="sender-name">AI 뉴스 브리핑 봇</span>
+                                        <div class="kakao-card-bubble">
+                                            <div class="kakao-card-image" id="kakao-preview-img">
+                                                <div class="kakao-img-placeholder">
+                                                    <i data-lucide="image"></i>
+                                                    <span>이미지 미리보기</span>
+                                                </div>
+                                            </div>
+                                            <div class="kakao-card-info">
+                                                <h4 class="kakao-card-title" id="kakao-preview-title">오늘의 핵심 AI 트렌드</h4>
+                                                <p class="kakao-card-desc" id="kakao-preview-desc">인공지능 에이전트가 요약한 핵심 AI 소식입니다.</p>
+                                            </div>
+                                            <div class="kakao-card-buttons">
+                                                <button class="kakao-btn">상세 뉴스 보기</button>
+                                                <button class="kakao-btn">채널 추가하기</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chat-input-bar">
+                                <i data-lucide="plus"></i>
+                                <div class="chat-input-field">메시지를 입력하세요</div>
+                                <i data-lucide="smile"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="kakao-actions">
+                        <button id="btn-kakao-share" class="btn-kakao" disabled>
+                            <i data-lucide="message-square"></i> 카카오톡 전송하기 (나에게/친구에게)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agent Console Logger -->
+            <div class="console-logger">
+                <div class="console-header">
+                    <h3><i data-lucide="terminal"></i> 에이전트 협업 콘솔 로그 (Agent Terminal)</h3>
+                    <div class="console-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                </div>
+                <div class="console-body" id="console-logs">
+                    <div class="log-line system">[System] 에이전트 가동 버튼을 누르시면 수집 및 설계 로그가 이곳에 출력됩니다.</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- External CDN Scripts for html2canvas, JSZip, and FileSaver -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <!-- Mobile Image View Modal -->
+    <div id="mobile-image-modal" class="modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 10000; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box;">
+        <div class="modal-content" style="background: #111a2e; border: 1px solid #1e293b; border-radius: 16px; width: 100%; max-width: 600px; max-height: 90vh; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);">
+            <div class="modal-header" style="padding: 16px 20px; border-bottom: 1px solid #1e293b; display: flex; justify-content: space-between; align-items: center; background: #0f172a;">
+                <h3 style="color: #f8fafc; margin: 0; font-size: 18px; font-weight: 700;">📱 카드뉴스 꾹 눌러서 저장 (롱 탭)</h3>
+                <button id="close-mobile-modal" style="background: none; border: none; color: #94a3b8; font-size: 24px; cursor: pointer; padding: 0; line-height: 1;">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 20px; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 20px; color: #94a3b8;">
+                <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #38bdf8; background: rgba(56, 189, 248, 0.1); padding: 12px; border-radius: 8px; border: 1px dashed rgba(56, 189, 248, 0.3);">
+                    💡 <b>모바일 저장 방법:</b> 아래 이미지를 길게 누른(롱 탭) 뒤 <b>'사진에 추가'</b> 또는 <b>'이미지 저장'</b>을 선택하여 개별 사진으로 저장하실 수 있습니다.
+                </p>
+
+                <div id="mobile-images-container" style="display: flex; flex-direction: column; gap: 16px;">
+                    <!-- Rendered images will be inserted here dynamically -->
+                </div>
+            </div>
+            <div class="modal-footer" style="padding: 16px 20px; border-top: 1px solid #1e293b; display: flex; justify-content: flex-end; background: #0f172a;">
+                <button id="close-mobile-modal-btn" style="background: #38bdf8; color: #0f172a; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 14px; transition: opacity 0.2s;">확인 완료</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
