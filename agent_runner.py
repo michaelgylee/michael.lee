@@ -1107,10 +1107,31 @@ class VerifierAgent:
         last_week = today - datetime.timedelta(days=7)
         today_str = today.strftime("%Y년 %m월 %d일")
         
-        # 1. Temporal Check (2025/2024/etc check)
+        # 1. Similarity / Duplicate check
+        seen_titles = []
+        for slide in card_data.get("slides", []):
+            if slide["type"] == "content":
+                title = slide.get("title", "")
+                for prev_title in seen_titles:
+                    w1 = set(title.split())
+                    w2 = set(prev_title.split())
+                    intersect = w1.intersection(w2)
+                    union = w1.union(w2)
+                    if len(union) > 0 and len(intersect) / len(union) > 0.5:
+                        return False, f"유사하거나 동일한 뉴스 내용 중복 감지 (제목: '{title}' vs '{prev_title}')"
+                seen_titles.append(title)
+                
+        # 2. Temporal Check (2025/2024/etc check)
         for slide in card_data["slides"]:
             if slide["type"] == "content":
-                txt = slide.get("title", "") + " " + " ".join(slide.get("bullets", []))
+                title = slide.get("title", "")
+                txt = title + " " + " ".join(slide.get("bullets", []))
+                
+                # Prohibit weekly date range patterns in daily mode
+                if mode == "daily":
+                    if "~" in title or "일~" in title or "주간" in title:
+                        return False, f"슬라이드 {slide['slide_index']}: 일간 브리핑에 적합하지 않은 주간 뉴스 범위 감지 (제목: '{title}')"
+                        
                 if "2025" in txt or "2024" in txt or "2023" in txt:
                     return False, f"슬라이드 {slide['slide_index']}: 과거 연도(2025 이하) 텍스트 포함"
                 

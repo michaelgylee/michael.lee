@@ -458,6 +458,44 @@ btnRun.addEventListener("click", async () => {
         addLog("Verifier", `[검증 4] 실행 시점 기준 적합성 검증 (${dateRangeText}): ${!hasOldYear ? '통과 (최신 뉴스 검증 완료)' : '실패 (과거 데이터 감지)'}`, !hasOldYear ? 'success' : 'warning');
         await sleep(400);
 
+        // [검증 5] 중복 및 유사 뉴스 검증
+        let hasDuplicate = false;
+        let seenTitles = [];
+        for (let slide of cardJson.slides) {
+            if (slide.type === 'content') {
+                let title = slide.title || "";
+                for (let prevTitle of seenTitles) {
+                    let w1 = new Set(title.split(/\s+/));
+                    let w2 = new Set(prevTitle.split(/\s+/));
+                    let intersect = new Set([...w1].filter(x => w2.has(x)));
+                    let union = new Set([...w1, ...w2]);
+                    if (intersect.size / union.size > 0.5) {
+                        hasDuplicate = true;
+                        break;
+                    }
+                }
+                seenTitles.push(title);
+            }
+        }
+        addLog("Verifier", `[검증 5] 유사도 및 중복 뉴스 검증: ${!hasDuplicate ? '통과 (중복 및 유사 슬라이드 없음)' : '실패 (중복 뉴스 감지)'}`, !hasDuplicate ? 'success' : 'warning');
+        await sleep(400);
+
+        // [검증 6] 일간 브리핑 내 주간 뉴스 범위 배제 검증
+        let hasWeeklyRangeInDaily = false;
+        if (appState.mode === 'daily') {
+            for (let slide of cardJson.slides) {
+                if (slide.type === 'content') {
+                    let title = slide.title || "";
+                    if (title.includes("일~") || title.includes("일 ~") || title.includes("주간")) {
+                        hasWeeklyRangeInDaily = true;
+                        break;
+                    }
+                }
+            }
+        }
+        addLog("Verifier", `[검증 6] 일간 브리핑 내 주간 뉴스 범위 배제 검증: ${!hasWeeklyRangeInDaily ? '통과 (일간 48시간 이내 규격 일치)' : '실패 (주간 기사 유입 감지)'}`, !hasWeeklyRangeInDaily ? 'success' : 'warning');
+        await sleep(400);
+
         progressPub.style.width = "100%";
 
         // Render card elements inside workspace
@@ -493,15 +531,46 @@ function sleep(ms) {
 function generateSimulatedCard(news, mode) {
     const cycleText = mode === 'daily' ? '하루 1분으로 읽는 AI 기술 브리핑' : '이주의 주요 AI 트렌드 리포트';
     
-    // Ensure we have exactly 5 news items for slides 2-6
+    // Ensure we have exactly 5 news items for slides 2-6 without duplicates
     let paddedNews = [...news];
     const fallbackPool = AI_NEWS_DATABASE[mode];
+    
+    let uniqueNews = [];
+    let seenUrls = new Set();
+    let seenTitles = new Set();
+    
+    for (let item of paddedNews) {
+        let normUrl = item.link ? item.link.split("?")[0].trim() : "";
+        let normTitle = item.title ? item.title.trim() : "";
+        if (normUrl && seenUrls.has(normUrl)) continue;
+        if (normTitle && seenTitles.has(normTitle)) continue;
+        if (normUrl) seenUrls.add(normUrl);
+        if (normTitle) seenTitles.add(normTitle);
+        uniqueNews.push(item);
+    }
+    
     let poolIndex = 0;
-    while (paddedNews.length < 5) {
-        paddedNews.push(fallbackPool[poolIndex % fallbackPool.length]);
+    while (uniqueNews.length < 5 && poolIndex < fallbackPool.length * 2) {
+        let item = fallbackPool[poolIndex % fallbackPool.length];
+        let normUrl = item.link ? item.link.split("?")[0].trim() : "";
+        let normTitle = item.title ? item.title.trim() : "";
+        
+        if (!seenUrls.has(normUrl) && !seenTitles.has(normTitle)) {
+            seenUrls.add(normUrl);
+            seenTitles.add(normTitle);
+            uniqueNews.push(item);
+        }
         poolIndex++;
     }
-    paddedNews = paddedNews.slice(0, 5);
+    
+    // Fallback if still less than 5
+    poolIndex = 0;
+    while (uniqueNews.length < 5) {
+        uniqueNews.push(fallbackPool[poolIndex % fallbackPool.length]);
+        poolIndex++;
+    }
+    
+    paddedNews = uniqueNews.slice(0, 5);
 
     const slides = [
         {
