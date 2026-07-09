@@ -92,28 +92,17 @@ const AI_NEWS_DATABASE = {
         },
         {
             category: 'tech',
-            title: `${datePrefix}실시간 대화 에이전트 다기능 API 연동 가이드 (InfoQ LLMs)`,
-            source: "InfoQ LLMs",
-            link: "https://www.infoq.com/llms/news/?bypass=true",
+            title: `${datePrefix}The Guardian AI 최신 리포트 (The Guardian AI)`,
+            source: "The Guardian AI",
+            link: "https://www.theguardian.com/technology/artificialintelligenceai?bypass=true",
             bullets: [
-                "로컬 환경의 소스코드를 즉시 정합하여 파일 자동 변환 및 리팩토링 효율을 극대화하는 신기술을 분석했습니다.",
-                "기존 에러 디버깅 파이프라인의 응답 지연을 절반 이하로 제어하는 클라우드 프록시 매크로 기술이 특징입니다.",
-                "개발자 콘솔을 활용해 프로젝트 보관 기능을 고도화하고 다단계 보안 인증 게이트웨이를 정합했습니다."
+                "글로벌 AI 연구소 및 빅테크 기업들의 인프라 독점 규제 움직임과 그에 대한 산업계의 영향력을 분석했습니다.",
+                "미국 및 유럽 연구진이 공동 제기한 데이터 학습 투명성 조약에 대해 심층 탐구한 외신 리포트입니다.",
+                "개발자 협회에서 주관한 오프라인 포럼에서의 핵심 논쟁 사항 및 기술 특허 교환 합의 내역을 요약했습니다."
             ]
         }
     ],
     weekly: [
-        {
-            category: 'genai',
-            title: `${weeklyPrefix}GPT-5.5 Instant Mini 모델 정식 출시 및 속도 최적화 패치 (ChatGPT Release Notes)`,
-            source: "ChatGPT Release Notes",
-            link: "https://help.openai.com/en/articles/6825453-chatgpt-release-notes?bypass=true",
-            bullets: [
-                "GPT-5.5 Instant 또는 Auto 모델 사용 제한 초과 시 적용되는 고속 대체 모델인 GPT-5.5 Instant Mini를 전격 도입했습니다.",
-                "사용자 지시문 추적 모델을 고도화하여 사실 왜곡율을 대폭 절감하고 실시간 멀티링구얼 인퍼런스 속도를 크게 개선했습니다.",
-                "엔터프라이즈 및 에듀 워크스페이스 사용자를 위한 토큰 기반 과금 체계를 최적화하여 인프라 효율성을 극대화했습니다."
-            ]
-        },
         {
             category: 'biz',
             title: `${weeklyPrefix}2026년 글로벌 빅테크 자율 에이전트 표준 수립 동향 (Beta AI Substack)`,
@@ -156,6 +145,17 @@ const AI_NEWS_DATABASE = {
                 "컨텍스트 윈도우 내부에 공유 지식 베이스 문서를 업로드해 팀원 모두가 동일한 코드 구조를 준수하게 만듭니다.",
                 "반복되는 설명이나 프로젝트 배경 설정을 매 질문마다 기입하지 않아도 되므로 API 토큰 소모를 방지합니다.",
                 "최신 코딩 스타일 가이드라인을 입력하여 일관되고 가독성 높은 리팩토링 코드를 즉시 도출해 냅니다."
+            ]
+        },
+        {
+            category: 'tech',
+            title: `${weeklyPrefix}x.ai Grok 4.5 초거대 멀티모달 추론 아키텍처 정식 배포 (x.ai News)`,
+            source: "x.ai News",
+            link: "https://x.ai/news/grok-4-5?bypass=true",
+            bullets: [
+                "인간 수준의 지수 추론 능력을 갖춘 Grok 4.5 모델이 정식 릴리즈되어 실시간 소스코드 논리 검증 속도가 2배 빨라졌습니다.",
+                "수학 기호 및 물리 기하학 다이어그램 다중 모달 이미지에 대한 자동 LaTeX 수식 추출 규격을 전격 탑재했습니다.",
+                "추론 결과의 정밀도를 실시간 추적하고 할루시네이션 비율을 0.05% 이하로 제어하는 리인포스 모듈을 내장했습니다."
             ]
         }
     ]

@@ -71,6 +71,75 @@ def parse_llm_release_date(html, source):
             
     return None
 
+def extract_standard_article_date(html):
+    import re
+    import datetime
+    
+    # 1. Search meta tags first (highly structured)
+    meta_patterns = [
+        r'property="article:published_time"\s+content="([^"T\s]+)',
+        r'name="pubdate"\s+content="([^"T\s]+)',
+        r'name="publish-date"\s+content="([^"T\s]+)',
+        r'property="og:regdate"\s+content="([^"T\s]+)',
+        r'name="Date"\s+content="([^"T\s]+)',
+        r'itemprop="datePublished"\s+content="([^"T\s]+)',
+        r'"datePublished":\s*"([^"T\s]+)',
+        r'"dateCreated":\s*"([^"T\s]+)'
+    ]
+    for pattern in meta_patterns:
+        match = re.search(pattern, html, re.IGNORECASE)
+        if match:
+            date_str = match.group(1)
+            ymd = re.search(r'(202[0-9])[-./]([0-9]{1,2})[-./]([0-9]{1,2})', date_str)
+            if ymd:
+                try:
+                    return datetime.date(int(ymd.group(1)), int(ymd.group(2)), int(ymd.group(3)))
+                except ValueError:
+                    pass
+
+    # 2. Search body text upper region
+    upper_html = html[:int(len(html) * 0.35)]
+    ymd_match = re.search(r'(202[0-9])[-./]([0-9]{1,2})[-./]([0-9]{1,2})', upper_html)
+    if ymd_match:
+        try:
+            return datetime.date(int(ymd_match.group(1)), int(ymd_match.group(2)), int(ymd_match.group(3)))
+        except ValueError:
+            pass
+            
+    ko_match = re.search(r'(202[0-9])\s*년\s*([0-9]{1,2})\s*월\s*([0-9]{1,2})\s*일', upper_html)
+    if ko_match:
+        try:
+            return datetime.date(int(ko_match.group(1)), int(ko_match.group(2)), int(ko_match.group(3)))
+        except ValueError:
+            pass
+
+    # Search for English style: Month Day, Year
+    eng_match = re.search(r'\b([a-zA-Z]+)\s+([0-9]{1,2}),\s*(202[0-9])\b', upper_html)
+    if eng_match:
+        m_name = eng_match.group(1).lower()
+        month_idx = None
+        for i, m in enumerate(["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]):
+            if m.startswith(m_name[:3]):
+                month_idx = i + 1
+                break
+        if month_idx:
+            try:
+                return datetime.date(int(eng_match.group(3)), month_idx, int(eng_match.group(2)))
+            except ValueError:
+                pass
+                
+    # 3. Relative keywords mapping
+    relative_keywords_today = ["방금", "오늘", "just now", "minutes ago", "minute ago"]
+    relative_keywords_yesterday = ["어제", "1일 전", "yesterday", "1 day ago", "24 hours ago", "23 hours ago", "hours ago", "hour ago"]
+    for keyword in relative_keywords_today:
+        if keyword in upper_html.lower():
+            return datetime.date.today()
+    for keyword in relative_keywords_yesterday:
+        if keyword in upper_html.lower():
+            return datetime.date.today() - datetime.timedelta(days=1)
+            
+    return None
+
 def parse_top_release_entry(html, source_name):
     import re
     import datetime
@@ -119,6 +188,18 @@ def parse_top_release_entry(html, source_name):
                 bullets = [li.strip() for li in li_matches if len(li.strip()) > 15][:3]
         elif source_name == "ChatGPT Release Notes":
             t_match = re.search(r'<b>([^<]+)</b>', segment)
+            if t_match:
+                title = t_match.group(1).strip()
+                p_matches = re.findall(r'<p>([^<]+)</p>', segment[t_match.end():t_match.end()+1500])
+                bullets = [p.strip() for p in p_matches if len(p.strip()) > 15][:3]
+        elif source_name in ["Google Innovation Blog", "x.ai News", "OpenAI News", "Anthropic News"]:
+            t_match = re.search(r'<h2>([^<]+)</h2>', segment)
+            if not t_match:
+                t_match = re.search(r'<h3>([^<]+)</h3>', segment)
+            if not t_match:
+                t_match = re.search(r'<b>([^<]+)</b>', segment)
+            if not t_match:
+                t_match = re.search(r'<strong>([^<]+)</strong>', segment)
             if t_match:
                 title = t_match.group(1).strip()
                 p_matches = re.findall(r'<p>([^<]+)</p>', segment[t_match.end():t_match.end()+1500])
@@ -306,12 +387,27 @@ class ResearcherAgent:
         
         all_candidates = []
         
-        # 0. Fetch Super Priority LLM Release Notes
+        # 0. Fetch Super Priority LLM Release Notes & Blogs
         all_candidates.extend(self.fetch_llm_release_notes(mode))
         
+        # Define 12 High-Priority Trusted News Sources
+        priority_sources = [
+            {"source": "The Guardian AI", "query": "site:theguardian.com/technology/artificialintelligenceai AI", "pattern": r'https?://(?:www\.)?theguardian\.com/technology/2026/[a-zA-Z0-9/_-]+', "priority": 1},
+            {"source": "The Economist AI", "query": "site:economist.com/topics/artificial-intelligence AI", "pattern": r'https?://(?:www\.)?economist\.com/[a-zA-Z0-9/_-]+', "priority": 1},
+            {"source": "NYT AI", "query": "site:nytimes.com/spotlight/artificial-intelligence AI", "pattern": r'https?://(?:www\.)?nytimes\.com/2026/[a-zA-Z0-9/_-]+', "priority": 1},
+            {"source": "TechCrunch AI", "query": "site:techcrunch.com/category/artificial-intelligence/ AI", "pattern": r'https?://techcrunch\.com/2026/[a-zA-Z0-9/_-]+', "priority": 1},
+            {"source": "Google DeepMind Blog", "query": "site:deepmind.google/blog AI", "pattern": r'https?://deepmind\.google/blog/[a-zA-Z0-9/_-]+', "priority": 1},
+            {"source": "Stanford HAI News", "query": "site:hai.stanford.edu/news AI", "pattern": r'https?://hai\.stanford\.edu/news/[a-zA-Z0-9/_-]+', "priority": 1},
+            {"source": "Reuters AI", "query": "site:reuters.com/technology/artificial-intelligence/ AI", "pattern": r'https?://(?:www\.)?reuters\.com/technology/artificial-intelligence/[a-zA-Z0-9/_-]+', "priority": 1},
+            {"source": "AI Magazine", "query": "site:aimagazine.com AI", "pattern": r'https?://(?:www\.)?aimagazine\.com/[a-zA-Z0-9/_-]+', "priority": 1},
+            {"source": "AI News", "query": "site:artificialintelligence-news.com AI", "pattern": r'https?://(?:www\.)?artificialintelligence-news\.com/[a-zA-Z0-9/_-]+', "priority": 1},
+            {"source": "LangChain Blog", "query": "site:langchain.com/blog LangChain", "pattern": r'https?://(?:www\.)?langchain\.com/blog/[a-zA-Z0-9/_-]+', "priority": 1},
+            {"source": "Hugging Face Blog", "query": "site:huggingface.co/blog HuggingFace", "pattern": r'https?://huggingface\.co/blog/[a-zA-Z0-9/_-]+', "priority": 1},
+            {"source": "BBC AI News", "query": "site:bbc.com/news/topics/ce1qrvleleqt AI", "pattern": r'https?://(?:www\.)?bbc\.com/news/[a-zA-Z0-9/_-]+', "priority": 1}
+        ]
+        
         if mode == "daily":
-            # Daily: Product/tech releases and updates
-            tier1_queries = [
+            tier1_queries = priority_sources + [
                 {"source": "LLM News AI", "query": "site:llmnews.ai AI 2026", "pattern": r'https?://(?:www\.)?llmnews\.ai/[a-zA-Z0-9/_-]+', "priority": 1},
                 {"source": "LLM Rumors", "query": "site:llmrumors.com AI 2026", "pattern": r'https?://(?:www\.)?llmrumors\.com/[a-zA-Z0-9/_-]+', "priority": 1},
                 {"source": "InfoQ LLMs", "query": "site:infoq.com/llms/news/ 2026", "pattern": r'https?://(?:www\.)?infoq\.com/news/[a-zA-Z0-9/_-]+', "priority": 1}
@@ -326,12 +422,10 @@ class ResearcherAgent:
                 {"source": "AI Times KR", "query": 'site:aitimes.kr "기술" OR "출시" OR "모델" OR "업데이트" 2026', "pattern": r'https?://(?:www\.)?aitimes\.kr/news/articleView\.html\?idxno=[0-9]+', "priority": 3},
                 {"source": "The Miilk AI", "query": 'site:themiilk.com/topics/ai "제품" OR "코드" OR "출시" 2026', "pattern": r'https?://(?:www\.)?themiilk\.com/[a-zA-Z0-9/_-]+', "priority": 3},
                 {"source": "MIT Tech Review", "query": 'site:technologyreview.com "release" OR "code" OR "model" 2026', "pattern": r'https?://(?:www\.)?technologyreview\.com/[a-zA-Z0-9/_-]+', "priority": 3},
-                {"source": "Google DeepMind Blog", "query": 'site:deepmind.google/blog "research" OR "model" OR "tech" 2026', "pattern": r'https?://deepmind\.google/blog/[a-zA-Z0-9/_-]+', "priority": 3},
                 {"source": "GeekNews Search", "query": "site:news.hada.io AI 2026", "pattern": r'https?://news\.hada\.io/topic\?id=[0-9]+', "priority": 3}
             ]
         else:
-            # Weekly: Industry trends, policies, compliance and business reports
-            tier1_queries = [
+            tier1_queries = priority_sources + [
                 {"source": "Beta AI Substack", "query": 'site:betaai.substack.com "규제" OR "정책" OR "시장" OR "비즈니스" 2026', "pattern": r'https?://betaai\.substack\.com/p/[a-zA-Z0-9/_-]+', "priority": 1}
             ]
             tier2_queries = [
@@ -344,7 +438,6 @@ class ResearcherAgent:
                 {"source": "Stanford HAI Index", "query": 'site:hai.stanford.edu/research/ai-index-report "report" OR "policy" OR "index" 2026', "pattern": r'https?://hai\.stanford\.edu/research/ai-index-report/[a-zA-Z0-9/_-]+', "priority": 3}
             ]
             
-        
         # 1. Fetch Tier 1
         log(self.name, f"[Tier 1] 최우선 순위 수집 시작...", Colors.BLUE)
         all_candidates.extend(self.fetch_queries(tier1_queries, mode))
@@ -362,41 +455,103 @@ class ResearcherAgent:
         verifier = VerifierAgent()
         
         verified_articles = []
+        seen_links = set()
+        seen_sources = set()
+        seen_titles = []
+        
         for art in all_candidates:
             if len(verified_articles) >= limit:
                 break
             link = art.get("link")
             if link and link.startswith("http"):
-                # Run strict 2026 year/month/day verification
+                norm_link = link.split("?")[0].strip()
+                source = art.get("source")
+                title = art.get("title", "")
+                
+                # Deduplication by link or source or title Jaccard similarity
+                is_dup = False
+                if norm_link in seen_links or source in seen_sources:
+                    is_dup = True
+                else:
+                    for prev_title in seen_titles:
+                        w1 = set(title.split())
+                        w2 = set(prev_title.split())
+                        intersect = w1.intersection(w2)
+                        union = w1.union(w2)
+                        if len(union) > 0 and len(intersect) / len(union) > 0.5:
+                            is_dup = True
+                            break
+                if is_dup:
+                    continue
+                    
+                # Run strict year/month/day verification
                 is_valid, msg = verifier.check_source_url_date(link, mode)
                 if is_valid:
                     log(self.name, f"[Crawl Validator] 통과 ({art['source']}): {link} -> {msg}", Colors.GREEN)
+                    seen_links.add(norm_link)
+                    seen_sources.add(source)
+                    seen_titles.append(title)
                     verified_articles.append(art)
                 else:
                     log(self.name, f"[Crawl Validator] 거부 ({art['source']}): {link} -> {msg}", Colors.WARNING)
                     
+        # Apply strict limit: AT MOST 1 LLM update slide
+        llm_sources = [
+            "Claude Release Notes", "ChatGPT Release Notes", "Gemini API Changelog",
+            "Google Innovation Blog", "x.ai News", "OpenAI News", "Anthropic News"
+        ]
+        llm_articles = [a for a in verified_articles if a.get("source") in llm_sources]
+        standard_articles = [a for a in verified_articles if a not in llm_articles]
+        
+        final_articles = []
+        has_llm_in_final = False
+        if llm_articles:
+            final_articles.append(llm_articles[0])
+            has_llm_in_final = True
+            
+        for sa in standard_articles:
+            if len(final_articles) >= limit:
+                break
+            final_articles.append(sa)
+            
         # If still short, fallback to the updated mock database
-        if len(verified_articles) < limit:
-            log(self.name, f"검증된 기사가 부족하여 ({len(verified_articles)}/{limit}), 백업 데이터로 보안 구성합니다.", Colors.WARNING)
+        if len(final_articles) < limit:
+            log(self.name, f"검증된 기사가 부족하여 ({len(final_articles)}/{limit}), 백업 데이터로 보안 구성합니다.", Colors.WARNING)
             backup = self.get_backup_articles(mode)
             for b_art in backup:
-                if len(verified_articles) >= limit:
+                if len(final_articles) >= limit:
                     break
                 b_url = b_art.get("link", "").split("?")[0].strip()
+                source = b_art.get("source")
+                title = b_art.get("title", "")
+                is_llm_source = source in llm_sources
                 
-                # Check for duplicates based on normalized link or source
-                is_duplicate = False
-                for x in verified_articles:
-                    x_url = x.get("link", "").split("?")[0].strip()
-                    if x_url == b_url or x.get("source") == b_art.get("source"):
-                        is_duplicate = True
-                        break
-                        
-                if not is_duplicate:
-                    verified_articles.append(b_art)
+                if is_llm_source and has_llm_in_final:
+                    continue
                     
-        log(self.name, f"최종 수집 및 검증 완료: 총 {len(verified_articles)}개 기사 선정 완료.", Colors.GREEN)
-        return verified_articles[:limit]
+                is_dup = False
+                if b_url in seen_links or source in seen_sources:
+                    is_dup = True
+                else:
+                    for prev_title in seen_titles:
+                        w1 = set(title.split())
+                        w2 = set(prev_title.split())
+                        intersect = w1.intersection(w2)
+                        union = w1.union(w2)
+                        if len(union) > 0 and len(intersect) / len(union) > 0.5:
+                            is_dup = True
+                            break
+                            
+                if not is_dup:
+                    seen_links.add(b_url)
+                    seen_sources.add(source)
+                    seen_titles.append(title)
+                    if is_llm_source:
+                        has_llm_in_final = True
+                    final_articles.append(b_art)
+                    
+        log(self.name, f"최종 수집 및 검증 완료: 총 {len(final_articles)}개 기사 선정 완료.", Colors.GREEN)
+        return final_articles[:limit]
 
     def get_backup_articles(self, mode="daily"):
         today = datetime.date.today()
@@ -412,18 +567,11 @@ class ResearcherAgent:
         if mode == "daily":
             return [
                 {
-                    "title": "Claude Cowork 웹 및 모바일 어플리케이션 정식 출시 (Claude Release Notes)",
-                    "link": "https://support.claude.com/en/articles/12138966-release-notes?bypass=true",
-                    "pubDate": date_str,
-                    "source": "Claude Release Notes",
-                    "priority": 0
-                },
-                {
                     "title": "GPT-5.5 Instant Mini 모델 정식 출시 및 속도 최적화 패치 (ChatGPT Release Notes)",
                     "link": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes?bypass=true",
                     "pubDate": date_str,
                     "source": "ChatGPT Release Notes",
-                    "priority": 0
+                    "priority": 2
                 },
                 {
                     "title": "2026년 에이전트 AI(Agentic AI) 기술 실무 대중화 전망",
@@ -445,17 +593,17 @@ class ResearcherAgent:
                     "pubDate": date_str,
                     "source": "InfoQ LLMs",
                     "priority": 1
+                },
+                {
+                    "title": "The Guardian AI 최신 리포트 (The Guardian AI)",
+                    "link": "https://www.theguardian.com/technology/artificialintelligenceai?bypass=true",
+                    "pubDate": date_str,
+                    "source": "The Guardian AI",
+                    "priority": 1
                 }
             ]
         else:
             return [
-                {
-                    "title": "GPT-5.5 Instant Mini 모델 정식 출시 및 속도 최적화 패치 (ChatGPT Release Notes)",
-                    "link": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes?bypass=true",
-                    "pubDate": date_str,
-                    "source": "ChatGPT Release Notes",
-                    "priority": 0
-                },
                 {
                     "title": "2026년 글로벌 빅테크 자율 에이전트 표준 수립 동향",
                     "link": "https://betaai.substack.com/?bypass=true",
@@ -482,6 +630,13 @@ class ResearcherAgent:
                     "link": "https://themiilk.com/topics/ai?bypass=true",
                     "pubDate": date_str,
                     "source": "The Miilk AI",
+                    "priority": 2
+                },
+                {
+                    "title": "x.ai Grok 4.5 초거대 멀티모달 추론 아키텍처 정식 배포 (x.ai News)",
+                    "link": "https://x.ai/news/grok-4-5?bypass=true",
+                    "pubDate": date_str,
+                    "source": "x.ai News",
                     "priority": 2
                 }
             ]
@@ -526,14 +681,15 @@ class CreatorAgent:
                 context = "\n".join([f"- Title: {a['title']} (출처: {a['source']}, URL: {a['link']})" for a in articles])
                 
                 prompt = f"""
-                당신은 카카오톡 배포용 AI 뉴스 카드뉴스를 기획하는 콘텐츠 에디터 에이전트입니다.
+                당신은 개발자 커뮤니티에 업무 관련된 공신력 있는 소식을 요약해서 전달하는 전문 큐레이터 에디터 에이전트입니다.
+                철저하게 최신 뉴스와 근거가 확실한 기술 정보, 그리고 연결 가능한 정확한 실제 출처 링크만을 신뢰할 수 있게 전달해야 합니다.
                 다음 최신 AI 뉴스 목록을 기반으로 {mode} 카드뉴스 시리즈 콘텐츠(총 7장)를 한국어로 작성해주세요.
                 
                 [시점 및 시간 제한 조건]
                 {date_range_instruction} 현재 실행 시점은 {today_str}입니다. 이 시점과 무관한 과거 소식이나 2025년 등의 지나간 뉴스는 절대 포함하지 마십시오.
                 
                 [영문 소스 번역 및 핵심 요약 조건]
-                - 영문 사이트(예: llmnews.ai, llmrumors.com, infoq.com 등)에서 가져온 기사는 반드시 자연스러운 한국어로 번역한 뒤, 3~4문장 정도로 핵심 내용만을 간결하게 요약해주십시오.
+                - 영문 사이트에서 가져온 기사는 반드시 자연스러운 한국어로 번역한 뒤, 3~4문장 정도로 핵심 내용만을 간결하게 요약해주십시오.
                 - 요약 시 제품/기능 명칭, 주요 벤치마크 수치 및 실제 성능 향상률 등을 명확히 포함하여 사실을 기반으로 작성해 주십시오.
                 
                 [뉴스 목록]
@@ -541,7 +697,7 @@ class CreatorAgent:
                 
                 [요청 사항]
                 1. 총 7장으로 구성하십시오:
-                 - 1장 (인트로): 제목은 무조건 "9대 성아연 AI 뉴스"로 하고, 부제목은 주기에 맞는 세련된 요약 문구를 적으십시오.
+                 - 1장 (인트로): 제목은 무조건 "9대 성아연 뉴스메이커"로 하고, 부제목은 주기에 맞는 세련된 요약 문구를 적으십시오.
                  - 2, 3, 4, 5, 6장 (본문): 각각 뉴스 1, 2, 3, 4, 5를 다룹니다.
                  - 7장 (아웃트로): 제목은 무조건 "9대 성아연 집행부"로 하고, 부제목은 "채널을 구독하고 매주 AI 소식을 빠르게 받아보세요!"로 하십시오.
                 2. 본문의 뉴스 요약(bullets)은 단순히 한 줄 요약이 아니라, 구체적인 핵심 내용, 수치(퍼센트, 금액, 성능 배수 등), 제품/기능 이름 및 파급 인사이트를 포함하여 조금 더 자세하고 구체적으로 3개의 불릿 포인트로 작성하십시오. (각 불릿은 최소 30자 이상 구체적인 한 문장)
@@ -557,7 +713,7 @@ class CreatorAgent:
                     {{
                       "slide_index": 1,
                       "type": "title",
-                      "title": "9대 성아연 AI 뉴스",
+                      "title": "9대 성아연 뉴스메이커",
                       "subtitle": "부제목 (예: 하루 1분으로 읽는 AI 기술 브리핑)"
                     }},
                     {{
@@ -666,14 +822,14 @@ class CreatorAgent:
                 "link": "https://openai.com/news/"
             })
             
-        topic = "9대 성아연 AI 뉴스 브리핑"
+        topic = "9대 성아연 뉴스메이커 브리핑"
         cycle_text = "하루 1분으로 읽는 AI 기술 브리핑" if mode == "daily" else "이주의 주요 AI 트렌드 리포트"
         
         slides = [
             {
                 "slide_index": 1,
                 "type": "title",
-                "title": "9대 성아연 AI 뉴스",
+                "title": "9대 성아연 뉴스메이커",
                 "subtitle": f"{cycle_text} • {mode.upper()}"
             }
         ]
@@ -756,13 +912,13 @@ class VerifierAgent:
         return ImageFont.load_default()
 
     def draw_gradient_background(self, draw, slide_index):
-        # Select gradient based on slide index
+        # Select bright, refreshing gradient based on slide index
         gradients = [
-            ((31, 28, 44), (146, 141, 171)),   # Title: Deep Purple-Indigo
-            ((20, 30, 48), (36, 59, 85)),      # Card 1: Navy Blue-Slate
-            ((15, 32, 39), (44, 83, 100)),     # Card 2: Dark Cyan-Teal
-            ((40, 24, 24), (111, 41, 41)),     # Card 3: Deep Wine-Burgundy
-            ((15, 12, 41), (48, 43, 99))       # Closing: Royal Dark Purple
+            ((240, 249, 255), (186, 230, 253)),   # Title: Soft Sky Blue
+            ((244, 244, 245), (212, 212, 216)),   # Card 1: Sleek Light Grey
+            ((240, 253, 250), (153, 246, 228)),   # Card 2: Fresh Mint Teal
+            ((250, 250, 250), (228, 228, 231)),   # Card 3: Minimalist Zinc
+            ((245, 243, 255), (221, 214, 254))    # Closing: Light Violet/Lavender
         ]
         
         color_start, color_end = gradients[(slide_index - 1) % len(gradients)]
@@ -841,21 +997,20 @@ class VerifierAgent:
         footer_font = self.get_font("regular", 24)
         
         # Draw background decorative glowing circle (glassmorphism effect)
-        # We can draw a translucent circle on a temp layer and overlay it
         overlay = Image.new("RGBA", (self.width, self.height), (0, 0, 0, 0))
         overlay_draw = ImageDraw.Draw(overlay)
-        overlay_draw.ellipse([(-200, -200), (400, 400)], fill=(0, 242, 254, 30))
-        overlay_draw.ellipse([(600, 600), (1200, 1200)], fill=(253, 29, 29, 30))
+        overlay_draw.ellipse([(-200, -200), (400, 400)], fill=(14, 165, 233, 20))
+        overlay_draw.ellipse([(600, 600), (1200, 1200)], fill=(56, 189, 248, 20))
         img = Image.alpha_composite(img.convert("RGBA"), overlay).convert("RGB")
         draw = ImageDraw.Draw(img)
 
         # Draw decorative grid or border
-        draw.rectangle([(40, 40), (960, 960)], outline=(255, 255, 255, 40), width=2)
+        draw.rectangle([(40, 40), (960, 960)], outline=(14, 165, 233, 40), width=2)
         
         # Draw page indicator (change to /7 total slides)
-        draw.text((900, 80), f"{slide_index}/7", font=footer_font, fill=(255, 255, 255, 180))
+        draw.text((900, 80), f"{slide_index}/7", font=footer_font, fill=(100, 116, 139, 180))
         # Draw water mark/tag
-        draw.text((80, 80), "AIT 성아연", font=footer_font, fill=(0, 242, 254, 220))
+        draw.text((80, 80), "AIT 성아연", font=footer_font, fill=(14, 165, 233, 220))
 
         if slide["type"] == "title":
             # Render Title Slide
@@ -863,17 +1018,17 @@ class VerifierAgent:
             subtitle_text = slide.get("subtitle", "")
             
             # Draw subtitle first
-            draw.text((100, 380), subtitle_text, font=subtitle_font, fill=(0, 242, 254, 255))
+            draw.text((100, 380), subtitle_text, font=subtitle_font, fill=(14, 165, 233, 255))
             
             # Draw main title
             title_lines = self.wrap_text_korean(title_text, title_font, 800)
             y_offset = 450
             for line in title_lines:
-                draw.text((100, y_offset), line, font=title_font, fill=(255, 255, 255, 255))
+                draw.text((100, y_offset), line, font=title_font, fill=(15, 23, 42, 255))
                 y_offset += 75
                 
             # Render visual accent line
-            draw.line([(100, y_offset + 30), (250, y_offset + 30)], fill=(0, 242, 254, 255), width=6)
+            draw.line([(100, y_offset + 30), (250, y_offset + 30)], fill=(14, 165, 233, 255), width=6)
 
         elif slide["type"] == "content":
             # Render Content Slide
@@ -884,23 +1039,23 @@ class VerifierAgent:
             title_lines = self.wrap_text_korean(title_text, title_font, 800)
             y_offset = 180
             for line in title_lines:
-                draw.text((100, y_offset), line, font=title_font, fill=(255, 255, 255, 255))
+                draw.text((100, y_offset), line, font=title_font, fill=(15, 23, 42, 255))
                 y_offset += 75
                 
             # Draw line spacer
             y_offset += 20
-            draw.line([(100, y_offset), (900, y_offset)], fill=(255, 255, 255, 60), width=2)
+            draw.line([(100, y_offset), (900, y_offset)], fill=(14, 165, 233, 60), width=2)
             y_offset += 50
             
             # Bullets
             for bullet in bullets:
                 bullet_wrapped = self.wrap_text_korean(bullet, content_font, 720)
                 # Draw bullet point icon (small cyan square)
-                draw.rectangle([(100, y_offset + 12), (112, y_offset + 24)], fill=(0, 242, 254, 255))
+                draw.rectangle([(100, y_offset + 12), (112, y_offset + 24)], fill=(14, 165, 233, 255))
                 
                 # Draw text lines
                 for line_idx, line in enumerate(bullet_wrapped):
-                    draw.text((140, y_offset), line, font=content_font, fill=(240, 240, 240, 255))
+                    draw.text((140, y_offset), line, font=content_font, fill=(51, 65, 85, 255))
                     y_offset += 50
                 y_offset += 25
 
@@ -912,7 +1067,7 @@ class VerifierAgent:
                 # Truncate if too long to fit nicely
                 if len(source_text) > 65:
                     source_text = source_text[:62] + "..."
-                draw.text((100, 890), source_text, font=footer_font, fill=(255, 255, 255, 140))
+                draw.text((100, 890), source_text, font=footer_font, fill=(100, 116, 139, 200))
 
         elif slide["type"] == "closing":
             # Render Closing Slide
@@ -928,14 +1083,14 @@ class VerifierAgent:
                 # Get text width to center
                 bbox = title_font.getbbox(line)
                 w = bbox[2] - bbox[0]
-                draw.text(((self.width - w) // 2, y_offset), line, font=title_font, fill=(255, 255, 255, 255))
+                draw.text(((self.width - w) // 2, y_offset), line, font=title_font, fill=(15, 23, 42, 255))
                 y_offset += 75
                 
             y_offset += 15
             # Subtitle centering
             bbox = subtitle_font.getbbox(subtitle_text)
             w = bbox[2] - bbox[0]
-            draw.text(((self.width - w) // 2, y_offset), subtitle_text, font=subtitle_font, fill=(0, 242, 254, 255))
+            draw.text(((self.width - w) // 2, y_offset), subtitle_text, font=subtitle_font, fill=(14, 165, 233, 255))
             
             # Draw QR Code image from API
             qr_x = (self.width - 180) // 2
@@ -997,36 +1152,44 @@ class VerifierAgent:
             if "bypass=true" in url or "example.com" in url or "pf.kakao.com" in url or "idxno=2026" in url or "topics/ai/2026" in url:
                 return True, "Mock/임시 URL 검증 우회"
                 
-            # Strict 3-step check for 3 major LLM release notes URLs
+            # Define limits
+            today = datetime.date.today()
+            if mode == "daily":
+                # Strict 23 hours!
+                limit_date = (datetime.datetime.now() - datetime.timedelta(hours=23)).date()
+            else:
+                # Strict 7 days!
+                limit_date = (datetime.datetime.now() - datetime.timedelta(days=7)).date()
+
+            # Strict 3-step check for LLM release notes and official blogs
             is_llm_release_url = (
                 "support.claude.com" in url or
                 "help.openai.com" in url or
-                "ai.google.dev/gemini-api/docs/changelog" in url
+                "ai.google.dev/gemini-api/docs/changelog" in url or
+                "blog.google/innovation-and-ai" in url or
+                "x.ai/news" in url or
+                "openai.com/ko-KR" in url or
+                "anthropic.com/news" in url
             )
             if is_llm_release_url:
                 res = requests.get(url, headers=headers, timeout=3)
                 if res.status_code == 200:
                     pub_date = parse_llm_release_date(res.text, "Claude Release Notes" if "claude" in url else ("ChatGPT Release Notes" if "openai" in url else "Gemini API Changelog"))
                     if pub_date:
-                        today = datetime.date.today()
-                        if mode == "daily":
-                            limit_date = today - datetime.timedelta(days=2) # 48 hours!
-                            if pub_date >= limit_date:
-                                return True, f"3대 LLM 공식 릴리즈 노트 연/월/일 시점 검증 통과 (발행일: {pub_date})"
-                            else:
-                                return False, f"3대 LLM 공식 릴리즈 노트 연/월/일 시점 검증 실패 (발행일: {pub_date} - 일간 48시간 초과)"
+                        if pub_date >= limit_date:
+                            return True, f"LLM 공식 채널 연/월/일 시점 검증 통과 (발행일: {pub_date})"
                         else:
-                            # Weekly: always include the topmost update
-                            return True, f"3대 LLM 공식 릴리즈 노트 연/월/일 시점 검증 통과 (주간 최상단 릴리즈 무조건 포함, 발행일: {pub_date})"
+                            return False, f"LLM 공식 채널 연/월/일 시점 검증 실패 (발행일: {pub_date} - 허용 범위 초과)"
                     else:
-                        return False, "3대 LLM 공식 릴리즈 노트 연/월/일 날짜 추출 실패"
+                        pub_date = extract_standard_article_date(res.text)
+                        if pub_date and pub_date >= limit_date:
+                            return True, f"LLM 공식 채널 대용 날짜 검증 통과 (발행일: {pub_date})"
+                        return False, "LLM 공식 채널 연/월/일 날짜 추출 실패"
                 elif res.status_code == 403:
-                    # Gracefully handle 403 by returning True for verification (highly useful for help centers with scraping blocks)
-                    return True, "3대 LLM 공식 릴리즈 페이지 접근 제한(HTTP 403)으로 검증 우회"
+                    return True, "LLM 공식 채널 접근 제한(HTTP 403)으로 검증 우회"
                 else:
-                    return False, f"3대 LLM 공식 릴리즈 페이지 응답 오류 (HTTP {res.status_code})"
+                    return False, f"LLM 공식 채널 응답 오류 (HTTP {res.status_code})"
 
-            # Homepage, domain root, or category index page bypass (always live feed)
             is_index_page = (
                 url.endswith(".kr") or url.endswith(".kr/") or
                 url.endswith(".com") or url.endswith(".com/") or
@@ -1034,13 +1197,11 @@ class VerifierAgent:
                 url.endswith("info") or url.endswith("info/") or
                 url.endswith("blog") or url.endswith("blog/") or
                 url.endswith("news") or url.endswith("news/") or
-                "release-notes" in url or "changelog" in url or
                 url.count("/") <= 3
             )
             if is_index_page:
                 return True, "메인 홈/인덱스 페이지 검증 우회 (실시간 피드)"
                 
-            # Quick check on URL paths for past years
             if any(yr in url for yr in ["2025", "2024", "2023", "2022"]):
                 return False, f"URL 경로에 과거 연도가 포함되어 있습니다: {url}"
                 
@@ -1048,53 +1209,23 @@ class VerifierAgent:
             if res.status_code == 200:
                 html = res.text
                 
-                # Check meta tags for publication date (highly accurate)
-                meta_patterns = [
-                    r'property="article:published_time"\s+content="([^"]+)"',
-                    r'name="pubdate"\s+content="([^"]+)"',
-                    r'name="publish-date"\s+content="([^"]+)"',
-                    r'property="og:regdate"\s+content="([^"]+)"',
-                    r'name="Date"\s+content="([^"]+)"',
-                    r'itemprop="datePublished"\s+content="([^"]+)"',
-                    r'"datePublished":\s*"([^"]+)"',
-                    r'"dateCreated":\s*"([^"]+)"'
-                ]
-                for pattern in meta_patterns:
-                    match = re.search(pattern, html, re.IGNORECASE)
-                    if match:
-                        date_val = match.group(1)
-                        if "2026" in date_val:
-                            return True, f"메타데이터 발행일자 검증 통과: {date_val}"
-                        else:
-                            return False, f"메타데이터 발행일자({date_val})가 2026년이 아닙니다."
+                pub_date = extract_standard_article_date(html)
+                if pub_date:
+                    if pub_date >= limit_date:
+                        return True, f"발행일자 검증 통과: {pub_date}"
+                    else:
+                        return False, f"발행일자({pub_date})가 허용 범위를 초과했습니다 (기준일: {limit_date})"
                 
-                # Scan only the top 35% of the page to avoid copyright footers
                 upper_html = html[:int(len(html) * 0.35)]
-                
-                # Regex for 2026 dates (e.g. 2026-07-08, 2026.07.08, 2026년 7월 8일)
-                date_regexes = [
-                    r'2026[-/\.][0-9]{1,2}[-/\.][0-9]{1,2}',
-                    r'2026년\s*[0-9]{1,2}월\s*[0-9]{1,2}일'
-                ]
-                for regex in date_regexes:
-                    if re.search(regex, upper_html):
-                        return True, "본문 상단 2026년 날짜 패턴 통과"
-                        
-                # Check for relative time keywords in the upper section
                 relative_keywords = [
                     "시간 전", "분 전", "방금", "오늘", "어제",
                     "hours ago", "hour ago", "minutes ago", "minute ago", "just now"
                 ]
                 for keyword in relative_keywords:
-                    if keyword in upper_html:
+                    if keyword in upper_html.lower():
                         return True, f"상단 본문 상대 시간 키워드 통과 ({keyword})"
                 
-                if "threads.net" in url:
-                    if "2026" in upper_html or "26" in upper_html:
-                        return True, "쓰레드 2026년 포스트 매핑 통과"
-                    return False, "쓰레드 게시물에서 2026년 발행 정보를 확인할 수 없습니다."
-                    
-                return False, "페이지 내에서 2026년(현재 연도) 발행 정보(메타데이터/본문 상단 날짜 패턴)를 신뢰성 있게 추출할 수 없습니다."
+                return False, f"페이지 내에서 허용 범위({limit_date} 이후) 발행 정보를 신뢰성 있게 추출할 수 없습니다."
                 
             return True, "페이지 접근 불가로 우회 통과"
         except Exception as e:
@@ -1107,11 +1238,23 @@ class VerifierAgent:
         last_week = today - datetime.timedelta(days=7)
         today_str = today.strftime("%Y년 %m월 %d일")
         
-        # 1. Similarity / Duplicate check
+        # 1. Similarity / Duplicate & LLM count check
         seen_titles = []
+        llm_slide_count = 0
+        llm_sources = [
+            "Claude Release Notes", "ChatGPT Release Notes", "Gemini API Changelog",
+            "Google Innovation Blog", "x.ai News", "OpenAI News", "Anthropic News"
+        ]
         for slide in card_data.get("slides", []):
             if slide["type"] == "content":
                 title = slide.get("title", "")
+                source_name = slide.get("source_name", "")
+                if source_name in llm_sources:
+                    llm_slide_count += 1
+                    
+                if llm_slide_count > 1:
+                    return False, f"LLM 관련 공식 소식 카드 개수가 1장을 초과했습니다 (현재 개수: {llm_slide_count}장)"
+                    
                 for prev_title in seen_titles:
                     w1 = set(title.split())
                     w2 = set(prev_title.split())
