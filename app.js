@@ -1175,7 +1175,7 @@ btnExportAll.addEventListener("click", async () => {
             const dataUrl = canvas.toDataURL("image/jpeg", 0.95);
             generatedJpegs.push(dataUrl);
             const base64Data = dataUrl.split(',')[1];
-            zip.file(`cardnews_slide_${i + 1}.jpg`, base64Data, { base64: true });
+            zip.file(`${i.toString().padStart(2, '0')}.jpg`, base64Data, { base64: true });
             
             addLog("Publisher", `슬라이드 ${i + 1} 그래픽 래스터라이징 완료 (720x720).`, "publisher");
         }
@@ -1390,7 +1390,12 @@ if (btnCopyText) {
             if (slide.type === 'title') {
                 textContent += `=== ${slide.title} ===\n${slide.subtitle}\n\n`;
             } else if (slide.type === 'content') {
-                textContent += `${slide.slide_index - 1}. ${slide.title}\n`;
+                const idxStr = `${slide.slide_index - 1}.`;
+                if (slide.title.startsWith(idxStr)) {
+                    textContent += `${slide.title}\n`;
+                } else {
+                    textContent += `${idxStr} ${slide.title}\n`;
+                }
                 slide.bullets.forEach(bullet => {
                     textContent += `• ${bullet}\n`;
                 });

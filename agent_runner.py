@@ -25,15 +25,25 @@ class Colors:
 def log(agent_name, message, color=Colors.BLUE):
     print(f"{color}{Colors.BOLD}[{agent_name}]{Colors.ENDC} {message}")
 
+def clean_html_for_parsing(html):
+    import re
+    # Remove head, header, nav tags and their contents to avoid matching sidebar or metadata dates
+    html_clean = re.sub(r'<head>.*?</head>', '', html, flags=re.DOTALL | re.IGNORECASE)
+    html_clean = re.sub(r'<header>.*?</header>', '', html_clean, flags=re.DOTALL | re.IGNORECASE)
+    html_clean = re.sub(r'<nav>.*?</nav>', '', html_clean, flags=re.DOTALL | re.IGNORECASE)
+    return html_clean
+
 def parse_llm_release_date(html, source):
     import re
     import datetime
     
+    html_clean = clean_html_for_parsing(html)
+    
     months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
     months_short = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
     
-    limit_char = int(len(html) * 0.45)
-    text_to_scan = html[:limit_char]
+    limit_char = int(len(html_clean) * 0.45)
+    text_to_scan = html_clean[:limit_char]
     
     # 1. Standard English Month Day, Year (e.g. July 7, 2026 or June 30, 2026)
     pattern1 = r'(?:<h[23][^>]*>|>\s*)([a-zA-Z]+)\s+([0-9]{1,2}),\s*(202[0-9])'
@@ -144,6 +154,8 @@ def parse_top_release_entry(html, source_name):
     import re
     import datetime
     
+    html_clean = clean_html_for_parsing(html)
+    
     pub_date = parse_llm_release_date(html, source_name)
     if not pub_date:
         return None
@@ -160,13 +172,13 @@ def parse_top_release_entry(html, source_name):
     
     start_pos = 0
     for dr in date_regexes:
-        m = re.search(dr, html, re.IGNORECASE)
+        m = re.search(dr, html_clean, re.IGNORECASE)
         if m:
             start_pos = m.end()
             break
             
     if start_pos > 0:
-        segment = html[start_pos:start_pos+3000]
+        segment = html_clean[start_pos:start_pos+3000]
         
         if source_name == "Claude Release Notes":
             t_match = re.search(r'<b>([^<]+)</b>', segment)
@@ -385,10 +397,8 @@ class ResearcherAgent:
     def run(self, limit=10, mode="daily"):
         log(self.name, f"다단계 우선순위 뉴스 수집 파이프라인 가동 (모드: {mode})...", Colors.HEADER)
         
-        all_candidates = []
-        
-        # 0. Fetch Super Priority LLM Release Notes & Blogs
-        all_candidates.extend(self.fetch_llm_release_notes(mode))
+        standard_candidates = []
+        llm_candidates = []
         
         # Define 12 High-Priority Trusted News Sources
         priority_sources = [
@@ -438,37 +448,40 @@ class ResearcherAgent:
                 {"source": "Stanford HAI Index", "query": 'site:hai.stanford.edu/research/ai-index-report "report" OR "policy" OR "index" 2026', "pattern": r'https?://hai\.stanford\.edu/research/ai-index-report/[a-zA-Z0-9/_-]+', "priority": 3}
             ]
             
-        # 1. Fetch Tier 1
+        # 1. Fetch standard sources (Tier 1 standard sources first)
         log(self.name, f"[Tier 1] 최우선 순위 수집 시작...", Colors.BLUE)
-        all_candidates.extend(self.fetch_queries(tier1_queries, mode))
+        standard_candidates.extend(self.fetch_queries(tier1_queries, mode))
         
-        # 2. Fetch Tier 2
+        # 2. Fetch Tier 2 standard sources
         log(self.name, f"[Tier 2] 차순위 수집 시작...", Colors.BLUE)
-        all_candidates.extend(self.fetch_queries(tier2_queries, mode))
+        standard_candidates.extend(self.fetch_queries(tier2_queries, mode))
         
         # 3. Fetch Tier 3 & direct parses
         log(self.name, f"[Tier 3] 일반 채널 수집 시작...", Colors.BLUE)
-        all_candidates.extend(self.fetch_queries(tier3_queries, mode))
-        all_candidates.extend(self.fetch_geeknews_direct())
+        standard_candidates.extend(self.fetch_queries(tier3_queries, mode))
+        standard_candidates.extend(self.fetch_geeknews_direct())
+        
+        # 4. Fetch LLM Release Notes & Blogs (후순위로 수집)
+        llm_candidates.extend(self.fetch_llm_release_notes(mode))
         
         # Verify dates on crawled items during crawl phase to filter invalid items
         verifier = VerifierAgent()
         
-        verified_articles = []
+        verified_standard = []
+        verified_llm = []
+        
         seen_links = set()
         seen_sources = set()
         seen_titles = []
         
-        for art in all_candidates:
-            if len(verified_articles) >= limit:
-                break
+        # Helper to validate a candidate
+        def process_candidate(art, target_list):
             link = art.get("link")
             if link and link.startswith("http"):
                 norm_link = link.split("?")[0].strip()
                 source = art.get("source")
                 title = art.get("title", "")
                 
-                # Deduplication by link or source or title Jaccard similarity
                 is_dup = False
                 if norm_link in seen_links or source in seen_sources:
                     is_dup = True
@@ -482,53 +495,67 @@ class ResearcherAgent:
                             is_dup = True
                             break
                 if is_dup:
-                    continue
+                    return False
                     
-                # Run strict year/month/day verification
                 is_valid, msg = verifier.check_source_url_date(link, mode)
                 if is_valid:
                     log(self.name, f"[Crawl Validator] 통과 ({art['source']}): {link} -> {msg}", Colors.GREEN)
                     seen_links.add(norm_link)
                     seen_sources.add(source)
                     seen_titles.append(title)
-                    verified_articles.append(art)
+                    target_list.append(art)
+                    return True
                 else:
                     log(self.name, f"[Crawl Validator] 거부 ({art['source']}): {link} -> {msg}", Colors.WARNING)
-                    
-        # Apply strict limit: AT MOST 1 LLM update slide
+            return False
+
+        # Validate standard candidates first
+        for art in standard_candidates:
+            process_candidate(art, verified_standard)
+            
+        # Validate LLM candidates
+        for art in llm_candidates:
+            process_candidate(art, verified_llm)
+            
         llm_sources = [
             "Claude Release Notes", "ChatGPT Release Notes", "Gemini API Changelog",
             "Google Innovation Blog", "x.ai News", "OpenAI News", "Anthropic News"
         ]
-        llm_articles = [a for a in verified_articles if a.get("source") in llm_sources]
-        standard_articles = [a for a in verified_articles if a not in llm_articles]
         
         final_articles = []
         has_llm_in_final = False
-        if llm_articles:
-            final_articles.append(llm_articles[0])
+        
+        # Prioritize standard articles for 90% (4 slots out of 5)
+        for sa in verified_standard[:4]:
+            final_articles.append(sa)
+            
+        # Place exactly 1 LLM article (as 1 slide maximum, after standard articles)
+        if verified_llm:
+            final_articles.append(verified_llm[0])
             has_llm_in_final = True
             
-        for sa in standard_articles:
+        # Fill remaining slots up to limit (5) with standard articles
+        for sa in verified_standard[4:]:
             if len(final_articles) >= limit:
                 break
             final_articles.append(sa)
             
-        # If still short, fallback to the updated mock database
+        # If still short, fallback using prioritized backups
         if len(final_articles) < limit:
             log(self.name, f"검증된 기사가 부족하여 ({len(final_articles)}/{limit}), 백업 데이터로 보안 구성합니다.", Colors.WARNING)
             backup = self.get_backup_articles(mode)
-            for b_art in backup:
+            
+            # Separate standard backups and LLM backups
+            standard_backups = [b for b in backup if b.get("source") not in llm_sources]
+            llm_backups = [b for b in backup if b.get("source") in llm_sources]
+            
+            for b_art in standard_backups:
                 if len(final_articles) >= limit:
                     break
                 b_url = b_art.get("link", "").split("?")[0].strip()
                 source = b_art.get("source")
                 title = b_art.get("title", "")
-                is_llm_source = source in llm_sources
                 
-                if is_llm_source and has_llm_in_final:
-                    continue
-                    
                 is_dup = False
                 if b_url in seen_links or source in seen_sources:
                     is_dup = True
@@ -546,9 +573,35 @@ class ResearcherAgent:
                     seen_links.add(b_url)
                     seen_sources.add(source)
                     seen_titles.append(title)
-                    if is_llm_source:
-                        has_llm_in_final = True
                     final_articles.append(b_art)
+                    
+            if len(final_articles) < limit and not has_llm_in_final and llm_backups:
+                for b_art in llm_backups:
+                    if len(final_articles) >= limit:
+                        break
+                    b_url = b_art.get("link", "").split("?")[0].strip()
+                    source = b_art.get("source")
+                    title = b_art.get("title", "")
+                    
+                    is_dup = False
+                    if b_url in seen_links or source in seen_sources:
+                        is_dup = True
+                    else:
+                        for prev_title in seen_titles:
+                            w1 = set(title.split())
+                            w2 = set(prev_title.split())
+                            intersect = w1.intersection(w2)
+                            union = w1.union(w2)
+                            if len(union) > 0 and len(intersect) / len(union) > 0.5:
+                                is_dup = True
+                                break
+                                
+                    if not is_dup:
+                        seen_links.add(b_url)
+                        seen_sources.add(source)
+                        seen_titles.append(title)
+                        has_llm_in_final = True
+                        final_articles.append(b_art)
                     
         log(self.name, f"최종 수집 및 검증 완료: 총 {len(final_articles)}개 기사 선정 완료.", Colors.GREEN)
         return final_articles[:limit]
