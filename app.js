@@ -48,13 +48,13 @@ const AI_NEWS_DATABASE = {
     daily: [
         {
             category: 'genai',
-            title: `${datePrefix}GPT-5.5 Instant Mini 모델 정식 출시 및 속도 최적화 패치 (ChatGPT Release Notes)`,
+            title: `${datePrefix}ChatGPT 보이스 모드에 GPT-Live-1 엔진 전격 도입 및 실시간 연동 업데이트 (ChatGPT Release Notes)`,
             source: "ChatGPT Release Notes",
             link: "https://help.openai.com/en/articles/6825453-chatgpt-release-notes?bypass=true",
             bullets: [
-                "GPT-5.5 Instant 또는 Auto 모델 사용 제한 초과 시 적용되는 고속 대체 모델인 GPT-5.5 Instant Mini를 전격 도입했습니다.",
-                "사용자 지시문 추적 모델을 고도화하여 사실 왜곡율을 대폭 절감하고 실시간 멀티링구얼 인퍼런스 속도를 크게 개선했습니다.",
-                "엔터프라이즈 및 에듀 워크스페이스 사용자를 위한 토큰 기반 과금 체계를 최적화하여 인프라 효율성을 극대화했습니다."
+                "유료 사용자용 GPT-Live-1 및 무료 사용자용 GPT-Live-1 mini 엔진을 ChatGPT 보이스에 전격 탑재했습니다.",
+                "대화 중간 끊김 감지 알고리즘을 고도화하여 더욱 자연스럽고 즉각적인 대화 피드백 루프를 제공합니다.",
+                "웹 검색 기능 및 메모리 장치를 보이스 모드와 다이렉트 통합하여 시각적 위젯 및 이미지 피드백을 지원합니다."
             ]
         },
         {
