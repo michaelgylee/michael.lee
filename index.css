@@ -96,10 +96,10 @@ body {
 }
 
 .logo h1 {
-    font-size: 1.25rem;
+    font-size: 1.45rem;
     font-weight: 900;
-    letter-spacing: 1.5px;
-    background: linear-gradient(90deg, #FFFFFF, var(--neon-blue));
+    letter-spacing: -0.5px;
+    background: linear-gradient(90deg, #0F172A 0%, var(--neon-blue) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

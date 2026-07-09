@@ -48,17 +48,6 @@ const AI_NEWS_DATABASE = {
     daily: [
         {
             category: 'genai',
-            title: `${datePrefix}Claude Cowork 웹 및 모바일 어플리케이션 정식 출시 (Claude Release Notes)`,
-            source: "Claude Release Notes",
-            link: "https://support.claude.com/en/articles/12138966-release-notes?bypass=true",
-            bullets: [
-                "데스크톱 앱에 한정되었던 Claude Cowork 자율 실행 제어 세션이 모바일 기기 및 웹 브라우저로 전면 확장되었습니다.",
-                "사용자가 노트북 창을 닫거나 단말기 전원을 종료한 오프라인 상태에서도 백그라운드 예약 연산이 연속 동작합니다.",
-                "공통 프로젝트 관리 도구와 실시간 협업 아티팩트 보관 기능을 단일 홈 공간으로 통합하여 접근성을 향상시켰습니다."
-            ]
-        },
-        {
-            category: 'genai',
             title: `${datePrefix}GPT-5.5 Instant Mini 모델 정식 출시 및 속도 최적화 패치 (ChatGPT Release Notes)`,
             source: "ChatGPT Release Notes",
             link: "https://help.openai.com/en/articles/6825453-chatgpt-release-notes?bypass=true",
@@ -88,6 +77,17 @@ const AI_NEWS_DATABASE = {
                 "다양한 LLM 개발사들의 차세대 모델 추론 코스트가 아키텍처 경량화 기술 덕분에 40% 이상 절감되었습니다.",
                 "추론 속도의 대격변과 결합하여 실시간 대화 및 다중 복합 연산이 더욱 저렴한 API 단가로 제공됩니다.",
                 "안전 가이드라인 준수를 기본으로 한 기업용 독립 보안 프레임워크가 순차 배포될 것으로 알려졌습니다."
+            ]
+        },
+        {
+            category: 'tech',
+            title: `${datePrefix}실시간 대화 에이전트 다기능 API 연동 가이드 (InfoQ LLMs)`,
+            source: "InfoQ LLMs",
+            link: "https://www.infoq.com/llms/news/?bypass=true",
+            bullets: [
+                "로컬 환경의 소스코드를 즉시 정합하여 파일 자동 변환 및 리팩토링 효율을 극대화하는 신기술을 분석했습니다.",
+                "기존 에러 디버깅 파이프라인의 응답 지연을 절반 이하로 제어하는 클라우드 프록시 매크로 기술이 특징입니다.",
+                "개발자 콘솔을 활용해 프로젝트 보관 기능을 고도화하고 다단계 보안 인증 게이트웨이를 정합했습니다."
             ]
         },
         {
@@ -570,13 +570,37 @@ function generateSimulatedCard(news, mode) {
         poolIndex++;
     }
     
-    paddedNews = uniqueNews.slice(0, 5);
+    // Enforce exactly 1 LLM slide, standard news for the rest
+    const llmSources = [
+        "Claude Release Notes", "ChatGPT Release Notes", "Gemini API Changelog",
+        "Google Innovation Blog", "x.ai News", "OpenAI News", "Anthropic News"
+    ];
+    let standardItems = uniqueNews.filter(item => !llmSources.includes(item.source));
+    let llmItems = uniqueNews.filter(item => llmSources.includes(item.source));
+    
+    let selectedNews = [];
+    // Take up to 4 standard items
+    selectedNews.push(...standardItems.slice(0, 4));
+    // Take exactly 1 LLM item (at the end, since LLM is 후순위)
+    if (llmItems.length > 0) {
+        selectedNews.push(llmItems[0]);
+    }
+    // Fill remaining slots up to 5 with standard items
+    if (selectedNews.length < 5) {
+        let remaining = standardItems.slice(4);
+        for (let r of remaining) {
+            if (selectedNews.length >= 5) break;
+            selectedNews.push(r);
+        }
+    }
+    
+    paddedNews = selectedNews.slice(0, 5);
 
     const slides = [
         {
             slide_index: 1,
             type: 'title',
-            title: "9대 성아연 AI 뉴스",
+            title: "9대 성아연 뉴스메이커",
             subtitle: `${cycleText} • ${mode.toUpperCase()}`,
             gradient: 'preset-purple',
             fontSize: 44
@@ -606,7 +630,7 @@ function generateSimulatedCard(news, mode) {
     });
 
     return {
-        topic: "9대 성아연 AI 뉴스 브리핑",
+        topic: "9대 성아연 뉴스메이커 브리핑",
         slides: slides
     };
 }
@@ -628,7 +652,8 @@ async function generateCardWithGemini(news, mode, apiKey) {
 
     const context = news.map((item, idx) => `[뉴스 ${idx+1}]\n제목: ${item.title}\n출처: ${item.source}\n내용: ${item.bullets.join(' ')}\nURL: ${item.link || ''}`).join('\n\n');
     const prompt = `
-        당신은 카카오톡 배포용 AI 전문 뉴스 카드뉴스를 기획하는 콘텐츠 에디터 에이전트입니다.
+        당신은 개발자 커뮤니티에 업무 관련된 공신력 있는 소식을 요약해서 전달하는 전문 큐레이터 에디터 에이전트입니다.
+        철저하게 최신 뉴스와 근거가 확실한 기술 정보, 그리고 연결 가능한 정확한 실제 출처 링크만을 신뢰할 수 있게 전달해야 합니다.
         제공되는 구글 검색 도구(googleSearch)를 활성화하여, 다음 우선순위 소스를 우선 검색하고 아래 데이터를 교차 검증하여 ${mode === 'daily' ? '일간(Daily)' : '주간(Weekly)'} 카드뉴스 시리즈 콘텐츠(총 7장)를 한국어로 작성해주세요.
         
         [시점 및 시간 제한 조건]
@@ -638,21 +663,16 @@ async function generateCardWithGemini(news, mode, apiKey) {
         {context}
         
         [뉴스 수집 및 검증 우선순위]
-        1순위 - 쓰레드(Threads) 지정 계정 및 태그 최신 게시글:
-          - 계정: @choi.openai, @unclejobs.ai, @gymcoding, @aitrendmaster, @jup._ai
-          - 태그: #aithreads (threads.net/search?q=aithreads)
-          * 쓰레드 게시물을 쓸 때는 반드시 실제 상세 링크 (예: threads.net/@계정/post/글ID) 형식의 URL이 매핑되어야 합니다.
-        2순위 - 공식 발표 (Claude/Anthropic News, OpenAI News, Google Gemini Blog 등)
-        3순위 - 개발자 커뮤니티 (GeekNews: news.hada.io, 디스콰이엇)
-        4순위 - 테크 미디어 (AI 타임스, ZDNet Korea 등)
+        1순위 - 공신력 있는 12대 지정 외신 채널 (The Guardian AI, DeepMind, TechCrunch, Economist, BBC, NYT 등)
+        2순위 - 개발자 커뮤니티 (GeekNews: news.hada.io, 디스콰이엇)
+        3순위 - 공식 제품 업데이트 (Claude/Anthropic News, OpenAI News, Google Gemini Blog 등) - 단, 전체 카드 뉴스 중 최대 1장만 구성하도록 마지막 순서에 배치하십시오.
         
         [작성 규칙]
         1. 일간 모드(Daily)인 경우 최근 24시간 이내, 주간 모드(Weekly)인 경우 최근 1주일 이내의 뉴스만 엄격하게 포함시키도록 Google Search를 조율하십시오. 현재 년월일 기준시점은 ${todayStr}입니다.
         2. 모든 항목에는 반드시 실제 접근 가능한 원본 출처 URL이 명시되어야 합니다. 기억으로 URL을 지어내지 마십시오.
-        3. 커뮤니티(3순위)발 소식은 공식 발표가 없는 경우 제목에 반드시 "[커뮤니티발]" 표기를 명시하십시오.
-        4. 1장 (Title Slide): 제목을 반드시 "9대 성아연 AI 뉴스"로 하고, 알맞은 서브타이틀을 기입합니다.
-        5. 2, 3, 4, 5, 6장 (Content Slide): 각각 주요 뉴스 1, 2, 3, 4, 5를 깊이 있게 다룹니다. 제목(Title)은 뉴스 헤드라인으로 하고, 본문 요약(bullets)은 단순히 짧은 단문이 아니라 구체적인 기술 명칭, 실질적인 동작 방식, 세부 수치 데이터 및 파급 인사이트를 구체적으로 서술하는 3개의 불릿 포인트로 작성하십시오 (각 불릿은 최소 35자 이상). 또한 반드시 출처명(source_name)과 원문 주소(source_url)를 매핑해 명시하십시오.
-        6. 7장 (Closing Slide): 제목을 반드시 "9대 성아연 집행부"로 하고, 부제목은 "채널을 구독하고 매주 AI 소식을 빠르게 받아보세요!"로 작성하며 카카오톡 채널 추가 링크를 안내하십시오.
+        3. 1장 (Title Slide): 제목을 반드시 "9대 성아연 뉴스메이커"로 하고, 알맞은 서브타이틀을 기입합니다.
+        4. 2, 3, 4, 5, 6장 (Content Slide): 각각 주요 뉴스 1, 2, 3, 4, 5를 깊이 있게 다룹니다. 제목(Title)은 뉴스 헤드라인으로 하고, 본문 요약(bullets)은 단순히 짧은 단문이 아니라 구체적인 기술 명칭, 실질적인 동작 방식, 세부 수치 데이터 및 파급 인사이트를 구체적으로 서술하는 3개의 불릿 포인트로 작성하십시오 (각 불릿은 최소 35자 이상). 또한 반드시 출처명(source_name)과 원문 주소(source_url)를 매핑해 명시하십시오.
+        5. 7장 (Closing Slide): 제목을 반드시 "9대 성아연 집행부"로 하고, 부제목은 "채널을 구독하고 매주 AI 소식을 빠르게 받아보세요!"로 작성하며 카카오톡 채널 추가 링크를 안내하십시오.
         
         [응답 스키마]
         반드시 JSON 규격으로만 응답하며 다른 마크다운 백틱 등 설명 문구는 제외하세요.
@@ -663,7 +683,7 @@ async function generateCardWithGemini(news, mode, apiKey) {
             {
               "slide_index": 1,
               "type": "title",
-              "title": "9대 성아연 AI 뉴스",
+              "title": "9대 성아연 뉴스메이커",
               "subtitle": "부제목 문구"
             },
             {
