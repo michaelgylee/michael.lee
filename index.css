@@ -513,6 +513,7 @@ body {
 }
 
 .node.active.node-researcher .node-icon-wrapper { border-color: var(--neon-cyan); box-shadow: 0 0 15px rgba(0, 242, 254, 0.3); color: var(--neon-cyan); }
+.node.active.node-gatekeeper .node-icon-wrapper { border-color: #F59E0B; box-shadow: 0 0 15px rgba(245, 158, 11, 0.3); color: #F59E0B; }
 .node.active.node-creator .node-icon-wrapper { border-color: var(--neon-purple); box-shadow: 0 0 15px rgba(157, 78, 221, 0.3); color: var(--neon-purple); }
 .node.active.node-publisher .node-icon-wrapper { border-color: var(--neon-pink); box-shadow: 0 0 15px rgba(247, 37, 133, 0.3); color: var(--neon-pink); }
 

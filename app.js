@@ -187,16 +187,20 @@ const dbSubText = document.getElementById("dashboard-sub-text");
 
 // Node references for visualization
 const nodeRes = document.getElementById("node-res");
+const nodeGate = document.getElementById("node-gate");
 const nodeCre = document.getElementById("node-cre");
 const nodePub = document.getElementById("node-pub");
-const pulseResCre = document.getElementById("pulse-res-cre");
+const pulseResGate = document.getElementById("pulse-res-gate");
+const pulseGateCre = document.getElementById("pulse-gate-cre");
 const pulseCrePub = document.getElementById("pulse-cre-pub");
 
 // Agent Progress bars & badges
 const statusRes = document.getElementById("status-researcher");
+const statusGate = document.getElementById("status-gatekeeper");
 const statusCre = document.getElementById("status-creator");
 const statusPub = document.getElementById("status-publisher");
 const progressRes = document.getElementById("progress-researcher");
+const progressGate = document.getElementById("progress-gatekeeper");
 const progressCre = document.getElementById("progress-creator");
 const progressPub = document.getElementById("progress-publisher");
 
@@ -280,31 +284,79 @@ function addLog(agent, text, type = 'system') {
 // Update Active Agent Node Visuals
 function setAgentActive(agent) {
     nodeRes.classList.remove("active");
+    if (nodeGate) nodeGate.classList.remove("active");
     nodeCre.classList.remove("active");
     nodePub.classList.remove("active");
-    pulseResCre.classList.remove("active");
+    if (pulseResGate) pulseResGate.classList.remove("active");
+    if (pulseGateCre) pulseGateCre.classList.remove("active");
     pulseCrePub.classList.remove("active");
 
     if (agent === 'researcher') {
         nodeRes.classList.add("active");
         statusRes.className = "badge badge-running";
         statusRes.textContent = "작동 중...";
-    } else if (agent === 'creator') {
+        if (statusGate) {
+            statusGate.className = "badge badge-idle";
+            statusGate.textContent = "대기 중";
+            progressGate.style.width = "0%";
+        }
+        statusCre.className = "badge badge-idle";
+        statusCre.textContent = "대기 중";
+        statusPub.className = "badge badge-idle";
+        statusPub.textContent = "대기 중";
+        progressRes.style.width = "0%";
+        progressCre.style.width = "0%";
+        progressPub.style.width = "0%";
+    } else if (agent === 'gatekeeper') {
         nodeRes.classList.add("active");
-        nodeCre.classList.add("active");
-        pulseResCre.classList.add("active");
+        if (nodeGate) nodeGate.classList.add("active");
+        if (pulseResGate) pulseResGate.classList.add("active");
+        
         statusRes.className = "badge badge-completed";
         statusRes.textContent = "완료";
         progressRes.style.width = "100%";
+        
+        if (statusGate) {
+            statusGate.className = "badge badge-running";
+            statusGate.textContent = "작동 중...";
+        }
+    } else if (agent === 'creator') {
+        nodeRes.classList.add("active");
+        if (nodeGate) nodeGate.classList.add("active");
+        nodeCre.classList.add("active");
+        if (pulseResGate) pulseResGate.classList.add("active");
+        if (pulseGateCre) pulseGateCre.classList.add("active");
+        
+        statusRes.className = "badge badge-completed";
+        statusRes.textContent = "완료";
+        progressRes.style.width = "100%";
+        
+        if (statusGate) {
+            statusGate.className = "badge badge-completed";
+            statusGate.textContent = "완료";
+            progressGate.style.width = "100%";
+        }
         
         statusCre.className = "badge badge-running";
         statusCre.textContent = "작동 중...";
     } else if (agent === 'publisher') {
         nodeRes.classList.add("active");
+        if (nodeGate) nodeGate.classList.add("active");
         nodeCre.classList.add("active");
         nodePub.classList.add("active");
-        pulseResCre.classList.add("active");
+        if (pulseResGate) pulseResGate.classList.add("active");
+        if (pulseGateCre) pulseGateCre.classList.add("active");
         pulseCrePub.classList.add("active");
+        
+        statusRes.className = "badge badge-completed";
+        statusRes.textContent = "완료";
+        progressRes.style.width = "100%";
+        
+        if (statusGate) {
+            statusGate.className = "badge badge-completed";
+            statusGate.textContent = "완료";
+            progressGate.style.width = "100%";
+        }
         
         statusCre.className = "badge badge-completed";
         statusCre.textContent = "완료";
@@ -314,11 +366,17 @@ function setAgentActive(agent) {
         statusPub.textContent = "작동 중...";
     } else if (agent === 'completed') {
         nodeRes.classList.add("active");
+        if (nodeGate) nodeGate.classList.add("active");
         nodeCre.classList.add("active");
         nodePub.classList.add("active");
         
         statusRes.className = "badge badge-completed";
         statusRes.textContent = "완료";
+        if (statusGate) {
+            statusGate.className = "badge badge-completed";
+            statusGate.textContent = "완료";
+            progressGate.style.width = "100%";
+        }
         statusCre.className = "badge badge-completed";
         statusCre.textContent = "완료";
         statusPub.className = "badge badge-completed";
@@ -344,6 +402,16 @@ function resetPipelineUI() {
     btnExportAll.disabled = true;
     btnKakaoShare.disabled = true;
     if (btnCopyText) btnCopyText.disabled = true;
+}
+
+// Clear History Database button bind
+const btnClearHistory = document.getElementById("btn-clear-history");
+if (btnClearHistory) {
+    btnClearHistory.addEventListener("click", () => {
+        localStorage.removeItem("generated_history");
+        addLog("Gatekeeper", "생성 이력 DB(localStorage)가 정상적으로 초기화되었습니다.", "success");
+        alert("이전 생성 이력 DB가 초기화되었습니다. 중복 제외 필터링 없이 처음부터 다시 카드뉴스를 생성할 수 있습니다.");
+    });
 }
 
 // Main Agent Team Run Pipeline
@@ -400,7 +468,76 @@ btnRun.addEventListener("click", async () => {
         }
         rawNews = rawNews.slice(0, 3);
         
-        addLog("Researcher", `성공적으로 ${rawNews.length}개의 정제된 뉴스 피드를 획득하였습니다. 제작 에이전트(Creator)에게 전달합니다.`, "success");
+        addLog("Researcher", `성공적으로 ${rawNews.length}개의 정제된 뉴스 피드를 획득하였습니다. 1차 검증 게이트키퍼(Gatekeeper)에게 전달합니다.`, "success");
+        await sleep(600);
+
+        // --- 1.5. GATEKEEPER AGENT RUN ---
+        setAgentActive('gatekeeper');
+        addLog("Gatekeeper", "1차 검증 게이트키퍼(Gatekeeper) 가동: 생성 이력 DB 분석 및 중복 제외 검사 개시...", "system");
+        await sleep(400);
+
+        let history = JSON.parse(localStorage.getItem("generated_history") || "[]");
+        let deduplicated = [];
+        rawNews.forEach(item => {
+            let isDup = false;
+            for (let h of history) {
+                let w1 = new Set(item.title.toLowerCase().split(/\s+/));
+                let w2 = new Set(h.toLowerCase().split(/\s+/));
+                let intersection = new Set([...w1].filter(x => w2.has(x)));
+                let union = new Set([...w1, ...w2]);
+                let sim = intersection.size / union.size;
+                if (sim > 0.5) {
+                    isDup = true;
+                    break;
+                }
+            }
+            if (isDup) {
+                addLog("Gatekeeper", `중복 카드 감지되어 교체 대상을 필터링합니다: ${item.title}`, "warning");
+            } else {
+                deduplicated.push(item);
+            }
+        });
+        
+        if (deduplicated.length < rawNews.length) {
+            let remainingPool = sourcePool.filter(n => !rawNews.includes(n));
+            for (let item of remainingPool) {
+                if (deduplicated.length >= rawNews.length) break;
+                let isDup = false;
+                for (let h of history) {
+                    let w1 = new Set(item.title.toLowerCase().split(/\s+/));
+                    let w2 = new Set(h.toLowerCase().split(/\s+/));
+                    let intersection = new Set([...w1].filter(x => w2.has(x)));
+                    let union = new Set([...w1, ...w2]);
+                    let sim = intersection.size / union.size;
+                    if (sim > 0.5) {
+                        isDup = true;
+                        break;
+                    }
+                }
+                if (!isDup && !deduplicated.includes(item)) {
+                    deduplicated.push(item);
+                    addLog("Gatekeeper", `대체 카드 후보를 주입합니다: ${item.title}`, "success");
+                }
+            }
+        }
+        rawNews = deduplicated;
+
+        // Force topmost release notes check (ChatGPT Work in daily mode)
+        const hasLlm = rawNews.some(item => item.source === "ChatGPT Release Notes" || item.source === "Claude Release Notes");
+        if (!hasLlm && appState.mode === 'daily') {
+            addLog("Gatekeeper", "ChatGPT Release Notes 최상단 중요 릴리즈 누락 감지! 18시간 필터를 우회하여 최상단 중요 소식 강제 주입합니다.", "warning");
+            const chatgptWork = sourcePool.find(n => n.source === "ChatGPT Release Notes" && n.title.includes("ChatGPT Work"));
+            if (chatgptWork) {
+                rawNews[rawNews.length - 1] = chatgptWork;
+            }
+        }
+
+        for (let i = 0; i <= 100; i += 50) {
+            progressGate.style.width = `${i}%`;
+            await sleep(300);
+        }
+
+        addLog("Gatekeeper", "1차 검증 완료. 수집 대상 뉴스 기사가 게이트키퍼 승인을 획득했습니다.", "success");
         await sleep(600);
 
         // --- 2. CREATOR AGENT RUN ---
@@ -501,6 +638,18 @@ btnRun.addEventListener("click", async () => {
 
         // Render card elements inside workspace
         renderCards(cardJson);
+
+        // Save current generated titles to localStorage history
+        if (cardJson && cardJson.slides) {
+            let newTitles = cardJson.slides
+                .filter(s => s.type === 'content')
+                .map(s => s.title.replace(/^\d+\.\s+\[.*?\]\s+/, '').replace(/^\d+\.\s+/, '').replace(/\s+\(.*?\)$/, '')); 
+            let currentHistory = JSON.parse(localStorage.getItem("generated_history") || "[]");
+            currentHistory.push(...newTitles);
+            currentHistory = [...new Set(currentHistory)].slice(-50);
+            localStorage.setItem("generated_history", JSON.stringify(currentHistory));
+            addLog("Gatekeeper", "생성된 카드뉴스 제목을 이력 DB에 저장 완료했습니다 (다음 번 생성 시 제외 대상).", "success");
+        }
 
         setAgentActive('completed');
         addLog("Verifier", "✔ 모든 카드뉴스 슬라이드가 무결성 검증을 완벽하게 통과했습니다!", "success");

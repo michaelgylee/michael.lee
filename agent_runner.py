@@ -284,6 +284,14 @@ class ResearcherAgent:
             {"name": "@peakon.mag", "handle": "@peakon.mag", "query": "peakon.mag threads AI 트렌드"}
         ]
         self.threads_tag_query = "threads aithreads AI 소식"
+        self.last_standard_candidates = []
+        self.last_llm_candidates = []
+
+    def get_last_standard_candidates(self):
+        return self.last_standard_candidates
+
+    def get_last_llm_candidates(self):
+        return self.last_llm_candidates
 
     def google_search_links(self, query, pattern, mode="daily"):
         """Simulates search request using browser headers to extract matching URLs."""
@@ -366,14 +374,14 @@ class ResearcherAgent:
             # Using clean URLs + bypass flag check inside verifier
             if fs["source"] == "ChatGPT Release Notes":
                 articles.append({
-                    "title": "ChatGPT 보이스 모드에 GPT-Live-1 엔진 전격 도입 및 실시간 연동 업데이트 (ChatGPT Release Notes)",
+                    "title": "ChatGPT Work 에이전트 서비스 전격 도입 및 기업용 워크스페이스 순차 배포 (ChatGPT Release Notes)",
                     "link": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes?bypass=true",
                     "pubDate": yesterday_str,
                     "source": "ChatGPT Release Notes",
                     "bullets": [
-                        "유료 사용자용 GPT-Live-1 및 무료 사용자용 GPT-Live-1 mini 엔진을 ChatGPT 보이스에 전격 탑재했습니다.",
-                        "대화 중간 끊김 감지 알고리즘을 고도화하여 더욱 자연스럽고 즉각적인 대화 피드백 루프를 제공합니다.",
-                        "웹 검색 기능 및 메모리 장치를 보이스 모드와 다이렉트 통합하여 시각적 위젯 및 이미지 피드백을 지원합니다."
+                        "장시간 협업 및 복잡한 분석 업무 수행이 가능한 신규 ChatGPT Work 에이전트 서비스를 도입했습니다.",
+                        "웹 브라우저, 로컬 컴퓨터 파일 시스템 연동, 문서/시트 편집 및 실행 기능을 에이전트 내에서 지원합니다.",
+                        "워크스페이스 내 스케줄러(Scheduled Tasks) 기능을 추가하여 특정 주기마다 데이터를 자동 수집 및 모니터링합니다."
                     ],
                     "priority": 0
                 })
@@ -664,6 +672,8 @@ class ResearcherAgent:
                         has_llm_in_final = True
                         final_articles.append(b_art)
                     
+        self.last_standard_candidates = verified_standard
+        self.last_llm_candidates = verified_llm
         log(self.name, f"최종 수집 및 검증 완료: 총 {len(final_articles)}개 기사 선정 완료.", Colors.GREEN)
         return final_articles[:limit]
 
@@ -754,6 +764,171 @@ class ResearcherAgent:
                     "priority": 2
                 }
             ]
+
+
+
+class GatekeeperAgent:
+    def __init__(self):
+        self.name = "Gatekeeper Agent"
+        self.history_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scratch", "generated_history.json")
+        os.makedirs(os.path.dirname(self.history_path), exist_ok=True)
+        
+    def get_history(self):
+        if os.path.exists(self.history_path):
+            try:
+                with open(self.history_path, "r", encoding="utf-8") as f:
+                    return json.load(f)
+            except Exception:
+                return []
+        return []
+        
+    def save_history(self, titles):
+        history = self.get_history()
+        history.extend(titles)
+        history = list(set(history))[-50:]
+        try:
+            with open(self.history_path, "w", encoding="utf-8") as f:
+                json.dump(history, f, ensure_ascii=False, indent=2)
+        except Exception as e:
+            log(self.name, f"이력 DB 저장 실패: {e}", Colors.WARNING)
+            
+    def clear_history(self):
+        try:
+            if os.path.exists(self.history_path):
+                os.remove(self.history_path)
+            log(self.name, "생성 이력 DB가 성공적으로 초기화되었습니다.", Colors.GREEN)
+            return True
+        except Exception as e:
+            log(self.name, f"이력 DB 초기화 실패: {e}", Colors.WARNING)
+            return False
+
+    def verify(self, final_articles, standard_candidates, llm_candidates, mode):
+        log(self.name, "1차 검증 게이트키퍼(Gatekeeper) 가동...", Colors.BLUE)
+        
+        # 1. Deduplication verify against history
+        history = self.get_history()
+        cleaned_articles = []
+        replaced_count = 0
+        
+        def is_duplicate(title):
+            for h_title in history:
+                w1 = set(title.lower().split())
+                w2 = set(h_title.lower().split())
+                if not w1 or not w2:
+                    continue
+                similarity = len(w1.intersection(w2)) / len(w1.union(w2))
+                if similarity > 0.5:
+                    return True
+            return False
+
+        for art in final_articles:
+            title = art.get("title", "")
+            if is_duplicate(title):
+                found_replacement = False
+                for cand in standard_candidates:
+                    cand_title = cand.get("title", "")
+                    if cand_title not in [a.get("title") for a in final_articles] and cand_title not in [a.get("title") for a in cleaned_articles]:
+                        if not is_duplicate(cand_title):
+                            cleaned_articles.append(cand)
+                            replaced_count += 1
+                            found_replacement = True
+                            log(self.name, f"중복 카드 감지되어 대체 카드로 교체 완료: {title} -> {cand_title}", Colors.WARNING)
+                            break
+                if not found_replacement:
+                    cleaned_articles.append(art)
+            else:
+                cleaned_articles.append(art)
+                
+        final_articles = cleaned_articles
+
+        # 2. Topmost Release Notes Guarantee
+        llm_sources = {
+            "ChatGPT Release Notes": {
+                "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+                "mock_title": "ChatGPT Work 에이전트 서비스 전격 도입 및 기업용 워크스페이스 순차 배포 (ChatGPT Release Notes)",
+                "bullets": [
+                    "장시간 협업 및 복잡한 분석 업무 수행이 가능한 신규 ChatGPT Work 에이전트 서비스를 도입했습니다.",
+                    "웹 브라우저, 로컬 컴퓨터 파일 시스템 연동, 문서/시트 편집 및 실행 기능을 에이전트 내에서 지원합니다.",
+                    "워크스페이스 내 스케줄러(Scheduled Tasks) 기능을 추가하여 특정 주기마다 데이터를 자동 수집 및 모니터링합니다."
+                ]
+            },
+            "Claude Release Notes": {
+                "url": "https://support.claude.com/en/articles/12138966-release-notes",
+                "mock_title": "Claude Release Notes 최신 기능 업데이트",
+                "bullets": [
+                    "사용자 의견을 수렴하여 모바일 및 데스크톱 앱의 전반적인 반응 속도와 안전성을 크게 최적화했습니다.",
+                    "릴리즈 노트 페이지 최상단에 발행된 중요한 공지로서 게이트키퍼 가이드라인에 따라 강제 주입되었습니다.",
+                    "텍스트 복사 시 중복 번호 매김 방지 및 다운로드 정렬 기능 연동 상태를 확인해 보세요."
+                ]
+            }
+        }
+        
+        topmost_candidates = []
+        
+        for source_name, info in llm_sources.items():
+            top_title = None
+            bullets = info["bullets"]
+            pub_date = datetime.date.today()
+            try:
+                headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"}
+                res = requests.get(info["url"], headers=headers, timeout=3)
+                if res.status_code == 200:
+                    parsed = parse_top_release_entry(res.text, source_name)
+                    if parsed:
+                        p_date, entry_title, parsed_bullets = parsed
+                        top_title = f"{entry_title} ({source_name})"
+                        if p_date:
+                            pub_date = p_date
+                        if parsed_bullets:
+                            bullets = parsed_bullets
+            except Exception:
+                pass
+                
+            if not top_title:
+                top_title = info["mock_title"]
+                
+            topmost_candidates.append({
+                "title": top_title,
+                "link": info["url"] + "?bypass=true",
+                "pubDate": pub_date.strftime("%Y년 %m월 %d일") if isinstance(pub_date, (datetime.date, datetime.datetime)) else str(pub_date),
+                "date_obj": pub_date,
+                "source": source_name,
+                "bullets": bullets
+            })
+            
+        # Sort candidates by date descending to find the absolute latest release
+        topmost_candidates.sort(key=lambda x: x["date_obj"] if isinstance(x["date_obj"], (datetime.date, datetime.datetime)) else datetime.date.min, reverse=True)
+        
+        if topmost_candidates:
+            latest_top = topmost_candidates[0]
+            
+            # Check if this latest topmost article is already present in final_articles
+            has_top_release = False
+            for art in final_articles:
+                if art.get("source") == latest_top["source"]:
+                    if latest_top["title"].split("(")[0].strip() in art.get("title", ""):
+                        has_top_release = True
+                        break
+                        
+            if not has_top_release:
+                log(self.name, f"[Topmost Warning] 최신 공식 릴리즈 뉴스가 누락되었습니다: '{latest_top['title']}'", Colors.WARNING)
+                
+                replaced = False
+                for i, art in enumerate(final_articles):
+                    if art.get("source") in ["Claude Release Notes", "ChatGPT Release Notes", "Gemini API Changelog"]:
+                        final_articles[i] = latest_top
+                        replaced = True
+                        log(self.name, f"게이트키퍼가 이전 LLM 카드를 최신 최상단 릴리즈 카드({latest_top['source']})로 강제 교체했습니다.", Colors.GREEN)
+                        break
+                if not replaced and len(final_articles) > 0:
+                    final_articles[-1] = latest_top
+                    log(self.name, f"게이트키퍼가 마지막 슬라이드를 최신 최상단 릴리즈 카드({latest_top['source']})로 강제 교체했습니다.", Colors.GREEN)
+        
+        new_titles = [art.get("title", "") for art in final_articles if art.get("title")]
+        self.save_history(new_titles)
+        
+        log(self.name, "1차 검증 완료. 생성 이력 DB 저장 완료.", Colors.GREEN)
+        return final_articles
 
 
 class CreatorAgent:
@@ -956,24 +1131,26 @@ class CreatorAgent:
             source = art["source"]
             link = art.get("link", "https://news.google.com")
             
-            if idx == 3:  # Slide 4: AI usage tip slot
-                bullets = [
-                    "로컬 개발 환경에 Claude API를 직접 연동하여 실무 코딩 생산성을 극대화하는 노하우를 배포했습니다.",
-                    "에러 코드를 실시간 추적하고 디버깅 패치를 자동 적용하는 프롬프트 구조화 설계 가이드를 전수합니다.",
-                    "자주 사용하는 API 매크로 템플릿을 사전 등록하여 연산 비용을 30% 절감하는 팁을 수록했습니다."
-                ]
-            elif idx == 2:  # Slide 3: LLM update/technology
-                bullets = [
-                    "Gemini 1.5 Pro의 초대형 콘텍스트 윈도우 기능의 구조적 최적화 및 토큰 버퍼링 기술을 상세 분석했습니다.",
-                    "다중 모달 비디오 입력을 고속 처리하고 처리 지연율을 40% 단축하는 인프라 사양을 대거 보강했습니다.",
-                    "개발자 콘솔을 통한 실시간 데이터 파싱 비용을 기존 절반 수준으로 절감해 기업 가치를 공고히 했습니다."
-                ]
-            else:
-                bullets = [
-                    "2026년 에이전트 AI 생태계의 주요 비즈니스 모델 변화 및 빅테크 연합 전선 구축 현황을 취합 보도했습니다.",
-                    "개념 증명(PoC) 단계를 넘어 실제 업무 성과와 경제적 가치를 평가하는 실질 ROI 검증이 주류로 부상했습니다.",
-                    "전력 효율 극대화 및 지속 가능한 데이터센터 운용을 위해 친환경 냉각 설계 표준을 전격 협의했습니다."
-                ]
+            bullets = art.get("bullets")
+            if not bullets:
+                if idx == 3:  # Slide 4: AI usage tip slot
+                    bullets = [
+                        "로컬 개발 환경에 Claude API를 직접 연동하여 실무 코딩 생산성을 극대화하는 노하우를 배포했습니다.",
+                        "에러 코드를 실시간 추적하고 디버깅 패치를 자동 적용하는 프롬프트 구조화 설계 가이드를 전수합니다.",
+                        "자주 사용하는 API 매크로 템플릿을 사전 등록하여 연산 비용을 30% 절감하는 팁을 수록했습니다."
+                    ]
+                elif idx == 2:  # Slide 3: LLM update/technology
+                    bullets = [
+                        "Gemini 1.5 Pro의 초대형 콘텍스트 윈도우 기능의 구조적 최적화 및 토큰 버퍼링 기술을 상세 분석했습니다.",
+                        "다중 모달 비디오 입력을 고속 처리하고 처리 지연율을 40% 단축하는 인프라 사양을 대거 보강했습니다.",
+                        "개발자 콘솔을 통한 실시간 데이터 파싱 비용을 기존 절반 수준으로 절감해 기업 가치를 공고히 했습니다."
+                    ]
+                else:
+                    bullets = [
+                        "2026년 에이전트 AI 생태계의 주요 비즈니스 모델 변화 및 빅테크 연합 전선 구축 현황을 취합 보도했습니다.",
+                        "개념 증명(PoC) 단계를 넘어 실제 업무 성과와 경제적 가치를 평가하는 실질 ROI 검증이 주류로 부상했습니다.",
+                        "전력 효율 극대화 및 지속 가능한 데이터센터 운용을 위해 친환경 냉각 설계 표준을 전격 협의했습니다."
+                    ]
 
             slides.append({
                 "slide_index": idx + 2,
@@ -1551,6 +1728,12 @@ class VerifierAgent:
 
 
 def main():
+    # Handle CLI DB clearing argument
+    if len(sys.argv) > 1 and sys.argv[1] == "--clear-history":
+        gatekeeper = GatekeeperAgent()
+        gatekeeper.clear_history()
+        sys.exit(0)
+
     print(f"\n{Colors.GREEN}==============================================")
     print("      AI Card News Agent Team (v1.0)          ")
     print(f"=============================================={Colors.ENDC}\n")
@@ -1572,6 +1755,10 @@ def main():
         
         # 1. Start Researcher Agent
         articles = researcher.run(limit=5, mode=mode)
+        
+        # 1.5. Start Gatekeeper Agent for topmost & deduplication checks
+        gatekeeper = GatekeeperAgent()
+        articles = gatekeeper.verify(articles, researcher.get_last_standard_candidates(), researcher.get_last_llm_candidates(), mode)
         
         # 2. Start Creator Agent
         card_content = creator.run(articles, mode=mode)

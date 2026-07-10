@@ -13,7 +13,7 @@
     <!-- Kakao SDK -->
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" integrity="sha384-ihxb5W4KysbQ+oTyEa50uqh9A9qnryRu1UPfAp75y0VYg/jog3L5TYgzeGo5fUMG" crossorigin="anonymous"></script>
     <!-- CSS Link -->
-    <link rel="stylesheet" href="index.css?v=3.0.0">
+    <link rel="stylesheet" href="index.css?v=3.1.0">
 </head>
 <body>
     <div class="app-container">
@@ -24,7 +24,7 @@
                     <img src="logo.png" alt="성아연 로고" style="width: 36px; height: 36px; object-fit: contain;">
                     <div>
                         <h1>9대 성아연 뉴스메이커</h1>
-                        <span class="version">v3.0.0 (Major Release)</span>
+                        <span class="version">v3.1.0 (Minor Update)</span>
                     </div>
                 </div>
             </div>
@@ -86,6 +86,9 @@
                 <button id="btn-run" class="btn-primary animate-pulse">
                     <i data-lucide="play"></i> 에이전트 팀 가동하기
                 </button>
+                <button id="btn-clear-history" class="btn-secondary" style="margin-top: 10px; width: 100%; border-color: rgba(245, 158, 11, 0.4); color: #F59E0B; background: rgba(245, 158, 11, 0.05); transition: all 0.3s;" title="이전 생성 카드 이력 데이터베이스를 리셋하여 중복 제외 장치를 초기화합니다.">
+                    <i data-lucide="refresh-cw"></i> 생성 이력 DB 초기화
+                </button>
             </section>
 
             <!-- Agent Team Status -->
@@ -102,6 +105,19 @@
                     </div>
                     <div class="progress-bar-container">
                         <div class="progress-bar" id="progress-researcher"></div>
+                    </div>
+                </div>
+
+                <div class="agent-card id-gatekeeper">
+                    <div class="agent-info">
+                        <div class="agent-title">
+                            <i data-lucide="refresh-cw" class="icon-gate" style="color: #F59E0B;"></i>
+                            <span>1차 검증 게이트키퍼 (Gatekeeper)</span>
+                        </div>
+                        <span class="badge badge-idle" id="status-gatekeeper">대기 중</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progress-gatekeeper"></div>
                     </div>
                 </div>
 
@@ -162,7 +178,14 @@
                     <span>조사 에이전트</span>
                 </div>
                 <div class="connector-line">
-                    <div class="glow-pulse" id="pulse-res-cre"></div>
+                    <div class="glow-pulse" id="pulse-res-gate"></div>
+                </div>
+                <div class="node node-gatekeeper" id="node-gate">
+                    <div class="node-icon-wrapper"><i data-lucide="refresh-cw"></i></div>
+                    <span>1차 검증 게이트키퍼</span>
+                </div>
+                <div class="connector-line">
+                    <div class="glow-pulse" id="pulse-gate-cre"></div>
                 </div>
                 <div class="node node-creator" id="node-cre">
                     <div class="node-icon-wrapper"><i data-lucide="pen-tool"></i></div>
@@ -367,6 +390,6 @@
     </div>
 
     <!-- Application Logic -->
-    <script src="app.js?v=3.0.0"></script>
+    <script src="app.js?v=3.1.0"></script>
 </body>
 </html>
