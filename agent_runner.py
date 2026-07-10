@@ -4,6 +4,7 @@ import sys
 import json
 import re
 import datetime
+import random
 import xml.etree.ElementTree as ET
 import requests
 from io import BytesIO
@@ -38,14 +39,12 @@ def parse_llm_release_date(html, source):
     import datetime
     
     html_clean = clean_html_for_parsing(html)
-    
     months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
     months_short = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
     
     limit_char = int(len(html_clean) * 0.45)
     text_to_scan = html_clean[:limit_char]
     
-    # 1. Standard English Month Day, Year (e.g. July 7, 2026 or June 30, 2026)
     pattern1 = r'(?:<h[23][^>]*>|>\s*)([a-zA-Z]+)\s+([0-9]{1,2}),\s*(202[0-9])'
     matches1 = re.findall(pattern1, text_to_scan, re.IGNORECASE)
     for m, d, y in matches1:
@@ -57,73 +56,112 @@ def parse_llm_release_date(html, source):
             month_num = months_short.index(m_lower) + 1
         if month_num:
             try:
-                return datetime.date(int(y), month_num, int(d))
+                return datetime.datetime(int(y), month_num, int(d), 12, 0)
             except ValueError:
                 pass
                 
-    # 2. Try Korean format: 2026년 7월 7일
     pattern2 = r'202([0-9])\s*년\s*([0-9]{1,2})\s*월\s*([0-9]{1,2})\s*일'
     matches2 = re.findall(pattern2, text_to_scan)
     for y_suffix, m, d in matches2:
         try:
-            return datetime.date(2020 + int(y_suffix), int(m), int(d))
+            return datetime.datetime(2020 + int(y_suffix), int(m), int(d), 12, 0)
         except ValueError:
             pass
             
-    # 3. Try ISO-like: 2026-07-07 or 2026.07.07
     pattern3 = r'202([0-9])[-./]([0-9]{1,2})[-./]([0-9]{1,2})'
     matches3 = re.findall(pattern3, text_to_scan)
     for y_suffix, m, d in matches3:
         try:
-            return datetime.date(2020 + int(y_suffix), int(m), int(d))
+            return datetime.datetime(2020 + int(y_suffix), int(m), int(d), 12, 0)
         except ValueError:
             pass
             
     return None
 
-def extract_standard_article_date(html):
+def parse_article_datetime(html):
     import re
     import datetime
     
+    now = datetime.datetime.now()
+    
     # 1. Search meta tags first (highly structured)
     meta_patterns = [
-        r'property="article:published_time"\s+content="([^"T\s]+)',
-        r'name="pubdate"\s+content="([^"T\s]+)',
-        r'name="publish-date"\s+content="([^"T\s]+)',
-        r'property="og:regdate"\s+content="([^"T\s]+)',
-        r'name="Date"\s+content="([^"T\s]+)',
-        r'itemprop="datePublished"\s+content="([^"T\s]+)',
-        r'"datePublished":\s*"([^"T\s]+)',
-        r'"dateCreated":\s*"([^"T\s]+)'
+        r'property="article:published_time"\s+content="([^"\s]+)"',
+        r'name="pubdate"\s+content="([^"\s]+)"',
+        r'name="publish-date"\s+content="([^"\s]+)"',
+        r'property="og:regdate"\s+content="([^"\s]+)"',
+        r'name="Date"\s+content="([^"\s]+)"',
+        r'itemprop="datePublished"\s+content="([^"\s]+)"',
+        r'"datePublished":\s*"([^"\s]+)"',
+        r'"dateCreated":\s*"([^"\s]+)"'
     ]
     for pattern in meta_patterns:
         match = re.search(pattern, html, re.IGNORECASE)
         if match:
-            date_str = match.group(1)
-            ymd = re.search(r'(202[0-9])[-./]([0-9]{1,2})[-./]([0-9]{1,2})', date_str)
-            if ymd:
-                try:
-                    return datetime.date(int(ymd.group(1)), int(ymd.group(2)), int(ymd.group(3)))
-                except ValueError:
-                    pass
+            date_str = match.group(1).strip()
+            if len(date_str) >= 10:
+                # check ISO format with time
+                if 't' in date_str.lower() and len(date_str) >= 19:
+                    try:
+                        clean_str = date_str[:19].replace('t', ' ').replace('T', ' ')
+                        dt = datetime.datetime.strptime(clean_str, "%Y-%m-%d %H:%M:%S")
+                        if 'z' in date_str.lower() or '+00' in date_str:
+                            dt += datetime.timedelta(hours=9)  # UTC to KST (local)
+                        return dt
+                    except Exception:
+                        pass
+                ymd = re.search(r'(202[0-9])[-./]([0-9]{1,2})[-./]([0-9]{1,2})', date_str)
+                if ymd:
+                    try:
+                        d = datetime.date(int(ymd.group(1)), int(ymd.group(2)), int(ymd.group(3)))
+                        return datetime.datetime.combine(d, datetime.time(12, 0))
+                    except ValueError:
+                        pass
 
-    # 2. Search body text upper region
-    upper_html = html[:int(len(html) * 0.35)]
+    # 2. Search body text upper region for relative keywords
+    upper_html = clean_html_for_parsing(html)[:30000].lower()
+    
+    h_match = re.search(r'(\d+)\s*(?:시간\s*전|hours?\s*ago|h\s*ago)', upper_html)
+    if h_match:
+        hours = int(h_match.group(1))
+        return now - datetime.timedelta(hours=hours)
+        
+    m_match = re.search(r'(\d+)\s*(?:분\s*전|minutes?\s*ago|mins?\s*ago|m\s*ago)', upper_html)
+    if m_match:
+        mins = int(m_match.group(1))
+        return now - datetime.timedelta(minutes=mins)
+        
+    d_match = re.search(r'(\d+)\s*(?:일\s*전|days?\s*ago|d\s*ago)', upper_html)
+    if d_match:
+        days = int(d_match.group(1))
+        return now - datetime.timedelta(days=days)
+        
+    if any(k in upper_html for k in ["방금", "just now", "seconds ago"]):
+        return now
+        
+    if any(k in upper_html for k in ["오늘", "today"]):
+        return now
+        
+    if any(k in upper_html for k in ["어제", "yesterday"]):
+        return now - datetime.timedelta(hours=24)
+        
+    # 3. Absolute dates in body
     ymd_match = re.search(r'(202[0-9])[-./]([0-9]{1,2})[-./]([0-9]{1,2})', upper_html)
     if ymd_match:
         try:
-            return datetime.date(int(ymd_match.group(1)), int(ymd_match.group(2)), int(ymd_match.group(3)))
+            d = datetime.date(int(ymd_match.group(1)), int(ymd_match.group(2)), int(ymd_match.group(3)))
+            return datetime.datetime.combine(d, datetime.time(12, 0))
         except ValueError:
             pass
             
     ko_match = re.search(r'(202[0-9])\s*년\s*([0-9]{1,2})\s*월\s*([0-9]{1,2})\s*일', upper_html)
     if ko_match:
         try:
-            return datetime.date(int(ko_match.group(1)), int(ko_match.group(2)), int(ko_match.group(3)))
+            d = datetime.date(int(ko_match.group(1)), int(ko_match.group(2)), int(ko_match.group(3)))
+            return datetime.datetime.combine(d, datetime.time(12, 0))
         except ValueError:
             pass
-
-    # Search for English style: Month Day, Year
+            
     eng_match = re.search(r'\b([a-zA-Z]+)\s+([0-9]{1,2}),\s*(202[0-9])\b', upper_html)
     if eng_match:
         m_name = eng_match.group(1).lower()
@@ -134,20 +172,11 @@ def extract_standard_article_date(html):
                 break
         if month_idx:
             try:
-                return datetime.date(int(eng_match.group(3)), month_idx, int(eng_match.group(2)))
+                d = datetime.date(int(eng_match.group(3)), month_idx, int(eng_match.group(2)))
+                return datetime.datetime.combine(d, datetime.time(12, 0))
             except ValueError:
                 pass
                 
-    # 3. Relative keywords mapping
-    relative_keywords_today = ["방금", "오늘", "just now", "minutes ago", "minute ago"]
-    relative_keywords_yesterday = ["어제", "1일 전", "yesterday", "1 day ago", "24 hours ago", "23 hours ago", "hours ago", "hour ago"]
-    for keyword in relative_keywords_today:
-        if keyword in upper_html.lower():
-            return datetime.date.today()
-    for keyword in relative_keywords_yesterday:
-        if keyword in upper_html.lower():
-            return datetime.date.today() - datetime.timedelta(days=1)
-            
     return None
 
 def parse_top_release_entry(html, source_name):
@@ -288,7 +317,7 @@ class ResearcherAgent:
             {"source": "Gemini API Changelog", "url": "https://ai.google.dev/gemini-api/docs/changelog?hl=ko"}
         ]
         
-        today = datetime.date.today()
+        now = datetime.datetime.now()
         
         for s in sources:
             try:
@@ -297,28 +326,29 @@ class ResearcherAgent:
                     html = res.text
                     parsed = parse_top_release_entry(html, s["source"])
                     if parsed:
-                        pub_date, top_title, top_bullets = parsed
+                        pub_dt, top_title, top_bullets = parsed
                         is_valid = False
                         if mode == "daily":
-                            # Daily: strictly within 48 hours (today, yesterday, or 2 days ago)
-                            limit_date = today - datetime.timedelta(days=2)
-                            is_valid = (pub_date >= limit_date)
+                            limit_dt = now - datetime.timedelta(hours=18)
+                            is_valid = (pub_dt >= limit_dt)
+                            limit_str = "18시간"
                         else:
-                            # Weekly: always include the topmost update
-                            is_valid = True
+                            limit_dt = now - datetime.timedelta(days=5)
+                            is_valid = (pub_dt >= limit_dt)
+                            limit_str = "5일"
                             
                         if is_valid:
                             articles.append({
                                 "title": f"{top_title} ({s['source']})",
                                 "link": s["url"],
-                                "pubDate": f"{pub_date.year}년 {pub_date.month}월 {pub_date.day}일",
+                                "pubDate": f"{pub_dt.year}년 {pub_dt.month}월 {pub_dt.day}일",
                                 "source": s["source"],
                                 "bullets": top_bullets,
                                 "priority": 0  # Super priority!
                             })
-                            log(self.name, f"3대 LLM 공식 업데이트 감지 성공: {s['source']} (발행일: {pub_date}, 제목: {top_title})", Colors.GREEN)
+                            log(self.name, f"3대 LLM 공식 업데이트 감지 성공: {s['source']} (발행일: {pub_dt.strftime('%Y-%m-%d %H:%M')}, 제목: {top_title})", Colors.GREEN)
                         else:
-                            log(self.name, f"3대 LLM 공식 업데이트 거부: {s['source']} (발행일: {pub_date} - 일간 48시간 초과)", Colors.WARNING)
+                            log(self.name, f"3대 LLM 공식 업데이트 거부: {s['source']} (발행일: {pub_dt.strftime('%Y-%m-%d %H:%M')} - {limit_str} 초과)", Colors.WARNING)
                     else:
                         log(self.name, f"3대 LLM 공식 업데이트 거부: {s['source']} (날짜 패턴 감지 실패)", Colors.WARNING)
             except Exception as e:
@@ -327,6 +357,7 @@ class ResearcherAgent:
         # Generate dynamic mockups for failed sources (like ChatGPT due to 403 blocks)
         # to guarantee testing works cleanly under realistic constraints
         failed_sources = [s for s in sources if s["source"] not in [a["source"] for a in articles]]
+        today = datetime.date.today()
         for fs in failed_sources:
             yesterday = today - datetime.timedelta(days=1)
             yesterday_str = yesterday.strftime("%Y년 %m월 %d일")
@@ -454,6 +485,11 @@ class ResearcherAgent:
                 {"source": "Stanford HAI Index", "query": 'site:hai.stanford.edu/research/ai-index-report "report" OR "policy" OR "index" 2026', "pattern": r'https?://hai\.stanford\.edu/research/ai-index-report/[a-zA-Z0-9/_-]+', "priority": 3}
             ]
             
+        # Shuffle query lists to ensure query processing order is randomized and diverse on every execution
+        random.shuffle(tier1_queries)
+        random.shuffle(tier2_queries)
+        random.shuffle(tier3_queries)
+
         # 1. Fetch standard sources (Tier 1 standard sources first)
         log(self.name, f"[Tier 1] 최우선 순위 수집 시작...", Colors.BLUE)
         standard_candidates.extend(self.fetch_queries(tier1_queries, mode))
@@ -528,12 +564,23 @@ class ResearcherAgent:
             "Google Innovation Blog", "x.ai News", "OpenAI News", "Anthropic News"
         ]
         
+        # Shuffle validated standard and LLM candidates to prevent identical outputs across runs
+        random.shuffle(verified_standard)
+        random.shuffle(verified_llm)
+
         final_articles = []
         has_llm_in_final = False
-        
+        source_counts = {}
+
         # Prioritize standard articles for 90% (4 slots out of 5)
-        for sa in verified_standard[:4]:
-            final_articles.append(sa)
+        # Apply domain diversity: max 2 slides per source
+        for sa in verified_standard:
+            src = sa.get("source")
+            source_counts[src] = source_counts.get(src, 0) + 1
+            if source_counts[src] <= 2:
+                final_articles.append(sa)
+            if len(final_articles) >= 4:
+                break
             
         # Place exactly 1 LLM article (as 1 slide maximum, after standard articles)
         if verified_llm:
@@ -541,10 +588,14 @@ class ResearcherAgent:
             has_llm_in_final = True
             
         # Fill remaining slots up to limit (5) with standard articles
-        for sa in verified_standard[4:]:
-            if len(final_articles) >= limit:
-                break
-            final_articles.append(sa)
+        for sa in verified_standard:
+            if sa not in final_articles:
+                if len(final_articles) >= limit:
+                    break
+                src = sa.get("source")
+                source_counts[src] = source_counts.get(src, 0) + 1
+                if source_counts[src] <= 2:
+                    final_articles.append(sa)
             
         # If still short, fallback using prioritized backups
         if len(final_articles) < limit:
@@ -555,6 +606,10 @@ class ResearcherAgent:
             standard_backups = [b for b in backup if b.get("source") not in llm_sources]
             llm_backups = [b for b in backup if b.get("source") in llm_sources]
             
+            # Shuffle standard and LLM backups to mix backup news selection on consecutive runs
+            random.shuffle(standard_backups)
+            random.shuffle(llm_backups)
+
             for b_art in standard_backups:
                 if len(final_articles) >= limit:
                     break
@@ -1211,14 +1266,13 @@ class VerifierAgent:
             if "bypass=true" in url or "example.com" in url or "pf.kakao.com" in url or "idxno=2026" in url or "topics/ai/2026" in url:
                 return True, "Mock/임시 URL 검증 우회"
                 
-            # Define limits
-            today = datetime.date.today()
+            now = datetime.datetime.now()
             if mode == "daily":
-                # Strict 23 hours!
-                limit_date = (datetime.datetime.now() - datetime.timedelta(hours=23)).date()
+                limit_dt = now - datetime.timedelta(hours=18)
+                limit_str = "18시간"
             else:
-                # Strict 7 days!
-                limit_date = (datetime.datetime.now() - datetime.timedelta(days=7)).date()
+                limit_dt = now - datetime.timedelta(days=5)
+                limit_str = "5일"
 
             # Strict 3-step check for LLM release notes and official blogs
             is_llm_release_url = (
@@ -1233,16 +1287,16 @@ class VerifierAgent:
             if is_llm_release_url:
                 res = requests.get(url, headers=headers, timeout=3)
                 if res.status_code == 200:
-                    pub_date = parse_llm_release_date(res.text, "Claude Release Notes" if "claude" in url else ("ChatGPT Release Notes" if "openai" in url else "Gemini API Changelog"))
-                    if pub_date:
-                        if pub_date >= limit_date:
-                            return True, f"LLM 공식 채널 연/월/일 시점 검증 통과 (발행일: {pub_date})"
+                    pub_dt = parse_llm_release_date(res.text, "Claude Release Notes" if "claude" in url else ("ChatGPT Release Notes" if "openai" in url else "Gemini API Changelog"))
+                    if pub_dt:
+                        if pub_dt >= limit_dt:
+                            return True, f"LLM 공식 채널 연/월/일 시점 검증 통과 (발행일: {pub_dt.strftime('%Y-%m-%d %H:%M')})"
                         else:
-                            return False, f"LLM 공식 채널 연/월/일 시점 검증 실패 (발행일: {pub_date} - 허용 범위 초과)"
+                            return False, f"LLM 공식 채널 연/월/일 시점 검증 실패 (발행일: {pub_dt.strftime('%Y-%m-%d %H:%M')} - {limit_str} 초과)"
                     else:
-                        pub_date = extract_standard_article_date(res.text)
-                        if pub_date and pub_date >= limit_date:
-                            return True, f"LLM 공식 채널 대용 날짜 검증 통과 (발행일: {pub_date})"
+                        pub_dt = parse_article_datetime(res.text)
+                        if pub_dt and pub_dt >= limit_dt:
+                            return True, f"LLM 공식 채널 대용 날짜 검증 통과 (발행일: {pub_dt.strftime('%Y-%m-%d %H:%M')})"
                         return False, "LLM 공식 채널 연/월/일 날짜 추출 실패"
                 elif res.status_code == 403:
                     return True, "LLM 공식 채널 접근 제한(HTTP 403)으로 검증 우회"
@@ -1267,24 +1321,14 @@ class VerifierAgent:
             res = requests.get(url, headers=headers, timeout=3)
             if res.status_code == 200:
                 html = res.text
-                
-                pub_date = extract_standard_article_date(html)
-                if pub_date:
-                    if pub_date >= limit_date:
-                        return True, f"발행일자 검증 통과: {pub_date}"
+                pub_dt = parse_article_datetime(html)
+                if pub_dt:
+                    if pub_dt >= limit_dt:
+                        return True, f"발행일자 검증 통과: {pub_dt.strftime('%Y-%m-%d %H:%M')}"
                     else:
-                        return False, f"발행일자({pub_date})가 허용 범위를 초과했습니다 (기준일: {limit_date})"
+                        return False, f"발행일자({pub_dt.strftime('%Y-%m-%d %H:%M')})가 허용 범위를 초과했습니다 (기준: {limit_dt.strftime('%Y-%m-%d %H:%M')})"
                 
-                upper_html = html[:int(len(html) * 0.35)]
-                relative_keywords = [
-                    "시간 전", "분 전", "방금", "오늘", "어제",
-                    "hours ago", "hour ago", "minutes ago", "minute ago", "just now"
-                ]
-                for keyword in relative_keywords:
-                    if keyword in upper_html.lower():
-                        return True, f"상단 본문 상대 시간 키워드 통과 ({keyword})"
-                
-                return False, f"페이지 내에서 허용 범위({limit_date} 이후) 발행 정보를 신뢰성 있게 추출할 수 없습니다."
+                return False, f"페이지 내에서 허용 범위({limit_str} 이내) 발행 정보를 신뢰성 있게 추출할 수 없습니다."
                 
             return True, "페이지 접근 불가로 우회 통과"
         except Exception as e:

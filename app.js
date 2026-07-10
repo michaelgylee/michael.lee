@@ -393,9 +393,10 @@ btnRun.addEventListener("click", async () => {
             rawNews.push(...items);
         });
         
-        // Fallback or slice to top 3 articles
+        // Fallback or slice to top 3 articles after shuffling to maximize daily selection freshness
+        rawNews = shuffleArray(rawNews);
         if (rawNews.length < 3) {
-            rawNews = sourcePool.slice(0, 3);
+            rawNews = shuffleArray(sourcePool).slice(0, 3);
         }
         rawNews = rawNews.slice(0, 3);
         
@@ -527,47 +528,39 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+// Global Fisher-Yates Array Shuffling
+function shuffleArray(array) {
+    let arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
 // Generate Card using simulated data
 function generateSimulatedCard(news, mode) {
     const cycleText = mode === 'daily' ? '하루 1분으로 읽는 AI 기술 브리핑' : '이주의 주요 AI 트렌드 리포트';
-    
-    // Ensure we have exactly 5 news items for slides 2-6 without duplicates
-    let paddedNews = [...news];
+
+
     const fallbackPool = AI_NEWS_DATABASE[mode];
+    
+    // Mix input news with fallback database pool, then shuffle to randomize selection on every generation
+    let combinedPool = shuffleArray([...news, ...fallbackPool]);
     
     let uniqueNews = [];
     let seenUrls = new Set();
     let seenTitles = new Set();
     
-    for (let item of paddedNews) {
+    for (let item of combinedPool) {
         let normUrl = item.link ? item.link.split("?")[0].trim() : "";
         let normTitle = item.title ? item.title.trim() : "";
         if (normUrl && seenUrls.has(normUrl)) continue;
         if (normTitle && seenTitles.has(normTitle)) continue;
-        if (normUrl) seenUrls.add(normUrl);
-        if (normTitle) seenTitles.add(normTitle);
-        uniqueNews.push(item);
-    }
-    
-    let poolIndex = 0;
-    while (uniqueNews.length < 5 && poolIndex < fallbackPool.length * 2) {
-        let item = fallbackPool[poolIndex % fallbackPool.length];
-        let normUrl = item.link ? item.link.split("?")[0].trim() : "";
-        let normTitle = item.title ? item.title.trim() : "";
         
-        if (!seenUrls.has(normUrl) && !seenTitles.has(normTitle)) {
-            seenUrls.add(normUrl);
-            seenTitles.add(normTitle);
-            uniqueNews.push(item);
-        }
-        poolIndex++;
-    }
-    
-    // Fallback if still less than 5
-    poolIndex = 0;
-    while (uniqueNews.length < 5) {
-        uniqueNews.push(fallbackPool[poolIndex % fallbackPool.length]);
-        poolIndex++;
+        seenUrls.add(normUrl);
+        seenTitles.add(normTitle);
+        uniqueNews.push(item);
     }
     
     // Enforce exactly 1 LLM slide, standard news for the rest
@@ -575,8 +568,9 @@ function generateSimulatedCard(news, mode) {
         "Claude Release Notes", "ChatGPT Release Notes", "Gemini API Changelog",
         "Google Innovation Blog", "x.ai News", "OpenAI News", "Anthropic News"
     ];
-    let standardItems = uniqueNews.filter(item => !llmSources.includes(item.source));
-    let llmItems = uniqueNews.filter(item => llmSources.includes(item.source));
+    
+    let standardItems = shuffleArray(uniqueNews.filter(item => !llmSources.includes(item.source)));
+    let llmItems = shuffleArray(uniqueNews.filter(item => llmSources.includes(item.source)));
     
     let selectedNews = [];
     // Take up to 4 standard items

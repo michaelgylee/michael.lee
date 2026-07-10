@@ -106,7 +106,9 @@ body {
 
 .logo .version {
     font-size: 0.7rem;
-    color: var(--text-muted);
+    font-weight: bold;
+    color: #FF2E93;
+    text-shadow: 0 0 6px rgba(255, 46, 147, 0.4);
     font-family: monospace;
     display: block;
 }
