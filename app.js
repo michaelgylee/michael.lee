@@ -676,10 +676,23 @@ btnRun.addEventListener("click", async () => {
         // Fetch raw news based on category selection
         let rawNews = [];
         const sourcePool = AI_NEWS_DATABASE[appState.mode];
-        appState.categories.forEach(cat => {
-            const items = sourcePool.filter(n => n.category === cat);
-            rawNews.push(...items);
-        });
+        const includeLlmReleases = document.getElementById("cat-llm-releases").checked;
+
+        if (includeLlmReleases) {
+            // Forcibly select OpenAI, Anthropic, and Google release note items
+            const targetSources = ["ChatGPT Release Notes", "Claude Release Notes", "Gemini API Changelog"];
+            targetSources.forEach(src => {
+                let found = sourcePool.find(n => n.source === src);
+                if (found) {
+                    rawNews.push(found);
+                }
+            });
+        } else {
+            appState.categories.forEach(cat => {
+                const items = sourcePool.filter(n => n.category === cat);
+                rawNews.push(...items);
+            });
+        }
         
         // Filter out articles that have already been generated to ensure execution uniqueness
         let history = JSON.parse(localStorage.getItem("generated_history") || "[]");
@@ -695,20 +708,25 @@ btnRun.addEventListener("click", async () => {
             return false;
         }
 
-        let freshNews = rawNews.filter(item => !isDuplicateJS(item.title));
-        
-        // If not enough category-matched fresh items, pull unused ones from sourcePool
-        if (freshNews.length < 3) {
-            let unusedPool = sourcePool.filter(item => !isDuplicateJS(item.title) && !freshNews.includes(item));
-            freshNews.push(...unusedPool);
-        }
-        
-        // Shuffle candidates
-        freshNews = shuffleArray(freshNews);
-        
-        // If still not enough (due to high history coverage), fallback to any sourcePool items
-        if (freshNews.length < 3) {
-            freshNews.push(...shuffleArray(sourcePool).slice(0, 3));
+        let freshNews = [];
+        if (includeLlmReleases) {
+            freshNews = [...rawNews];
+        } else {
+            freshNews = rawNews.filter(item => !isDuplicateJS(item.title));
+            
+            // If not enough category-matched fresh items, pull unused ones from sourcePool
+            if (freshNews.length < 3) {
+                let unusedPool = sourcePool.filter(item => !isDuplicateJS(item.title) && !freshNews.includes(item));
+                freshNews.push(...unusedPool);
+            }
+            
+            // Shuffle candidates
+            freshNews = shuffleArray(freshNews);
+            
+            // If still not enough (due to high history coverage), fallback to any sourcePool items
+            if (freshNews.length < 3) {
+                freshNews.push(...shuffleArray(sourcePool).slice(0, 3));
+            }
         }
         
         rawNews = freshNews.slice(0, 3);
@@ -736,7 +754,8 @@ btnRun.addEventListener("click", async () => {
                     break;
                 }
             }
-            if (isDup) {
+            const isLlmRelease = (includeLlmReleases && ["ChatGPT Release Notes", "Claude Release Notes", "Gemini API Changelog"].includes(item.source));
+            if (isDup && !isLlmRelease) {
                 addLog("Gatekeeper", `중복 카드 감지되어 교체 대상을 필터링합니다: ${item.title}`, "warning");
             } else {
                 deduplicated.push(item);
