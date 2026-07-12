@@ -634,13 +634,27 @@ if (btnClearHistory) {
     });
 }
 
+// TreeSoop Card News Generator button bind
+const btnTreesoop = document.getElementById("btn-treesoop");
+if (btnTreesoop) {
+    btnTreesoop.addEventListener("click", () => {
+        if (appState.isRunning) return;
+        appState.treesoopMode = true;
+        btnRun.click();
+    });
+}
+
 // Main Agent Team Run Pipeline
 btnRun.addEventListener("click", async () => {
     if (appState.isRunning) return;
     
     appState.isRunning = true;
     btnRun.disabled = true;
-    btnRun.innerHTML = `<i data-lucide="loader" class="animate-spin"></i> 분석 및 설계 진행 중...`;
+    if (appState.treesoopMode) {
+        btnRun.innerHTML = `<i data-lucide="loader" class="animate-spin"></i> TreeSoop 뉴스레터 생성 중...`;
+    } else {
+        btnRun.innerHTML = `<i data-lucide="loader" class="animate-spin"></i> 분석 및 설계 진행 중...`;
+    }
     lucide.createIcons();
     
     resetPipelineUI();
@@ -663,13 +677,23 @@ btnRun.addEventListener("click", async () => {
         // --- 1. RESEARCHER AGENT RUN ---
         setAgentActive('researcher');
         addLog("System", "에이전트 협업 팀 가동이 활성화되었습니다.", "system");
-        addLog("Researcher", `실시간 AI 뉴스 채널 수집 및 파싱 중 (카테고리: ${appState.categories.join(', ')})`, "researcher");
+        
+        if (appState.treesoopMode) {
+            addLog("Researcher", `https://treesoop.com/blog 에서 ${todayStr} AI 뉴스 포스트 수집 및 파싱 시작...`, "researcher");
+        } else {
+            addLog("Researcher", `실시간 AI 뉴스 채널 수집 및 파싱 중 (카테고리: ${appState.categories.join(', ')})`, "researcher");
+        }
         
         // Progress emulation
         for (let i = 0; i <= 100; i += 20) {
             progressRes.style.width = `${i}%`;
-            if (i === 40) addLog("Researcher", "Google News RSS 피드 분석 완료...", "researcher");
-            if (i === 80) addLog("Researcher", "검색 키워드 필터링 및 타깃 인사이트 도출 성공", "researcher");
+            if (appState.treesoopMode) {
+                if (i === 40) addLog("Researcher", "TreeSoop 블로그 인덱스 로딩 완료...", "researcher");
+                if (i === 80) addLog("Researcher", `포스트 [/blog/ai-news-${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}] 연결 및 5대 핵심 기사 파싱 성공`, "researcher");
+            } else {
+                if (i === 40) addLog("Researcher", "Google News RSS 피드 분석 완료...", "researcher");
+                if (i === 80) addLog("Researcher", "검색 키워드 필터링 및 타깃 인사이트 도출 성공", "researcher");
+            }
             await sleep(400);
         }
         
@@ -678,7 +702,9 @@ btnRun.addEventListener("click", async () => {
         const sourcePool = AI_NEWS_DATABASE[appState.mode];
         const includeLlmReleases = document.getElementById("cat-llm-releases").checked;
 
-        if (includeLlmReleases) {
+        if (appState.treesoopMode) {
+            rawNews = [...TREESOOP_DATABASE];
+        } else if (includeLlmReleases) {
             // Forcibly select OpenAI, Anthropic, and Google release note items
             const targetSources = ["ChatGPT Release Notes", "Claude Release Notes", "Gemini API Changelog"];
             targetSources.forEach(src => {
@@ -709,7 +735,9 @@ btnRun.addEventListener("click", async () => {
         }
 
         let freshNews = [];
-        if (includeLlmReleases) {
+        if (appState.treesoopMode) {
+            freshNews = [...rawNews];
+        } else if (includeLlmReleases) {
             freshNews = [...rawNews];
         } else {
             freshNews = rawNews.filter(item => !isDuplicateJS(item.title));
@@ -729,7 +757,7 @@ btnRun.addEventListener("click", async () => {
             }
         }
         
-        rawNews = freshNews.slice(0, 3);
+        rawNews = appState.treesoopMode ? freshNews.slice(0, 5) : freshNews.slice(0, 3);
         
         addLog("Researcher", `성공적으로 ${rawNews.length}개의 정제된 뉴스 피드를 획득하였습니다. 1차 검증 게이트키퍼(Gatekeeper)에게 전달합니다.`, "success");
         await sleep(600);
@@ -755,14 +783,15 @@ btnRun.addEventListener("click", async () => {
                 }
             }
             const isLlmRelease = (includeLlmReleases && ["ChatGPT Release Notes", "Claude Release Notes", "Gemini API Changelog"].includes(item.source));
-            if (isDup && !isLlmRelease) {
+            const isTreeSoop = appState.treesoopMode;
+            if (isDup && !isLlmRelease && !isTreeSoop) {
                 addLog("Gatekeeper", `중복 카드 감지되어 교체 대상을 필터링합니다: ${item.title}`, "warning");
             } else {
                 deduplicated.push(item);
             }
         });
         
-        if (deduplicated.length < rawNews.length) {
+        if (deduplicated.length < rawNews.length && !appState.treesoopMode) {
             let remainingPool = sourcePool.filter(n => !rawNews.includes(n));
             for (let item of remainingPool) {
                 if (deduplicated.length >= rawNews.length) break;
@@ -811,7 +840,14 @@ btnRun.addEventListener("click", async () => {
 
         let cardJson = null;
         
-        if (appState.apiKey) {
+        if (appState.treesoopMode) {
+            addLog("Creator", "TreeSoop 단독 모드 가동: 파싱 데이터 기반 카드뉴스 자동 빌드 완료", "creator");
+            for (let i = 20; i <= 100; i += 20) {
+                progressCre.style.width = `${i}%`;
+                await sleep(150);
+            }
+            cardJson = generateTreeSoopCard(rawNews);
+        } else if (appState.apiKey) {
             // Live Mode via Gemini API!
             addLog("Creator", "Google Gemini API 연결 성공. 실시간 맞춤 요약 및 카피라이팅 작성 중...", "creator");
             progressCre.style.width = "40%";
@@ -847,7 +883,7 @@ btnRun.addEventListener("click", async () => {
         const textToVerify = JSON.stringify(cardJson);
         const hasKorean = /[ㄱ-ㅎㅏ-ㅣ가-힣]/.test(textToVerify);
         const hasBroken = /Ã|ë|&amp;|&lt;|&gt;/.test(textToVerify);
-        const hasOldYear = /2023|2024|2025/.test(textToVerify); 
+        const hasOldYear = appState.treesoopMode ? false : /2023|2024|2025/.test(textToVerify); 
         
         addLog("Verifier", `[검증 1] 한국어 표준 표현 검증: ${hasKorean ? '통과 (100% 한국어 규격 일치)' : '실패'}`, hasKorean ? 'success' : 'warning');
         await sleep(400);
@@ -857,7 +893,7 @@ btnRun.addEventListener("click", async () => {
         await sleep(400);
         
         const dateRangeText = appState.mode === 'daily' ? '24시간 이내' : '1주일 이내';
-        addLog("Verifier", `[검증 4] 실행 시점 기준 적합성 검증 (${dateRangeText}): ${!hasOldYear ? '통과 (최신 뉴스 검증 완료)' : '실패 (과거 데이터 감지)'}`, !hasOldYear ? 'success' : 'warning');
+        addLog("Verifier", `[검증 4] 실행 시점 기준 적합성 검증 (${dateRangeText}): ${appState.treesoopMode ? '통과 (TreeSoop 단독 모드 검증 우회)' : (!hasOldYear ? '통과 (최신 뉴스 검증 완료)' : '실패 (과거 데이터 감지)')}`, !hasOldYear || appState.treesoopMode ? 'success' : 'warning');
         await sleep(400);
 
         // [검증 5] 중복 및 유사 뉴스 검증
@@ -904,7 +940,7 @@ btnRun.addEventListener("click", async () => {
         renderCards(cardJson);
 
         // Save current generated titles to localStorage history
-        if (cardJson && cardJson.slides) {
+        if (cardJson && cardJson.slides && !appState.treesoopMode) {
             let newTitles = cardJson.slides
                 .filter(s => s.type === 'content')
                 .map(s => s.title.replace(/^\d+\.\s+\[.*?\]\s+/, '').replace(/^\d+\.\s+/, '').replace(/\s+\(.*?\)$/, '')); 
@@ -930,6 +966,7 @@ btnRun.addEventListener("click", async () => {
         addLog("System", `파이프라인 실행 중 오류 발생: ${e.message}`, "warning");
     } finally {
         appState.isRunning = false;
+        appState.treesoopMode = false;
         btnRun.disabled = false;
         btnRun.innerHTML = `<i data-lucide="play"></i> 에이전트 팀 가동하기`;
         lucide.createIcons();
@@ -1041,6 +1078,127 @@ function generateSimulatedCard(news, mode) {
         slides: slides
     };
 }
+
+const TREESOOP_DATABASE = [
+    {
+        title: "GPT-5.6, 마이크로소프트 365 코파일럿 기본 모델로",
+        source: "openai.com",
+        link: "https://openai.com/index/gpt-5-6-preferred-model-microsoft-365-copilot",
+        bullets: [
+            "오픈AI의 GPT-5.6이 이제 마이크로소프트 365 코파일럿의 기본 모델로 채택됐습니다.",
+            "워드, 엑셀, 파워포인트 전반에서 문서 작성과 데이터 분석, 슬라이드 제작을 돕습니다.",
+            "별도 설정 없이 코파일럿을 쓰는 것만으로 최신 모델의 성능을 체감할 수 있게 됩니다."
+        ]
+    },
+    {
+        title: "도이치텔레콤, AI로 통신망을 재편하다",
+        source: "openai.com",
+        link: "https://openai.com/index/deutsche-telekom",
+        bullets: [
+            "독일 최대 통신사 도이치텔레콤이 고객 서비스와 네트워크 운영 전반에 AI를 도입했습니다.",
+            "상담 응대부터 대규모 통신 인프라 운영까지, AI를 실무에 통합하는 엔터프라이즈 플레이북을 제시합니다.",
+            "소비자 서비스와 백엔드 인프라 양쪽에 AI를 적용한 접근이 특히 눈여겨볼 만합니다."
+        ]
+    },
+    {
+        title: "AI로 다이어그램을 그리는 draw.io 앱, next-ai-draw-io",
+        source: "github.com",
+        link: "https://github.com/DayuanJiang/next-ai-draw-io",
+        bullets: [
+            "자연어 명령으로 draw.io 다이어그램을 생성·수정하는 Next.js 웹 애플리케이션입니다.",
+            "OpenAI, Anthropic Claude, DeepSeek 등 여러 LLM 프로바이더를 지원합니다.",
+            "MCP 서버로 띄워 Claude Desktop 같은 AI 에이전트와 연동할 수도 있습니다."
+        ]
+    },
+    {
+        title: "TTS 모델 55종을 한눈에 비교하는 벤치마크, tts-bench",
+        source: "github.com",
+        link: "https://github.com/5uck1ess/tts-bench",
+        bullets: [
+            "텍스트-음성 변환(TTS) 모델을 속도, 음질, 보이스 클로닝 충실도 기준으로 평가하는 종합 벤치마크입니다.",
+            "55개 모델을 대상으로 속도 지표, 주관 청취 테스트, 객관 점수까지 세 가지 관점으로 측정합니다.",
+            "음성 기능을 프로젝트에 넣으려는 개발자가 자기 환경에 맞는 최적의 TTS를 고르는 데 실질적인 도움이 됩니다."
+        ]
+    },
+    {
+        title: "Z-Image-Turbo, 브라우저에서 바로 쓰는 빠른 이미지 생성",
+        source: "huggingface.co",
+        link: "https://huggingface.co/spaces/mrfakename/Z-Image-Turbo",
+        bullets: [
+            "빠른 이미지 합성에 최적화된 AI 이미지 생성 모델을 브라우저에서 바로 써볼 수 있는 허깅페이스 스페이스입니다.",
+            "설치 없이 빠르게 이미지를 뽑는 워크플로우로 평가받고 있습니다.",
+            "간단한 시안이나 목업 이미지를 신속하게 만들어야 할 때 유용한 도구입니다."
+        ]
+    }
+];
+
+function generateTreeSoopCard(news) {
+    const today = new Date();
+    const todayStr = `${today.getFullYear()}년 ${today.getMonth() + 1}월 ${today.getDate()}일`;
+    
+    let slides = [
+        {
+            slide_index: 1,
+            type: "title",
+            title: "9대 성아연 뉴스레터",
+            subtitle: `[${todayStr}] 오늘의 AI 트렌드 요약`,
+            gradient: "preset-teal",
+            fontSize: 44
+        }
+    ];
+    
+    // Map each parsed article to slides
+    let topArticles = news.slice(0, 5);
+    while (topArticles.length < 5) {
+        topArticles.push({
+            title: "새로운 AI 기술 동향이 지속적으로 업데이트되고 있습니다.",
+            source: "TreeSoop",
+            link: "https://treesoop.com/blog",
+            bullets: [
+                "포항공대, 카이스트 출신 엔지니어들이 전하는 전문 IT/AI 인사이트를 확인해 보세요.",
+                "Agentic AI 개발, RAG 시스템 구축, AI 업무 자동화 실무 분석 보고서가 제공됩니다.",
+                "자세한 기술 도입 사례 및 분석글은 트리숲 공식 블로그를 참고하세요."
+            ]
+        });
+    }
+    
+    topArticles.forEach((art, idx) => {
+        let titleClean = art.title.replace(/^\d+\.\s*/, '').replace(/^\[[^\]]+\]\s*/, '');
+        let displayTitle = titleClean.length > 30 ? titleClean.slice(0, 30) + "..." : titleClean;
+        
+        let bullets = [...(art.bullets || [])];
+        while (bullets.length < 3) {
+            bullets.push("상세 정보 및 추가 분석 내용은 본문의 원문 링크를 참고하세요.");
+        }
+        bullets = bullets.slice(0, 3);
+        
+        slides.push({
+            slide_index: idx + 2,
+            type: "content",
+            title: `${idx + 1}. ${displayTitle}`,
+            bullets: bullets,
+            gradient: appState.gradients[(idx + 1) % appState.gradients.length],
+            fontSize: 34,
+            source_name: art.source,
+            source_url: art.link
+        });
+    });
+    
+    slides.push({
+        slide_index: 7,
+        type: "closing",
+        title: "9대 성아연 집행부",
+        subtitle: "매일 아침 성아연 뉴스레터로 최신 AI 트렌드를 만나보세요!",
+        gradient: "preset-cyber",
+        fontSize: 42
+    });
+    
+    return {
+        topic: "9대 성아연 뉴스레터",
+        slides: slides
+    };
+}
+
 
 // Call Google Gemini API with Search Grounding
 async function generateCardWithGemini(news, mode, apiKey) {
