@@ -54,6 +54,70 @@ def is_within_news_window(value, mode="daily", now=None):
     age = now - published
     return -datetime.timedelta(hours=6) <= age <= max_age
 
+def litify_tldr_bullets(values, min_points=3, max_points=4):
+    """Apply the /litify /tl;dr rule to long source paragraphs."""
+    raw_values = values if isinstance(values, list) else [values]
+    candidates = []
+
+    for value in raw_values:
+        if not value:
+            continue
+        clean = re.sub(r'\*\*([^*]+)\*\*', r'\1', str(value))
+        clean = re.sub(r'[*_#`>]', '', clean)
+        clean = re.sub(r'^\s*[-•▪◦]\s*', '', clean)
+        clean = re.sub(r'\s+', ' ', clean).strip()
+        sentences = re.findall(r'[^.!?。！？]+[.!?。！？]?', clean) or [clean]
+        for sentence in sentences:
+            point = sentence.strip()
+            if point:
+                candidates.append(point)
+
+    points = []
+    seen = set()
+    for candidate in candidates:
+        point = re.sub(r'^[0-9]+[.)]\s*', '', candidate).strip()
+        key = re.sub(r'\s+', '', point).lower()
+        if len(point) < 8 or key in seen:
+            continue
+        seen.add(key)
+        points.append(f"{point[:67].rstrip()}…" if len(point) > 68 else point)
+        if len(points) >= max_points:
+            break
+
+    fallbacks = [
+        "핵심 변화와 적용 대상은 하단의 원문에서 확인할 수 있습니다.",
+        "세부 수치와 기술 조건은 원문 기사에 구체적으로 안내되어 있습니다.",
+        "업무 적용 시 영향과 후속 업데이트를 함께 확인하는 것이 좋습니다."
+    ]
+    while len(points) < min_points:
+        points.append(fallbacks[len(points) % len(fallbacks)])
+    return points[:max_points]
+
+def source_meta_label(slide):
+    """Return a compact source label while keeping the original URL as link data."""
+    site_name = str(slide.get("source_name") or "").strip()
+    if not site_name:
+        host_match = re.match(r'https?://(?:www\.)?([^/]+)', str(slide.get("source_url") or ""), re.IGNORECASE)
+        site_name = host_match.group(1) if host_match else "원문 사이트"
+
+    published = parse_article_date_value(slide.get("source_date") or slide.get("published_at") or slide.get("date"))
+    if not published:
+        title_match = re.search(r'\[(\d{1,2})월\s*(\d{1,2})일\]', str(slide.get("title") or ""))
+        if title_match:
+            try:
+                published = datetime.datetime(
+                    get_kst_today().year,
+                    int(title_match.group(1)),
+                    int(title_match.group(2)),
+                    12,
+                    0
+                )
+            except ValueError:
+                published = None
+
+    date_label = published.strftime("%Y.%m.%d") if published else "날짜 미상"
+    return f"Source: {site_name} · {date_label}"
+
 class Colors:
     HEADER = '\033[95m'
     BLUE = '\033[94m'
@@ -1561,7 +1625,7 @@ class CreatorAgent:
                 {date_range_instruction} 현재 실행 시점은 {today_str}입니다. 이 시점과 무관한 과거 소식이나 2025년 등의 지나간 뉴스는 절대 포함하지 마십시오.
                 
                 [영문 소스 번역 및 핵심 요약 조건]
-                - 영문 사이트에서 가져온 기사는 반드시 자연스러운 한국어로 번역한 뒤, 3~4문장 정도로 핵심 내용만을 간결하게 요약해주십시오.
+                - /litify /tl;dr: 긴 본문을 그대로 옮기지 말고, 자연스러운 한국어로 핵심 사실만 3~4개의 짧은 불릿으로 요약하십시오.
                 - 요약 시 제품/기능 명칭, 주요 벤치마크 수치 및 실제 성능 향상률 등을 명확히 포함하여 사실을 기반으로 작성해 주십시오.
                 
                 [뉴스 목록]
@@ -1572,7 +1636,7 @@ class CreatorAgent:
                  - 1장 (인트로): 제목은 무조건 "9대 성아연 뉴스메이커"로 하고, 부제목은 주기에 맞는 세련된 요약 문구를 적으십시오.
                  - 2, 3, 4, 5, 6장 (본문): 각각 뉴스 1, 2, 3, 4, 5를 다룹니다.
                  - 7장 (아웃트로): 제목은 무조건 "9대 성아연 집행부"로 하고, 부제목은 "채널을 구독하고 매주 AI 소식을 빠르게 받아보세요!"로 하십시오.
-                2. 본문의 뉴스 요약(bullets)은 단순히 한 줄 요약이 아니라, 구체적인 핵심 내용, 수치(퍼센트, 금액, 성능 배수 등), 제품/기능 이름 및 파급 인사이트를 포함하여 조금 더 자세하고 구체적으로 3개의 불릿 포인트로 작성하십시오. (각 불릿은 최소 30자 이상 구체적인 한 문장)
+                2. 본문의 뉴스 요약(bullets)은 /litify /tl;dr 규칙에 따라 핵심 내용, 수치, 제품/기능 이름 및 파급 효과를 3~4개의 간결한 불릿으로 작성하십시오. 긴 본문을 하나의 불릿에 나열하지 마십시오.
                 3. {date_prefix_desc}
                 4. 모든 슬라이드 카드에는 반드시 본문과 관련된 뉴스 원문 링크(URL)가 명시되어야 합니다.
                 5. 원본 링크는 제공된 [뉴스 목록]의 URL만 그대로 매핑하고 임의로 꾸며내지 마십시오.
@@ -1665,6 +1729,17 @@ class CreatorAgent:
                 )
                 
                 card_data = json.loads(response.text.strip())
+                for slide in card_data.get("slides", []):
+                    if slide.get("type") == "content":
+                        slide["bullets"] = litify_tldr_bullets(slide.get("bullets", []))
+                        source_article = next((item for item in articles if item.get("link") == slide.get("source_url")), None)
+                        if source_article:
+                            slide["source_name"] = slide.get("source_name") or source_article.get("source")
+                            source_published = parse_article_date_value(
+                                source_article.get("published_at") or source_article.get("pubDate") or source_article.get("date")
+                            )
+                            if source_published:
+                                slide["source_date"] = source_published.strftime("%Y-%m-%d")
                 log(self.name, f"Gemini API를 이용해 카드뉴스 콘텐츠를 생성했습니다.", Colors.GREEN)
                 return card_data
                 
@@ -1720,11 +1795,7 @@ class CreatorAgent:
             title = art.get("title", "")
             source = art.get("source", "Trend Chaser")
             link = art.get("link", "https://www.taewoopark.com/trendchaser")
-            bullets = art.get("bullets", [])
-            
-            while len(bullets) < 3:
-                bullets.append("상세 정보 및 추가 분석 내용은 본문의 원문 링크를 참고하세요.")
-            bullets = bullets[:3]
+            bullets = litify_tldr_bullets(art.get("bullets", []))
             
             title_clean = re.sub(r'^\d+\.\s*', '', title)
             title_clean = re.sub(r'^\[[^\]]+\]\s*', '', title_clean)
@@ -1736,7 +1807,8 @@ class CreatorAgent:
                 "title": f"{idx+1}. {prefix}{display_title}",
                 "bullets": bullets,
                 "source_name": source,
-                "source_url": link
+                "source_url": link,
+                "source_date": crawled_date.strftime("%Y-%m-%d")
             })
             
         slides.append({
@@ -1796,11 +1868,7 @@ class CreatorAgent:
             title = art.get("title", "")
             source = art.get("source", "TreeSoop")
             link = art.get("link", "https://treesoop.com/blog")
-            bullets = art.get("bullets", [])
-            
-            while len(bullets) < 3:
-                bullets.append("상세 정보 및 추가 분석 내용은 본문의 원문 링크를 참고하세요.")
-            bullets = bullets[:3]
+            bullets = litify_tldr_bullets(art.get("bullets", []))
             
             title_clean = re.sub(r'^\d+\.\s*', '', title)
             title_clean = re.sub(r'^\[[^\]]+\]\s*', '', title_clean)
@@ -1812,7 +1880,8 @@ class CreatorAgent:
                 "title": f"{idx+1}. {prefix}{display_title}",
                 "bullets": bullets,
                 "source_name": source,
-                "source_url": link
+                "source_url": link,
+                "source_date": crawled_date.strftime("%Y-%m-%d")
             })
             
         slides.append({
@@ -1884,13 +1953,16 @@ class CreatorAgent:
                         "전력 효율 극대화 및 지속 가능한 데이터센터 운용을 위해 친환경 냉각 설계 표준을 전격 협의했습니다."
                     ]
 
+            bullets = litify_tldr_bullets(bullets)
+
             slides.append({
                 "slide_index": idx + 2,
                 "type": "content",
                 "title": f"{idx+1}. {prefix}{display_title}",
                 "bullets": bullets,
                 "source_name": source,
-                "source_url": link
+                "source_url": link,
+                "source_date": published_date.strftime("%Y-%m-%d")
             })
             
         slides.append({
@@ -2083,38 +2155,43 @@ class VerifierAgent:
                 y_offset += line_height
                 
             # Bullets: Draw each inside a white rounded rectangular box (larger text, improved readability)
-            bullets = slide.get("bullets", [])
-            box_tops = [350, 530, 710]
-            for idx, bullet in enumerate(bullets[:3]):
+            bullets = litify_tldr_bullets(slide.get("bullets", []))
+            is_four_point = len(bullets) == 4
+            box_tops = [330, 470, 610, 750] if is_four_point else [350, 530, 710]
+            box_height = 125 if is_four_point else 155
+            for idx, bullet in enumerate(bullets):
                 box_y = box_tops[idx]
                 
                 # Larger, consistently proportioned body cards for mobile readability.
-                draw.rounded_rectangle([100, box_y, 900, box_y + 155], radius=18, fill=(255, 255, 255))
+                draw.rounded_rectangle([100, box_y, 900, box_y + box_height], radius=18, fill=(255, 255, 255))
                 
                 # Draw gold vertical line prefix on the left edge inside the box
-                draw.rounded_rectangle([100, box_y, 110, box_y + 155], radius=5, fill=(194, 159, 102))
+                draw.rounded_rectangle([100, box_y, 110, box_y + box_height], radius=5, fill=(194, 159, 102))
                 
-                # Draw number "01", "02", "03" in gold
-                draw.text((128, box_y + 55), f"0{idx+1}", font=self.get_font("bold", 36), fill=(194, 159, 102))
+                # Draw sequential bullet number in gold.
+                number_size = 30 if is_four_point else 36
+                number_y = box_y + (43 if is_four_point else 55)
+                draw.text((128, number_y), f"0{idx+1}", font=self.get_font("bold", number_size), fill=(194, 159, 102))
                 
-                # Fit complete bullet copy without silently truncating it to two lines.
-                fitted_size = 36
-                fitted_font = content_font
+                # Fit each concise point without collapsing the whole article into one box.
+                fitted_size = 30 if is_four_point else 36
+                min_size = 25 if is_four_point else 30
+                fitted_font = self.get_font("bold", fitted_size)
                 bullet_wrapped = self.wrap_text_korean(bullet, fitted_font, 650)
-                while len(bullet_wrapped) > 3 and fitted_size > 30:
+                while len(bullet_wrapped) > (2 if is_four_point else 3) and fitted_size > min_size:
                     fitted_size -= 2
                     fitted_font = self.get_font("bold", fitted_size)
                     bullet_wrapped = self.wrap_text_korean(bullet, fitted_font, 650)
-                text_y = box_y + 20
-                line_step = fitted_size + 8
-                for line in bullet_wrapped[:4]:
+                text_y = box_y + (18 if is_four_point else 20)
+                line_step = fitted_size + (6 if is_four_point else 8)
+                for line in bullet_wrapped[:3 if is_four_point else 4]:
                     draw.text((205, text_y), line, font=fitted_font, fill=(51, 65, 85))
                     text_y += line_step
                     
-            # Draw Source Info at the bottom (full link, no truncation, small font)
+            # Show a compact source name and upload date; the payload retains the original URL.
             source_url = slide.get("source_url", "")
             if source_url:
-                source_text = f"source · {source_url}"
+                source_text = source_meta_label(slide)
                 draw.text((100, 920), source_text, font=self.get_font("regular", 20), fill=(100, 116, 139))
                 
         elif slide_type == "closing":
@@ -2158,11 +2235,17 @@ class VerifierAgent:
             else:
                 y_offset = y_offset + 100
                 
-            # Kakao channel link text
-            link_label = "🔗 성아연 카카오톡 채널 바로가기"
-            bbox = subtitle_font.getbbox(link_label)
+            # Expose the actual Kakao channel URL in the exported closing card.
+            link_label = "성아연 카카오톡 채널"
+            link_font = self.get_font("bold", 24)
+            bbox = link_font.getbbox(link_label)
             w = bbox[2] - bbox[0]
-            draw.text(((self.width - w) // 2, y_offset), link_label, font=subtitle_font, fill=(30, 58, 138))
+            draw.text(((self.width - w) // 2, y_offset), link_label, font=link_font, fill=(71, 85, 105))
+            channel_url = "https://pf.kakao.com/_KxgMwX"
+            url_font = self.get_font("bold", 22)
+            bbox = url_font.getbbox(channel_url)
+            w = bbox[2] - bbox[0]
+            draw.text(((self.width - w) // 2, y_offset + 36), channel_url, font=url_font, fill=(30, 58, 138))
             
         # Paste the logo if available (top left at x=100, y=50)
         if logo:

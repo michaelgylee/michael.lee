@@ -76,6 +76,75 @@ function isFreshArticle(article, mode, now = new Date()) {
     return age >= -DAY_MS && age <= maxAge;
 }
 
+// /litify /tl;dr: turn long source paragraphs into 3-4 compact card points.
+function litifyTldrBullets(values, minPoints = 3, maxPoints = 4) {
+    const rawValues = (Array.isArray(values) ? values : [values]).filter(Boolean);
+    const candidates = [];
+
+    const pushChunks = (text) => {
+        let clean = String(text)
+            .replace(/\*\*([^*]+)\*\*/g, '$1')
+            .replace(/[*_#`>]/g, '')
+            .replace(/^\s*[-•▪◦]\s*/g, '')
+            .replace(/\s+/g, ' ')
+            .trim();
+        if (!clean) return;
+
+        const sentences = clean.match(/[^.!?。！？]+[.!?。！？]?/g) || [clean];
+        sentences.forEach(sentence => {
+            const point = sentence.trim();
+            if (point) candidates.push(point);
+        });
+    };
+
+    rawValues.forEach(pushChunks);
+    const unique = [];
+    const seen = new Set();
+    for (const candidate of candidates) {
+        const point = candidate.replace(/^[0-9]+[.)]\s*/, '').trim();
+        const key = point.replace(/\s+/g, '').toLowerCase();
+        if (point.length < 8 || seen.has(key)) continue;
+        seen.add(key);
+        unique.push(point.length > 68 ? `${point.slice(0, 67).trim()}…` : point);
+        if (unique.length >= maxPoints) break;
+    }
+
+    if (unique.length < minPoints) {
+        const fallbacks = [
+            '핵심 변화와 적용 대상은 하단의 원문에서 확인할 수 있습니다.',
+            '세부 수치와 기술 조건은 원문 기사에 구체적으로 안내되어 있습니다.',
+            '업무 적용 시 영향과 후속 업데이트를 함께 확인하는 것이 좋습니다.'
+        ];
+        while (unique.length < minPoints) unique.push(fallbacks[unique.length % fallbacks.length]);
+    }
+    return unique.slice(0, maxPoints);
+}
+
+function sourceMetaLabel(slide) {
+    let siteName = String(slide?.source_name || '').trim();
+    if (!siteName && slide?.source_url) {
+        try {
+            siteName = new URL(slide.source_url).hostname.replace(/^www\./, '');
+        } catch (_) {
+            siteName = '원문 사이트';
+        }
+    }
+
+    let published = parseSourceDate(slide?.source_date || slide?.published_at || slide?.date);
+    if (!published) {
+        const titleDate = String(slide?.title || '').match(/\[(\d{1,2})월\s*(\d{1,2})일\]/);
+        if (titleDate) {
+            const todayKst = getKstDate();
+            published = new Date(Date.UTC(todayKst.getUTCFullYear(), Number(titleDate[1]) - 1, Number(titleDate[2]), 12));
+        }
+    }
+
+    const dateLabel = published
+        ? `${published.getUTCFullYear()}.${String(published.getUTCMonth() + 1).padStart(2, '0')}.${String(published.getUTCDate()).padStart(2, '0')}`
+        : '날짜 미상';
+    return `Source: ${siteName || '원문 사이트'} · ${dateLabel}`;
+}
+
 const today = getKstDate();
 const yesterday = new Date(today.getTime() - DAY_MS);
 const lastWeek = new Date(today.getTime() - 7 * DAY_MS);
@@ -1231,11 +1300,12 @@ function generateSimulatedCard(news, mode) {
             slide_index: index + 2,
             type: 'content',
             title: `${index + 1}. ${publicationPrefix(item)}${item.title.replace(/^\[[^\]]+\]\s*/, '')}`,
-            bullets: [...item.bullets],
+            bullets: litifyTldrBullets(item.bullets),
             gradient: appState.gradients[(index + 1) % appState.gradients.length],
             fontSize: 34,
             source_name: item.source,
-            source_url: item.link || 'https://news.google.com'
+            source_url: item.link || 'https://news.google.com',
+            source_date: formatYmd(parseSourceDate(item.publishedAt || item.date || item.pubDate) || getKstDate())
         });
     });
 
@@ -1361,11 +1431,7 @@ function generateTreeSoopCard(news) {
         let titleClean = art.title.replace(/^\d+\.\s*/, '').replace(/^\[[^\]]+\]\s*/, '');
         let displayTitle = titleClean;
         
-        let bullets = [...(art.bullets || [])];
-        while (bullets.length < 3) {
-            bullets.push("상세 정보 및 추가 분석 내용은 본문의 원문 링크를 참고하세요.");
-        }
-        bullets = bullets.slice(0, 3);
+        const bullets = litifyTldrBullets(art.bullets || []);
         
         slides.push({
             slide_index: idx + 2,
@@ -1375,7 +1441,8 @@ function generateTreeSoopCard(news) {
             gradient: appState.gradients[(idx + 1) % appState.gradients.length],
             fontSize: 34,
             source_name: art.source,
-            source_url: art.link
+            source_url: art.link,
+            source_date: formatYmd(parseSourceDate(art.publishedAt || art.date) || crawledDate)
         });
     });
     
@@ -1422,7 +1489,7 @@ async function fetchTrendChaserNews() {
                         title: t.headline,
                         source: t.source,
                         link: t.url || "https://www.taewoopark.com/trendchaser",
-                        bullets: paragraphs.slice(0, 3),
+                        bullets: litifyTldrBullets(paragraphs),
                         date: latestBrief.date,
                         publishedAt: latestBrief.publishedAt || latestBrief.updatedAt || latestBrief.date
                     };
@@ -1532,11 +1599,7 @@ function generateTrendChaserCard(news) {
         let titleClean = art.title.replace(/^\d+\.\s*/, '').replace(/^\[[^\]]+\]\s*/, '');
         let displayTitle = titleClean;
         
-        let bullets = [...(art.bullets || [])];
-        while (bullets.length < 3) {
-            bullets.push("상세 정보 및 추가 분석 내용은 본문의 원문 링크를 참고하세요.");
-        }
-        bullets = bullets.slice(0, 3);
+        const bullets = litifyTldrBullets(art.bullets || []);
         
         slides.push({
             slide_index: idx + 2,
@@ -1546,7 +1609,8 @@ function generateTrendChaserCard(news) {
             gradient: appState.gradients[(idx + 3) % appState.gradients.length],
             fontSize: 34,
             source_name: art.source,
-            source_url: art.link
+            source_url: art.link,
+            source_date: formatYmd(parseSourceDate(art.publishedAt || art.date) || crawledDate)
         });
     });
     
@@ -1592,6 +1656,10 @@ async function generateCardWithGemini(news, mode, apiKey) {
         
         [뉴스 데이터셋]
         ${context}
+
+        [요약 명령]
+        /litify /tl;dr
+        긴 본문을 그대로 옮기지 말고 핵심 사실만 3~4개의 짧은 불릿으로 재구성하십시오. 각 불릿은 카드에서 1~2줄 안에 읽히도록 간결하게 작성하고, 서로 다른 사실·수치·영향을 담으십시오.
         
         [뉴스 수집 및 검증 우선순위]
         1순위 - 공신력 있는 12대 지정 외신 채널 (The Guardian AI, DeepMind, TechCrunch, Economist, BBC, NYT 등)
@@ -1602,7 +1670,7 @@ async function generateCardWithGemini(news, mode, apiKey) {
         1. 일간 모드(Daily)인 경우 최근 24시간 이내, 주간 모드(Weekly)인 경우 최근 1주일 이내의 뉴스만 엄격하게 포함시키도록 Google Search를 조율하십시오. 현재 년월일 기준시점은 ${todayStr}입니다.
         2. 모든 항목에는 반드시 실제 접근 가능한 원본 출처 URL이 명시되어야 합니다. 기억으로 URL을 지어내지 마십시오.
         3. 1장 (Title Slide): 제목을 반드시 "9대 성아연 뉴스메이커"로 하고, 알맞은 서브타이틀을 기입합니다.
-        4. 2, 3, 4, 5, 6장 (Content Slide): 각각 주요 뉴스 1, 2, 3, 4, 5를 깊이 있게 다룹니다. 제목은 각 입력 뉴스의 실제 발행일을 사용해 '[M월 D일] 뉴스 헤드라인' 형식으로 작성하고 요청일을 발행일처럼 붙이지 마십시오. 본문 요약(bullets)은 구체적인 기술 명칭, 실질적인 동작 방식, 세부 수치 데이터 및 파급 인사이트를 서술하는 3개의 불릿 포인트로 작성하십시오 (각 불릿은 최소 35자 이상). 또한 반드시 출처명(source_name)과 원문 주소(source_url)를 매핑해 명시하십시오.
+        4. 2, 3, 4, 5, 6장 (Content Slide): 각각 주요 뉴스 1, 2, 3, 4, 5를 다룹니다. 제목은 각 입력 뉴스의 실제 발행일을 사용해 '[M월 D일] 뉴스 헤드라인' 형식으로 작성하고 요청일을 발행일처럼 붙이지 마십시오. 본문은 /litify /tl;dr 방식으로 핵심만 3~4개의 짧은 불릿 포인트로 작성하십시오. 또한 반드시 출처명(source_name)과 원문 주소(source_url)를 입력 데이터 그대로 매핑하십시오.
         5. 7장 (Closing Slide): 제목을 반드시 "9대 성아연 집행부"로 하고, 부제목은 "채널을 구독하고 매주 AI 소식을 빠르게 받아보세요!"로 작성하며 카카오톡 채널 추가 링크를 안내하십시오.
         
         [응답 스키마]
@@ -1725,6 +1793,14 @@ async function generateCardWithGemini(news, mode, apiKey) {
             slide.gradient = appState.gradients[idx % appState.gradients.length];
         }
         slide.fontSize = idx === 0 ? 44 : (idx === 6 ? 42 : 34);
+        if (slide.type === 'content') {
+            slide.bullets = litifyTldrBullets(slide.bullets || []);
+            const sourceArticle = news.find(item => item.link && item.link === slide.source_url);
+            if (sourceArticle) {
+                slide.source_name = slide.source_name || sourceArticle.source;
+                slide.source_date = formatYmd(parseSourceDate(sourceArticle.publishedAt || sourceArticle.date || sourceArticle.pubDate) || getKstDate());
+            }
+        }
     });
 
     return parsedData;
@@ -1735,6 +1811,9 @@ function renderCards(cardJson) {
     slidesContainer.innerHTML = "";
     
     cardJson.slides.forEach((slide, index) => {
+        if (slide.type === 'content') {
+            slide.bullets = litifyTldrBullets(slide.bullets || []);
+        }
         const cardWrapper = document.createElement("div");
         cardWrapper.className = `slide-card-wrapper ${slide.gradient}`;
         cardWrapper.setAttribute("data-slide-index", index);
@@ -1793,19 +1872,22 @@ function renderCards(cardJson) {
             let titleFontSize = slide.fontSize * 0.40;
             if (slide.title.length > 24) titleFontSize = 13;
             if (slide.title.length > 34) titleFontSize = 11.5;
+            const cardBullets = litifyTldrBullets(slide.bullets || []);
+            const hasFourPoints = cardBullets.length === 4;
+            const sourceLabel = sourceMetaLabel(slide);
             
             innerHtml += `
                 <div class="slide-card-title" style="font-size: ${titleFontSize}px; font-weight: 800; color: #0F172A; line-height: 1.3; margin-top: 6px; margin-bottom: 6px;">${slide.title}</div>
-                <div style="display: flex; flex-direction: column; gap: 6px; flex: 1; justify-content: flex-start;">
-                    ${slide.bullets.map((b, idx) => `
-                        <div class="slide-bullet-item" style="background: #FFFFFF; border-radius: 6px; border-left: 2.5px solid #C29F66; padding: 7px 8px; display: flex; align-items: flex-start; gap: 6px; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
-                            <span class="slide-bullet-number" style="color: #C29F66; font-size: 9px; font-weight: 800; font-family: monospace; line-height: 1.25;">0${idx+1}</span>
-                            <span class="slide-bullet-text" style="color: #334155; font-size: 9.2px; font-weight: 700; line-height: 1.3; flex: 1; word-break: keep-all;">${b}</span>
+                <div class="slide-card-bullets" style="display: flex; flex-direction: column; gap: ${hasFourPoints ? '4px' : '6px'}; flex: 1; justify-content: flex-start; margin: 0;">
+                    ${cardBullets.map((b, idx) => `
+                        <div class="slide-bullet-item" style="background: #FFFFFF; border-radius: 6px; border-left: 2.5px solid #C29F66; padding: ${hasFourPoints ? '5px 7px' : '7px 8px'}; display: flex; align-items: flex-start; gap: 6px; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
+                            <span class="slide-bullet-number" style="color: #C29F66; font-size: ${hasFourPoints ? '8px' : '9px'}; font-weight: 800; font-family: monospace; line-height: 1.25;">0${idx+1}</span>
+                            <span class="slide-bullet-text" style="color: #334155; font-size: ${hasFourPoints ? '8.2px' : '9.2px'}; font-weight: 700; line-height: 1.28; flex: 1; word-break: keep-all;">${b}</span>
                         </div>
                     `).join('')}
                 </div>
-                <a class="slide-card-source" href="${slide.source_url || '#'}" target="_blank" onclick="event.stopPropagation();" style="color: #64748B; text-decoration: underline; font-size: 7.2px; opacity: 0.95; margin-top: auto; padding-top: 4px; border-top: 1px solid rgba(0,0,0,0.05); word-break: break-all; cursor: pointer; display: block;">
-                    source · ${slide.source_url || ''}
+                <a class="slide-card-source" href="${slide.source_url || '#'}" title="원문 열기: ${slide.source_url || ''}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" style="color: #475569; text-decoration: underline; font-size: 7.2px; line-height: 1.22; opacity: 0.98; margin-top: auto; padding-top: 4px; border-top: 1px solid rgba(0,0,0,0.06); cursor: pointer; display: block;">
+                    ${sourceLabel}
                 </a>
             `;
         } else if (slide.type === 'closing') {
@@ -1820,8 +1902,9 @@ function renderCards(cardJson) {
                     <div style="background: white; padding: 6px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(30,64,175,0.05); border: 1px solid rgba(30,64,175,0.05);">
                         <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://pf.kakao.com/_KxgMwX" style="width: 60px; height: 60px;" alt="QR Code">
                     </div>
-                    <a href="https://pf.kakao.com/_KxgMwX" target="_blank" onclick="event.stopPropagation();" style="color: #1E3A8A; text-decoration: underline; font-size: 8px; font-weight: 700; cursor: pointer; display: inline-block;">
-                        🔗 성아연 카카오톡 채널 바로가기
+                    <span style="color: #475569; font-size: 7px; font-weight: 700;">성아연 카카오톡 채널</span>
+                    <a href="https://pf.kakao.com/_KxgMwX" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" style="color: #1E3A8A; text-decoration: underline; font-size: 8px; font-weight: 700; cursor: pointer; display: inline-block;">
+                        https://pf.kakao.com/_KxgMwX
                     </a>
                 </div>
             `;
@@ -1985,52 +2068,32 @@ presetBtns.forEach(btn => {
 function updateCarouselSlideDOM(index) {
     const slide = appState.cardData.slides[index];
     const wrapper = document.querySelector(`.slide-card-wrapper[data-slide-index="${index}"]`);
-    
-    let innerHtml = `
-        <div class="slide-card-inner">
-            <div class="slide-header-row" style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 5px;">
-                <span class="slide-tag" style="margin: 0; font-size: 0.55rem;">${appState.mode === 'daily' ? 'DAILY BRIEFING' : 'WEEKLY TRENDS'}</span>
-                <div style="display: flex; align-items: center; gap: 8px;">
-                    <div class="card-logo-badge" style="background: rgba(255,255,255,0.95); padding: 2px 6px; border-radius: 4px; display: flex; align-items: center; justify-content: center; height: 18px;">
-                        <img src="logo.png" style="height: 12px; max-width: 50px; object-fit: contain;">
-                    </div>
-                    <span class="slide-badge" style="position: static; font-size: 0.6rem; padding: 2px 6px; background: rgba(0,0,0,0.3); border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">${slide.slide_index}/7</span>
-                </div>
-            </div>
-            
-            <div class="slide-content-area">
-    `;
-    
-    if (slide.type === 'title') {
-        innerHtml += `
-            <div class="slide-card-title" style="font-size: ${slide.fontSize * 0.45}px">${slide.title.replace(/\n/g, '<br>')}</div>
-            <div class="slide-card-subtitle">${slide.subtitle}</div>
-        `;
-    } else if (slide.type === 'content') {
-        innerHtml += `
-            <div class="slide-card-title" style="font-size: ${slide.fontSize * 0.45}px">${slide.title}</div>
-            <ul class="slide-card-bullets">
-                ${slide.bullets.map(b => `<li>${b}</li>`).join('')}
-            </ul>
-            ${slide.source_name ? `
-            <a class="slide-card-source" href="${slide.source_url}" target="_blank" onclick="event.stopPropagation();" style="color: inherit; text-decoration: underline; font-size: 9px; opacity: 0.8; margin-top: auto; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.15); word-break: break-all; cursor: pointer; display: block;">
-                출처: ${slide.source_name} (${slide.source_url})
-            </a>
-            ` : ''}
-        `;
-    } else if (slide.type === 'closing') {
-        innerHtml += `
-            <div class="slide-card-title" style="font-size: ${slide.fontSize * 0.45}px; text-align: center;">${slide.title.replace(/\n/g, '<br>')}</div>
-            <div class="slide-card-subtitle" style="text-align: center; margin-top: 8px;">${slide.subtitle}</div>
-        `;
+    if (!wrapper) return;
+
+    const titleNode = wrapper.querySelector('.slide-card-title');
+    if (titleNode) {
+        titleNode.innerHTML = slide.title.replace(/\n/g, '<br>');
+        let titleSize = slide.fontSize * 0.40;
+        if (slide.type === 'content' && slide.title.length > 24) titleSize = 13;
+        if (slide.type === 'content' && slide.title.length > 34) titleSize = 11.5;
+        titleNode.style.fontSize = `${titleSize}px`;
     }
-    
-    innerHtml += `
-            </div>
-        </div>
-    `;
-    
-    wrapper.innerHTML = innerHtml;
+
+    const subtitleNode = wrapper.querySelector('.slide-card-subtitle');
+    if (subtitleNode) subtitleNode.innerHTML = (slide.subtitle || '').replace(/\n/g, '<br>');
+
+    if (slide.type === 'content') {
+        const bulletNodes = wrapper.querySelectorAll('.slide-bullet-text');
+        bulletNodes.forEach((node, bulletIndex) => {
+            node.textContent = slide.bullets[bulletIndex] || '';
+        });
+        const sourceNode = wrapper.querySelector('.slide-card-source');
+        if (sourceNode) {
+            sourceNode.href = slide.source_url || '#';
+            sourceNode.title = `원문 열기: ${slide.source_url || ''}`;
+            sourceNode.textContent = sourceMetaLabel(slide);
+        }
+    }
 }
 
 // Update Kakao Talk preview elements
