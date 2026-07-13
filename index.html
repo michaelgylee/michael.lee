@@ -24,7 +24,7 @@
                     <img src="logo.png" alt="성아연 로고" style="width: 36px; height: 36px; object-fit: contain;">
                     <div>
                         <h1>9대 성아연 뉴스메이커</h1>
-                        <span class="version">v3.1.7 (Litify TL;DR & Source Links)</span>
+                        <span class="version">v3.1.8 (Compact Cards & Resilient Feeds)</span>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                             <span class="checkmark"></span> 정책 / 트렌드
                         </label>
                         <label class="checkbox-container">
-                            <input type="checkbox" id="cat-llm-releases">
+                            <input type="checkbox" id="cat-llm-releases" checked>
                             <span class="checkmark"></span> 3대 LLM 최신 업데이트 (OpenAI, Anthropic, Google 필수 포함)
                         </label>
                     </div>
@@ -119,6 +119,7 @@
                     <div class="progress-bar-container">
                         <div class="progress-bar" id="progress-researcher"></div>
                     </div>
+                    <div class="agent-progress-detail" id="detail-researcher">수집 대기 중</div>
                 </div>
 
                 <div class="agent-card id-gatekeeper">
@@ -132,6 +133,7 @@
                     <div class="progress-bar-container">
                         <div class="progress-bar" id="progress-gatekeeper"></div>
                     </div>
+                    <div class="agent-progress-detail" id="detail-gatekeeper">검증 대기 중</div>
                 </div>
 
                 <div class="agent-card id-creator">
@@ -145,6 +147,7 @@
                     <div class="progress-bar-container">
                         <div class="progress-bar" id="progress-creator"></div>
                     </div>
+                    <div class="agent-progress-detail" id="detail-creator">제작 대기 중</div>
                 </div>
 
                 <div class="agent-card id-publisher">
@@ -158,6 +161,7 @@
                     <div class="progress-bar-container">
                         <div class="progress-bar" id="progress-publisher"></div>
                     </div>
+                    <div class="agent-progress-detail" id="detail-publisher">출력 검증 대기 중</div>
                 </div>
             </section>
             <div class="sidebar-footer" style="padding: 15px 20px; font-size: 11px; color: #64748b; border-top: 1px solid #1e293b; line-height: 1.5;">

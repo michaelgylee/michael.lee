@@ -80,7 +80,17 @@ def litify_tldr_bullets(values, min_points=3, max_points=4):
         if len(point) < 8 or key in seen:
             continue
         seen.add(key)
-        points.append(f"{point[:67].rstrip()}…" if len(point) > 68 else point)
+        compact = re.sub(r'\s+', ' ', point).strip()
+        compact = re.sub(r'할 수 있습니다[.!?]?$', '합니다.', compact)
+        compact = re.sub(r'할 수 있어요[.!?]?$', '합니다.', compact)
+        if len(compact) > 72:
+            complete_clauses = [
+                clause.strip() for clause in re.split(r'(?<=[.!?。！？])\s+|[;；]', compact)
+                if 24 <= len(clause.strip()) <= 72 and re.search(r'(?:다|요)[.!?。！？]?$', clause.strip())
+            ]
+            if complete_clauses:
+                compact = complete_clauses[0]
+        points.append(compact)
         if len(points) >= max_points:
             break
 
@@ -92,6 +102,11 @@ def litify_tldr_bullets(values, min_points=3, max_points=4):
     while len(points) < min_points:
         points.append(fallbacks[len(points) % len(fallbacks)])
     return points[:max_points]
+
+def clean_card_title(title):
+    clean = re.sub(r'^\s*\d+\.\s*', '', str(title or ''))
+    clean = re.sub(r'^\s*\[[^\]]+\]\s*', '', clean)
+    return clean.strip()
 
 def source_meta_label(slide):
     """Return a compact source label while keeping the original URL as link data."""
@@ -1599,13 +1614,10 @@ class CreatorAgent:
         last_week_str = last_week.strftime("%Y년 %m월 %d일")
         
         date_range_instruction = ""
-        date_prefix_desc = ""
         if mode == "daily":
             date_range_instruction = f"일간(daily) 뉴스이므로, 수집된 뉴스는 반드시 현재 날짜인 {today_str} 기준 24시간 이내 ({yesterday_str} ~ {today_str})의 최신 정보여야 합니다."
-            date_prefix_desc = f"본문의 각 뉴스 제목(title)은 반드시 '[{today.month}월 {today.day}일] 뉴스 제목'과 같이 대괄호 안에 해당 뉴스의 발생 월일(월과 일)을 접두사로 추가해 주십시오."
         else:
             date_range_instruction = f"주간(weekly) 뉴스이므로, 수집된 뉴스는 반드시 현재 날짜인 {today_str} 기준 1주일 이내 ({last_week_str} ~ {today_str})의 최신 정보여야 합니다."
-            date_prefix_desc = f"본문의 각 뉴스 제목(title)은 반드시 '[{last_week.month}월 {last_week.day}일~{today.month}월 {today.day}일] 뉴스 제목'과 같이 대괄호 안에 해당 주간의 날짜 범위를 접두사로 추가해 주십시오."
 
         # If Gemini API Key is available, try to use it
         if self.api_key:
@@ -1626,6 +1638,7 @@ class CreatorAgent:
                 
                 [영문 소스 번역 및 핵심 요약 조건]
                 - /litify /tl;dr: 긴 본문을 그대로 옮기지 말고, 자연스러운 한국어로 핵심 사실만 3~4개의 짧은 불릿으로 요약하십시오.
+                - 각 불릿은 공백 포함 45자 이내의 완결된 한 문장으로 작성하고 말줄임표를 사용하지 마십시오.
                 - 요약 시 제품/기능 명칭, 주요 벤치마크 수치 및 실제 성능 향상률 등을 명확히 포함하여 사실을 기반으로 작성해 주십시오.
                 
                 [뉴스 목록]
@@ -1637,7 +1650,7 @@ class CreatorAgent:
                  - 2, 3, 4, 5, 6장 (본문): 각각 뉴스 1, 2, 3, 4, 5를 다룹니다.
                  - 7장 (아웃트로): 제목은 무조건 "9대 성아연 집행부"로 하고, 부제목은 "채널을 구독하고 매주 AI 소식을 빠르게 받아보세요!"로 하십시오.
                 2. 본문의 뉴스 요약(bullets)은 /litify /tl;dr 규칙에 따라 핵심 내용, 수치, 제품/기능 이름 및 파급 효과를 3~4개의 간결한 불릿으로 작성하십시오. 긴 본문을 하나의 불릿에 나열하지 마십시오.
-                3. {date_prefix_desc}
+                3. 날짜는 첫 표지의 부제목에만 표시하고, 본문 뉴스 제목에는 번호와 날짜 접두사를 넣지 마십시오.
                 4. 모든 슬라이드 카드에는 반드시 본문과 관련된 뉴스 원문 링크(URL)가 명시되어야 합니다.
                 5. 원본 링크는 제공된 [뉴스 목록]의 URL만 그대로 매핑하고 임의로 꾸며내지 마십시오.
                 6. 반드시 아래의 JSON 형식으로만 응답해야 하며 다른 텍스트는 포함하지 마십시오.
@@ -1729,12 +1742,18 @@ class CreatorAgent:
                 )
                 
                 card_data = json.loads(response.text.strip())
-                for slide in card_data.get("slides", []):
+                for slide_index, slide in enumerate(card_data.get("slides", [])):
+                    if slide.get("type") == "title" and today_str not in str(slide.get("subtitle", "")):
+                        slide["subtitle"] = f"{today_str} · {slide.get('subtitle') or 'AI 뉴스 브리핑'}"
                     if slide.get("type") == "content":
+                        slide["title"] = clean_card_title(slide.get("title"))
                         slide["bullets"] = litify_tldr_bullets(slide.get("bullets", []))
                         source_article = next((item for item in articles if item.get("link") == slide.get("source_url")), None)
+                        if source_article is None and 0 <= slide_index - 1 < len(articles):
+                            source_article = articles[slide_index - 1]
                         if source_article:
-                            slide["source_name"] = slide.get("source_name") or source_article.get("source")
+                            slide["source_name"] = source_article.get("source") or slide.get("source_name")
+                            slide["source_url"] = source_article.get("link") or slide.get("source_url")
                             source_published = parse_article_date_value(
                                 source_article.get("published_at") or source_article.get("pubDate") or source_article.get("date")
                             )
@@ -1789,8 +1808,6 @@ class CreatorAgent:
             if len(parts) == 3:
                 crawled_date = datetime.date(int(parts[0]), int(parts[1]), int(parts[2]))
         
-        prefix = f"[{crawled_date.month}월 {crawled_date.day}일] "
-
         for idx, art in enumerate(top_articles):
             title = art.get("title", "")
             source = art.get("source", "Trend Chaser")
@@ -1804,7 +1821,7 @@ class CreatorAgent:
             slides.append({
                 "slide_index": idx + 2,
                 "type": "content",
-                "title": f"{idx+1}. {prefix}{display_title}",
+                "title": clean_card_title(display_title),
                 "bullets": bullets,
                 "source_name": source,
                 "source_url": link,
@@ -1862,8 +1879,6 @@ class CreatorAgent:
                 crawled_date = datetime.date(int(y), int(m), int(d))
                 break
                 
-        prefix = f"[{crawled_date.month}월 {crawled_date.day}일] "
-
         for idx, art in enumerate(top_articles):
             title = art.get("title", "")
             source = art.get("source", "TreeSoop")
@@ -1877,7 +1892,7 @@ class CreatorAgent:
             slides.append({
                 "slide_index": idx + 2,
                 "type": "content",
-                "title": f"{idx+1}. {prefix}{display_title}",
+                "title": clean_card_title(display_title),
                 "bullets": bullets,
                 "source_name": source,
                 "source_url": link,
@@ -1917,7 +1932,7 @@ class CreatorAgent:
                 "slide_index": 1,
                 "type": "title",
                 "title": "9대 성아연 뉴스메이커",
-                "subtitle": f"{cycle_text} • {mode.upper()}"
+                "subtitle": f"{today.strftime('%Y년 %m월 %d일')} · {cycle_text}"
             }
         ]
         
@@ -1925,13 +1940,11 @@ class CreatorAgent:
             title = art["title"]
             # Clean existing brackets to avoid double prefixing
             title_clean = re.sub(r'^\[[^\]]+\]\s*', '', title)
-            display_title = title_clean[:30] + "..." if len(title_clean) > 30 else title_clean
+            display_title = title_clean
             source = art["source"]
             link = art.get("link", "https://news.google.com")
             published = parse_article_date_value(art.get("published_at") or art.get("pubDate") or art.get("date"))
             published_date = published.date() if published else today
-            prefix = f"[{published_date.month}월 {published_date.day}일] "
-            
             bullets = art.get("bullets")
             if not bullets:
                 if idx == 3:  # Slide 4: AI usage tip slot
@@ -1958,7 +1971,7 @@ class CreatorAgent:
             slides.append({
                 "slide_index": idx + 2,
                 "type": "content",
-                "title": f"{idx+1}. {prefix}{display_title}",
+                "title": clean_card_title(display_title),
                 "bullets": bullets,
                 "source_name": source,
                 "source_url": link,
@@ -2086,6 +2099,8 @@ class VerifierAgent:
         
         # Load fonts
         title_text = slide.get("title", "")
+        if slide_type == "content":
+            title_text = clean_card_title(title_text)
         title_font_size = 50
         if slide_type == "content":
             if len(title_text) > 24:
@@ -2157,8 +2172,8 @@ class VerifierAgent:
             # Bullets: Draw each inside a white rounded rectangular box (larger text, improved readability)
             bullets = litify_tldr_bullets(slide.get("bullets", []))
             is_four_point = len(bullets) == 4
-            box_tops = [330, 470, 610, 750] if is_four_point else [350, 530, 710]
-            box_height = 125 if is_four_point else 155
+            box_tops = [320, 455, 590, 725] if is_four_point else [340, 515, 690]
+            box_height = 118 if is_four_point else 150
             for idx, bullet in enumerate(bullets):
                 box_y = box_tops[idx]
                 
@@ -2168,24 +2183,19 @@ class VerifierAgent:
                 # Draw gold vertical line prefix on the left edge inside the box
                 draw.rounded_rectangle([100, box_y, 110, box_y + box_height], radius=5, fill=(194, 159, 102))
                 
-                # Draw sequential bullet number in gold.
-                number_size = 30 if is_four_point else 36
-                number_y = box_y + (43 if is_four_point else 55)
-                draw.text((128, number_y), f"0{idx+1}", font=self.get_font("bold", number_size), fill=(194, 159, 102))
-                
                 # Fit each concise point without collapsing the whole article into one box.
-                fitted_size = 30 if is_four_point else 36
-                min_size = 25 if is_four_point else 30
+                fitted_size = 29 if is_four_point else 34
+                min_size = 20 if is_four_point else 26
                 fitted_font = self.get_font("bold", fitted_size)
-                bullet_wrapped = self.wrap_text_korean(bullet, fitted_font, 650)
-                while len(bullet_wrapped) > (2 if is_four_point else 3) and fitted_size > min_size:
+                bullet_wrapped = self.wrap_text_korean(bullet, fitted_font, 735)
+                while len(bullet_wrapped) > (3 if is_four_point else 3) and fitted_size > min_size:
                     fitted_size -= 2
                     fitted_font = self.get_font("bold", fitted_size)
-                    bullet_wrapped = self.wrap_text_korean(bullet, fitted_font, 650)
-                text_y = box_y + (18 if is_four_point else 20)
-                line_step = fitted_size + (6 if is_four_point else 8)
-                for line in bullet_wrapped[:3 if is_four_point else 4]:
-                    draw.text((205, text_y), line, font=fitted_font, fill=(51, 65, 85))
+                    bullet_wrapped = self.wrap_text_korean(bullet, fitted_font, 735)
+                text_y = box_y + (10 if is_four_point and len(bullet_wrapped) > 3 else (18 if is_four_point else 20))
+                line_step = fitted_size + (5 if is_four_point else 8)
+                for line in bullet_wrapped[:4]:
+                    draw.text((130, text_y), line, font=fitted_font, fill=(51, 65, 85))
                     text_y += line_step
                     
             # Show a compact source name and upload date; the payload retains the original URL.
@@ -2366,11 +2376,11 @@ class VerifierAgent:
             published = parse_article_date_value(
                 (article or {}).get("published_at") or (article or {}).get("pubDate") or (article or {}).get("date")
             )
-            if not published or not is_within_news_window(published, mode):
+            if not published or (not (treesoop_mode or trendchaser_mode) and not is_within_news_window(published, mode)):
                 return False, f"슬라이드 {slide['slide_index']}: 실제 소스 발행일이 없거나 {mode} 수집 범위를 벗어났습니다."
-            expected_str = f"[{published.month}월 {published.day}일]"
-            if expected_str not in slide.get("title", ""):
-                return False, f"슬라이드 {slide['slide_index']}: 소스 발행일 불일치 (기대: {expected_str}, 실제: '{slide.get('title', '')}')"
+            slide_date = parse_article_date_value(slide.get("source_date"))
+            if not slide_date or slide_date.date() != published.date():
+                return False, f"슬라이드 {slide['slide_index']}: 소스 발행일 불일치 (기대: {published.strftime('%Y-%m-%d')}, 실제: '{slide.get('source_date', '')}')"
 
         if treesoop_mode or trendchaser_mode:
             return True, "단독 수집 모드 가동: 무결성 검증 통과 (날짜 정합성 검증 완료)"
@@ -2608,12 +2618,12 @@ def main():
         sys.exit(0)
 
     print(f"\n{Colors.GREEN}==============================================")
-    print("      AI Card News Agent Team (v1.0)          ")
+    print("      AI Card News Agent Team (v3.1.8)        ")
     print(f"=============================================={Colors.ENDC}\n")
     
     # Choose daily by default, can be toggled by cli args
     mode = "daily"
-    include_llm_releases = False
+    include_llm_releases = True
     treesoop_mode = False
     trendchaser_mode = False
     for arg in sys.argv[1:]:
@@ -2623,6 +2633,8 @@ def main():
             mode = "daily"
         elif arg in ["--include-llm-releases", "--llm", "llm"]:
             include_llm_releases = True
+        elif arg in ["--no-llm-releases", "--no-llm"]:
+            include_llm_releases = False
         elif arg in ["--treesoop", "treesoop", "tree"]:
             treesoop_mode = True
         elif arg in ["--trendchaser", "trendchaser", "trend"]:

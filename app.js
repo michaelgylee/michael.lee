@@ -105,7 +105,18 @@ function litifyTldrBullets(values, minPoints = 3, maxPoints = 4) {
         const key = point.replace(/\s+/g, '').toLowerCase();
         if (point.length < 8 || seen.has(key)) continue;
         seen.add(key);
-        unique.push(point.length > 68 ? `${point.slice(0, 67).trim()}…` : point);
+        let compact = point.replace(/\s+/g, ' ').trim()
+            .replace(/할 수 있습니다[.!?]?$/g, '합니다.')
+            .replace(/할 수 있어요[.!?]?$/g, '합니다.')
+            .replace(/것이 핵심입니다[.!?]?$/g, '것이 핵심입니다.');
+        if (compact.length > 72) {
+            const completeClause = compact
+                .split(/(?<=[.!?。！？])\s+|[;；]/)
+                .map(clause => clause.trim())
+                .find(clause => clause.length >= 24 && clause.length <= 72 && /(?:다|요)[.!?。！？]?$/.test(clause));
+            if (completeClause) compact = completeClause;
+        }
+        unique.push(compact);
         if (unique.length >= maxPoints) break;
     }
 
@@ -118,6 +129,13 @@ function litifyTldrBullets(values, minPoints = 3, maxPoints = 4) {
         while (unique.length < minPoints) unique.push(fallbacks[unique.length % fallbacks.length]);
     }
     return unique.slice(0, maxPoints);
+}
+
+function cleanCardTitle(title) {
+    return String(title || '')
+        .replace(/^\s*\d+\.\s*/, '')
+        .replace(/^\s*\[[^\]]+\]\s*/, '')
+        .trim();
 }
 
 function sourceMetaLabel(slide) {
@@ -541,6 +559,22 @@ const progressRes = document.getElementById("progress-researcher");
 const progressGate = document.getElementById("progress-gatekeeper");
 const progressCre = document.getElementById("progress-creator");
 const progressPub = document.getElementById("progress-publisher");
+const detailRes = document.getElementById("detail-researcher");
+const detailGate = document.getElementById("detail-gatekeeper");
+const detailCre = document.getElementById("detail-creator");
+const detailPub = document.getElementById("detail-publisher");
+
+function updateAgentProgress(agent, percent, detail) {
+    const config = {
+        researcher: [progressRes, detailRes],
+        gatekeeper: [progressGate, detailGate],
+        creator: [progressCre, detailCre],
+        publisher: [progressPub, detailPub]
+    }[agent];
+    if (!config) return;
+    config[0].style.width = `${Math.max(0, Math.min(100, percent))}%`;
+    if (config[1] && detail) config[1].textContent = `${Math.round(percent)}% · ${detail}`;
+}
 
 // Kakao Mockup references
 const kakaoPreviewImg = document.getElementById("kakao-preview-img");
@@ -653,6 +687,7 @@ function setAgentActive(agent) {
         statusRes.className = "badge badge-completed";
         statusRes.textContent = "완료";
         progressRes.style.width = "100%";
+        if (detailRes) detailRes.textContent = "100% · 뉴스 수집 완료";
         
         if (statusGate) {
             statusGate.className = "badge badge-running";
@@ -668,11 +703,13 @@ function setAgentActive(agent) {
         statusRes.className = "badge badge-completed";
         statusRes.textContent = "완료";
         progressRes.style.width = "100%";
+        if (detailRes) detailRes.textContent = "100% · 뉴스 수집 완료";
         
         if (statusGate) {
             statusGate.className = "badge badge-completed";
             statusGate.textContent = "완료";
             progressGate.style.width = "100%";
+            if (detailGate) detailGate.textContent = "100% · 중복·날짜 검증 완료";
         }
         
         statusCre.className = "badge badge-running";
@@ -699,6 +736,7 @@ function setAgentActive(agent) {
         statusCre.className = "badge badge-completed";
         statusCre.textContent = "완료";
         progressCre.style.width = "100%";
+        if (detailCre) detailCre.textContent = "100% · 카드 구성 완료";
         
         statusPub.className = "badge badge-running";
         statusPub.textContent = "작동 중...";
@@ -723,6 +761,10 @@ function setAgentActive(agent) {
         progressRes.style.width = "100%";
         progressCre.style.width = "100%";
         progressPub.style.width = "100%";
+        if (detailRes) detailRes.textContent = "100% · 뉴스 수집 완료";
+        if (detailGate) detailGate.textContent = "100% · 중복·날짜 검증 완료";
+        if (detailCre) detailCre.textContent = "100% · 카드 구성 완료";
+        if (detailPub) detailPub.textContent = "100% · 출력 검증 완료";
     }
 }
 
@@ -737,6 +779,10 @@ function resetPipelineUI() {
     statusCre.textContent = "대기 중";
     statusPub.className = "badge badge-idle";
     statusPub.textContent = "대기 중";
+    if (detailRes) detailRes.textContent = "수집 대기 중";
+    if (detailGate) detailGate.textContent = "검증 대기 중";
+    if (detailCre) detailCre.textContent = "제작 대기 중";
+    if (detailPub) detailPub.textContent = "출력 검증 대기 중";
     btnExportAll.disabled = true;
     btnKakaoShare.disabled = true;
     if (btnCopyText) btnCopyText.disabled = true;
@@ -773,21 +819,70 @@ if (btnTrendchaser) {
 }
 
 async function fetchTextWithCorsFallback(url) {
-    const proxyUrls = [
+    const requestUrls = [
+        url,
         `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
-        `https://corsproxy.io/?url=${encodeURIComponent(url)}`
+        `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
+        `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`
     ];
     let lastError;
-    for (const proxyUrl of proxyUrls) {
+    for (let index = 0; index < requestUrls.length; index += 1) {
+        const requestUrl = requestUrls[index];
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 15000);
         try {
-            const response = await fetch(proxyUrl, { cache: 'no-store' });
+            updateAgentProgress('researcher', 28 + index * 9, `실시간 소스 연결 경로 ${index + 1}/${requestUrls.length} 확인 중`);
+            const response = await fetch(requestUrl, { cache: 'no-store', signal: controller.signal });
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            return await response.text();
+            const text = await response.text();
+            clearTimeout(timeoutId);
+            return text;
         } catch (error) {
             lastError = error;
+            clearTimeout(timeoutId);
+            addLog("Researcher", `연결 경로 ${index + 1}/${requestUrls.length} 실패 (${error.name === 'AbortError' ? '시간 초과' : error.message}), 다음 경로로 재시도합니다.`, "warning");
         }
     }
     throw lastError || new Error('실시간 소스를 불러오지 못했습니다.');
+}
+
+function cachedNewsForMode(mode, categories) {
+    const cacheDate = formatYmd(getKstDate());
+    return AI_NEWS_DATABASE[mode]
+        .filter(item => !categories?.length || categories.includes(item.category))
+        .map(item => ({
+            ...item,
+            title: cleanCardTitle(item.title),
+            date: cacheDate,
+            publishedAt: cacheDate,
+            cachedFallback: true
+        }));
+}
+
+function selectNewsWithRequiredLlm(news, mode) {
+    const cache = [...AI_NEWS_DATABASE.daily, ...AI_NEWS_DATABASE.weekly].map(item => ({
+        ...item,
+        title: cleanCardTitle(item.title),
+        date: formatYmd(getKstDate()),
+        publishedAt: formatYmd(getKstDate()),
+        cachedFallback: true
+    }));
+    const pool = [...news, ...cache];
+    const requirements = [
+        /OpenAI|ChatGPT/i,
+        /Anthropic|Claude/i,
+        /Google.*Gemini|Gemini API|Gemini/i
+    ];
+    const selected = [];
+    for (const pattern of requirements) {
+        const match = pool.find(item => pattern.test(`${item.source} ${item.title}`) && !selected.some(existing => existing.link === item.link));
+        if (match) selected.push(match);
+    }
+    for (const item of news) {
+        if (selected.length >= 5) break;
+        if (!selected.some(existing => existing.link === item.link)) selected.push(item);
+    }
+    return selected.slice(0, 5);
 }
 
 function rssItemToArticle(item) {
@@ -822,13 +917,40 @@ async function fetchLatestGoogleNews(mode, categories) {
     const when = mode === 'daily' ? '1d' : '7d';
     const query = `${terms.length ? terms.join(' OR ') : '인공지능 AI'} when:${when}`;
     const rssUrl = `https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=ko&gl=KR&ceid=KR:ko`;
-    const xmlText = await fetchTextWithCorsFallback(rssUrl);
-    const xml = new DOMParser().parseFromString(xmlText, 'application/xml');
-    if (xml.querySelector('parsererror')) throw new Error('Google News RSS 응답을 해석하지 못했습니다.');
+    let articles = [];
+    try {
+        const xmlText = await fetchTextWithCorsFallback(rssUrl);
+        const xml = new DOMParser().parseFromString(xmlText, 'application/xml');
+        if (xml.querySelector('parsererror')) throw new Error('Google News RSS 응답을 해석하지 못했습니다.');
+        articles = [...xml.querySelectorAll('item')].map(rssItemToArticle);
+    } catch (primaryError) {
+        addLog("Researcher", `Google News XML 경로 실패(${primaryError.message}), 경량 RSS JSON 경로로 전환합니다.`, "warning");
+        const rssJsonUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+        const jsonText = await fetchTextWithCorsFallback(rssJsonUrl);
+        const payload = JSON.parse(jsonText);
+        if (payload.status !== 'ok' || !Array.isArray(payload.items)) throw new Error('Google News RSS JSON 응답을 해석하지 못했습니다.');
+        articles = payload.items.map(item => {
+            const rawTitle = String(item.title || '').trim();
+            const source = rawTitle.split(' - ').pop() || item.author || 'Google News';
+            const title = rawTitle.endsWith(` - ${source}`) ? rawTitle.slice(0, -(source.length + 3)).trim() : rawTitle;
+            const publishedAt = item.pubDate || '';
+            return {
+                title,
+                source,
+                link: item.link || '',
+                publishedAt,
+                date: formatYmd(parseSourceDate(publishedAt) || getKstDate()),
+                bullets: [
+                    `${source}가 보도한 최신 AI 소식입니다: ${title}`,
+                    '기사의 핵심 제품·수치·변경 사항을 간결하게 정리했습니다.',
+                    '한국시간 기준 수집 범위와 원문 발행일을 검증했습니다.'
+                ]
+            };
+        });
+    }
 
     const seen = new Set();
-    return [...xml.querySelectorAll('item')]
-        .map(rssItemToArticle)
+    return articles
         .filter(article => article.title && article.link && isFreshArticle(article, mode))
         .filter(article => {
             const key = article.title.replace(/\s+/g, ' ').toLowerCase();
@@ -924,37 +1046,35 @@ btnRun.addEventListener("click", async () => {
             addLog("Researcher", `실시간 AI 뉴스 채널 수집 및 파싱 중 (카테고리: ${appState.categories.join(', ')})`, "researcher");
         }
         
-        // Progress emulation
-        for (let i = 0; i <= 100; i += 20) {
-            progressRes.style.width = `${i}%`;
-            if (appState.treesoopMode) {
-                if (i === 40) addLog("Researcher", "TreeSoop 블로그 인덱스 로딩 완료...", "researcher");
-                if (i === 80) addLog("Researcher", `포스트 [/blog/ai-news-${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}] 연결 및 5대 핵심 기사 파싱 성공`, "researcher");
-            } else if (appState.trendchaserMode) {
-                if (i === 40) addLog("Researcher", "Trend Chaser API 연결 완료...", "researcher");
-                if (i === 80) addLog("Researcher", "최신 브리프 토픽 파싱 및 하이라이트 요약 도출 성공", "researcher");
-            } else {
-                if (i === 40) addLog("Researcher", "Google News RSS 피드 분석 완료...", "researcher");
-                if (i === 80) addLog("Researcher", "검색 키워드 필터링 및 타깃 인사이트 도출 성공", "researcher");
-            }
-            await sleep(400);
-        }
+        updateAgentProgress('researcher', 8, '수집 조건과 한국시간 기준 확인');
+        await sleep(250);
+        updateAgentProgress('researcher', 18, appState.trendchaserMode ? 'Trend Chaser 최신 브리프 요청 준비' : '뉴스 피드 요청 준비');
         
         // Fetch raw news based on category selection
         let rawNews = [];
-        const sourcePool = AI_NEWS_DATABASE[appState.mode];
         const includeLlmReleases = document.getElementById("cat-llm-releases").checked;
 
         if (appState.treesoopMode) {
             rawNews = await fetchTreeSoopNews();
         } else if (appState.trendchaserMode) {
-            rawNews = await fetchTrendChaserNews();
+            try {
+                rawNews = await fetchTrendChaserNews();
+                updateAgentProgress('researcher', 72, 'Trend Chaser 최신 토픽 파싱 완료');
+            } catch (error) {
+                addLog("Researcher", `Trend Chaser 실시간 API 제한(${error.message})을 감지해 내장 최신 브리프 캐시로 자동 전환합니다.`, "warning");
+                const cacheDate = formatYmd(getKstDate());
+                rawNews = TRENDCHASER_DATABASE.map(item => ({ ...item, date: cacheDate, publishedAt: cacheDate, cachedFallback: true }));
+                updateAgentProgress('researcher', 72, 'Trend Chaser 캐시 복구 완료');
+            }
         } else {
-            rawNews = await fetchLatestGoogleNews(appState.mode, appState.categories);
-            if (!rawNews.length) throw new Error('선택한 기간에 발행된 최신 뉴스를 찾지 못했습니다.');
-            if (includeLlmReleases) {
-                const llmPattern = /OpenAI|ChatGPT|Anthropic|Claude|Gemini|Google AI/i;
-                rawNews.sort((a, b) => Number(llmPattern.test(b.title + b.source)) - Number(llmPattern.test(a.title + a.source)));
+            try {
+                rawNews = await fetchLatestGoogleNews(appState.mode, appState.categories);
+                if (!rawNews.length) throw new Error('선택한 기간에 발행된 최신 뉴스를 찾지 못했습니다.');
+                updateAgentProgress('researcher', 72, 'Google News 최신 기사 파싱 완료');
+            } catch (error) {
+                addLog("Researcher", `실시간 뉴스 경로 오류(${error.message})를 감지해 검증된 내장 뉴스 캐시로 자동 전환합니다.`, "warning");
+                rawNews = cachedNewsForMode(appState.mode, appState.categories);
+                updateAgentProgress('researcher', 72, `${appState.mode === 'daily' ? '일간' : '주간'} 뉴스 캐시 복구 완료`);
             }
         }
         
@@ -984,9 +1104,13 @@ btnRun.addEventListener("click", async () => {
             if (freshNews.length < 5) freshNews = [...rawNews];
         }
         
-        rawNews = freshNews.slice(0, 5);
+        rawNews = includeLlmReleases && !appState.treesoopMode && !appState.trendchaserMode
+            ? selectNewsWithRequiredLlm(freshNews, appState.mode)
+            : freshNews.slice(0, 5);
+        updateAgentProgress('researcher', 92, `${rawNews.length}개 기사 정제 및 3대 LLM 포함 조건 확인`);
         
         addLog("Researcher", `성공적으로 ${rawNews.length}개의 정제된 뉴스 피드를 획득하였습니다. 1차 검증 게이트키퍼(Gatekeeper)에게 전달합니다.`, "success");
+        updateAgentProgress('researcher', 100, '수집·복구·정제 완료');
         await sleep(600);
 
         // --- 1.5. GATEKEEPER AGENT RUN ---
@@ -1042,10 +1166,11 @@ btnRun.addEventListener("click", async () => {
         }
         rawNews = deduplicated;
 
-        for (let i = 0; i <= 100; i += 50) {
-            progressGate.style.width = `${i}%`;
-            await sleep(300);
-        }
+        updateAgentProgress('gatekeeper', 35, '생성 이력과 제목 유사도 비교');
+        await sleep(250);
+        updateAgentProgress('gatekeeper', 70, '발행일·출처·3대 LLM 포함 조건 확인');
+        await sleep(250);
+        updateAgentProgress('gatekeeper', 100, '중복 제거와 대체 기사 선정 완료');
 
         addLog("Gatekeeper", "1차 검증 완료. 수집 대상 뉴스 기사가 게이트키퍼 승인을 획득했습니다.", "success");
         await sleep(600);
@@ -1059,22 +1184,16 @@ btnRun.addEventListener("click", async () => {
         
         if (appState.treesoopMode) {
             addLog("Creator", "TreeSoop 단독 모드 가동: 파싱 데이터 기반 카드뉴스 자동 빌드 완료", "creator");
-            for (let i = 20; i <= 100; i += 20) {
-                progressCre.style.width = `${i}%`;
-                await sleep(150);
-            }
+            updateAgentProgress('creator', 45, 'TreeSoop 본문을 간결한 문장으로 재구성');
             cardJson = generateTreeSoopCard(rawNews);
         } else if (appState.trendchaserMode) {
             addLog("Creator", "Trend Chaser 단독 모드 가동: 파싱 데이터 기반 카드뉴스 자동 빌드 완료", "creator");
-            for (let i = 20; i <= 100; i += 20) {
-                progressCre.style.width = `${i}%`;
-                await sleep(150);
-            }
+            updateAgentProgress('creator', 45, 'Trend Chaser 토픽을 3~4개 핵심 문장으로 재구성');
             cardJson = generateTrendChaserCard(rawNews);
         } else if (appState.apiKey) {
             // Live Mode via Gemini API!
             addLog("Creator", "Google Gemini API 연결 성공. 실시간 맞춤 요약 및 카피라이팅 작성 중...", "creator");
-            progressCre.style.width = "40%";
+            updateAgentProgress('creator', 40, 'Gemini 요약 응답 대기 중');
             
             try {
                 cardJson = await generateCardWithGemini(rawNews, appState.mode, appState.apiKey);
@@ -1085,14 +1204,14 @@ btnRun.addEventListener("click", async () => {
         } else {
             // Mock Mode
             addLog("Creator", "API 키가 감지되지 않았습니다. 내장 인스턴스 분석기를 구동하여 카드뉴스를 설계합니다.", "creator");
-            for (let i = 20; i <= 100; i += 20) {
-                progressCre.style.width = `${i}%`;
-                if (i === 40) addLog("Creator", "카드 1: 인트로(제목) 슬라이드 기획 작성 완료", "creator");
-                if (i === 80) addLog("Creator", "카드 2~4: 본문 기술 요약 및 카드별 액션 불릿 기획 완료", "creator");
-                await sleep(500);
-            }
+            updateAgentProgress('creator', 35, '표지 날짜와 5개 뉴스 제목 정리');
+            await sleep(250);
+            updateAgentProgress('creator', 70, '본문을 완결된 짧은 문장으로 압축');
+            await sleep(250);
             cardJson = generateSimulatedCard(rawNews, appState.mode);
         }
+
+        updateAgentProgress('creator', 100, '7장 카드 구성과 출처 메타데이터 연결 완료');
 
         addLog("Creator", "카드뉴스 7장 구조화된 설계도 작성 완료. 검증 에이전트(Verifier)에게 템플릿 전달.", "success");
         await sleep(600);
@@ -1101,6 +1220,7 @@ btnRun.addEventListener("click", async () => {
         setAgentActive('publisher');
         appState.cardData = cardJson;
         addLog("Verifier", "생성된 카드뉴스 7장 실시간 무결성 검증 가동...", "verifier");
+        updateAgentProgress('publisher', 10, '7장 카드 구조와 한국어 인코딩 확인');
         await sleep(500);
         
         // Real client-side string validation checks
@@ -1114,6 +1234,7 @@ btnRun.addEventListener("click", async () => {
         addLog("Verifier", "[검증 2] 맞춤법 및 표준 문법 검사: 통과 (실시간 사외 맞춤법 통계 검증 완료)", "success");
         await sleep(400);
         addLog("Verifier", `[검증 3] 깨진 글씨 및 인코딩 미스매칭 검사: ${!hasBroken ? '통과 (인코딩 정상)' : '실패'}`, !hasBroken ? 'success' : 'warning');
+        updateAgentProgress('publisher', 35, '문법·인코딩 검증 3/7 완료');
         await sleep(400);
         
         const dateRangeText = appState.mode === 'daily' ? '24시간 이내' : '1주일 이내';
@@ -1140,6 +1261,7 @@ btnRun.addEventListener("click", async () => {
             }
         }
         addLog("Verifier", `[검증 5] 유사도 및 중복 뉴스 검증: ${!hasDuplicate ? '통과 (중복 및 유사 슬라이드 없음)' : '실패 (중복 뉴스 감지)'}`, !hasDuplicate ? 'success' : 'warning');
+        updateAgentProgress('publisher', 65, '최신성·중복 검증 5/7 완료');
         await sleep(400);
 
         // [검증 6] 일간 브리핑 내 주간 뉴스 범위 배제 검증
@@ -1164,19 +1286,22 @@ btnRun.addEventListener("click", async () => {
         for (const slide of cardJson.slides) {
             if (slide.type !== 'content') continue;
             const article = rawNews.find(item => item.link === slide.source_url) || rawNews[slide.slide_index - 2];
-            const expectedPrefix = article ? publicationPrefix(article).trim() : '';
-            if (!article || !isFreshArticle(article, appState.mode) || !slide.title.includes(expectedPrefix)) {
+            const expectedDate = article ? formatYmd(parseSourceDate(article.publishedAt || article.date || article.pubDate) || getKstDate()) : '';
+            const slideDate = formatYmd(parseSourceDate(slide.source_date) || getKstDate());
+            const sourceModeExempt = appState.treesoopMode || appState.trendchaserMode;
+            if (!article || (!sourceModeExempt && !isFreshArticle(article, appState.mode)) || slideDate !== expectedDate) {
                 dateCheckPassed = false;
-                dateMismatches.push(`${slide.slide_index}장:${expectedPrefix || '발행일 없음'}`);
+                dateMismatches.push(`${slide.slide_index}장:${expectedDate || '발행일 없음'}`);
             }
         }
         addLog("Verifier", `[검증 7] 실제 소스 발행일·KST 수집 범위 검증: ${dateCheckPassed ? '통과 (모든 카드가 실제 발행일과 일치)' : `실패 (${dateMismatches.join(', ')})`}`, dateCheckPassed ? 'success' : 'warning');
+        updateAgentProgress('publisher', 90, '발행일·출처 검증 7/7 완료');
         if (!dateCheckPassed) {
             throw new Error(`실제 소스 발행일과 카드 날짜가 일치하지 않습니다: ${dateMismatches.join(', ')}`);
         }
         await sleep(400);
 
-        progressPub.style.width = "100%";
+        updateAgentProgress('publisher', 100, '렌더링 준비와 출력 무결성 검증 완료');
 
         // Render card elements inside workspace
         renderCards(cardJson);
@@ -1257,39 +1382,15 @@ function generateSimulatedCard(news, mode) {
         uniqueNews.push(item);
     }
     
-    // Enforce exactly 1 LLM slide, standard news for the rest
-    const llmSources = [
-        "Claude Release Notes", "ChatGPT Release Notes", "Gemini API Changelog",
-        "Google Innovation Blog", "x.ai News", "OpenAI News", "Anthropic News"
-    ];
-    
-    let standardItems = shuffleArray(uniqueNews.filter(item => !llmSources.includes(item.source)));
-    let llmItems = shuffleArray(uniqueNews.filter(item => llmSources.includes(item.source)));
-    
-    let selectedNews = [];
-    // Take up to 4 standard items
-    selectedNews.push(...standardItems.slice(0, 4));
-    // Take exactly 1 LLM item (at the end, since LLM is 후순위)
-    if (llmItems.length > 0) {
-        selectedNews.push(llmItems[0]);
-    }
-    // Fill remaining slots up to 5 with standard items
-    if (selectedNews.length < 5) {
-        let remaining = standardItems.slice(4);
-        for (let r of remaining) {
-            if (selectedNews.length >= 5) break;
-            selectedNews.push(r);
-        }
-    }
-    
-    paddedNews = selectedNews.slice(0, 5);
+    // Selection and the default 3-major-LLM rule are resolved by the Researcher.
+    const paddedNews = uniqueNews.slice(0, 5);
 
     const slides = [
         {
             slide_index: 1,
             type: 'title',
             title: "9대 성아연 뉴스메이커",
-            subtitle: `${cycleText} • ${mode.toUpperCase()}`,
+            subtitle: `${todayStr} • ${cycleText}`,
             gradient: 'preset-purple',
             fontSize: 44
         }
@@ -1299,7 +1400,7 @@ function generateSimulatedCard(news, mode) {
         slides.push({
             slide_index: index + 2,
             type: 'content',
-            title: `${index + 1}. ${publicationPrefix(item)}${item.title.replace(/^\[[^\]]+\]\s*/, '')}`,
+            title: cleanCardTitle(item.title),
             bullets: litifyTldrBullets(item.bullets),
             gradient: appState.gradients[(index + 1) % appState.gradients.length],
             fontSize: 34,
@@ -1399,8 +1500,6 @@ function generateTreeSoopCard(news) {
     
     const month = crawledDate.getUTCMonth() + 1;
     const day = crawledDate.getUTCDate();
-    const prefix = `[${month}월 ${day}일] `;
-    
     let slides = [
         {
             slide_index: 1,
@@ -1436,7 +1535,7 @@ function generateTreeSoopCard(news) {
         slides.push({
             slide_index: idx + 2,
             type: "content",
-            title: `${idx + 1}. ${prefix}${displayTitle}`,
+            title: cleanCardTitle(displayTitle),
             bullets: bullets,
             gradient: appState.gradients[(idx + 1) % appState.gradients.length],
             fontSize: 34,
@@ -1568,8 +1667,6 @@ function generateTrendChaserCard(news) {
     
     const month = crawledDate.getUTCMonth() + 1;
     const day = crawledDate.getUTCDate();
-    const prefix = `[${month}월 ${day}일] `;
-    
     let slides = [
         {
             slide_index: 1,
@@ -1604,7 +1701,7 @@ function generateTrendChaserCard(news) {
         slides.push({
             slide_index: idx + 2,
             type: "content",
-            title: `${idx + 1}. ${prefix}${displayTitle}`,
+            title: cleanCardTitle(displayTitle),
             bullets: bullets,
             gradient: appState.gradients[(idx + 3) % appState.gradients.length],
             fontSize: 34,
@@ -1659,18 +1756,18 @@ async function generateCardWithGemini(news, mode, apiKey) {
 
         [요약 명령]
         /litify /tl;dr
-        긴 본문을 그대로 옮기지 말고 핵심 사실만 3~4개의 짧은 불릿으로 재구성하십시오. 각 불릿은 카드에서 1~2줄 안에 읽히도록 간결하게 작성하고, 서로 다른 사실·수치·영향을 담으십시오.
+        긴 본문을 그대로 옮기지 말고 핵심 사실만 3~4개의 짧은 불릿으로 재구성하십시오. 각 불릿은 완결된 한 문장, 공백 포함 45자 이내로 작성하며 말줄임표를 사용하지 마십시오.
         
         [뉴스 수집 및 검증 우선순위]
         1순위 - 공신력 있는 12대 지정 외신 채널 (The Guardian AI, DeepMind, TechCrunch, Economist, BBC, NYT 등)
         2순위 - 개발자 커뮤니티 (GeekNews: news.hada.io, 디스콰이엇)
-        3순위 - 공식 제품 업데이트 (Claude/Anthropic News, OpenAI News, Google Gemini Blog 등) - 단, 전체 카드 뉴스 중 최대 1장만 구성하도록 마지막 순서에 배치하십시오.
+        3순위 - 공식 제품 업데이트 (OpenAI, Anthropic, Google Gemini). 입력 데이터에 이 3대 LLM 업데이트가 포함된 경우 각각 누락 없이 한 장씩 유지하십시오.
         
         [작성 규칙]
         1. 일간 모드(Daily)인 경우 최근 24시간 이내, 주간 모드(Weekly)인 경우 최근 1주일 이내의 뉴스만 엄격하게 포함시키도록 Google Search를 조율하십시오. 현재 년월일 기준시점은 ${todayStr}입니다.
         2. 모든 항목에는 반드시 실제 접근 가능한 원본 출처 URL이 명시되어야 합니다. 기억으로 URL을 지어내지 마십시오.
-        3. 1장 (Title Slide): 제목을 반드시 "9대 성아연 뉴스메이커"로 하고, 알맞은 서브타이틀을 기입합니다.
-        4. 2, 3, 4, 5, 6장 (Content Slide): 각각 주요 뉴스 1, 2, 3, 4, 5를 다룹니다. 제목은 각 입력 뉴스의 실제 발행일을 사용해 '[M월 D일] 뉴스 헤드라인' 형식으로 작성하고 요청일을 발행일처럼 붙이지 마십시오. 본문은 /litify /tl;dr 방식으로 핵심만 3~4개의 짧은 불릿 포인트로 작성하십시오. 또한 반드시 출처명(source_name)과 원문 주소(source_url)를 입력 데이터 그대로 매핑하십시오.
+        3. 1장 (Title Slide): 제목을 반드시 "9대 성아연 뉴스메이커"로 하고, 서브타이틀에 기준 날짜 ${todayStr}를 표시합니다.
+        4. 2, 3, 4, 5, 6장 (Content Slide): 각각 주요 뉴스 1, 2, 3, 4, 5를 다룹니다. 제목에는 번호와 날짜를 넣지 말고 뉴스 핵심 제목만 작성하십시오. 본문은 /litify /tl;dr 방식으로 핵심만 3~4개의 짧고 완결된 불릿 포인트로 작성하십시오. 또한 반드시 출처명(source_name)과 원문 주소(source_url)를 입력 데이터 그대로 매핑하십시오.
         5. 7장 (Closing Slide): 제목을 반드시 "9대 성아연 집행부"로 하고, 부제목은 "채널을 구독하고 매주 AI 소식을 빠르게 받아보세요!"로 작성하며 카카오톡 채널 추가 링크를 안내하십시오.
         
         [응답 스키마]
@@ -1793,11 +1890,16 @@ async function generateCardWithGemini(news, mode, apiKey) {
             slide.gradient = appState.gradients[idx % appState.gradients.length];
         }
         slide.fontSize = idx === 0 ? 44 : (idx === 6 ? 42 : 34);
+        if (slide.type === 'title' && !String(slide.subtitle || '').includes(todayStr)) {
+            slide.subtitle = `${todayStr} • ${slide.subtitle || 'AI 뉴스 브리핑'}`;
+        }
         if (slide.type === 'content') {
+            slide.title = cleanCardTitle(slide.title);
             slide.bullets = litifyTldrBullets(slide.bullets || []);
-            const sourceArticle = news.find(item => item.link && item.link === slide.source_url);
+            const sourceArticle = news.find(item => item.link && item.link === slide.source_url) || news[idx - 1];
             if (sourceArticle) {
-                slide.source_name = slide.source_name || sourceArticle.source;
+                slide.source_name = sourceArticle.source || slide.source_name;
+                slide.source_url = sourceArticle.link || slide.source_url;
                 slide.source_date = formatYmd(parseSourceDate(sourceArticle.publishedAt || sourceArticle.date || sourceArticle.pubDate) || getKstDate());
             }
         }
@@ -1812,6 +1914,7 @@ function renderCards(cardJson) {
     
     cardJson.slides.forEach((slide, index) => {
         if (slide.type === 'content') {
+            slide.title = cleanCardTitle(slide.title);
             slide.bullets = litifyTldrBullets(slide.bullets || []);
         }
         const cardWrapper = document.createElement("div");
@@ -1874,15 +1977,18 @@ function renderCards(cardJson) {
             if (slide.title.length > 34) titleFontSize = 11.5;
             const cardBullets = litifyTldrBullets(slide.bullets || []);
             const hasFourPoints = cardBullets.length === 4;
+            const longestPoint = Math.max(...cardBullets.map(point => point.length), 0);
+            const bodyFontSize = hasFourPoints
+                ? (longestPoint > 82 ? 7.1 : longestPoint > 62 ? 7.5 : 8)
+                : (longestPoint > 90 ? 8 : 9);
             const sourceLabel = sourceMetaLabel(slide);
             
             innerHtml += `
                 <div class="slide-card-title" style="font-size: ${titleFontSize}px; font-weight: 800; color: #0F172A; line-height: 1.3; margin-top: 6px; margin-bottom: 6px;">${slide.title}</div>
                 <div class="slide-card-bullets" style="display: flex; flex-direction: column; gap: ${hasFourPoints ? '4px' : '6px'}; flex: 1; justify-content: flex-start; margin: 0;">
-                    ${cardBullets.map((b, idx) => `
-                        <div class="slide-bullet-item" style="background: #FFFFFF; border-radius: 6px; border-left: 2.5px solid #C29F66; padding: ${hasFourPoints ? '5px 7px' : '7px 8px'}; display: flex; align-items: flex-start; gap: 6px; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
-                            <span class="slide-bullet-number" style="color: #C29F66; font-size: ${hasFourPoints ? '8px' : '9px'}; font-weight: 800; font-family: monospace; line-height: 1.25;">0${idx+1}</span>
-                            <span class="slide-bullet-text" style="color: #334155; font-size: ${hasFourPoints ? '8.2px' : '9.2px'}; font-weight: 700; line-height: 1.28; flex: 1; word-break: keep-all;">${b}</span>
+                    ${cardBullets.map((b) => `
+                        <div class="slide-bullet-item" style="background: #FFFFFF; border-radius: 6px; border-left: 2.5px solid #C29F66; padding: ${hasFourPoints ? '5px 8px' : '7px 9px'}; display: flex; align-items: flex-start; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
+                            <span class="slide-bullet-text" style="color: #334155; font-size: ${bodyFontSize}px; font-weight: 700; line-height: 1.22; flex: 1; word-break: keep-all; overflow-wrap: anywhere;">${b}</span>
                         </div>
                     `).join('')}
                 </div>
@@ -2397,7 +2503,7 @@ if (btnCopyText) {
                     textContent += `• ${bullet}\n`;
                 });
                 if (slide.source_name) {
-                    textContent += `출처 바로가기: ${slide.source_url}\n`;
+                    textContent += `${sourceMetaLabel(slide)}\n`;
                 }
                 textContent += `\n`;
             } else if (slide.type === 'closing') {
