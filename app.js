@@ -1115,53 +1115,53 @@ function generateSimulatedCard(news, mode) {
 
 const TREESOOP_DATABASE = [
     {
-        title: "GPT-5.6, 마이크로소프트 365 코파일럿 기본 모델로",
-        source: "openai.com",
-        link: "https://openai.com/index/gpt-5-6-preferred-model-microsoft-365-copilot",
-        bullets: [
-            "오픈AI의 GPT-5.6이 이제 마이크로소프트 365 코파일럿의 기본 모델로 채택됐습니다.",
-            "워드, 엑셀, 파워포인트 전반에서 문서 작성과 데이터 분석, 슬라이드 제작을 돕습니다.",
-            "별도 설정 없이 코파일럿을 쓰는 것만으로 최신 모델의 성능을 체감할 수 있게 됩니다."
-        ]
-    },
-    {
-        title: "도이치텔레콤, AI로 통신망을 재편하다",
-        source: "openai.com",
-        link: "https://openai.com/index/deutsche-telekom",
-        bullets: [
-            "독일 최대 통신사 도이치텔레콤이 고객 서비스와 네트워크 운영 전반에 AI를 도입했습니다.",
-            "상담 응대부터 대규모 통신 인프라 운영까지, AI를 실무에 통합하는 엔터프라이즈 플레이북을 제시합니다.",
-            "소비자 서비스와 백엔드 인프라 양쪽에 AI를 적용한 접근이 특히 눈여겨볼 만합니다."
-        ]
-    },
-    {
-        title: "AI로 다이어그램을 그리는 draw.io 앱, next-ai-draw-io",
+        title: "AI 슬롭을 걷어내는 코딩 스킬, hallmark",
         source: "github.com",
-        link: "https://github.com/DayuanJiang/next-ai-draw-io",
+        link: "https://github.com/Nutlope/hallmark",
         bullets: [
-            "자연어 명령으로 draw.io 다이어그램을 생성·수정하는 Next.js 웹 애플리케이션입니다.",
-            "OpenAI, Anthropic Claude, DeepSeek 등 여러 LLM 프로바이더를 지원합니다.",
-            "MCP 서버로 띄워 Claude Desktop 같은 AI 에이전트와 연동할 수도 있습니다."
+            "Claude Code, Cursor, Codex에 붙이는 안티 AI 슬롭 디자인 스킬입니다.",
+            "20가지 테마와 57개의 품질 검사 게이트를 두어 고유한 구조와 디자인을 제작합니다.",
+            "UI 생성 및 코드 평가 명령어를 제공하여 색상 변경 이상의 깊은 다양성을 노립니다."
         ]
     },
     {
-        title: "TTS 모델 55종을 한눈에 비교하는 벤치마크, tts-bench",
+        title: "백그라운드에서 자율로 도는 코딩 에이전트",
         source: "github.com",
-        link: "https://github.com/5uck1ess/tts-bench",
+        link: "https://github.com/ColeMurray/background-agents",
         bullets: [
-            "텍스트-음성 변환(TTS) 모델을 속도, 음질, 보이스 클로닝 충실도 기준으로 평가하는 종합 벤치마크입니다.",
-            "55개 모델을 대상으로 속도 지표, 주관 청취 테스트, 객관 점수까지 세 가지 관점으로 측정합니다.",
-            "음성 기능을 프로젝트에 넣으려는 개발자가 자기 환경에 맞는 최적의 TTS를 고르는 데 실질적인 도움이 됩니다."
+            "샌드박스에서 에이전트가 저장소에 접근해 자율적으로 풀 리퀘스트를 생성하는 시스템입니다.",
+            "Slack, GitHub, Linear 등 일상 도구에서 작업을 손쉽게 지시할 수 있습니다.",
+            "정해진 스케줄 실행 및 멀티 모델을 골라 일을 상시 위임할 수 있는 환경을 제공합니다."
         ]
     },
     {
-        title: "Z-Image-Turbo, 브라우저에서 바로 쓰는 빠른 이미지 생성",
-        source: "huggingface.co",
-        link: "https://huggingface.co/spaces/mrfakename/Z-Image-Turbo",
+        title: "클로드 코드 설정을 한 번에, claude-code-templates",
+        source: "github.com",
+        link: "https://github.com/davila7/claude-code-templates",
         bullets: [
-            "빠른 이미지 합성에 최적화된 AI 이미지 생성 모델을 브라우저에서 바로 써볼 수 있는 허깅페이스 스페이스입니다.",
-            "설치 없이 빠르게 이미지를 뽑는 워크플로우로 평가받고 있습니다.",
-            "간단한 시안이나 목업 이미지를 신속하게 만들어야 할 때 유용한 도구입니다."
+            "Claude Code용 즉시 사용 가능한 설정을 간편하게 셋업해 주는 CLI 도구입니다.",
+            "AI 에이전트, 커스텀 명령어, MCP 통합 등 100개 이상의 사전 컴포넌트를 제공합니다.",
+            "보안 감사와 데이터베이스 설계 등 전문 영역 세팅과 실시간 모니터링을 지원합니다."
+        ]
+    },
+    {
+        title: "AI 에이전트로 헤지펀드를 굴린다, ai-hedge-fund",
+        source: "github.com",
+        link: "https://github.com/virattt/ai-hedge-fund",
+        bullets: [
+            "워런 버핏, 마이클 버리 등 대가들의 페르소나 에이전트가 협업해 매매를 판단합니다.",
+            "기본적 지표와 시장 심리를 결합하여 투자 신호를 만들고 백테스팅으로 성과를 검증합니다.",
+            "다양한 LLM과 로컬 모델을 연동하여 멀티 에이전트 거래를 모사하는 교육용 프로젝트입니다."
+        ]
+    },
+    {
+        title: "AI가 코드 변경을 이해하는 시맨틱 git, sem",
+        source: "github.com",
+        link: "https://github.com/Ataraxy-Labs/sem",
+        bullets: [
+            "라인 단위가 아니라 함수, 메서드, 클래스 단위로 코드의 변화를 깊게 추적하는 도구입니다.",
+            "Tree-sitter를 기반으로 32개 프로그래밍 언어의 구문 분석 및 영향도 분석을 제공합니다.",
+            "MCP 서버 연동을 통해 AI 코딩 에이전트가 완벽한 코드 의존성 그래프를 파악하게 돕습니다."
         ]
     }
 ];

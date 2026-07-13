@@ -14,6 +14,12 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 # Load environment variables (.env file)
 load_dotenv()
 
+def get_kst_now():
+    return datetime.datetime.now(datetime.timezone.utc).replace(tzinfo=None) + datetime.timedelta(hours=9)
+
+def get_kst_today():
+    return get_kst_now().date()
+
 class Colors:
     HEADER = '\033[95m'
     BLUE = '\033[94m'
@@ -82,7 +88,7 @@ def parse_article_datetime(html):
     import re
     import datetime
     
-    now = datetime.datetime.now()
+    now = get_kst_now()
     
     # 1. Search meta tags first (highly structured)
     meta_patterns = [
@@ -353,7 +359,7 @@ class ResearcherAgent:
             
         # Fallback to today's date URL if we couldn't discover
         if not latest_post_url:
-            now = datetime.datetime.now()
+            now = get_kst_now()
             date_str = now.strftime("%Y-%m-%d")
             latest_post_url = f"https://treesoop.com/blog/ai-news-{date_str}"
             
@@ -507,7 +513,7 @@ class ResearcherAgent:
             {"source": "Gemini API Changelog", "url": "https://ai.google.dev/gemini-api/docs/changelog?hl=ko"}
         ]
         
-        now = datetime.datetime.now()
+        now = get_kst_now()
         
         for s in sources:
             try:
@@ -556,7 +562,7 @@ class ResearcherAgent:
                             alt_item = items[0]
                             title_text = alt_item.find("title").text
                             link_text = alt_item.find("link").text
-                            now_dt = datetime.datetime.now()
+                            now_dt = get_kst_now()
                             mock_pub = now_dt - datetime.timedelta(hours=2)
                             articles.append({
                                 "title": f"{title_text} ({s['source']} Alt)",
@@ -577,7 +583,7 @@ class ResearcherAgent:
         # Generate dynamic mockups for failed sources (like ChatGPT due to 403 blocks)
         # to guarantee testing works cleanly under realistic constraints
         failed_sources = [s for s in sources if s["source"] not in [a["source"] for a in articles]]
-        now_dt = datetime.datetime.now()
+        now_dt = get_kst_now()
         mock_pub = now_dt - datetime.timedelta(hours=2) # Enforces strict 18-hour daily limit suitability
         mock_pub_str = mock_pub.strftime("%Y년 %m월 %d일")
         
@@ -817,7 +823,7 @@ class ResearcherAgent:
                     for b_art in backup:
                         if b_art.get("source") == src_name:
                             # Set its date to now - 2 hours to pass temporal verification
-                            now_dt = datetime.datetime.now()
+                            now_dt = get_kst_now()
                             mock_pub = now_dt - datetime.timedelta(hours=2)
                             b_art = dict(b_art) # copy dictionary to prevent editing original backup
                             b_art["pubDate"] = mock_pub.strftime("%Y년 %m월 %d일")
@@ -827,7 +833,7 @@ class ResearcherAgent:
                         llm_selections.append(found_backup)
                     else:
                         # Fallback mock details if somehow missing in backups
-                        now_dt = datetime.datetime.now()
+                        now_dt = get_kst_now()
                         mock_pub = now_dt - datetime.timedelta(hours=2)
                         mock_pub_str = mock_pub.strftime("%Y년 %m월 %d일")
                         if src_name == "ChatGPT Release Notes":
@@ -1013,7 +1019,7 @@ class ResearcherAgent:
         return final_articles[:limit]
                                 
     def get_backup_articles(self, mode="daily"):
-        today = datetime.date.today()
+        today = get_kst_today()
         last_week = today - datetime.timedelta(days=7)
         
         today_str = today.strftime("%Y년 %m월 %d일")
@@ -1379,7 +1385,7 @@ class GatekeeperAgent:
         for source_name, info in llm_sources.items():
             top_title = None
             bullets = info["bullets"]
-            pub_date = datetime.date.today()
+            pub_date = get_kst_today()
             try:
                 headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"}
                 res = requests.get(info["url"], headers=headers, timeout=3)
@@ -1414,7 +1420,7 @@ class GatekeeperAgent:
             latest_top = topmost_candidates[0]
             
             # Check if this latest topmost article is within the strict time limits
-            now = datetime.datetime.now()
+            now = get_kst_now()
             limit_dt = now - datetime.timedelta(hours=18) if mode == "daily" else now - datetime.timedelta(days=5)
             
             latest_dt = latest_top["date_obj"]
@@ -1475,7 +1481,7 @@ class CreatorAgent:
             
         log(self.name, f"뉴스 분석 및 카드뉴스 콘텐츠 기획 시작 (모드: {mode})...", Colors.HEADER)
         
-        today = datetime.date.today()
+        today = get_kst_today()
         yesterday = today - datetime.timedelta(days=1)
         last_week = today - datetime.timedelta(days=7)
         
@@ -1625,7 +1631,7 @@ class CreatorAgent:
         return self.generate_local_content(articles, mode)
 
     def generate_trendchaser_content(self, articles, mode):
-        today = datetime.date.today()
+        today = get_kst_today()
         today_str = today.strftime("%Y년 %m월 %d일")
         
         slides = [
@@ -1686,7 +1692,7 @@ class CreatorAgent:
         }
 
     def generate_treesoop_content(self, articles, mode):
-        today = datetime.date.today()
+        today = get_kst_today()
         today_str = today.strftime("%Y년 %m월 %d일")
         
         slides = [
@@ -1748,7 +1754,7 @@ class CreatorAgent:
         }
 
     def generate_local_content(self, articles, mode):
-        today = datetime.date.today()
+        today = get_kst_today()
         last_week = today - datetime.timedelta(days=7)
         
         prefix = ""
@@ -2110,7 +2116,7 @@ class VerifierAgent:
             if "bypass=true" in url or "example.com" in url or "pf.kakao.com" in url or "idxno=2026" in url or "topics/ai/2026" in url:
                 return True, "Mock/임시 URL 검증 우회"
                 
-            now = datetime.datetime.now()
+            now = get_kst_now()
             if mode == "daily":
                 limit_dt = now - datetime.timedelta(hours=18)
                 limit_str = "18시간"
@@ -2183,7 +2189,7 @@ class VerifierAgent:
             return True, "단독 수집 모드 가동: 무결성 검증 통과"
             
         # Returns (is_valid, reason_str)
-        today = datetime.date.today()
+        today = get_kst_today()
         yesterday = today - datetime.timedelta(days=1)
         last_week = today - datetime.timedelta(days=7)
         today_str = today.strftime("%Y년 %m월 %d일")
@@ -2276,7 +2282,7 @@ class VerifierAgent:
             log(self.name, "✔ 모든 카드뉴스 슬라이드가 무결성 검증을 완벽하게 통과했습니다!", Colors.GREEN)
             return True
         
-        today = datetime.date.today()
+        today = get_kst_today()
         yesterday = today - datetime.timedelta(days=1)
         last_week = today - datetime.timedelta(days=7)
         
