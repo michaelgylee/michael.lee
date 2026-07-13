@@ -1198,7 +1198,7 @@ function generateTreeSoopCard(news) {
     
     topArticles.forEach((art, idx) => {
         let titleClean = art.title.replace(/^\d+\.\s*/, '').replace(/^\[[^\]]+\]\s*/, '');
-        let displayTitle = titleClean.length > 30 ? titleClean.slice(0, 30) + "..." : titleClean;
+        let displayTitle = titleClean;
         
         let bullets = [...(art.bullets || [])];
         while (bullets.length < 3) {
@@ -1222,7 +1222,7 @@ function generateTreeSoopCard(news) {
         slide_index: 7,
         type: "closing",
         title: "9대 성아연 집행부",
-        subtitle: "매일 아침 성아연 뉴스레터로 최신 AI 트렌드를 만나보세요!",
+        subtitle: "매일 아침 성아연 뉴스레터로\n최신 AI 트렌드를 만나보세요!",
         gradient: "preset-cyber",
         fontSize: 42
     });
@@ -1341,7 +1341,7 @@ function generateTrendChaserCard(news) {
     
     topArticles.forEach((art, idx) => {
         let titleClean = art.title.replace(/^\d+\.\s*/, '').replace(/^\[[^\]]+\]\s*/, '');
-        let displayTitle = titleClean.length > 30 ? titleClean.slice(0, 30) + "..." : titleClean;
+        let displayTitle = titleClean;
         
         let bullets = [...(art.bullets || [])];
         while (bullets.length < 3) {
@@ -1572,8 +1572,12 @@ function renderCards(cardJson) {
                 <div class="slide-card-subtitle">${slide.subtitle}</div>
             `;
         } else if (slide.type === 'content') {
+            let titleFontSize = slide.fontSize * 0.40;
+            if (slide.title.length > 24) titleFontSize = 11.5;
+            if (slide.title.length > 34) titleFontSize = 9.8;
+            
             innerHtml += `
-                <div class="slide-card-title" style="font-size: ${slide.fontSize * 0.40}px">${slide.title}</div>
+                <div class="slide-card-title" style="font-size: ${titleFontSize}px">${slide.title}</div>
                 <ul class="slide-card-bullets">
                     ${slide.bullets.map(b => `<li>${b}</li>`).join('')}
                 </ul>
@@ -1586,7 +1590,7 @@ function renderCards(cardJson) {
         } else if (slide.type === 'closing') {
             innerHtml += `
                 <div class="slide-card-title" style="font-size: ${slide.fontSize * 0.40}px; text-align: center;">${slide.title.replace(/\n/g, '<br>')}</div>
-                <div class="slide-card-subtitle" style="text-align: center; margin-top: 6px;">${slide.subtitle}</div>
+                <div class="slide-card-subtitle" style="text-align: center; margin-top: 6px;">${slide.subtitle.replace(/\n/g, '<br>')}</div>
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 10px; gap: 8px;">
                     <div style="background: white; padding: 4px; border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 6px rgba(0,0,0,0.2);">
                         <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://pf.kakao.com/_KxgMwX" style="width: 70px; height: 70px;" alt="QR Code">

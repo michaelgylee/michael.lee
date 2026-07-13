@@ -1662,7 +1662,7 @@ class CreatorAgent:
             
             title_clean = re.sub(r'^\d+\.\s*', '', title)
             title_clean = re.sub(r'^\[[^\]]+\]\s*', '', title_clean)
-            display_title = title_clean[:30] + "..." if len(title_clean) > 30 else title_clean
+            display_title = title_clean
             
             slides.append({
                 "slide_index": idx + 2,
@@ -1724,7 +1724,7 @@ class CreatorAgent:
             
             title_clean = re.sub(r'^\d+\.\s*', '', title)
             title_clean = re.sub(r'^\[[^\]]+\]\s*', '', title_clean)
-            display_title = title_clean[:30] + "..." if len(title_clean) > 30 else title_clean
+            display_title = title_clean
             
             slides.append({
                 "slide_index": idx + 2,
@@ -1739,7 +1739,7 @@ class CreatorAgent:
             "slide_index": 7,
             "type": "closing",
             "title": "9대 성아연 집행부",
-            "subtitle": "매일 아침 성아연 뉴스레터로 최신 AI 트렌드를 만나보세요!"
+            "subtitle": "매일 아침 성아연 뉴스레터로\n최신 AI 트렌드를 만나보세요!"
         })
         
         return {
@@ -1937,7 +1937,15 @@ class VerifierAgent:
         self.draw_gradient_background(draw, slide_index)
         
         # Load fonts
-        title_font = self.get_font("bold", 50)
+        title_text = slide.get("title", "")
+        title_font_size = 50
+        if slide.get("type") == "content":
+            if len(title_text) > 24:
+                title_font_size = 40
+            if len(title_text) > 34:
+                title_font_size = 32
+                
+        title_font = self.get_font("bold", title_font_size)
         subtitle_font = self.get_font("regular", 28)
         content_font = self.get_font("regular", 30)
         footer_font = self.get_font("regular", 24)
@@ -1984,9 +1992,10 @@ class VerifierAgent:
             # Title
             title_lines = self.wrap_text_korean(title_text, title_font, 800)
             y_offset = 180
+            line_height = int(title_font_size * 1.3)
             for line in title_lines:
                 draw.text((100, y_offset), line, font=title_font, fill=(15, 23, 42, 255))
-                y_offset += 75
+                y_offset += line_height
                 
             # Draw line spacer
             y_offset += 20
@@ -2034,9 +2043,12 @@ class VerifierAgent:
                 
             y_offset += 15
             # Subtitle centering
-            bbox = subtitle_font.getbbox(subtitle_text)
-            w = bbox[2] - bbox[0]
-            draw.text(((self.width - w) // 2, y_offset), subtitle_text, font=subtitle_font, fill=(14, 165, 233, 255))
+            subtitle_lines = subtitle_text.replace("<br>", "\n").split("\n")
+            for sub_line in subtitle_lines:
+                bbox = subtitle_font.getbbox(sub_line)
+                w = bbox[2] - bbox[0]
+                draw.text(((self.width - w) // 2, y_offset), sub_line, font=subtitle_font, fill=(14, 165, 233, 255))
+                y_offset += 40
             
             # Draw QR Code image from API
             qr_x = (self.width - 180) // 2
