@@ -1940,6 +1940,33 @@ class VerifierAgent:
             lines.append(current_line)
         return lines
 
+    def content_layout_fits(self, slide):
+        """Measure the same title/body safe area used by render_card at the minimum font size."""
+        title_text = normalized_headline(slide.get("title", ""))
+        title_font_size = 50
+        if len(title_text) > 24:
+            title_font_size = 38
+        if len(title_text) > 34:
+            title_font_size = 34
+        title_font = self.get_font("bold", title_font_size)
+        title_lines = self.wrap_text_korean(title_text, title_font, 800)
+        title_bottom = 165 + len(title_lines) * int(title_font_size * 1.3)
+        content_top = max(title_bottom + 18, 300)
+        content_bottom = 895
+        bullets = litify_tldr_bullets(slide.get("bullets", []), min_points=1, max_points=3)
+        gap = 14
+        for fitted_size in range(34, 19, -2):
+            fitted_font = self.get_font("bold", fitted_size)
+            line_step = fitted_size + 7
+            total_height = sum(
+                max(82, len(self.wrap_text_korean(bullet, fitted_font, 735)) * line_step + 30)
+                for bullet in bullets
+            )
+            total_height += gap * max(0, len(bullets) - 1)
+            if total_height <= content_bottom - content_top:
+                return True
+        return False
+
     def load_logo_transparent(self):
         logo_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logo.png")
         if not os.path.exists(logo_path):
@@ -2273,10 +2300,10 @@ class VerifierAgent:
                     return False, f"슬라이드 {slide.get('slide_index')}: 어미가 완결되지 않은 문장 감지"
                 if re.search(r'(?:\b[A-Za-z][A-Za-z0-9.+-]{1,24}|(?:고|며|하고|이며|에서|으로|를|을|가|이|은|는))[.!?。！？]?$', bullet, re.IGNORECASE):
                     return False, f"슬라이드 {slide.get('slide_index')}: 어색한 종결어 감지"
-                if len(bullet) > 82:
-                    return False, f"슬라이드 {slide.get('slide_index')}: 레이아웃 안전 길이(82자) 초과"
                 if re.search(r'(?:^|[\s(])(?:com|net|org|io)\)?[.!?]?$', bullet, re.IGNORECASE):
                     return False, f"슬라이드 {slide.get('slide_index')}: URL 분리 조각 감지"
+            if not self.content_layout_fits(slide):
+                return False, f"슬라이드 {slide.get('slide_index')}: 최소 폰트에서도 Source 안전 영역과 본문이 겹칩니다."
         
         # Match every card to its source's real publication date instead of stamping request day.
         content_slides = [slide for slide in card_data.get("slides", []) if slide["type"] == "content"]
@@ -2534,7 +2561,7 @@ def main():
         sys.exit(0)
 
     print(f"\n{Colors.GREEN}==============================================")
-    print("       AI Card News Agent Team (v3.2)         ")
+    print("      AI Card News Agent Team (v3.2.1)       ")
     print(f"=============================================={Colors.ENDC}\n")
     
     # Choose daily by default, can be toggled by cli args

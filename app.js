@@ -188,7 +188,7 @@ function assessCardDeck(cardJson) {
         if (bullets.some(point => !/[.!?。！？]$/.test(point))) issues.push(`${slide.slide_index}장에 미완결 문장이 있습니다.`);
         if (bullets.some(point => /(?:\b[A-Za-z][A-Za-z0-9.+-]{1,24}|(?:고|며|하고|이며|에서|으로|를|을|가|이|은|는))[.!?。！？]?$/i.test(point))) issues.push(`${slide.slide_index}장에 어색한 종결어가 있습니다.`);
         if (bullets.some(point => /(?:^|[\s(])(?:com|net|org|io)\)?[.!?]?$/i.test(point))) issues.push(`${slide.slide_index}장에 분리된 URL 조각이 있습니다.`);
-        if (bullets.some(point => point.length > 82)) issues.push(`${slide.slide_index}장에 지나치게 긴 문장이 있습니다.`);
+        // Text length alone is not a failure: fitContentCard validates the real rendered height.
     });
     return [...new Set(issues)];
 }
@@ -1289,8 +1289,8 @@ btnRun.addEventListener("click", async () => {
             const qualityIssues = assessCardDeck(cardJson);
             if (!qualityIssues.length) break;
             addLog("Verifier", `콘텐츠 품질 검증 반려: ${qualityIssues.join(' ')}`, "warning");
-            updateAgentProgress('publisher', 15 + revision * 10, `제작 에이전트에 ${revision}차 재작성 요청`);
             setAgentActive('creator');
+            updateAgentProgress('creator', 55 + revision * 15, `${revision}차 품질 피드백 반영 및 재작성`);
             addLog("Creator", "검증 의견을 반영해 문장 종결·정보량·카드 수를 다시 조정합니다.", "creator");
             if (appState.apiKey && !appState.treesoopMode) {
                 cardJson = await generateCardWithGemini(rawNews, appState.mode, appState.apiKey, qualityIssues.join('\n'));
