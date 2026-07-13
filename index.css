@@ -559,7 +559,7 @@ body {
 /* Dashboard Layout Split */
 .dashboard-grid {
     display: grid;
-    grid-template-columns: 1fr 340px;
+    grid-template-columns: minmax(0, 1fr);
     gap: 24px;
     margin-bottom: 24px;
 }
@@ -1264,7 +1264,7 @@ body {
         gap: 20px;
     }
     
-    .preview-column, .kakao-column {
+    .preview-column {
         width: 100% !important;
         max-width: 100% !important;
         min-width: 0 !important;

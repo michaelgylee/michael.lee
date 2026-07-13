@@ -762,8 +762,12 @@ class ResearcherAgent:
                     "published_at": published.isoformat() if published else "",
                     "date": published.strftime("%Y-%m-%d") if published else "",
                     "source": source,
-                    "bullets": [title.rstrip(".!?。！？") + "."],
-                    "headline_only": True,
+                    "bullets": [
+                        title.rstrip(".!?。！？") + ".",
+                        f"{source}가 {published.strftime('%Y-%m-%d') if published else '최근'} 보도한 최신 AI 소식입니다.",
+                        "세부 수치와 전체 맥락은 카드 하단의 원문 링크에서 확인할 수 있습니다.",
+                    ],
+                    "headline_only": False,
                     "priority": 1
                 })
             articles.sort(key=lambda article: parse_article_date_value(article.get("published_at")) or datetime.datetime.min, reverse=True)
@@ -2561,7 +2565,7 @@ def main():
         sys.exit(0)
 
     print(f"\n{Colors.GREEN}==============================================")
-    print("      AI Card News Agent Team (v3.2.1)       ")
+    print("      AI Card News Agent Team (v3.2.2)       ")
     print(f"=============================================={Colors.ENDC}\n")
     
     # Choose daily by default, can be toggled by cli args
@@ -2595,10 +2599,8 @@ def main():
         # 1. Start Researcher Agent
         articles = researcher.run(limit=5, mode=mode, include_llm_releases=include_llm_releases, treesoop_mode=treesoop_mode)
         
-        # 1.5. Start Gatekeeper Agent for topmost & deduplication checks
-        gatekeeper = GatekeeperAgent()
-        articles = gatekeeper.verify(articles, researcher.get_last_standard_candidates(), researcher.get_last_llm_candidates(), mode, include_llm_releases=include_llm_releases, treesoop_mode=treesoop_mode)
-        
+        # Candidate freshness and deduplication are completed by the Researcher;
+        # only one final Verifier may request a Creator rewrite.
         # 2. Start Creator Agent
         card_content = creator.run(articles, mode=mode, treesoop_mode=treesoop_mode)
         

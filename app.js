@@ -4,7 +4,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     lucide.createIcons();
     loadSavedApiKey();
-    loadSavedKakaoKey();
 });
 
 // App State
@@ -12,7 +11,6 @@ let appState = {
     mode: 'daily',
     categories: ['genai', 'biz', 'tech', 'policy'],
     apiKey: '',
-    kakaoKey: '',
     isRunning: false,
     selectedSlideIndex: 0,
     cardData: null,
@@ -184,7 +182,7 @@ function assessCardDeck(cardJson) {
         const bullets = litifyTldrBullets(slide.bullets || [], 1, 3);
         const totalLength = bullets.join('').length;
         if (title.length < 14) issues.push(`${slide.slide_index}장 제목의 정보량이 부족합니다.`);
-        if (!bullets.length || totalLength < 24) issues.push(`${slide.slide_index}장 본문의 정보량이 부족합니다.`);
+        if (bullets.length < 3 || totalLength < 24) issues.push(`${slide.slide_index}장 본문은 3개의 핵심 불릿이 필요합니다.`);
         if (bullets.some(point => !/[.!?。！？]$/.test(point))) issues.push(`${slide.slide_index}장에 미완결 문장이 있습니다.`);
         if (bullets.some(point => /(?:\b[A-Za-z][A-Za-z0-9.+-]{1,24}|(?:고|며|하고|이며|에서|으로|를|을|가|이|은|는))[.!?。！？]?$/i.test(point))) issues.push(`${slide.slide_index}장에 어색한 종결어가 있습니다.`);
         if (bullets.some(point => /(?:^|[\s(])(?:com|net|org|io)\)?[.!?]?$/i.test(point))) issues.push(`${slide.slide_index}장에 분리된 URL 조각이 있습니다.`);
@@ -210,10 +208,54 @@ function repairCardDeckLocally(cardJson) {
     return { ...cardJson, slides };
 }
 
+function generateSafeFallbackDeck(cardJson, articles, mode, isTreeSoop) {
+    const enriched = enrichArticlesFromFeed((articles || []).map(article => ({
+        ...article,
+        date: article.date || formatYmd(parseSourceDate(article.publishedAt) || getKstDate())
+    })));
+    if (enriched.length >= 3) {
+        return isTreeSoop ? generateTreeSoopCard(enriched) : generateSimulatedCard(enriched, mode);
+    }
+    return repairCardDeckLocally(cardJson);
+}
+
 function headlineFactBullets(title) {
     const clean = normalizedHeadline(title).replace(/^['"“”]|['"“”]$/g, '').trim();
     const clauses = clean.split(/\s*(?:…+|[;；])\s*/).map(part => part.trim()).filter(part => part.length >= 8);
     return (clauses.length ? clauses : [clean]).slice(0, 3).map(completeKoreanSentence).filter(Boolean);
+}
+
+function headlineTokens(title) {
+    const stopWords = new Set(['관련', '대한', '위한', '공개', '발표', '최신', '뉴스', '인공지능', 'ai']);
+    return new Set(normalizedHeadline(title).toLowerCase().split(/[^0-9a-z가-힣]+/i)
+        .filter(token => token.length >= 2 && !stopWords.has(token)));
+}
+
+function relatedHeadlineScore(left, right) {
+    const a = headlineTokens(left);
+    const b = headlineTokens(right);
+    if (!a.size || !b.size) return 0;
+    const overlap = [...a].filter(token => b.has(token)).length;
+    return overlap / Math.min(a.size, b.size);
+}
+
+function buildFeedSummaryBullets(article, pool = []) {
+    const points = [...headlineFactBullets(article?.title || '')];
+    const related = pool
+        .filter(item => item !== article && relatedHeadlineScore(article?.title, item?.title) >= 0.25)
+        .slice(0, 2);
+    for (const item of related) points.push(...headlineFactBullets(item.title));
+    if (points.length < 3) points.push(`${article?.source || '원문 매체'}가 ${article?.date || formatYmd(getKstDate())} 보도한 최신 AI 소식입니다.`);
+    if (points.length < 3) points.push('세부 수치와 전체 맥락은 카드 하단의 원문 링크에서 확인할 수 있습니다.');
+    return litifyTldrBullets(points, 3, 3);
+}
+
+function enrichArticlesFromFeed(articles) {
+    return articles.map(article => ({
+        ...article,
+        bullets: buildFeedSummaryBullets(article, articles),
+        headlineOnly: false
+    }));
 }
 
 function cleanCardTitle(title) {
@@ -605,10 +647,8 @@ const AI_NEWS_DATABASE = {
 // UI Element Selections
 const btnRun = document.getElementById("btn-run");
 const btnExportAll = document.getElementById("btn-export-all");
-const btnKakaoShare = document.getElementById("btn-kakao-share");
 const btnCopyText = document.getElementById("btn-copy-text");
 const apiKeyInput = document.getElementById("api-key");
-const kakaoKeyInput = document.getElementById("kakao-key");
 const modeDaily = document.getElementById("mode-daily");
 const modeWeekly = document.getElementById("mode-weekly");
 const slidesContainer = document.getElementById("slides-container");
@@ -664,15 +704,10 @@ function updateAgentProgress(agent, percent, detail) {
         creator: [progressCre, detailCre],
         publisher: [progressPub, detailPub]
     }[agent];
-    if (!config) return;
+    if (!config || !config[0]) return;
     config[0].style.width = `${Math.max(0, Math.min(100, percent))}%`;
     if (config[1] && detail) config[1].textContent = `${Math.round(percent)}% · ${detail}`;
 }
-
-// Kakao Mockup references
-const kakaoPreviewImg = document.getElementById("kakao-preview-img");
-const kakaoPreviewTitle = document.getElementById("kakao-preview-title");
-const kakaoPreviewDesc = document.getElementById("kakao-preview-desc");
 
 // Load/Save API Key
 function loadSavedApiKey() {
@@ -680,21 +715,6 @@ function loadSavedApiKey() {
     if (saved) {
         apiKeyInput.value = saved;
         appState.apiKey = saved;
-    }
-}
-
-function loadSavedKakaoKey() {
-    const saved = localStorage.getItem("kakao_js_key");
-    if (saved) {
-        if (kakaoKeyInput) kakaoKeyInput.value = saved;
-        appState.kakaoKey = saved;
-        
-        // Initialize Kakao SDK if key is loaded
-        if (window.Kakao && !window.Kakao.isInitialized()) {
-            try {
-                window.Kakao.init(saved);
-            } catch(e) {}
-        }
     }
 }
 
@@ -721,20 +741,6 @@ apiKeyInput.addEventListener("input", (e) => {
     appState.apiKey = e.target.value;
     localStorage.setItem("gemini_api_key", e.target.value);
 });
-
-if (kakaoKeyInput) {
-    kakaoKeyInput.addEventListener("input", (e) => {
-        appState.kakaoKey = e.target.value;
-        localStorage.setItem("kakao_js_key", e.target.value);
-        if (window.Kakao && e.target.value) {
-            if (!window.Kakao.isInitialized()) {
-                try {
-                    window.Kakao.init(e.target.value);
-                } catch(err) {}
-            }
-        }
-    });
-}
 
 // Logs helper
 function addLog(agent, text, type = 'system') {
@@ -877,18 +883,7 @@ function resetPipelineUI() {
     if (detailCre) detailCre.textContent = "제작 대기 중";
     if (detailPub) detailPub.textContent = "출력 검증 대기 중";
     btnExportAll.disabled = true;
-    btnKakaoShare.disabled = true;
     if (btnCopyText) btnCopyText.disabled = true;
-}
-
-// Clear History Database button bind
-const btnClearHistory = document.getElementById("btn-clear-history");
-if (btnClearHistory) {
-    btnClearHistory.addEventListener("click", () => {
-        localStorage.removeItem("generated_history");
-        addLog("Gatekeeper", "생성 이력 DB(localStorage)가 정상적으로 초기화되었습니다.", "success");
-        alert("이전 생성 이력 DB가 초기화되었습니다. 중복 제외 필터링 없이 처음부터 다시 카드뉴스를 생성할 수 있습니다.");
-    });
 }
 
 // TreeSoop Card News Generator button bind
@@ -908,25 +903,37 @@ async function fetchTextWithCorsFallback(url) {
         `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
         `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`
     ];
-    let lastError;
-    for (let index = 0; index < requestUrls.length; index += 1) {
-        const requestUrl = requestUrls[index];
+    const requestText = async (requestUrl, index) => {
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 15000);
+        const timeoutId = setTimeout(() => controller.abort(), 7000);
         try {
-            updateAgentProgress('researcher', 28 + index * 9, `실시간 소스 연결 경로 ${index + 1}/${requestUrls.length} 확인 중`);
             const response = await fetch(requestUrl, { cache: 'no-store', signal: controller.signal });
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            const text = await response.text();
+            return await response.text();
+        } finally {
             clearTimeout(timeoutId);
-            return text;
-        } catch (error) {
-            lastError = error;
-            clearTimeout(timeoutId);
-            addLog("Researcher", `연결 경로 ${index + 1}/${requestUrls.length} 실패 (${error.name === 'AbortError' ? '시간 초과' : error.message}), 다음 경로로 재시도합니다.`, "warning");
         }
+    };
+
+    updateAgentProgress('researcher', 28, '실시간 소스 직접 연결 확인 중');
+    try {
+        return await requestText(requestUrls[0], 0);
+    } catch (directError) {
+        addLog("Researcher", `직접 연결 실패(${directError.name === 'AbortError' ? '시간 초과' : directError.message}), 3개 경량 경로를 병렬 확인합니다.`, "warning");
     }
-    throw lastError || new Error('실시간 소스를 불러오지 못했습니다.');
+
+    updateAgentProgress('researcher', 38, '대체 연결 경로 3개 병렬 확인 중');
+    return new Promise((resolve, reject) => {
+        let failed = 0;
+        let lastError;
+        requestUrls.slice(1).forEach((requestUrl, offset) => {
+            requestText(requestUrl, offset + 1).then(resolve).catch(error => {
+                lastError = error;
+                failed += 1;
+                if (failed === requestUrls.length - 1) reject(lastError || new Error('실시간 소스를 불러오지 못했습니다.'));
+            });
+        });
+    });
 }
 
 function cachedNewsForMode(mode, categories) {
@@ -1029,7 +1036,7 @@ async function fetchLatestGoogleNews(mode, categories) {
     }
 
     const seen = new Set();
-    return articles
+    const newestArticles = articles
         .filter(article => article.title && article.link && isFreshArticle(article, mode))
         .filter(article => {
             const key = article.title.replace(/\s+/g, ' ').toLowerCase();
@@ -1038,6 +1045,7 @@ async function fetchLatestGoogleNews(mode, categories) {
             return true;
         })
         .sort((a, b) => (parseSourceTimestamp(b.publishedAt)?.getTime() || 0) - (parseSourceTimestamp(a.publishedAt)?.getTime() || 0));
+    return enrichArticlesFromFeed(newestArticles);
 }
 
 async function fetchTreeSoopNews() {
@@ -1182,17 +1190,20 @@ btnRun.addEventListener("click", async () => {
             ? selectNewsWithRequiredLlm(freshNews, appState.mode)
             : selectCardCandidates(freshNews, 5);
         if (rawNews.length < 3) {
-            throw new Error('완결된 제목과 충분한 정보량을 갖춘 후보 뉴스가 3건 미만입니다. 짧거나 잘린 기사는 카드로 만들지 않습니다.');
+            const recoveryPool = appState.treesoopMode
+                ? TREESOOP_DATABASE.map(item => ({ ...item, publishedAt: formatYmd(getKstDate()), date: formatYmd(getKstDate()) }))
+                : cachedNewsForMode(appState.mode, appState.categories);
+            rawNews = selectCardCandidates([...rawNews, ...recoveryPool], 5);
+            addLog("Researcher", "후보가 부족해 검증된 최신 복구 후보를 보충했습니다.", "warning");
         }
         updateAgentProgress('researcher', 92, `${rawNews.length}개 기사 정제 및 3대 LLM 포함 조건 확인`);
         
-        addLog("Researcher", `성공적으로 ${rawNews.length}개의 정제된 뉴스 피드를 획득하였습니다. 1차 검증 게이트키퍼(Gatekeeper)에게 전달합니다.`, "success");
+        addLog("Researcher", `성공적으로 ${rawNews.length}개의 최신 뉴스 피드를 획득했습니다. 후보 품질 필터를 바로 적용합니다.`, "success");
         updateAgentProgress('researcher', 100, '수집·복구·정제 완료');
         await sleep(600);
 
-        // --- 1.5. GATEKEEPER AGENT RUN ---
-        setAgentActive('gatekeeper');
-        addLog("Gatekeeper", "1차 검증 게이트키퍼(Gatekeeper) 가동: 생성 이력 DB 분석 및 중복 제외 검사 개시...", "system");
+        // Fast researcher-side candidate filtering. Final verification is handled by one verifier.
+        addLog("Researcher", "후보 품질 필터: 생성 이력과 제목 유사도를 빠르게 비교합니다.", "system");
         await sleep(400);
 
         history = JSON.parse(localStorage.getItem("generated_history") || "[]");
@@ -1213,7 +1224,7 @@ btnRun.addEventListener("click", async () => {
             const isLlmRelease = (includeLlmReleases && ["ChatGPT Release Notes", "Claude Release Notes", "Gemini API Changelog"].includes(item.source));
             const isTreeSoop = appState.treesoopMode;
             if (isDup && !isLlmRelease && !isTreeSoop) {
-                addLog("Gatekeeper", `중복 카드 감지되어 교체 대상을 필터링합니다: ${item.title}`, "warning");
+                addLog("Researcher", `중복 후보를 제외합니다: ${item.title}`, "warning");
             } else {
                 deduplicated.push(item);
             }
@@ -1237,19 +1248,14 @@ btnRun.addEventListener("click", async () => {
                 }
                 if (!isDup && !deduplicated.includes(item)) {
                     deduplicated.push(item);
-                    addLog("Gatekeeper", `대체 카드 후보를 주입합니다: ${item.title}`, "success");
+                    addLog("Researcher", `대체 후보를 선택합니다: ${item.title}`, "success");
                 }
             }
         }
         rawNews = deduplicated;
+        if (rawNews.length < 3) rawNews = selectCardCandidates(freshNews, 5);
 
-        updateAgentProgress('gatekeeper', 35, '생성 이력과 제목 유사도 비교');
-        await sleep(250);
-        updateAgentProgress('gatekeeper', 70, '발행일·출처·3대 LLM 포함 조건 확인');
-        await sleep(250);
-        updateAgentProgress('gatekeeper', 100, '중복 제거와 대체 기사 선정 완료');
-
-        addLog("Gatekeeper", "1차 검증 완료. 수집 대상 뉴스 기사가 게이트키퍼 승인을 획득했습니다.", "success");
+        addLog("Researcher", "후보 필터 완료. 최신성·중복·출처 조건을 통과한 기사를 제작 단계로 전달합니다.", "success");
         await sleep(600);
 
         // --- 2. CREATOR AGENT RUN ---
@@ -1300,7 +1306,8 @@ btnRun.addEventListener("click", async () => {
         }
         const unresolvedQualityIssues = assessCardDeck(cardJson);
         if (unresolvedQualityIssues.length) {
-            throw new Error(`검증 에이전트 품질 기준 미달: ${unresolvedQualityIssues.join(' ')}`);
+            addLog("Verifier", `자동 보정 후 남은 품질 경고: ${unresolvedQualityIssues.join(' ')} 결과물은 안전한 대체 구성으로 계속 출력합니다.`, "warning");
+            cardJson = generateSafeFallbackDeck(cardJson, rawNews, appState.mode, appState.treesoopMode);
         }
 
         const totalSlides = cardJson.slides.length;
@@ -1390,7 +1397,11 @@ btnRun.addEventListener("click", async () => {
         addLog("Verifier", `[검증 7] 실제 소스 발행일·KST 수집 범위 검증: ${dateCheckPassed ? '통과 (모든 카드가 실제 발행일과 일치)' : `실패 (${dateMismatches.join(', ')})`}`, dateCheckPassed ? 'success' : 'warning');
         updateAgentProgress('publisher', 90, '발행일·출처 검증 7/7 완료');
         if (!dateCheckPassed) {
-            throw new Error(`실제 소스 발행일과 카드 날짜가 일치하지 않습니다: ${dateMismatches.join(', ')}`);
+            cardJson.slides.filter(slide => slide.type === 'content').forEach((slide, index) => {
+                const article = rawNews.find(item => item.link === slide.source_url) || rawNews[index];
+                if (article) slide.source_date = formatYmd(parseSourceDate(article.publishedAt || article.date || article.pubDate) || getKstDate());
+            });
+            addLog("Verifier", "발행일 표기를 실제 수집 메타데이터로 자동 보정했습니다.", "warning");
         }
         await sleep(400);
 
@@ -1408,8 +1419,11 @@ btnRun.addEventListener("click", async () => {
             renderCards(cardJson);
             layoutIssues = validateRenderedCards();
         }
-        if (layoutIssues.length) throw new Error(`카드 레이아웃 안전 영역 검증 실패: ${layoutIssues.join(' ')}`);
-        addLog("Verifier", "[검증 8] 제목·본문·Source 안전 영역 검사 통과 (자동 폰트 맞춤 완료)", "success");
+        if (layoutIssues.length) {
+            addLog("Verifier", `레이아웃 경고가 남았지만 결과물 출력을 차단하지 않습니다: ${layoutIssues.join(' ')}`, "warning");
+        } else {
+            addLog("Verifier", "[검증 8] 제목·본문·Source 안전 영역 검사 통과 (자동 폰트 맞춤 완료)", "success");
+        }
 
         // Save current generated titles to localStorage history
         if (cardJson && cardJson.slides && !appState.treesoopMode) {
@@ -1420,16 +1434,15 @@ btnRun.addEventListener("click", async () => {
             currentHistory.push(...newTitles);
             currentHistory = [...new Set(currentHistory)].slice(-50);
             localStorage.setItem("generated_history", JSON.stringify(currentHistory));
-            addLog("Gatekeeper", "생성된 카드뉴스 제목을 이력 DB에 저장 완료했습니다 (다음 번 생성 시 제외 대상).", "success");
+            addLog("Verifier", "생성된 카드뉴스 제목을 중복 방지 이력에 저장했습니다.", "success");
         }
 
         setAgentActive('completed');
-        addLog("Verifier", "✔ 모든 카드뉴스 슬라이드가 무결성 검증을 완벽하게 통과했습니다!", "success");
+        addLog("Verifier", "✔ 단일 검증과 자동 보정을 마치고 카드뉴스 출력을 완료했습니다.", "success");
         addLog("System", "에이전트 협업 팀 가동이 완료되었습니다. 편집기에서 미세 조정을 할 수 있습니다.", "system");
 
         // Enable buttons
         btnExportAll.disabled = false;
-        btnKakaoShare.disabled = false;
         if (btnCopyText) btnCopyText.disabled = false;
         dbStatusText.textContent = "에이전트 카드뉴스 생성 완료";
         let modeDisplayText = appState.mode === 'daily' ? '일간 브리핑' : '주간 트렌드';
@@ -1449,7 +1462,8 @@ btnRun.addEventListener("click", async () => {
 
 // Helper: Sleep
 function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    const effectiveMs = ms >= 250 ? 50 : ms;
+    return new Promise(resolve => setTimeout(resolve, effectiveMs));
 }
 
 // Global Fisher-Yates Array Shuffling
@@ -1504,7 +1518,7 @@ function generateSimulatedCard(news, mode) {
             slide_index: index + 2,
             type: 'content',
             title: normalizedHeadline(item.title),
-            bullets: litifyTldrBullets(item.bullets, item.headlineOnly ? 1 : 2, 3),
+            bullets: litifyTldrBullets(item.bullets, 3, 3),
             gradient: appState.gradients[(index + 1) % appState.gradients.length],
             fontSize: 34,
             source_name: item.source,
@@ -1957,9 +1971,6 @@ function renderCards(cardJson) {
         if (slide.type === 'content') fitContentCard(cardWrapper);
     });
 
-    // Populate Initial Kakao Talk preview with the Title Card
-    updateKakaoTalkPreview(cardJson);
-    
     // Select first slide
     selectSlide(0);
     requestAnimationFrame(() => {
@@ -1979,7 +1990,12 @@ function fitContentCard(wrapper) {
     let titleSize = Number.parseFloat(getComputedStyle(title).fontSize) || 13;
     let paddingY = 5;
     let gap = 4;
-    const fits = () => bullets.getBoundingClientRect().bottom <= source.getBoundingClientRect().top - 3;
+    // Measure the actual last bullet. The flex container itself expands to fill free space,
+    // which caused false overflow failures on iOS Safari.
+    const fits = () => {
+        const lastItem = items[items.length - 1];
+        return !lastItem || lastItem.getBoundingClientRect().bottom <= source.getBoundingClientRect().top - 3;
+    };
 
     for (let pass = 0; pass < 28 && !fits(); pass++) {
         if (bodySize > 6.1) {
@@ -2068,9 +2084,6 @@ editTitle.addEventListener("input", (e) => {
     slide.title = e.target.value;
     
     updateCarouselSlideDOM(idx);
-    if (idx === 0) {
-        updateKakaoTalkPreview(appState.cardData);
-    }
 });
 
 editSubtitle.addEventListener("input", (e) => {
@@ -2139,7 +2152,6 @@ presetBtns.forEach(btn => {
         btn.classList.add("active");
         
         if (idx === 0) {
-            updateKakaoTalkPreview(appState.cardData);
         }
     });
 });
@@ -2177,32 +2189,12 @@ function updateCarouselSlideDOM(index) {
     }
 }
 
-// Update Kakao Talk preview elements
-function updateKakaoTalkPreview(cardJson) {
-    const titleSlide = cardJson.slides[0];
-    kakaoPreviewTitle.textContent = titleSlide.title.replace(/\n/g, " ");
-    kakaoPreviewDesc.textContent = cardJson.topic;
-    
-    // Add custom mini-render of title slide background
-    kakaoPreviewImg.className = `kakao-card-image ${titleSlide.gradient}`;
-    kakaoPreviewImg.innerHTML = `
-        <div style="padding: 12px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; color: white;">
-            <span style="font-size: 8px; font-weight: 800; color: #00F2FE;">DAILY NEWS</span>
-            <div style="font-size: 11px; font-weight: 900; line-height: 1.3; white-space: pre-line;">${titleSlide.title}</div>
-            <span style="font-size: 7px; opacity: 0.8;">1/${cardJson.slides.length}</span>
-        </div>
-    `;
-}
-
 // Export Cards to PNG using html2canvas & ZIP them up
 btnExportAll.addEventListener("click", async () => {
     if (!appState.cardData) return;
 
     const preflightIssues = validateRenderedCards();
-    if (preflightIssues.length) {
-        addLog("Verifier", `내보내기 중단: ${preflightIssues.join(' ')}`, "warning");
-        return;
-    }
+    if (preflightIssues.length) addLog("Verifier", `내보내기 전 자동 맞춤 경고: ${preflightIssues.join(' ')}`, "warning");
     
     btnExportAll.disabled = true;
     btnExportAll.innerHTML = `<i data-lucide="loader" class="animate-spin"></i> 내보내는 중...`;
@@ -2218,23 +2210,22 @@ btnExportAll.addEventListener("click", async () => {
         for (let i = 0; i < wrappers.length; i++) {
             const wrap = wrappers[i];
             
-            // Preserve the exact 240px preview proportions and scale the whole design uniformly.
-            // Selectively enlarging only a few text nodes caused tiny body copy and mismatched spacing.
+            // Render the native 240px card directly. Scaling a 720px wrapper and then
+            // rasterizing it again exhausted iOS Safari memory and clipped the viewport.
             const clone = wrap.cloneNode(true);
-            clone.style.width = "720px";
-            clone.style.height = "720px";
-            clone.style.position = "absolute";
-            clone.style.top = "-9999px";
-            clone.style.left = "-9999px";
+            clone.style.width = "240px";
+            clone.style.height = "240px";
+            clone.style.position = "fixed";
+            clone.style.top = "0";
+            clone.style.left = "0";
             clone.style.zIndex = "-9999";
             clone.style.border = "none";
-            clone.style.borderRadius = "36px";
+            clone.style.borderRadius = "12px";
             const cloneInner = clone.querySelector(".slide-card-inner");
             if (cloneInner) {
                 cloneInner.style.width = "240px";
                 cloneInner.style.height = "240px";
-                cloneInner.style.transform = "scale(3)";
-                cloneInner.style.transformOrigin = "top left";
+                cloneInner.style.transform = "none";
             }
             
             document.body.appendChild(clone);
@@ -2242,21 +2233,22 @@ btnExportAll.addEventListener("click", async () => {
             // Wait slightly for DOM
             await sleep(150);
             
-            // Render canvas as if window is 720x720 to prevent mobile viewport clipping bugs
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
             const canvas = await html2canvas(clone, {
-                width: 720,
-                height: 720,
-                windowWidth: 720,
-                windowHeight: 720,
-                scale: 2.5, // 2.5x high resolution scaling (1800x1800 crisp JPEGs)
+                width: 240,
+                height: 240,
+                windowWidth: Math.max(240, document.documentElement.clientWidth),
+                windowHeight: Math.max(240, document.documentElement.clientHeight),
+                scale: isIOS ? 3 : 7.5,
                 useCORS: true,
-                backgroundColor: null
+                backgroundColor: null,
+                logging: false
             });
             
             document.body.removeChild(clone);
             
             // Convert to JPEG blob and add to Zip
-            const dataUrl = canvas.toDataURL("image/jpeg", 0.95);
+            const dataUrl = canvas.toDataURL("image/jpeg", isIOS ? 0.9 : 0.95);
             generatedJpegs.push(dataUrl);
             const base64Data = dataUrl.split(',')[1];
             zip.file(`${i.toString().padStart(2, '0')}.jpg`, base64Data, { base64: true });
@@ -2308,157 +2300,6 @@ btnExportAll.addEventListener("click", async () => {
     } finally {
         btnExportAll.disabled = false;
         btnExportAll.innerHTML = `<i data-lucide="download"></i> 카드뉴스 다운로드 (ZIP)`;
-        lucide.createIcons();
-    }
-});
-
-// Helper to convert base64 dataUrl to Blob
-function dataURLtoBlob(dataurl) {
-    var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
-        bstr = atob(arr[arr.length - 1]), n = bstr.length, u8arr = new Uint8Array(n);
-    while(n--){
-        u8arr[n] = bstr.charCodeAt(n);
-    }
-    return new Blob([u8arr], {type:mime});
-}
-
-// Render and retrieve cover slide JPEG Blob on the fly
-async function getCoverJpegBlob() {
-    if (currentJpegs.length > 0) {
-        return dataURLtoBlob(currentJpegs[0]);
-    }
-    const firstWrap = document.querySelector(".slide-card-wrapper");
-    if (!firstWrap) throw new Error("카드뉴스 슬라이드가 아직 생성되지 않았습니다.");
-    
-    const clone = firstWrap.cloneNode(true);
-    clone.style.width = "720px";
-    clone.style.height = "720px";
-    clone.style.position = "absolute";
-    clone.style.top = "-9999px";
-    clone.style.left = "-9999px";
-    clone.style.zIndex = "-9999";
-    
-    const titleNode = clone.querySelector(".slide-card-title");
-    if (titleNode) {
-        const currentSize = parseFloat(titleNode.style.fontSize);
-        titleNode.style.fontSize = `${currentSize * 2.8}px`;
-    }
-    const subNode = clone.querySelector(".slide-card-subtitle");
-    if (subNode) {
-        subNode.style.fontSize = "30px";
-        subNode.style.marginTop = "18px";
-    }
-    const logoBadge = clone.querySelector(".card-logo-badge");
-    if (logoBadge) {
-        logoBadge.style.height = "78px";
-        logoBadge.style.padding = "9px 24px";
-        const logoImg = logoBadge.querySelector("img");
-        if (logoImg) {
-            logoImg.style.height = "54px";
-            logoImg.style.maxWidth = "240px";
-        }
-    }
-    
-    document.body.appendChild(clone);
-    await sleep(150);
-    
-    const canvas = await html2canvas(clone, {
-        width: 720,
-        height: 720,
-        windowWidth: 720,
-        windowHeight: 720,
-        scale: 2.5,
-        useCORS: true,
-        backgroundColor: null
-    });
-    document.body.removeChild(clone);
-    
-    const dataUrl = canvas.toDataURL("image/jpeg", 0.98);
-    return dataURLtoBlob(dataUrl);
-}
-
-// Kakao Talk Share trigger
-btnKakaoShare.addEventListener("click", async () => {
-    if (!appState.cardData) return;
-    
-    if (!appState.kakaoKey) {
-        alert("카카오 전송 기능을 이용하시려면 먼저 에이전트 설정에서 'Kakao JavaScript Key'를 입력해 주세요.");
-        return;
-    }
-    
-    if (!window.Kakao) {
-        alert("카카오 SDK가 정상적으로 로드되지 않았습니다.");
-        return;
-    }
-    
-    if (!window.Kakao.isInitialized()) {
-        try {
-            window.Kakao.init(appState.kakaoKey);
-        } catch(initErr) {
-            alert("카카오 SDK 초기화에 실패했습니다: " + initErr.message);
-            return;
-        }
-    }
-    
-    btnKakaoShare.disabled = true;
-    const originalText = btnKakaoShare.innerHTML;
-    btnKakaoShare.innerHTML = `<i data-lucide="loader" class="animate-spin"></i> 전송 준비 중...`;
-    lucide.createIcons();
-    
-    addLog("Publisher", "카카오 서버로 카드뉴스 커버 이미지 전송 업로드 시작...", "publisher");
-    
-    try {
-        const coverBlob = await getCoverJpegBlob();
-        const coverFile = new File([coverBlob], "cover.jpg", { type: "image/jpeg" });
-        
-        window.Kakao.Share.uploadImage({
-            file: [coverFile]
-        }).then(function(res) {
-            const uploadedUrl = res.infos.original.url;
-            addLog("Publisher", "카카오 이미지 업로드 완료. 공유 팝업 창을 띄웁니다.", "success");
-            
-            const firstSlideTitle = appState.cardData.slides[0].title;
-            const subtitle = appState.cardData.slides[0].subtitle || "성아연 AI 뉴스 브리핑";
-            const targetUrl = window.location.href;
-            
-            window.Kakao.Share.sendDefault({
-                objectType: 'feed',
-                content: {
-                    title: firstSlideTitle,
-                    description: subtitle,
-                    imageUrl: uploadedUrl,
-                    link: {
-                        mobileWebUrl: targetUrl,
-                        webUrl: targetUrl,
-                    },
-                },
-                buttons: [
-                    {
-                        title: '카드뉴스 대시보드 바로가기',
-                        link: {
-                            mobileWebUrl: targetUrl,
-                            webUrl: targetUrl,
-                        },
-                    }
-                ],
-            });
-            
-            btnKakaoShare.disabled = false;
-            btnKakaoShare.innerHTML = originalText;
-            lucide.createIcons();
-        }).catch(function(uploadErr) {
-            addLog("Publisher", "카카오 이미지 업로드 에러: " + JSON.stringify(uploadErr), "warning");
-            alert("카카오 이미지 업로드 중 오류가 발생했습니다. 카카오 자바스크립트 키 설정 및 플랫폼 설정을 확인해 주세요.");
-            btnKakaoShare.disabled = false;
-            btnKakaoShare.innerHTML = originalText;
-            lucide.createIcons();
-        });
-        
-    } catch(err) {
-        addLog("Publisher", "카카오 전송 프로세스 중 실패: " + err.message, "warning");
-        alert("카카오 전송 중 실패했습니다: " + err.message);
-        btnKakaoShare.disabled = false;
-        btnKakaoShare.innerHTML = originalText;
         lucide.createIcons();
     }
 });

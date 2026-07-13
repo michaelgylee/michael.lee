@@ -10,10 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Kakao SDK -->
-    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" integrity="sha384-ihxb5W4KysbQ+oTyEa50uqh9A9qnryRu1UPfAp75y0VYg/jog3L5TYgzeGo5fUMG" crossorigin="anonymous"></script>
     <!-- CSS Link -->
-    <link rel="stylesheet" href="index.css?v=3.1.6">
+    <link rel="stylesheet" href="index.css?v=3.2.2">
 </head>
 <body>
     <div class="app-container">
@@ -24,7 +22,7 @@
                     <img src="logo.png" alt="성아연 로고" style="width: 36px; height: 36px; object-fit: contain;">
                     <div>
                         <h1>9대 성아연 뉴스메이커</h1>
-                        <span class="version">v3.2.1 (TreeSoop Pipeline Hotfix)</span>
+                        <span class="version">v3.2.2 (Mobile Fast News Build)</span>
                     </div>
                 </div>
             </div>
@@ -78,23 +76,11 @@
                     <p class="help-text">키 입력 시 Gemini가 실시간 크롤링 뉴스를 기반으로 맞춤 카드뉴스를 자동 생성합니다.</p>
                 </div>
                 
-                <div class="form-group API-key-group" style="margin-top: 12px;">
-                    <label>Kakao JavaScript Key (선택)</label>
-                    <div class="input-with-icon">
-                        <i data-lucide="message-square" class="input-icon"></i>
-                        <input type="password" id="kakao-key" placeholder="카카오 공유용 JavaScript 키 입력">
-                    </div>
-                    <p class="help-text">카카오 개발자 포털에서 발급받은 키 입력 시 생성된 카드뉴스를 카카오톡(나에게/친구에게)으로 즉시 전송할 수 있습니다.</p>
-                </div>
-                
                 <button id="btn-run" class="btn-primary animate-pulse">
                     <i data-lucide="play"></i> 에이전트 팀 가동하기
                 </button>
                 <button id="btn-treesoop" class="btn-primary animate-pulse" style="margin-top: 10px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); border-color: #10b981;" title="treesoop.com/blog에서 오늘의 뉴스를 수집해 성아연 뉴스레터를 제작합니다.">
                     <i data-lucide="book-open"></i> TreeSoop 카드뉴스 생성
-                </button>
-                <button id="btn-clear-history" class="btn-secondary" style="margin-top: 10px; width: 100%; border-color: rgba(245, 158, 11, 0.4); color: #F59E0B; background: rgba(245, 158, 11, 0.05); transition: all 0.3s;" title="이전 생성 카드 이력 데이터베이스를 리셋하여 중복 제외 장치를 초기화합니다.">
-                    <i data-lucide="refresh-cw"></i> 생성 이력 DB 초기화
                 </button>
             </section>
 
@@ -114,20 +100,6 @@
                         <div class="progress-bar" id="progress-researcher"></div>
                     </div>
                     <div class="agent-progress-detail" id="detail-researcher">수집 대기 중</div>
-                </div>
-
-                <div class="agent-card id-gatekeeper">
-                    <div class="agent-info">
-                        <div class="agent-title">
-                            <i data-lucide="refresh-cw" class="icon-gate" style="color: #F59E0B;"></i>
-                            <span>1차 검증 게이트키퍼 (Gatekeeper)</span>
-                        </div>
-                        <span class="badge badge-idle" id="status-gatekeeper">대기 중</span>
-                    </div>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" id="progress-gatekeeper"></div>
-                    </div>
-                    <div class="agent-progress-detail" id="detail-gatekeeper">검증 대기 중</div>
                 </div>
 
                 <div class="agent-card id-creator">
@@ -190,13 +162,6 @@
                 </div>
                 <div class="connector-line">
                     <div class="glow-pulse" id="pulse-res-gate"></div>
-                </div>
-                <div class="node node-gatekeeper" id="node-gate">
-                    <div class="node-icon-wrapper"><i data-lucide="refresh-cw"></i></div>
-                    <span>1차 검증 게이트키퍼</span>
-                </div>
-                <div class="connector-line">
-                    <div class="glow-pulse" id="pulse-gate-cre"></div>
                 </div>
                 <div class="node node-creator" id="node-cre">
                     <div class="node-icon-wrapper"><i data-lucide="pen-tool"></i></div>
@@ -303,62 +268,6 @@
                     </div>
                 </div>
 
-                <!-- Right Sidebar: KakaoTalk Share Preview -->
-                <div class="kakaotalk-preview-area">
-                    <div class="section-title-bar">
-                        <h3><i data-lucide="smartphone"></i> 카카오톡 공유 미리보기</h3>
-                    </div>
-                    
-                    <div class="phone-mockup">
-                        <div class="phone-header">
-                            <div class="speaker"></div>
-                        </div>
-                        <div class="phone-screen">
-                            <div class="chat-header">
-                                <i data-lucide="chevron-left"></i>
-                                <span>인공지능 뉴스방</span>
-                                <i data-lucide="menu"></i>
-                            </div>
-                            <div class="chat-body">
-                                <div class="chat-time">오늘 오전 11:45</div>
-                                
-                                <div class="message-bubble-container">
-                                    <div class="profile-pic"><i data-lucide="bot"></i></div>
-                                    <div class="bubble-content-wrapper">
-                                        <span class="sender-name">AI 뉴스 브리핑 봇</span>
-                                        <div class="kakao-card-bubble">
-                                            <div class="kakao-card-image" id="kakao-preview-img">
-                                                <div class="kakao-img-placeholder">
-                                                    <i data-lucide="image"></i>
-                                                    <span>이미지 미리보기</span>
-                                                </div>
-                                            </div>
-                                            <div class="kakao-card-info">
-                                                <h4 class="kakao-card-title" id="kakao-preview-title">오늘의 핵심 AI 트렌드</h4>
-                                                <p class="kakao-card-desc" id="kakao-preview-desc">인공지능 에이전트가 요약한 핵심 AI 소식입니다.</p>
-                                            </div>
-                                            <div class="kakao-card-buttons">
-                                                <button class="kakao-btn">상세 뉴스 보기</button>
-                                                <button class="kakao-btn">채널 추가하기</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="chat-input-bar">
-                                <i data-lucide="plus"></i>
-                                <div class="chat-input-field">메시지를 입력하세요</div>
-                                <i data-lucide="smile"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="kakao-actions">
-                        <button id="btn-kakao-share" class="btn-kakao" disabled>
-                            <i data-lucide="message-square"></i> 카카오톡 전송하기 (나에게/친구에게)
-                        </button>
-                    </div>
-                </div>
             </div>
 
             <!-- Agent Console Logger -->
@@ -405,6 +314,6 @@
     </div>
 
     <!-- Application Logic -->
-    <script src="app.js?v=3.1.6"></script>
+    <script src="app.js?v=3.2.2"></script>
 </body>
 </html>
