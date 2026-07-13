@@ -1955,7 +1955,7 @@ class VerifierAgent:
         except Exception:
             return None
 
-    def render_card(self, slide, output_path):
+    def render_card(self, slide, output_path, mode="daily", treesoop_mode=False, trendchaser_mode=False):
         # Create image
         img = Image.new("RGB", (self.width, self.height), (247, 244, 235)) # Warm Ivory: #F7F4EB
         draw = ImageDraw.Draw(img)
@@ -1968,36 +1968,45 @@ class VerifierAgent:
         title_font_size = 50
         if slide_type == "content":
             if len(title_text) > 24:
-                title_font_size = 40
+                title_font_size = 38
             if len(title_text) > 34:
-                title_font_size = 32
+                title_font_size = 34
                 
         title_font = self.get_font("bold", title_font_size)
         subtitle_font = self.get_font("regular", 28)
-        content_font = self.get_font("regular", 28)
-        footer_font = self.get_font("regular", 22)
-        logo_sub_font = self.get_font("bold", 16)
+        content_font = self.get_font("regular", 26)
+        logo_sub_font = self.get_font("bold", 14)
         
-        # Draw Header Row: Logo subtext & Page Indicator
-        # Draw Logo text fallback (AIT 성아연) on top left at (100, 70)
-        draw.text((100, 70), "AIT 성아연", font=self.get_font("bold", 24), fill=(30, 58, 138)) # Premium Navy: #1E3A8A
-        # Draw subtext "SKKU IMBA AIT 동연회" below it
-        draw.text((100, 105), "SKKU IMBA AIT 동연회", font=logo_sub_font, fill=(30, 58, 138))
+        # Draw Header Row: Category text & Subtitle
+        cat_text = "DAILY BRIEFINGS"
+        if treesoop_mode:
+            cat_text = "TREESOOP NEWS"
+        elif trendchaser_mode:
+            cat_text = "TREND CHASER"
+        elif mode == "weekly":
+            cat_text = "WEEKLY TRENDS"
+            
+        # Draw Category text on top left
+        draw.text((100, 68), cat_text, font=self.get_font("bold", 24), fill=(0, 102, 204)) # Vibrant Blue
+        # Draw subtext "SKKU IMBA AI IT CLUB" below it
+        draw.text((100, 102), "SKKU IMBA AI IT CLUB", font=logo_sub_font, fill=(30, 58, 138))
         
-        # Page indicator on top right
-        pad_idx = f"{slide_index:02d} / 07"
-        draw.text((820, 75), pad_idx, font=self.get_font("regular", 22), fill=(148, 163, 184)) # Slate-400
+        # Page indicator on top right (Blue circle)
+        draw.ellipse([830, 42, 890, 102], fill=(30, 58, 138)) # Navy blue
+        draw.text((860, 72), f"{slide_index}/7", font=self.get_font("bold", 18), fill=(255, 255, 255), anchor="mm")
+        
+        # Draw white box for logo in center
+        logo_box = [375, 30, 625, 115] # Width 250, Height 85
+        draw.rounded_rectangle(logo_box, radius=8, fill=(255, 255, 255))
+        # Draw fallback text (will be overwritten if logo image is successfully pasted)
+        draw.text((500, 72), "AIT 성아연", font=self.get_font("bold", 24), fill=(30, 58, 138), anchor="mm")
         
         if slide_type == "title":
-            # Render Title Slide
-            # Accent Badge at top right (EP.01 · 뉴스 브리핑)
-            # Draw rounded rectangle badge in Navy
-            draw.rounded_rectangle([680, 160, 900, 205], radius=16, fill=(30, 58, 138))
-            draw.text((700, 172), "EP.01 · AI 스크랩", font=self.get_font("bold", 18), fill=(255, 255, 255))
+            # Render Title Slide (NO accent badges here, replaced by blue circle at top right)
             
             # Draw main title (multi-line wrapping supported)
             title_lines = self.wrap_text_korean(title_text, title_font, 800)
-            y_offset = 260
+            y_offset = 220
             for line in title_lines:
                 draw.text((100, y_offset), line, font=title_font, fill=(15, 23, 42)) # Charcoal
                 y_offset += title_font_size + 15
@@ -2029,47 +2038,44 @@ class VerifierAgent:
             
         elif slide_type == "content":
             # Render Content Slide
-            # Accent Pill Badge at top
-            draw.rounded_rectangle([100, 160, 300, 200], radius=16, fill=(30, 58, 138))
-            draw.text((120, 170), f"0{slide_index-1} · 뉴스 브리핑", font=self.get_font("bold", 16), fill=(255, 255, 255))
+            # NO Accent Pill Badge at top anymore ("EP.01" / "Tech Insight" replaced by blue circle)
             
-            # Title
+            # Title starts at y=180
+            title_font = self.get_font("bold", 38)
             title_lines = self.wrap_text_korean(title_text, title_font, 800)
-            y_offset = 230
-            line_height = int(title_font_size * 1.3)
+            y_offset = 180
             for line in title_lines:
-                draw.text((100, y_offset), line, font=title_font, fill=(15, 23, 42))
-                y_offset += line_height
+                draw.text((100, y_offset), line, font=title_font, fill=(15, 23, 42)) # Charcoal
+                y_offset += 52
                 
-            # Bullets: Draw each inside a white rounded rectangular box
+            # Bullets
+            y_offset += 25
             bullets = slide.get("bullets", [])
-            box_tops = [390, 555, 720]
             for idx, bullet in enumerate(bullets[:3]):
-                box_y = box_tops[idx]
+                bullet_wrapped = self.wrap_text_korean(bullet, content_font, 760)
                 
-                # Draw white box: bounds [(100, box_y), (900, box_y + 135)]
-                draw.rounded_rectangle([100, box_y, 900, box_y + 135], radius=16, fill=(255, 255, 255))
+                # Draw bullet dot
+                dot_y = y_offset + 12
+                draw.ellipse([100, dot_y, 108, dot_y + 8], fill=(0, 102, 204)) # sky blue bullet dot
                 
-                # Draw gold vertical line prefix on the left edge inside the box
-                draw.rounded_rectangle([100, box_y, 108, box_y + 135], radius=4, fill=(194, 159, 102))
+                # Draw text lines
+                for line in bullet_wrapped:
+                    draw.text((128, y_offset), line, font=content_font, fill=(51, 65, 85)) # Slate-700
+                    y_offset += 38
+                y_offset += 20 # Spacing between bullets
                 
-                # Draw number "01", "02", "03" in gold
-                draw.text((130, box_y + 45), f"0{idx+1}", font=self.get_font("bold", 32), fill=(194, 159, 102))
-                
-                # Draw wrapped bullet text on the right
-                bullet_wrapped = self.wrap_text_korean(bullet, content_font, 660)
-                text_y = box_y + 35
-                for line in bullet_wrapped[:2]: # Max 2 lines to fit nicely
-                    draw.text((200, text_y), line, font=content_font, fill=(51, 65, 85))
-                    text_y += 36
-                    
             # Draw Source Info at the bottom
-            source_url = slide.get("source_url")
+            source_name = slide.get("source_name", "원문 출처")
+            source_url = slide.get("source_url", "")
             if source_url:
-                source_text = f"source · {source_url}"
-                if len(source_text) > 85:
-                    source_text = source_text[:82] + "..."
-                draw.text((100, 915), source_text, font=footer_font, fill=(148, 163, 184))
+                source_text = f"출처: {source_name} ({source_url})"
+            else:
+                source_text = f"출처: {source_name}"
+            
+            # Truncate link text if it's too long
+            if len(source_text) > 85:
+                source_text = source_text[:82] + "..."
+            draw.text((100, 900), source_text, font=self.get_font("regular", 18), fill=(100, 116, 139))
                 
         elif slide_type == "closing":
             # Render Closing Slide
@@ -2123,13 +2129,12 @@ class VerifierAgent:
         logo = self.load_logo_transparent()
         if logo:
             try:
-                # Scale logo to height 24 to look thin and professional
-                h_target = 24
+                # Scale logo to height 32 to look nice and professional inside the center box
+                h_target = 32
                 w_target = int((float(logo.size[0]) * (h_target / float(logo.size[1]))))
                 resized_logo = logo.resize((w_target, h_target), Image.Resampling.LANCZOS)
                 
                 # Make logo match navy blue color:
-                # Replace any non-transparent pixel with Navy (30, 58, 138)
                 logo_rgba = resized_logo.convert("RGBA")
                 datas = logo_rgba.getdata()
                 new_datas = []
@@ -2141,8 +2146,10 @@ class VerifierAgent:
                 logo_rgba.putdata(new_datas)
                 
                 rgba_img = img.convert("RGBA")
-                # Paste logo at top left next to subtext boundary (just overwrite text)
-                rgba_img.paste(logo_rgba, (100, 70), logo_rgba)
+                # Paste logo centered inside the white box (375, 30, 625, 115)
+                logo_x = 375 + (250 - w_target) // 2
+                logo_y = 30 + (85 - h_target) // 2
+                rgba_img.paste(logo_rgba, (logo_x, logo_y), logo_rgba)
                 img = rgba_img.convert("RGB")
             except Exception as le:
                 log(self.name, f"로고 이미지 병합 중 에러 발생: {le}", Colors.WARNING)
@@ -2403,7 +2410,7 @@ class VerifierAgent:
         for i, slide in enumerate(card_data["slides"]):
             file_name = f"{slide['slide_index']:02d}_slide.jpg"
             path = os.path.join(output_dir, file_name)
-            self.render_card(slide, path)
+            self.render_card(slide, path, mode=mode, treesoop_mode=treesoop_mode, trendchaser_mode=trendchaser_mode)
             created_paths.append(path)
             
         # Get first article URL for content link mapping

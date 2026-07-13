@@ -1589,23 +1589,29 @@ function renderCards(cardJson) {
         cardWrapper.setAttribute("data-slide-index", index);
         if (index === 0) cardWrapper.classList.add("active");
         
-        let episodeText = "EP.01 · 일간 브리핑";
-        if (appState.mode === 'weekly') episodeText = "EP.01 · 주간 트렌드";
-        if (appState.treesoopMode) episodeText = "EP.01 · 트리숲 뉴스";
-        if (appState.trendchaserMode) episodeText = "EP.01 · 트렌드체이서";
+        let catText = "DAILY BRIEFINGS";
+        if (appState.mode === 'weekly') catText = "WEEKLY TRENDS";
+        if (appState.treesoopMode) catText = "TREESOOP NEWS";
+        if (appState.trendchaserMode) catText = "TREND CHASER";
 
         const padIndex = String(slide.slide_index).padStart(2, '0');
         
         let innerHtml = `
             <div class="slide-card-inner" style="background-color: #F7F4EB; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding: 20px; box-sizing: border-box;">
-                <div class="slide-header-row" style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%; margin-bottom: 8px;">
-                    <div style="display: flex; flex-direction: column; align-items: flex-start;">
-                        <div class="card-logo-badge" style="background: transparent; padding: 0; display: flex; align-items: center; justify-content: center; height: 20px;">
-                            <img src="logo.png" style="height: 14px; object-fit: contain;">
-                        </div>
-                        <span style="font-size: 8px; color: #1E3A8A; font-weight: 600; margin-top: 1px; transform: scale(0.85); transform-origin: left top; white-space: nowrap;">SKKU IMBA AIT 동연회</span>
+                <div class="slide-header-row" style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 8px;">
+                    <div style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.1;">
+                        <span style="font-size: 7px; font-weight: 800; color: #0066CC; text-transform: uppercase; letter-spacing: 0.2px;">${catText}</span>
+                        <span style="font-size: 5px; color: #1E3A8A; font-weight: 700; margin-top: 1px; white-space: nowrap; transform: scale(0.85); transform-origin: left top;">SKKU IMBA AI IT CLUB</span>
                     </div>
-                    <div style="font-size: 10px; font-weight: 500; color: #94A3B8; font-family: monospace;">${padIndex} / 07</div>
+                    <!-- Center Logo card box -->
+                    <div style="background: #FFFFFF; border-radius: 4px; padding: 2px 8px; display: flex; align-items: center; justify-content: center; height: 18px; border: 0.5px solid rgba(0,0,0,0.05); margin: 0 auto;">
+                        <img src="logo.png" style="height: 10px; object-fit: contain; display: block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span style="font-size: 7px; font-weight: bold; color: #1E3A8A; display: none;">AIT 성아연</span>
+                    </div>
+                    <!-- Blue Circle Page Indicator -->
+                    <div style="background: #1E3A8A; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 6px; font-weight: 800; color: #FFFFFF; font-family: monospace; flex-shrink: 0; margin-left: 8px;">
+                        ${slide.slide_index}/7
+                    </div>
                 </div>
                 
                 <div class="slide-content-area" style="display: flex; flex-direction: column; flex: 1; margin-top: 5px;">
@@ -1617,7 +1623,6 @@ function renderCards(cardJson) {
                     <div class="slide-card-title" style="font-size: ${slide.fontSize * 0.40}px; font-weight: 800; color: #0F172A; text-align: left; line-height: 1.2;">
                         ${slide.title.replace(/\n/g, '<br>')}
                     </div>
-                    <span style="background: #1E3A8A; color: white; font-size: 8px; padding: 3px 8px; border-radius: 9999px; font-weight: 700; white-space: nowrap; margin-left: 10px;">${episodeText}</span>
                 </div>
                 <div class="slide-card-subtitle" style="color: #475569; font-size: 11px; font-weight: 500; margin-top: 10px; line-height: 1.4;">${slide.subtitle}</div>
                 
@@ -1640,28 +1645,19 @@ function renderCards(cardJson) {
             if (slide.title.length > 24) titleFontSize = 11.5;
             if (slide.title.length > 34) titleFontSize = 9.8;
             
-            let pillText = `0${slide.slide_index - 1} · 뉴스 브리핑`;
-            if (appState.treesoopMode) pillText = `0${slide.slide_index - 1} · Tech Insight`;
-            if (appState.trendchaserMode) pillText = `0${slide.slide_index - 1} · 실시간 AI 트랙`;
-            
             innerHtml += `
-                <div style="margin-bottom: 6px; display: flex;">
-                    <span style="background: #1E3A8A; color: white; font-size: 8px; padding: 2px 6px; border-radius: 9999px; font-weight: 700;">${pillText}</span>
-                </div>
-                <div class="slide-card-title" style="font-size: ${titleFontSize}px; font-weight: 800; color: #0F172A; line-height: 1.3; margin-bottom: 5px;">${slide.title}</div>
-                <ul class="slide-card-bullets" style="margin-top: 5px; flex: 1; overflow: hidden; display: flex; flex-direction: column; justify-content: center; gap: 4px; padding: 0; list-style: none;">
+                <div class="slide-card-title" style="font-size: ${titleFontSize}px; font-weight: 800; color: #0F172A; line-height: 1.3; margin-top: 8px; margin-bottom: 5px;">${slide.title}</div>
+                <ul class="slide-card-bullets" style="margin-top: 8px; flex: 1; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-start; gap: 6px; padding: 0; list-style: none;">
                     ${slide.bullets.map((b, idx) => `
-                        <li style="background: #FFFFFF; border-radius: 6px; padding: 6px 10px; margin-bottom: 0; font-size: 8px; color: #334155; box-shadow: 0 1px 3px rgba(0,0,0,0.03); border-left: 3px solid #C29F66; line-height: 1.35; list-style: none; display: flex; align-items: flex-start; gap: 6px;">
-                            <span style="color: #C29F66; font-weight: 800; font-family: monospace;">0${idx+1}</span>
+                        <li style="margin-bottom: 0; font-size: 8px; color: #334155; line-height: 1.35; list-style: none; display: flex; align-items: flex-start; gap: 6px; padding-left: 4px;">
+                            <span style="color: #0066CC; font-size: 10px; line-height: 1; margin-top: -1px;">•</span>
                             <span style="flex: 1;">${b}</span>
                         </li>
                     `).join('')}
                 </ul>
-                ${slide.source_name ? `
-                <a class="slide-card-source" href="${slide.source_url}" target="_blank" onclick="event.stopPropagation();" style="color: #94A3B8; text-decoration: none; font-size: 7px; opacity: 0.8; margin-top: auto; padding-top: 4px; border-top: 1px solid rgba(30,64,175,0.05); word-break: break-all; cursor: pointer; display: block;">
-                    source · ${slide.source_url}
+                <a class="slide-card-source" href="${slide.source_url || '#'}" target="_blank" onclick="event.stopPropagation();" style="color: #64748B; text-decoration: none; font-size: 6px; opacity: 0.8; margin-top: auto; padding-top: 4px; border-top: 1px solid rgba(0,0,0,0.05); word-break: break-all; cursor: pointer; display: block;">
+                    출처: ${slide.source_name || '원문 출처'} (${slide.source_url || ''})
                 </a>
-                ` : ''}
             `;
         } else if (slide.type === 'closing') {
             innerHtml += `
