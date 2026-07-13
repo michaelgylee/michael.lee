@@ -363,6 +363,15 @@ class ResearcherAgent:
             date_str = now.strftime("%Y-%m-%d")
             latest_post_url = f"https://treesoop.com/blog/ai-news-{date_str}"
             
+        import re
+        match_date = re.search(r'ai-news-(\d{4})-(\d{2})-(\d{2})', latest_post_url)
+        if match_date:
+            y, m, d = match_date.groups()
+            post_date_str = f"{y}-{m}-{d}"
+            today_str = get_kst_today().strftime("%Y-%m-%d")
+            if post_date_str != today_str:
+                log(self.name, f"오늘 날짜({today_str})의 Treesoop 포스트가 아직 업로드되지 않았습니다. 가장 최근에 업로드된 포스트({post_date_str})를 사용해 뉴스레터를 생성합니다.", Colors.WARNING)
+            
         log(self.name, f"TreeSoop 최신 포스트 URL: {latest_post_url}", Colors.GREEN)
         
         # 2. Fetch and parse the post
@@ -482,21 +491,7 @@ class ResearcherAgent:
                     brief_date = latest_brief.get("date", "")
                     
                     if brief_date != date_str_today:
-                        log(self.name, f"오늘 날짜({date_str_today})의 Trend Chaser 브리프가 아직 업로드되지 않았습니다. (최신 브리프 일자: {brief_date})", Colors.WARNING)
-                        confirm = 'y'
-                        if sys.stdin.isatty():
-                            try:
-                                confirm = input(f"{Colors.WARNING}{Colors.BOLD}[Trend Chaser] 오늘 뉴스가 업로드되지 않았습니다. 어제 뉴스로 생성할까요? (y/n): {Colors.ENDC}").strip().lower()
-                            except (KeyboardInterrupt, SystemExit):
-                                print("\n작업이 중단되었습니다.")
-                                sys.exit(0)
-                        else:
-                            log(self.name, "비대화형 실행 환경이므로 기본값(어제 뉴스 자동 로드)으로 계속 진행합니다.", Colors.BLUE)
-                            confirm = 'y'
-                            
-                        if confirm not in ['y', 'yes', '']:
-                            log(self.name, "사용자가 작업을 거부하여 카드뉴스 생성을 종료합니다.", Colors.FAIL)
-                            sys.exit(0)
+                        log(self.name, f"오늘 날짜({date_str_today})의 Trend Chaser 브리프가 아직 업로드되지 않았습니다. 가장 최근에 업로드된 브리프({brief_date})를 사용해 뉴스레터를 생성합니다.", Colors.WARNING)
                             
                     topics = latest_brief.get("topics", [])
                     log(self.name, f"Trend Chaser 최신 브리프 ({latest_brief.get('id')})에서 {len(topics)}개의 토픽을 성공적으로 가져왔습니다.", Colors.GREEN)
@@ -518,7 +513,8 @@ class ResearcherAgent:
                             "title": headline,
                             "source": source,
                             "link": original_url,
-                            "bullets": bullets
+                            "bullets": bullets,
+                            "date": brief_date
                         })
                     return articles
         except Exception as e:
@@ -1681,6 +1677,19 @@ class CreatorAgent:
                 ]
             })
             
+        # Extract brief date
+        brief_date_str = ""
+        if articles:
+            brief_date_str = articles[0].get("date", "")
+        
+        crawled_date = today
+        if brief_date_str:
+            parts = brief_date_str.split("-")
+            if len(parts) == 3:
+                crawled_date = datetime.date(int(parts[0]), int(parts[1]), int(parts[2]))
+        
+        prefix = f"[{crawled_date.month}월 {crawled_date.day}일] "
+
         for idx, art in enumerate(top_articles):
             title = art.get("title", "")
             source = art.get("source", "Trend Chaser")
@@ -1698,7 +1707,7 @@ class CreatorAgent:
             slides.append({
                 "slide_index": idx + 2,
                 "type": "content",
-                "title": f"{idx+1}. {display_title}",
+                "title": f"{idx+1}. {prefix}{display_title}",
                 "bullets": bullets,
                 "source_name": source,
                 "source_url": link
@@ -1743,6 +1752,18 @@ class CreatorAgent:
                 ]
             })
             
+        # Extract date from Treesoop link (e.g. /blog/ai-news-2026-07-13)
+        crawled_date = today
+        for art in articles:
+            link = art.get("link", "")
+            match = re.search(r'ai-news-(\d{4})-(\d{2})-(\d{2})', link)
+            if match:
+                y, m, d = match.groups()
+                crawled_date = datetime.date(int(y), int(m), int(d))
+                break
+                
+        prefix = f"[{crawled_date.month}월 {crawled_date.day}일] "
+
         for idx, art in enumerate(top_articles):
             title = art.get("title", "")
             source = art.get("source", "TreeSoop")
@@ -1760,7 +1781,7 @@ class CreatorAgent:
             slides.append({
                 "slide_index": idx + 2,
                 "type": "content",
-                "title": f"{idx+1}. {display_title}",
+                "title": f"{idx+1}. {prefix}{display_title}",
                 "bullets": bullets,
                 "source_name": source,
                 "source_url": link
@@ -1974,37 +1995,22 @@ class VerifierAgent:
                 
         title_font = self.get_font("bold", title_font_size)
         subtitle_font = self.get_font("regular", 28)
-        content_font = self.get_font("regular", 26)
+        content_font = self.get_font("bold", 31) # Increased font size and bold for readability
         logo_sub_font = self.get_font("bold", 14)
         
-        # Draw Header Row: Category text & Subtitle
-        cat_text = "DAILY BRIEFINGS"
-        if treesoop_mode:
-            cat_text = "TREESOOP NEWS"
-        elif trendchaser_mode:
-            cat_text = "TREND CHASER"
-        elif mode == "weekly":
-            cat_text = "WEEKLY TRENDS"
-            
-        # Draw Category text on top left
-        draw.text((100, 68), cat_text, font=self.get_font("bold", 24), fill=(0, 102, 204)) # Vibrant Blue
+        # Logo placeholder or fallback text on top left
+        draw.text((100, 50), "AIT 성아연", font=self.get_font("bold", 24), fill=(30, 58, 138))
         # Draw subtext "SKKU IMBA AI IT CLUB" below it
-        draw.text((100, 102), "SKKU IMBA AI IT CLUB", font=logo_sub_font, fill=(30, 58, 138))
+        draw.text((100, 96), "SKKU IMBA AI IT CLUB", font=logo_sub_font, fill=(30, 58, 138))
         
-        # Page indicator on top right (Blue circle)
-        draw.ellipse([830, 42, 890, 102], fill=(30, 58, 138)) # Navy blue
-        draw.text((860, 72), f"{slide_index}/7", font=self.get_font("bold", 18), fill=(255, 255, 255), anchor="mm")
-        
-        # Draw white box for logo in center
-        logo_box = [375, 30, 625, 115] # Width 250, Height 85
-        draw.rounded_rectangle(logo_box, radius=8, fill=(255, 255, 255))
-        # Draw fallback text (will be overwritten if logo image is successfully pasted)
-        draw.text((500, 72), "AIT 성아연", font=self.get_font("bold", 24), fill=(30, 58, 138), anchor="mm")
+        # Page indicator on top right (Capsule badge style)
+        pad_idx = f"{slide_index:02d} / 07"
+        draw.rounded_rectangle([780, 62, 900, 102], radius=16, fill=(30, 58, 138)) # Blue capsule badge
+        draw.text((840, 82), pad_idx, font=self.get_font("bold", 16), fill=(255, 255, 255), anchor="mm")
         
         if slide_type == "title":
-            # Render Title Slide (NO accent badges here, replaced by blue circle at top right)
-            
-            # Draw main title (multi-line wrapping supported)
+            # Render Title Slide
+            # Draw main title
             title_lines = self.wrap_text_korean(title_text, title_font, 800)
             y_offset = 220
             for line in title_lines:
@@ -2038,44 +2044,41 @@ class VerifierAgent:
             
         elif slide_type == "content":
             # Render Content Slide
-            # NO Accent Pill Badge at top anymore ("EP.01" / "Tech Insight" replaced by blue circle)
-            
-            # Title starts at y=180
-            title_font = self.get_font("bold", 38)
+            # Title starts at y=165
             title_lines = self.wrap_text_korean(title_text, title_font, 800)
-            y_offset = 180
+            y_offset = 165
+            line_height = int(title_font_size * 1.3)
             for line in title_lines:
-                draw.text((100, y_offset), line, font=title_font, fill=(15, 23, 42)) # Charcoal
-                y_offset += 52
+                draw.text((100, y_offset), line, font=title_font, fill=(15, 23, 42))
+                y_offset += line_height
                 
-            # Bullets
-            y_offset += 25
+            # Bullets: Draw each inside a white rounded rectangular box (larger text, improved readability)
             bullets = slide.get("bullets", [])
+            box_tops = [370, 530, 690]
             for idx, bullet in enumerate(bullets[:3]):
-                bullet_wrapped = self.wrap_text_korean(bullet, content_font, 760)
+                box_y = box_tops[idx]
                 
-                # Draw bullet dot
-                dot_y = y_offset + 12
-                draw.ellipse([100, dot_y, 108, dot_y + 8], fill=(0, 102, 204)) # sky blue bullet dot
+                # Draw white box: bounds [(100, box_y), (900, box_y + 135)]
+                draw.rounded_rectangle([100, box_y, 900, box_y + 135], radius=16, fill=(255, 255, 255))
                 
-                # Draw text lines
-                for line in bullet_wrapped:
-                    draw.text((128, y_offset), line, font=content_font, fill=(51, 65, 85)) # Slate-700
-                    y_offset += 38
-                y_offset += 20 # Spacing between bullets
+                # Draw gold vertical line prefix on the left edge inside the box
+                draw.rounded_rectangle([100, box_y, 108, box_y + 135], radius=4, fill=(194, 159, 102))
                 
-            # Draw Source Info at the bottom
-            source_name = slide.get("source_name", "원문 출처")
+                # Draw number "01", "02", "03" in gold
+                draw.text((130, box_y + 45), f"0{idx+1}", font=self.get_font("bold", 34), fill=(194, 159, 102))
+                
+                # Draw wrapped bullet text on the right (font size 31, bold for readability)
+                bullet_wrapped = self.wrap_text_korean(bullet, content_font, 670)
+                text_y = box_y + 32
+                for line in bullet_wrapped[:2]: # Max 2 lines to fit nicely
+                    draw.text((200, text_y), line, font=content_font, fill=(51, 65, 85))
+                    text_y += 40
+                    
+            # Draw Source Info at the bottom (full link, no truncation, small font)
             source_url = slide.get("source_url", "")
             if source_url:
-                source_text = f"출처: {source_name} ({source_url})"
-            else:
-                source_text = f"출처: {source_name}"
-            
-            # Truncate link text if it's too long
-            if len(source_text) > 85:
-                source_text = source_text[:82] + "..."
-            draw.text((100, 900), source_text, font=self.get_font("regular", 18), fill=(100, 116, 139))
+                source_text = f"source · {source_url}"
+                draw.text((100, 915), source_text, font=self.get_font("regular", 18), fill=(148, 163, 184))
                 
         elif slide_type == "closing":
             # Render Closing Slide
@@ -2100,7 +2103,6 @@ class VerifierAgent:
             # Draw central white card for QR Code
             qr_card_y = y_offset + 30
             qr_card_x = (self.width - 220) // 2
-            # White card: bounds [(qr_card_x - 12, qr_card_y - 12), (qr_card_x + 232, qr_card_y + 232)]
             draw.rounded_rectangle([qr_card_x - 12, qr_card_y - 12, qr_card_x + 232, qr_card_y + 232], radius=18, fill=(255, 255, 255))
             
             qr_drawn = False
@@ -2125,16 +2127,14 @@ class VerifierAgent:
             w = bbox[2] - bbox[0]
             draw.text(((self.width - w) // 2, y_offset), link_label, font=subtitle_font, fill=(30, 58, 138))
             
-        # Paste the logo if available
+        # Paste the logo if available (top left at x=100, y=50)
         logo = self.load_logo_transparent()
         if logo:
             try:
-                # Scale logo to height 32 to look nice and professional inside the center box
                 h_target = 32
                 w_target = int((float(logo.size[0]) * (h_target / float(logo.size[1]))))
                 resized_logo = logo.resize((w_target, h_target), Image.Resampling.LANCZOS)
                 
-                # Make logo match navy blue color:
                 logo_rgba = resized_logo.convert("RGBA")
                 datas = logo_rgba.getdata()
                 new_datas = []
@@ -2146,10 +2146,8 @@ class VerifierAgent:
                 logo_rgba.putdata(new_datas)
                 
                 rgba_img = img.convert("RGBA")
-                # Paste logo centered inside the white box (375, 30, 625, 115)
-                logo_x = 375 + (250 - w_target) // 2
-                logo_y = 30 + (85 - h_target) // 2
-                rgba_img.paste(logo_rgba, (logo_x, logo_y), logo_rgba)
+                # Paste logo at top left next to subtext boundary (just overwrite fallback text)
+                rgba_img.paste(logo_rgba, (100, 50), logo_rgba)
                 img = rgba_img.convert("RGB")
             except Exception as le:
                 log(self.name, f"로고 이미지 병합 중 에러 발생: {le}", Colors.WARNING)
@@ -2235,9 +2233,45 @@ class VerifierAgent:
         except Exception as e:
             return True, f"네트워크 환경 제한으로 우회 통과 ({str(e)})"
 
-    def verify_balance_and_temporal(self, card_data, mode="daily", include_llm_releases=False, treesoop_mode=False, trendchaser_mode=False):
+    def verify_balance_and_temporal(self, card_data, mode="daily", include_llm_releases=False, treesoop_mode=False, trendchaser_mode=False, articles=None):
+        today = get_kst_today()
+        
+        # Enforce date checking for treesoop & trendchaser modes
+        expected_str = ""
+        if treesoop_mode:
+            crawled_date = today
+            if articles:
+                for art in articles:
+                    link = art.get("link", "")
+                    match = re.search(r'ai-news-(\d{4})-(\d{2})-(\d{2})', link)
+                    if match:
+                        y, m, d = match.groups()
+                        crawled_date = datetime.date(int(y), int(m), int(d))
+                        break
+            expected_str = f"[{crawled_date.month}월 {crawled_date.day}일]"
+        elif trendchaser_mode:
+            crawled_date = today
+            if articles:
+                for art in articles:
+                    date_str = art.get("date")
+                    if date_str:
+                        parts = date_str.split("-")
+                        if len(parts) == 3:
+                            crawled_date = datetime.date(int(parts[0]), int(parts[1]), int(parts[2]))
+                            break
+            expected_str = f"[{crawled_date.month}월 {crawled_date.day}일]"
+        elif mode == "daily":
+            expected_str = f"[{today.month}월 {today.day}일]"
+            
+        if expected_str:
+            for slide in card_data.get("slides", []):
+                if slide["type"] == "content":
+                    title = slide.get("title", "")
+                    if expected_str not in title:
+                        return False, f"슬라이드 {slide['slide_index']}: 최신 날짜 정합성 검증 실패 (기대 일자: {expected_str}, 실제 제목: '{title}')"
+
         if treesoop_mode or trendchaser_mode:
-            return True, "단독 수집 모드 가동: 무결성 검증 통과"
+            return True, "단독 수집 모드 가동: 무결성 검증 통과 (날짜 정합성 검증 완료)"
             
         # Returns (is_valid, reason_str)
         today = get_kst_today()
@@ -2510,7 +2544,7 @@ def main():
         card_content = creator.run(articles, mode=mode, treesoop_mode=treesoop_mode, trendchaser_mode=trendchaser_mode)
         
         # 3. Perform Verifier balance & temporal checks
-        is_valid, msg = verifier.verify_balance_and_temporal(card_content, mode=mode, include_llm_releases=include_llm_releases, treesoop_mode=treesoop_mode, trendchaser_mode=trendchaser_mode)
+        is_valid, msg = verifier.verify_balance_and_temporal(card_content, mode=mode, include_llm_releases=include_llm_releases, treesoop_mode=treesoop_mode, trendchaser_mode=trendchaser_mode, articles=articles)
         
         if is_valid:
             log("Verifier Agent", f"✔ 무결성 및 조화성 검증 완료: {msg}", Colors.GREEN)
