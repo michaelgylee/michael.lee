@@ -86,6 +86,7 @@ function litifyTldrBullets(values, minPoints = 3, maxPoints = 4) {
             .replace(/\*\*([^*]+)\*\*/g, '$1')
             .replace(/[*_#`>]/g, '')
             .replace(/^\s*[-•▪◦]\s*/g, '')
+            .replace(/https?:\/\/\S+/gi, '')
             .replace(/\s+/g, ' ')
             .trim();
         if (!clean) return;
@@ -102,6 +103,9 @@ function litifyTldrBullets(values, minPoints = 3, maxPoints = 4) {
     const seen = new Set();
     for (const candidate of candidates) {
         const point = candidate.replace(/^[0-9]+[.)]\s*/, '').trim();
+        const isUrlCopy = /https?:\/\/|www\.|(?:github|gitlab)\.[a-z]{2,}/i.test(point);
+        const isResearchCopy = /기사의 (?:핵심|세부)|한국시간 기준|수집 범위|발행 시각.*검증|원문에서 확인|원문 기사에|상세 정보.*원문/i.test(point);
+        if (isUrlCopy || isResearchCopy) continue;
         const key = point.replace(/\s+/g, '').toLowerCase();
         if (point.length < 8 || seen.has(key)) continue;
         seen.add(key);
@@ -120,15 +124,13 @@ function litifyTldrBullets(values, minPoints = 3, maxPoints = 4) {
         if (unique.length >= maxPoints) break;
     }
 
-    if (unique.length < minPoints) {
-        const fallbacks = [
-            '핵심 변화와 적용 대상은 하단의 원문에서 확인할 수 있습니다.',
-            '세부 수치와 기술 조건은 원문 기사에 구체적으로 안내되어 있습니다.',
-            '업무 적용 시 영향과 후속 업데이트를 함께 확인하는 것이 좋습니다.'
-        ];
-        while (unique.length < minPoints) unique.push(fallbacks[unique.length % fallbacks.length]);
-    }
     return unique.slice(0, maxPoints);
+}
+
+function headlineFactBullets(title) {
+    const clean = cleanCardTitle(title).replace(/^['"“”]|['"“”]$/g, '').trim();
+    const clauses = clean.split(/\s*(?:…+|[;；])\s*/).map(part => part.trim()).filter(part => part.length >= 8);
+    return (clauses.length ? clauses : [clean]).slice(0, 3).map(part => /[.!?。！？]$/.test(part) ? part : `${part}.`);
 }
 
 function cleanCardTitle(title) {
@@ -541,6 +543,14 @@ const consoleLogs = document.getElementById("console-logs");
 const dbStatusText = document.getElementById("dashboard-status-text");
 const dbSubText = document.getElementById("dashboard-sub-text");
 
+// Allow a normal mouse wheel to move through the horizontal slide strip.
+slidesContainer.addEventListener("wheel", (event) => {
+    if (slidesContainer.scrollWidth <= slidesContainer.clientWidth) return;
+    if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+    event.preventDefault();
+    slidesContainer.scrollLeft += event.deltaY;
+}, { passive: false });
+
 // Node references for visualization
 const nodeRes = document.getElementById("node-res");
 const nodeGate = document.getElementById("node-gate");
@@ -808,16 +818,6 @@ if (btnTreesoop) {
     });
 }
 
-// Trend Chaser Card News Generator button bind
-const btnTrendchaser = document.getElementById("btn-trendchaser");
-if (btnTrendchaser) {
-    btnTrendchaser.addEventListener("click", () => {
-        if (appState.isRunning) return;
-        appState.trendchaserMode = true;
-        btnRun.click();
-    });
-}
-
 async function fetchTextWithCorsFallback(url) {
     const requestUrls = [
         url,
@@ -899,10 +899,9 @@ function rssItemToArticle(item) {
         publishedAt,
         date: formatYmd(parseSourceDate(publishedAt) || getKstDate()),
         bullets: [
-            `${source}가 보도한 최신 AI 소식의 핵심 내용입니다: ${title}`,
-            '기사의 세부 수치와 제품·서비스 변경 사항은 연결된 원문에서 확인할 수 있습니다.',
-            '발행 시각을 한국시간 기준으로 검증해 일간·주간 수집 범위에 포함된 기사만 선정했습니다.'
-        ]
+            ...headlineFactBullets(title)
+        ],
+        headlineOnly: true
     };
 }
 
@@ -940,11 +939,8 @@ async function fetchLatestGoogleNews(mode, categories) {
                 link: item.link || '',
                 publishedAt,
                 date: formatYmd(parseSourceDate(publishedAt) || getKstDate()),
-                bullets: [
-                    `${source}가 보도한 최신 AI 소식입니다: ${title}`,
-                    '기사의 핵심 제품·수치·변경 사항을 간결하게 정리했습니다.',
-                    '한국시간 기준 수집 범위와 원문 발행일을 검증했습니다.'
-                ]
+                bullets: headlineFactBullets(title),
+                headlineOnly: true
             };
         });
     }
@@ -985,8 +981,12 @@ async function fetchTreeSoopNews() {
         let sourceUrl = '';
         let node = heading.nextElementSibling;
         while (node && node.tagName !== 'H2') {
-            if (node.matches('p') && node.textContent.trim() && !/원문\s*보기/.test(node.textContent)) {
-                bullets.push(node.textContent.trim());
+            if (node.matches('p')) {
+                const paragraph = node.textContent.trim();
+                const plainUrl = paragraph.match(/https?:\/\/[^\s<>()]+/i)?.[0];
+                if (!sourceUrl && plainUrl) sourceUrl = plainUrl.replace(/[),.;]+$/, '');
+                const isSourceCopy = /원문\s*보기|https?:\/\/|www\.|^(?:github|gitlab)\./i.test(paragraph);
+                if (paragraph && !isSourceCopy) bullets.push(paragraph);
             }
             const link = node.matches('a[href]') ? node : node.querySelector?.('a[href]');
             if (link && (/원문|링크/.test(link.textContent) || !sourceUrl)) {
@@ -995,7 +995,11 @@ async function fetchTreeSoopNews() {
             node = node.nextElementSibling;
         }
         if (bullets.length) {
-            articles.push({ title, source: 'TreeSoop', link: sourceUrl || postUrl, postUrl, publishedAt, date: publishedAt, bullets: bullets.slice(0, 3) });
+            let sourceName = 'TreeSoop';
+            try {
+                sourceName = new URL(sourceUrl || postUrl).hostname.replace(/^www\./, '');
+            } catch (_) {}
+            articles.push({ title, source: sourceName, link: sourceUrl || postUrl, postUrl, publishedAt, date: publishedAt, bullets: bullets.slice(0, 3) });
         }
     }
     if (!articles.length) throw new Error('TreeSoop 최신 게시물에서 뉴스 본문을 찾지 못했습니다.');
@@ -1010,8 +1014,6 @@ btnRun.addEventListener("click", async () => {
     btnRun.disabled = true;
     if (appState.treesoopMode) {
         btnRun.innerHTML = `<i data-lucide="loader" class="animate-spin"></i> TreeSoop 뉴스레터 생성 중...`;
-    } else if (appState.trendchaserMode) {
-        btnRun.innerHTML = `<i data-lucide="loader" class="animate-spin"></i> Trend Chaser 생성 중...`;
     } else {
         btnRun.innerHTML = `<i data-lucide="loader" class="animate-spin"></i> 분석 및 설계 진행 중...`;
     }
@@ -1040,15 +1042,13 @@ btnRun.addEventListener("click", async () => {
         
         if (appState.treesoopMode) {
             addLog("Researcher", `https://treesoop.com/blog 에서 ${todayStr} AI 뉴스 포스트 수집 및 파싱 시작...`, "researcher");
-        } else if (appState.trendchaserMode) {
-            addLog("Researcher", "https://www.taewoopark.com/trendchaser 에서 실시간 AI 브리프 수집 시작...", "researcher");
         } else {
             addLog("Researcher", `실시간 AI 뉴스 채널 수집 및 파싱 중 (카테고리: ${appState.categories.join(', ')})`, "researcher");
         }
         
         updateAgentProgress('researcher', 8, '수집 조건과 한국시간 기준 확인');
         await sleep(250);
-        updateAgentProgress('researcher', 18, appState.trendchaserMode ? 'Trend Chaser 최신 브리프 요청 준비' : '뉴스 피드 요청 준비');
+        updateAgentProgress('researcher', 18, appState.treesoopMode ? 'TreeSoop 최신 게시물 요청 준비' : '뉴스 피드 요청 준비');
         
         // Fetch raw news based on category selection
         let rawNews = [];
@@ -1056,16 +1056,6 @@ btnRun.addEventListener("click", async () => {
 
         if (appState.treesoopMode) {
             rawNews = await fetchTreeSoopNews();
-        } else if (appState.trendchaserMode) {
-            try {
-                rawNews = await fetchTrendChaserNews();
-                updateAgentProgress('researcher', 72, 'Trend Chaser 최신 토픽 파싱 완료');
-            } catch (error) {
-                addLog("Researcher", `Trend Chaser 실시간 API 제한(${error.message})을 감지해 내장 최신 브리프 캐시로 자동 전환합니다.`, "warning");
-                const cacheDate = formatYmd(getKstDate());
-                rawNews = TRENDCHASER_DATABASE.map(item => ({ ...item, date: cacheDate, publishedAt: cacheDate, cachedFallback: true }));
-                updateAgentProgress('researcher', 72, 'Trend Chaser 캐시 복구 완료');
-            }
         } else {
             try {
                 rawNews = await fetchLatestGoogleNews(appState.mode, appState.categories);
@@ -1093,7 +1083,7 @@ btnRun.addEventListener("click", async () => {
         }
 
         let freshNews = [];
-        if (appState.treesoopMode || appState.trendchaserMode) {
+        if (appState.treesoopMode) {
             freshNews = [...rawNews];
         } else if (includeLlmReleases) {
             freshNews = [...rawNews];
@@ -1104,7 +1094,7 @@ btnRun.addEventListener("click", async () => {
             if (freshNews.length < 5) freshNews = [...rawNews];
         }
         
-        rawNews = includeLlmReleases && !appState.treesoopMode && !appState.trendchaserMode
+        rawNews = includeLlmReleases && !appState.treesoopMode
             ? selectNewsWithRequiredLlm(freshNews, appState.mode)
             : freshNews.slice(0, 5);
         updateAgentProgress('researcher', 92, `${rawNews.length}개 기사 정제 및 3대 LLM 포함 조건 확인`);
@@ -1134,7 +1124,7 @@ btnRun.addEventListener("click", async () => {
                 }
             }
             const isLlmRelease = (includeLlmReleases && ["ChatGPT Release Notes", "Claude Release Notes", "Gemini API Changelog"].includes(item.source));
-            const isTreeSoop = appState.treesoopMode || appState.trendchaserMode;
+            const isTreeSoop = appState.treesoopMode;
             if (isDup && !isLlmRelease && !isTreeSoop) {
                 addLog("Gatekeeper", `중복 카드 감지되어 교체 대상을 필터링합니다: ${item.title}`, "warning");
             } else {
@@ -1142,7 +1132,7 @@ btnRun.addEventListener("click", async () => {
             }
         });
         
-        if (deduplicated.length < rawNews.length && !appState.treesoopMode && !appState.trendchaserMode) {
+        if (deduplicated.length < rawNews.length && !appState.treesoopMode) {
             let remainingPool = freshNews.filter(n => !rawNews.includes(n));
             for (let item of remainingPool) {
                 if (deduplicated.length >= rawNews.length) break;
@@ -1186,10 +1176,6 @@ btnRun.addEventListener("click", async () => {
             addLog("Creator", "TreeSoop 단독 모드 가동: 파싱 데이터 기반 카드뉴스 자동 빌드 완료", "creator");
             updateAgentProgress('creator', 45, 'TreeSoop 본문을 간결한 문장으로 재구성');
             cardJson = generateTreeSoopCard(rawNews);
-        } else if (appState.trendchaserMode) {
-            addLog("Creator", "Trend Chaser 단독 모드 가동: 파싱 데이터 기반 카드뉴스 자동 빌드 완료", "creator");
-            updateAgentProgress('creator', 45, 'Trend Chaser 토픽을 3~4개 핵심 문장으로 재구성');
-            cardJson = generateTrendChaserCard(rawNews);
         } else if (appState.apiKey) {
             // Live Mode via Gemini API!
             addLog("Creator", "Google Gemini API 연결 성공. 실시간 맞춤 요약 및 카피라이팅 작성 중...", "creator");
@@ -1227,7 +1213,7 @@ btnRun.addEventListener("click", async () => {
         const textToVerify = JSON.stringify(cardJson);
         const hasKorean = /[ㄱ-ㅎㅏ-ㅣ가-힣]/.test(textToVerify);
         const hasBroken = /Ã|ë|&amp;|&lt;|&gt;/.test(textToVerify);
-        const hasOldYear = (appState.treesoopMode || appState.trendchaserMode) ? false : /2023|2024|2025/.test(textToVerify); 
+        const hasOldYear = appState.treesoopMode ? false : /2023|2024|2025/.test(textToVerify);
         
         addLog("Verifier", `[검증 1] 한국어 표준 표현 검증: ${hasKorean ? '통과 (100% 한국어 규격 일치)' : '실패'}`, hasKorean ? 'success' : 'warning');
         await sleep(400);
@@ -1238,7 +1224,7 @@ btnRun.addEventListener("click", async () => {
         await sleep(400);
         
         const dateRangeText = appState.mode === 'daily' ? '24시간 이내' : '1주일 이내';
-        addLog("Verifier", `[검증 4] 실행 시점 기준 적합성 검증 (${dateRangeText}): ${(appState.treesoopMode || appState.trendchaserMode) ? '통과 (단독 수집 모드 검증 우회)' : (!hasOldYear ? '통과 (최신 뉴스 검증 완료)' : '실패 (과거 데이터 감지)')}`, !hasOldYear || appState.treesoopMode || appState.trendchaserMode ? 'success' : 'warning');
+        addLog("Verifier", `[검증 4] 실행 시점 기준 적합성 검증 (${dateRangeText}): ${appState.treesoopMode ? '통과 (TreeSoop 발행일 검증)' : (!hasOldYear ? '통과 (최신 뉴스 검증 완료)' : '실패 (과거 데이터 감지)')}`, !hasOldYear || appState.treesoopMode ? 'success' : 'warning');
         await sleep(400);
 
         // [검증 5] 중복 및 유사 뉴스 검증
@@ -1288,7 +1274,7 @@ btnRun.addEventListener("click", async () => {
             const article = rawNews.find(item => item.link === slide.source_url) || rawNews[slide.slide_index - 2];
             const expectedDate = article ? formatYmd(parseSourceDate(article.publishedAt || article.date || article.pubDate) || getKstDate()) : '';
             const slideDate = formatYmd(parseSourceDate(slide.source_date) || getKstDate());
-            const sourceModeExempt = appState.treesoopMode || appState.trendchaserMode;
+            const sourceModeExempt = appState.treesoopMode;
             if (!article || (!sourceModeExempt && !isFreshArticle(article, appState.mode)) || slideDate !== expectedDate) {
                 dateCheckPassed = false;
                 dateMismatches.push(`${slide.slide_index}장:${expectedDate || '발행일 없음'}`);
@@ -1307,7 +1293,7 @@ btnRun.addEventListener("click", async () => {
         renderCards(cardJson);
 
         // Save current generated titles to localStorage history
-        if (cardJson && cardJson.slides && !appState.treesoopMode && !appState.trendchaserMode) {
+        if (cardJson && cardJson.slides && !appState.treesoopMode) {
             let newTitles = cardJson.slides
                 .filter(s => s.type === 'content')
                 .map(s => s.title.replace(/^\d+\.\s+\[.*?\]\s+/, '').replace(/^\d+\.\s+/, '').replace(/\s+\(.*?\)$/, '')); 
@@ -1329,7 +1315,6 @@ btnRun.addEventListener("click", async () => {
         dbStatusText.textContent = "에이전트 카드뉴스 생성 완료";
         let modeDisplayText = appState.mode === 'daily' ? '일간 브리핑' : '주간 트렌드';
         if (appState.treesoopMode) modeDisplayText = 'TreeSoop 뉴스레터';
-        if (appState.trendchaserMode) modeDisplayText = 'Trend Chaser 리포트';
         dbSubText.textContent = `카드뉴스 제작이 모두 끝났습니다. 이제 확인하고 배포하세요. (${modeDisplayText})`;
         
     } catch (e) {
@@ -1337,7 +1322,6 @@ btnRun.addEventListener("click", async () => {
     } finally {
         appState.isRunning = false;
         appState.treesoopMode = false;
-        appState.trendchaserMode = false;
         btnRun.disabled = false;
         btnRun.innerHTML = `<i data-lucide="play"></i> 에이전트 팀 가동하기`;
         lucide.createIcons();
@@ -1401,7 +1385,7 @@ function generateSimulatedCard(news, mode) {
             slide_index: index + 2,
             type: 'content',
             title: cleanCardTitle(item.title),
-            bullets: litifyTldrBullets(item.bullets),
+            bullets: litifyTldrBullets(item.bullets, item.headlineOnly ? 1 : 3, item.headlineOnly ? 3 : 4),
             gradient: appState.gradients[(index + 1) % appState.gradients.length],
             fontSize: 34,
             source_name: item.source,
@@ -1559,173 +1543,6 @@ function generateTreeSoopCard(news) {
         slides: slides
     };
 }
-
-async function fetchTrendChaserNews() {
-    try {
-        const responseText = await fetchTextWithCorsFallback(`https://www.taewoopark.com/api/briefs?ts=${Date.now()}`);
-        {
-            const data = JSON.parse(responseText);
-            if (Array.isArray(data) && data.length > 0) {
-                // Prefer the real publication timestamp/date; IDs are not guaranteed to be chronological strings.
-                data.sort((a, b) => {
-                    const aTime = Date.parse(a.publishedAt || a.updatedAt || a.date || '') || 0;
-                    const bTime = Date.parse(b.publishedAt || b.updatedAt || b.date || '') || 0;
-                    return bTime - aTime || String(b.id || '').localeCompare(String(a.id || ''), undefined, { numeric: true });
-                });
-                const latestBrief = data[0];
-                
-                // Perform dynamic date check
-                const todayStr = formatYmd(getKstDate());
-                
-                if (latestBrief.date !== todayStr) {
-                    addLog("Researcher", `[알림] 오늘 날짜(${todayStr})의 Trend Chaser 브리프가 아직 업로드되지 않았습니다. 가장 최근에 업로드된 브리프(${latestBrief.date})를 사용해 뉴스레터를 생성합니다.`, "warning");
-                }
-                
-                const topics = latestBrief.topics || [];
-                return topics.map(t => {
-                    const paragraphs = t.body.split("\n\n").map(p => p.replace(/\*\*([^*]+?)\*\*|[*_#`]/g, '$1').trim()).filter(Boolean);
-                    return {
-                        title: t.headline,
-                        source: t.source,
-                        link: t.url || "https://www.taewoopark.com/trendchaser",
-                        bullets: litifyTldrBullets(paragraphs),
-                        date: latestBrief.date,
-                        publishedAt: latestBrief.publishedAt || latestBrief.updatedAt || latestBrief.date
-                    };
-                });
-            }
-        }
-    } catch (e) {
-        console.warn("TrendChaser live fetch failed:", e);
-        throw new Error(`Trend Chaser 최신 뉴스를 불러오지 못했습니다: ${e.message}`);
-    }
-    throw new Error('Trend Chaser 최신 브리프가 비어 있습니다.');
-}
-
-const TRENDCHASER_DATABASE = [
-    {
-        title: "Grok CLI, 리포 몰래 통째 전송",
-        source: "hn_breaking",
-        link: "https://gist.github.com/cereblab/dc9a40bc26120f4540e4e09b75ffb547",
-        bullets: [
-            "로컬 코드베이스를 다루는 에이전틱 코딩 도구의 보안 검증 진행.",
-            "미공개 저장소 테스트 도중 불필요한 과도 데이터 전송 현상 발견.",
-            "사용자의 수집 거부 설정에도 전송이 계속되어 안전장치 필요성 제기."
-        ]
-    },
-    {
-        title: "iroh 분산 LLM 추론 공개",
-        source: "hn_breaking",
-        link: "https://www.iroh.computer/blog/mesh-llm",
-        bullets: [
-            "로컬 실행, 피어 라우팅 및 모델 분할 세 가지 모드 지원.",
-            "QUIC 프로토콜 위에 얹어 중개 서버 없는 노드 직접 연결 달성.",
-            "노드 간 자원을 빌려 대형 MoE 모델을 분할 연산하는 구조 구현."
-        ]
-    },
-    {
-        title: "360도 이미지 생성 새 사전학습법",
-        source: "hf_papers",
-        link: "https://arxiv.org/abs/2607.08765",
-        bullets: [
-            "스타일 변환, 인페인팅 및 아웃페인팅 시나리오 학습 진행.",
-            "기하학적 일관성을 개선하기 위한 원형 패딩 설계 도입.",
-            "화각 왜곡을 자연스럽게 보정하는 360도 구형 구조 최적화 완료."
-        ]
-    },
-    {
-        title: "리스프 100줄짜리 AI 에이전트",
-        source: "lobsters_ai",
-        link: "https://thebeach.dev/posts/lisp-agent",
-        bullets: [
-            "OpenRouter API 연동과 대화 기록 저장을 포함한 간결한 메모리.",
-            "에이전트가 필요 시 코드를 스스로 정의하고 실행하는 구조.",
-            "eval 도구를 그대로 노출함에 따라 샌드박싱 안전 보완 필요."
-        ]
-    },
-    {
-        title: "샤오미, MiMo 추론 7배 압축",
-        source: "lobsters_ai",
-        link: "https://mimo.xiaomi.com/blog/mimo-v2-5-inference",
-        bullets: [
-            "Hybrid Sliding Window Attention(SWA)과 희소 MoE 활성화 기술 적용.",
-            "KV 캐시 적중률 평균 93% 이상을 달성하여 서버 부하 경감.",
-            "vLLM 등 오픈소스 서빙 스택 도입을 고려하는 대규모 트래픽 지표 제공."
-        ]
-    }
-];
-
-function generateTrendChaserCard(news) {
-    let crawledDate = getKstDate();
-    
-    if (news && news[0] && news[0].date) {
-        const parts = news[0].date.split("-");
-        if (parts.length === 3) {
-            crawledDate = parseSourceDate(news[0].date) || crawledDate;
-        }
-    }
-    
-    const month = crawledDate.getUTCMonth() + 1;
-    const day = crawledDate.getUTCDate();
-    let slides = [
-        {
-            slide_index: 1,
-            type: "title",
-            title: "Trend Chaser AI 뉴스",
-            subtitle: `[${month}월 ${day}일] 실시간 트렌드 체이서 리포트`,
-            gradient: "preset-cyber",
-            fontSize: 44
-        }
-    ];
-    
-    let topArticles = news.slice(0, 5);
-    while (topArticles.length < 5) {
-        topArticles.push({
-            title: "실시간 AI 트렌드 및 최신 기술 동향이 지속적으로 업데이트됩니다.",
-            source: "Trend Chaser",
-            link: "https://www.taewoopark.com/trendchaser",
-            bullets: [
-                "Trend Chaser Curation Agent가 하루 4회 수집하고 선정한 최고점 신호 of 소식입니다.",
-                "개발자 생산성 도구, 새로운 모델 아키텍처 및 산업 동향을 면밀히 요약합니다.",
-                "자세한 기술 리포트와 분석 정보는 트렌드 체이서 공식 홈페이지를 참고하세요."
-            ]
-        });
-    }
-    
-    topArticles.forEach((art, idx) => {
-        let titleClean = art.title.replace(/^\d+\.\s*/, '').replace(/^\[[^\]]+\]\s*/, '');
-        let displayTitle = titleClean;
-        
-        const bullets = litifyTldrBullets(art.bullets || []);
-        
-        slides.push({
-            slide_index: idx + 2,
-            type: "content",
-            title: cleanCardTitle(displayTitle),
-            bullets: bullets,
-            gradient: appState.gradients[(idx + 3) % appState.gradients.length],
-            fontSize: 34,
-            source_name: art.source,
-            source_url: art.link,
-            source_date: formatYmd(parseSourceDate(art.publishedAt || art.date) || crawledDate)
-        });
-    });
-    
-    slides.push({
-        slide_index: 7,
-        type: "closing",
-        title: "Trend Chaser 브리핑",
-        subtitle: "하루 4회 업데이트되는 최신 AI 트렌드를 만나보세요!",
-        gradient: "preset-violet",
-        fontSize: 42
-    });
-    
-    return {
-        topic: "Trend Chaser AI 뉴스",
-        slides: slides
-    };
-}
-
 
 // Call Google Gemini API with Search Grounding
 async function generateCardWithGemini(news, mode, apiKey) {
@@ -1925,7 +1742,6 @@ function renderCards(cardJson) {
         let catText = "DAILY BRIEFINGS";
         if (appState.mode === 'weekly') catText = "WEEKLY TRENDS";
         if (appState.treesoopMode) catText = "TREESOOP NEWS";
-        if (appState.trendchaserMode) catText = "TREND CHASER";
 
         const padIndex = String(slide.slide_index).padStart(2, '0');
         
@@ -1945,7 +1761,7 @@ function renderCards(cardJson) {
                     </div>
                 </div>
                 
-                <div class="slide-content-area" style="display: flex; flex-direction: column; flex: 1; margin-top: 4px;">
+                <div class="slide-content-area" style="display: flex; flex-direction: column; flex: 1; min-height: 0; margin-top: 4px;">
         `;
         
         if (slide.type === 'title') {
@@ -1985,14 +1801,14 @@ function renderCards(cardJson) {
             
             innerHtml += `
                 <div class="slide-card-title" style="font-size: ${titleFontSize}px; font-weight: 800; color: #0F172A; line-height: 1.3; margin-top: 6px; margin-bottom: 6px;">${slide.title}</div>
-                <div class="slide-card-bullets" style="display: flex; flex-direction: column; gap: ${hasFourPoints ? '4px' : '6px'}; flex: 1; justify-content: flex-start; margin: 0;">
+                <div class="slide-card-bullets" style="display: flex; flex-direction: column; gap: ${hasFourPoints ? '4px' : '6px'}; flex: 1; min-height: 0; justify-content: flex-start; margin: 0 0 16px 0; overflow: hidden;">
                     ${cardBullets.map((b) => `
                         <div class="slide-bullet-item" style="background: #FFFFFF; border-radius: 6px; border-left: 2.5px solid #C29F66; padding: ${hasFourPoints ? '5px 8px' : '7px 9px'}; display: flex; align-items: flex-start; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
                             <span class="slide-bullet-text" style="color: #334155; font-size: ${bodyFontSize}px; font-weight: 700; line-height: 1.22; flex: 1; word-break: keep-all; overflow-wrap: anywhere;">${b}</span>
                         </div>
                     `).join('')}
                 </div>
-                <a class="slide-card-source" href="${slide.source_url || '#'}" title="원문 열기: ${slide.source_url || ''}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" style="color: #475569; text-decoration: underline; font-size: 7.2px; line-height: 1.22; opacity: 0.98; margin-top: auto; padding-top: 4px; border-top: 1px solid rgba(0,0,0,0.06); cursor: pointer; display: block;">
+                <a class="slide-card-source" href="${slide.source_url || '#'}" title="원문 열기: ${slide.source_url || ''}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" style="position: absolute; left: 18px; right: 18px; bottom: 10px; color: #475569; background: #F7F4EB; text-decoration: underline; font-size: 7px; line-height: 1.2; opacity: 0.98; padding-top: 3px; border-top: 1px solid rgba(0,0,0,0.08); cursor: pointer; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                     ${sourceLabel}
                 </a>
             `;

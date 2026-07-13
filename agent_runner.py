@@ -65,6 +65,7 @@ def litify_tldr_bullets(values, min_points=3, max_points=4):
         clean = re.sub(r'\*\*([^*]+)\*\*', r'\1', str(value))
         clean = re.sub(r'[*_#`>]', '', clean)
         clean = re.sub(r'^\s*[-•▪◦]\s*', '', clean)
+        clean = re.sub(r'https?://\S+', '', clean, flags=re.IGNORECASE)
         clean = re.sub(r'\s+', ' ', clean).strip()
         sentences = re.findall(r'[^.!?。！？]+[.!?。！？]?', clean) or [clean]
         for sentence in sentences:
@@ -76,6 +77,10 @@ def litify_tldr_bullets(values, min_points=3, max_points=4):
     seen = set()
     for candidate in candidates:
         point = re.sub(r'^[0-9]+[.)]\s*', '', candidate).strip()
+        is_url_copy = re.search(r'https?://|www\.|(?:github|gitlab)\.[a-z]{2,}', point, re.IGNORECASE)
+        is_research_copy = re.search(r'기사의 (?:핵심|세부)|한국시간 기준|수집 범위|발행 시각.*검증|원문에서 확인|원문 기사에|상세 정보.*원문', point)
+        if is_url_copy or is_research_copy:
+            continue
         key = re.sub(r'\s+', '', point).lower()
         if len(point) < 8 or key in seen:
             continue
@@ -94,13 +99,6 @@ def litify_tldr_bullets(values, min_points=3, max_points=4):
         if len(points) >= max_points:
             break
 
-    fallbacks = [
-        "핵심 변화와 적용 대상은 하단의 원문에서 확인할 수 있습니다.",
-        "세부 수치와 기술 조건은 원문 기사에 구체적으로 안내되어 있습니다.",
-        "업무 적용 시 영향과 후속 업데이트를 함께 확인하는 것이 좋습니다."
-    ]
-    while len(points) < min_points:
-        points.append(fallbacks[len(points) % len(fallbacks)])
     return points[:max_points]
 
 def clean_card_title(title):
@@ -536,7 +534,7 @@ class ResearcherAgent:
                             self.in_p = False
                             p_text = self.current_p_text.strip()
                             if self.current_article and p_text:
-                                if "원문 보기" in p_text or "원문" in p_text:
+                                if "원문 보기" in p_text or "원문" in p_text or re.search(r'https?://|www\.|^(?:github|gitlab)\.', p_text, re.IGNORECASE):
                                     pass
                                 else:
                                     self.current_article["bullets"].append(p_text)
@@ -584,71 +582,6 @@ class ResearcherAgent:
         except Exception as e:
             log(self.name, f"TreeSoop 포스트 파싱 중 오류 발생: {e}", Colors.WARNING)
             
-        return []
-
-    def fetch_trendchaser_news(self, mode="daily"):
-        log(self.name, "Trend Chaser 뉴스 수집 시작...", Colors.BLUE)
-        url = "https://www.taewoopark.com/api/briefs"
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-            "Cache-Control": "no-cache"
-        }
-        try:
-            res = None
-            for attempt in range(2):
-                try:
-                    res = requests.get(url, headers=headers, timeout=15, params={"_": int(get_kst_now().timestamp())})
-                    break
-                except requests.RequestException:
-                    if attempt == 1:
-                        raise
-            if res.status_code == 200:
-                data = res.json()
-                if isinstance(data, list) and len(data) > 0:
-                    # Publication timestamps are authoritative; string IDs can sort incorrectly.
-                    def brief_sort_key(brief):
-                        value = brief.get("publishedAt") or brief.get("updatedAt") or brief.get("date")
-                        parsed = parse_article_date_value(value)
-                        return (parsed or datetime.datetime.min, str(brief.get("id", "")))
-
-                    data = sorted(data, key=brief_sort_key, reverse=True)
-                    latest_brief = data[0]
-                    
-                    # Check date dynamically against today's date in KST
-                    today_kst = get_kst_today()
-                    date_str_today = today_kst.strftime("%Y-%m-%d")
-                    brief_date = latest_brief.get("date", "")
-                    
-                    if brief_date != date_str_today:
-                        log(self.name, f"오늘 날짜({date_str_today})의 Trend Chaser 브리프가 아직 업로드되지 않았습니다. 가장 최근에 업로드된 브리프({brief_date})를 사용해 뉴스레터를 생성합니다.", Colors.WARNING)
-                            
-                    topics = latest_brief.get("topics", [])
-                    log(self.name, f"Trend Chaser 최신 브리프 ({latest_brief.get('id')})에서 {len(topics)}개의 토픽을 성공적으로 가져왔습니다.", Colors.GREEN)
-                    
-                    articles = []
-                    for topic in topics:
-                        headline = topic.get("headline", "")
-                        body = topic.get("body", "")
-                        source = topic.get("source", "Trend Chaser")
-                        original_url = topic.get("url", "https://www.taewoopark.com/trendchaser")
-                        
-                        paragraphs = [p.strip() for p in body.split("\n\n") if p.strip()]
-                        bullets = []
-                        for p in paragraphs:
-                            clean_p = re.sub(r'\*\*([^*]+?)\*\*|[*_#`]', r'\1', p)
-                            bullets.append(clean_p)
-                            
-                        articles.append({
-                            "title": headline,
-                            "source": source,
-                            "link": original_url,
-                            "bullets": bullets,
-                            "date": brief_date,
-                            "published_at": latest_brief.get("publishedAt") or latest_brief.get("updatedAt") or brief_date
-                        })
-                    return articles
-        except Exception as e:
-            log(self.name, f"Trend Chaser 뉴스 수집 중 오류: {e}", Colors.WARNING)
         return []
 
     def fetch_llm_release_notes(self, mode="daily"):
@@ -789,11 +722,8 @@ class ResearcherAgent:
                     "published_at": published.isoformat() if published else "",
                     "date": published.strftime("%Y-%m-%d") if published else "",
                     "source": source,
-                    "bullets": [
-                        f"{source}가 보도한 최신 AI 소식의 핵심 내용입니다: {title}",
-                        "기사의 세부 수치와 제품·서비스 변경 사항은 연결된 원문에서 확인할 수 있습니다.",
-                        "발행 시각을 한국시간 기준으로 검증해 선택한 수집 기간에 포함된 기사만 선정했습니다."
-                    ],
+                    "bullets": [title.rstrip(".!?。！？") + "."],
+                    "headline_only": True,
                     "priority": 1
                 })
             articles.sort(key=lambda article: parse_article_date_value(article.get("published_at")) or datetime.datetime.min, reverse=True)
@@ -824,20 +754,13 @@ class ResearcherAgent:
             pass
         return articles
 
-    def run(self, limit=10, mode="daily", include_llm_releases=False, treesoop_mode=False, trendchaser_mode=False):
+    def run(self, limit=10, mode="daily", include_llm_releases=False, treesoop_mode=False):
         if treesoop_mode:
             log(self.name, f"TreeSoop 단독 모드 가동 (다른 소스 수집 배제)...", Colors.HEADER)
             treesoop_articles = self.fetch_treesoop_news(mode)
             self.last_standard_candidates = []
             self.last_llm_candidates = []
             return treesoop_articles[:limit]
-            
-        if trendchaser_mode:
-            log(self.name, f"Trend Chaser 단독 모드 가동 (다른 소스 수집 배제)...", Colors.HEADER)
-            trend_articles = self.fetch_trendchaser_news(mode)
-            self.last_standard_candidates = []
-            self.last_llm_candidates = []
-            return trend_articles[:limit]
             
         log(self.name, f"다단계 우선순위 뉴스 수집 파이프라인 가동 (모드: {mode}, 3대 LLM 필수화: {include_llm_releases})...", Colors.HEADER)
         
@@ -1435,8 +1358,8 @@ class GatekeeperAgent:
             log(self.name, f"이력 DB 초기화 실패: {e}", Colors.WARNING)
             return False
 
-    def verify(self, final_articles, standard_candidates, llm_candidates, mode, include_llm_releases=False, treesoop_mode=False, trendchaser_mode=False):
-        if treesoop_mode or trendchaser_mode:
+    def verify(self, final_articles, standard_candidates, llm_candidates, mode, include_llm_releases=False, treesoop_mode=False):
+        if treesoop_mode:
             log(self.name, "단독 수집 모드 가동: 게이트키퍼 중복 제외 및 오버라이드 우회 통과", Colors.GREEN)
             return final_articles
             
@@ -1594,14 +1517,10 @@ class CreatorAgent:
         self.name = "Creator Agent"
         self.api_key = os.environ.get("GEMINI_API_KEY")
 
-    def run(self, articles, mode="daily", treesoop_mode=False, trendchaser_mode=False):
+    def run(self, articles, mode="daily", treesoop_mode=False):
         if treesoop_mode:
             log(self.name, "TreeSoop 단독 모드 가동: 파싱 데이터 기반 카드뉴스 생성", Colors.GREEN)
             return self.generate_treesoop_content(articles, mode)
-            
-        if trendchaser_mode:
-            log(self.name, "Trend Chaser 단독 모드 가동: 파싱 데이터 기반 카드뉴스 생성", Colors.GREEN)
-            return self.generate_trendchaser_content(articles, mode)
             
         log(self.name, f"뉴스 분석 및 카드뉴스 콘텐츠 기획 시작 (모드: {mode})...", Colors.HEADER)
         
@@ -1768,77 +1687,6 @@ class CreatorAgent:
         # Fallback Local Generator
         log(self.name, "로컬 룰 기반 템플릿 엔진을 사용하여 카드뉴스를 구성합니다.", Colors.BLUE)
         return self.generate_local_content(articles, mode)
-
-    def generate_trendchaser_content(self, articles, mode):
-        today = get_kst_today()
-        brief_date = parse_article_date_value(articles[0].get("published_at") or articles[0].get("date")) if articles else None
-        source_date = brief_date.date() if brief_date else today
-        today_str = source_date.strftime("%Y년 %m월 %d일")
-        
-        slides = [
-            {
-                "slide_index": 1,
-                "type": "title",
-                "title": "Trend Chaser AI 뉴스",
-                "subtitle": f"[{today_str}] 실시간 트렌드 체이서 리포트"
-            }
-        ]
-        
-        top_articles = articles[:5]
-        while len(top_articles) < 5:
-            top_articles.append({
-                "title": "실시간 AI 트렌드 및 최신 기술 동향이 지속적으로 업데이트됩니다.",
-                "source": "Trend Chaser",
-                "link": "https://www.taewoopark.com/trendchaser",
-                "bullets": [
-                    "Trend Chaser Curation Agent가 하루 4회 수집하고 선정한 최고점 신호의 소식입니다.",
-                    "개발자 생산성 도구, 새로운 모델 아키텍처 및 산업 동향을 면밀히 요약합니다.",
-                    "자세한 기술 리포트와 분석 정보는 트렌드 체이서 공식 홈페이지를 참고하세요."
-                ]
-            })
-            
-        # Extract brief date
-        brief_date_str = ""
-        if articles:
-            brief_date_str = articles[0].get("date", "")
-        
-        crawled_date = today
-        if brief_date_str:
-            parts = brief_date_str.split("-")
-            if len(parts) == 3:
-                crawled_date = datetime.date(int(parts[0]), int(parts[1]), int(parts[2]))
-        
-        for idx, art in enumerate(top_articles):
-            title = art.get("title", "")
-            source = art.get("source", "Trend Chaser")
-            link = art.get("link", "https://www.taewoopark.com/trendchaser")
-            bullets = litify_tldr_bullets(art.get("bullets", []))
-            
-            title_clean = re.sub(r'^\d+\.\s*', '', title)
-            title_clean = re.sub(r'^\[[^\]]+\]\s*', '', title_clean)
-            display_title = title_clean
-            
-            slides.append({
-                "slide_index": idx + 2,
-                "type": "content",
-                "title": clean_card_title(display_title),
-                "bullets": bullets,
-                "source_name": source,
-                "source_url": link,
-                "source_date": crawled_date.strftime("%Y-%m-%d")
-            })
-            
-        slides.append({
-            "slide_index": 7,
-            "type": "closing",
-            "title": "Trend Chaser 브리핑",
-            "subtitle": "하루 4회 업데이트되는 최신 AI 트렌드를 만나보세요!"
-        })
-        
-        return {
-            "topic": "Trend Chaser AI 뉴스",
-            "slides": slides
-        }
 
     def generate_treesoop_content(self, articles, mode):
         today = get_kst_today()
@@ -2089,7 +1937,7 @@ class VerifierAgent:
         except Exception:
             return None
 
-    def render_card(self, slide, output_path, mode="daily", treesoop_mode=False, trendchaser_mode=False):
+    def render_card(self, slide, output_path, mode="daily", treesoop_mode=False):
         # Create image
         img = Image.new("RGB", (self.width, self.height), (247, 244, 235)) # Warm Ivory: #F7F4EB
         draw = ImageDraw.Draw(img)
@@ -2362,7 +2210,7 @@ class VerifierAgent:
         except Exception as e:
             return True, f"네트워크 환경 제한으로 우회 통과 ({str(e)})"
 
-    def verify_balance_and_temporal(self, card_data, mode="daily", include_llm_releases=False, treesoop_mode=False, trendchaser_mode=False, articles=None):
+    def verify_balance_and_temporal(self, card_data, mode="daily", include_llm_releases=False, treesoop_mode=False, articles=None):
         today = get_kst_today()
         
         # Match every card to its source's real publication date instead of stamping request day.
@@ -2376,13 +2224,13 @@ class VerifierAgent:
             published = parse_article_date_value(
                 (article or {}).get("published_at") or (article or {}).get("pubDate") or (article or {}).get("date")
             )
-            if not published or (not (treesoop_mode or trendchaser_mode) and not is_within_news_window(published, mode)):
+            if not published or (not treesoop_mode and not is_within_news_window(published, mode)):
                 return False, f"슬라이드 {slide['slide_index']}: 실제 소스 발행일이 없거나 {mode} 수집 범위를 벗어났습니다."
             slide_date = parse_article_date_value(slide.get("source_date"))
             if not slide_date or slide_date.date() != published.date():
                 return False, f"슬라이드 {slide['slide_index']}: 소스 발행일 불일치 (기대: {published.strftime('%Y-%m-%d')}, 실제: '{slide.get('source_date', '')}')"
 
-        if treesoop_mode or trendchaser_mode:
+        if treesoop_mode:
             return True, "단독 수집 모드 가동: 무결성 검증 통과 (날짜 정합성 검증 완료)"
             
         # Returns (is_valid, reason_str)
@@ -2477,9 +2325,9 @@ class VerifierAgent:
             
         return True, "무결성 및 다양성 조화 요건 통과"
 
-    def verify_card_content(self, card_data, mode="daily", treesoop_mode=False, trendchaser_mode=False):
+    def verify_card_content(self, card_data, mode="daily", treesoop_mode=False):
         log(self.name, "카드뉴스 무결성 검증 에이전트 가동...", Colors.HEADER)
-        if treesoop_mode or trendchaser_mode:
+        if treesoop_mode:
             log(self.name, "단독 수집 모드 가동: 소스 발행 시점 및 과거 연도 검증 우회 통과", Colors.GREEN)
             log(self.name, "✔ 모든 카드뉴스 슬라이드가 무결성 검증을 완벽하게 통과했습니다!", Colors.GREEN)
             return True
@@ -2551,9 +2399,9 @@ class VerifierAgent:
             log(self.name, "✔ 모든 카드뉴스 슬라이드가 무결성 검증을 완벽하게 통과했습니다!", Colors.GREEN)
             return True
 
-    def run(self, card_data, output_dir, mode="daily", treesoop_mode=False, trendchaser_mode=False):
+    def run(self, card_data, output_dir, mode="daily", treesoop_mode=False):
         # Perform validation first
-        self.verify_card_content(card_data, mode, treesoop_mode=treesoop_mode, trendchaser_mode=trendchaser_mode)
+        self.verify_card_content(card_data, mode, treesoop_mode=treesoop_mode)
         
         log(self.name, "카드뉴스 이미지 및 KakaoTalk 배포 데이터 렌더링 시작...", Colors.HEADER)
         
@@ -2561,7 +2409,7 @@ class VerifierAgent:
         for i, slide in enumerate(card_data["slides"]):
             file_name = f"{slide['slide_index']:02d}_slide.jpg"
             path = os.path.join(output_dir, file_name)
-            self.render_card(slide, path, mode=mode, treesoop_mode=treesoop_mode, trendchaser_mode=trendchaser_mode)
+            self.render_card(slide, path, mode=mode, treesoop_mode=treesoop_mode)
             created_paths.append(path)
             
         # Get first article URL for content link mapping
@@ -2618,14 +2466,13 @@ def main():
         sys.exit(0)
 
     print(f"\n{Colors.GREEN}==============================================")
-    print("      AI Card News Agent Team (v3.1.8)        ")
+    print("      AI Card News Agent Team (v3.1.9)        ")
     print(f"=============================================={Colors.ENDC}\n")
     
     # Choose daily by default, can be toggled by cli args
     mode = "daily"
     include_llm_releases = True
     treesoop_mode = False
-    trendchaser_mode = False
     for arg in sys.argv[1:]:
         if arg == "weekly":
             mode = "weekly"
@@ -2637,8 +2484,6 @@ def main():
             include_llm_releases = False
         elif arg in ["--treesoop", "treesoop", "tree"]:
             treesoop_mode = True
-        elif arg in ["--trendchaser", "trendchaser", "trend"]:
-            trendchaser_mode = True
 
     researcher = ResearcherAgent()
     creator = CreatorAgent()
@@ -2653,17 +2498,17 @@ def main():
         log("System", f"카드뉴스 생성 및 무결성 검증 시도 {attempt}/{max_attempts}...", Colors.HEADER)
         
         # 1. Start Researcher Agent
-        articles = researcher.run(limit=5, mode=mode, include_llm_releases=include_llm_releases, treesoop_mode=treesoop_mode, trendchaser_mode=trendchaser_mode)
+        articles = researcher.run(limit=5, mode=mode, include_llm_releases=include_llm_releases, treesoop_mode=treesoop_mode)
         
         # 1.5. Start Gatekeeper Agent for topmost & deduplication checks
         gatekeeper = GatekeeperAgent()
-        articles = gatekeeper.verify(articles, researcher.get_last_standard_candidates(), researcher.get_last_llm_candidates(), mode, include_llm_releases=include_llm_releases, treesoop_mode=treesoop_mode, trendchaser_mode=trendchaser_mode)
+        articles = gatekeeper.verify(articles, researcher.get_last_standard_candidates(), researcher.get_last_llm_candidates(), mode, include_llm_releases=include_llm_releases, treesoop_mode=treesoop_mode)
         
         # 2. Start Creator Agent
-        card_content = creator.run(articles, mode=mode, treesoop_mode=treesoop_mode, trendchaser_mode=trendchaser_mode)
+        card_content = creator.run(articles, mode=mode, treesoop_mode=treesoop_mode)
         
         # 3. Perform Verifier balance & temporal checks
-        is_valid, msg = verifier.verify_balance_and_temporal(card_content, mode=mode, include_llm_releases=include_llm_releases, treesoop_mode=treesoop_mode, trendchaser_mode=trendchaser_mode, articles=articles)
+        is_valid, msg = verifier.verify_balance_and_temporal(card_content, mode=mode, include_llm_releases=include_llm_releases, treesoop_mode=treesoop_mode, articles=articles)
         
         if is_valid:
             log("Verifier Agent", f"✔ 무결성 및 조화성 검증 완료: {msg}", Colors.GREEN)
@@ -2679,13 +2524,11 @@ def main():
         log("System", f"총 {max_attempts}회 검증 미달로 인해, 무결성이 사전 검증된 고품질 표준 데이터셋 기반으로 전격 전환합니다.", Colors.GREEN)
         if treesoop_mode:
             card_content = creator.generate_treesoop_content(articles, mode=mode)
-        elif trendchaser_mode:
-            card_content = creator.generate_trendchaser_content(articles, mode=mode)
         else:
             card_content = creator.generate_local_content(articles, mode=mode)
 
     # Render slides and package metadata
-    paths, payload = verifier.run(card_content, output_dir, mode=mode, treesoop_mode=treesoop_mode, trendchaser_mode=trendchaser_mode)
+    paths, payload = verifier.run(card_content, output_dir, mode=mode, treesoop_mode=treesoop_mode)
     
     print(f"\n{Colors.GREEN}✔ 카드뉴스 제작이 완료되었습니다!{Colors.ENDC}")
     print(f"- 생성된 이미지: {len(paths)}개")
