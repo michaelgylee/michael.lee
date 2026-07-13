@@ -54,7 +54,22 @@ def is_within_news_window(value, mode="daily", now=None):
     age = now - published
     return -datetime.timedelta(hours=6) <= age <= max_age
 
-def litify_tldr_bullets(values, min_points=3, max_points=4):
+def complete_korean_sentence(value):
+    text = re.sub(r'\s*(?:\.{2,}|…+)\s*', ' · ', str(value or ''))
+    text = re.sub(r'\s+', ' ', text).strip()
+    if not text:
+        return ''
+    terminal = re.sub(r'[.!?。！？]+$', '', text).strip()
+    if re.search(r'(?:\b[A-Za-z][A-Za-z0-9.+-]{1,24}|(?:고|며|하고|이며|에서|으로|를|을|가|이|은|는))$', terminal, re.IGNORECASE):
+        return ''
+    if re.search(r'[.!?。！？]$', text):
+        return text
+    if re.search(r'(?:다|요|임|함|됨|중|예정|전망)$', text):
+        return text + '.'
+    return text + ' 관련 소식입니다.'
+
+
+def litify_tldr_bullets(values, min_points=2, max_points=3):
     """Apply the /litify /tl;dr rule to long source paragraphs."""
     raw_values = values if isinstance(values, list) else [values]
     candidates = []
@@ -67,7 +82,9 @@ def litify_tldr_bullets(values, min_points=3, max_points=4):
         clean = re.sub(r'^\s*[-•▪◦]\s*', '', clean)
         clean = re.sub(r'https?://\S+', '', clean, flags=re.IGNORECASE)
         clean = re.sub(r'\s+', ' ', clean).strip()
-        sentences = re.findall(r'[^.!?。！？]+[.!?。！？]?', clean) or [clean]
+        # Preserve periods inside domains and version numbers.
+        sentences = re.findall(r'.*?(?:[.!?。！？](?=\s|$)|$)', clean)
+        sentences = [sentence for sentence in sentences if sentence] or [clean]
         for sentence in sentences:
             point = sentence.strip()
             if point:
@@ -77,7 +94,7 @@ def litify_tldr_bullets(values, min_points=3, max_points=4):
     seen = set()
     for candidate in candidates:
         point = re.sub(r'^[0-9]+[.)]\s*', '', candidate).strip()
-        is_url_copy = re.search(r'https?://|www\.|(?:github|gitlab)\.[a-z]{2,}', point, re.IGNORECASE)
+        is_url_copy = re.search(r'https?://|www\.|(?:github|gitlab)\.[a-z]{2,}|^(?:com|net|org|io)\)', point, re.IGNORECASE)
         is_research_copy = re.search(r'기사의 (?:핵심|세부)|한국시간 기준|수집 범위|발행 시각.*검증|원문에서 확인|원문 기사에|상세 정보.*원문', point)
         if is_url_copy or is_research_copy:
             continue
@@ -95,6 +112,9 @@ def litify_tldr_bullets(values, min_points=3, max_points=4):
             ]
             if complete_clauses:
                 compact = complete_clauses[0]
+        compact = complete_korean_sentence(compact)
+        if not compact or re.search(r'(?:^|[\s(])(?:com|net|org|io)\)?[.!?]?$', compact, re.IGNORECASE):
+            continue
         points.append(compact)
         if len(points) >= max_points:
             break
@@ -105,6 +125,26 @@ def clean_card_title(title):
     clean = re.sub(r'^\s*\d+\.\s*', '', str(title or ''))
     clean = re.sub(r'^\s*\[[^\]]+\]\s*', '', clean)
     return clean.strip()
+
+
+def normalized_headline(title):
+    clean = clean_card_title(title)
+    clean = re.sub(r'\s*(?:\.{2,}|…+)\s*', ' · ', clean)
+    clean = re.sub(r'\s+', ' ', clean)
+    clean = re.sub(r'\s*[·,:;]\s*$', '', clean)
+    return clean.strip()
+
+
+def article_quality_score(article):
+    title = normalized_headline(article.get('title', ''))
+    bullets = litify_tldr_bullets(article.get('bullets', []), min_points=1, max_points=3)
+    total_length = len(''.join(bullets))
+    score = min(len(title), 45) + min(total_length, 120)
+    if len(title) < 18 or re.search(r'(?:불가능|속보|단독|종합)$', title):
+        score -= 50
+    if article.get('headline_only') and total_length < 28:
+        score -= 45
+    return score
 
 def source_meta_label(slide):
     """Return a compact source label while keeping the original URL as link data."""
@@ -839,6 +879,9 @@ class ResearcherAgent:
         def process_candidate(art, target_list):
             link = art.get("link")
             if link and link.startswith("http"):
+                if article_quality_score(art) < 20:
+                    log(self.name, f"[Content Validator] 정보량 부족 후보 제외: {art.get('title', '')}", Colors.WARNING)
+                    return False
                 norm_link = link.split("?")[0].strip()
                 source = art.get("source")
                 title = art.get("title", "")
@@ -1556,7 +1599,7 @@ class CreatorAgent:
                 {date_range_instruction} 현재 실행 시점은 {today_str}입니다. 이 시점과 무관한 과거 소식이나 2025년 등의 지나간 뉴스는 절대 포함하지 마십시오.
                 
                 [영문 소스 번역 및 핵심 요약 조건]
-                - /litify /tl;dr: 긴 본문을 그대로 옮기지 말고, 자연스러운 한국어로 핵심 사실만 3~4개의 짧은 불릿으로 요약하십시오.
+                - /litify /tl;dr: 긴 본문을 그대로 옮기지 말고, 자연스러운 한국어로 핵심 사실만 2~3개의 짧은 불릿으로 요약하십시오.
                 - 각 불릿은 공백 포함 45자 이내의 완결된 한 문장으로 작성하고 말줄임표를 사용하지 마십시오.
                 - 요약 시 제품/기능 명칭, 주요 벤치마크 수치 및 실제 성능 향상률 등을 명확히 포함하여 사실을 기반으로 작성해 주십시오.
                 
@@ -1568,7 +1611,7 @@ class CreatorAgent:
                  - 1장 (인트로): 제목은 무조건 "9대 성아연 뉴스메이커"로 하고, 부제목은 주기에 맞는 세련된 요약 문구를 적으십시오.
                  - 2, 3, 4, 5, 6장 (본문): 각각 뉴스 1, 2, 3, 4, 5를 다룹니다.
                  - 7장 (아웃트로): 제목은 무조건 "9대 성아연 집행부"로 하고, 부제목은 "채널을 구독하고 매주 AI 소식을 빠르게 받아보세요!"로 하십시오.
-                2. 본문의 뉴스 요약(bullets)은 /litify /tl;dr 규칙에 따라 핵심 내용, 수치, 제품/기능 이름 및 파급 효과를 3~4개의 간결한 불릿으로 작성하십시오. 긴 본문을 하나의 불릿에 나열하지 마십시오.
+                2. 본문의 뉴스 요약(bullets)은 /litify /tl;dr 규칙에 따라 핵심 내용, 수치, 제품/기능 이름 및 파급 효과를 2~3개의 간결한 불릿으로 작성하십시오. 긴 본문을 하나의 불릿에 나열하지 마십시오.
                 3. 날짜는 첫 표지의 부제목에만 표시하고, 본문 뉴스 제목에는 번호와 날짜 접두사를 넣지 마십시오.
                 4. 모든 슬라이드 카드에는 반드시 본문과 관련된 뉴스 원문 링크(URL)가 명시되어야 합니다.
                 5. 원본 링크는 제공된 [뉴스 목록]의 URL만 그대로 매핑하고 임의로 꾸며내지 마십시오.
@@ -1665,7 +1708,7 @@ class CreatorAgent:
                     if slide.get("type") == "title" and today_str not in str(slide.get("subtitle", "")):
                         slide["subtitle"] = f"{today_str} · {slide.get('subtitle') or 'AI 뉴스 브리핑'}"
                     if slide.get("type") == "content":
-                        slide["title"] = clean_card_title(slide.get("title"))
+                        slide["title"] = normalized_headline(slide.get("title"))
                         slide["bullets"] = litify_tldr_bullets(slide.get("bullets", []))
                         source_article = next((item for item in articles if item.get("link") == slide.get("source_url")), None)
                         if source_article is None and 0 <= slide_index - 1 < len(articles):
@@ -1704,18 +1747,7 @@ class CreatorAgent:
         ]
         
         # Map each parsed article to slides
-        top_articles = articles[:5]
-        while len(top_articles) < 5:
-            top_articles.append({
-                "title": "새로운 AI 기술 동향이 지속적으로 업데이트되고 있습니다.",
-                "source": "TreeSoop",
-                "link": "https://treesoop.com/blog",
-                "bullets": [
-                    "포항공대, 카이스트 출신 엔지니어들이 전하는 전문 IT/AI 인사이트를 확인해 보세요.",
-                    "Agentic AI 개발, RAG 시스템 구축, AI 업무 자동화 실무 분석 보고서가 제공됩니다.",
-                    "자세한 기술 도입 사례 및 분석글은 트리숲 공식 블로그를 참고하세요."
-                ]
-            })
+        top_articles = sorted(articles, key=article_quality_score, reverse=True)[:8]
             
         # Extract date from Treesoop link (e.g. /blog/ai-news-2026-07-13)
         crawled_date = today
@@ -1740,7 +1772,7 @@ class CreatorAgent:
             slides.append({
                 "slide_index": idx + 2,
                 "type": "content",
-                "title": clean_card_title(display_title),
+                "title": normalized_headline(display_title),
                 "bullets": bullets,
                 "source_name": source,
                 "source_url": link,
@@ -1748,7 +1780,7 @@ class CreatorAgent:
             })
             
         slides.append({
-            "slide_index": 7,
+            "slide_index": len(slides) + 1,
             "type": "closing",
             "title": "9대 성아연 집행부",
             "subtitle": "매일 아침 성아연 뉴스레터로\n최신 AI 트렌드를 만나보세요!"
@@ -1763,14 +1795,8 @@ class CreatorAgent:
         today = get_kst_today()
         last_week = today - datetime.timedelta(days=7)
         
-        # Choose top 5 articles, pad if needed
-        top_articles = articles[:5]
-        while len(top_articles) < 5:
-            top_articles.append({
-                "title": "새로운 AI 기술 동향이 지속적으로 업데이트되고 있습니다.",
-                "source": "알 수 없음",
-                "link": "https://openai.com/news/"
-            })
+        # Never pad sparse feeds with generic copy; keep only real, informative candidates.
+        top_articles = sorted(articles, key=article_quality_score, reverse=True)[:8]
             
         topic = "9대 성아연 뉴스메이커 브리핑"
         cycle_text = "하루 1분으로 읽는 AI 기술 브리핑" if mode == "daily" else "이주의 주요 AI 트렌드 리포트"
@@ -1819,7 +1845,7 @@ class CreatorAgent:
             slides.append({
                 "slide_index": idx + 2,
                 "type": "content",
-                "title": clean_card_title(display_title),
+                "title": normalized_headline(display_title),
                 "bullets": bullets,
                 "source_name": source,
                 "source_url": link,
@@ -1827,7 +1853,7 @@ class CreatorAgent:
             })
             
         slides.append({
-            "slide_index": 7,
+            "slide_index": len(slides) + 1,
             "type": "closing",
             "title": "9대 성아연 집행부",
             "subtitle": "채널을 구독하고 매주 AI 소식을 빠르게 받아보세요!"
@@ -1969,7 +1995,8 @@ class VerifierAgent:
         draw.text((100, 96), "SKKU IMBA AI IT CLUB", font=logo_sub_font, fill=(30, 58, 138))
         
         # Page indicator on top right (Capsule badge style)
-        pad_idx = f"{slide_index:02d} / 07"
+        total_slides = int(slide.get("_total_slides", 7))
+        pad_idx = f"{slide_index:02d} / {total_slides:02d}"
         draw.rounded_rectangle([780, 62, 900, 102], radius=16, fill=(30, 58, 138)) # Blue capsule badge
         draw.text((840, 82), pad_idx, font=self.get_font("bold", 16), fill=(255, 255, 255), anchor="mm")
         
@@ -1995,10 +2022,10 @@ class VerifierAgent:
             # Rounded white box: bounds [(100, 640), (900, 850)]
             draw.rounded_rectangle([100, card_top, 900, card_top + 210], radius=18, fill=(255, 255, 255))
             
-            # Left side of card: "FREE ENDPOINT" & "07개 슬라이드"
+            # Left side of card: dynamic slide count.
             draw.text((140, card_top + 40), "FREE ENDPOINT", font=self.get_font("bold", 18), fill=(194, 159, 102)) # Gold: #C29F66
             # Large number
-            draw.text((140, card_top + 75), "07", font=self.get_font("bold", 80), fill=(30, 58, 138))
+            draw.text((140, card_top + 75), f"{total_slides:02d}", font=self.get_font("bold", 80), fill=(30, 58, 138))
             draw.text((250, card_top + 125), "개 슬라이드", font=self.get_font("bold", 24), fill=(71, 85, 105))
             
             # Right side of card: "최신 AI 트렌드를\n신속하게 요약 체험" & "스와이프 버튼"
@@ -2017,34 +2044,50 @@ class VerifierAgent:
                 draw.text((100, y_offset), line, font=title_font, fill=(15, 23, 42))
                 y_offset += line_height
                 
-            # Bullets: Draw each inside a white rounded rectangular box (larger text, improved readability)
-            bullets = litify_tldr_bullets(slide.get("bullets", []))
-            is_four_point = len(bullets) == 4
-            box_tops = [320, 455, 590, 725] if is_four_point else [340, 515, 690]
-            box_height = 118 if is_four_point else 150
-            for idx, bullet in enumerate(bullets):
-                box_y = box_tops[idx]
-                
-                # Larger, consistently proportioned body cards for mobile readability.
-                draw.rounded_rectangle([100, box_y, 900, box_y + box_height], radius=18, fill=(255, 255, 255))
-                
-                # Draw gold vertical line prefix on the left edge inside the box
-                draw.rounded_rectangle([100, box_y, 110, box_y + box_height], radius=5, fill=(194, 159, 102))
-                
-                # Fit each concise point without collapsing the whole article into one box.
-                fitted_size = 29 if is_four_point else 34
-                min_size = 20 if is_four_point else 26
+            # Fit every complete sentence between the title and the fixed Source safe area.
+            bullets = litify_tldr_bullets(slide.get("bullets", []), min_points=1, max_points=3)
+            content_top = max(y_offset + 18, 300)
+            content_bottom = 895
+            gap = 14
+            fitted_size = 34
+            min_size = 20
+            fitted_layout = None
+            while fitted_size >= min_size:
                 fitted_font = self.get_font("bold", fitted_size)
-                bullet_wrapped = self.wrap_text_korean(bullet, fitted_font, 735)
-                while len(bullet_wrapped) > (3 if is_four_point else 3) and fitted_size > min_size:
-                    fitted_size -= 2
-                    fitted_font = self.get_font("bold", fitted_size)
-                    bullet_wrapped = self.wrap_text_korean(bullet, fitted_font, 735)
-                text_y = box_y + (10 if is_four_point and len(bullet_wrapped) > 3 else (18 if is_four_point else 20))
-                line_step = fitted_size + (5 if is_four_point else 8)
-                for line in bullet_wrapped[:4]:
+                line_step = fitted_size + 7
+                layout = []
+                total_height = 0
+                for bullet in bullets:
+                    wrapped = self.wrap_text_korean(bullet, fitted_font, 735)
+                    box_height = max(82, len(wrapped) * line_step + 30)
+                    layout.append((wrapped, box_height))
+                    total_height += box_height
+                total_height += gap * max(0, len(layout) - 1)
+                if total_height <= content_bottom - content_top:
+                    fitted_layout = (fitted_font, line_step, layout)
+                    break
+                fitted_size -= 2
+
+            if fitted_layout is None:
+                fitted_size = min_size
+                fitted_font = self.get_font("bold", fitted_size)
+                line_step = fitted_size + 5
+                layout = []
+                for bullet in bullets:
+                    wrapped = self.wrap_text_korean(bullet, fitted_font, 735)
+                    layout.append((wrapped, len(wrapped) * line_step + 24))
+                fitted_layout = (fitted_font, line_step, layout)
+
+            fitted_font, line_step, layout = fitted_layout
+            box_y = content_top
+            for wrapped, box_height in layout:
+                draw.rounded_rectangle([100, box_y, 900, box_y + box_height], radius=18, fill=(255, 255, 255))
+                draw.rounded_rectangle([100, box_y, 110, box_y + box_height], radius=5, fill=(194, 159, 102))
+                text_y = box_y + max(12, (box_height - len(wrapped) * line_step) // 2)
+                for line in wrapped:
                     draw.text((130, text_y), line, font=fitted_font, fill=(51, 65, 85))
                     text_y += line_step
+                box_y += box_height + gap
                     
             # Show a compact source name and upload date; the payload retains the original URL.
             source_url = slide.get("source_url", "")
@@ -2212,6 +2255,28 @@ class VerifierAgent:
 
     def verify_balance_and_temporal(self, card_data, mode="daily", include_llm_releases=False, treesoop_mode=False, articles=None):
         today = get_kst_today()
+
+        slides = card_data.get("slides", [])
+        if len(slides) > 10:
+            return False, f"전체 카드 수가 10장을 초과했습니다 ({len(slides)}장)"
+        for slide in slides:
+            if slide.get("type") != "content":
+                continue
+            title = clean_card_title(slide.get("title", ""))
+            bullets = litify_tldr_bullets(slide.get("bullets", []), min_points=1, max_points=3)
+            if len(title) < 14:
+                return False, f"슬라이드 {slide.get('slide_index')}: 제목 정보량 부족"
+            if not bullets or len(''.join(bullets)) < 24:
+                return False, f"슬라이드 {slide.get('slide_index')}: 본문 정보량 부족"
+            for bullet in bullets:
+                if not re.search(r'[.!?。！？]$', bullet):
+                    return False, f"슬라이드 {slide.get('slide_index')}: 어미가 완결되지 않은 문장 감지"
+                if re.search(r'(?:\b[A-Za-z][A-Za-z0-9.+-]{1,24}|(?:고|며|하고|이며|에서|으로|를|을|가|이|은|는))[.!?。！？]?$', bullet, re.IGNORECASE):
+                    return False, f"슬라이드 {slide.get('slide_index')}: 어색한 종결어 감지"
+                if len(bullet) > 82:
+                    return False, f"슬라이드 {slide.get('slide_index')}: 레이아웃 안전 길이(82자) 초과"
+                if re.search(r'(?:^|[\s(])(?:com|net|org|io)\)?[.!?]?$', bullet, re.IGNORECASE):
+                    return False, f"슬라이드 {slide.get('slide_index')}: URL 분리 조각 감지"
         
         # Match every card to its source's real publication date instead of stamping request day.
         content_slides = [slide for slide in card_data.get("slides", []) if slide["type"] == "content"]
@@ -2328,9 +2393,7 @@ class VerifierAgent:
     def verify_card_content(self, card_data, mode="daily", treesoop_mode=False):
         log(self.name, "카드뉴스 무결성 검증 에이전트 가동...", Colors.HEADER)
         if treesoop_mode:
-            log(self.name, "단독 수집 모드 가동: 소스 발행 시점 및 과거 연도 검증 우회 통과", Colors.GREEN)
-            log(self.name, "✔ 모든 카드뉴스 슬라이드가 무결성 검증을 완벽하게 통과했습니다!", Colors.GREEN)
-            return True
+            log(self.name, "TreeSoop 모드도 문장 완결성·정보량·레이아웃 검증을 동일하게 적용합니다.", Colors.GREEN)
         
         today = get_kst_today()
         yesterday = today - datetime.timedelta(days=1)
@@ -2377,6 +2440,8 @@ class VerifierAgent:
             # URL-level temporal check (fetches the page and inspects publication date)
             if slide.get("source_url") and slide["type"] == "content":
                 url = slide["source_url"]
+                if treesoop_mode:
+                    continue
                 is_valid, msg = self.check_source_url_date(url, mode)
                 log(self.name, f"[출처 기사 날짜 검증] URL: {url} -> {msg}", Colors.BLUE)
                 if not is_valid:
@@ -2406,6 +2471,9 @@ class VerifierAgent:
         log(self.name, "카드뉴스 이미지 및 KakaoTalk 배포 데이터 렌더링 시작...", Colors.HEADER)
         
         created_paths = []
+        total_slides = min(len(card_data["slides"]), 10)
+        for slide in card_data["slides"]:
+            slide["_total_slides"] = total_slides
         for i, slide in enumerate(card_data["slides"]):
             file_name = f"{slide['slide_index']:02d}_slide.jpg"
             path = os.path.join(output_dir, file_name)
@@ -2466,7 +2534,7 @@ def main():
         sys.exit(0)
 
     print(f"\n{Colors.GREEN}==============================================")
-    print("      AI Card News Agent Team (v3.1.9)        ")
+    print("       AI Card News Agent Team (v3.2)         ")
     print(f"=============================================={Colors.ENDC}\n")
     
     # Choose daily by default, can be toggled by cli args
@@ -2516,7 +2584,18 @@ def main():
         else:
             log("Verifier Agent", f"❌ 검증 실패: {msg}", Colors.WARNING)
             if attempt < max_attempts:
-                log("System", "조사 에이전트로 제어권을 돌려 재작성 프로세스를 개시합니다.", Colors.WARNING)
+                log("System", "검증 에이전트가 제작 에이전트로 제어권을 돌려 카드 전체 재작성을 요청합니다.", Colors.WARNING)
+                card_content = creator.run(articles, mode=mode, treesoop_mode=treesoop_mode)
+                is_valid, msg = verifier.verify_balance_and_temporal(
+                    card_content,
+                    mode=mode,
+                    include_llm_releases=include_llm_releases,
+                    treesoop_mode=treesoop_mode,
+                    articles=articles,
+                )
+                if is_valid:
+                    log("Verifier Agent", f"✔ 제작 에이전트 재작성본 검증 완료: {msg}", Colors.GREEN)
+                    break
             attempt += 1
 
     # Fallback to local verified templates if maximum retries reached

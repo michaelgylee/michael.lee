@@ -76,8 +76,8 @@ function isFreshArticle(article, mode, now = new Date()) {
     return age >= -DAY_MS && age <= maxAge;
 }
 
-// /litify /tl;dr: turn long source paragraphs into 3-4 compact card points.
-function litifyTldrBullets(values, minPoints = 3, maxPoints = 4) {
+// /litify /tl;dr: turn long source paragraphs into up to 3 compact card points.
+function litifyTldrBullets(values, minPoints = 2, maxPoints = 3) {
     const rawValues = (Array.isArray(values) ? values : [values]).filter(Boolean);
     const candidates = [];
 
@@ -91,7 +91,8 @@ function litifyTldrBullets(values, minPoints = 3, maxPoints = 4) {
             .trim();
         if (!clean) return;
 
-        const sentences = clean.match(/[^.!?。！？]+[.!?。！？]?/g) || [clean];
+        // A period inside a domain/version (aitmpl.com, v2.1) is not a sentence boundary.
+        const sentences = clean.match(/.*?(?:[.!?。！？](?=\s|$)|$)/g)?.filter(Boolean) || [clean];
         sentences.forEach(sentence => {
             const point = sentence.trim();
             if (point) candidates.push(point);
@@ -103,7 +104,7 @@ function litifyTldrBullets(values, minPoints = 3, maxPoints = 4) {
     const seen = new Set();
     for (const candidate of candidates) {
         const point = candidate.replace(/^[0-9]+[.)]\s*/, '').trim();
-        const isUrlCopy = /https?:\/\/|www\.|(?:github|gitlab)\.[a-z]{2,}/i.test(point);
+        const isUrlCopy = /https?:\/\/|www\.|(?:github|gitlab)\.[a-z]{2,}|^(?:com|net|org|io)\)/i.test(point);
         const isResearchCopy = /기사의 (?:핵심|세부)|한국시간 기준|수집 범위|발행 시각.*검증|원문에서 확인|원문 기사에|상세 정보.*원문/i.test(point);
         if (isUrlCopy || isResearchCopy) continue;
         const key = point.replace(/\s+/g, '').toLowerCase();
@@ -120,6 +121,8 @@ function litifyTldrBullets(values, minPoints = 3, maxPoints = 4) {
                 .find(clause => clause.length >= 24 && clause.length <= 72 && /(?:다|요)[.!?。！？]?$/.test(clause));
             if (completeClause) compact = completeClause;
         }
+        compact = completeKoreanSentence(compact);
+        if (!compact || /(?:^|[\s(])(?:com|net|org|io)\)?[.!?]?$/i.test(compact)) continue;
         unique.push(compact);
         if (unique.length >= maxPoints) break;
     }
@@ -127,10 +130,90 @@ function litifyTldrBullets(values, minPoints = 3, maxPoints = 4) {
     return unique.slice(0, maxPoints);
 }
 
+function completeKoreanSentence(value) {
+    let text = String(value || '')
+        .replace(/\s*(?:\.{2,}|…+)\s*/g, ' · ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    if (!text) return '';
+    const terminal = text.replace(/[.!?。！？]+$/, '').trim();
+    if (/(?:\b[A-Za-z][A-Za-z0-9.+-]{1,24}|(?:고|며|하고|이며|에서|으로|를|을|가|이|은|는))$/i.test(terminal)) return '';
+    if (/[.!?。！？]$/.test(text)) return text;
+    if (/(?:다|요|임|함|됨|중|예정|전망)$/.test(text)) return `${text}.`;
+    return `${text} 관련 소식입니다.`;
+}
+
+function normalizedHeadline(title) {
+    return cleanCardTitle(title)
+        .replace(/\s*(?:\.{2,}|…+)\s*/g, ' · ')
+        .replace(/\s+/g, ' ')
+        .replace(/\s*[·,:;]\s*$/g, '')
+        .trim();
+}
+
+function articleQualityScore(article) {
+    const title = normalizedHeadline(article?.title || '');
+    const bullets = litifyTldrBullets(article?.bullets || [], 1, 3);
+    const totalLength = bullets.join('').length;
+    let score = Math.min(title.length, 45) + Math.min(totalLength, 120);
+    if (title.length < 18 || /(?:불가능|속보|단독|종합)$/.test(title)) score -= 50;
+    if (/\.{2,}|…/.test(String(article?.title || ''))) score -= 8;
+    if (article?.headlineOnly && totalLength < 28) score -= 45;
+    if (bullets.some(point => !/[.!?。！？]$/.test(point))) score -= 30;
+    return score;
+}
+
+function selectCardCandidates(articles, limit = 5) {
+    return [...articles]
+        .map((article, order) => ({ article, order, score: articleQualityScore(article) }))
+        .filter(item => item.score >= 20)
+        .sort((a, b) => b.score - a.score || a.order - b.order)
+        .slice(0, Math.min(limit, 8))
+        .sort((a, b) => a.order - b.order)
+        .map(item => item.article);
+}
+
+function assessCardDeck(cardJson) {
+    const issues = [];
+    const slides = cardJson?.slides || [];
+    const contentSlides = slides.filter(slide => slide.type === 'content');
+    if (slides.length > 10) issues.push(`전체 카드가 ${slides.length}장으로 10장을 초과했습니다.`);
+    if (!contentSlides.length) issues.push('본문 뉴스 카드가 없습니다.');
+    contentSlides.forEach(slide => {
+        const title = normalizedHeadline(slide.title);
+        const bullets = litifyTldrBullets(slide.bullets || [], 1, 3);
+        const totalLength = bullets.join('').length;
+        if (title.length < 14) issues.push(`${slide.slide_index}장 제목의 정보량이 부족합니다.`);
+        if (!bullets.length || totalLength < 24) issues.push(`${slide.slide_index}장 본문의 정보량이 부족합니다.`);
+        if (bullets.some(point => !/[.!?。！？]$/.test(point))) issues.push(`${slide.slide_index}장에 미완결 문장이 있습니다.`);
+        if (bullets.some(point => /(?:\b[A-Za-z][A-Za-z0-9.+-]{1,24}|(?:고|며|하고|이며|에서|으로|를|을|가|이|은|는))[.!?。！？]?$/i.test(point))) issues.push(`${slide.slide_index}장에 어색한 종결어가 있습니다.`);
+        if (bullets.some(point => /(?:^|[\s(])(?:com|net|org|io)\)?[.!?]?$/i.test(point))) issues.push(`${slide.slide_index}장에 분리된 URL 조각이 있습니다.`);
+        if (bullets.some(point => point.length > 82)) issues.push(`${slide.slide_index}장에 지나치게 긴 문장이 있습니다.`);
+    });
+    return [...new Set(issues)];
+}
+
+function repairCardDeckLocally(cardJson) {
+    const titleSlide = cardJson.slides.find(slide => slide.type === 'title');
+    const closingSlide = cardJson.slides.find(slide => slide.type === 'closing');
+    const repairedContent = cardJson.slides
+        .filter(slide => slide.type === 'content')
+        .map(slide => ({
+            ...slide,
+            title: normalizedHeadline(slide.title),
+            bullets: litifyTldrBullets(slide.bullets || [], 1, 3)
+        }))
+        .filter(slide => slide.title.length >= 14 && slide.bullets.join('').length >= 24)
+        .slice(0, 8);
+    const slides = [titleSlide, ...repairedContent, closingSlide].filter(Boolean);
+    slides.forEach((slide, index) => { slide.slide_index = index + 1; });
+    return { ...cardJson, slides };
+}
+
 function headlineFactBullets(title) {
-    const clean = cleanCardTitle(title).replace(/^['"“”]|['"“”]$/g, '').trim();
+    const clean = normalizedHeadline(title).replace(/^['"“”]|['"“”]$/g, '').trim();
     const clauses = clean.split(/\s*(?:…+|[;；])\s*/).map(part => part.trim()).filter(part => part.length >= 8);
-    return (clauses.length ? clauses : [clean]).slice(0, 3).map(part => /[.!?。！？]$/.test(part) ? part : `${part}.`);
+    return (clauses.length ? clauses : [clean]).slice(0, 3).map(completeKoreanSentence).filter(Boolean);
 }
 
 function cleanCardTitle(title) {
@@ -867,7 +950,7 @@ function selectNewsWithRequiredLlm(news, mode) {
         publishedAt: formatYmd(getKstDate()),
         cachedFallback: true
     }));
-    const pool = [...news, ...cache];
+    const pool = selectCardCandidates([...news, ...cache], 8);
     const requirements = [
         /OpenAI|ChatGPT/i,
         /Anthropic|Claude/i,
@@ -882,7 +965,7 @@ function selectNewsWithRequiredLlm(news, mode) {
         if (selected.length >= 5) break;
         if (!selected.some(existing => existing.link === item.link)) selected.push(item);
     }
-    return selected.slice(0, 5);
+    return selectCardCandidates(selected, 5);
 }
 
 function rssItemToArticle(item) {
@@ -1094,9 +1177,13 @@ btnRun.addEventListener("click", async () => {
             if (freshNews.length < 5) freshNews = [...rawNews];
         }
         
+        freshNews = selectCardCandidates(freshNews, 8);
         rawNews = includeLlmReleases && !appState.treesoopMode
             ? selectNewsWithRequiredLlm(freshNews, appState.mode)
-            : freshNews.slice(0, 5);
+            : selectCardCandidates(freshNews, 5);
+        if (rawNews.length < 3) {
+            throw new Error('완결된 제목과 충분한 정보량을 갖춘 후보 뉴스가 3건 미만입니다. 짧거나 잘린 기사는 카드로 만들지 않습니다.');
+        }
         updateAgentProgress('researcher', 92, `${rawNews.length}개 기사 정제 및 3대 LLM 포함 조건 확인`);
         
         addLog("Researcher", `성공적으로 ${rawNews.length}개의 정제된 뉴스 피드를 획득하였습니다. 1차 검증 게이트키퍼(Gatekeeper)에게 전달합니다.`, "success");
@@ -1197,16 +1284,36 @@ btnRun.addEventListener("click", async () => {
             cardJson = generateSimulatedCard(rawNews, appState.mode);
         }
 
-        updateAgentProgress('creator', 100, '7장 카드 구성과 출처 메타데이터 연결 완료');
+        // Verifier-to-Creator feedback loop: never publish sparse, clipped-looking or broken copy.
+        for (let revision = 1; revision <= 2; revision++) {
+            const qualityIssues = assessCardDeck(cardJson);
+            if (!qualityIssues.length) break;
+            addLog("Verifier", `콘텐츠 품질 검증 반려: ${qualityIssues.join(' ')}`, "warning");
+            updateAgentProgress('publisher', 15 + revision * 10, `제작 에이전트에 ${revision}차 재작성 요청`);
+            setAgentActive('creator');
+            addLog("Creator", "검증 의견을 반영해 문장 종결·정보량·카드 수를 다시 조정합니다.", "creator");
+            if (appState.apiKey && !appState.treesoopMode) {
+                cardJson = await generateCardWithGemini(rawNews, appState.mode, appState.apiKey, qualityIssues.join('\n'));
+            } else {
+                cardJson = repairCardDeckLocally(cardJson);
+            }
+        }
+        const unresolvedQualityIssues = assessCardDeck(cardJson);
+        if (unresolvedQualityIssues.length) {
+            throw new Error(`검증 에이전트 품질 기준 미달: ${unresolvedQualityIssues.join(' ')}`);
+        }
 
-        addLog("Creator", "카드뉴스 7장 구조화된 설계도 작성 완료. 검증 에이전트(Verifier)에게 템플릿 전달.", "success");
+        const totalSlides = cardJson.slides.length;
+        updateAgentProgress('creator', 100, `${totalSlides}장 카드 구성과 출처 메타데이터 연결 완료`);
+
+        addLog("Creator", `카드뉴스 ${totalSlides}장 구조화된 설계도 작성 완료. 검증 에이전트에게 전달합니다.`, "success");
         await sleep(600);
 
         // --- 3. VERIFIER AGENT RUN ---
         setAgentActive('publisher');
         appState.cardData = cardJson;
-        addLog("Verifier", "생성된 카드뉴스 7장 실시간 무결성 검증 가동...", "verifier");
-        updateAgentProgress('publisher', 10, '7장 카드 구조와 한국어 인코딩 확인');
+        addLog("Verifier", `생성된 카드뉴스 ${totalSlides}장 실시간 무결성 검증 가동...`, "verifier");
+        updateAgentProgress('publisher', 10, `${totalSlides}장 카드 구조와 한국어 인코딩 확인`);
         await sleep(500);
         
         // Real client-side string validation checks
@@ -1291,6 +1398,18 @@ btnRun.addEventListener("click", async () => {
 
         // Render card elements inside workspace
         renderCards(cardJson);
+        let layoutIssues = validateRenderedCards();
+        if (layoutIssues.length) {
+            addLog("Verifier", `레이아웃 검증 반려: ${layoutIssues.join(' ')}`, "warning");
+            setAgentActive('creator');
+            addLog("Creator", "본문 폰트와 카드 여백을 다시 계산해 안전 영역 안에 맞춥니다.", "creator");
+            cardJson = repairCardDeckLocally(cardJson);
+            appState.cardData = cardJson;
+            renderCards(cardJson);
+            layoutIssues = validateRenderedCards();
+        }
+        if (layoutIssues.length) throw new Error(`카드 레이아웃 안전 영역 검증 실패: ${layoutIssues.join(' ')}`);
+        addLog("Verifier", "[검증 8] 제목·본문·Source 안전 영역 검사 통과 (자동 폰트 맞춤 완료)", "success");
 
         // Save current generated titles to localStorage history
         if (cardJson && cardJson.slides && !appState.treesoopMode) {
@@ -1367,7 +1486,7 @@ function generateSimulatedCard(news, mode) {
     }
     
     // Selection and the default 3-major-LLM rule are resolved by the Researcher.
-    const paddedNews = uniqueNews.slice(0, 5);
+    const paddedNews = selectCardCandidates(uniqueNews, 5);
 
     const slides = [
         {
@@ -1384,8 +1503,8 @@ function generateSimulatedCard(news, mode) {
         slides.push({
             slide_index: index + 2,
             type: 'content',
-            title: cleanCardTitle(item.title),
-            bullets: litifyTldrBullets(item.bullets, item.headlineOnly ? 1 : 3, item.headlineOnly ? 3 : 4),
+            title: normalizedHeadline(item.title),
+            bullets: litifyTldrBullets(item.bullets, item.headlineOnly ? 1 : 2, 3),
             gradient: appState.gradients[(index + 1) % appState.gradients.length],
             fontSize: 34,
             source_name: item.source,
@@ -1395,7 +1514,7 @@ function generateSimulatedCard(news, mode) {
     });
 
     slides.push({
-        slide_index: 7,
+        slide_index: slides.length + 1,
         type: 'closing',
         title: "9대 성아연 집행부",
         subtitle: "채널을 구독하고 매주 AI 소식을 빠르게 받아보세요!",
@@ -1496,19 +1615,7 @@ function generateTreeSoopCard(news) {
     ];
     
     // Map each parsed article to slides
-    let topArticles = news.slice(0, 5);
-    while (topArticles.length < 5) {
-        topArticles.push({
-            title: "새로운 AI 기술 동향이 지속적으로 업데이트되고 있습니다.",
-            source: "TreeSoop",
-            link: "https://treesoop.com/blog",
-            bullets: [
-                "포항공대, 카이스트 출신 엔지니어들이 전하는 전문 IT/AI 인사이트를 확인해 보세요.",
-                "Agentic AI 개발, RAG 시스템 구축, AI 업무 자동화 실무 분석 보고서가 제공됩니다.",
-                "자세한 기술 도입 사례 및 분석글은 트리숲 공식 블로그를 참고하세요."
-            ]
-        });
-    }
+    const topArticles = selectCardCandidates(news, 8);
     
     topArticles.forEach((art, idx) => {
         let titleClean = art.title.replace(/^\d+\.\s*/, '').replace(/^\[[^\]]+\]\s*/, '');
@@ -1519,7 +1626,7 @@ function generateTreeSoopCard(news) {
         slides.push({
             slide_index: idx + 2,
             type: "content",
-            title: cleanCardTitle(displayTitle),
+            title: normalizedHeadline(displayTitle),
             bullets: bullets,
             gradient: appState.gradients[(idx + 1) % appState.gradients.length],
             fontSize: 34,
@@ -1530,7 +1637,7 @@ function generateTreeSoopCard(news) {
     });
     
     slides.push({
-        slide_index: 7,
+        slide_index: slides.length + 1,
         type: "closing",
         title: "9대 성아연 집행부",
         subtitle: "매일 아침 성아연 뉴스레터로\n최신 AI 트렌드를 만나보세요!",
@@ -1545,7 +1652,7 @@ function generateTreeSoopCard(news) {
 }
 
 // Call Google Gemini API with Search Grounding
-async function generateCardWithGemini(news, mode, apiKey) {
+async function generateCardWithGemini(news, mode, apiKey, repairFeedback = '') {
     const today = getKstDate();
     const yesterday = new Date(today.getTime() - DAY_MS);
     const lastWeek = new Date(today.getTime() - 7 * DAY_MS);
@@ -1573,7 +1680,9 @@ async function generateCardWithGemini(news, mode, apiKey) {
 
         [요약 명령]
         /litify /tl;dr
-        긴 본문을 그대로 옮기지 말고 핵심 사실만 3~4개의 짧은 불릿으로 재구성하십시오. 각 불릿은 완결된 한 문장, 공백 포함 45자 이내로 작성하며 말줄임표를 사용하지 마십시오.
+        긴 본문을 그대로 옮기지 말고 핵심 사실만 2~3개의 짧은 불릿으로 재구성하십시오. 각 불릿은 완결된 한 문장, 공백 포함 45자 이내로 작성하며 말줄임표를 사용하지 마십시오.
+
+        ${repairFeedback ? `[검증 에이전트 반려 사유]\n${repairFeedback}\n위 문제를 모두 고쳐 새 JSON 전체를 다시 작성하십시오. 문장을 중간에서 자르지 말고 자연스러운 한국어 종결어미를 사용하십시오.` : ''}
         
         [뉴스 수집 및 검증 우선순위]
         1순위 - 공신력 있는 12대 지정 외신 채널 (The Guardian AI, DeepMind, TechCrunch, Economist, BBC, NYT 등)
@@ -1584,7 +1693,7 @@ async function generateCardWithGemini(news, mode, apiKey) {
         1. 일간 모드(Daily)인 경우 최근 24시간 이내, 주간 모드(Weekly)인 경우 최근 1주일 이내의 뉴스만 엄격하게 포함시키도록 Google Search를 조율하십시오. 현재 년월일 기준시점은 ${todayStr}입니다.
         2. 모든 항목에는 반드시 실제 접근 가능한 원본 출처 URL이 명시되어야 합니다. 기억으로 URL을 지어내지 마십시오.
         3. 1장 (Title Slide): 제목을 반드시 "9대 성아연 뉴스메이커"로 하고, 서브타이틀에 기준 날짜 ${todayStr}를 표시합니다.
-        4. 2, 3, 4, 5, 6장 (Content Slide): 각각 주요 뉴스 1, 2, 3, 4, 5를 다룹니다. 제목에는 번호와 날짜를 넣지 말고 뉴스 핵심 제목만 작성하십시오. 본문은 /litify /tl;dr 방식으로 핵심만 3~4개의 짧고 완결된 불릿 포인트로 작성하십시오. 또한 반드시 출처명(source_name)과 원문 주소(source_url)를 입력 데이터 그대로 매핑하십시오.
+        4. 2, 3, 4, 5, 6장 (Content Slide): 각각 주요 뉴스 1, 2, 3, 4, 5를 다룹니다. 제목에는 번호와 날짜를 넣지 말고 뉴스 핵심 제목만 작성하십시오. 본문은 /litify /tl;dr 방식으로 핵심만 2~3개의 짧고 완결된 불릿 포인트로 작성하십시오. 또한 반드시 출처명(source_name)과 원문 주소(source_url)를 입력 데이터 그대로 매핑하십시오.
         5. 7장 (Closing Slide): 제목을 반드시 "9대 성아연 집행부"로 하고, 부제목은 "채널을 구독하고 매주 AI 소식을 빠르게 받아보세요!"로 작성하며 카카오톡 채널 추가 링크를 안내하십시오.
         
         [응답 스키마]
@@ -1711,7 +1820,7 @@ async function generateCardWithGemini(news, mode, apiKey) {
             slide.subtitle = `${todayStr} • ${slide.subtitle || 'AI 뉴스 브리핑'}`;
         }
         if (slide.type === 'content') {
-            slide.title = cleanCardTitle(slide.title);
+            slide.title = normalizedHeadline(slide.title);
             slide.bullets = litifyTldrBullets(slide.bullets || []);
             const sourceArticle = news.find(item => item.link && item.link === slide.source_url) || news[idx - 1];
             if (sourceArticle) {
@@ -1728,6 +1837,7 @@ async function generateCardWithGemini(news, mode, apiKey) {
 // Render slides inside Carousel DOM
 function renderCards(cardJson) {
     slidesContainer.innerHTML = "";
+    const totalSlides = Math.min(cardJson.slides.length, 10);
     
     cardJson.slides.forEach((slide, index) => {
         if (slide.type === 'content') {
@@ -1757,7 +1867,7 @@ function renderCards(cardJson) {
                     </div>
                     <!-- Navy Capsule Badge Page Indicator -->
                     <div style="background: #1E3A8A; border-radius: 999px; padding: 2px 8px; font-size: 6.5px; font-weight: 800; color: #FFFFFF; font-family: monospace; display: flex; align-items: center; justify-content: center; height: 13px; line-height: 13px;">
-                        ${padIndex} / 07
+                        ${padIndex} / ${String(totalSlides).padStart(2, '0')}
                     </div>
                 </div>
                 
@@ -1777,7 +1887,7 @@ function renderCards(cardJson) {
                 <div style="background: #FFFFFF; border-radius: 8px; padding: 8px; margin-top: auto; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.02); border: 1px solid rgba(30,64,175,0.03);">
                     <div style="display: flex; flex-direction: column; align-items: flex-start;">
                         <span style="font-size: 7px; font-weight: 700; color: #C29F66; letter-spacing: 0.5px;">FREE ENDPOINT</span>
-                        <span style="font-size: 15px; font-weight: 800; color: #1E3A8A; line-height: 1.1;">07<span style="font-size: 8px; font-weight: 500; color: #475569;">개 슬라이드</span></span>
+                        <span style="font-size: 15px; font-weight: 800; color: #1E3A8A; line-height: 1.1;">${String(totalSlides).padStart(2, '0')}<span style="font-size: 8px; font-weight: 500; color: #475569;">개 슬라이드</span></span>
                     </div>
                     <div style="text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 2px;">
                         <span style="font-size: 7px; font-weight: 700; color: #1E293B; line-height: 1.2;">최신 AI 트렌드를<br>신속하게 요약 체험</span>
@@ -1791,19 +1901,18 @@ function renderCards(cardJson) {
             let titleFontSize = slide.fontSize * 0.40;
             if (slide.title.length > 24) titleFontSize = 13;
             if (slide.title.length > 34) titleFontSize = 11.5;
-            const cardBullets = litifyTldrBullets(slide.bullets || []);
-            const hasFourPoints = cardBullets.length === 4;
+            const cardBullets = litifyTldrBullets(slide.bullets || [], 1, 3);
+            const hasFourPoints = false;
             const longestPoint = Math.max(...cardBullets.map(point => point.length), 0);
-            const bodyFontSize = hasFourPoints
-                ? (longestPoint > 82 ? 7.1 : longestPoint > 62 ? 7.5 : 8)
-                : (longestPoint > 90 ? 8 : 9);
+            const totalChars = cardBullets.reduce((sum, point) => sum + point.length, 0);
+            const bodyFontSize = totalChars > 175 || longestPoint > 76 ? 7.2 : totalChars > 130 ? 7.8 : 8.5;
             const sourceLabel = sourceMetaLabel(slide);
             
             innerHtml += `
                 <div class="slide-card-title" style="font-size: ${titleFontSize}px; font-weight: 800; color: #0F172A; line-height: 1.3; margin-top: 6px; margin-bottom: 6px;">${slide.title}</div>
-                <div class="slide-card-bullets" style="display: flex; flex-direction: column; gap: ${hasFourPoints ? '4px' : '6px'}; flex: 1; min-height: 0; justify-content: flex-start; margin: 0 0 16px 0; overflow: hidden;">
+                <div class="slide-card-bullets" style="display: flex; flex-direction: column; gap: 4px; flex: 1; min-height: 0; justify-content: flex-start; margin: 0 0 16px 0; overflow: visible;">
                     ${cardBullets.map((b) => `
-                        <div class="slide-bullet-item" style="background: #FFFFFF; border-radius: 6px; border-left: 2.5px solid #C29F66; padding: ${hasFourPoints ? '5px 8px' : '7px 9px'}; display: flex; align-items: flex-start; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
+                        <div class="slide-bullet-item" style="background: #FFFFFF; border-radius: 6px; border-left: 2.5px solid #C29F66; padding: 5px 8px; display: flex; align-items: flex-start; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
                             <span class="slide-bullet-text" style="color: #334155; font-size: ${bodyFontSize}px; font-weight: 700; line-height: 1.22; flex: 1; word-break: keep-all; overflow-wrap: anywhere;">${b}</span>
                         </div>
                     `).join('')}
@@ -1845,6 +1954,7 @@ function renderCards(cardJson) {
         });
         
         slidesContainer.appendChild(cardWrapper);
+        if (slide.type === 'content') fitContentCard(cardWrapper);
     });
 
     // Populate Initial Kakao Talk preview with the Title Card
@@ -1852,6 +1962,54 @@ function renderCards(cardJson) {
     
     // Select first slide
     selectSlide(0);
+    requestAnimationFrame(() => {
+        document.querySelectorAll('.slide-card-wrapper').forEach(wrapper => fitContentCard(wrapper));
+    });
+}
+
+function fitContentCard(wrapper) {
+    const title = wrapper.querySelector('.slide-card-title');
+    const bullets = wrapper.querySelector('.slide-card-bullets');
+    const source = wrapper.querySelector('.slide-card-source');
+    const texts = [...wrapper.querySelectorAll('.slide-bullet-text')];
+    const items = [...wrapper.querySelectorAll('.slide-bullet-item')];
+    if (!title || !bullets || !source || !texts.length) return true;
+
+    let bodySize = Number.parseFloat(getComputedStyle(texts[0]).fontSize) || 8.5;
+    let titleSize = Number.parseFloat(getComputedStyle(title).fontSize) || 13;
+    let paddingY = 5;
+    let gap = 4;
+    const fits = () => bullets.getBoundingClientRect().bottom <= source.getBoundingClientRect().top - 3;
+
+    for (let pass = 0; pass < 28 && !fits(); pass++) {
+        if (bodySize > 6.1) {
+            bodySize -= 0.3;
+            texts.forEach(node => { node.style.fontSize = `${bodySize}px`; node.style.lineHeight = '1.18'; });
+        } else if (paddingY > 2.5) {
+            paddingY -= 0.5;
+            items.forEach(node => { node.style.padding = `${paddingY}px 7px`; });
+            gap = Math.max(2, gap - 0.5);
+            bullets.style.gap = `${gap}px`;
+        } else if (titleSize > 9.2) {
+            titleSize -= 0.3;
+            title.style.fontSize = `${titleSize}px`;
+            title.style.lineHeight = '1.22';
+        }
+    }
+    const didFit = fits();
+    wrapper.dataset.layoutFit = didFit ? 'true' : 'false';
+    return didFit;
+}
+
+function validateRenderedCards() {
+    const issues = [];
+    document.querySelectorAll('.slide-card-wrapper').forEach((wrapper, index) => {
+        if (!wrapper.querySelector('.slide-card-source')) return;
+        if (!fitContentCard(wrapper) || wrapper.dataset.layoutFit !== 'true') {
+            issues.push(`${index + 1}장 본문이 안전 영역을 벗어납니다.`);
+        }
+    });
+    return issues;
 }
 
 // Select a slide to edit
@@ -2015,6 +2173,7 @@ function updateCarouselSlideDOM(index) {
             sourceNode.title = `원문 열기: ${slide.source_url || ''}`;
             sourceNode.textContent = sourceMetaLabel(slide);
         }
+        fitContentCard(wrapper);
     }
 }
 
@@ -2030,7 +2189,7 @@ function updateKakaoTalkPreview(cardJson) {
         <div style="padding: 12px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; color: white;">
             <span style="font-size: 8px; font-weight: 800; color: #00F2FE;">DAILY NEWS</span>
             <div style="font-size: 11px; font-weight: 900; line-height: 1.3; white-space: pre-line;">${titleSlide.title}</div>
-            <span style="font-size: 7px; opacity: 0.8;">1/7</span>
+            <span style="font-size: 7px; opacity: 0.8;">1/${cardJson.slides.length}</span>
         </div>
     `;
 }
@@ -2038,6 +2197,12 @@ function updateKakaoTalkPreview(cardJson) {
 // Export Cards to PNG using html2canvas & ZIP them up
 btnExportAll.addEventListener("click", async () => {
     if (!appState.cardData) return;
+
+    const preflightIssues = validateRenderedCards();
+    if (preflightIssues.length) {
+        addLog("Verifier", `내보내기 중단: ${preflightIssues.join(' ')}`, "warning");
+        return;
+    }
     
     btnExportAll.disabled = true;
     btnExportAll.innerHTML = `<i data-lucide="loader" class="animate-spin"></i> 내보내는 중...`;
