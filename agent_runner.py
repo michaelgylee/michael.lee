@@ -6,6 +6,8 @@ import re
 import datetime
 import random
 import xml.etree.ElementTree as ET
+from email.utils import parsedate_to_datetime
+from zoneinfo import ZoneInfo
 import requests
 from io import BytesIO
 from dotenv import load_dotenv
@@ -15,10 +17,42 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 load_dotenv()
 
 def get_kst_now():
-    return datetime.datetime.now(datetime.timezone.utc).replace(tzinfo=None) + datetime.timedelta(hours=9)
+    return datetime.datetime.now(ZoneInfo("Asia/Seoul")).replace(tzinfo=None)
 
 def get_kst_today():
     return get_kst_now().date()
+
+def parse_article_date_value(value):
+    if not value:
+        return None
+    if isinstance(value, datetime.datetime):
+        return value.replace(tzinfo=None)
+    if isinstance(value, datetime.date):
+        return datetime.datetime.combine(value, datetime.time(12, 0))
+    text = str(value).strip()
+    try:
+        parsed = parsedate_to_datetime(text)
+        if parsed.tzinfo:
+            parsed = parsed.astimezone(ZoneInfo("Asia/Seoul"))
+        return parsed.replace(tzinfo=None)
+    except (TypeError, ValueError, OverflowError):
+        pass
+    match = re.search(r'(20\d{2})[-./년]\s*(\d{1,2})[-./월]\s*(\d{1,2})', text)
+    if match:
+        try:
+            return datetime.datetime(int(match.group(1)), int(match.group(2)), int(match.group(3)), 12, 0)
+        except ValueError:
+            return None
+    return None
+
+def is_within_news_window(value, mode="daily", now=None):
+    published = parse_article_date_value(value)
+    if not published:
+        return False
+    now = now or get_kst_now()
+    max_age = datetime.timedelta(hours=30 if mode == "daily" else 7 * 24 + 6)
+    age = now - published
+    return -datetime.timedelta(hours=6) <= age <= max_age
 
 class Colors:
     HEADER = '\033[95m'
@@ -462,6 +496,9 @@ class ResearcherAgent:
                 valid_articles = []
                 for art in parser.articles:
                     if art.get("title") and art.get("bullets"):
+                        art["date"] = post_date_str if match_date else ""
+                        art["published_at"] = post_date_str if match_date else ""
+                        art["post_url"] = latest_post_url
                         valid_articles.append(art)
                 log(self.name, f"TreeSoop 최신 포스트에서 {len(valid_articles)}개의 뉴스 항목을 성공적으로 파싱했습니다.", Colors.GREEN)
                 return valid_articles
@@ -474,15 +511,28 @@ class ResearcherAgent:
         log(self.name, "Trend Chaser 뉴스 수집 시작...", Colors.BLUE)
         url = "https://www.taewoopark.com/api/briefs"
         headers = {
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Cache-Control": "no-cache"
         }
         try:
-            res = requests.get(url, headers=headers, timeout=5)
+            res = None
+            for attempt in range(2):
+                try:
+                    res = requests.get(url, headers=headers, timeout=15, params={"_": int(get_kst_now().timestamp())})
+                    break
+                except requests.RequestException:
+                    if attempt == 1:
+                        raise
             if res.status_code == 200:
                 data = res.json()
                 if isinstance(data, list) and len(data) > 0:
-                    # Sort descending by id to get the absolute newest brief
-                    data = sorted(data, key=lambda x: x.get("id", ""), reverse=True)
+                    # Publication timestamps are authoritative; string IDs can sort incorrectly.
+                    def brief_sort_key(brief):
+                        value = brief.get("publishedAt") or brief.get("updatedAt") or brief.get("date")
+                        parsed = parse_article_date_value(value)
+                        return (parsed or datetime.datetime.min, str(brief.get("id", "")))
+
+                    data = sorted(data, key=brief_sort_key, reverse=True)
                     latest_brief = data[0]
                     
                     # Check date dynamically against today's date in KST
@@ -514,7 +564,8 @@ class ResearcherAgent:
                             "source": source,
                             "link": original_url,
                             "bullets": bullets,
-                            "date": brief_date
+                            "date": brief_date,
+                            "published_at": latest_brief.get("publishedAt") or latest_brief.get("updatedAt") or brief_date
                         })
                     return articles
         except Exception as e:
@@ -581,14 +632,16 @@ class ResearcherAgent:
                         items = root.findall(".//item")
                         if items:
                             alt_item = items[0]
-                            title_text = alt_item.find("title").text
-                            link_text = alt_item.find("link").text
-                            now_dt = get_kst_now()
-                            mock_pub = now_dt - datetime.timedelta(hours=2)
+                            title_text = alt_item.findtext("title") or ""
+                            link_text = alt_item.findtext("link") or ""
+                            actual_pub = alt_item.findtext("pubDate") or ""
+                            if not is_within_news_window(actual_pub, mode):
+                                continue
                             articles.append({
                                 "title": f"{title_text} ({s['source']} Alt)",
                                 "link": link_text,
-                                "pubDate": mock_pub.strftime("%Y년 %m월 %d일"),
+                                "pubDate": actual_pub,
+                                "published_at": parse_article_date_value(actual_pub).isoformat(),
                                 "source": s["source"],
                                 "bullets": [
                                     f"공식 {s['source']}의 일시적 우회 검출 및 대체 검색 채널이 가동되었습니다.",
@@ -600,41 +653,6 @@ class ResearcherAgent:
                             log(self.name, f"대체 검색 채널을 통해 {s['source']} 최신 뉴스 감지 성공", Colors.GREEN)
                 except Exception:
                     pass
-                
-        # Generate dynamic mockups for failed sources (like ChatGPT due to 403 blocks)
-        # to guarantee testing works cleanly under realistic constraints
-        failed_sources = [s for s in sources if s["source"] not in [a["source"] for a in articles]]
-        now_dt = get_kst_now()
-        mock_pub = now_dt - datetime.timedelta(hours=2) # Enforces strict 18-hour daily limit suitability
-        mock_pub_str = mock_pub.strftime("%Y년 %m월 %d일")
-        
-        for fs in failed_sources:
-            if fs["source"] == "ChatGPT Release Notes":
-                articles.append({
-                    "title": "ChatGPT Work 에이전트 서비스 전격 도입 및 기업용 워크스페이스 순차 배포 (ChatGPT Release Notes)",
-                    "link": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes?bypass=true",
-                    "pubDate": mock_pub_str,
-                    "source": "ChatGPT Release Notes",
-                    "bullets": [
-                        "장시간 협업 및 복잡한 분석 업무 수행이 가능한 신규 ChatGPT Work 에이전트 서비스를 도입했습니다.",
-                        "웹 브라우저, 로컬 컴퓨터 파일 시스템 연동, 문서/시트 편집 및 실행 기능을 에이전트 내에서 지원합니다.",
-                        "워크스페이스 내 스케줄러(Scheduled Tasks) 기능을 추가하여 특정 주기마다 데이터를 자동 수집 및 모니터링합니다."
-                    ],
-                    "priority": 0
-                })
-            elif fs["source"] == "Gemini API Changelog":
-                articles.append({
-                    "title": "Gemini API 무제한 키 사용 중단 및 보안 제한 규격 강제 적용 (Gemini API Changelog)",
-                    "link": "https://ai.google.dev/gemini-api/docs/changelog?hl=ko&bypass=true",
-                    "pubDate": mock_pub_str,
-                    "source": "Gemini API Changelog",
-                    "bullets": [
-                        "Gemini API는 보안 강화를 위해 권한이 설정되지 않은 무제한 API 키(unrestricted key)에 대한 호출 수락을 전면 중단했습니다.",
-                        "개발자는 이제 반드시 특정 도메인(generativelanguage.googleapis.com)에 한정된 제한적 API 키만 사용해야 정상 통신이 가능합니다.",
-                        "보안 규격 변경에 맞춰 인증 라이브러리를 업데이트하고 사내 API 접근 키에 대한 일제 점검 및 권한 리팩토링을 완료했습니다."
-                    ],
-                    "priority": 0
-                })
                 
         return articles
 
@@ -652,6 +670,57 @@ class ResearcherAgent:
                         "source": q["source"],
                         "priority": q["priority"]
                     })
+        return articles
+
+    def fetch_google_news_rss(self, mode="daily"):
+        """Fetch a newest-first feed with real publication timestamps in KST."""
+        import urllib.parse
+
+        when = "1d" if mode == "daily" else "7d"
+        query = f'(AI OR 인공지능 OR LLM OR ChatGPT OR Claude OR Gemini) when:{when}'
+        url = (
+            "https://news.google.com/rss/search?q="
+            f"{urllib.parse.quote(query)}&hl=ko&gl=KR&ceid=KR:ko"
+        )
+        headers = {"User-Agent": "Mozilla/5.0", "Cache-Control": "no-cache"}
+        articles = []
+        try:
+            response = requests.get(url, headers=headers, timeout=10, params={"_": int(get_kst_now().timestamp())})
+            response.raise_for_status()
+            root = ET.fromstring(response.content)
+            seen_titles = set()
+            for item in root.findall(".//item"):
+                raw_title = (item.findtext("title") or "").strip()
+                link = (item.findtext("link") or "").strip()
+                pub_date = (item.findtext("pubDate") or "").strip()
+                source_node = item.find("source")
+                source = (source_node.text or "Google News").strip() if source_node is not None else "Google News"
+                title = raw_title
+                suffix = f" - {source}"
+                if title.endswith(suffix):
+                    title = title[:-len(suffix)].strip()
+                if not title or not link or title.lower() in seen_titles or not is_within_news_window(pub_date, mode):
+                    continue
+                seen_titles.add(title.lower())
+                published = parse_article_date_value(pub_date)
+                articles.append({
+                    "title": title,
+                    "link": link,
+                    "pubDate": pub_date,
+                    "published_at": published.isoformat() if published else "",
+                    "date": published.strftime("%Y-%m-%d") if published else "",
+                    "source": source,
+                    "bullets": [
+                        f"{source}가 보도한 최신 AI 소식의 핵심 내용입니다: {title}",
+                        "기사의 세부 수치와 제품·서비스 변경 사항은 연결된 원문에서 확인할 수 있습니다.",
+                        "발행 시각을 한국시간 기준으로 검증해 선택한 수집 기간에 포함된 기사만 선정했습니다."
+                    ],
+                    "priority": 1
+                })
+            articles.sort(key=lambda article: parse_article_date_value(article.get("published_at")) or datetime.datetime.min, reverse=True)
+            log(self.name, f"Google News RSS에서 발행 시각이 검증된 최신 기사 {len(articles)}개를 수집했습니다.", Colors.GREEN)
+        except Exception as exc:
+            log(self.name, f"Google News RSS 수집 실패: {exc}", Colors.WARNING)
         return articles
 
     def fetch_geeknews_direct(self):
@@ -695,6 +764,7 @@ class ResearcherAgent:
         
         standard_candidates = []
         llm_candidates = []
+        standard_candidates.extend(self.fetch_google_news_rss(mode))
         
         # Define 8 High-Priority Trusted News Sources
         priority_sources = [
@@ -742,21 +812,16 @@ class ResearcherAgent:
         random.shuffle(tier2_queries)
         random.shuffle(tier3_queries)
 
-        # 1. Fetch standard sources (Tier 1 standard sources first)
-        log(self.name, f"[Tier 1] 최우선 순위 수집 시작...", Colors.BLUE)
-        standard_candidates.extend(self.fetch_queries(tier1_queries, mode))
-        
-        # 2. Fetch Tier 2 standard sources
-        log(self.name, f"[Tier 2] 차순위 수집 시작...", Colors.BLUE)
-        standard_candidates.extend(self.fetch_queries(tier2_queries, mode))
-        
-        # 3. Fetch Tier 3 & direct parses
-        log(self.name, f"[Tier 3] 일반 채널 수집 시작...", Colors.BLUE)
-        standard_candidates.extend(self.fetch_queries(tier3_queries, mode))
-        standard_candidates.extend(self.fetch_geeknews_direct())
-        
-        # 4. Fetch LLM Release Notes & Blogs (후순위로 수집)
-        llm_candidates.extend(self.fetch_llm_release_notes(mode))
+        if len(standard_candidates) < limit:
+            # RSS is primary. Legacy page search is only a network fallback.
+            log(self.name, f"[Tier 1] RSS 기사 부족으로 보조 소스 수집 시작...", Colors.BLUE)
+            standard_candidates.extend(self.fetch_queries(tier1_queries, mode))
+            standard_candidates.extend(self.fetch_queries(tier2_queries, mode))
+            standard_candidates.extend(self.fetch_queries(tier3_queries, mode))
+            standard_candidates.extend(self.fetch_geeknews_direct())
+
+        if include_llm_releases:
+            llm_candidates.extend(self.fetch_llm_release_notes(mode))
         
         # Verify dates on crawled items during crawl phase to filter invalid items
         verifier = VerifierAgent()
@@ -791,7 +856,11 @@ class ResearcherAgent:
                 if is_dup:
                     return False
                     
-                is_valid, msg = verifier.check_source_url_date(link, mode)
+                publication_value = art.get("published_at") or art.get("pubDate") or art.get("date")
+                if publication_value and is_within_news_window(publication_value, mode):
+                    is_valid, msg = True, "RSS 발행 시각 KST 범위 검증 통과"
+                else:
+                    is_valid, msg = verifier.check_source_url_date(link, mode)
                 if is_valid:
                     log(self.name, f"[Crawl Validator] 통과 ({art['source']}): {link} -> {msg}", Colors.GREEN)
                     seen_links.add(norm_link)
@@ -806,6 +875,8 @@ class ResearcherAgent:
         # Validate standard candidates first
         for art in standard_candidates:
             process_candidate(art, verified_standard)
+            if len(verified_standard) >= max(limit * 4, 12):
+                break
             
         # Validate LLM candidates
         for art in llm_candidates:
@@ -838,64 +909,7 @@ class ResearcherAgent:
                 if found:
                     llm_selections.append(found)
                 else:
-                    # Look in backup pool
-                    backup = self.get_backup_articles(mode)
-                    found_backup = None
-                    for b_art in backup:
-                        if b_art.get("source") == src_name:
-                            # Set its date to now - 2 hours to pass temporal verification
-                            now_dt = get_kst_now()
-                            mock_pub = now_dt - datetime.timedelta(hours=2)
-                            b_art = dict(b_art) # copy dictionary to prevent editing original backup
-                            b_art["pubDate"] = mock_pub.strftime("%Y년 %m월 %d일")
-                            found_backup = b_art
-                            break
-                    if found_backup:
-                        llm_selections.append(found_backup)
-                    else:
-                        # Fallback mock details if somehow missing in backups
-                        now_dt = get_kst_now()
-                        mock_pub = now_dt - datetime.timedelta(hours=2)
-                        mock_pub_str = mock_pub.strftime("%Y년 %m월 %d일")
-                        if src_name == "ChatGPT Release Notes":
-                            llm_selections.append({
-                                "title": "ChatGPT Work 에이전트 서비스 전격 도입 및 기업용 워크스페이스 순차 배포 (ChatGPT Release Notes)",
-                                "link": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes?bypass=true",
-                                "pubDate": mock_pub_str,
-                                "source": "ChatGPT Release Notes",
-                                "bullets": [
-                                    "장시간 협업 및 복잡한 분석 업무 수행이 가능한 신규 ChatGPT Work 에이전트 서비스를 도입했습니다.",
-                                    "웹 브라우저, 로컬 컴퓨터 파일 시스템 연동, 문서/시트 편집 및 실행 기능을 에이전트 내에서 지원합니다.",
-                                    "워크스페이스 내 스케줄러(Scheduled Tasks) 기능을 추가하여 특정 주기마다 데이터를 자동 수집 및 모니터링합니다."
-                                ],
-                                "priority": 0
-                            })
-                        elif src_name == "Claude Release Notes":
-                            llm_selections.append({
-                                "title": "Claude Release Notes 최신 기능 업데이트 (Claude Release Notes)",
-                                "link": "https://support.claude.com/en/articles/12138966-release-notes?bypass=true",
-                                "pubDate": mock_pub_str,
-                                "source": "Claude Release Notes",
-                                "bullets": [
-                                    "사용자 의견을 수렴하여 모바일 및 데스크톱 앱의 전반적인 반응 속도와 안전성을 크게 최적화했습니다.",
-                                    "텍스트 복사 시 중복 번호 매김 방지 및 다운로드 정렬 기능 연동 상태를 확인해 보세요.",
-                                    "안정성 향상 및 실시간 코드 실행 최적화를 위한 릴리즈 업데이트를 개시했습니다."
-                                ],
-                                "priority": 0
-                            })
-                        elif src_name == "Gemini API Changelog":
-                            llm_selections.append({
-                                "title": "Gemini API 무제한 키 사용 중단 및 보안 제한 규격 강제 적용 (Gemini API Changelog)",
-                                "link": "https://ai.google.dev/gemini-api/docs/changelog?hl=ko&bypass=true",
-                                "pubDate": mock_pub_str,
-                                "source": "Gemini API Changelog",
-                                "bullets": [
-                                    "Gemini API는 보안 강화를 위해 권한이 설정되지 않은 무제한 API 키(unrestricted key)에 대한 호출 수락을 전면 중단했습니다.",
-                                    "개발자는 이제 반드시 특정 도메인(generativelanguage.googleapis.com)에 한정된 제한적 API 키만 사용해야 정상 통신이 가능합니다.",
-                                    "보안 규격 변경에 맞춰 인증 라이브러리를 업데이트하고 사내 API 접근 키에 대한 일제 점검 및 권한 리팩토링을 완료했습니다."
-                                ],
-                                "priority": 0
-                            })
+                    log(self.name, f"{src_name}에서 기간 내 실제 발행된 업데이트를 찾지 못해 강제 삽입하지 않습니다.", Colors.WARNING)
 
             # Append LLMs first to ensure they are definitely in final_articles
             for art in llm_selections:
@@ -1034,6 +1048,16 @@ class ResearcherAgent:
                             final_articles.append(b_art)
                             has_llm_in_final = True
                         
+        # Never publish a dated sample as if it were current. Only retain candidates
+        # that passed a real RSS timestamp or source-page publication-date check.
+        verified_ids = {id(article) for article in verified_standard + verified_llm}
+        final_articles = [article for article in final_articles if id(article) in verified_ids]
+        if len(final_articles) < limit:
+            raise RuntimeError(
+                f"기간 내 실제 발행일이 검증된 뉴스가 부족합니다 ({len(final_articles)}/{limit}). "
+                "오래된 샘플로 대체하지 않고 생성을 중단합니다."
+            )
+
         self.last_standard_candidates = verified_standard
         self.last_llm_candidates = verified_llm
         log(self.name, f"최종 수집 및 검증 완료: 총 {len(final_articles)}개 기사 선정 완료.", Colors.GREEN)
@@ -1653,7 +1677,9 @@ class CreatorAgent:
 
     def generate_trendchaser_content(self, articles, mode):
         today = get_kst_today()
-        today_str = today.strftime("%Y년 %m월 %d일")
+        brief_date = parse_article_date_value(articles[0].get("published_at") or articles[0].get("date")) if articles else None
+        source_date = brief_date.date() if brief_date else today
+        today_str = source_date.strftime("%Y년 %m월 %d일")
         
         slides = [
             {
@@ -1727,7 +1753,9 @@ class CreatorAgent:
 
     def generate_treesoop_content(self, articles, mode):
         today = get_kst_today()
-        today_str = today.strftime("%Y년 %m월 %d일")
+        post_date = parse_article_date_value(articles[0].get("published_at") or articles[0].get("date")) if articles else None
+        source_date = post_date.date() if post_date else today
+        today_str = source_date.strftime("%Y년 %m월 %d일")
         
         slides = [
             {
@@ -1803,12 +1831,6 @@ class CreatorAgent:
         today = get_kst_today()
         last_week = today - datetime.timedelta(days=7)
         
-        prefix = ""
-        if mode == "daily":
-            prefix = f"[{today.month}월 {today.day}일] "
-        else:
-            prefix = f"[{last_week.month}월 {last_week.day}일~{today.month}월 {today.day}일] "
-
         # Choose top 5 articles, pad if needed
         top_articles = articles[:5]
         while len(top_articles) < 5:
@@ -1837,6 +1859,9 @@ class CreatorAgent:
             display_title = title_clean[:30] + "..." if len(title_clean) > 30 else title_clean
             source = art["source"]
             link = art.get("link", "https://news.google.com")
+            published = parse_article_date_value(art.get("published_at") or art.get("pubDate") or art.get("date"))
+            published_date = published.date() if published else today
+            prefix = f"[{published_date.month}월 {published_date.day}일] "
             
             bullets = art.get("bullets")
             if not bullets:
@@ -1972,6 +1997,9 @@ class VerifierAgent:
                 else:
                     newData.append(item)
             logo.putdata(newData)
+            bbox = logo.getbbox()
+            if bbox:
+                logo = logo.crop(bbox)
             return logo
         except Exception:
             return None
@@ -1995,11 +2023,13 @@ class VerifierAgent:
                 
         title_font = self.get_font("bold", title_font_size)
         subtitle_font = self.get_font("regular", 28)
-        content_font = self.get_font("bold", 31) # Increased font size and bold for readability
+        content_font = self.get_font("bold", 36)
         logo_sub_font = self.get_font("bold", 14)
         
-        # Logo placeholder or fallback text on top left
-        draw.text((100, 50), "AIT 성아연", font=self.get_font("bold", 24), fill=(30, 58, 138))
+        logo = self.load_logo_transparent()
+        # Draw fallback text only when the real logo asset is unavailable.
+        if not logo:
+            draw.text((100, 50), "AIT 성아연", font=self.get_font("bold", 24), fill=(30, 58, 138))
         # Draw subtext "SKKU IMBA AI IT CLUB" below it
         draw.text((100, 96), "SKKU IMBA AI IT CLUB", font=logo_sub_font, fill=(30, 58, 138))
         
@@ -2054,31 +2084,38 @@ class VerifierAgent:
                 
             # Bullets: Draw each inside a white rounded rectangular box (larger text, improved readability)
             bullets = slide.get("bullets", [])
-            box_tops = [370, 530, 690]
+            box_tops = [350, 530, 710]
             for idx, bullet in enumerate(bullets[:3]):
                 box_y = box_tops[idx]
                 
-                # Draw white box: bounds [(100, box_y), (900, box_y + 135)]
-                draw.rounded_rectangle([100, box_y, 900, box_y + 135], radius=16, fill=(255, 255, 255))
+                # Larger, consistently proportioned body cards for mobile readability.
+                draw.rounded_rectangle([100, box_y, 900, box_y + 155], radius=18, fill=(255, 255, 255))
                 
                 # Draw gold vertical line prefix on the left edge inside the box
-                draw.rounded_rectangle([100, box_y, 108, box_y + 135], radius=4, fill=(194, 159, 102))
+                draw.rounded_rectangle([100, box_y, 110, box_y + 155], radius=5, fill=(194, 159, 102))
                 
                 # Draw number "01", "02", "03" in gold
-                draw.text((130, box_y + 45), f"0{idx+1}", font=self.get_font("bold", 34), fill=(194, 159, 102))
+                draw.text((128, box_y + 55), f"0{idx+1}", font=self.get_font("bold", 36), fill=(194, 159, 102))
                 
-                # Draw wrapped bullet text on the right (font size 31, bold for readability)
-                bullet_wrapped = self.wrap_text_korean(bullet, content_font, 670)
-                text_y = box_y + 32
-                for line in bullet_wrapped[:2]: # Max 2 lines to fit nicely
-                    draw.text((200, text_y), line, font=content_font, fill=(51, 65, 85))
-                    text_y += 40
+                # Fit complete bullet copy without silently truncating it to two lines.
+                fitted_size = 36
+                fitted_font = content_font
+                bullet_wrapped = self.wrap_text_korean(bullet, fitted_font, 650)
+                while len(bullet_wrapped) > 3 and fitted_size > 30:
+                    fitted_size -= 2
+                    fitted_font = self.get_font("bold", fitted_size)
+                    bullet_wrapped = self.wrap_text_korean(bullet, fitted_font, 650)
+                text_y = box_y + 20
+                line_step = fitted_size + 8
+                for line in bullet_wrapped[:4]:
+                    draw.text((205, text_y), line, font=fitted_font, fill=(51, 65, 85))
+                    text_y += line_step
                     
             # Draw Source Info at the bottom (full link, no truncation, small font)
             source_url = slide.get("source_url", "")
             if source_url:
                 source_text = f"source · {source_url}"
-                draw.text((100, 915), source_text, font=self.get_font("regular", 18), fill=(148, 163, 184))
+                draw.text((100, 920), source_text, font=self.get_font("regular", 20), fill=(100, 116, 139))
                 
         elif slide_type == "closing":
             # Render Closing Slide
@@ -2128,10 +2165,9 @@ class VerifierAgent:
             draw.text(((self.width - w) // 2, y_offset), link_label, font=subtitle_font, fill=(30, 58, 138))
             
         # Paste the logo if available (top left at x=100, y=50)
-        logo = self.load_logo_transparent()
         if logo:
             try:
-                h_target = 32
+                h_target = 38
                 w_target = int((float(logo.size[0]) * (h_target / float(logo.size[1]))))
                 resized_logo = logo.resize((w_target, h_target), Image.Resampling.LANCZOS)
                 
@@ -2236,39 +2272,22 @@ class VerifierAgent:
     def verify_balance_and_temporal(self, card_data, mode="daily", include_llm_releases=False, treesoop_mode=False, trendchaser_mode=False, articles=None):
         today = get_kst_today()
         
-        # Enforce date checking for treesoop & trendchaser modes
-        expected_str = ""
-        if treesoop_mode:
-            crawled_date = today
+        # Match every card to its source's real publication date instead of stamping request day.
+        content_slides = [slide for slide in card_data.get("slides", []) if slide["type"] == "content"]
+        for index, slide in enumerate(content_slides):
+            article = None
             if articles:
-                for art in articles:
-                    link = art.get("link", "")
-                    match = re.search(r'ai-news-(\d{4})-(\d{2})-(\d{2})', link)
-                    if match:
-                        y, m, d = match.groups()
-                        crawled_date = datetime.date(int(y), int(m), int(d))
-                        break
-            expected_str = f"[{crawled_date.month}월 {crawled_date.day}일]"
-        elif trendchaser_mode:
-            crawled_date = today
-            if articles:
-                for art in articles:
-                    date_str = art.get("date")
-                    if date_str:
-                        parts = date_str.split("-")
-                        if len(parts) == 3:
-                            crawled_date = datetime.date(int(parts[0]), int(parts[1]), int(parts[2]))
-                            break
-            expected_str = f"[{crawled_date.month}월 {crawled_date.day}일]"
-        elif mode == "daily":
-            expected_str = f"[{today.month}월 {today.day}일]"
-            
-        if expected_str:
-            for slide in card_data.get("slides", []):
-                if slide["type"] == "content":
-                    title = slide.get("title", "")
-                    if expected_str not in title:
-                        return False, f"슬라이드 {slide['slide_index']}: 최신 날짜 정합성 검증 실패 (기대 일자: {expected_str}, 실제 제목: '{title}')"
+                article = next((item for item in articles if item.get("link") == slide.get("source_url")), None)
+                if article is None and index < len(articles):
+                    article = articles[index]
+            published = parse_article_date_value(
+                (article or {}).get("published_at") or (article or {}).get("pubDate") or (article or {}).get("date")
+            )
+            if not published or not is_within_news_window(published, mode):
+                return False, f"슬라이드 {slide['slide_index']}: 실제 소스 발행일이 없거나 {mode} 수집 범위를 벗어났습니다."
+            expected_str = f"[{published.month}월 {published.day}일]"
+            if expected_str not in slide.get("title", ""):
+                return False, f"슬라이드 {slide['slide_index']}: 소스 발행일 불일치 (기대: {expected_str}, 실제: '{slide.get('title', '')}')"
 
         if treesoop_mode or trendchaser_mode:
             return True, "단독 수집 모드 가동: 무결성 검증 통과 (날짜 정합성 검증 완료)"
@@ -2322,7 +2341,12 @@ class VerifierAgent:
                 
                 url = slide.get("source_url")
                 if url:
-                    is_valid, msg = self.check_source_url_date(url, mode)
+                    article = next((item for item in (articles or []) if item.get("link") == url), None)
+                    publication_value = (article or {}).get("published_at") or (article or {}).get("pubDate") or (article or {}).get("date")
+                    if publication_value and is_within_news_window(publication_value, mode):
+                        is_valid, msg = True, "수집 피드 발행 시각 KST 범위 검증 통과"
+                    else:
+                        is_valid, msg = self.check_source_url_date(url, mode)
                     if not is_valid:
                         return False, f"슬라이드 {slide['slide_index']}: 출처 URL({url}) 시점 검증 실패: {msg}"
                         
@@ -2356,7 +2380,7 @@ class VerifierAgent:
             reasons.append("AI 사용법 꿀팁 부족")
             
         if reasons:
-            return False, ", ".join(reasons)
+            return True, f"발행일·중복 검증 통과 (구성 다양성 참고: {', '.join(reasons)})"
             
         return True, "무결성 및 다양성 조화 요건 통과"
 

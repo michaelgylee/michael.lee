@@ -27,21 +27,70 @@ let appState = {
 
 // Fallback high-quality curated AI news database matching Priority Rules (Korean)
 // Fallback high-quality curated AI news database matching Priority Rules (Korean)
-const today = new Date();
-const yesterday = new Date(today.getTime() - 24 * 60 * 60 * 1000);
-const lastWeek = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+const KST_TIME_ZONE = 'Asia/Seoul';
+const DAY_MS = 24 * 60 * 60 * 1000;
 
-const formatDate = (d) => `${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일`;
+function getKstDate(now = new Date()) {
+    const parts = new Intl.DateTimeFormat('en-CA', {
+        timeZone: KST_TIME_ZONE,
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+    }).formatToParts(now).reduce((acc, part) => {
+        acc[part.type] = part.value;
+        return acc;
+    }, {});
+    return new Date(Date.UTC(Number(parts.year), Number(parts.month) - 1, Number(parts.day), 12));
+}
+
+function formatYmd(date) {
+    return `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, '0')}-${String(date.getUTCDate()).padStart(2, '0')}`;
+}
+
+function parseSourceDate(value) {
+    if (!value) return null;
+    const ymd = String(value).match(/(20\d{2})[-./](\d{1,2})[-./](\d{1,2})/);
+    if (ymd) return new Date(Date.UTC(Number(ymd[1]), Number(ymd[2]) - 1, Number(ymd[3]), 12));
+    const parsed = new Date(value);
+    return Number.isNaN(parsed.getTime()) ? null : getKstDate(parsed);
+}
+
+function parseSourceTimestamp(value) {
+    if (!value) return null;
+    const text = String(value).trim();
+    if (/^20\d{2}[-./]\d{1,2}[-./]\d{1,2}$/.test(text)) return parseSourceDate(text);
+    const parsed = new Date(text);
+    return Number.isNaN(parsed.getTime()) ? parseSourceDate(text) : parsed;
+}
+
+function publicationPrefix(article, fallbackDate = getKstDate()) {
+    const published = parseSourceDate(article?.publishedAt || article?.date || article?.pubDate) || fallbackDate;
+    return `[${published.getUTCMonth() + 1}월 ${published.getUTCDate()}일] `;
+}
+
+function isFreshArticle(article, mode, now = new Date()) {
+    const published = parseSourceTimestamp(article?.publishedAt || article?.pubDate || article?.date);
+    if (!published) return false;
+    const age = now.getTime() - published.getTime();
+    const maxAge = mode === 'daily' ? DAY_MS : 7 * DAY_MS;
+    return age >= -DAY_MS && age <= maxAge;
+}
+
+const today = getKstDate();
+const yesterday = new Date(today.getTime() - DAY_MS);
+const lastWeek = new Date(today.getTime() - 7 * DAY_MS);
+
+const formatDate = (d) => `${d.getUTCFullYear()}년 ${d.getUTCMonth() + 1}월 ${d.getUTCDate()}일`;
 const todayStr = formatDate(today);
 const yesterdayStr = formatDate(yesterday);
 const lastWeekStr = formatDate(lastWeek);
 
-const month = today.getMonth() + 1;
-const day = today.getDate();
+const month = today.getUTCMonth() + 1;
+const day = today.getUTCDate();
 const datePrefix = `[${month}월 ${day}일] `;
 
-const lastWeekMonth = lastWeek.getMonth() + 1;
-const lastWeekDay = lastWeek.getDate();
+const lastWeekMonth = lastWeek.getUTCMonth() + 1;
+const lastWeekDay = lastWeek.getUTCDate();
 const weeklyPrefix = `[${lastWeekMonth}월 ${lastWeekDay}일~${month}월 ${day}일] `;
 
 const AI_NEWS_DATABASE = {
@@ -654,28 +703,117 @@ if (btnTrendchaser) {
     });
 }
 
+async function fetchTextWithCorsFallback(url) {
+    const proxyUrls = [
+        `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+        `https://corsproxy.io/?url=${encodeURIComponent(url)}`
+    ];
+    let lastError;
+    for (const proxyUrl of proxyUrls) {
+        try {
+            const response = await fetch(proxyUrl, { cache: 'no-store' });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            return await response.text();
+        } catch (error) {
+            lastError = error;
+        }
+    }
+    throw lastError || new Error('실시간 소스를 불러오지 못했습니다.');
+}
+
+function rssItemToArticle(item) {
+    const rawTitle = item.querySelector('title')?.textContent?.trim() || '';
+    const sourceNode = item.querySelector('source');
+    const source = sourceNode?.textContent?.trim() || rawTitle.split(' - ').pop() || 'Google News';
+    const title = rawTitle.endsWith(` - ${source}`) ? rawTitle.slice(0, -(source.length + 3)).trim() : rawTitle;
+    const publishedAt = item.querySelector('pubDate')?.textContent?.trim() || '';
+    const link = item.querySelector('link')?.textContent?.trim() || '';
+    return {
+        title,
+        source,
+        link,
+        publishedAt,
+        date: formatYmd(parseSourceDate(publishedAt) || getKstDate()),
+        bullets: [
+            `${source}가 보도한 최신 AI 소식의 핵심 내용입니다: ${title}`,
+            '기사의 세부 수치와 제품·서비스 변경 사항은 연결된 원문에서 확인할 수 있습니다.',
+            '발행 시각을 한국시간 기준으로 검증해 일간·주간 수집 범위에 포함된 기사만 선정했습니다.'
+        ]
+    };
+}
+
+async function fetchLatestGoogleNews(mode, categories) {
+    const categoryTerms = {
+        genai: '(생성형 AI OR LLM OR GPT OR Claude OR Gemini)',
+        biz: '(AI 산업 OR AI 비즈니스 OR 인공지능 시장)',
+        tech: '(AI 기술 OR 인공지능 모델 OR AI 개발)',
+        policy: '(AI 정책 OR AI 규제 OR 인공지능 법)'
+    };
+    const terms = categories.map(category => categoryTerms[category]).filter(Boolean);
+    const when = mode === 'daily' ? '1d' : '7d';
+    const query = `${terms.length ? terms.join(' OR ') : '인공지능 AI'} when:${when}`;
+    const rssUrl = `https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=ko&gl=KR&ceid=KR:ko`;
+    const xmlText = await fetchTextWithCorsFallback(rssUrl);
+    const xml = new DOMParser().parseFromString(xmlText, 'application/xml');
+    if (xml.querySelector('parsererror')) throw new Error('Google News RSS 응답을 해석하지 못했습니다.');
+
+    const seen = new Set();
+    return [...xml.querySelectorAll('item')]
+        .map(rssItemToArticle)
+        .filter(article => article.title && article.link && isFreshArticle(article, mode))
+        .filter(article => {
+            const key = article.title.replace(/\s+/g, ' ').toLowerCase();
+            if (seen.has(key)) return false;
+            seen.add(key);
+            return true;
+        })
+        .sort((a, b) => (parseSourceTimestamp(b.publishedAt)?.getTime() || 0) - (parseSourceTimestamp(a.publishedAt)?.getTime() || 0));
+}
+
+async function fetchTreeSoopNews() {
+    const indexHtml = await fetchTextWithCorsFallback(`https://treesoop.com/blog?ts=${Date.now()}`);
+    const indexDoc = new DOMParser().parseFromString(indexHtml, 'text/html');
+    const candidates = [...indexDoc.querySelectorAll('a[href*="/blog/ai-news-"]')]
+        .map(anchor => anchor.getAttribute('href'))
+        .filter(Boolean)
+        .map(href => new URL(href, 'https://treesoop.com').href)
+        .sort((a, b) => b.localeCompare(a));
+    if (!candidates.length) throw new Error('TreeSoop 최신 뉴스 게시물을 찾지 못했습니다.');
+
+    const postUrl = [...new Set(candidates)][0];
+    const dateMatch = postUrl.match(/ai-news-(\d{4}-\d{2}-\d{2})/);
+    const publishedAt = dateMatch?.[1] || '';
+    const postHtml = await fetchTextWithCorsFallback(`${postUrl}?ts=${Date.now()}`);
+    const doc = new DOMParser().parseFromString(postHtml, 'text/html');
+    const headings = [...doc.querySelectorAll('h2')];
+    const articles = [];
+    for (const heading of headings) {
+        const title = heading.textContent.trim();
+        if (!title || /블로그|댓글|이전 글|다음 글|products|navigation|contact/i.test(title)) continue;
+        const bullets = [];
+        let sourceUrl = '';
+        let node = heading.nextElementSibling;
+        while (node && node.tagName !== 'H2') {
+            if (node.matches('p') && node.textContent.trim() && !/원문\s*보기/.test(node.textContent)) {
+                bullets.push(node.textContent.trim());
+            }
+            const link = node.matches('a[href]') ? node : node.querySelector?.('a[href]');
+            if (link && (/원문|링크/.test(link.textContent) || !sourceUrl)) {
+                sourceUrl = new URL(link.getAttribute('href'), postUrl).href;
+            }
+            node = node.nextElementSibling;
+        }
+        if (bullets.length) {
+            articles.push({ title, source: 'TreeSoop', link: sourceUrl || postUrl, postUrl, publishedAt, date: publishedAt, bullets: bullets.slice(0, 3) });
+        }
+    }
+    if (!articles.length) throw new Error('TreeSoop 최신 게시물에서 뉴스 본문을 찾지 못했습니다.');
+    return articles;
+}
+
 // Main Agent Team Run Pipeline
 btnRun.addEventListener("click", async () => {
     if (appState.isRunning) return;
-    
-    // Check if Treesoop today's news is updated
-    if (appState.treesoopMode) {
-        const today = new Date();
-        const todayKst = new Date(today.getTime() + (today.getTimezoneOffset() + 540) * 60 * 1000);
-        const todayStr = `${todayKst.getFullYear()}-${String(todayKst.getMonth() + 1).padStart(2, '0')}-${String(todayKst.getDate()).padStart(2, '0')}`;
-        const latestDbDate = "2026-07-13"; 
-        
-        if (todayStr !== latestDbDate) {
-            const ans = confirm(`오늘(${todayStr}) 뉴스가 업로드되지 않았습니다. 어제 뉴스로 생성할까요?`);
-            if (!ans) {
-                addLog("System", "오늘 뉴스가 업로드되지 않아 작업을 취소합니다.", "warning");
-                appState.treesoopMode = false;
-                return;
-            }
-        }
-    }
-    
-
     
     appState.isRunning = true;
     btnRun.disabled = true;
@@ -739,27 +877,16 @@ btnRun.addEventListener("click", async () => {
         const includeLlmReleases = document.getElementById("cat-llm-releases").checked;
 
         if (appState.treesoopMode) {
-            rawNews = [...TREESOOP_DATABASE];
+            rawNews = await fetchTreeSoopNews();
         } else if (appState.trendchaserMode) {
-            try {
-                rawNews = await fetchTrendChaserNews();
-            } catch (err) {
-                rawNews = [...TRENDCHASER_DATABASE];
-            }
-        } else if (includeLlmReleases) {
-            // Forcibly select OpenAI, Anthropic, and Google release note items
-            const targetSources = ["ChatGPT Release Notes", "Claude Release Notes", "Gemini API Changelog"];
-            targetSources.forEach(src => {
-                let found = sourcePool.find(n => n.source === src);
-                if (found) {
-                    rawNews.push(found);
-                }
-            });
+            rawNews = await fetchTrendChaserNews();
         } else {
-            appState.categories.forEach(cat => {
-                const items = sourcePool.filter(n => n.category === cat);
-                rawNews.push(...items);
-            });
+            rawNews = await fetchLatestGoogleNews(appState.mode, appState.categories);
+            if (!rawNews.length) throw new Error('선택한 기간에 발행된 최신 뉴스를 찾지 못했습니다.');
+            if (includeLlmReleases) {
+                const llmPattern = /OpenAI|ChatGPT|Anthropic|Claude|Gemini|Google AI/i;
+                rawNews.sort((a, b) => Number(llmPattern.test(b.title + b.source)) - Number(llmPattern.test(a.title + a.source)));
+            }
         }
         
         // Filter out articles that have already been generated to ensure execution uniqueness
@@ -784,22 +911,11 @@ btnRun.addEventListener("click", async () => {
         } else {
             freshNews = rawNews.filter(item => !isDuplicateJS(item.title));
             
-            // If not enough category-matched fresh items, pull unused ones from sourcePool
-            if (freshNews.length < 3) {
-                let unusedPool = sourcePool.filter(item => !isDuplicateJS(item.title) && !freshNews.includes(item));
-                freshNews.push(...unusedPool);
-            }
-            
-            // Shuffle candidates
-            freshNews = shuffleArray(freshNews);
-            
-            // If still not enough (due to high history coverage), fallback to any sourcePool items
-            if (freshNews.length < 3) {
-                freshNews.push(...shuffleArray(sourcePool).slice(0, 3));
-            }
+            // Keep source order: the live feed is already sorted newest-first.
+            if (freshNews.length < 5) freshNews = [...rawNews];
         }
         
-        rawNews = (appState.treesoopMode || appState.trendchaserMode) ? freshNews.slice(0, 5) : freshNews.slice(0, 3);
+        rawNews = freshNews.slice(0, 5);
         
         addLog("Researcher", `성공적으로 ${rawNews.length}개의 정제된 뉴스 피드를 획득하였습니다. 1차 검증 게이트키퍼(Gatekeeper)에게 전달합니다.`, "success");
         await sleep(600);
@@ -834,7 +950,7 @@ btnRun.addEventListener("click", async () => {
         });
         
         if (deduplicated.length < rawNews.length && !appState.treesoopMode && !appState.trendchaserMode) {
-            let remainingPool = sourcePool.filter(n => !rawNews.includes(n));
+            let remainingPool = freshNews.filter(n => !rawNews.includes(n));
             for (let item of remainingPool) {
                 if (deduplicated.length >= rawNews.length) break;
                 let isDup = false;
@@ -856,16 +972,6 @@ btnRun.addEventListener("click", async () => {
             }
         }
         rawNews = deduplicated;
-
-        // Force topmost release notes check (ChatGPT Work in daily mode)
-        const hasLlm = rawNews.some(item => item.source === "ChatGPT Release Notes" || item.source === "Claude Release Notes");
-        if (!hasLlm && appState.mode === 'daily' && !appState.treesoopMode && !appState.trendchaserMode) {
-            addLog("Gatekeeper", "ChatGPT Release Notes 최상단 중요 릴리즈 누락 감지! 18시간 필터를 우회하여 최상단 중요 소식 강제 주입합니다.", "warning");
-            const chatgptWork = sourcePool.find(n => n.source === "ChatGPT Release Notes" && n.title.includes("ChatGPT Work"));
-            if (chatgptWork) {
-                rawNews[rawNews.length - 1] = chatgptWork;
-            }
-        }
 
         for (let i = 0; i <= 100; i += 50) {
             progressGate.style.width = `${i}%`;
@@ -984,37 +1090,21 @@ btnRun.addEventListener("click", async () => {
         await sleep(400);
         
         // [검증 7] 최신 날짜 정합성 검증
-        let expectedDateStr = "";
-        const todayVal = new Date();
-        const todayKstVal = new Date(todayVal.getTime() + (todayVal.getTimezoneOffset() + 540) * 60 * 1000);
-        let crawledDateVal = todayKstVal;
-        
-        if (appState.treesoopMode) {
-            expectedDateStr = `[${todayKstVal.getMonth() + 1}월 ${todayKstVal.getDate()}일]`;
-        } else if (appState.trendchaserMode) {
-            if (rawNews && rawNews[0] && rawNews[0].date) {
-                const parts = rawNews[0].date.split("-");
-                if (parts.length === 3) {
-                    crawledDateVal = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
-                }
-            }
-            expectedDateStr = `[${crawledDateVal.getMonth() + 1}월 ${crawledDateVal.getDate()}일]`;
-        } else if (appState.mode === 'daily') {
-            expectedDateStr = `[${todayKstVal.getMonth() + 1}월 ${todayKstVal.getDate()}일]`;
-        }
-        
         let dateCheckPassed = true;
-        if (expectedDateStr) {
-            for (let slide of cardJson.slides) {
-                if (slide.type === 'content') {
-                    if (!slide.title.includes(expectedDateStr)) {
-                        dateCheckPassed = false;
-                        break;
-                    }
-                }
+        const dateMismatches = [];
+        for (const slide of cardJson.slides) {
+            if (slide.type !== 'content') continue;
+            const article = rawNews.find(item => item.link === slide.source_url) || rawNews[slide.slide_index - 2];
+            const expectedPrefix = article ? publicationPrefix(article).trim() : '';
+            if (!article || !isFreshArticle(article, appState.mode) || !slide.title.includes(expectedPrefix)) {
+                dateCheckPassed = false;
+                dateMismatches.push(`${slide.slide_index}장:${expectedPrefix || '발행일 없음'}`);
             }
         }
-        addLog("Verifier", `[검증 7] 최신 날짜 정합성 검증 (${expectedDateStr || '주간 모드'}): ${dateCheckPassed ? '통과 (최신 뉴스로 제작됨)' : '실패 (날짜 정합성 불일치)'}`, dateCheckPassed ? 'success' : 'warning');
+        addLog("Verifier", `[검증 7] 실제 소스 발행일·KST 수집 범위 검증: ${dateCheckPassed ? '통과 (모든 카드가 실제 발행일과 일치)' : `실패 (${dateMismatches.join(', ')})`}`, dateCheckPassed ? 'success' : 'warning');
+        if (!dateCheckPassed) {
+            throw new Error(`실제 소스 발행일과 카드 날짜가 일치하지 않습니다: ${dateMismatches.join(', ')}`);
+        }
         await sleep(400);
 
         progressPub.style.width = "100%";
@@ -1080,10 +1170,8 @@ function generateSimulatedCard(news, mode) {
     const cycleText = mode === 'daily' ? '하루 1분으로 읽는 AI 기술 브리핑' : '이주의 주요 AI 트렌드 리포트';
 
 
-    const fallbackPool = AI_NEWS_DATABASE[mode];
-    
-    // Mix input news with fallback database pool, then shuffle to randomize selection on every generation
-    let combinedPool = shuffleArray([...news, ...fallbackPool]);
+    // The supplied list is a live, newest-first feed. Never mix dated sample data into production output.
+    let combinedPool = [...news];
     
     let uniqueNews = [];
     let seenUrls = new Set();
@@ -1142,7 +1230,7 @@ function generateSimulatedCard(news, mode) {
         slides.push({
             slide_index: index + 2,
             type: 'content',
-            title: `${index + 1}. ${item.title}`,
+            title: `${index + 1}. ${publicationPrefix(item)}${item.title.replace(/^\[[^\]]+\]\s*/, '')}`,
             bullets: [...item.bullets],
             gradient: appState.gradients[(index + 1) % appState.gradients.length],
             fontSize: 34,
@@ -1220,29 +1308,27 @@ const TREESOOP_DATABASE = [
 ];
 
 function generateTreeSoopCard(news) {
-    const today = new Date();
-    const todayKst = new Date(today.getTime() + (today.getTimezoneOffset() + 540) * 60 * 1000);
-    let crawledDate = todayKst;
+    let crawledDate = getKstDate();
     
     for (let art of news) {
         if (art.link && art.link.includes('ai-news-')) {
             const m = art.link.match(/ai-news-(\d{4})-(\d{2})-(\d{2})/);
             if (m) {
-                crawledDate = new Date(parseInt(m[1]), parseInt(m[2]) - 1, parseInt(m[3]));
+                crawledDate = parseSourceDate(`${m[1]}-${m[2]}-${m[3]}`) || crawledDate;
                 break;
             }
         }
         if (art.date) {
             const parts = art.date.split("-");
             if (parts.length === 3) {
-                crawledDate = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+                crawledDate = parseSourceDate(art.date) || crawledDate;
                 break;
             }
         }
     }
     
-    const month = crawledDate.getMonth() + 1;
-    const day = crawledDate.getDate();
+    const month = crawledDate.getUTCMonth() + 1;
+    const day = crawledDate.getUTCDate();
     const prefix = `[${month}월 ${day}일] `;
     
     let slides = [
@@ -1310,18 +1396,20 @@ function generateTreeSoopCard(news) {
 
 async function fetchTrendChaserNews() {
     try {
-        const res = await fetch("https://api.allorigins.win/raw?url=https://www.taewoopark.com/api/briefs");
-        if (res.ok) {
-            const data = await res.json();
+        const responseText = await fetchTextWithCorsFallback(`https://www.taewoopark.com/api/briefs?ts=${Date.now()}`);
+        {
+            const data = JSON.parse(responseText);
             if (Array.isArray(data) && data.length > 0) {
-                // Sort descending by id to get the absolute newest brief
-                data.sort((a, b) => b.id.localeCompare(a.id));
+                // Prefer the real publication timestamp/date; IDs are not guaranteed to be chronological strings.
+                data.sort((a, b) => {
+                    const aTime = Date.parse(a.publishedAt || a.updatedAt || a.date || '') || 0;
+                    const bTime = Date.parse(b.publishedAt || b.updatedAt || b.date || '') || 0;
+                    return bTime - aTime || String(b.id || '').localeCompare(String(a.id || ''), undefined, { numeric: true });
+                });
                 const latestBrief = data[0];
                 
                 // Perform dynamic date check
-                const today = new Date();
-                const todayKst = new Date(today.getTime() + (today.getTimezoneOffset() + 540) * 60 * 1000);
-                const todayStr = `${todayKst.getFullYear()}-${String(todayKst.getMonth() + 1).padStart(2, '0')}-${String(todayKst.getDate()).padStart(2, '0')}`;
+                const todayStr = formatYmd(getKstDate());
                 
                 if (latestBrief.date !== todayStr) {
                     addLog("Researcher", `[알림] 오늘 날짜(${todayStr})의 Trend Chaser 브리프가 아직 업로드되지 않았습니다. 가장 최근에 업로드된 브리프(${latestBrief.date})를 사용해 뉴스레터를 생성합니다.`, "warning");
@@ -1335,15 +1423,17 @@ async function fetchTrendChaserNews() {
                         source: t.source,
                         link: t.url || "https://www.taewoopark.com/trendchaser",
                         bullets: paragraphs.slice(0, 3),
-                        date: latestBrief.date
+                        date: latestBrief.date,
+                        publishedAt: latestBrief.publishedAt || latestBrief.updatedAt || latestBrief.date
                     };
                 });
             }
         }
     } catch (e) {
-        console.warn("TrendChaser live fetch failed, using fallback database:", e);
+        console.warn("TrendChaser live fetch failed:", e);
+        throw new Error(`Trend Chaser 최신 뉴스를 불러오지 못했습니다: ${e.message}`);
     }
-    return TRENDCHASER_DATABASE;
+    throw new Error('Trend Chaser 최신 브리프가 비어 있습니다.');
 }
 
 const TRENDCHASER_DATABASE = [
@@ -1400,19 +1490,17 @@ const TRENDCHASER_DATABASE = [
 ];
 
 function generateTrendChaserCard(news) {
-    const today = new Date();
-    const todayKst = new Date(today.getTime() + (today.getTimezoneOffset() + 540) * 60 * 1000);
-    let crawledDate = todayKst;
+    let crawledDate = getKstDate();
     
     if (news && news[0] && news[0].date) {
         const parts = news[0].date.split("-");
         if (parts.length === 3) {
-            crawledDate = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+            crawledDate = parseSourceDate(news[0].date) || crawledDate;
         }
     }
     
-    const month = crawledDate.getMonth() + 1;
-    const day = crawledDate.getDate();
+    const month = crawledDate.getUTCMonth() + 1;
+    const day = crawledDate.getUTCDate();
     const prefix = `[${month}월 ${day}일] `;
     
     let slides = [
@@ -1480,9 +1568,9 @@ function generateTrendChaserCard(news) {
 
 // Call Google Gemini API with Search Grounding
 async function generateCardWithGemini(news, mode, apiKey) {
-    const today = new Date();
-    const yesterday = new Date(today.getTime() - 24 * 60 * 60 * 1000);
-    const lastWeek = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+    const today = getKstDate();
+    const yesterday = new Date(today.getTime() - DAY_MS);
+    const lastWeek = new Date(today.getTime() - 7 * DAY_MS);
     
     const formatDate = (d) => `${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일`;
     const todayStr = formatDate(today);
@@ -1493,7 +1581,7 @@ async function generateCardWithGemini(news, mode, apiKey) {
         ? `일간(daily) 뉴스이므로, 수집된 뉴스는 반드시 현재 날짜인 ${todayStr} 기준 24시간 이내 (${yesterdayStr} ~ ${todayStr})의 최신 정보여야 합니다.`
         : `주간(weekly) 뉴스이므로, 수집된 뉴스는 반드시 현재 날짜인 ${todayStr} 기준 1주일 이내 (${lastWeekStr} ~ ${todayStr})의 최신 정보여야 합니다.`;
 
-    const context = news.map((item, idx) => `[뉴스 ${idx+1}]\n제목: ${item.title}\n출처: ${item.source}\n내용: ${item.bullets.join(' ')}\nURL: ${item.link || ''}`).join('\n\n');
+    const context = news.map((item, idx) => `[뉴스 ${idx+1}]\n제목: ${item.title}\n실제 발행일(KST): ${formatYmd(parseSourceDate(item.publishedAt || item.date || item.pubDate) || getKstDate())}\n출처: ${item.source}\n내용: ${item.bullets.join(' ')}\nURL: ${item.link || ''}`).join('\n\n');
     const prompt = `
         당신은 개발자 커뮤니티에 업무 관련된 공신력 있는 소식을 요약해서 전달하는 전문 큐레이터 에디터 에이전트입니다.
         철저하게 최신 뉴스와 근거가 확실한 기술 정보, 그리고 연결 가능한 정확한 실제 출처 링크만을 신뢰할 수 있게 전달해야 합니다.
@@ -1503,7 +1591,7 @@ async function generateCardWithGemini(news, mode, apiKey) {
         ${dateRangeInstruction} 현재 실행 시점은 ${todayStr}입니다. 이 시점과 무관한 과거 소식이나 2025년 등의 지나간 뉴스는 절대 포함하지 마십시오.
         
         [뉴스 데이터셋]
-        {context}
+        ${context}
         
         [뉴스 수집 및 검증 우선순위]
         1순위 - 공신력 있는 12대 지정 외신 채널 (The Guardian AI, DeepMind, TechCrunch, Economist, BBC, NYT 등)
@@ -1514,7 +1602,7 @@ async function generateCardWithGemini(news, mode, apiKey) {
         1. 일간 모드(Daily)인 경우 최근 24시간 이내, 주간 모드(Weekly)인 경우 최근 1주일 이내의 뉴스만 엄격하게 포함시키도록 Google Search를 조율하십시오. 현재 년월일 기준시점은 ${todayStr}입니다.
         2. 모든 항목에는 반드시 실제 접근 가능한 원본 출처 URL이 명시되어야 합니다. 기억으로 URL을 지어내지 마십시오.
         3. 1장 (Title Slide): 제목을 반드시 "9대 성아연 뉴스메이커"로 하고, 알맞은 서브타이틀을 기입합니다.
-        4. 2, 3, 4, 5, 6장 (Content Slide): 각각 주요 뉴스 1, 2, 3, 4, 5를 깊이 있게 다룹니다. 제목(Title)은 뉴스 헤드라인으로 하고, 본문 요약(bullets)은 단순히 짧은 단문이 아니라 구체적인 기술 명칭, 실질적인 동작 방식, 세부 수치 데이터 및 파급 인사이트를 구체적으로 서술하는 3개의 불릿 포인트로 작성하십시오 (각 불릿은 최소 35자 이상). 또한 반드시 출처명(source_name)과 원문 주소(source_url)를 매핑해 명시하십시오.
+        4. 2, 3, 4, 5, 6장 (Content Slide): 각각 주요 뉴스 1, 2, 3, 4, 5를 깊이 있게 다룹니다. 제목은 각 입력 뉴스의 실제 발행일을 사용해 '[M월 D일] 뉴스 헤드라인' 형식으로 작성하고 요청일을 발행일처럼 붙이지 마십시오. 본문 요약(bullets)은 구체적인 기술 명칭, 실질적인 동작 방식, 세부 수치 데이터 및 파급 인사이트를 서술하는 3개의 불릿 포인트로 작성하십시오 (각 불릿은 최소 35자 이상). 또한 반드시 출처명(source_name)과 원문 주소(source_url)를 매핑해 명시하십시오.
         5. 7장 (Closing Slide): 제목을 반드시 "9대 성아연 집행부"로 하고, 부제목은 "채널을 구독하고 매주 AI 소식을 빠르게 받아보세요!"로 작성하며 카카오톡 채널 추가 링크를 안내하십시오.
         
         [응답 스키마]
@@ -1664,13 +1752,13 @@ function renderCards(cardJson) {
                 <div class="slide-header-row" style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%; margin-bottom: 8px;">
                     <div style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.1;">
                         <div style="display: flex; align-items: center; gap: 4px; height: 14px;">
-                            <img src="logo.png" style="height: 11px; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <img src="logo.png" style="height: 14px; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                             <span style="font-size: 8px; font-weight: bold; color: #1E3A8A; display: none;">AIT 성아연</span>
                         </div>
-                        <span style="font-size: 4.8px; color: #1E3A8A; font-weight: 700; margin-top: 2px;">SKKU IMBA AI IT CLUB</span>
+                        <span style="font-size: 5.4px; color: #1E3A8A; font-weight: 700; margin-top: 2px;">SKKU IMBA AI IT CLUB</span>
                     </div>
                     <!-- Navy Capsule Badge Page Indicator -->
-                    <div style="background: #1E3A8A; border-radius: 999px; padding: 2px 8px; font-size: 5.5px; font-weight: 800; color: #FFFFFF; font-family: monospace; display: flex; align-items: center; justify-content: center; height: 12px; line-height: 12px;">
+                    <div style="background: #1E3A8A; border-radius: 999px; padding: 2px 8px; font-size: 6.5px; font-weight: 800; color: #FFFFFF; font-family: monospace; display: flex; align-items: center; justify-content: center; height: 13px; line-height: 13px;">
                         ${padIndex} / 07
                     </div>
                 </div>
@@ -1703,20 +1791,20 @@ function renderCards(cardJson) {
             `;
         } else if (slide.type === 'content') {
             let titleFontSize = slide.fontSize * 0.40;
-            if (slide.title.length > 24) titleFontSize = 11.5;
-            if (slide.title.length > 34) titleFontSize = 9.8;
+            if (slide.title.length > 24) titleFontSize = 13;
+            if (slide.title.length > 34) titleFontSize = 11.5;
             
             innerHtml += `
                 <div class="slide-card-title" style="font-size: ${titleFontSize}px; font-weight: 800; color: #0F172A; line-height: 1.3; margin-top: 6px; margin-bottom: 6px;">${slide.title}</div>
                 <div style="display: flex; flex-direction: column; gap: 6px; flex: 1; justify-content: flex-start;">
                     ${slide.bullets.map((b, idx) => `
-                        <div style="background: #FFFFFF; border-radius: 6px; border-left: 2.5px solid #C29F66; padding: 6px 8px; display: flex; align-items: flex-start; gap: 6px; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
-                            <span style="color: #C29F66; font-size: 8px; font-weight: 800; font-family: monospace; line-height: 1.2;">0${idx+1}</span>
-                            <span style="color: #334155; font-size: 7.8px; font-weight: 700; line-height: 1.35; flex: 1; word-break: keep-all;">${b}</span>
+                        <div class="slide-bullet-item" style="background: #FFFFFF; border-radius: 6px; border-left: 2.5px solid #C29F66; padding: 7px 8px; display: flex; align-items: flex-start; gap: 6px; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
+                            <span class="slide-bullet-number" style="color: #C29F66; font-size: 9px; font-weight: 800; font-family: monospace; line-height: 1.25;">0${idx+1}</span>
+                            <span class="slide-bullet-text" style="color: #334155; font-size: 9.2px; font-weight: 700; line-height: 1.3; flex: 1; word-break: keep-all;">${b}</span>
                         </div>
                     `).join('')}
                 </div>
-                <a class="slide-card-source" href="${slide.source_url || '#'}" target="_blank" onclick="event.stopPropagation();" style="color: #94A3B8; text-decoration: underline; font-size: 6.5px; opacity: 0.9; margin-top: auto; padding-top: 4px; border-top: 1px solid rgba(0,0,0,0.03); word-break: break-all; cursor: pointer; display: block;">
+                <a class="slide-card-source" href="${slide.source_url || '#'}" target="_blank" onclick="event.stopPropagation();" style="color: #64748B; text-decoration: underline; font-size: 7.2px; opacity: 0.95; margin-top: auto; padding-top: 4px; border-top: 1px solid rgba(0,0,0,0.05); word-break: break-all; cursor: pointer; display: block;">
                     source · ${slide.source_url || ''}
                 </a>
             `;
@@ -1980,7 +2068,8 @@ btnExportAll.addEventListener("click", async () => {
         for (let i = 0; i < wrappers.length; i++) {
             const wrap = wrappers[i];
             
-            // Clone the node to document body temporarily and scale it to 720x720
+            // Preserve the exact 240px preview proportions and scale the whole design uniformly.
+            // Selectively enlarging only a few text nodes caused tiny body copy and mismatched spacing.
             const clone = wrap.cloneNode(true);
             clone.style.width = "720px";
             clone.style.height = "720px";
@@ -1988,72 +2077,14 @@ btnExportAll.addEventListener("click", async () => {
             clone.style.top = "-9999px";
             clone.style.left = "-9999px";
             clone.style.zIndex = "-9999";
-            
-            // Scale font sizes and layout spacing for 720x720 frame
-            const titleNode = clone.querySelector(".slide-card-title");
-            if (titleNode) {
-                const currentSize = parseFloat(titleNode.style.fontSize);
-                titleNode.style.fontSize = `${currentSize * 2.8}px`;
-            }
-            const subNode = clone.querySelector(".slide-card-subtitle");
-            if (subNode) {
-                subNode.style.fontSize = "30px";
-                subNode.style.marginTop = "18px";
-            }
-            const bulletsNode = clone.querySelector(".slide-card-bullets");
-            if (bulletsNode) {
-                bulletsNode.style.fontSize = "26px";
-                bulletsNode.style.marginTop = "36px";
-                bulletsNode.querySelectorAll("li").forEach(li => {
-                    li.style.marginBottom = "14px";
-                    li.style.paddingLeft = "30px";
-                });
-            }
-            const tagNode = clone.querySelector(".slide-tag");
-            if (tagNode) {
-                tagNode.style.fontSize = "18px";
-            }
-            const badgeNode = clone.querySelector(".slide-badge");
-            if (badgeNode) {
-                badgeNode.style.fontSize = "18px";
-                badgeNode.style.padding = "6px 18px";
-            }
-            const sourceNode = clone.querySelector(".slide-card-source");
-            if (sourceNode) {
-                sourceNode.style.fontSize = "20px";
-                sourceNode.style.paddingTop = "20px";
-            }
-            // Scale logo badge
-            const logoBadge = clone.querySelector(".card-logo-badge");
-            if (logoBadge) {
-                logoBadge.style.height = "78px";
-                logoBadge.style.padding = "9px 24px";
-                const logoImg = logoBadge.querySelector("img");
-                if (logoImg) {
-                    logoImg.style.height = "54px";
-                    logoImg.style.maxWidth = "240px";
-                }
-            }
-            // Scale closing slide specific elements (QR code wrapper)
-            const qrWrapper = clone.querySelector(".slide-content-area div");
-            if (qrWrapper && qrWrapper.style.display === "flex") {
-                qrWrapper.style.marginTop = "30px";
-                qrWrapper.style.gap = "24px";
-                
-                const whiteCard = qrWrapper.querySelector("div");
-                if (whiteCard) {
-                    whiteCard.style.padding = "12px";
-                    whiteCard.style.borderRadius = "18px";
-                    const qrImg = whiteCard.querySelector("img");
-                    if (qrImg) {
-                        qrImg.style.width = "210px";
-                        qrImg.style.height = "210px";
-                    }
-                }
-                const linkAnchor = qrWrapper.querySelector("a");
-                if (linkAnchor) {
-                    linkAnchor.style.fontSize = "26px";
-                }
+            clone.style.border = "none";
+            clone.style.borderRadius = "36px";
+            const cloneInner = clone.querySelector(".slide-card-inner");
+            if (cloneInner) {
+                cloneInner.style.width = "240px";
+                cloneInner.style.height = "240px";
+                cloneInner.style.transform = "scale(3)";
+                cloneInner.style.transformOrigin = "top left";
             }
             
             document.body.appendChild(clone);
@@ -2115,7 +2146,7 @@ btnExportAll.addEventListener("click", async () => {
         // Try file download zip (supports files saving app)
         try {
             const content = await zip.generateAsync({ type: "blob" });
-            const dateStr = new Date().toISOString().slice(0,10).replace(/-/g, "");
+            const dateStr = formatYmd(getKstDate()).replace(/-/g, "");
             saveAs(content, `AIT_CardNews_${dateStr}.zip`);
             addLog("Publisher", "성공적으로 모든 슬라이드를 고해상도 ZIP 패키지로 압축 및 다운로드 처리했습니다.", "success");
         } catch (downloadErr) {
