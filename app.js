@@ -658,6 +658,25 @@ if (btnTrendchaser) {
 btnRun.addEventListener("click", async () => {
     if (appState.isRunning) return;
     
+    // Check if Treesoop today's news is updated
+    if (appState.treesoopMode) {
+        const today = new Date();
+        const todayKst = new Date(today.getTime() + (today.getTimezoneOffset() + 540) * 60 * 1000);
+        const todayStr = `${todayKst.getFullYear()}-${String(todayKst.getMonth() + 1).padStart(2, '0')}-${String(todayKst.getDate()).padStart(2, '0')}`;
+        const latestDbDate = "2026-07-13"; 
+        
+        if (todayStr !== latestDbDate) {
+            const ans = confirm(`오늘(${todayStr}) 뉴스가 업로드되지 않았습니다. 어제 뉴스로 생성할까요?`);
+            if (!ans) {
+                addLog("System", "오늘 뉴스가 업로드되지 않아 작업을 취소합니다.", "warning");
+                appState.treesoopMode = false;
+                return;
+            }
+        }
+    }
+    
+
+    
     appState.isRunning = true;
     btnRun.disabled = true;
     if (appState.treesoopMode) {
@@ -1235,11 +1254,27 @@ function generateTreeSoopCard(news) {
 
 async function fetchTrendChaserNews() {
     try {
-        const res = await fetch("https://www.taewoopark.com/api/briefs");
+        const res = await fetch("https://api.allorigins.win/raw?url=https://www.taewoopark.com/api/briefs");
         if (res.ok) {
             const data = await res.json();
             if (Array.isArray(data) && data.length > 0) {
-                const topics = data[0].topics || [];
+                // Sort descending by id to get the absolute newest brief
+                data.sort((a, b) => b.id.localeCompare(a.id));
+                const latestBrief = data[0];
+                
+                // Perform dynamic date check
+                const today = new Date();
+                const todayKst = new Date(today.getTime() + (today.getTimezoneOffset() + 540) * 60 * 1000);
+                const todayStr = `${todayKst.getFullYear()}-${String(todayKst.getMonth() + 1).padStart(2, '0')}-${String(todayKst.getDate()).padStart(2, '0')}`;
+                
+                if (latestBrief.date !== todayStr) {
+                    const ans = confirm(`오늘(${todayStr}) 뉴스가 업로드되지 않았습니다. 어제 뉴스로 생성할까요?`);
+                    if (!ans) {
+                        throw new Error("오늘 뉴스가 업로드되지 않아 취소되었습니다.");
+                    }
+                }
+                
+                const topics = latestBrief.topics || [];
                 return topics.map(t => {
                     const paragraphs = t.body.split("\n\n").map(p => p.replace(/\*\*([^*]+?)\*\*|[*_#`]/g, '$1').trim()).filter(Boolean);
                     return {
@@ -1253,6 +1288,9 @@ async function fetchTrendChaserNews() {
         }
     } catch (e) {
         console.warn("TrendChaser live fetch failed, using fallback database:", e);
+        if (e.message && e.message.includes("취소되었습니다")) {
+            throw e; // propagate cancel error to abort pipeline
+        }
     }
     return TRENDCHASER_DATABASE;
 }
@@ -1551,52 +1589,94 @@ function renderCards(cardJson) {
         cardWrapper.setAttribute("data-slide-index", index);
         if (index === 0) cardWrapper.classList.add("active");
         
+        let episodeText = "EP.01 · 일간 브리핑";
+        if (appState.mode === 'weekly') episodeText = "EP.01 · 주간 트렌드";
+        if (appState.treesoopMode) episodeText = "EP.01 · 트리숲 뉴스";
+        if (appState.trendchaserMode) episodeText = "EP.01 · 트렌드체이서";
+
+        const padIndex = String(slide.slide_index).padStart(2, '0');
+        
         let innerHtml = `
-            <div class="slide-card-inner">
-                <div class="slide-header-row" style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 5px;">
-                    <span class="slide-tag" style="margin: 0; font-size: 0.55rem;">${appState.mode === 'daily' ? 'DAILY BRIEFING' : 'WEEKLY TRENDS'}</span>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <div class="card-logo-badge" style="background: rgba(255,255,255,0.95); padding: 3px 8px; border-radius: 4px; display: flex; align-items: center; justify-content: center; height: 26px;">
-                            <img src="logo.png" style="height: 18px; max-width: 80px; object-fit: contain;">
+            <div class="slide-card-inner" style="background-color: #F7F4EB; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding: 20px; box-sizing: border-box;">
+                <div class="slide-header-row" style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%; margin-bottom: 8px;">
+                    <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                        <div class="card-logo-badge" style="background: transparent; padding: 0; display: flex; align-items: center; justify-content: center; height: 20px;">
+                            <img src="logo.png" style="height: 14px; object-fit: contain;">
                         </div>
-                        <span class="slide-badge" style="position: static; font-size: 0.6rem; padding: 2px 6px; background: rgba(0,0,0,0.3); border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">${slide.slide_index}/7</span>
+                        <span style="font-size: 8px; color: #1E3A8A; font-weight: 600; margin-top: 1px; transform: scale(0.85); transform-origin: left top; white-space: nowrap;">SKKU IMBA AIT 동연회</span>
                     </div>
+                    <div style="font-size: 10px; font-weight: 500; color: #94A3B8; font-family: monospace;">${padIndex} / 07</div>
                 </div>
                 
-                <div class="slide-content-area">
+                <div class="slide-content-area" style="display: flex; flex-direction: column; flex: 1; margin-top: 5px;">
         `;
         
         if (slide.type === 'title') {
             innerHtml += `
-                <div class="slide-card-title" style="font-size: ${slide.fontSize * 0.40}px">${slide.title.replace(/\n/g, '<br>')}</div>
-                <div class="slide-card-subtitle">${slide.subtitle}</div>
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%; margin-top: 5px;">
+                    <div class="slide-card-title" style="font-size: ${slide.fontSize * 0.40}px; font-weight: 800; color: #0F172A; text-align: left; line-height: 1.2;">
+                        ${slide.title.replace(/\n/g, '<br>')}
+                    </div>
+                    <span style="background: #1E3A8A; color: white; font-size: 8px; padding: 3px 8px; border-radius: 9999px; font-weight: 700; white-space: nowrap; margin-left: 10px;">${episodeText}</span>
+                </div>
+                <div class="slide-card-subtitle" style="color: #475569; font-size: 11px; font-weight: 500; margin-top: 10px; line-height: 1.4;">${slide.subtitle}</div>
+                
+                <!-- Bottom Nvidia template preview card -->
+                <div style="background: #FFFFFF; border-radius: 8px; padding: 10px; margin-top: auto; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid rgba(30,64,175,0.05);">
+                    <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                        <span style="font-size: 8px; font-weight: 700; color: #C29F66; letter-spacing: 0.5px;">FREE ENDPOINT</span>
+                        <span style="font-size: 18px; font-weight: 800; color: #1E3A8A; line-height: 1.1;">07<span style="font-size: 10px; font-weight: 500; color: #475569;">개 슬라이드</span></span>
+                    </div>
+                    <div style="text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
+                        <span style="font-size: 8px; font-weight: 700; color: #1E293B; line-height: 1.2;">최신 AI 트렌드를<br>신속하게 요약 체험</span>
+                        <div style="background: #C29F66; color: white; font-size: 8px; padding: 2px 6px; border-radius: 4px; font-weight: 700; display: inline-flex; align-items: center; gap: 2px;">
+                            ▶ 스와이프
+                        </div>
+                    </div>
+                </div>
             `;
         } else if (slide.type === 'content') {
             let titleFontSize = slide.fontSize * 0.40;
             if (slide.title.length > 24) titleFontSize = 11.5;
             if (slide.title.length > 34) titleFontSize = 9.8;
             
+            let pillText = `0${slide.slide_index - 1} · 뉴스 브리핑`;
+            if (appState.treesoopMode) pillText = `0${slide.slide_index - 1} · Tech Insight`;
+            if (appState.trendchaserMode) pillText = `0${slide.slide_index - 1} · 실시간 AI 트랙`;
+            
             innerHtml += `
-                <div class="slide-card-title" style="font-size: ${titleFontSize}px">${slide.title}</div>
-                <ul class="slide-card-bullets">
-                    ${slide.bullets.map(b => `<li>${b}</li>`).join('')}
+                <div style="margin-bottom: 6px; display: flex;">
+                    <span style="background: #1E3A8A; color: white; font-size: 8px; padding: 2px 6px; border-radius: 9999px; font-weight: 700;">${pillText}</span>
+                </div>
+                <div class="slide-card-title" style="font-size: ${titleFontSize}px; font-weight: 800; color: #0F172A; line-height: 1.3; margin-bottom: 5px;">${slide.title}</div>
+                <ul class="slide-card-bullets" style="margin-top: 5px; flex: 1; overflow: hidden; display: flex; flex-direction: column; justify-content: center; gap: 4px; padding: 0; list-style: none;">
+                    ${slide.bullets.map((b, idx) => `
+                        <li style="background: #FFFFFF; border-radius: 6px; padding: 6px 10px; margin-bottom: 0; font-size: 8px; color: #334155; box-shadow: 0 1px 3px rgba(0,0,0,0.03); border-left: 3px solid #C29F66; line-height: 1.35; list-style: none; display: flex; align-items: flex-start; gap: 6px;">
+                            <span style="color: #C29F66; font-weight: 800; font-family: monospace;">0${idx+1}</span>
+                            <span style="flex: 1;">${b}</span>
+                        </li>
+                    `).join('')}
                 </ul>
                 ${slide.source_name ? `
-                <a class="slide-card-source" href="${slide.source_url}" target="_blank" onclick="event.stopPropagation();" style="color: inherit; text-decoration: underline; font-size: 11px; opacity: 0.8; margin-top: auto; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.15); word-break: break-all; cursor: pointer; display: block;">
-                    출처: ${slide.source_name} (${slide.source_url})
+                <a class="slide-card-source" href="${slide.source_url}" target="_blank" onclick="event.stopPropagation();" style="color: #94A3B8; text-decoration: none; font-size: 7px; opacity: 0.8; margin-top: auto; padding-top: 4px; border-top: 1px solid rgba(30,64,175,0.05); word-break: break-all; cursor: pointer; display: block;">
+                    source · ${slide.source_url}
                 </a>
                 ` : ''}
             `;
         } else if (slide.type === 'closing') {
             innerHtml += `
-                <div class="slide-card-title" style="font-size: ${slide.fontSize * 0.40}px; text-align: center;">${slide.title.replace(/\n/g, '<br>')}</div>
-                <div class="slide-card-subtitle" style="text-align: center; margin-top: 6px;">${slide.subtitle.replace(/\n/g, '<br>')}</div>
-                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 10px; gap: 8px;">
-                    <div style="background: white; padding: 4px; border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 6px rgba(0,0,0,0.2);">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://pf.kakao.com/_KxgMwX" style="width: 70px; height: 70px;" alt="QR Code">
+                <div class="slide-card-title" style="font-size: ${slide.fontSize * 0.40}px; text-align: center; font-weight: 800; color: #0F172A; line-height: 1.3;">
+                    ${slide.title.replace(/\n/g, '<br>')}
+                </div>
+                <div class="slide-card-subtitle" style="text-align: center; margin-top: 6px; font-size: 9px; color: #C29F66; font-weight: 600;">
+                    ${slide.subtitle.replace(/\n/g, '<br>')}
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: auto; margin-bottom: auto; gap: 8px;">
+                    <div style="background: white; padding: 6px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(30,64,175,0.05); border: 1px solid rgba(30,64,175,0.05);">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://pf.kakao.com/_KxgMwX" style="width: 60px; height: 60px;" alt="QR Code">
                     </div>
-                    <a href="https://pf.kakao.com/_KxgMwX" target="_blank" onclick="event.stopPropagation();" style="color: #facc15; text-decoration: underline; font-size: 14px; font-weight: 700; cursor: pointer; display: inline-block;">
-                        🔗 성아연 카카오톡 채널: https://pf.kakao.com/_KxgMwX
+                    <a href="https://pf.kakao.com/_KxgMwX" target="_blank" onclick="event.stopPropagation();" style="color: #1E3A8A; text-decoration: underline; font-size: 8px; font-weight: 700; cursor: pointer; display: inline-block;">
+                        🔗 성아연 카카오톡 채널 바로가기
                     </a>
                 </div>
             `;

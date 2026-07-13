@@ -472,7 +472,32 @@ class ResearcherAgent:
             if res.status_code == 200:
                 data = res.json()
                 if isinstance(data, list) and len(data) > 0:
+                    # Sort descending by id to get the absolute newest brief
+                    data = sorted(data, key=lambda x: x.get("id", ""), reverse=True)
                     latest_brief = data[0]
+                    
+                    # Check date dynamically against today's date in KST
+                    today_kst = get_kst_today()
+                    date_str_today = today_kst.strftime("%Y-%m-%d")
+                    brief_date = latest_brief.get("date", "")
+                    
+                    if brief_date != date_str_today:
+                        log(self.name, f"오늘 날짜({date_str_today})의 Trend Chaser 브리프가 아직 업로드되지 않았습니다. (최신 브리프 일자: {brief_date})", Colors.WARNING)
+                        confirm = 'y'
+                        if sys.stdin.isatty():
+                            try:
+                                confirm = input(f"{Colors.WARNING}{Colors.BOLD}[Trend Chaser] 오늘 뉴스가 업로드되지 않았습니다. 어제 뉴스로 생성할까요? (y/n): {Colors.ENDC}").strip().lower()
+                            except (KeyboardInterrupt, SystemExit):
+                                print("\n작업이 중단되었습니다.")
+                                sys.exit(0)
+                        else:
+                            log(self.name, "비대화형 실행 환경이므로 기본값(어제 뉴스 자동 로드)으로 계속 진행합니다.", Colors.BLUE)
+                            confirm = 'y'
+                            
+                        if confirm not in ['y', 'yes', '']:
+                            log(self.name, "사용자가 작업을 거부하여 카드뉴스 생성을 종료합니다.", Colors.FAIL)
+                            sys.exit(0)
+                            
                     topics = latest_brief.get("topics", [])
                     log(self.name, f"Trend Chaser 최신 브리프 ({latest_brief.get('id')})에서 {len(topics)}개의 토픽을 성공적으로 가져왔습니다.", Colors.GREEN)
                     
@@ -1932,20 +1957,16 @@ class VerifierAgent:
 
     def render_card(self, slide, output_path):
         # Create image
-        img = Image.new("RGB", (self.width, self.height))
+        img = Image.new("RGB", (self.width, self.height), (247, 244, 235)) # Warm Ivory: #F7F4EB
         draw = ImageDraw.Draw(img)
         
         slide_index = slide["slide_index"]
         slide_type = slide.get("type", "content")
         
-        # Always draw gradient background (bg_cyber background removed as requested by user)
-        bg_loaded = False
-        self.draw_gradient_background(draw, slide_index)
-        
         # Load fonts
         title_text = slide.get("title", "")
         title_font_size = 50
-        if slide.get("type") == "content":
+        if slide_type == "content":
             if len(title_text) > 24:
                 title_font_size = 40
             if len(title_text) > 34:
@@ -1953,160 +1974,183 @@ class VerifierAgent:
                 
         title_font = self.get_font("bold", title_font_size)
         subtitle_font = self.get_font("regular", 28)
-        content_font = self.get_font("regular", 30)
-        footer_font = self.get_font("regular", 24)
+        content_font = self.get_font("regular", 28)
+        footer_font = self.get_font("regular", 22)
+        logo_sub_font = self.get_font("bold", 16)
         
-        # Draw background decorative glowing circle (glassmorphism effect)
-        overlay = Image.new("RGBA", (self.width, self.height), (0, 0, 0, 0))
-        overlay_draw = ImageDraw.Draw(overlay)
-        overlay_draw.ellipse([(-200, -200), (400, 400)], fill=(14, 165, 233, 20))
-        overlay_draw.ellipse([(600, 600), (1200, 1200)], fill=(56, 189, 248, 20))
-        img = Image.alpha_composite(img.convert("RGBA"), overlay).convert("RGB")
-        draw = ImageDraw.Draw(img)
-
-        # Draw decorative grid or border
-        draw.rectangle([(40, 40), (960, 960)], outline=(14, 165, 233, 40), width=2)
+        # Draw Header Row: Logo subtext & Page Indicator
+        # Draw Logo text fallback (AIT 성아연) on top left at (100, 70)
+        draw.text((100, 70), "AIT 성아연", font=self.get_font("bold", 24), fill=(30, 58, 138)) # Premium Navy: #1E3A8A
+        # Draw subtext "SKKU IMBA AIT 동연회" below it
+        draw.text((100, 105), "SKKU IMBA AIT 동연회", font=logo_sub_font, fill=(30, 58, 138))
         
-        # Draw page indicator (change to /7 total slides)
-        draw.text((900, 80), f"{slide_index}/7", font=footer_font, fill=(100, 116, 139, 180))
-        # Draw water mark/tag
-        draw.text((80, 80), "AIT 성아연", font=footer_font, fill=(14, 165, 233, 220))
-
-        if slide["type"] == "title":
+        # Page indicator on top right
+        pad_idx = f"{slide_index:02d} / 07"
+        draw.text((820, 75), pad_idx, font=self.get_font("regular", 22), fill=(148, 163, 184)) # Slate-400
+        
+        if slide_type == "title":
             # Render Title Slide
-            title_text = slide["title"]
-            subtitle_text = slide.get("subtitle", "")
+            # Accent Badge at top right (EP.01 · 뉴스 브리핑)
+            # Draw rounded rectangle badge in Navy
+            draw.rounded_rectangle([680, 160, 900, 205], radius=16, fill=(30, 58, 138))
+            draw.text((700, 172), "EP.01 · AI 스크랩", font=self.get_font("bold", 18), fill=(255, 255, 255))
             
-            # Draw subtitle first
-            draw.text((100, 380), subtitle_text, font=subtitle_font, fill=(14, 165, 233, 255))
-            
-            # Draw main title
+            # Draw main title (multi-line wrapping supported)
             title_lines = self.wrap_text_korean(title_text, title_font, 800)
-            y_offset = 450
+            y_offset = 260
             for line in title_lines:
-                draw.text((100, y_offset), line, font=title_font, fill=(15, 23, 42, 255))
-                y_offset += 75
+                draw.text((100, y_offset), line, font=title_font, fill=(15, 23, 42)) # Charcoal
+                y_offset += title_font_size + 15
                 
-            # Render visual accent line
-            draw.line([(100, y_offset + 30), (250, y_offset + 30)], fill=(14, 165, 233, 255), width=6)
-
-        elif slide["type"] == "content":
+            # Draw subtitle
+            subtitle_text = slide.get("subtitle", "")
+            sub_lines = self.wrap_text_korean(subtitle_text, subtitle_font, 800)
+            y_offset += 10
+            for line in sub_lines:
+                draw.text((100, y_offset), line, font=subtitle_font, fill=(71, 85, 105)) # Slate-600
+                y_offset += 38
+                
+            # Draw premium bottom card (Nvidia style)
+            card_top = 640
+            # Rounded white box: bounds [(100, 640), (900, 850)]
+            draw.rounded_rectangle([100, card_top, 900, card_top + 210], radius=18, fill=(255, 255, 255))
+            
+            # Left side of card: "FREE ENDPOINT" & "07개 슬라이드"
+            draw.text((140, card_top + 40), "FREE ENDPOINT", font=self.get_font("bold", 18), fill=(194, 159, 102)) # Gold: #C29F66
+            # Large number
+            draw.text((140, card_top + 75), "07", font=self.get_font("bold", 80), fill=(30, 58, 138))
+            draw.text((250, card_top + 125), "개 슬라이드", font=self.get_font("bold", 24), fill=(71, 85, 105))
+            
+            # Right side of card: "최신 AI 트렌드를\n신속하게 요약 체험" & "스와이프 버튼"
+            draw.text((580, card_top + 45), "최신 AI 트렌드를\n신속하게 요약 체험", font=self.get_font("bold", 24), fill=(15, 23, 42))
+            # Swipe button
+            draw.rounded_rectangle([580, card_top + 125, 780, card_top + 170], radius=8, fill=(194, 159, 102))
+            draw.text((615, card_top + 137), "▶ 스와이프", font=self.get_font("bold", 18), fill=(255, 255, 255))
+            
+        elif slide_type == "content":
             # Render Content Slide
-            title_text = slide["title"]
-            bullets = slide.get("bullets", [])
+            # Accent Pill Badge at top
+            draw.rounded_rectangle([100, 160, 300, 200], radius=16, fill=(30, 58, 138))
+            draw.text((120, 170), f"0{slide_index-1} · 뉴스 브리핑", font=self.get_font("bold", 16), fill=(255, 255, 255))
             
             # Title
             title_lines = self.wrap_text_korean(title_text, title_font, 800)
-            y_offset = 180
+            y_offset = 230
             line_height = int(title_font_size * 1.3)
             for line in title_lines:
-                draw.text((100, y_offset), line, font=title_font, fill=(15, 23, 42, 255))
+                draw.text((100, y_offset), line, font=title_font, fill=(15, 23, 42))
                 y_offset += line_height
                 
-            # Draw line spacer
-            y_offset += 20
-            draw.line([(100, y_offset), (900, y_offset)], fill=(14, 165, 233, 60), width=2)
-            y_offset += 50
-            
-            # Bullets
-            for bullet in bullets:
-                bullet_wrapped = self.wrap_text_korean(bullet, content_font, 720)
-                # Draw bullet point icon (small cyan square)
-                draw.rectangle([(100, y_offset + 12), (112, y_offset + 24)], fill=(14, 165, 233, 255))
+            # Bullets: Draw each inside a white rounded rectangular box
+            bullets = slide.get("bullets", [])
+            box_tops = [390, 555, 720]
+            for idx, bullet in enumerate(bullets[:3]):
+                box_y = box_tops[idx]
                 
-                # Draw text lines
-                for line_idx, line in enumerate(bullet_wrapped):
-                    draw.text((140, y_offset), line, font=content_font, fill=(51, 65, 85, 255))
-                    y_offset += 50
-                y_offset += 25
-
+                # Draw white box: bounds [(100, box_y), (900, box_y + 135)]
+                draw.rounded_rectangle([100, box_y, 900, box_y + 135], radius=16, fill=(255, 255, 255))
+                
+                # Draw gold vertical line prefix on the left edge inside the box
+                draw.rounded_rectangle([100, box_y, 108, box_y + 135], radius=4, fill=(194, 159, 102))
+                
+                # Draw number "01", "02", "03" in gold
+                draw.text((130, box_y + 45), f"0{idx+1}", font=self.get_font("bold", 32), fill=(194, 159, 102))
+                
+                # Draw wrapped bullet text on the right
+                bullet_wrapped = self.wrap_text_korean(bullet, content_font, 660)
+                text_y = box_y + 35
+                for line in bullet_wrapped[:2]: # Max 2 lines to fit nicely
+                    draw.text((200, text_y), line, font=content_font, fill=(51, 65, 85))
+                    text_y += 36
+                    
             # Draw Source Info at the bottom
-            source_name = slide.get("source_name")
             source_url = slide.get("source_url")
-            if source_name and source_url:
-                source_text = f"출처: {source_name} ({source_url})"
-                # Truncate if too long to fit nicely
-                if len(source_text) > 65:
-                    source_text = source_text[:62] + "..."
-                draw.text((100, 890), source_text, font=footer_font, fill=(100, 116, 139, 200))
-
-        elif slide["type"] == "closing":
+            if source_url:
+                source_text = f"source · {source_url}"
+                if len(source_text) > 85:
+                    source_text = source_text[:82] + "..."
+                draw.text((100, 915), source_text, font=footer_font, fill=(148, 163, 184))
+                
+        elif slide_type == "closing":
             # Render Closing Slide
-            title_text = slide["title"]
             subtitle_text = slide.get("subtitle", "")
-            
-            # Center content
+            # Draw Title & Subtitle centered
             title_lines = self.wrap_text_korean(title_text, title_font, 800)
-            
-            # Calculate total height of title lines to center them
-            y_offset = 220
+            y_offset = 240
             for line in title_lines:
-                # Get text width to center
                 bbox = title_font.getbbox(line)
                 w = bbox[2] - bbox[0]
-                draw.text(((self.width - w) // 2, y_offset), line, font=title_font, fill=(15, 23, 42, 255))
-                y_offset += 75
+                draw.text(((self.width - w) // 2, y_offset), line, font=title_font, fill=(15, 23, 42))
+                y_offset += title_font_size + 15
                 
-            y_offset += 15
-            # Subtitle centering
+            y_offset += 10
             subtitle_lines = subtitle_text.replace("<br>", "\n").split("\n")
             for sub_line in subtitle_lines:
                 bbox = subtitle_font.getbbox(sub_line)
                 w = bbox[2] - bbox[0]
-                draw.text(((self.width - w) // 2, y_offset), sub_line, font=subtitle_font, fill=(14, 165, 233, 255))
+                draw.text(((self.width - w) // 2, y_offset), sub_line, font=self.get_font("bold", 28), fill=(194, 159, 102))
                 y_offset += 40
+                
+            # Draw central white card for QR Code
+            qr_card_y = y_offset + 30
+            qr_card_x = (self.width - 220) // 2
+            # White card: bounds [(qr_card_x - 12, qr_card_y - 12), (qr_card_x + 232, qr_card_y + 232)]
+            draw.rounded_rectangle([qr_card_x - 12, qr_card_y - 12, qr_card_x + 232, qr_card_y + 232], radius=18, fill=(255, 255, 255))
             
-            # Draw QR Code image from API
-            qr_x = (self.width - 180) // 2
-            qr_y = y_offset + 40
             qr_drawn = False
             try:
-                qr_url = "https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://pf.kakao.com/_KxgMwX"
+                qr_url = "https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://pf.kakao.com/_KxgMwX"
                 qr_res = requests.get(qr_url, timeout=3)
                 if qr_res.status_code == 200:
                     qr_img = Image.open(BytesIO(qr_res.content)).convert("RGBA")
-                    # Draw a white background card under the QR code
-                    draw.rounded_rectangle([qr_x - 12, qr_y - 12, qr_x + 192, qr_y + 192], radius=16, fill=(255, 255, 255, 255))
-                    # Paste QR code
-                    img.paste(qr_img, (qr_x, qr_y), qr_img)
+                    img.paste(qr_img, (qr_card_x, qr_card_y), qr_img)
                     qr_drawn = True
             except Exception as qre:
                 log(self.name, f"QR 코드 다운로드 에러: {qre}", Colors.WARNING)
                 
             if qr_drawn:
-                y_offset = qr_y + 225
+                y_offset = qr_card_y + 265
             else:
-                y_offset = y_offset + 70
+                y_offset = y_offset + 100
                 
             # Kakao channel link text
-            link_label = "성아연 카카오톡 채널 : https://pf.kakao.com/_KxgMwX"
+            link_label = "🔗 성아연 카카오톡 채널 바로가기"
             bbox = subtitle_font.getbbox(link_label)
             w = bbox[2] - bbox[0]
-            draw.text(((self.width - w) // 2, y_offset), link_label, font=subtitle_font, fill=(250, 204, 21, 255))
-
+            draw.text(((self.width - w) // 2, y_offset), link_label, font=subtitle_font, fill=(30, 58, 138))
             
-        # Paste the logo if available (skip for title/closing if bg image has logo baked in)
-        if slide_type not in ["title", "closing"] or not bg_loaded:
-            logo = self.load_logo_transparent()
-            if logo:
-                try:
-                    # Scale logo to width 220 (larger size)
-                    w_percent = (220 / float(logo.size[0]))
-                    h_size = int((float(logo.size[1]) * float(w_percent)))
-                    resized_logo = logo.resize((220, h_size), Image.Resampling.LANCZOS)
-                    
-                    rgba_img = img.convert("RGBA")
-                    # Paste at top right corner
-                    rgba_img.paste(resized_logo, (710, 60), resized_logo)
-                    img = rgba_img.convert("RGB")
-                except Exception as le:
-                    log(self.name, f"로고 이미지 병합 중 에러 발생: {le}", Colors.WARNING)
-
+        # Paste the logo if available
+        logo = self.load_logo_transparent()
+        if logo:
+            try:
+                # Scale logo to height 24 to look thin and professional
+                h_target = 24
+                w_target = int((float(logo.size[0]) * (h_target / float(logo.size[1]))))
+                resized_logo = logo.resize((w_target, h_target), Image.Resampling.LANCZOS)
+                
+                # Make logo match navy blue color:
+                # Replace any non-transparent pixel with Navy (30, 58, 138)
+                logo_rgba = resized_logo.convert("RGBA")
+                datas = logo_rgba.getdata()
+                new_datas = []
+                for item in datas:
+                    if item[3] > 10: # not transparent
+                        new_datas.append((30, 58, 138, item[3]))
+                    else:
+                        new_datas.append(item)
+                logo_rgba.putdata(new_datas)
+                
+                rgba_img = img.convert("RGBA")
+                # Paste logo at top left next to subtext boundary (just overwrite text)
+                rgba_img.paste(logo_rgba, (100, 70), logo_rgba)
+                img = rgba_img.convert("RGB")
+            except Exception as le:
+                log(self.name, f"로고 이미지 병합 중 에러 발생: {le}", Colors.WARNING)
+                
         # Ensure output dir exists and save as JPEG
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
-        img.save(output_path, "JPEG", quality=90)
+        img.save(output_path, "JPEG", quality=95)
         log(self.name, f"슬라이드 {slide_index} 생성 완료: {output_path}", Colors.GREEN)
-
     def check_source_url_date(self, url, mode="daily"):
         """Fetches the source URL and inspects it for clear 2026 year/month/day verification, avoiding footers."""
         headers = {
@@ -2357,7 +2401,7 @@ class VerifierAgent:
         
         created_paths = []
         for i, slide in enumerate(card_data["slides"]):
-            file_name = f"slide_{slide['slide_index']}.jpg"
+            file_name = f"{slide['slide_index']:02d}_slide.jpg"
             path = os.path.join(output_dir, file_name)
             self.render_card(slide, path)
             created_paths.append(path)
@@ -2373,7 +2417,7 @@ class VerifierAgent:
             "content": {
                 "title": card_data["slides"][0]["title"].replace("\n", " "),
                 "description": card_data["topic"],
-                "image_url": "https://example.com/uploads/slide_1.jpg", # JPEG
+                "image_url": "https://example.com/uploads/01_slide.jpg", # JPEG
                 "image_width": 800,
                 "image_height": 800,
                 "link": {
