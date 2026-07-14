@@ -95,7 +95,7 @@ def litify_tldr_bullets(values, min_points=2, max_points=3):
     for candidate in candidates:
         point = re.sub(r'^[0-9]+[.)]\s*', '', candidate).strip()
         is_url_copy = re.search(r'https?://|www\.|(?:github|gitlab)\.[a-z]{2,}|^(?:com|net|org|io)\)', point, re.IGNORECASE)
-        is_research_copy = re.search(r'기사의 (?:핵심|세부)|한국시간 기준|수집 범위|발행 시각.*검증|원문에서 확인|원문 기사에|상세 정보.*원문', point)
+        is_research_copy = re.search(r'기사의 (?:핵심|세부)|한국시간 기준|수집 범위|발행 시각.*검증|원문에서 확인|원문 기사에|상세 정보.*원문|\d{4}[-./]\d{1,2}[-./]\d{1,2}.*보도한|최신 AI 소식입니다|관련 소식입니다|카드 하단.*원문|자세한 내용.*원문', point, re.IGNORECASE)
         if is_url_copy or is_research_copy:
             continue
         key = re.sub(r'\s+', '', point).lower()
@@ -133,6 +133,42 @@ def normalized_headline(title):
     clean = re.sub(r'\s+', ' ', clean)
     clean = re.sub(r'\s*[·,:;]\s*$', '', clean)
     return clean.strip()
+
+
+def headline_summary_bullets(title):
+    """Create three facts from one headline without mixing another article or filler copy."""
+    clean = re.sub(r'^\[[^\]]+\]\s*', '', normalized_headline(title)).strip()
+    statement = re.sub(r'[.!?。！？]+$', '', clean)
+    action_words = r'공개|출시|도입|개발|구축|진행|개최|선정|협력|지원|확대|강화|전환|추진|적용|발표|제공|본격화'
+    if re.search(rf'(?:{action_words})$', statement):
+        statement += '했습니다.'
+    else:
+        statement += '입니다.'
+
+    points = [statement]
+    clauses = [value.strip() for value in re.split(r'\s*[·:—]\s*', clean) if len(value.strip()) >= 6]
+    if len(clauses) >= 2:
+        for clause in clauses:
+            clause_statement = re.sub(r'[.!?。！？]+$', '', clause)
+            clause_statement += '했습니다.' if re.search(rf'(?:{action_words})$', clause_statement) else '입니다.'
+            points.append(clause_statement)
+    subject = re.split(r'[,，]', clean, maxsplit=1)[0].strip(' ‘1234567890’“”\"\'')
+    if 2 <= len(subject) <= 28:
+        points.append(f'핵심 추진 주체는 {subject}입니다.')
+    quotes = re.findall(r'[‘“\'\"]([^’”\'\"]{3,48})[’”\'\"]', clean)
+    if quotes:
+        points.append(f'핵심 제품·주제는 “{quotes[0].strip()}”입니다.')
+    action_match = re.search(rf'([^,，]{{2,42}}(?:{action_words})(?:[^,，]{{0,24}})?)', clean)
+    if action_match:
+        points.append(f'주요 변화는 {action_match.group(1).strip()}입니다.')
+    keywords = [
+        re.sub(r'(?:은|는|이|가|을|를|의|와|과|에|서|로|으로)$', '', value)
+        for value in re.sub(r'[‘’“”\"\'()[\],，·]', ' ', clean).split()
+    ]
+    keywords = [value for value in keywords if len(value) >= 2 and value not in {'관련', '소식', '최신', '기반', '공동', '진행'}][:4]
+    if len(keywords) >= 2:
+        points.append(f"핵심 키워드는 {', '.join(keywords)}입니다.")
+    return litify_tldr_bullets(points, min_points=1, max_points=3)
 
 
 def article_quality_score(article):
@@ -762,11 +798,7 @@ class ResearcherAgent:
                     "published_at": published.isoformat() if published else "",
                     "date": published.strftime("%Y-%m-%d") if published else "",
                     "source": source,
-                    "bullets": [
-                        title.rstrip(".!?。！？") + ".",
-                        f"{source}가 {published.strftime('%Y-%m-%d') if published else '최근'} 보도한 최신 AI 소식입니다.",
-                        "세부 수치와 전체 맥락은 카드 하단의 원문 링크에서 확인할 수 있습니다.",
-                    ],
+                    "bullets": headline_summary_bullets(title),
                     "headline_only": False,
                     "priority": 1
                 })
@@ -2565,7 +2597,7 @@ def main():
         sys.exit(0)
 
     print(f"\n{Colors.GREEN}==============================================")
-    print("      AI Card News Agent Team (v3.2.2)       ")
+    print("      AI Card News Agent Team (v3.2.3)       ")
     print(f"=============================================={Colors.ENDC}\n")
     
     # Choose daily by default, can be toggled by cli args

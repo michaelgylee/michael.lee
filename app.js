@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // App State
 let appState = {
     mode: 'daily',
+    designTheme: 'theme-classic',
     categories: ['genai', 'biz', 'tech', 'policy'],
     apiKey: '',
     isRunning: false,
@@ -103,7 +104,7 @@ function litifyTldrBullets(values, minPoints = 2, maxPoints = 3) {
     for (const candidate of candidates) {
         const point = candidate.replace(/^[0-9]+[.)]\s*/, '').trim();
         const isUrlCopy = /https?:\/\/|www\.|(?:github|gitlab)\.[a-z]{2,}|^(?:com|net|org|io)\)/i.test(point);
-        const isResearchCopy = /기사의 (?:핵심|세부)|한국시간 기준|수집 범위|발행 시각.*검증|원문에서 확인|원문 기사에|상세 정보.*원문/i.test(point);
+        const isResearchCopy = /기사의 (?:핵심|세부)|한국시간 기준|수집 범위|발행 시각.*검증|원문에서 확인|원문 기사에|상세 정보.*원문|\d{4}[-./]\d{1,2}[-./]\d{1,2}.*보도한|최신 AI 소식입니다|관련 소식입니다|카드 하단.*원문|자세한 내용.*원문/i.test(point);
         if (isUrlCopy || isResearchCopy) continue;
         const key = point.replace(/\s+/g, '').toLowerCase();
         if (point.length < 8 || seen.has(key)) continue;
@@ -225,35 +226,57 @@ function headlineFactBullets(title) {
     return (clauses.length ? clauses : [clean]).slice(0, 3).map(completeKoreanSentence).filter(Boolean);
 }
 
-function headlineTokens(title) {
-    const stopWords = new Set(['관련', '대한', '위한', '공개', '발표', '최신', '뉴스', '인공지능', 'ai']);
-    return new Set(normalizedHeadline(title).toLowerCase().split(/[^0-9a-z가-힣]+/i)
-        .filter(token => token.length >= 2 && !stopWords.has(token)));
+function headlineEntities(title) {
+    const clean = normalizedHeadline(title).replace(/^\[[^\]]+\]\s*/, '');
+    const actionPattern = /(?:공개|출시|도입|개발|구축|진행|개최|선정|협력|지원|확대|강화|전환|추진|적용|발표|제공|공동)/;
+    const actionIndex = clean.search(actionPattern);
+    const lead = clean.slice(0, actionIndex >= 0 ? actionIndex : clean.length)
+        .replace(/[‘’“”"']/g, '')
+        .replace(/\([^)]*\)/g, '')
+        .trim();
+    return lead.split(/[,·]|\s+(?:및|와|과)\s+/)
+        .map(value => value.trim())
+        .filter(value => value.length >= 2 && value.length <= 28)
+        .slice(0, 5);
 }
 
-function relatedHeadlineScore(left, right) {
-    const a = headlineTokens(left);
-    const b = headlineTokens(right);
-    if (!a.size || !b.size) return 0;
-    const overlap = [...a].filter(token => b.has(token)).length;
-    return overlap / Math.min(a.size, b.size);
+function headlineStatement(title) {
+    const clean = normalizedHeadline(title).replace(/^\[[^\]]+\]\s*/, '').replace(/[.!?。！？]+$/, '').trim();
+    if (!clean) return '';
+    if (/(?:공개|출시|도입|개발|구축|진행|개최|선정|협력|지원|확대|강화|전환|추진|적용|발표|제공|본격화)$/.test(clean)) return `${clean}했습니다.`;
+    return `${clean}입니다.`;
 }
 
-function buildFeedSummaryBullets(article, pool = []) {
-    const points = [...headlineFactBullets(article?.title || '')];
-    const related = pool
-        .filter(item => item !== article && relatedHeadlineScore(article?.title, item?.title) >= 0.25)
-        .slice(0, 2);
-    for (const item of related) points.push(...headlineFactBullets(item.title));
-    if (points.length < 3) points.push(`${article?.source || '원문 매체'}가 ${article?.date || formatYmd(getKstDate())} 보도한 최신 AI 소식입니다.`);
-    if (points.length < 3) points.push('세부 수치와 전체 맥락은 카드 하단의 원문 링크에서 확인할 수 있습니다.');
-    return litifyTldrBullets(points, 3, 3);
+function buildFeedSummaryBullets(article) {
+    const title = normalizedHeadline(article?.title || '').replace(/^\[[^\]]+\]\s*/, '');
+    const points = [];
+    const subject = title.split(/[,，]/)[0]?.replace(/[‘’“”"']/g, '').trim();
+    const quoted = [...title.matchAll(/[‘“'\"]([^’”'\"]{3,48})[’”'\"]/g)].map(match => match[1].trim());
+    const entities = headlineEntities(title);
+    const actionMatch = title.match(/([^,，]{2,42}(?:공개|출시|도입|개발|구축|진행|개최|선정|협력|지원|확대|강화|전환|추진|적용|발표|제공)(?:[^,，]{0,24})?)/);
+    const clauses = title.split(/\s*[·:—]\s*/).map(value => value.trim()).filter(value => value.length >= 6);
+
+    points.push(headlineStatement(title));
+    if (clauses.length >= 2) clauses.forEach(clause => points.push(headlineStatement(clause)));
+    if (subject && subject.length <= 28) points.push(`핵심 추진 주체는 ${subject}입니다.`);
+    if (quoted[0]) points.push(`핵심 제품·주제는 “${quoted[0]}”입니다.`);
+    if (entities.length >= 2) points.push(`관련 참여 주체는 ${entities.join(', ')}입니다.`);
+    if (actionMatch?.[1]) points.push(`주요 변화는 ${actionMatch[1].trim()}입니다.`);
+
+    const keywords = title.replace(/[‘’“”"'()[\],，·]/g, ' ').split(/\s+/)
+        .map(value => value.replace(/(?:은|는|이|가|을|를|의|와|과|에|서|로|으로)$/g, ''))
+        .filter(value => value.length >= 2 && !/^(?:관련|소식|최신|기반|공동|진행)$/.test(value))
+        .slice(0, 4);
+    if (keywords.length >= 2) points.push(`핵심 키워드는 ${keywords.join(', ')}입니다.`);
+
+    const bullets = litifyTldrBullets(points, 1, 3);
+    return bullets.slice(0, 3);
 }
 
 function enrichArticlesFromFeed(articles) {
     return articles.map(article => ({
         ...article,
-        bullets: buildFeedSummaryBullets(article, articles),
+        bullets: buildFeedSummaryBullets(article),
         headlineOnly: false
     }));
 }
@@ -651,6 +674,7 @@ const btnCopyText = document.getElementById("btn-copy-text");
 const apiKeyInput = document.getElementById("api-key");
 const modeDaily = document.getElementById("mode-daily");
 const modeWeekly = document.getElementById("mode-weekly");
+const designThemeInputs = document.querySelectorAll('input[name="design-theme"]');
 const slidesContainer = document.getElementById("slides-container");
 const editorPanel = document.getElementById("editor-panel");
 const editSlideNum = document.getElementById("edit-slide-num");
@@ -740,6 +764,14 @@ const currentJpegs = [];
 apiKeyInput.addEventListener("input", (e) => {
     appState.apiKey = e.target.value;
     localStorage.setItem("gemini_api_key", e.target.value);
+});
+
+designThemeInputs.forEach(input => {
+    input.addEventListener('change', event => {
+        if (!event.target.checked) return;
+        appState.designTheme = event.target.value;
+        if (appState.cardData) renderCards(appState.cardData);
+    });
 });
 
 // Logs helper
@@ -1114,6 +1146,7 @@ btnRun.addEventListener("click", async () => {
     consoleLogs.innerHTML = "";
     
     appState.mode = modeDaily.checked ? 'daily' : 'weekly';
+    appState.designTheme = document.querySelector('input[name="design-theme"]:checked')?.value || 'theme-classic';
     
     // Read category checklist
     appState.categories = [];
@@ -1694,7 +1727,7 @@ async function generateCardWithGemini(news, mode, apiKey, repairFeedback = '') {
 
         [요약 명령]
         /litify /tl;dr
-        긴 본문을 그대로 옮기지 말고 핵심 사실만 2~3개의 짧은 불릿으로 재구성하십시오. 각 불릿은 완결된 한 문장, 공백 포함 45자 이내로 작성하며 말줄임표를 사용하지 마십시오.
+        긴 본문을 그대로 옮기지 말고 한 기사 안의 핵심 사실만 정확히 3개의 짧은 불릿으로 재구성하십시오. 각 불릿은 완결된 한 문장, 공백 포함 45자 이내로 작성하며 말줄임표를 사용하지 마십시오. 다른 기사의 제목이나 사실을 섞지 마십시오. "언제 보도한 소식입니다", "최신 AI 소식입니다", "자세한 내용은 원문에서 확인" 같은 채움·안내 문장은 절대 작성하지 마십시오.
 
         ${repairFeedback ? `[검증 에이전트 반려 사유]\n${repairFeedback}\n위 문제를 모두 고쳐 새 JSON 전체를 다시 작성하십시오. 문장을 중간에서 자르지 말고 자연스러운 한국어 종결어미를 사용하십시오.` : ''}
         
@@ -1707,7 +1740,7 @@ async function generateCardWithGemini(news, mode, apiKey, repairFeedback = '') {
         1. 일간 모드(Daily)인 경우 최근 24시간 이내, 주간 모드(Weekly)인 경우 최근 1주일 이내의 뉴스만 엄격하게 포함시키도록 Google Search를 조율하십시오. 현재 년월일 기준시점은 ${todayStr}입니다.
         2. 모든 항목에는 반드시 실제 접근 가능한 원본 출처 URL이 명시되어야 합니다. 기억으로 URL을 지어내지 마십시오.
         3. 1장 (Title Slide): 제목을 반드시 "9대 성아연 뉴스메이커"로 하고, 서브타이틀에 기준 날짜 ${todayStr}를 표시합니다.
-        4. 2, 3, 4, 5, 6장 (Content Slide): 각각 주요 뉴스 1, 2, 3, 4, 5를 다룹니다. 제목에는 번호와 날짜를 넣지 말고 뉴스 핵심 제목만 작성하십시오. 본문은 /litify /tl;dr 방식으로 핵심만 2~3개의 짧고 완결된 불릿 포인트로 작성하십시오. 또한 반드시 출처명(source_name)과 원문 주소(source_url)를 입력 데이터 그대로 매핑하십시오.
+        4. 2, 3, 4, 5, 6장 (Content Slide): 각각 주요 뉴스 1, 2, 3, 4, 5를 다룹니다. 제목에는 번호와 날짜를 넣지 말고 뉴스 핵심 제목만 작성하십시오. 본문은 /litify /tl;dr 방식으로 해당 기사만 요약한 3개의 짧고 완결된 불릿 포인트로 작성하십시오. 또한 반드시 출처명(source_name)과 원문 주소(source_url)를 입력 데이터 그대로 매핑하십시오.
         5. 7장 (Closing Slide): 제목을 반드시 "9대 성아연 집행부"로 하고, 부제목은 "채널을 구독하고 매주 AI 소식을 빠르게 받아보세요!"로 작성하며 카카오톡 채널 추가 링크를 안내하십시오.
         
         [응답 스키마]
@@ -1859,7 +1892,7 @@ function renderCards(cardJson) {
             slide.bullets = litifyTldrBullets(slide.bullets || []);
         }
         const cardWrapper = document.createElement("div");
-        cardWrapper.className = `slide-card-wrapper ${slide.gradient}`;
+        cardWrapper.className = `slide-card-wrapper ${slide.gradient} ${appState.designTheme}`;
         cardWrapper.setAttribute("data-slide-index", index);
         if (index === 0) cardWrapper.classList.add("active");
         
@@ -1872,15 +1905,15 @@ function renderCards(cardJson) {
         let innerHtml = `
             <div class="slide-card-inner" style="background-color: #F7F4EB; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding: 18px; box-sizing: border-box; border: 1px solid rgba(0,0,0,0.03);">
                 <div class="slide-header-row" style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%; margin-bottom: 8px;">
-                    <div style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.1;">
+                    <div class="slide-brand-block" style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.1;">
                         <div style="display: flex; align-items: center; gap: 4px; height: 14px;">
                             <img src="logo.png" style="height: 14px; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                             <span style="font-size: 8px; font-weight: bold; color: #1E3A8A; display: none;">AIT 성아연</span>
                         </div>
-                        <span style="font-size: 5.4px; color: #1E3A8A; font-weight: 700; margin-top: 2px;">SKKU IMBA AI IT CLUB</span>
+                        <span class="slide-club-name" style="font-size: 5.4px; color: #1E3A8A; font-weight: 700; margin-top: 2px;">SKKU IMBA AI IT CLUB</span>
                     </div>
                     <!-- Navy Capsule Badge Page Indicator -->
-                    <div style="background: #1E3A8A; border-radius: 999px; padding: 2px 8px; font-size: 6.5px; font-weight: 800; color: #FFFFFF; font-family: monospace; display: flex; align-items: center; justify-content: center; height: 13px; line-height: 13px;">
+                    <div class="slide-page-badge" style="background: #1E3A8A; border-radius: 999px; padding: 2px 8px; font-size: 6.5px; font-weight: 800; color: #FFFFFF; font-family: monospace; display: flex; align-items: center; justify-content: center; height: 13px; line-height: 13px;">
                         ${padIndex} / ${String(totalSlides).padStart(2, '0')}
                     </div>
                 </div>
@@ -1898,7 +1931,7 @@ function renderCards(cardJson) {
                 <div class="slide-card-subtitle" style="color: #475569; font-size: 10px; font-weight: 500; margin-top: 8px; line-height: 1.4;">${slide.subtitle}</div>
                 
                 <!-- Bottom Nvidia template preview card -->
-                <div style="background: #FFFFFF; border-radius: 8px; padding: 8px; margin-top: auto; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.02); border: 1px solid rgba(30,64,175,0.03);">
+                <div class="slide-cover-promo" style="background: #FFFFFF; border-radius: 8px; padding: 8px; margin-top: auto; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.02); border: 1px solid rgba(30,64,175,0.03);">
                     <div style="display: flex; flex-direction: column; align-items: flex-start;">
                         <span style="font-size: 7px; font-weight: 700; color: #C29F66; letter-spacing: 0.5px;">FREE ENDPOINT</span>
                         <span style="font-size: 15px; font-weight: 800; color: #1E3A8A; line-height: 1.1;">${String(totalSlides).padStart(2, '0')}<span style="font-size: 8px; font-weight: 500; color: #475569;">개 슬라이드</span></span>
@@ -1943,7 +1976,7 @@ function renderCards(cardJson) {
                 <div class="slide-card-subtitle" style="text-align: center; margin-top: 6px; font-size: 9px; color: #C29F66; font-weight: 600;">
                     ${slide.subtitle.replace(/\n/g, '<br>')}
                 </div>
-                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: auto; margin-bottom: auto; gap: 8px;">
+                <div class="slide-closing-channel" style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: auto; margin-bottom: auto; gap: 8px;">
                     <div style="background: white; padding: 6px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(30,64,175,0.05); border: 1px solid rgba(30,64,175,0.05);">
                         <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://pf.kakao.com/_KxgMwX" style="width: 60px; height: 60px;" alt="QR Code">
                     </div>

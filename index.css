@@ -181,6 +181,51 @@ body {
     border: 1px solid rgba(0, 242, 254, 0.2);
 }
 
+.theme-selector {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.form-group .theme-option {
+    min-width: 0;
+    padding: 8px 6px;
+    border: 1px solid var(--border-glass);
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.45);
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.68rem !important;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: none;
+    margin-bottom: 0;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theme-option input { position: absolute; opacity: 0; pointer-events: none; }
+.theme-option:has(input:checked) {
+    border-color: #1E3A8A;
+    box-shadow: 0 0 0 2px rgba(30, 58, 138, 0.12);
+    color: #1E3A8A;
+    transform: translateY(-1px);
+}
+
+.theme-swatch {
+    width: 100%;
+    height: 30px;
+    border-radius: 6px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.theme-option-classic .theme-swatch { background: linear-gradient(135deg, #FAF8F2, #E8E2D2); }
+.theme-option-fresh .theme-swatch { background: linear-gradient(135deg, #DFF8FF, #E8E1FF 52%, #FFF2D7); }
+.theme-option-black .theme-swatch { background: radial-gradient(circle at 25% 20%, #1E3A8A, #05070B 58%); }
+
 .checkbox-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -696,6 +741,85 @@ body {
 .preset-bg-cyber .card-logo-badge {
     display: none !important;
 }
+
+/* v3.2.3 global deck themes. Inline template colors are intentionally
+   overridden so previews and exported images use exactly the same theme. */
+.slide-card-wrapper.theme-fresh .slide-card-inner {
+    background:
+        radial-gradient(circle at 10% 8%, rgba(255,255,255,0.9) 0 9%, transparent 27%),
+        radial-gradient(circle at 92% 18%, rgba(125,211,252,0.38), transparent 34%),
+        linear-gradient(145deg, #ECFEFF 0%, #EDE9FE 52%, #FFF7E6 100%) !important;
+    border-color: rgba(59, 130, 246, 0.16) !important;
+}
+
+.slide-card-wrapper.theme-fresh.preset-navy .slide-card-inner,
+.slide-card-wrapper.theme-fresh.preset-wine .slide-card-inner {
+    background:
+        radial-gradient(circle at 92% 8%, rgba(255,255,255,0.88), transparent 26%),
+        linear-gradient(145deg, #E0F2FE 0%, #FCE7F3 54%, #FEF3C7 100%) !important;
+}
+
+.slide-card-wrapper.theme-fresh .slide-bullet-item,
+.slide-card-wrapper.theme-fresh .slide-cover-promo {
+    background: rgba(255, 255, 255, 0.78) !important;
+    border-left-color: #38BDF8 !important;
+    box-shadow: 0 3px 10px rgba(79, 70, 229, 0.08) !important;
+    backdrop-filter: blur(8px);
+}
+
+.slide-card-wrapper.theme-fresh .slide-card-source {
+    background: rgba(237, 233, 254, 0.9) !important;
+    color: #334155 !important;
+}
+
+.slide-card-wrapper.theme-fresh .slide-page-badge {
+    background: linear-gradient(135deg, #2563EB, #7C3AED) !important;
+}
+
+.slide-card-wrapper.theme-black .slide-card-inner {
+    background:
+        radial-gradient(circle at 82% 10%, rgba(30, 58, 138, 0.48), transparent 34%),
+        radial-gradient(circle at 12% 90%, rgba(194, 159, 102, 0.16), transparent 32%),
+        #05070B !important;
+    border-color: rgba(96, 165, 250, 0.22) !important;
+}
+
+.slide-card-wrapper.theme-black .slide-brand-block {
+    background: rgba(255, 255, 255, 0.94);
+    border-radius: 5px;
+    padding: 3px 5px;
+}
+
+.slide-card-wrapper.theme-black .slide-club-name { color: #1E3A8A !important; }
+.slide-card-wrapper.theme-black .slide-card-title { color: #F8FAFC !important; }
+.slide-card-wrapper.theme-black .slide-card-subtitle { color: #E2C58E !important; }
+.slide-card-wrapper.theme-black .slide-page-badge {
+    background: linear-gradient(135deg, #2563EB, #C29F66) !important;
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.25);
+}
+
+.slide-card-wrapper.theme-black .slide-bullet-item,
+.slide-card-wrapper.theme-black .slide-cover-promo {
+    background: rgba(15, 23, 42, 0.88) !important;
+    border-color: rgba(194, 159, 102, 0.82) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.24) !important;
+}
+
+.slide-card-wrapper.theme-black .slide-bullet-text,
+.slide-card-wrapper.theme-black .slide-cover-promo span,
+.slide-card-wrapper.theme-black .slide-closing-channel > span {
+    color: #E2E8F0 !important;
+}
+
+.slide-card-wrapper.theme-black .slide-cover-promo span[style*="#1E3A8A"] { color: #93C5FD !important; }
+.slide-card-wrapper.theme-black .slide-cover-promo span[style*="#C29F66"] { color: #E2C58E !important; }
+.slide-card-wrapper.theme-black .slide-card-source {
+    background: rgba(5, 7, 11, 0.94) !important;
+    color: #CBD5E1 !important;
+    border-top-color: rgba(148, 163, 184, 0.28) !important;
+}
+
+.slide-card-wrapper.theme-black .slide-closing-channel > a { color: #93C5FD !important; }
 
 
 .slide-badge {

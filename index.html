@@ -11,7 +11,7 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- CSS Link -->
-    <link rel="stylesheet" href="index.css?v=3.2.2">
+    <link rel="stylesheet" href="index.css?v=3.2.3">
 </head>
 <body>
     <div class="app-container">
@@ -22,7 +22,7 @@
                     <img src="logo.png" alt="성아연 로고" style="width: 36px; height: 36px; object-fit: contain;">
                     <div>
                         <h1>9대 성아연 뉴스메이커</h1>
-                        <span class="version">v3.2.2 (Mobile Fast News Build)</span>
+                        <span class="version">v3.2.3 (Fact Summary & Theme Build)</span>
                     </div>
                 </div>
             </div>
@@ -39,6 +39,28 @@
                         <input type="radio" id="mode-weekly" name="news-mode" value="weekly">
                         <label for="mode-weekly">주간 트렌드</label>
                     </div>
+                </div>
+
+                <div class="form-group">
+                    <label>전체 카드 디자인 테마</label>
+                    <div class="theme-selector" role="radiogroup" aria-label="전체 카드 디자인 테마">
+                        <label class="theme-option theme-option-classic">
+                            <input type="radio" name="design-theme" value="theme-classic" checked>
+                            <span class="theme-swatch"></span>
+                            <span>기본</span>
+                        </label>
+                        <label class="theme-option theme-option-fresh">
+                            <input type="radio" name="design-theme" value="theme-fresh">
+                            <span class="theme-swatch"></span>
+                            <span>산뜻한 그라디언트</span>
+                        </label>
+                        <label class="theme-option theme-option-black">
+                            <input type="radio" name="design-theme" value="theme-black">
+                            <span class="theme-swatch"></span>
+                            <span>블랙</span>
+                        </label>
+                    </div>
+                    <p class="help-text">선택한 테마가 표지·뉴스·마지막 카드 전체에 적용됩니다.</p>
                 </div>
 
                 <div class="form-group">
@@ -314,6 +336,6 @@
     </div>
 
     <!-- Application Logic -->
-    <script src="app.js?v=3.2.2"></script>
+    <script src="app.js?v=3.2.3"></script>
 </body>
 </html>
