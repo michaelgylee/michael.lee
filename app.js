@@ -104,7 +104,7 @@ function litifyTldrBullets(values, minPoints = 2, maxPoints = 3) {
     for (const candidate of candidates) {
         const point = candidate.replace(/^[0-9]+[.)]\s*/, '').trim();
         const isUrlCopy = /https?:\/\/|www\.|(?:github|gitlab)\.[a-z]{2,}|^(?:com|net|org|io)\)/i.test(point);
-        const isResearchCopy = /기사의 (?:핵심|세부)|한국시간 기준|수집 범위|발행 시각.*검증|원문에서 확인|원문 기사에|상세 정보.*원문|\d{4}[-./]\d{1,2}[-./]\d{1,2}.*보도한|최신 AI 소식입니다|관련 소식입니다|카드 하단.*원문|자세한 내용.*원문/i.test(point);
+        const isResearchCopy = /기사의 (?:핵심|세부)|한국시간 기준|수집 범위|발행 시각.*검증|원문에서 확인|원문 기사에|상세 정보.*원문|\d{4}[-./]\d{1,2}[-./]\d{1,2}.*보도한|최신 AI 소식입니다|관련 소식입니다|카드 하단.*원문|자세한 내용.*원문|핵심 추진 주체는|핵심 제품[·・]?주제는|핵심 키워드는/i.test(point);
         if (isUrlCopy || isResearchCopy) continue;
         const key = point.replace(/\s+/g, '').toLowerCase();
         if (point.length < 8 || seen.has(key)) continue;
@@ -158,6 +158,7 @@ function articleQualityScore(article) {
     if (title.length < 18 || /(?:불가능|속보|단독|종합)$/.test(title)) score -= 50;
     if (/\.{2,}|…/.test(String(article?.title || ''))) score -= 8;
     if (article?.headlineOnly && totalLength < 28) score -= 45;
+    if (!article?.contentVerified && !article?.cachedFallback) score -= 80;
     if (bullets.some(point => !/[.!?。！？]$/.test(point))) score -= 30;
     return score;
 }
@@ -176,7 +177,7 @@ function assessCardDeck(cardJson) {
     const issues = [];
     const slides = cardJson?.slides || [];
     const contentSlides = slides.filter(slide => slide.type === 'content');
-    if (slides.length > 10) issues.push(`전체 카드가 ${slides.length}장으로 10장을 초과했습니다.`);
+    if (!appState.treesoopMode && slides.length > 10) issues.push(`전체 카드가 ${slides.length}장으로 10장을 초과했습니다.`);
     if (!contentSlides.length) issues.push('본문 뉴스 카드가 없습니다.');
     contentSlides.forEach(slide => {
         const title = normalizedHeadline(slide.title);
@@ -184,6 +185,7 @@ function assessCardDeck(cardJson) {
         const totalLength = bullets.join('').length;
         if (title.length < 14) issues.push(`${slide.slide_index}장 제목의 정보량이 부족합니다.`);
         if (bullets.length < 3 || totalLength < 24) issues.push(`${slide.slide_index}장 본문은 3개의 핵심 불릿이 필요합니다.`);
+        if (bullets.some(point => normalizedHeadline(point) === title || /핵심 추진 주체는|핵심 제품[·・]?주제는|핵심 키워드는/.test(point))) issues.push(`${slide.slide_index}장 본문이 제목 반복 또는 키워드 나열에 머뭅니다.`);
         if (bullets.some(point => !/[.!?。！？]$/.test(point))) issues.push(`${slide.slide_index}장에 미완결 문장이 있습니다.`);
         if (bullets.some(point => /(?:\b[A-Za-z][A-Za-z0-9.+-]{1,24}|(?:고|며|하고|이며|에서|으로|를|을|가|이|은|는))[.!?。！？]?$/i.test(point))) issues.push(`${slide.slide_index}장에 어색한 종결어가 있습니다.`);
         if (bullets.some(point => /(?:^|[\s(])(?:com|net|org|io)\)?[.!?]?$/i.test(point))) issues.push(`${slide.slide_index}장에 분리된 URL 조각이 있습니다.`);
@@ -202,83 +204,24 @@ function repairCardDeckLocally(cardJson) {
             title: normalizedHeadline(slide.title),
             bullets: litifyTldrBullets(slide.bullets || [], 1, 3)
         }))
-        .filter(slide => slide.title.length >= 14 && slide.bullets.join('').length >= 24)
-        .slice(0, 8);
+        .filter(slide => slide.title.length >= 14 && slide.bullets.join('').length >= 24);
+    if (!appState.treesoopMode) repairedContent.splice(8);
     const slides = [titleSlide, ...repairedContent, closingSlide].filter(Boolean);
     slides.forEach((slide, index) => { slide.slide_index = index + 1; });
     return { ...cardJson, slides };
 }
 
 function generateSafeFallbackDeck(cardJson, articles, mode, isTreeSoop) {
-    const enriched = enrichArticlesFromFeed((articles || []).map(article => ({
+    const enriched = (articles || []).map(article => ({
         ...article,
         date: article.date || formatYmd(parseSourceDate(article.publishedAt) || getKstDate())
-    })));
+    })).filter(article => article.contentVerified || article.cachedFallback)
+        .map(article => ({ ...article, bullets: litifyTldrBullets(article.bullets || [], 3, 3) }))
+        .filter(article => article.bullets.length === 3);
     if (enriched.length >= 3) {
         return isTreeSoop ? generateTreeSoopCard(enriched) : generateSimulatedCard(enriched, mode);
     }
     return repairCardDeckLocally(cardJson);
-}
-
-function headlineFactBullets(title) {
-    const clean = normalizedHeadline(title).replace(/^['"“”]|['"“”]$/g, '').trim();
-    const clauses = clean.split(/\s*(?:…+|[;；])\s*/).map(part => part.trim()).filter(part => part.length >= 8);
-    return (clauses.length ? clauses : [clean]).slice(0, 3).map(completeKoreanSentence).filter(Boolean);
-}
-
-function headlineEntities(title) {
-    const clean = normalizedHeadline(title).replace(/^\[[^\]]+\]\s*/, '');
-    const actionPattern = /(?:공개|출시|도입|개발|구축|진행|개최|선정|협력|지원|확대|강화|전환|추진|적용|발표|제공|공동)/;
-    const actionIndex = clean.search(actionPattern);
-    const lead = clean.slice(0, actionIndex >= 0 ? actionIndex : clean.length)
-        .replace(/[‘’“”"']/g, '')
-        .replace(/\([^)]*\)/g, '')
-        .trim();
-    return lead.split(/[,·]|\s+(?:및|와|과)\s+/)
-        .map(value => value.trim())
-        .filter(value => value.length >= 2 && value.length <= 28)
-        .slice(0, 5);
-}
-
-function headlineStatement(title) {
-    const clean = normalizedHeadline(title).replace(/^\[[^\]]+\]\s*/, '').replace(/[.!?。！？]+$/, '').trim();
-    if (!clean) return '';
-    if (/(?:공개|출시|도입|개발|구축|진행|개최|선정|협력|지원|확대|강화|전환|추진|적용|발표|제공|본격화)$/.test(clean)) return `${clean}했습니다.`;
-    return `${clean}입니다.`;
-}
-
-function buildFeedSummaryBullets(article) {
-    const title = normalizedHeadline(article?.title || '').replace(/^\[[^\]]+\]\s*/, '');
-    const points = [];
-    const subject = title.split(/[,，]/)[0]?.replace(/[‘’“”"']/g, '').trim();
-    const quoted = [...title.matchAll(/[‘“'\"]([^’”'\"]{3,48})[’”'\"]/g)].map(match => match[1].trim());
-    const entities = headlineEntities(title);
-    const actionMatch = title.match(/([^,，]{2,42}(?:공개|출시|도입|개발|구축|진행|개최|선정|협력|지원|확대|강화|전환|추진|적용|발표|제공)(?:[^,，]{0,24})?)/);
-    const clauses = title.split(/\s*[·:—]\s*/).map(value => value.trim()).filter(value => value.length >= 6);
-
-    points.push(headlineStatement(title));
-    if (clauses.length >= 2) clauses.forEach(clause => points.push(headlineStatement(clause)));
-    if (subject && subject.length <= 28) points.push(`핵심 추진 주체는 ${subject}입니다.`);
-    if (quoted[0]) points.push(`핵심 제품·주제는 “${quoted[0]}”입니다.`);
-    if (entities.length >= 2) points.push(`관련 참여 주체는 ${entities.join(', ')}입니다.`);
-    if (actionMatch?.[1]) points.push(`주요 변화는 ${actionMatch[1].trim()}입니다.`);
-
-    const keywords = title.replace(/[‘’“”"'()[\],，·]/g, ' ').split(/\s+/)
-        .map(value => value.replace(/(?:은|는|이|가|을|를|의|와|과|에|서|로|으로)$/g, ''))
-        .filter(value => value.length >= 2 && !/^(?:관련|소식|최신|기반|공동|진행)$/.test(value))
-        .slice(0, 4);
-    if (keywords.length >= 2) points.push(`핵심 키워드는 ${keywords.join(', ')}입니다.`);
-
-    const bullets = litifyTldrBullets(points, 1, 3);
-    return bullets.slice(0, 3);
-}
-
-function enrichArticlesFromFeed(articles) {
-    return articles.map(article => ({
-        ...article,
-        bullets: buildFeedSummaryBullets(article),
-        headlineOnly: false
-    }));
 }
 
 function cleanCardTitle(title) {
@@ -981,15 +924,47 @@ function cachedNewsForMode(mode, categories) {
         }));
 }
 
+function isVerifiedArticleSummary(article) {
+    const bullets = litifyTldrBullets(article?.bullets || [], 3, 3);
+    const noise = /댓글|답글|글자크기|음성\s*재생|데이터 요금|비밀번호|마이페이지|다음뉴스|구글 검색|선호 출처|기념사진|시사월드|본문에서 확인|상세.*원문|자세한 내용.*원문/i;
+    if (bullets.length !== 3 || bullets.some(point => noise.test(point))) return false;
+    const title = normalizedHeadline(article?.title || '');
+    return !bullets.some(point => normalizedHeadline(point) === title);
+}
+
+async function loadVerifiedNewsCache(mode, categories) {
+    try {
+        const response = await fetch(`data/news-cache.json?ts=${Date.now()}`, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const payload = await response.json();
+        const generatedAt = parseSourceTimestamp(payload.generated_at);
+        if (!generatedAt || Date.now() - generatedAt.getTime() > 12 * 60 * 60 * 1000) {
+            throw new Error('검증 캐시가 12시간 이상 갱신되지 않았습니다.');
+        }
+        const selectedCategories = new Set(categories || []);
+        const verified = (payload[mode] || [])
+            .filter(article => !selectedCategories.size || selectedCategories.has(article.category))
+            .filter(article => article.contentVerified && isFreshArticle(article, mode))
+            .map(article => ({
+                ...article,
+                bullets: litifyTldrBullets(article.bullets || [], 3, 3),
+                headlineOnly: false,
+                cachedFallback: false
+            }))
+            .filter(article => article.title && article.link && isVerifiedArticleSummary(article));
+        if (verified.length < 3) throw new Error('원문 3문장 검증을 통과한 최신 기사가 부족합니다.');
+        addLog('Researcher', `원문 검증 뉴스 캐시에서 ${verified.length}건을 불러왔습니다.`, 'success');
+        return verified;
+    } catch (error) {
+        addLog('Researcher', `원문 검증 캐시 사용 불가(${error.message})`, 'warning');
+        return [];
+    }
+}
+
 function selectNewsWithRequiredLlm(news, mode) {
-    const cache = [...AI_NEWS_DATABASE.daily, ...AI_NEWS_DATABASE.weekly].map(item => ({
-        ...item,
-        title: cleanCardTitle(item.title),
-        date: formatYmd(getKstDate()),
-        publishedAt: formatYmd(getKstDate()),
-        cachedFallback: true
-    }));
-    const pool = selectCardCandidates([...news, ...cache], 8);
+    // Prefer major model vendors only when they exist in today's verified
+    // source cache. Synthetic release notes must never displace real news.
+    const pool = selectCardCandidates(news, 8);
     const requirements = [
         /OpenAI|ChatGPT/i,
         /Anthropic|Claude/i,
@@ -1020,14 +995,16 @@ function rssItemToArticle(item) {
         link,
         publishedAt,
         date: formatYmd(parseSourceDate(publishedAt) || getKstDate()),
-        bullets: [
-            ...headlineFactBullets(title)
-        ],
-        headlineOnly: true
+        bullets: [],
+        headlineOnly: true,
+        contentVerified: false
     };
 }
 
 async function fetchLatestGoogleNews(mode, categories) {
+    const verifiedCache = await loadVerifiedNewsCache(mode, categories);
+    if (verifiedCache.length >= 3) return selectCardCandidates(verifiedCache, 8);
+
     const categoryTerms = {
         genai: '(생성형 AI OR LLM OR GPT OR Claude OR Gemini)',
         biz: '(AI 산업 OR AI 비즈니스 OR 인공지능 시장)',
@@ -1061,8 +1038,9 @@ async function fetchLatestGoogleNews(mode, categories) {
                 link: item.link || '',
                 publishedAt,
                 date: formatYmd(parseSourceDate(publishedAt) || getKstDate()),
-                bullets: headlineFactBullets(title),
-                headlineOnly: true
+                bullets: [],
+                headlineOnly: true,
+                contentVerified: false
             };
         });
     }
@@ -1077,7 +1055,13 @@ async function fetchLatestGoogleNews(mode, categories) {
             return true;
         })
         .sort((a, b) => (parseSourceTimestamp(b.publishedAt)?.getTime() || 0) - (parseSourceTimestamp(a.publishedAt)?.getTime() || 0));
-    return enrichArticlesFromFeed(newestArticles);
+    // The browser cannot safely decode Google News POST redirects because of CORS.
+    // Never turn a discovery headline into three invented summary sentences.
+    const verifiedFallback = cachedNewsForMode(mode, categories)
+        .map(article => ({ ...article, contentVerified: true, headlineOnly: false }))
+        .filter(article => litifyTldrBullets(article.bullets || [], 3, 3).length === 3);
+    addLog('Researcher', '실시간 원문 캐시가 없어 제목 RSS를 폐기하고 검증된 내장 기사 후보로 전환합니다.', 'warning');
+    return selectCardCandidates(verifiedFallback, 8);
 }
 
 async function fetchTreeSoopNews() {
@@ -1122,7 +1106,10 @@ async function fetchTreeSoopNews() {
             try {
                 sourceName = new URL(sourceUrl || postUrl).hostname.replace(/^www\./, '');
             } catch (_) {}
-            articles.push({ title, source: sourceName, link: sourceUrl || postUrl, postUrl, publishedAt, date: publishedAt, bullets: bullets.slice(0, 3) });
+            const summaryBullets = litifyTldrBullets(bullets, 3, 3);
+            if (summaryBullets.length === 3) {
+                articles.push({ title, source: sourceName, link: sourceUrl || postUrl, postUrl, publishedAt, date: publishedAt, bullets: summaryBullets, contentVerified: true });
+            }
         }
     }
     if (!articles.length) throw new Error('TreeSoop 최신 게시물에서 뉴스 본문을 찾지 못했습니다.');
@@ -1218,14 +1205,16 @@ btnRun.addEventListener("click", async () => {
             if (freshNews.length < 5) freshNews = [...rawNews];
         }
         
-        freshNews = selectCardCandidates(freshNews, 8);
-        rawNews = includeLlmReleases && !appState.treesoopMode
-            ? selectNewsWithRequiredLlm(freshNews, appState.mode)
-            : selectCardCandidates(freshNews, 5);
+        if (appState.treesoopMode) {
+            rawNews = freshNews;
+        } else {
+            freshNews = selectCardCandidates(freshNews, 8);
+            rawNews = includeLlmReleases
+                ? selectNewsWithRequiredLlm(freshNews, appState.mode)
+                : selectCardCandidates(freshNews, 5);
+        }
         if (rawNews.length < 3) {
-            const recoveryPool = appState.treesoopMode
-                ? TREESOOP_DATABASE.map(item => ({ ...item, publishedAt: formatYmd(getKstDate()), date: formatYmd(getKstDate()) }))
-                : cachedNewsForMode(appState.mode, appState.categories);
+            const recoveryPool = appState.treesoopMode ? [] : cachedNewsForMode(appState.mode, appState.categories);
             rawNews = selectCardCandidates([...rawNews, ...recoveryPool], 5);
             addLog("Researcher", "후보가 부족해 검증된 최신 복구 후보를 보충했습니다.", "warning");
         }
@@ -1661,8 +1650,11 @@ function generateTreeSoopCard(news) {
         }
     ];
     
-    // Map each parsed article to slides
-    const topArticles = selectCardCandidates(news, 8);
+    // One content card per item published in the selected TreeSoop daily post.
+    // Preserve the publisher's order and do not apply the general eight-card cap.
+    const topArticles = news
+        .map(article => ({ ...article, bullets: litifyTldrBullets(article.bullets || [], 3, 3) }))
+        .filter(article => article.title && article.bullets.length === 3);
     
     topArticles.forEach((art, idx) => {
         let titleClean = art.title.replace(/^\d+\.\s*/, '').replace(/^\[[^\]]+\]\s*/, '');
@@ -1884,7 +1876,7 @@ async function generateCardWithGemini(news, mode, apiKey, repairFeedback = '') {
 // Render slides inside Carousel DOM
 function renderCards(cardJson) {
     slidesContainer.innerHTML = "";
-    const totalSlides = Math.min(cardJson.slides.length, 10);
+    const totalSlides = cardJson.slides.length;
     
     cardJson.slides.forEach((slide, index) => {
         if (slide.type === 'content') {

@@ -135,42 +135,6 @@ def normalized_headline(title):
     return clean.strip()
 
 
-def headline_summary_bullets(title):
-    """Create three facts from one headline without mixing another article or filler copy."""
-    clean = re.sub(r'^\[[^\]]+\]\s*', '', normalized_headline(title)).strip()
-    statement = re.sub(r'[.!?。！？]+$', '', clean)
-    action_words = r'공개|출시|도입|개발|구축|진행|개최|선정|협력|지원|확대|강화|전환|추진|적용|발표|제공|본격화'
-    if re.search(rf'(?:{action_words})$', statement):
-        statement += '했습니다.'
-    else:
-        statement += '입니다.'
-
-    points = [statement]
-    clauses = [value.strip() for value in re.split(r'\s*[·:—]\s*', clean) if len(value.strip()) >= 6]
-    if len(clauses) >= 2:
-        for clause in clauses:
-            clause_statement = re.sub(r'[.!?。！？]+$', '', clause)
-            clause_statement += '했습니다.' if re.search(rf'(?:{action_words})$', clause_statement) else '입니다.'
-            points.append(clause_statement)
-    subject = re.split(r'[,，]', clean, maxsplit=1)[0].strip(' ‘1234567890’“”\"\'')
-    if 2 <= len(subject) <= 28:
-        points.append(f'핵심 추진 주체는 {subject}입니다.')
-    quotes = re.findall(r'[‘“\'\"]([^’”\'\"]{3,48})[’”\'\"]', clean)
-    if quotes:
-        points.append(f'핵심 제품·주제는 “{quotes[0].strip()}”입니다.')
-    action_match = re.search(rf'([^,，]{{2,42}}(?:{action_words})(?:[^,，]{{0,24}})?)', clean)
-    if action_match:
-        points.append(f'주요 변화는 {action_match.group(1).strip()}입니다.')
-    keywords = [
-        re.sub(r'(?:은|는|이|가|을|를|의|와|과|에|서|로|으로)$', '', value)
-        for value in re.sub(r'[‘’“”\"\'()[\],，·]', ' ', clean).split()
-    ]
-    keywords = [value for value in keywords if len(value) >= 2 and value not in {'관련', '소식', '최신', '기반', '공동', '진행'}][:4]
-    if len(keywords) >= 2:
-        points.append(f"핵심 키워드는 {', '.join(keywords)}입니다.")
-    return litify_tldr_bullets(points, min_points=1, max_points=3)
-
-
 def article_quality_score(article):
     title = normalized_headline(article.get('title', ''))
     bullets = litify_tldr_bullets(article.get('bullets', []), min_points=1, max_points=3)
@@ -798,8 +762,8 @@ class ResearcherAgent:
                     "published_at": published.isoformat() if published else "",
                     "date": published.strftime("%Y-%m-%d") if published else "",
                     "source": source,
-                    "bullets": headline_summary_bullets(title),
-                    "headline_only": False,
+                    "bullets": [],
+                    "headline_only": True,
                     "priority": 1
                 })
             articles.sort(key=lambda article: parse_article_date_value(article.get("published_at")) or datetime.datetime.min, reverse=True)
@@ -807,6 +771,40 @@ class ResearcherAgent:
         except Exception as exc:
             log(self.name, f"Google News RSS 수집 실패: {exc}", Colors.WARNING)
         return articles
+
+    def load_verified_news_cache(self, mode="daily"):
+        """Load server-refreshed original-article summaries used by GitHub Pages."""
+        cache_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "news-cache.json")
+        try:
+            with open(cache_path, "r", encoding="utf-8") as cache_file:
+                payload = json.load(cache_file)
+            generated = parse_article_date_value(payload.get("generated_at"))
+            if not generated or get_kst_now() - generated > datetime.timedelta(hours=12):
+                return []
+            articles = []
+            for item in payload.get(mode, []):
+                bullets = litify_tldr_bullets(item.get("bullets", []), min_points=3, max_points=3)
+                if not item.get("contentVerified") or len(bullets) != 3:
+                    continue
+                published = parse_article_date_value(item.get("publishedAt") or item.get("date"))
+                if not published or not is_within_news_window(published.isoformat(), mode):
+                    continue
+                articles.append({
+                    "title": item.get("title", ""),
+                    "link": item.get("link", ""),
+                    "pubDate": item.get("publishedAt", ""),
+                    "published_at": published.isoformat(),
+                    "date": item.get("date", ""),
+                    "source": item.get("source", "원문 사이트"),
+                    "bullets": bullets,
+                    "content_verified": True,
+                    "priority": 0,
+                })
+            log(self.name, f"원문 검증 뉴스 캐시에서 {len(articles)}개 기사를 불러왔습니다.", Colors.GREEN)
+            return articles
+        except Exception as exc:
+            log(self.name, f"원문 검증 뉴스 캐시를 사용할 수 없습니다: {exc}", Colors.WARNING)
+            return []
 
     def fetch_geeknews_direct(self):
         log(self.name, "테크 커뮤니티 (GeekNews) 직접 수집 시작...", Colors.BLUE)
@@ -836,7 +834,16 @@ class ResearcherAgent:
             treesoop_articles = self.fetch_treesoop_news(mode)
             self.last_standard_candidates = []
             self.last_llm_candidates = []
-            return treesoop_articles[:limit]
+            # v3.2.4: the TreeSoop post defines the card count. Keep every
+            # parsed news item; cover/closing slides are added by the Creator.
+            return treesoop_articles
+
+        verified_cache = self.load_verified_news_cache(mode)
+        if len(verified_cache) >= min(limit, 3):
+            self.last_standard_candidates = verified_cache
+            self.last_llm_candidates = []
+            # The cache already passed original-body, date and three-sentence checks.
+            return verified_cache[:limit]
             
         log(self.name, f"다단계 우선순위 뉴스 수집 파이프라인 가동 (모드: {mode}, 3대 LLM 필수화: {include_llm_releases})...", Colors.HEADER)
         
@@ -1783,7 +1790,7 @@ class CreatorAgent:
         ]
         
         # Map each parsed article to slides
-        top_articles = sorted(articles, key=article_quality_score, reverse=True)[:8]
+        top_articles = list(articles)
             
         # Extract date from Treesoop link (e.g. /blog/ai-news-2026-07-13)
         crawled_date = today
@@ -2534,7 +2541,7 @@ class VerifierAgent:
         log(self.name, "카드뉴스 이미지 및 KakaoTalk 배포 데이터 렌더링 시작...", Colors.HEADER)
         
         created_paths = []
-        total_slides = min(len(card_data["slides"]), 10)
+        total_slides = len(card_data["slides"])
         for slide in card_data["slides"]:
             slide["_total_slides"] = total_slides
         for i, slide in enumerate(card_data["slides"]):
@@ -2597,7 +2604,7 @@ def main():
         sys.exit(0)
 
     print(f"\n{Colors.GREEN}==============================================")
-    print("      AI Card News Agent Team (v3.2.3)       ")
+    print("      AI Card News Agent Team (v3.2.4)       ")
     print(f"=============================================={Colors.ENDC}\n")
     
     # Choose daily by default, can be toggled by cli args

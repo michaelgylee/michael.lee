@@ -742,7 +742,7 @@ body {
     display: none !important;
 }
 
-/* v3.2.3 global deck themes. Inline template colors are intentionally
+/* v3.2.4 global deck themes. Inline template colors are intentionally
    overridden so previews and exported images use exactly the same theme. */
 .slide-card-wrapper.theme-fresh .slide-card-inner {
     background:
