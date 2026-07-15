@@ -1,6 +1,6 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-07-15T16:47:32Z",
+  "generated_at": "2026-07-15T19:39:28Z",
   "daily": [
     {
       "title": "챗GPT 찾는 고객, 기업 챗봇은 외면…가트너 \"AI 고객 서비스 전략 다시 짜야\"",
@@ -31,23 +31,9 @@
       "contentVerified": true
     },
     {
-      "title": "BigBear.ai, 국방용 생성형 AI 플랫폼 확장",
-      "source": "Investing.com 한국어",
-      "link": "https://kr.investing.com/news/company-news/article-93CH-2016674",
-      "publishedAt": "Wed, 15 Jul 2026 13:22:00 GMT",
-      "date": "2026-07-15",
-      "category": "genai",
-      "bullets": [
-        "회사 보도자료에 따르면, BigBear.ai는 최고기밀/SCI(정보보안 통합) 분류 수준까지 단절된(disconnected) 및 에어갭(air-gapped) 환경에서 AI 운영을 가능하게 하는 하드웨어를 선보였다.",
-        "클라우드 호스팅 구성은 국방부 클라우드 영향 수준 6까지의 배포를 지원한다.",
-        "맥린에 본사를 둔 이 회사의 시가총액은 14억 8천만 달러이며, 주가가 지난 1년간 56% 하락하여 52주 최저가인 3.01달러에 근접하게 거래되고 있다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "공직 업무, 생성형 인공지능(AI)으로 더 똑똑하게",
       "source": "뉴스N제주",
-      "link": "https://www.newsnjeju.com/news/articleView.html?idxno=293059",
+      "link": "https://newsnjeju.com/news/articleView.html?idxno=293059",
       "publishedAt": "Wed, 15 Jul 2026 12:51:37 GMT",
       "date": "2026-07-15",
       "category": "genai",
@@ -55,6 +41,48 @@
         "제주융합과학연구원(원장 송재충)은 7월 13일부터 31일까지 제주특별자치도교육청 소속 지방공무원을 대상으로 ‘2026년 제3기 지방공무원 정보화교육훈련’을 운영하고 있다.",
         "‘2026년 제3기 지방공무원 정보화교육훈련’은 인공지능(AI)을 활용하는 방법을 익히고 업무에 바로 적용할 수 있는 디지털 역량을 기를 수 있도록 실습 중심으로 운영된다.",
         "송재충 원장은 “이번 교육을 통해 지방공무원의 디지털 활용 능력을 높이고 업무를 효율적으로 처리하는 데 도움이 되길 바란다”고 말했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "사용자 의도 파악, 구매 추천 등 실행…AI 검색 시장 ‘독심술’ 경쟁",
+      "source": "경향신문",
+      "link": "https://www.khan.co.kr/article/202607152041005",
+      "publishedAt": "Wed, 15 Jul 2026 11:41:00 GMT",
+      "date": "2026-07-15",
+      "category": "genai",
+      "bullets": [
+        "기존의 대표 검색엔진과 생성형 인공지능 모델들이 앞다퉈 'AI 검색' 고도화에 나서며 검색시장의 주도권을 놓고 경쟁하고 있다.",
+        "향후 커머스·지도·금융 등 기존 플랫폼 생태계에 AI 검색을 접목해 영향력을 공고히 하려는 플랫폼과 기존 검색 기능을 확대해 이용자의 일상생활 및 업무 영역을 파고드는 AI 개발사 간 경쟁 구도도 더 뚜렷해질 것으로 보인다.",
+        "인공지능 기술로 자동 요약된 내용입니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "세계 최고 30 기업 비즈니스 인텔리전스 (BI) 공급 업체 시장",
+      "source": "Spherical Insights",
+      "link": "https://www.sphericalinsights.com/ko/blogs/world-s-top-30-companies-in-business-intelligence-bi-vendors-market-2025-industry-intelligence-report-by-spherical-insights-2026-2035",
+      "publishedAt": "Wed, 15 Jul 2026 18:25:08 GMT",
+      "date": "2026-07-16",
+      "category": "biz",
+      "bullets": [
+        "AI 및 기계 학습 통합, 클라우드 컴퓨팅의 성장, surging 데이터 볼륨, 임베디드 분석의 증가, 데이터 중심 문화, 셀프 서비스 구성 분석 필요의 증가에 대 한 수요에 의해 구동 됩니다.",
+        "Business Intelligence (BI) 공급업체는 소프트웨어 플랫폼과 분석 솔루션을 제공하여 기업 데이터의 수집, 통합, 분석 및 시각화를 가능하게 합니다.",
+        "이 기능은 금융, 의료, 소매, 제조 및 공공 부문과 같은 다양한 산업 전반에 걸쳐 보고서, 대시보드, 예측 분석 및 AI 기반 통찰력을 포함합니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "손정의 \"AI 인프라에 매년 5조달러\"…전력·반도체 대전환 예고",
+      "source": "글로벌이코노믹",
+      "link": "https://www.g-enews.com/article/Global-Biz/2026/07/20260715173336242fbbec65dfb_1",
+      "publishedAt": "Wed, 15 Jul 2026 18:15:00 GMT",
+      "date": "2026-07-16",
+      "category": "biz",
+      "bullets": [
+        "인공지능(AI) 투자 거품론을 정면으로 반박하는 강력한 경고가 나왔다.",
+        "세계적인 AI 전환을 이끌기 위해 해마다 5조 달러(약 7460조 5000억 원)에 이르는 막대한 자금을 투입해야 한다는 주장이다.",
+        "이 전례 없는 대규모 자금 투입 예고는 반도체와 전력망을 비롯한 글로벌 산업 지형을 뿌리째 흔들 핵심 변수로 떠오른다."
       ],
       "contentVerified": true
     },
@@ -73,44 +101,58 @@
       "contentVerified": true
     },
     {
-      "title": "한국 제품의 중국 진출, 이제는 AI 교육이 경쟁력이다",
-      "source": "미디어피아",
-      "link": "https://www.mediapia.co.kr/news/articleView.html?idxno=79245",
-      "publishedAt": "Wed, 15 Jul 2026 08:09:10 GMT",
+      "title": "오라클, ‘퓨전 에이전틱 애플리케이션’ 개발 플랫폼 공개…기업용 AI 에이전트 시대 본격화",
+      "source": "인공지능신문",
+      "link": "https://www.aitimes.kr/news/articleView.html?idxno=41006",
+      "publishedAt": "Wed, 15 Jul 2026 13:14:18 GMT",
       "date": "2026-07-15",
       "category": "biz",
       "bullets": [
-        "생성형 AI는 중국 시장 진출 전략의 새로운 기준이 되고 있다.",
-        "이제 경쟁력은 좋은 제품을 만드는 데 그치지 않고, AI를 활용해 현지 소비자와 소통하고 콘텐츠를 제작하며 판매까지 연결하는 역량에 달려 있다.",
-        "본 기획 시리즈는 중국 AI 생태계와 디지털 플랫폼을 중심으로 한국 기업이 중국 시장에서 활용할 수 있는 AI 전략과 실무 적용 방안을 산업적 관점에서 살펴본다."
+        "오라클(Oracle)이 기업 업무를 직접 수행하는 차세대 인공지능(AI) 애플리케이션 개발 환경을 공개하고 에이전틱 인공지능(Agentic AI) 시장 공략에 나섰다.",
+        "이번에 공개된 개발 환경은 고객과 파트너가 오라클 퓨전 클라우드 애플리케이션(Oracle Fusion Cloud Applications) 내에서 직접 AI 에이전트 기반 애플리케이션을 구축하고 운영할 수 있도록 지원한다.",
+        "오라클은 기업용 소프트웨어가 단순히 업무를 기록하는 시스템에서 벗어나 결과를 스스로 도출하고 실행하는 시스템으로 진화하고 있다고 설명했다."
       ],
       "contentVerified": true
     },
     {
-      "title": "[기술로 혁신을 설계하다, 이트너스 기업부설연구소] 〈3〉 'AX 네이티브' 전환 본격화… 1인 1AI 에이전트로 BPO 시장 혁신 가속",
-      "source": "전자신문",
-      "link": "https://www.etnews.com/20260715000417",
-      "publishedAt": "Wed, 15 Jul 2026 07:21:37 GMT",
-      "date": "2026-07-15",
-      "category": "biz",
+      "title": "진도 대표 디저트, AI 기술 만나 상품 경쟁력 입증",
+      "source": "전남인터넷신문",
+      "link": "http://www.jnnews.co.kr/news/view.php?idx=429882",
+      "publishedAt": "Wed, 15 Jul 2026 18:45:00 GMT",
+      "date": "2026-07-16",
+      "category": "tech",
       "bullets": [
-        "이트너스 AX 전략의 핵심은 '1인 1AI 에이전트'다.",
-        "임직원 개개인에게 업무 맥락을 학습한 맞춤형 AI 에이전트를 부여해 급여 산정, 4대보험 신고, 복리후생 처리, 총무 운영, 정보보안 분석, 정산 및 고객 응대까지 자율적으로 수행하도록 하는 구조다.",
-        "이트너스 기업부설연구소 진희창 소장은 “현재 AI 에이전트 파일럿 버전을 사내 복지 업무에 우선 적용하고 있으며, 동일 인원 기준 약 4배 수준의 업무 효율 향상을 확인하고 있다”고 밝혔다."
+        "창업반의 강보혜 대표는‘진도 골드바 1993’이란 명칭의 울금 쌀카스테라를 개발해「2026년 소상공인 도약 지원사업」의‘강한 소상공인 성장 부문’에 선정됐고,약 3,000만 원의 사업비를 확보했다.",
+        "이번 선정은 인공지능(AI) 기술을 접목해 개발한 지역 농특산물 제품이 시장성과 성장 가능성을 인정받았다는 점에서 의미가 크다.",
+        "강 대표는 확보한 사업비를 바탕으로 제품 고도화,포장 디자인 개선,홍보와 판매 촉진(마케팅),판로 확대 등 본격적인 사업화 과정을 추진할 예정이다."
       ],
       "contentVerified": true
     },
     {
-      "title": "AI·지정학적 위기 속 韓 경제의 길 찾는다… 성균관대에 모인 글로벌 석학",
-      "source": "아시아투데이",
-      "link": "https://www.asiatoday.co.kr/kn/view.php?key=20260715010005740",
-      "publishedAt": "Wed, 15 Jul 2026 06:42:53 GMT",
-      "date": "2026-07-15",
-      "category": "biz",
+      "title": "애플, AI 서버칩 경쟁력 위해 반도체기업 인수 타진",
+      "source": "연합뉴스",
+      "link": "https://www.yna.co.kr/view/AKR20260716003600091",
+      "publishedAt": "Wed, 15 Jul 2026 17:49:09 GMT",
+      "date": "2026-07-16",
+      "category": "tech",
       "bullets": [
-        "인공지능(AI) 기술이 단순한 디지털 도구를 넘어 물가, 금융시장, 산업 생산 현장, 나아가 국제 질서까지 근본적으로 재편하고 있다.",
-        "이러한 거대한 경제적 대전환의 실체를 학술적·실무적 관점에서 짚어보는 특별한 논의의 장이 성균관대학교에서 펼쳐졌다.",
-        "지난 14일부터 오는 24일까지 11일간 이어지는 '2026 SKKU 국제학술대회'의 핵심 프로그램 중 하나인 이번 심포지엄은, 급변하는 디지털 시장경제의 작동 원리를 진단하기 위해 마련됐다."
+        "애플이 인공지능 서버용 칩의 개발 역량 강화를 위해 반도체 기업 인수를 모색하는 것으로 나타났다.",
+        "애플은 현재 내부 AI 서버를 자체 개발한 'M2 울트라' 칩으로 구동하고 있으나, 성능 문제로 어려움을 겪는 것으로 알려졌다.",
+        "애플은 당초 '발트라'라는 코드명으로 개발 중인 차세대 서버 칩을 올해 출시할 계획이었으나 일정이 지연됐다고 소식통은 전했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "개인정보 유출에도…'쿠팡' 반성은커녕 로비만 하는데",
+      "source": "중기이코노미",
+      "link": "https://www.junggi.co.kr/news/articleView.html?idxno=37140",
+      "publishedAt": "Wed, 15 Jul 2026 15:00:00 GMT",
+      "date": "2026-07-16",
+      "category": "tech",
+      "bullets": [
+        "그 동안 AI 학습용 데이터는 가명 및 익명 처리를 한 뒤 활용하는 것이 원칙이었다.",
+        "그러나 앞으로는 안전조치를 전제로 할 경우, 개인정보 원본을 AI 기술개발에 활용할 수 있도록 하는 특례가 추진된다.",
+        "AI 학습에 개인정보 원본 활용을 허용하는 개인정보보호법 개정안의 추진 배경과 우려되는 점 등을 살펴본다."
       ],
       "contentVerified": true
     },
@@ -129,48 +171,6 @@
       "contentVerified": true
     },
     {
-      "title": "진도 대표 디저트, AI 기술 만나 상품 경쟁력 입증",
-      "source": "전남인터넷신문",
-      "link": "http://www.jnnews.co.kr/news/view.php?idx=429882&mcode=m1mass",
-      "publishedAt": "Wed, 15 Jul 2026 12:43:05 GMT",
-      "date": "2026-07-15",
-      "category": "tech",
-      "bullets": [
-        "창업반의 강보혜 대표는‘진도 골드바 1993’이란 명칭의 울금 쌀카스테라를 개발해「2026년 소상공인 도약 지원사업」의‘강한 소상공인 성장 부문’에 선정됐고,약 3,000만 원의 사업비를 확보했다.",
-        "이번 선정은 인공지능(AI) 기술을 접목해 개발한 지역 농특산물 제품이 시장성과 성장 가능성을 인정받았다는 점에서 의미가 크다.",
-        "강 대표는 확보한 사업비를 바탕으로 제품 고도화,포장 디자인 개선,홍보와 판매 촉진(마케팅),판로 확대 등 본격적인 사업화 과정을 추진할 예정이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "맵시, 해양 특화 AI 모델 개발 추진",
-      "source": "한국해운신문",
-      "link": "http://www.maritimepress.co.kr/news/articleView.html?idxno=332175",
-      "publishedAt": "Wed, 15 Jul 2026 10:31:24 GMT",
-      "date": "2026-07-15",
-      "category": "tech",
-      "bullets": [
-        "이날 협약식에는 양금희 경제부지사, 박용선 포항시장, 김성근 POSTECH 총장 등 주요 기관 관계자들이 참석했다.",
-        "산·학·연·관이 연구개발부터 현장 실증과 사업화까지 연계하는 미래형 해양 AI 협력 모델이라는 점에서 의미가 크다.",
-        "협약에 따라 참여기관들은 해양·항만·기상·위성·항로·물류 데이터를 연계·활용하는 체계를 구축하고, Ocean AI Foundry 구축과 공동 개발을 추진한다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "KB금융, AI와 일하는 문화 확산… 전 임직원 데이터 역량 강화",
-      "source": "한국보험신문",
-      "link": "https://www.insnews.co.kr/news/articleViewAmp.html?idxno=91890",
-      "publishedAt": "Wed, 15 Jul 2026 09:46:19 GMT",
-      "date": "2026-07-15",
-      "category": "tech",
-      "bullets": [
-        "지난 14일 서울 여의도 KB국민은행 신관에서 진행된 ‘2026년 상반기 그룹 AI·데이터 혁신 세미나’에서 양종희 KB금융그룹 회장이 임직원들에게 인사말을 하고 있다.",
-        "KB금융그룹(이하 KB금융)이 전 임직원의 인공지능(AI) 활용 역량을 높여 그룹 내 AI와 함께 일하는 업무 문화를 확산한다.",
-        "KB금융은 지난 14일 서울 여의도 KB국민은행 신관에서 ‘2026년 상반기 그룹 AI·데이터 혁신 세미나’를 열고 실전형 AI 인재 양성 프로그램 ‘KB AI Lab’을 출범했다고 15일 밝혔다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "AI 거버넌스가 일상을 바꾼다",
       "source": "한국공공정책신문",
       "link": "http://knpp.co.kr/news/522138",
@@ -185,6 +185,20 @@
       "contentVerified": true
     },
     {
+      "title": "구글 AI 책임자 “범용인공지능시대 임박… 미국이 주도하는 AI 규제기관 신설해야”",
+      "source": "서울신문",
+      "link": "https://www.seoul.co.kr/news/economy/industry/2026/07/16/20260716032006",
+      "publishedAt": "Wed, 15 Jul 2026 15:14:29 GMT",
+      "date": "2026-07-16",
+      "category": "policy",
+      "bullets": [
+        "구글 인공지능(AI) 부문 책임자인 데미스 허사비스 구글 딥마인드 최고경영자(CEO)가 범용인공지능(AGI) 시대가 임박했다며 미국이 주도하는 AI 규제기구를 신설해야 한다고 제안했다.",
+        "노벨화학상 수상자인 허사비스 CEO는 14일(현지시간) 엑스(X)를 통해 “AGI가 등장하기까지는 불과 몇 년밖에 남지 않았다”며 “이 기술의 영향은 산업혁명보다 10배 더 크고 빠를 것”이라고 했다.",
+        "그러면서 AGI는 인터넷이나 모바일 혁명보다 전기나 불의 발견에 가까운 수준이라며 ‘신중한 낙관주의’를 바탕으로 한 안전 관리 체계가 필요하다고 강조했다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "한컴, 유럽향 AI OS 개발 가속…\"지능적 업그레이드로 차별화\"",
       "source": "민주신문",
       "link": "https://www.iminju.net/news/articleView.html?idxno=166735",
@@ -195,20 +209,6 @@
         "민주신문=변현경 기자｜한컴이 유럽 시장을 겨냥한 소버린 인공지능(AI) 운영체제(OS) 개발에 속도를 낸다.",
         "한컴은 폴란드 국가 공인 연구개발(R&D) 센터 '7불스' 및 AI 전문 기업 '알고마인'과 AI OS 개발을 위한 협력안을 마련했다고 15일 밝혔다.",
         "이번 협력은 ▲현지화 ▲기존 시스템 연동 ▲유럽연합(EU) 규제 대응 ▲공동 영업 등 4개 축을 중심으로 추진된다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "한컴, 유럽형 AI OS 개발 속도낸다…14조 글로벌 시장 정조준",
-      "source": "뉴시스",
-      "link": "https://www.newsis.com/view/NISX20260715_0003710881",
-      "publishedAt": "Wed, 15 Jul 2026 07:29:56 GMT",
-      "date": "2026-07-15",
-      "category": "policy",
-      "bullets": [
-        "[서울=뉴시스]이주영 기자 = 한컴이 폴란드 기업들과 손잡고 유럽 시장을 겨냥한 '소버린AI' 운영체제(OS)' 개발에 속도를 내고 있다.",
-        "한컴은 폴란드 국가공인 연구개발 센터 '7불스', AI 전문기업 '알고마인'과 AI OS 개발을 위한 협력안을 마련했다고 15일 밝혔다.",
-        "이번 협력은 현지화, 기존 시스템 연동, 유럽연합(EU) 규제 대응, 공동 영업 등 4개 축으로 진행된다."
       ],
       "contentVerified": true
     },
@@ -229,6 +229,48 @@
   ],
   "weekly": [
     {
+      "title": "제주도 안전건강실, 생성형 AI 학습모임 출범…행정업무 혁신 나선다",
+      "source": "제주팟닷컴",
+      "link": "https://jejupod.com/2026/07/15/jeju-ailearningclub/",
+      "publishedAt": "Wed, 15 Jul 2026 04:40:36 GMT",
+      "date": "2026-07-15",
+      "category": "genai",
+      "bullets": [
+        "제주특별자치도 안전건강실이 생성형 인공지능(AI)을 행정업무에 적극 활용하기 위해 실무 중심의 AI 학습 동아리를 운영한다.",
+        "반복 업무는 AI에 맡기고 확보한 시간을 도민 안전 정책 고도화에 활용한다는 구상이다.",
+        "제주도 안전건강실은 실무 담당자 19명으로 구성된 AI 학습 동아리 ‘안전건강 AI 리더’를 16일 첫 회의를 시작으로 본격 운영한다고 밝혔다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "금산군, 농업인 정보화교육 생성형 인공지능(AI) 과정 순항",
+      "source": "금산중앙신문방송",
+      "link": "http://www.geumsan-news.com/news/articleView.html?idxno=32094",
+      "publishedAt": "Tue, 14 Jul 2026 13:55:22 GMT",
+      "date": "2026-07-14",
+      "category": "genai",
+      "bullets": [
+        "금산군은 농업인의 정보화 역량을 높이고 변화하는 디지털 농업환경에 대응하기 위해 금산군농업기술센터 정보화교육장에서 추진 중인 농업인 정보화교육 생성형 인공지능(AI) 과정이 순항하고 있다고 밝혔다.",
+        "교육생들은 생성형 인공지능(AI)의 기본 활용법을 익히고 농업 현장에서 활용할 수 있는 다양한 사례를 실습하고 있다.",
+        "이어, △인공지능(AI) 이미지 생성 및 농사 홍보 이미지 제작 △프롬프트 이용 인공지능(AI) 영상 생성 및 편집 △이삭이 농업용 인공지능(AI) 앱 활용과 에스엔에스(SNS) 게시용 콘텐츠 제작 등도 진행된다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "[ISEC 2026 미리보기] 수산아이앤티, 생성형 AI 게이트웨이 ‘eSafe AI’ 선보인다",
+      "source": "보안뉴스",
+      "link": "https://m.boannews.com/html/detail.html?tab_type=1&idx=144584",
+      "publishedAt": "Tue, 14 Jul 2026 08:15:00 GMT",
+      "date": "2026-07-14",
+      "category": "genai",
+      "bullets": [
+        "수산아이앤티가 안전한 생성형 AI 사용 환경을 지원하는 생성형 AI 게이트웨이 솔루션 ‘eSafe AI’를 선보인다.",
+        "생성형 AI 활용이 기업과 공공기관 전반으로 빠르게 확산되면서 민감정보 유출, 비인가 AI 서비스 사용(Shadow AI), AI 사용 이력 관리의 어려움 등 새로운 보안·관리 과제가 부각되고 있다.",
+        "특히 국가 망 보안체계(N2SF) 전환에 따라 공공기관과 기업에서는 생성형 AI를 업무에 활용하면서도 보안성과 관리 체계를 함께 확보할 수 있는 방안에 대한 수요가 커지고 있다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "차석호 함안군수 \"생성형 AI 기반 업무 비서 도입…행정 효율성 향상\"",
       "source": "뉴스핌",
       "link": "https://www.newspim.com/news/view/20260714001001",
@@ -243,86 +285,30 @@
       "contentVerified": true
     },
     {
-      "title": "화성시, 생성형 AI 행정교육…공무원 690명 하이메이트 실습",
-      "source": "전자신문",
-      "link": "https://www.etnews.com/20260714000130",
-      "publishedAt": "Tue, 14 Jul 2026 00:44:34 GMT",
-      "date": "2026-07-14",
-      "category": "genai",
-      "bullets": [
-        "경기 화성특례시가 행정 업무에 생성형 인공지능(AI)과 자동화 도구를 적용하기 위해 지난 13일부터 21일까지 공무원 대상 AI 활용 교육을 진행한다.",
-        "화성시는 급변하는 정보기술 환경에 대응하고 행정 처리 효율을 높이기 위해 '2026년 공무원 AI 활용 역량 강화 교육'을 운영한다고 14일 밝혔다.",
-        "교육은 시 맞춤형 AI 업무 지원 서비스인 AI행정비서 '하이메이트(HAI-MATE)' 활용 과정과 '바이브 코딩' 과정으로 나눠 진행된다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "청소년들의 만능 해결사가 된 '생성형 AI'...이제는 잘 사용하는 방법을 가르칠 때",
-      "source": "맘스커리어",
-      "link": "https://www.momscareer.co.kr/news/articleView.html?idxno=6182",
-      "publishedAt": "Tue, 14 Jul 2026 00:40:00 GMT",
-      "date": "2026-07-14",
-      "category": "genai",
-      "bullets": [
-        "초등학생 자녀를 양육 중인 최은혜 씨는 얼마 전 아이가 한 말에 당황스러움을 감추지 못했다.",
-        "학교에서 일주일에 한 번씩 주제 글쓰기 숙제를 내주는데 아이가 자연스럽게 생성형 AI로 숙제를 해가려고 한 것이다.",
-        "생성형 인공지능은 이미 우리들의 일상 깊숙한 곳까지 침투해 있다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "정확도 넘어 생산성…딥노이드 생성형 AI 상용화 드라이브",
-      "source": "데일리팜",
-      "link": "https://www.dailypharm.com/user/news/340395",
-      "publishedAt": "Mon, 13 Jul 2026 15:50:39 GMT",
-      "date": "2026-07-14",
-      "category": "genai",
-      "bullets": [
-        "약국대출 메디라이프 신규 개국을 앞두고 있습니다.",
-        "의료 인공지능(AI)의 경쟁 기준이 병변 탐지 정확도에서 의료진의 업무를 얼마나 실질적으로 줄여줄 수 있는지로 이동하고 있다.",
-        "영상에서 의심 부위를 표시하는 기존 진단 보조를 넘어 정상 영상을 분류하고 예비소견서까지 작성해야 의료기관이 비용을 지불할 만한 생산성 개선으로 연결될 수 있다는 판단이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "구글, '풀스택 AI' 앞세워 韓 기업시장 공략 강화",
-      "source": "mstoday.co.kr",
-      "link": "https://www.mstoday.co.kr/news/articleView.html?idxno=102099",
-      "publishedAt": "Tue, 14 Jul 2026 08:35:08 GMT",
-      "date": "2026-07-14",
+      "title": "[조간브리핑]같은 GPU로 더 많이 처리한다···AI 추론 최적화 기술 각축전",
+      "source": "헬로디디",
+      "link": "https://www.hellodd.com/news/articleView.html?idxno=112462",
+      "publishedAt": "Sun, 12 Jul 2026 07:00:00 GMT",
+      "date": "2026-07-12",
       "category": "biz",
       "bullets": [
-        "[MS투데이] 구글이 기업용 인공지능(AI) 시장 공략에 속도를 높이며 '풀스택 AI(Full Stack AI)' 전략을 전면에 내세웠다.",
-        "AI 모델만 제공하는 수준을 넘어 반도체와 클라우드 인프라, 데이터 관리, AI 에이전트 운영 플랫폼까지 하나의 체계로 통합해 기업의 디지털 전환을 지원하겠다는 구상이다.",
-        "구글은 14일부터 사흘간 서울에서 '구글 AI 포 비즈니스 2026(Google AI for Business 2026)'를 열고 최신 AI 기술과 기업 적용 사례를 공개했다."
+        "인공지능(AI)이 학습을 통해 세상을 배우고, 추론을 통해 답변하는 전체 사이클에서 엔비디아 그래픽처리장치(GPU)의 영향력은 절대적이다.",
+        "병렬 연산 능력을 갖춘 엔비디아 GPU는 생성형 AI 시대를 연 핵심 인프라스트럭처로 꼽히며, 지난해 말 기준 데이터센터 AI 반도체 시장에서 86%의 점유율을 차지하며 사실상 독점적 지위를 누리고 있다.",
+        "짙은 안개와 비로 가시거리가 짧은 가운데 조비항공(조비)이 만든 전기 수직 이착륙기(eVTOL) 6호기가 시험 비행을 위해 수직으로 떠올랐다."
       ],
       "contentVerified": true
     },
     {
-      "title": "구글, 한국 기업용 AI 시장 조준...\"단순 도입 넘어 비즈니스 성과 창출 돕는다\"",
-      "source": "인천매거진",
-      "link": "https://www.imaganews.com/news/articleView.html?idxno=12335",
-      "publishedAt": "Tue, 14 Jul 2026 06:02:46 GMT",
-      "date": "2026-07-14",
-      "category": "biz",
-      "bullets": [
-        "구글이 인공지능(AI) 모델과 컴퓨팅 인프라, 업무용 에이전트를 통합한 기업용 AI 전략을 전격 공개하며 한국 시장 공략에 속도를 낸다.",
-        "국내 기업들이 AI 도입의 효과성을 검토하는 단계를 넘어, 실제 비즈니스 혁신과 성장에 적극적으로 적용할 수 있도록 '풀스택 AI' 생태계를 확장하겠다는 전략이다.",
-        "구글은 14일 서울 중구 신라호텔에서 '구글 AI 포 비즈니스 2026'을 개최하고 기업 업무 혁신을 위한 최신 AI 적용 사례와 풀스택 AI 전략을 소개했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "잘못 찍은 단서도 AI가 스스로 고친다···포스텍, 이미지 분할 기술 개발",
-      "source": "경향신문",
-      "link": "https://www.khan.co.kr/article/202607140938001",
-      "publishedAt": "Tue, 14 Jul 2026 00:38:00 GMT",
+      "title": "POSTECH, '거짓 이미지 스스로 고치는' AI 이미지 분할 기술 개발",
+      "source": "영남경제",
+      "link": "https://www.ynenews.kr/news/articleView.html?idxno=80409",
+      "publishedAt": "Tue, 14 Jul 2026 10:31:16 GMT",
       "date": "2026-07-14",
       "category": "tech",
       "bullets": [
-        "닫기 인공지능 기술로 자동 요약된 내용입니다.",
-        "전체 내용을 이해하기 위해 본문과 함께 읽는 것을 추천합니다.",
-        "인공지능(AI)이 사진 속 물체를 찾을 때 처음 제공된 단서를 그대로 믿지 않고 스스로 검증하고 고쳐가며 정확도를 높이는 이미지 분할 기술을 국내 연구진이 개발했다."
+        "명탐정 셜록 홈즈는 반드시 현장에서 단서를 재확인하고, 필요하면 자신의 추리를 고쳐나간다.",
+        "POSTECH(포항공과대학교) 연구진이 바로 이 '탐정식 사고방식'을 닮은 AI 기술을 개발했다.",
+        "AI 스스로 받은 단서를 점검하고, 틀렸으면 고쳐가는 이미지 분할 기술이다."
       ],
       "contentVerified": true
     },
