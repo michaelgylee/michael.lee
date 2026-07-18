@@ -1,7 +1,35 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-07-18T10:43:02Z",
+  "generated_at": "2026-07-18T13:53:18Z",
   "daily": [
+    {
+      "title": "\"생성형 AI 보안 정교화\"…모니터랩, AI 보안 솔루션 고도화",
+      "source": "v.daum.net",
+      "link": "https://v.daum.net/v/20260718202849316",
+      "publishedAt": "Sat, 18 Jul 2026 11:28:49 GMT",
+      "date": "2026-07-18",
+      "category": "genai",
+      "bullets": [
+        "(지디넷코리아=김기찬 기자)B2B 보안 서비스형 소프트웨어(SECaaS) 전문 기업 모니터랩(대표 이광후)가 생성형 AI 보안 솔루션 'GenAI 시큐리티' 제품 고도화에 나선다.",
+        "모니터랩은 'GenAI 시큐리티' 기능 고도화를 통해 부서·업무 특성에 맞는 세분화된 보안 정책을 지원하고, 통제 범위를 개발자 환경까지 확대해 솔루션 활용도를 높였다고 18일 밝혔다.",
+        "GenAI 시큐리티는 기업 내 생성형 AI 활용 과정에서 발생할 수 있는 프롬프트 인젝션, AI 오용, 민감정보 유출 등을 방지하는 솔루션이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "BMW, 자동차 판매 방식 바꾼다…챗GPT로 차량 구성·상담 서비스 제공",
+      "source": "인공지능신문",
+      "link": "https://www.aitimes.kr/news/articleView.html?idxno=41032",
+      "publishedAt": "Sat, 18 Jul 2026 11:10:36 GMT",
+      "date": "2026-07-18",
+      "category": "genai",
+      "bullets": [
+        "독일 자동차 제조사 BMW가 오픈AI(OpenAI)의 챗GPT(ChatGPT) 내에 차량 구성기(Vehicle Configurator)를 탑재하며 생성형 인공지능(AI) 기반 고객 경험 혁신에 나섰다.",
+        "사용자는 챗GPT와 자연스럽게 대화하는 것만으로 자신에게 적합한 BMW 차량을 추천받고 세부 옵션까지 구성할 수 있게 됐다.",
+        "BMW는 17일(현지시간) 챗GPT 플러그인 형태의 새로운 BMW 차량 구성 서비스를 공개했다."
+      ],
+      "contentVerified": true
+    },
     {
       "title": "넷플릭스, 올해 공개작 300편에 생성형 AI 활용…\"영화 제작 전 과정으로 확대\"",
       "source": "매드타임스",
@@ -17,44 +45,16 @@
       "contentVerified": true
     },
     {
-      "title": "AI 시대 '사고의 주권'을 묻다…생각을 외주화한 사람들 [신간]",
-      "source": "한국경제",
-      "link": "https://www.hankyung.com/article/202607181862i",
-      "publishedAt": "Sat, 18 Jul 2026 06:33:38 GMT",
-      "date": "2026-07-18",
-      "category": "genai",
-      "bullets": [
-        "Google 검색에서 한국경제 기사를 더 자주 볼 수 있습니다.",
-        "현대인은 ‘지능의 자진 반납’ 상태에 빠졌다.",
-        "기억은 데이터센터의 메모리에, 사고는 AI 모델에 의존하면서다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "[공부의 신 8] 노르웨이, 초등생 교실 AI 사용 금지",
       "source": "오아시스뉴스",
-      "link": "http://www.oasisnewstimes.com/news/articleView.html?idxno=26620",
-      "publishedAt": "Sat, 18 Jul 2026 06:25:18 GMT",
+      "link": "http://www.oasisnewstimes.com/news/articleViewAmp.html?idxno=26620",
+      "publishedAt": "Sat, 18 Jul 2026 07:04:26 GMT",
       "date": "2026-07-18",
       "category": "genai",
       "bullets": [
         "인공지능(AI)이 교육 현장에 빠르게 확산되는 가운데 일부 국가는 청소년의 AI 활용을 제한하는 정책을 도입하고 있다.",
         "최근 외신에 따르면 노르웨이 정부는 오는 8월 새 학기부터 초등학교 1~7학년(6~13세) 학생들의 교실 내 생성형 AI 사용을 금지하기로 결정했다.",
         "AI 활용의 장점은 인정하면서도 기초학습 능력을 보호하기 위한 조치라는 점에서 국제사회의 관심을 받고 있다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "밤 10시가 되면 AI가 갑자기 느려지는 이유는?",
-      "source": "비즈한국",
-      "link": "https://bizhankook.com/articles/139311.html",
-      "publishedAt": "Sat, 18 Jul 2026 06:15:21 GMT",
-      "date": "2026-07-18",
-      "category": "genai",
-      "bullets": [
-        "[비즈한국] 생성형 AI를 자주 사용하다 보면 같은 모델인데도 유난히 답변이 느린 시간이 있다는 느낌을 받는다.",
-        "오전에는 빠르게 글을 작성하고 자료를 분석하던 AI가 어느 순간 한참 답을 내놓지 않거나 오류 메시지를 띄운다.",
-        "전 세계 주요 지역의 업무시간을 한국시간에 맞춰보면 AI 사용량이 가장 많을 가능성이 큰 시간은 밤 10시 전후다."
       ],
       "contentVerified": true
     },
@@ -73,6 +73,34 @@
       "contentVerified": true
     },
     {
+      "title": "안양시, '인공지능(AI) 정책 자문단' 출범",
+      "source": "국민기자뉴스",
+      "link": "http://www.kmkj.kr/news/articleViewAmp.html?idxno=125225",
+      "publishedAt": "Sat, 18 Jul 2026 10:07:21 GMT",
+      "date": "2026-07-18",
+      "category": "biz",
+      "bullets": [
+        "안양시(시장 최대호)가 시정 전반에 인공지능(AI) 기술을 접목하기 위한 '인공지능(AI) 정책 자문단'을 구성해 본격적인 활동에 나선다고 밝혔다.",
+        "지난 16일 시는 스마트도시통합센터에서 최대호 안양시장과 이계삼 부시장(자문단 위원장) 등 위원 14명이 참석한 가운데 '안양시 인공지능 정책 자문단 위촉식 및 제1차 회의'를 개최했다.",
+        "자문단은 공공 기관·관련 기관 관계자, 대학교수뿐만 아니라 실제 산업 현장에서 인공지능(AI) 관련 기업을 이끄는 대표 등 전문가 20명으로, 위원 임기는 2년이며 1회 연임이 가능하다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "월가에서 AI 관련 주식 매도: 차익 실현일까, 아니면 거품 붕괴일까?",
+      "source": "Vietnam.vn",
+      "link": "https://www.vietnam.vn/ko/pho-wall-ban-thao-co-phieu-ai-lan-song-chot-loi-hay-bong-bong-vo",
+      "publishedAt": "Sat, 18 Jul 2026 06:56:15 GMT",
+      "date": "2026-07-18",
+      "category": "biz",
+      "bullets": [
+        "(댄 트라이 신문) - 1년 넘게 월가 상승세를 이끌었던 AI 관련 주식들이 시장이 기대치보다 더 중요한 요소인 수익성을 요구하기 시작하면서 강한 매도 압력에 직면하고 있다.",
+        "월가가 인공지능에 대한 투자가 과연 옳은 것인지 의문을 제기하기 시작했다.",
+        "수개월간 미국 증시 상승세를 주도해 온 반도체 주가가 예상치 못하게 1년 만에 가장 큰 폭의 하락세를 기록했습니다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "현대로템, '피지컬 AI' 앞세워 글로벌 철도차량 자율주행 시장 정조준",
       "source": "서울파이낸스",
       "link": "https://www.seoulfn.com/news/articleView.html?idxno=633505",
@@ -87,30 +115,16 @@
       "contentVerified": true
     },
     {
-      "title": "AI주 급락 유가 급등 뉴욕증시 하락…나스닥 1.4% 하락",
-      "source": "thefairnews.co.kr",
-      "link": "https://www.thefairnews.co.kr/news/articleView.html?idxno=82478",
-      "publishedAt": "Fri, 17 Jul 2026 23:38:24 GMT",
+      "title": "AI 기업과 손잡는 K-바이오…신약개발 패러다임 바뀐다",
+      "source": "경제투데이",
+      "link": "http://www.e-today.kr/news/articleViewAmp.html?idxno=912501",
+      "publishedAt": "Sat, 18 Jul 2026 11:47:26 GMT",
       "date": "2026-07-18",
-      "category": "biz",
+      "category": "tech",
       "bullets": [
-        "[더페어] 박진식 기자 = 미국 증시가 인공지능(AI) 관련 대형 기술주의 매도세와 중동 지정학적 긴장 고조의 영향을 받아 일제히 하락했다.",
-        "국제유가는 미국의 대이란 공습 확대에 따른 원유 공급 차질 우려로 급등하며 금융시장 변동성을 키웠다.",
-        "18일(현지시간) AP통신에 따르면 뉴욕증권거래소에서 스탠더드앤드푸어스(S&P)500지수는 전장보다 76.08포인트(1.0%) 내린 7,457.69로 거래를 마쳤다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "AI 생태계 안착 시도...LG이노텍·삼성전기, 2분기 실적은?",
-      "source": "테크M",
-      "link": "https://www.techm.kr/news/articleView.html?idxno=153476",
-      "publishedAt": "Fri, 17 Jul 2026 22:30:00 GMT",
-      "date": "2026-07-18",
-      "category": "biz",
-      "bullets": [
-        "양사는 LG와 삼성 대표 정보기술(IT) 부품사다.",
-        "삼성전기는 적층세라믹캐패시터(MLCC)를 더했다.",
-        "양사는 카메라 모듈 등을 이용한 피지컬(물리) AI 진입도 모색하고 있다."
+        "국내 제약·바이오기업들이 인공지능(AI)을 활용한 신약 개발에 속도를 내고 있다.",
+        "자체 연구개발(R&D) 중심에서 벗어나 AI 전문기업 및 연구기관과 협력하는 '오픈이노베이션'이 확산하면서 신약 개발 방식에도 변화가 생기는 추세다.",
+        "18일 업계에 따르면 삼성바이오에피스와 SK바이오팜(326030), 디앤디파마텍(347850) 등은 최근 AI 기업과 잇달아 공동 연구개발 계약을 체결하며 차세대 신약 개발 경쟁에 뛰어들었다."
       ],
       "contentVerified": true
     },
@@ -157,16 +171,44 @@
       "contentVerified": true
     },
     {
-      "title": "中, AI 국제협력기구 출범…국제표준 주도권 경쟁 본격화",
-      "source": "매일일보",
-      "link": "https://www.m-i.kr/news/articleView.html?idxno=1392597",
-      "publishedAt": "Sat, 18 Jul 2026 04:22:52 GMT",
+      "title": "시진핑: 중국의 AI는 강한 말과 빠른 달리기와 같다",
+      "source": "VOI.id",
+      "link": "https://voi.id/kr/amp/585313",
+      "publishedAt": "Sat, 18 Jul 2026 10:07:10 GMT",
       "date": "2026-07-18",
-      "category": "tech",
+      "category": "policy",
       "bullets": [
-        "매일일보 = 이현민 기자 | 이란의 호르무즈 해협 봉쇄로 원유 수출에 차질이 빚어지는 가운데 주요 우회로로 활용돼 온 홍해 항로마저 위협받고 있다.",
-        "매일일보 = 정두현 기자 | 도널드 트럼프 미국 대통령이 미 해군력 강화를 언급하며 한국 기업과의 조선 협력 가능성을 공개적으로 거론했다.",
-        "매일일보 = 김현우 기자 | 3대 메가프로젝트(반도체·데이터센터·피지컬AI) 추진으로 국내 전력 수요가 폭증할 것으로 예상되면서 재생에너지가 주목받고 있다."
+        "중국 (중국) - 시진핑 (Xi Jinping) 중국 국가주석은 중국의 인공 지능 (AI) 발전을 기술 혁신에 의해 지원되지만 법률 규정에 의해 균형을 이루기 때문에 빠르고 강한 승마마와 같다고 비유했습니다.",
+        "\"중국은 AI 개발의 추세와 법률을 이해하고 법률, 정책 및 시스템, 적용 지침 및 관련 윤리 원칙을 계속 개선하고 있습니다.",
+        "시진핑은 2026년 세계 인공 지능 컨퍼런스(World Artificial Intelligence Conference, WAIC)와 글로벌 인공 지능 관리 고위급 회의 개막식에서 이같이 말했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "중국, 글로벌 AI 행동 계획 발표:",
+      "source": "Vietnam.vn",
+      "link": "https://www.vietnam.vn/ko/trung-quoc-cong-bo-ke-hoach-hanh-dong-ai-toan-cau",
+      "publishedAt": "Sat, 18 Jul 2026 07:40:29 GMT",
+      "date": "2026-07-18",
+      "category": "policy",
+      "bullets": [
+        "글로벌 차원에서 AI 협업을 위한 방향을 제시합니다.",
+        "아시아 1위 경제 대국인 중국의 인공지능(AI) 협력 및 발전 행동 계획은 국제 협력 증진, 디지털 격차 해소, 그리고 개방적이고 포용적이며 책임감 있는 글로벌 AI 거버넌스 메커니즘 구축에 대한 의지를 재확인합니다.",
+        "이 문서는 중국 국가발전개혁위원회(NDRC)와 여러 정부 기관이 상하이에서 열린 2026 세계 인공지능 회의(WAIC) 및 글로벌 인공지능 거버넌스 서밋 개막을 맞아 발표했습니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "인도네시아, AI 규제 담은 저작권법 개정 추진...구글 \"혁신 저해\" 반발",
+      "source": "YTN",
+      "link": "https://www.ytn.co.kr/_ln/0104_202607181419567641",
+      "publishedAt": "Sat, 18 Jul 2026 05:19:00 GMT",
+      "date": "2026-07-18",
+      "category": "policy",
+      "bullets": [
+        "인도네시아가 저작권법을 개정해 인공지능(AI)을 활용한 콘텐츠를 일부 규제하는 방안을 추진하자 구글이 반발하고 나섰습니다.",
+        "로이터통신에 따르면, 인도네시아 국회는 현재 AI와 관련한 규제 내용이 담긴 저작권법 개정을 준비하고 있습니다.",
+        "저작권법 개정안에는 AI가 창작자의 독특한 표현 방식을 모방하지 못하게 하고, 콘텐츠 제작에 AI를 사용한 경우 이를 의무적으로 표시하게 하는 규정이 포함됐습니다."
       ],
       "contentVerified": true
     },
@@ -183,23 +225,51 @@
         "이제는 호주에서 AI가 어떤 모습일지 결정해야 할 때”라면서 이같이 발표했다."
       ],
       "contentVerified": true
-    },
-    {
-      "title": "전 백악관 AI 총괄 \"미국 과도한 AI 규제, 중국에 주도권 내주는 길\"",
-      "source": "블록미디어",
-      "link": "https://www.blockmedia.co.kr/archives/1118123",
-      "publishedAt": "Fri, 17 Jul 2026 18:28:00 GMT",
-      "date": "2026-07-18",
-      "category": "policy",
-      "bullets": [
-        "Kimi K3가 주요 코딩 성능 벤치마크에서 1위를 차지한 가운데, 미국이 데이터센터 건설 제한과 AI 모델 사전 승인 등 규제를 강화하면 중국과의 AI 경쟁에서 뒤처질 수 있다고 경고했다.",
-        "그는 “이 상황은 우려스럽다”고 평가하며 중국 AI 기술이 빠르게 미국을 추격하고 있다고 지적했다.",
-        "코인게이프에 따르면 Kimi K3는 총 2조8000억개의 파라미터를 기반으로 개발됐으며 100만 토큰 컨텍스트 윈도우를 지원한다."
-      ],
-      "contentVerified": true
     }
   ],
   "weekly": [
+    {
+      "title": "사이냅소프트, 법제처 '생성형 AI 법령검색 시스템 구축' 참여",
+      "source": "디일렉",
+      "link": "https://www.thelec.kr/news/articleView.html?idxno=59696",
+      "publishedAt": "Thu, 16 Jul 2026 09:11:50 GMT",
+      "date": "2026-07-16",
+      "category": "genai",
+      "bullets": [
+        "도큐먼트 인공지능(AI) 기업 사이냅소프트가 법제처의 '생성형 AI 법령검색 시스템 구축'사업에 참여한다.",
+        "이 사업의 주관사는 코난테크놀로지이며 사이냅소프트 등 4개사가 컨소시엄을 구성해 수주했다.",
+        "내년 11월 완료 예정인 해당 사업은 기존 국가법령정보센터의 단어 유사도 매칭 방식과 수작업 데이터 구축의 한계를 극복하기 위해 추진하는 것이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "롯데면세점, 업계 첫 챗GPT 기반 쇼핑 서비스 도입... 생성형 AI 쇼핑 시대 연다",
+      "source": "일요주간",
+      "link": "https://www.ilyoweekly.co.kr/news/newsview.php?ncode=1065596717250479",
+      "publishedAt": "Thu, 16 Jul 2026 07:05:39 GMT",
+      "date": "2026-07-16",
+      "category": "genai",
+      "bullets": [
+        "롯데면세점이 국내 면세업계 최초로 생성형 인공지능(AI) 플랫폼 챗GPT 기반 쇼핑 서비스를 선보였다.",
+        "별도 앱 설치 없이 챗GPT에서 상품 검색과 추천, 특가 조회, 구매까지 가능한 대화형 쇼핑 환경을 구축했다.",
+        "16일 롯데면세점에 따르면 이번 서비스는 롯데그룹의 전사적 AI 전환 전략의 일환이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "생성형AI·이메일 정보유출 막는다...지란지교소프트 보안기술 정부 인증",
+      "source": "v.daum.net",
+      "link": "https://v.daum.net/v/20260716155352548",
+      "publishedAt": "Thu, 16 Jul 2026 06:53:52 GMT",
+      "date": "2026-07-16",
+      "category": "genai",
+      "bullets": [
+        "기업의 데이터가 외부로 새는 것을 방지하는 동시에 생성형 AI를 안전하게 활용할 수 있는 기술이 등장했다.",
+        "이를 통해 보안에 많은 예산을 투자하기 어려운 중소·중견기업도 안전하게 생성형AI를 활용해 업무 생산성을 높일 수 있게 될 전망이다.",
+        "이는 생성형 AI 이용 과정에서 개인정보나 기업 내부 정보가 외부 AI 서비스로 넘어가는 것을 PC 단계에서 차단하는 기술이다."
+      ],
+      "contentVerified": true
+    },
     {
       "title": "사이냅소프트, 법제처 '생성형 AI 법령검색 시스템 구축' 사업 컨소시엄 참여",
       "source": "파이낸스스코프",
@@ -215,44 +285,72 @@
       "contentVerified": true
     },
     {
-      "title": "\"포털, '검색창'보다 '뉴스룸' 역할 커진다\"···AI가 바꾸는 '검색 시장' |",
-      "source": "시사저널e",
-      "link": "https://www.sisajournal-e.com/news/articleViewAmp.html?idxno=422504",
-      "publishedAt": "Fri, 17 Jul 2026 00:19:51 GMT",
-      "date": "2026-07-17",
-      "category": "genai",
-      "bullets": [
-        "생성형 인공지능(AI)이 검색 시장을 빠르게 파고들면서 이용자들의 검색 습관도 달라지고 있다.",
-        "검색 목적에 따라 생성형 AI와 포털의 역할이 나뉘면서 업무와 학습은 AI로, 뉴스와 생활 정보는 포털로 이용 행태가 갈리는 흐름이 나타나고 있다.",
-        "17일 IT업계에 따르면 최근 검색 이용 행태가 키워드를 입력해 여러 문서를 직접 비교하는 방식에서 AI에 질문하고 정리된 답을 받는 방식으로 빠르게 바뀌고 있다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "파주시, ‘인공지능(AI) 콘텐츠 도시’ 조성 본격화",
-      "source": "v.daum.net",
-      "link": "https://v.daum.net/v/6JmcRQ8BlH?f=p",
-      "publishedAt": "Wed, 15 Jul 2026 02:31:10 GMT",
-      "date": "2026-07-15",
+      "title": "글로벌 AI 시장, 미·중 모델 고집 여전...한국 현주소는",
+      "source": "지디넷코리아",
+      "link": "https://zdnet.co.kr/view/?no=20260716083657",
+      "publishedAt": "Wed, 15 Jul 2026 23:56:37 GMT",
+      "date": "2026-07-16",
       "category": "biz",
       "bullets": [
-        "민선 9기 손배찬 파주시장의 핵심 공약인 인공지능(AI) 콘텐츠 도시 조성사업이 본격 추진된다.",
-        "파주시는 파주 출판도시를 AI 기반 콘텐츠 산업 거점으로 전환하기 위한 ‘AI 콘텐츠 도시 조성 기본계획 및 타당성 조사 용역’ 사업설명회를 열고 본격적인 사업 추진에 나섰다고 15일 밝혔다.",
-        "이번 용역은 출판 중심의 전통 산업 구조를 AI 기반 콘텐츠 산업으로 확장하기 위한 중장기 종합계획을 수립하는 데 목적이 있다."
+        "글로벌 개발자 시장에서 한국 인공지능(AI) 모델이 미국과 중국 모델에 비해 존재감을 보이지 못한 것으로 확인됐다.",
+        "16일 오픈라우터 수치에 따르면 실사용량 기준으로 집계된 모델 순위에서 한국 모델은 2025년 기준 상위권에 오르지 못한 것으로 나타났다.반면 중국 모델은 지난해 6월부터 사용량 부문에서 미국을 앞지른 것으로 집계됐다.",
+        "오픈라우터는 세계 AI 모델을 하나의 응용프로그램인터페이스(API)로 이용할 수 있게 연결하는 플랫폼이다."
       ],
       "contentVerified": true
     },
     {
-      "title": "정부, 550조 AI 데이터센터 투자 견인…'1인 1 AI 에이전트' 시대 연다",
-      "source": "대한민국 정책브리핑",
-      "link": "https://www.korea.kr/news/policyNewsView.do?newsId=148968284",
-      "publishedAt": "Thu, 16 Jul 2026 06:38:37 GMT",
+      "title": "기업들 AI 비용 줄이기…중국 모델 채택 확산",
+      "source": "mstoday.co.kr",
+      "link": "https://www.mstoday.co.kr/news/articleView.html?idxno=102119",
+      "publishedAt": "Thu, 16 Jul 2026 02:38:27 GMT",
+      "date": "2026-07-16",
+      "category": "biz",
+      "bullets": [
+        "[MS투데이] 생성형 인공지능(AI)이 기업 운영의 핵심 도구로 자리 잡으면서 성능뿐 아니라 운영 비용이 새로운 경쟁 요소로 떠오르고 있다.",
+        "고성능 AI 모델을 앞세운 미국 기업들이 시장을 주도해왔지만, 높은 이용료 부담이 커지면서 글로벌 기업들이 중국의 오픈웨이트(Open-weight) AI 모델로 눈을 돌리는 사례가 빠르게 늘고 있다.",
+        "업계에 따르면 최근 기업들은 오픈AI와 앤트로픽 등 미국의 폐쇄형 AI 모델 대신 딥시크(DeepSeek), 지푸(Zhipu), 큐원(Qwen) 등 중국 AI 모델을 업무에 적용하는 비중을 확대하고 있다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "루닛, 글로벌 8개社 '신약개발 AI 컨소시엄' 참여",
+      "source": "바이오스펙테이터",
+      "link": "https://www.biospectator.com/news/view/29319",
+      "publishedAt": "Thu, 16 Jul 2026 01:05:00 GMT",
       "date": "2026-07-16",
       "category": "tech",
       "bullets": [
-        "정부가 인공지능(AI) 데이터센터를 국가전략산업으로 육성하고 내년부터 '전 국민 1인 1 AI 에이전트' 시대를 연다.",
-        "과학기술정보통신부와 우주항공청은 16일 청와대에서 이같은 내용의 2026년 하반기 업무계획을 보고했다며 이같이 밝혔다.",
-        "우선 AI 데이터센터, 피지컬 AI, K-반도체에서 세계 최고 역량을 확보해 대한민국을 회복에서 대도약으로 전환하고 대체불가 대한민국을 실현한다."
+        "이 기사는 유료회원을 위한 BioS+ 기사입니다.",
+        "의료 인공지능(AI) 기업 루닛(Lunit)은 AI와 디지털 병리, 정밀진단 분야의 글로벌 기업 8개사가 참여하는 '신약개발 AI 컨소시엄'에 합류했다고 16일 밝혔다.",
+        "이번 컨소시엄은 글로벌 제약사가 환자 선별, 임상시험 운영, 동반진단(CDx) 개발 등 신약개발 전 과정에서의 AI 기반 병리분석과 바이오마커 개발역량을 강화하고, 신약개발을 가속화하기 위해 출범했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "AI 시대의 권리와 법제도, 국민과 함께 논의… '2026 지능정보사회 법제도 포럼' 개최",
+      "source": "로스쿨타임즈",
+      "link": "https://www.lawschooltimes.com/news/articleView.html?idxno=11699",
+      "publishedAt": "Thu, 16 Jul 2026 06:57:42 GMT",
+      "date": "2026-07-16",
+      "category": "policy",
+      "bullets": [
+        "한국지능정보사회진흥원(NIA)은 7월 23일 오후 1시 30분, 서울 포스트타워 명동 대회의실에서 ‘2026 지능정보사회 법제도 포럼 상반기 대국민 공개세미나’를 개최한다.",
+        "‘AI와 우리의 일상-삶·권리·기회의 변화와 법제도 과제’를 주제로 열리는 이번 포럼은 인공지능(AI) 확산에 따른 사회 변화와 국민의 권리 보장, 법·제도 개선 방향을 논의하기 위해 마련됐다.",
+        "개회식에 이어 김종철 방송미디어통신위원장이 ‘AI 기본사회와 국민주권 강화 방향’을 주제로 기조강연을 진행한다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "글로벌 AI헬스케어 시장 1조달러 돌파 전망… 韓, 데이터·규제 경쟁력 서둘러야",
+      "source": "IT조선",
+      "link": "https://it.chosun.com/news/articleViewAmp.html?idxno=2023092165914",
+      "publishedAt": "Thu, 16 Jul 2026 02:18:13 GMT",
+      "date": "2026-07-16",
+      "category": "policy",
+      "bullets": [
+        "인공지능(AI)이 의료영상 판독을 보조하는 단계를 넘어 신약 후보물질 발굴, 임상 의사결정, 환자 모니터링, 진료기록 작성과 보험 청구 등 의료산업 전반을 재편하고 있다.",
+        "특히 북미는 대규모 의료데이터와 기술기업 중심의 빠른 상용화를, 유럽은 데이터 공유와 위험 기반 규제를 앞세워 글로벌 헬스케어 AI 시장의 주도권을 확보하고 있다는 분석이 나온다.",
+        "헬스케어 AI 시장은 2025년 약 393억4000만달러에서 연평균 44.0% 성장해 2034년에는 1조332억7000만달러에 이를 것으로 전망된다."
       ],
       "contentVerified": true
     }
