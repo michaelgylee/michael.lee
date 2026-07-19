@@ -1,228 +1,228 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-07-18T22:09:51Z",
+  "generated_at": "2026-07-19T03:59:25Z",
   "daily": [
     {
-      "title": "사단법인 인공지능활용협회·KCN뉴스, AI 기반 교육·언론 협력 위한 업무협약 체결",
-      "source": "한국AI부동산신문",
-      "link": "https://www.kairnews.com/news/505418",
-      "publishedAt": "Sat, 18 Jul 2026 21:28:17 GMT",
+      "title": "“챗GPT 말 듣고 샀더니 원금 뽑았다”…AI 따라 주식 산 ‘개미들’, 정말 떼돈 벌까",
+      "source": "데일리25",
+      "link": "https://www.daily25news.com/news/articleView.html?idxno=5220",
+      "publishedAt": "Sun, 19 Jul 2026 03:42:58 GMT",
       "date": "2026-07-19",
       "category": "genai",
       "bullets": [
-        "이날 행사에는 사단법인 인공지능활용협회 관계자와 KCN뉴스 관계자, AI 전문가 및 교육 관계자 등이 참석한 가운데 진행됐다.",
-        "행사에서는 KCN뉴스 강경아 대표가 AI활용 전문위원으로 공식 위촉됐다.",
-        "양 기관은 인공지능 기술의 올바른 확산과 AI 활용 문화 조성을 위해 상호 협력하고, AI 시대에 필요한 교육 및 미디어 분야의 발전을 함께 추진하기로 뜻을 모았다."
+        "챗GPT와 같은 생성형 AI를 이용해 기업 정보를 분석하거나 투자 아이디어를 얻는 개인투자자가 빠르게 늘고 있다.",
+        "모델 출신 배우 변정수의 한마디가 투자자들의 귀를 번쩍 뜨이게 했다.",
+        "주식 전문가도 아닌 인공지능(AI)의 말을 듣고 종목을 샀는데, 꽤 짭짤한 수익을 올렸다는 이야기였다."
       ],
       "contentVerified": true
     },
     {
-      "title": "[AI기본법] ② 규제냐 성장판이냐…AI산업 첫 시험대",
-      "source": "연합뉴스",
-      "link": "https://www.yna.co.kr/amp/view/AKR20260717037800017",
-      "publishedAt": "Sat, 18 Jul 2026 21:03:14 GMT",
+      "title": "AI기본법 후속 개정안 21일 시행…공공조달·취약계층 지원 확대",
+      "source": "산경투데이",
+      "link": "https://www.sankyungtoday.com/news/articleView.html?idxno=62068",
+      "publishedAt": "Sun, 19 Jul 2026 01:54:12 GMT",
       "date": "2026-07-19",
       "category": "genai",
       "bullets": [
-        "AI 기본법 개정안 시행이 임박하면서 국내 인공지능(AI) 산업이 첫 제도 운용 시험대에 올랐다.",
-        "정부는 최소 1년 이상의 계도기간을 운영하며 세부 가이드라인을 마련할 계획이어서 AI 산업 경쟁력과 신뢰 확보를 함께 달성할 수 있는 제도 운용이 핵심 과제로 떠오르고 있다.",
-        "19일 국내 AI와 정보통신기술(ICT) 업계에 따르면 국내 최대 쟁점 중 하나는 생성형 AI를 어느 정도 활용했을 때 표시 의무가 발생하는지다."
+        "인공지능(AI) 제품과 서비스를 공공부문에서 우선 활용하고, 취약계층의 AI 이용 비용을 지원할 수 있도록 한 AI기본법 후속 개정안이 오는 21일부터 시행된다.",
+        "지난 1월 AI기본법이 전면 시행된 데 이어 공공 수요 창출과 인재 양성, 창업 지원 등 산업 진흥 정책이 추가되면서 국내 AI 제도가 규제와 지원을 함께 다루는 구조로 확대된다.",
+        "정부는 법 시행에 맞춰 AI 제품·서비스 확인제도와 공공조달 우대 기준, 생성형 AI 표시 방식 등 세부 운영 절차를 마련했다."
       ],
       "contentVerified": true
     },
     {
-      "title": "\"생성형 AI 보안 정교화\"…모니터랩, AI 보안 솔루션 고도화",
-      "source": "지디넷코리아",
-      "link": "https://zdnet.co.kr/view/?no=20260718202637",
-      "publishedAt": "Sat, 18 Jul 2026 11:26:37 GMT",
-      "date": "2026-07-18",
-      "category": "genai",
-      "bullets": [
-        "B2B 보안 서비스형 소프트웨어(SECaaS) 전문 기업 모니터랩(대표 이광후)가 생성형 AI 보안 솔루션 'GenAI 시큐리티' 제품 고도화에 나선다.",
-        "모니터랩은 'GenAI 시큐리티' 기능 고도화를 통해 부서·업무 특성에 맞는 세분화된 보안 정책을 지원하고, 통제 범위를 개발자 환경까지 확대해 솔루션 활용도를 높였다고 18일 밝혔다.",
-        "GenAI 시큐리티는 기업 내 생성형 AI 활용 과정에서 발생할 수 있는 프롬프트 인젝션, AI 오용, 민감정보 유출 등을 방지하는 솔루션이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "BMW, 자동차 판매 방식 바꾼다…챗GPT로 차량 구성·상담 서비스 제공",
-      "source": "인공지능신문",
-      "link": "https://www.aitimes.kr/news/articleView.html?idxno=41032",
-      "publishedAt": "Sat, 18 Jul 2026 11:10:36 GMT",
-      "date": "2026-07-18",
-      "category": "genai",
-      "bullets": [
-        "독일 자동차 제조사 BMW가 오픈AI(OpenAI)의 챗GPT(ChatGPT) 내에 차량 구성기(Vehicle Configurator)를 탑재하며 생성형 인공지능(AI) 기반 고객 경험 혁신에 나섰다.",
-        "사용자는 챗GPT와 자연스럽게 대화하는 것만으로 자신에게 적합한 BMW 차량을 추천받고 세부 옵션까지 구성할 수 있게 됐다.",
-        "BMW는 17일(현지시간) 챗GPT 플러그인 형태의 새로운 BMW 차량 구성 서비스를 공개했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "[뉴욕증시-주간전망] AI 투자 시험대 오른 시장…알파벳·중동 갈등 주목",
-      "source": "매일경제 마켓",
-      "link": "https://stock.mk.co.kr/news/view/1123081",
-      "publishedAt": "Sat, 18 Jul 2026 22:00:00 GMT",
-      "date": "2026-07-19",
-      "category": "biz",
-      "bullets": [
-        "이번 주(7월 20일~24일, 이하 미 동부시간) 뉴욕증시는 구글 모회사인 알파벳의 실적 발표가 좌우할 전망이다.",
-        "미국과 이란의 갈등 전개도 증시 향방을 좌우할 핵심 변수로 꼽힌다.",
-        "반도체와 인공지능(AI) 종목으로 묶인 필라델피아 반도체 지수는 지난주에만 9.97% 급락했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "AI 플랫폼 주간 사용량 1~5위 中 싹쓸이…美 고가 AI 흔든다",
-      "source": "뉴시스",
-      "link": "https://www.newsis.com/view/NISX20260719_0003713825",
-      "publishedAt": "Sat, 18 Jul 2026 21:00:00 GMT",
-      "date": "2026-07-19",
-      "category": "biz",
-      "bullets": [
-        "[서울=뉴시스]박영환 기자 = ‘가장 똑똑한 인공지능(AI)을 만들면 시장도 차지한다’는 공식이 흔들리고 있다.",
-        "기업들이 비싼 미국산 최상위 모델 대신 값싸고 직접 고쳐 쓸 수 있는 중국산 개방형 모델로 이동하면서다.",
-        "AI 모델 중개 플랫폼 오픈라우터에서는 주간 사용량 상위 5개를 중국 모델이 모두 차지했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "[AI 인사이드] AI 기업들의 유럽 시장 채권 발행 증가…이점과 위험성은?",
-      "source": "위키리크스한국",
-      "link": "https://www.wikileaks-kr.org/news/articleView.html?idxno=189777",
-      "publishedAt": "Sat, 18 Jul 2026 20:57:47 GMT",
-      "date": "2026-07-19",
-      "category": "biz",
-      "bullets": [
-        "빅테크 기업들이 역대 최대 규모의 채권 발행을 앞세우고 유럽 채권 시장에 진입하면서, 우량 회사채 투자 지형을 바꾸어 놓고 있다고 투자 전문 매체 모닝스타가 보도했다.",
-        "알파벳과 아마존은 대규모 AI 인프라 프로젝트를 위한 자금 조달처를 다변화하려는 노력의 일환으로, 올해 유럽에서 대규모 채권을 발행했다.",
-        "미국의 자산운용사 누버거 버먼(Neuberger Berman)의 트레이더인 쉬리나 다사니는 “이러한 거래들 덕분에 시장 구성이 크게 변했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "AI 2단계 진입에 쪼개지는 시장… 내 포트폴리오 생존 전략은",
-      "source": "글로벌이코노믹",
-      "link": "https://www.g-enews.com/article/Global-Biz/2026/07/20260718172053178fbbec65dfb_1",
-      "publishedAt": "Sat, 18 Jul 2026 19:15:00 GMT",
-      "date": "2026-07-19",
-      "category": "biz",
-      "bullets": [
-        "인공지능과 고금리 여파로 글로벌 투자 지형이 급변하면서 과거처럼 시장 전체가 일제히 오르는 시대는 끝났다.",
-        "투자자는 자산 배분을 다변화해야 자산을 지킬 수 있다.",
-        "투자자는 기술 응용 기업을 선별하는 신중한 전략을 짜야 한다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "[IT타임스 주간브리핑] AI 검색·신약개발·휴머노이드…산업 전반으로 번진 AI 혁신",
-      "source": "IT타임스",
-      "link": "https://www.ittimes.com/news/articleView.html?idxno=85920",
-      "publishedAt": "Sat, 18 Jul 2026 15:40:03 GMT",
-      "date": "2026-07-19",
-      "category": "tech",
-      "bullets": [
-        "인공지능(AI)이 검색 서비스를 넘어 신약 개발과 모빌리티, 휴머노이드 로봇, 블록체인까지 산업 전반으로 빠르게 확산되며 기업 경쟁의 기준을 바꾸고 있다.",
-        "7월 셋째 주 국내외 IT 업계는 AI를 핵심 성장 전략으로 앞세워 플랫폼과 제조, 바이오, 모빌리티 분야에서 기술 고도화와 서비스 혁신에 속도를 냈다.",
-        "AI는 새로운 기능을 추가하는 수준을 넘어 사업 모델과 연구개발(R&D), 서비스 경쟁력을 좌우하는 핵심 인프라로 자리 잡는 모습이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "AI 기업과 손잡는 K-바이오…신약개발 패러다임 바뀐다",
+      "title": "\"제미나이 할인해드려요…통신3사, AI 필수재 시대 유치전 |",
       "source": "경제투데이",
-      "link": "http://www.e-today.kr/news/articleViewAmp.html?idxno=912501",
-      "publishedAt": "Sat, 18 Jul 2026 11:47:26 GMT",
-      "date": "2026-07-18",
-      "category": "tech",
+      "link": "http://www.e-today.kr/news/articleViewAmp.html?idxno=912517",
+      "publishedAt": "Sun, 19 Jul 2026 01:40:32 GMT",
+      "date": "2026-07-19",
+      "category": "genai",
       "bullets": [
-        "국내 제약·바이오기업들이 인공지능(AI)을 활용한 신약 개발에 속도를 내고 있다.",
-        "자체 연구개발(R&D) 중심에서 벗어나 AI 전문기업 및 연구기관과 협력하는 '오픈이노베이션'이 확산하면서 신약 개발 방식에도 변화가 생기는 추세다.",
-        "18일 업계에 따르면 삼성바이오에피스와 SK바이오팜(326030), 디앤디파마텍(347850) 등은 최근 AI 기업과 잇달아 공동 연구개발 계약을 체결하며 차세대 신약 개발 경쟁에 뛰어들었다."
+        "상품은 △구글 AI 프로 △구글 AI 플러스(2TB) △구글 AI 플러스(400GB) 등 3종이다.",
+        "'베스트 프로(Pro)'와 '베스트 맥스(Max)' 요금제 가입자는 구글 AI 플랜과 함께 유튜브 프리미엄, 넷플릭스, 디즈니+, 티빙, 웨이브 가운데 하나를 선택해 이용할 수 있다.",
+        "베스트 프로는 월 11만9000원, 베스트 맥스는 월 12만9000원이며, 선택약정 할인 적용 시 베스트 맥스는 9만원대에 이용할 수 있다."
       ],
       "contentVerified": true
     },
     {
-      "title": "中 정부, AI 국제협력 행동계획 전격 발표…오픈소스·컴퓨팅·거버넌스로 글로벌 AI 질서 주도 나선다",
-      "source": "인공지능신문",
-      "link": "https://www.aitimes.kr/news/articleView.html?idxno=41031",
-      "publishedAt": "Sat, 18 Jul 2026 10:14:10 GMT",
-      "date": "2026-07-18",
-      "category": "tech",
+      "title": "30개 구단 중 ⅓이 썼다… MLB 흔든 ‘AI’가 한국선 발 못 붙이는 이유",
+      "source": "일간스포츠",
+      "link": "https://isplus.com/article/view/isp202607190029",
+      "publishedAt": "Sun, 19 Jul 2026 01:34:00 GMT",
+      "date": "2026-07-19",
+      "category": "genai",
       "bullets": [
-        "중국이 인공지능(AI) 시대 글로벌 협력 질서 구축을 위한 종합 행동계획을 공식 발표했다.",
-        "이번 계획은 단순한 기술 협력 선언이 아니라 데이터와 컴퓨팅 인프라, 오픈소스 생태계, 국제 표준, AI 안전과 윤리, 글로벌 거버넌스까지 포괄하는 중국의 중장기 전략 청사진이라는 점에서 주목받고 있다.",
-        "특히 이번 계획은 같은 날 시진핑 국가주석이 WAIC 기조연설에서 강조한 '오픈소스 AI'와 '국제 협력', 그리고 최근 공개된 문샷AI(Moonshot AI)의 초거대 오픈모델 '키미 K3(Kimi K3)'와도 맞물린다."
+        "생성형 인공지능(AI)의 영향력이 더그아웃까지 번졌다.",
+        "AP통신에 따르면 뉴욕 메츠가 경기 중 AI 프로그램을 활용해 전략을 수립했다는 의혹이 제기됐다.",
+        "전 메츠 불펜 투수 애덤 오타비노는 자신의 유튜브 방송을 통해 구단주 스티브 코언이 거액을 투자해 AI 프로그램을 개발했으며, 메츠가 이 프로그램을 활용해 투수들의 구종 선택과 여러 전략적 판단에 도움을 받았다고 주장했다."
       ],
       "contentVerified": true
     },
     {
-      "title": "시진핑 “AI는 국제 협력의 교향곡”… 29개국, ‘세계AI협력기구’ 창설 협정 서명",
-      "source": "플래텀(Platum)",
-      "link": "https://platum.kr/archives/291047",
-      "publishedAt": "Sat, 18 Jul 2026 08:41:25 GMT",
-      "date": "2026-07-18",
+      "title": "중국의 인공지능(AI) 기술 혁신으로 인해 기술주가 압력을 받으면서 미국 증시가 급락했다.",
+      "source": "Vietnam.vn",
+      "link": "https://www.vietnam.vn/ko/chung-khoan-my-lao-doc-khi-co-phieu-cong-nghe-chiu-ap-luc-tu-dot-pha-ai-cua-trung-quoc",
+      "publishedAt": "Sun, 19 Jul 2026 03:06:02 GMT",
+      "date": "2026-07-19",
+      "category": "biz",
+      "bullets": [
+        "미국과 아시아 증시는 중국 AI 스타트업 문샷 AI가 키미 K3 모델을 출시한 후 주말에 급락했습니다.",
+        "이 모델은 인공지능 투자 경쟁이 더욱 치열해지는 국면에 접어들어 기술 및 반도체 관련 주식에 압력을 가할 수 있다는 우려를 제기합니다.",
+        "7월 17일 미국 증시는 투자자들이 기술주를 대량 매도하면서 하락 마감했습니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "KOSA, 한·일 SW 기업 교류 확대…\"13개사 협력 모색\"",
+      "source": "지디넷코리아",
+      "link": "https://zdnet.co.kr/view/?no=20260719115912",
+      "publishedAt": "Sun, 19 Jul 2026 02:59:12 GMT",
+      "date": "2026-07-19",
+      "category": "biz",
+      "bullets": [
+        "한국인공지능·소프트웨어산업협회(KOSA)가 국내 인공지능(AI)·소프트웨어 기업의 일본 시장 진출을 지원하기 위해 협력 네트워크를 확대했다.",
+        "KOSA는 지난 16일 서울 송파구 IT벤처타워에서 일본정보기술거래소(JIET)와 '한·일 AI·SW 기업 교류회'를 공동 개최했다고 19일 밝혔다.",
+        "이번 행사에는 일본 진출을 준비하거나 현지 사업을 시작한 국내 기업 7곳과 일본 기업 6곳이 참여했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "또 하나의 딥시크 모먼트?…中 키미 쇼크에 \"AI 판도 다시 흔들\"",
+      "source": "뉴스1",
+      "link": "https://www.news1.kr/amp/world/international-economy/6231926",
+      "publishedAt": "Sun, 19 Jul 2026 02:09:33 GMT",
+      "date": "2026-07-19",
+      "category": "biz",
+      "bullets": [
+        "17일 중국 상하이에서 열린 세계인공지능대회(WAIC)에서 관람객들이 중국 인공지능(AI) 스타트업 문샷AI(Moonshot AI)의 '키미(Kimi)' 전시 부스를 둘러보고 있다.",
+        "중국 인공지능(AI) 스타트업 문샷AI(Moonshot AI)가 공개한 최신 AI 모델 '키미 K3'가 뉴욕 증시를 뒤흔들면서 주요 외신들은 '제2의 딥시크(DeepSeek)' 가능성에 주목했다.",
+        "지난해 중국 딥시크가 저비용 고성능 AI 모델을 내놓으며 미국 AI 기업들의 독주에 균열을 냈다면, 이번에는 키미 K3가 미국 최고 수준의 AI 모델과 맞먹는 성능을 앞세워 AI 경쟁 구도를 다시 흔들고 있다는 평가다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "KOSA, 일본정보기술거래소와 '한·일 AI·SW 기업 교류회' 개최",
+      "source": "전자신문",
+      "link": "https://www.etnews.com/20260719000038",
+      "publishedAt": "Sun, 19 Jul 2026 01:28:07 GMT",
+      "date": "2026-07-19",
+      "category": "biz",
+      "bullets": [
+        "KOSA는 JIET와 '한·일 AI·SW 기업 교류회'를 개최했다.",
+        "한국인공지능(AI)·소프트웨어(SW)산업협회(KOSA641)는 지난 16일 서울 송파구 IT벤처타워에서 일본정보기술거래소(JIET)와 공동으로 '한-일 AI·SW 기업 교류회'를 개최했다고 19일 밝혔다.",
+        "일본은 지리적 인접성과 시장 규모 면에서 국내 AI·SW 기업들의 선호도가 높은 핵심 진출국 중 하나다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "진도군, ‘AI 디저트 교육’ 창업 성과로 이어졌다",
+      "source": "스포츠동아",
+      "link": "https://sports.donga.com/region/article/all/20260719/134321509/1",
+      "publishedAt": "Sun, 19 Jul 2026 03:33:28 GMT",
+      "date": "2026-07-19",
       "category": "tech",
       "bullets": [
-        "개막 전날인 16일에는 중국을 포함한 29개국이 상하이에 본부를 두는 세계인공지능협력기구(WAICO) 창설 협정에 서명했다.",
-        "신화통신·중국국제방송(CRI) 등에 따르면 시 주석은 AI 기술 혁신이 거대한 기회와 거버넌스 과제를 동시에 안겼다고 진단하며, 사람 중심의 진보와 ‘선(善)을 지향하는’ 이념을 견지해 각국이 협력해야 한다고 강조했다.",
-        "WAIC는 중국이 2018년부터 매년 상하이에서 여는 대표 AI 행사로, 외신들은 시 주석이 개막식에 직접 참석한 것은 이번이 처음이라고 전했다."
+        "진도군농업기술센터의 인공지능(AI) 활용 창업교육이 실제 창업과 사업화 성과로 이어졌다.",
+        "‘진도 골드바 1993’은 진도 특산물인 울금과 쌀을 활용한 디저트 제품으로, AI 기술을 접목한 상품 기획과 개발 과정을 거쳐 시장성과 성장 가능성을 인정받았다.",
+        "확보한 사업비는 제품 고도화와 포장 디자인 개선, 홍보, 판로 확대 등에 활용될 예정이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "중국이 인공지능(AI) 분야에서 미국을 추월한 것일까요?",
+      "source": "Vietnam.vn",
+      "link": "https://www.vietnam.vn/ko/trung-quoc-vua-xoa-so-vi-tri-dan-dau-cua-my-trong-linh-vuc-tri-tue-nhan-tao-ai",
+      "publishedAt": "Sun, 19 Jul 2026 03:31:05 GMT",
+      "date": "2026-07-19",
+      "category": "tech",
+      "bullets": [
+        "중국 기업 문샷 AI가 개발한 새로운 인공지능(AI) 모델 '키미 K3'가 전 세계 AI 경쟁 구도를 뒤흔들고 있습니다.",
+        "이 모델은 성능이 미국의 주요 모델들과 동등하거나 심지어 능가하는 것으로 평가받고 있지만, 가격은 훨씬 저렴합니다.",
+        "악시오스(Axios)에 따르면, 이러한 발전은 중국이 인공지능 분야에서 미국과의 격차를 좁히거나 심지어 앞지를 수 있다는 우려를 낳고 있습니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "\"바다엔 무인함정, 땅엔 AI 로봇…마음AI, 'K-팔란티어' 한 축 될 것\"",
+      "source": "네이트",
+      "link": "https://news.nate.com/view/20260719n06662",
+      "publishedAt": "Sun, 19 Jul 2026 03:25:00 GMT",
+      "date": "2026-07-19",
+      "category": "tech",
+      "bullets": [
+        "기사 제목과 본문 내용을 자동 요약한 내용입니다.",
+        "전체 내용을 이해하기 위해서는 기사 본문 전체를 확인하는 것이 더 좋습니다.",
+        "“해상 유무인 복합체계와 사족보행 로봇 ‘해치’가 마음AI 국방 사업의 핵심입니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "경과원, AI 스타트업-대·중견기업 오픈이노베이션 추진…기술 실증·투자 연계 지원",
+      "source": "비욘드포스트",
+      "link": "https://www.beyondpost.co.kr/view.php?ud=2026071911362844474c878f8fa1_30",
+      "publishedAt": "Sun, 19 Jul 2026 03:00:20 GMT",
+      "date": "2026-07-19",
+      "category": "tech",
+      "bullets": [
+        "경기=비욘드포스트 송인호 기자 경기도와 경기도경제과학진흥원(경과원)이 도내 인공지능(AI) 스타트업의 기술 실증과 사업화를 지원하기 위해 대·중견기업과 협업하는 오픈이노베이션 프로그램을 본격 추진한다.",
+        "경과원은 오는 31일까지 '2026년 AI 클러스터 오픈이노베이션 연계·실증 프로그램'에 참여할 AI 스타트업을 모집한다고 19일 밝혔다.",
+        "이번 사업은 우수한 AI 기술을 보유한 도내 스타트업과 국내 대·중견기업을 연결해 공동 기술개발과 기술검증(PoC), 투자 연계까지 지원하는 프로그램이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "美, AI 규제 상설 독립기구 만든다",
+      "source": "지디넷코리아",
+      "link": "https://zdnet.co.kr/view/?no=20260719105523",
+      "publishedAt": "Sun, 19 Jul 2026 02:46:40 GMT",
+      "date": "2026-07-19",
+      "category": "policy",
+      "bullets": [
+        "미국 정부가 인공지능(AI) 안전성 규제를 상설 독립기구 체제로 재편하는 방안을 검토한다.",
+        "18일(현지시간) 블룸버그통신에 따르면 스콧 베선트 미국 재무장관이 초안 마련에 관여한 이 방안은 증권거래위원회(SEC)에 보고하는 독립 규제기구를 신설하는 내용이 핵심이다.",
+        "미국 금융산업규제기구(FINRA)를 본뜬 구조로 현재 수지 와일스 백악관 비서실장이 검토하고 있다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "AI기본법 개정안 21일 시행…AI 규율 강화",
+      "source": "한스경제",
+      "link": "https://www.hansbiz.co.kr/news/articleView.html?idxno=850979",
+      "publishedAt": "Sun, 19 Jul 2026 00:09:23 GMT",
+      "date": "2026-07-19",
+      "category": "policy",
+      "bullets": [
+        "| 서울=한스경제 이현정 기자 |21일부터 인공지능(AI)기본법 후속 개정안이 시행되면서 국내 인공지능(AI) 법·제도 체계가 한층 구체화된다.",
+        "19일 업계에 따르면 정부는 지난 1월 AI기본법 시행 이후 시행령과 고시, 가이드라인을 정비해 왔고, 이번 개정안 시행을 통해 공공조달과 산업 육성, 신뢰 기반 조성을 위한 후속 제도를 본격 가동한다.",
+        "AI기본법은 국가 AI 거버넌스 체계 구축과 AI 산업 육성, 신뢰·안전 기반 조성 등을 3축으로 한다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "EU 고용법 대개편과 한국 인력사무소의 대응 과제: AI 규제·급여 투명성·플렉시-잡 전면 시행",
+      "source": "한국AI부동산신문",
+      "link": "https://www.kairnews.com/news/505422",
+      "publishedAt": "Sat, 18 Jul 2026 22:10:45 GMT",
+      "date": "2026-07-19",
+      "category": "policy",
+      "bullets": [
+        "2026년 7월 현재 유럽연합(EU)의 연쇄적 고용법 변화가 한국 인력사무소의 비즈니스 모델과 일상 운영에 즉각적인 파장을 미치고 있다.",
+        "여기에 더해 EU 충분한 최저 임금 지침(Adequate Minimum Wages Directive, 2022/2041)도 공정 임금 기준 강화라는 방향에서 동일한 흐름을 형성하고 있다.",
+        "이들 변화는 채용·근로계약·임금 공시·연금 처리 방식 전반에 걸쳐 즉시 적용 가능한 새로운 기준을 만들어내고 있다."
       ],
       "contentVerified": true
     },
     {
       "title": "EU 고용법 전면 개편과 한국 인력사무소의 대응 전략",
-      "source": "한국공공정책신문",
-      "link": "http://knpp.co.kr/news/523128",
-      "publishedAt": "Sat, 18 Jul 2026 22:01:41 GMT",
+      "source": "한국AI부동산신문",
+      "link": "https://www.kairnews.com/news/505421",
+      "publishedAt": "Sat, 18 Jul 2026 22:02:27 GMT",
       "date": "2026-07-19",
       "category": "policy",
       "bullets": [
         "2026년 8월까지 유럽연합(EU)의 인공지능법(AI Act)이 고용 영역에 전면 적용된다.",
         "채용 과정의 자동화 수준을 낮추거나 추가적인 거버넌스와 감사를 도입해야 하는 구조적 압박이 현실화된 것이다.",
         "한국 인력사무소는 유럽 진출과 유럽 의뢰기업 대상 서비스 구조를 지금 당장 재설계해야 하는 상황에 놓였다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "[Pocus 분석 기획 | 디지털 인격권] 1화: 출시 사흘 만에 중단된 메타 AI, 동의 없는 얼굴 도용의 전말",
-      "source": "유스연합",
-      "link": "https://www.youthassembly.kr/news/974681",
-      "publishedAt": "Sat, 18 Jul 2026 20:40:34 GMT",
-      "date": "2026-07-19",
-      "category": "policy",
-      "bullets": [
-        "소셜 미디어 프로필에서 사용자의 셀카를 낚아채는 AI 로봇 팔을 그린 팝아트 풍자로, 명시적 동의 없는 조용한 데이터 채굴의 숨겨진 위험성과 디지털 인격권 침해를 보여준다.",
-        "이달 7일 메타(Meta)가 특정 이용자의 인스타그램 공개 사진을 AI 이미지 생성에 연동하는 'Muse Image' 기능을 출시했다.",
-        "하지만 거센 비판 속에 사흘 만인 이달 10일 전격 철회했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "中 주도 AI 연합 ‘WAICO’ 출범… 글로벌 규제 경쟁의 신호탄",
-      "source": "글로벌이코노믹",
-      "link": "https://www.g-enews.com/article/Global-Biz/2026/07/2026071819552146752bd56fbc3c_1",
-      "publishedAt": "Sat, 18 Jul 2026 19:20:00 GMT",
-      "date": "2026-07-19",
-      "category": "policy",
-      "bullets": [
-        "인공지능 기술 패권을 둘러싼 글로벌 경쟁이 새로운 국면으로 접어들었다.",
-        "인공지능 규제와 표준 설정이라는 국제 질서의 주도권을 선점하기 위한 움직임이 구체화되면서, 기술 시장의 불확실성이 커지는 상황이다.",
-        "알자지라(Al Jazeera)가 7월 17일(현지시각) 보도한 내용에 따르면, 시진핑 중국 국가주석은 상하이에서 열린 세계인공지능대회(WAIC)에 참석해 세계인공지능협력기구(WAICO)의 출범을 공식화했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "‘로마 선언’ 서명, 핵무기와 인공지능(AI)에 관한 공동의 노력",
-      "source": "Vatican News",
-      "link": "https://www.vaticannews.va/ko/vatican-city/news/2026-07/vaticano-firma-roma.html",
-      "publishedAt": "Sat, 18 Jul 2026 19:05:18 GMT",
-      "date": "2026-07-19",
-      "category": "policy",
-      "bullets": [
-        "노벨상 수상자들과 국제적 명성의 전문가 및 과학자, 종교 지도자들, 그리고 전직 국가원수와 정부수반들이 7월 16일 로마 캄피돌리오에서 「로마 선언」에 서명했다.",
-        "이날 행사는 ‘보르고 라우다토 시(Borgo Laudato si')’에서 개치된 국제회의 폐막을 장식하는 자리였다.",
-        "선언은 핵군축, 신기술의 책임 있는 활용과 발전, 그리고 \"무장하지 않은 평화, 무장을 해제시키는 평화(una pace disarmata e disarmante)\"를 추구하겠다는 약속을 핵심 원칙으로 담고 있다."
       ],
       "contentVerified": true
     }
@@ -299,20 +299,6 @@
       "contentVerified": true
     },
     {
-      "title": "안양시, ‘인공지능(AI) 정책 자문단’ 출범",
-      "source": "경기헤럴드",
-      "link": "https://www.ggherald.com/default/index_view_page.php?part_idx=&idx=78516",
-      "publishedAt": "Thu, 16 Jul 2026 21:18:51 GMT",
-      "date": "2026-07-17",
-      "category": "biz",
-      "bullets": [
-        "안양시(시장 최대호)는 시정 전반에 인공지능(AI) 기술을 접목하기 위한 '인공지능(AI) 정책 자문단'을 구성해 본격적인 활동에 나선다고 밝혔다.",
-        "안양시는 7월 16일 스마트도시통합센터에서 최대호 안양시장과 이계삼 부시장(자문단 위원장) 등 위원 14명이 참석한 가운데 ‘안양시 인공지능 정책 자문단 위촉식 및 제1차 회의’를 개최했다.",
-        "자문단은 공공 기관·관련 기관 관계자, 대학교수뿐만 아니라 실제 산업 현장에서 인공지능(AI) 관련 기업을 이끄는 대표 등 전문가 20명으로, 위원 임기는 2년이며 1회 연임이 가능하다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "맵시, AI 기반 극지 해양기술 개발 본격화…북극항로 시대 'Ocean AI Foundry' 구축 나서",
       "source": "해사신문",
       "link": "http://www.haesanews.com/news/articleView.html?idxno=149373",
@@ -323,34 +309,6 @@
         "해양 AI·디지털 트윈 전문기업 ㈜맵시(Mapsea)가 경상북도와 포항시, 포항공과대학교(POSTECH), KT, KT SAT와 함께 북극항로 시대를 겨냥한 해양 인공지능(AI) 플랫폼 구축에 나선다.",
         "맵시는 지난 15일 포스텍 체인지업그라운드에서 경상북도, 포항시, POSTECH, KT, KT SAT와 'AI 기반 극지해양기술 개발 및 산업생태계 조성을 위한 업무협약(MOU)'을 체결했다고 밝혔다.",
         "협약식에는 양금희 경북도 경제부지사와 박용선 포항시장, 김성근 POSTECH 총장 등 주요 기관 관계자들이 참석했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "엔비디아, 도요타와 피지컬 AI 기술 협력",
-      "source": "연합인포맥스",
-      "link": "https://news.einfomax.co.kr/news/articleView.html?idxno=4425338",
-      "publishedAt": "Thu, 16 Jul 2026 01:58:14 GMT",
-      "date": "2026-07-16",
-      "category": "tech",
-      "bullets": [
-        "엔비디아는 일본 시즈오카현에서 시범 운영 중인 도요타의 스마트 시티인 워븐 시티(woven city)와 협력해 일본 내 인공지능(AI) 확산을 가속화하기 위한 기반 기술을 제공할 예정이다.",
-        "16일 닛케이아시아에 따르면 엔비디아는 이날 피지컬 AI 분야에서 일본 기업과의 협력을 확대한다고 발표했다.",
-        "엔비디아는 도요타의 첨단 기술 개발 자회사인 워븐 바이 도요타에 그래픽 처리 장치(GPU)를 공급할 예정이며, 엔비디아의 기술은 워븐 시티의 교통 관리 시스템에 활용될 예정이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "앤트로픽 CEO, ‘AI 규제’ 슈퍼팩에 거액 기부",
-      "source": "서울신문",
-      "link": "https://www.seoul.co.kr/news/international/economy-global/2026/07/17/20260717500023",
-      "publishedAt": "Fri, 17 Jul 2026 00:29:06 GMT",
-      "date": "2026-07-17",
-      "category": "policy",
-      "bullets": [
-        "생성형 인공지능(AI) ‘클로드’를 개발한 미국 앤트로픽의 최고경영자(CEO)와 직원들이 중간 선거를 앞두고 AI 규제를 지지하는 슈퍼팩(특별정치활동위원회)에 거액을 기부한 것으로 나타났다.",
-        "15일(현지시간) 미국 연방선거위원회(FEC)에 제출된 2분기(4∼6월) 보고서에 따르면 다리오 아모데이 앤트로픽 CEO는 지난 5월 4일 슈퍼팩 ‘퍼블릭퍼스트’에 100만 달러(약 15억원)를 기부했다.",
-        "퍼블릭 퍼스트는 AI 모델 투명성 강화와 연방 차원의 강력한 규제를 주장하는 후보들을 지지하는 슈퍼팩으로, 아모데이 CEO의 올해 첫 선거 기부금이기도 하다."
       ],
       "contentVerified": true
     }
