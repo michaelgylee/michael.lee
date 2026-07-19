@@ -1,18 +1,32 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-07-19T08:36:53Z",
+  "generated_at": "2026-07-19T10:46:06Z",
   "daily": [
     {
-      "title": "[비즈니스 인사이트] AI 시대 신기루 '생산성 패러독스 2.0'을 돌파하라",
-      "source": "한국경제",
-      "link": "https://www.hankyung.com/article/2026071927551",
-      "publishedAt": "Sun, 19 Jul 2026 08:15:11 GMT",
+      "title": "목적에 따라 AI 골라쓰는 잘파세대, 독서·소비 일상을 바꾼다",
+      "source": "국제신문",
+      "link": "https://www.kookje.co.kr/news2011/asp/newsbody.asp?code=0200&key=20260720.22014005196",
+      "publishedAt": "Sun, 19 Jul 2026 10:03:00 GMT",
       "date": "2026-07-19",
       "category": "genai",
       "bullets": [
-        "생성형 인공지능(AI) 등장 이후 기업은 천문학적 자금을 기술 인프라에 쏟았다.",
-        "많은 이가 업무 효율성이 뛰어올랐다고 체감한다.",
-        "막대한 투자에도 국가와 기업의 노동생산성 증가율은 지루한 정체 상태다."
+        "‘디지털 네이티브’인 잘파(Zalpha) 세대가 이전 세대인 MZ와 확연히 다른 행동·소비 패턴을 보인다는 분석이 나왔다.",
+        "잘파 세대는 AI를 도구가 아닌 운영체제(OS, Operating System)로 활용했고 수동적 소비에서 능동적 제작 주체로 급부상했다는 것이다.",
+        "또한 잘파 세대는 텍스트·영상·오프라인 경험을 자유롭게 넘나드는 ‘완전한 디지털 네이티브이자 적극적인 크리에이터 세대’로 표현된다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "클로드, 챗GPT 꺾고 韓점유율 절반 넘었다",
+      "source": "한국경제",
+      "link": "https://www.hankyung.com/article/2026071929161",
+      "publishedAt": "Sun, 19 Jul 2026 09:07:00 GMT",
+      "date": "2026-07-19",
+      "category": "genai",
+      "bullets": [
+        "Google 검색에서 한국경제 기사를 더 자주 볼 수 있습니다.",
+        "국내 생성형 AI 시장이 기업용 중심으로 재편됨에 따라, 앤트로픽의 클로드가 고단가 법인 수요를 흡수하며 올해 2분기 결제액 기준 점유율 53.3%를 기록해 챗GPT를 제치고 1위에 올랐습니다.",
+        "앤트로픽의 클로드가 국내 생성형 인공지능(AI) 시장에서 오픈AI의 챗GPT를 분기 결제액 기준으로 처음 앞질렀다."
       ],
       "contentVerified": true
     },
@@ -31,20 +45,6 @@
       "contentVerified": true
     },
     {
-      "title": "울진군, 생성형 AI 활용 구직자 취업역량강화 교육 운영",
-      "source": "대구신문",
-      "link": "https://www.idaegu.co.kr/news/articleView.html?idxno=554182",
-      "publishedAt": "Sun, 19 Jul 2026 06:48:03 GMT",
-      "date": "2026-07-19",
-      "category": "genai",
-      "bullets": [
-        "울진군은 변화하는 채용환경에 대응하고 군민들의 취업 경쟁력을 높이기 위해 ‘구직자 취업역량강화 교육’을 운영한다.",
-        "19일 울진군에 따르면 이번 교육은 오는 30일 오전 10시 울진군 평생학습관 3층 컴퓨터실에서 진행된다.",
-        "울진군민이면 누구나 신청할 수 있으며 선착순 15명을 모집한다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "울릉군의회, 상임위·생성형 AI 도입으로 의정 혁신 속도",
       "source": "kyongbuk.co.kr",
       "link": "https://www.kyongbuk.co.kr/news/articleView.html?idxno=4078570",
@@ -55,6 +55,34 @@
         "울릉군의회는 지난 15일 의회 간담회실에서 7월 의원간담회를 열고 상임위원회 설치와 생성형 AI 업무비서 시스템 구축 등 의정 역량 강화를 위한 주요 현안을 논의했다.",
         "의회는 제294회 임시회에서 군정 주요업무보고와 제2회 추가경정예산안, 공유재산 관리계획안, 각종 조례안 등을 심의할 예정이다.",
         "특히 홍성근 의원이 발의 예정인 정책자문위원회 설치 조례안은 군정 주요 정책에 전문가 의견을 반영해 정책의 전문성과 완성도를 높이기 위한 내용을 담고 있다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "\"정부 지원속 고속성장, 인력도 풍부…中 AI와 협업은 韓 기업에 기회\"",
+      "source": "edaily.co.kr",
+      "link": "https://www.edaily.co.kr/News/Read?newsId=01951606645516160&mediaCodeNo=257",
+      "publishedAt": "Sun, 19 Jul 2026 10:42:41 GMT",
+      "date": "2026-07-19",
+      "category": "biz",
+      "bullets": [
+        "“중국 인공지능(AI) 기업들이 정부 지원 아래 빠르게 성장하고 있는데 한국 기업과 시너지를 낼 여지가 충분하다고 생각한다.",
+        "다이나믹솔루션은 AI 기반 로봇 기술을 활용해 재활용 의료기기를 제조하던 기업으로 2019년 코스닥시장에 상장했다.",
+        "이후 뇌의 신호를 읽어 사물을 움직이게 하는 뇌-컴퓨터 인터페이스(BCI) 분야 사업으로 확장을 추진 중이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "AI-Designed Surgical Implants 시장 규모 상위 50개 기업",
+      "source": "Spherical Insights",
+      "link": "https://www.sphericalinsights.com/ko/blogs/top-50-companies-in-ai-designed-surgical-implants-market-expert-view-by-spherical-insights-blog",
+      "publishedAt": "Sun, 19 Jul 2026 10:09:13 GMT",
+      "date": "2026-07-19",
+      "category": "biz",
+      "bullets": [
+        "Designed Surgical Implants Market은 인공 지능 기술을 사용하여 만든 외과 임플란트의 개발, 디자인 및 상용화에 중점을 둔 글로벌 산업을 나타냅니다.",
+        "AI 알고리즘은 환자 anatomy, 의료 이미징 및 임상 데이터를 분석하여 임플란트 기하학, 재료 선택 및 개인화 된 치료를위한 성능을 최적화합니다.",
+        "이 블로그에 발표 된 통찰력은 Spherical Insights LLP, 글로벌 기업을 선도하는 신뢰할 수있는 자문 파트너가 수행 한 종합 시장 연구에서 파생됩니다."
       ],
       "contentVerified": true
     },
@@ -73,20 +101,6 @@
       "contentVerified": true
     },
     {
-      "title": "버핏 '시장 도박판' vs 핑크 'AI 100년 기회'…월가 거장 충돌",
-      "source": "자본시장뉴스",
-      "link": "https://www.jabon.co.kr/news/articleView.html?idxno=5029",
-      "publishedAt": "Sun, 19 Jul 2026 04:00:00 GMT",
-      "date": "2026-07-19",
-      "category": "biz",
-      "bullets": [
-        "월가를 대표하는 두 거장이 지금의 시장을 놓고 정반대 진단을 내놨다.",
-        "워런 버핏은 투기가 지배하는 '도박판'을 경고했고, 래리 핑크는 인공지능(AI)이 이끄는 구조적 성장에 무게를 실었다.",
-        "자본시장은 두 거장의 엇갈린 진단 속에서 다음 시장 주도권의 향방을 주목하고 있다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "KOSA, 한·일 SW 기업 교류 확대…\"13개사 협력 모색\"",
       "source": "지디넷코리아",
       "link": "https://zdnet.co.kr/view/?no=20260719115912",
@@ -101,16 +115,30 @@
       "contentVerified": true
     },
     {
-      "title": "KOSA, 일본정보기술거래소와 '한·일 AI·SW 기업 교류회' 개최",
-      "source": "전자신문",
-      "link": "https://www.etnews.com/20260719000038",
-      "publishedAt": "Sun, 19 Jul 2026 01:28:07 GMT",
+      "title": "KMI, HD현대삼호와 항만 피지컬 AI 협력 강화",
+      "source": "부산일보",
+      "link": "https://www.busan.com/view/busan/view.php?code=2026071917172687123",
+      "publishedAt": "Sun, 19 Jul 2026 08:18:22 GMT",
       "date": "2026-07-19",
-      "category": "biz",
+      "category": "tech",
       "bullets": [
-        "KOSA는 JIET와 '한·일 AI·SW 기업 교류회'를 개최했다.",
-        "한국인공지능(AI)·소프트웨어(SW)산업협회(KOSA641)는 지난 16일 서울 송파구 IT벤처타워에서 일본정보기술거래소(JIET)와 공동으로 '한-일 AI·SW 기업 교류회'를 개최했다고 19일 밝혔다.",
-        "일본은 지리적 인접성과 시장 규모 면에서 국내 AI·SW 기업들의 선호도가 높은 핵심 진출국 중 하나다."
+        "국내 항만에 피지컬 AI(Physical AI) 기술을 적용하기 위한 산학연 협력 움직임이 시작되고 있다.",
+        "한국해양수산개발원(KMI)은 지난 16일 전남·광주통합특별시 영암군에 위치한 HD현대삼호를 방문해 항만 분야 피지컬 AI 기술개발 현장을 방문하고, 적용 방향을 논의하는 워크숍을 개최했다고 19일 밝혔다.",
+        "이번 방문은 조선·항만 분야의 장비 자동화와 피지컬 AI 기술개발을 선도하고 있는 HD현대삼호의 생산 현장과 기술개발 현황을 확인하고, 항만 운영의 효율성 및 안전성을 제고하기 위한 기술 적용 방향을 모색하기 위해 마련됐다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "개방 AI 모델 중국 키미 3 ‘쇼크’···최고성능 미국 폐쇄형 모델에 도전장, AI 판도 흔드나 [뉴스분석]",
+      "source": "경향신문",
+      "link": "https://www.khan.co.kr/article/202607191715001/amp",
+      "publishedAt": "Sun, 19 Jul 2026 08:15:00 GMT",
+      "date": "2026-07-19",
+      "category": "tech",
+      "bullets": [
+        "중국 인공지능(AI) 스타트업 문샷AI가 지난 17일 공개한 차세대 오픈웨이트 모델 ‘키미 K3’가 미국 최상위 AI 모델에 버금가는 성능을 보여주며 업계에 파장이 일고 있다.",
+        "거액을 들인 폐쇄형 모델로 기술 우위를 유지하는 미국 빅테크들과 달리, 중국 기업은 개방성과 가격 경쟁력을 내세우면서도 빠르게 기술 격차를 좁히고 있어 미·중 기술 패권 경쟁이 더 치열해질 전망이다.",
+        "올해 초 글로벌 AI 시장을 뒤흔든 딥시크에 이어 중국 AI 기술 경쟁력을 보여주는 또 하나의 상징적인 모델이 등장했다는 평가와 동시에 실제 성능과 확장성은 더 따져봐야 한다는 신중론도 뒤따른다."
       ],
       "contentVerified": true
     },
@@ -139,34 +167,6 @@
         "인공지능(AI) 기술 주도권 선점을 위한 미중 경쟁이 치열해지고 있다.",
         "미국은 AI가 통제를 벗어나는 '폭주' 상황을 막을 수 있는 감독기구를 검토한다.",
         "중국은 시진핑 국가주석이 직접 29개국이 모인 AI 국제기구 창설을 선언하면서 중국이 세계 AI 표준을 만들겠다는 꿈을 드러냈다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "[2026 하반기] 정부, AI 데이터센터·피지컬 AI 집중 육성...AI 기반시설 보안·취약점 점검 강화",
-      "source": "데일리시큐",
-      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207674",
-      "publishedAt": "Sun, 19 Jul 2026 06:00:46 GMT",
-      "date": "2026-07-19",
-      "category": "tech",
-      "bullets": [
-        "정부가 총 550조원 규모의 민간 AI 데이터센터 투자를 지원하고, 통신·플랫폼 등 국민 생활과 밀접한 기반시설을 대상으로 AI 기반 취약점 점검을 본격화한다.",
-        "독자 AI 모델을 활용한 보안 특화 AI 모델 개발도 추진한다.",
-        "과학기술정보통신부와 우주항공청은 7월 16일 청와대 영빈관에서 대통령에게 2026년 하반기 업무계획을 보고했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "中 AI기술, ‘美 데이터 탈취, 커닝’으로 美 따라잡아?",
-      "source": "애플경제",
-      "link": "http://www.applen.or.kr/news/articleView.html?idxno=79526",
-      "publishedAt": "Sun, 19 Jul 2026 05:52:10 GMT",
-      "date": "2026-07-19",
-      "category": "tech",
-      "bullets": [
-        "중국의 쯔푸 ‘GLM-5.2’에 이어, 문샷AI의 ‘키미 K3’가 공개되면서 이젠 “미국의 첨단 AI 분야의 독보적 우위가 사라졌다.”는 자조섞인 얘기가 실리콘밸리에서 나오고 있다.",
-        "여지껏“그래도 아직은~”이라며 위안을 삼곤했던 미국 빅테크들은 이젠 길어봐야 6개월 정도로 기술 격차를 좁힐 만큼 따라잡은 중국에 대해 긴장과 우려를 금치 못하고 있다.",
-        "한켠에선 이런 중국의 성장세에 대해 “부당경쟁의 결과”란 비난도 나오고 있다."
       ],
       "contentVerified": true
     },
@@ -229,30 +229,16 @@
   ],
   "weekly": [
     {
-      "title": "롯데면세점, 업계 첫 챗GPT 기반 쇼핑 서비스 도입... 생성형 AI 쇼핑 시대 연다",
-      "source": "일요주간",
-      "link": "https://www.ilyoweekly.co.kr/news/newsview.php?ncode=1065596717250479",
-      "publishedAt": "Thu, 16 Jul 2026 07:05:39 GMT",
+      "title": "사이냅소프트, 법제처 '생성형 AI 법령검색 시스템 구축' 참여",
+      "source": "디일렉",
+      "link": "https://www.thelec.kr/news/articleView.html?idxno=59696",
+      "publishedAt": "Thu, 16 Jul 2026 09:11:50 GMT",
       "date": "2026-07-16",
       "category": "genai",
       "bullets": [
-        "롯데면세점이 국내 면세업계 최초로 생성형 인공지능(AI) 플랫폼 챗GPT 기반 쇼핑 서비스를 선보였다.",
-        "별도 앱 설치 없이 챗GPT에서 상품 검색과 추천, 특가 조회, 구매까지 가능한 대화형 쇼핑 환경을 구축했다.",
-        "16일 롯데면세점에 따르면 이번 서비스는 롯데그룹의 전사적 AI 전환 전략의 일환이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "생성형AI·이메일 정보유출 막는다...지란지교소프트 보안기술 정부 인증",
-      "source": "v.daum.net",
-      "link": "https://v.daum.net/v/20260716155352548",
-      "publishedAt": "Thu, 16 Jul 2026 06:53:52 GMT",
-      "date": "2026-07-16",
-      "category": "genai",
-      "bullets": [
-        "기업의 데이터가 외부로 새는 것을 방지하는 동시에 생성형 AI를 안전하게 활용할 수 있는 기술이 등장했다.",
-        "이를 통해 보안에 많은 예산을 투자하기 어려운 중소·중견기업도 안전하게 생성형AI를 활용해 업무 생산성을 높일 수 있게 될 전망이다.",
-        "이는 생성형 AI 이용 과정에서 개인정보나 기업 내부 정보가 외부 AI 서비스로 넘어가는 것을 PC 단계에서 차단하는 기술이다."
+        "도큐먼트 인공지능(AI) 기업 사이냅소프트가 법제처의 '생성형 AI 법령검색 시스템 구축'사업에 참여한다.",
+        "이 사업의 주관사는 코난테크놀로지이며 사이냅소프트 등 4개사가 컨소시엄을 구성해 수주했다.",
+        "내년 11월 완료 예정인 해당 사업은 기존 국가법령정보센터의 단어 유사도 매칭 방식과 수작업 데이터 구축의 한계를 극복하기 위해 추진하는 것이다."
       ],
       "contentVerified": true
     },
@@ -285,44 +271,58 @@
       "contentVerified": true
     },
     {
-      "title": "기억을 만드는 향기, 향기를 설계하는 AI [이선미의 퍼퓸테크]",
-      "source": "IT조선",
-      "link": "https://it.chosun.com/news/articleView.html?idxno=2023092165863",
-      "publishedAt": "Wed, 15 Jul 2026 21:00:00 GMT",
-      "date": "2026-07-16",
-      "category": "biz",
+      "title": "[AI기본법] ② 규제냐 성장판이냐…AI산업 첫 시험대",
+      "source": "연합뉴스",
+      "link": "https://www.yna.co.kr/amp/view/AKR20260717037800017",
+      "publishedAt": "Sat, 18 Jul 2026 21:03:14 GMT",
+      "date": "2026-07-19",
+      "category": "genai",
       "bullets": [
-        "인공지능(AI) 기술이 향기산업과 만나 새로운 시장을 만들고 있습니다.",
-        "K-뷰티를 잇는 차세대 산업으로 주목받는 향수산업의 기술과 비즈니스, 글로벌 트렌드를 살펴보는 '이선미의 퍼퓸테크'를 격주로 연재합니다.",
-        "프랑스 소설가 마르셀 프루스트는 ‘잃어버린 시간을 찾아서’에서 홍차에 적신 마들렌 과자의 향기를 맡는 순간, 어린 시절의 기억이 한순간에 되살아나는 경험을 묘사했다."
+        "AI 기본법 개정안 시행이 임박하면서 국내 인공지능(AI) 산업이 첫 제도 운용 시험대에 올랐다.",
+        "정부는 최소 1년 이상의 계도기간을 운영하며 세부 가이드라인을 마련할 계획이어서 AI 산업 경쟁력과 신뢰 확보를 함께 달성할 수 있는 제도 운용이 핵심 과제로 떠오르고 있다.",
+        "19일 국내 AI와 정보통신기술(ICT) 업계에 따르면 국내 최대 쟁점 중 하나는 생성형 AI를 어느 정도 활용했을 때 표시 의무가 발생하는지다."
       ],
       "contentVerified": true
     },
     {
-      "title": "정부, 550조 AI 데이터센터 투자 견인…'1인 1 AI 에이전트' 시대 연다",
-      "source": "대한민국 정책브리핑",
-      "link": "https://www.korea.kr/news/policyNewsView.do?newsId=148968284",
-      "publishedAt": "Thu, 16 Jul 2026 06:38:37 GMT",
+      "title": "글로벌 헬스케어 인공지능(AI) 2034년 '1조 3천억불’",
+      "source": "데일리메디",
+      "link": "https://www.dailymedi.com/news/news_view.php?wr_id=938499",
+      "publishedAt": "Sat, 18 Jul 2026 23:34:00 GMT",
+      "date": "2026-07-19",
+      "category": "biz",
+      "bullets": [
+        "글로벌 AI 헬스케어 시장이 오는 2034년 1조 3327억 달러(한화 약 1730조 원) 규모의 거대한 시장을 형성할 것으로 전망됐다.",
+        "지난해는 약 393억 4000만 달러로 평가됐으며 향후 연평균 44% 성장한다는 예측이다.",
+        "한국바이오협회는 최근 ‘글로벌 헬스케어 AI 산업 동향 분석: 북미와 유럽을 중심으로’ 브리프를 발표해 이같이 밝혔다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "AI 격전지 중국에 '한국혁신관' 첫 깃발",
+      "source": "재외동포신문",
+      "link": "https://www.dongponews.net/news/articleView.html?idxno=59351",
+      "publishedAt": "Fri, 17 Jul 2026 22:15:19 GMT",
+      "date": "2026-07-18",
+      "category": "biz",
+      "bullets": [
+        "세계 최대 인공지능(AI) 시장으로 꼽히는 중국에 한국 AI 기업들의 진출을 위한 새로운 교두보가 마련됐다.",
+        "글로벌혁신센터(KIC중국)는 17~20일 중국 상하이에서 열리는 2026 세계인공지능대회(WAIC)에서 중국공업정보화부 횃불센터 산하 한중횃불혁신센터와 함께 '한국 혁신관'을 운영한다고 밝혔다.",
+        "WAIC는 중국 외교부와 국가발전개혁위원회, 공업정보화부, 과학기술부, 상하이시 인민정부 등이 공동 주최하는 중국 최대 규모의 AI 국제행사다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "전 국민 1인 1 AI 에이전트 시대 연다…정부, AI 기본사회 본격 추진",
+      "source": "경기신문",
+      "link": "https://www.kgnews.co.kr/news/article.html?no=904174",
+      "publishedAt": "Thu, 16 Jul 2026 05:15:27 GMT",
       "date": "2026-07-16",
       "category": "tech",
       "bullets": [
-        "정부가 인공지능(AI) 데이터센터를 국가전략산업으로 육성하고 내년부터 '전 국민 1인 1 AI 에이전트' 시대를 연다.",
-        "과학기술정보통신부와 우주항공청은 16일 청와대에서 이같은 내용의 2026년 하반기 업무계획을 보고했다며 이같이 밝혔다.",
-        "우선 AI 데이터센터, 피지컬 AI, K-반도체에서 세계 최고 역량을 확보해 대한민국을 회복에서 대도약으로 전환하고 대체불가 대한민국을 실현한다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "호주, AI 정책 통합관리 부서·데이터센터 규제 법 제정",
-      "source": "v.daum.net",
-      "link": "https://v.daum.net/v/1rM6MQ8Btp",
-      "publishedAt": "Wed, 15 Jul 2026 07:09:23 GMT",
-      "date": "2026-07-15",
-      "category": "policy",
-      "bullets": [
-        "호주 정부가 인공지능(AI) 정책을 통합 관리하는 전담 부서를 설치하고 AI의 데이터센터 전력·물 사용과 창작물 저작권 이용을 규제하는 법을 만들기로 했습니다.",
-        "앤서니 앨버니지 호주 총리는 15일(현지시간) 시드니대 연설에서 \"지금까지 우리는 사안별로, 분야별로 대응해 왔다.",
-        "이제는 호주에서 AI가 어떤 모습일지 결정해야 할 때\"라면서 이같이 발표했습니다."
+        "정부가 국민 누구나 인공지능(AI)을 활용할 수 있는 ‘전 국민 1인 1 AI 에이전트 시대’를 본격 추진한다.",
+        "AI를 국가 성장의 핵심 동력으로 삼고, 반도체와 우주항공 등 첨단산업 경쟁력 강화에도 나선다는 구상이다.",
+        "과학기술정보통신부와 우주항공청은 16일 청와대 영빈관에서 열린 대통령 주재 업무보고에서 ‘AI·과학기술로 함께 행복한 대체불가 대한민국’을 목표로 한 2026년 하반기 업무계획을 발표했다."
       ],
       "contentVerified": true
     }
