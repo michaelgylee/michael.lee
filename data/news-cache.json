@@ -1,6 +1,6 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-07-22T16:51:16Z",
+  "generated_at": "2026-07-22T19:48:17Z",
   "daily": [
     {
       "title": "생애주기 AI 교육 확대…청소년·어르신 함께하는 ‘AI 세대공감교육’ 운영",
@@ -13,6 +13,20 @@
         "충남도는 인공지능(AI)디지털배움터를 통해 생애주기별 맞춤형 AI교육을 확대하는 가운데, 지난 21일 공주시노인종합복지관에서 어르신과 청소년이 함께하는 ‘AI 세대공감교육’을 운영했다고 밝혔다.",
         "이번 교육은 인공지능(AI)을 매개로 세대 간 디지털 격차를 줄이고, 함께 배우고 소통하는 교육 문화를 확산하기 위해 마련됐다.",
         "공주시청소년문화센터와 협업해 공주시노인종합복지관 어르신 10명과 청소년 10명이 1대1 멘토·멘티로 참여해 인공지능(AI)을 함께 배우는 시간을 가졌다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "제주은행, 지방은행 최초 생성형 AI 플랫폼 구축 … 전 직원 AI 업무 개시",
+      "source": "일간제주",
+      "link": "http://www.ilganjeju.com/news/articleView.html?idxno=148389",
+      "publishedAt": "Wed, 22 Jul 2026 12:10:17 GMT",
+      "date": "2026-07-22",
+      "category": "genai",
+      "bullets": [
+        "제주은행(은행장 이희수)은 지난 20일 지방은행 최초로 자체 생성형 AI 플랫폼을 구축을 완료하여 전 직원 대상 AI agent업무를 개시했다고 밝혔다.",
+        "이번 플랫폼은 단순한 생성형 AI 챗봇을 넘어 직원이 각자의 업무 목적에 맞는 AI Agent를 직접 만들고 활용할 수 있는 통합 플랫폼이다.",
+        "별도의 개발 지식 없이도 챗봇 대화만으로 업무에 필요한 AI Agent를 생성할 수 있으며, 보고서 작성, 문서 요약, 규정 검색, 회의자료 작성 등 다양한 업무에 활용할 수 있다."
       ],
       "contentVerified": true
     },
@@ -45,16 +59,30 @@
       "contentVerified": true
     },
     {
-      "title": "제주은행, 생성형 AI플랫폼 구축 업무 개시",
-      "source": "제주매일",
-      "link": "https://www.jejumaeil.net/news/articleView.html?idxno=402963",
-      "publishedAt": "Wed, 22 Jul 2026 08:15:10 GMT",
-      "date": "2026-07-22",
-      "category": "genai",
+      "title": "AI 병목, GPU서 메모리·네트워크로 이동한다",
+      "source": "비즈월드",
+      "link": "http://www.bizwnews.com/news/articleView.html?idxno=141213",
+      "publishedAt": "Wed, 22 Jul 2026 18:25:00 GMT",
+      "date": "2026-07-23",
+      "category": "biz",
       "bullets": [
-        "제주은행(은행장 이희수)은 지난 20일 지방은행 최초로 자체 생성형 AI플랫폼을 구축하고 전 직원들이 AI agent업무에 들어갔다.",
-        "국내 지방은행 중에선 최초라는 게 제주은행의 설명이다.",
-        "이번 플랫폼은 단순한 생성형AI 챗봇을 넘어 직원들이 각자의 업무 목적에 맞는 AI Agent를 직접 만들고 활용할 수 있는 통합 플랫폼이다."
+        "[비즈월드]인공지능(AI) 투자 사이클의 병목이 그래픽처리장치(GPU)에서 메모리와 네트워크, 전력 인프라로 이동하고 있다는 분석이 나왔다.",
+        "AI 모델 학습을 넘어 추론 수요가 확대되면서 데이터 처리와 전송, 전력 공급 능력이 새로운 성장 제약 요인으로 떠오르고 있다는 판단이다.",
+        "삼성자산운용이 지난 22일 발간한 '2026년 3분기 연금실전투자 THE ACTION BOOK'에 따르면 AI 사이클의 핵심 병목이 GPU에서 메모리로 이동하고 있다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "2026 에듀테크 시장 전략: AI·맞춤형 학습·마이크로 크리덴셜이 재편하는 교육 산업 구도",
+      "source": "뉴스N연합",
+      "link": "https://newsyonhap.com/news/115477",
+      "publishedAt": "Wed, 22 Jul 2026 17:21:48 GMT",
+      "date": "2026-07-23",
+      "category": "biz",
+      "bullets": [
+        "기술은 더 이상 보조적 도구가 아니라 교육 인프라의 중심으로 이동했다.",
+        "에듀테크 리더들의 전략 변화는 학습자 경험 개선에 그치지 않고 교육 시장의 수익 구조와 경쟁 구도에 직접적인 영향을 미친다.",
+        "특히 개인 맞춤형 학습, 행정 자동화, 몰입형 콘텐츠와 마이크로 크리덴셜의 결합이라는 세 축이 산업 재편의 방향을 가르고 있다."
       ],
       "contentVerified": true
     },
@@ -87,37 +115,23 @@
       "contentVerified": true
     },
     {
-      "title": "네이버 '국방 AI' 시장 공략 나선다",
-      "source": "한국경제",
-      "link": "https://www.hankyung.com/article/2026072299661",
-      "publishedAt": "Wed, 22 Jul 2026 08:28:00 GMT",
-      "date": "2026-07-22",
-      "category": "biz",
+      "title": "아마존, AI 조직 인원 감축…\"AI모델 구축은 여전히 중요 과제\"",
+      "source": "연합뉴스",
+      "link": "https://www.yna.co.kr/view/AKR20260723005600091",
+      "publishedAt": "Wed, 22 Jul 2026 19:22:50 GMT",
+      "date": "2026-07-23",
+      "category": "tech",
       "bullets": [
-        "Google 검색에서 한국경제 기사를 더 자주 볼 수 있습니다.",
-        "네이버클라우드가 국방 인공지능 전환(AX) 비즈니스 확대에 속도를 내고 있다.",
-        "드론, 첨단 AI 모델 등 선행 기술을 실증하는 혁신 공간을 조성하고, 현장배치엔지니어(FDE) 등 현장 영업 조직을 강화하고 있다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "'섀도우 AI 비상' ··· \"2400조 AI PC시장 열린다\"",
-      "source": "그린포스트코리아",
-      "link": "https://www.greenpostkorea.co.kr/news/articleView.html?idxno=307145",
-      "publishedAt": "Wed, 22 Jul 2026 08:10:03 GMT",
-      "date": "2026-07-22",
-      "category": "biz",
-      "bullets": [
-        "업무 처리에 인공지능(AI)을 활용하는 것이 대세로 자리 잡은 가운데, 기업들이 '섀도 AI(Shadow AI)'로 인한 기밀 유출 위험으로 비상이 걸렸다.",
-        "2030년까지 전 세계 기업의 40% 이상에서 섀도 AI로 인한 보안 사고 발생 가능성이 제기되는 상황이다.",
-        "이에 따라 개인용 PC에 AI 기능을 직접 탑재한 'AI PC' 시장이 폭발적으로 성장하며 전체 AI 시장 지형을 재편하고 있다."
+        "미국과 중국의 주요 인공지능 기업들의 AI 모델 개발 경쟁이 격화하는 가운데 아마존은 관련 조직을 감원한 것으로 나타났다.",
+        "아마존 측은 \"우리는 수년 동안 대규모 AI 모델을 구축해왔으며 이는 여전히 우리가 추진하는 가장 중요한 과제 중 하나\"라고 밝혀 이번 감원이 AI 모델 개발에서 손을 떼는 것은 아니라는 점을 강조했다.",
+        "이어 \"고객에게 가장 중요한 계획에 초점을 맞춰 중요한 일에 더 빠르게 움직일 수 있도록 하고 있다\"며 AGI 조직의 감원도 이런 배경에서 추진했다고 설명했다."
       ],
       "contentVerified": true
     },
     {
       "title": "美 \"中 문샷AI, 앤트로픽 모델 무단 증류해 K3 개발\"",
       "source": "뉴스1",
-      "link": "https://www.news1.kr/world/usa-canada/6236013",
+      "link": "https://www.news1.kr/amp/world/usa-canada/6236013",
       "publishedAt": "Wed, 22 Jul 2026 15:36:14 GMT",
       "date": "2026-07-23",
       "category": "tech",
@@ -125,20 +139,6 @@
         "중국 인공지능(AI) 기업 문샷 AI가 최신 모델 '키미 K3' 개발 과정에서 미국 업체 앤스로픽의 모델을 무단 활용했다고 미 정부 당국자가 밝혔다.",
         "AI '증류'란 성능이 뛰어난 대형 모델의 출력물을 학습 데이터로 활용해 더 작고 저렴한 모델을 만드는 기법이다.",
         "미국 측은 문샷 AI가 페이블의 출력물을 대량으로 수집해 K3 학습에 이용한 것으로 보고 있다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "폭스바겐, 베를린에 AI 본부 집결시킨다..AI 개발 거점 구축!",
-      "source": "dailycar.co.kr",
-      "link": "https://www.dailycar.co.kr/content/news.html?type=view&autoId=62097",
-      "publishedAt": "Wed, 22 Jul 2026 15:06:10 GMT",
-      "date": "2026-07-23",
-      "category": "tech",
-      "bullets": [
-        "독일 폭스바겐그룹이 차량 소프트웨어 개발 조직인 카리아드(CARIAD)를 대대적으로 재편하고, 독일 베를린에 인공지능(AI) 개발 거점을 구축한다.",
-        "소프트웨어 개발 실패로 한 차례 대규모 구조조정을 겪은 카리아드를 AI 전문기업으로 탈바꿈킨다는 전략이다.",
-        "폭스바겐은 최근 베를린 ‘오토모티브 소프트웨어 캠퍼스(Automotive Software Campus)’를 개소하고 약 1000명의 AI 전문 인력을 한곳에 집결시켰다고 밝혔다."
       ],
       "contentVerified": true
     },
@@ -171,6 +171,20 @@
       "contentVerified": true
     },
     {
+      "title": "지식재산처, 정책업무 인공지능전환(AX) '새바람' 인공지능(AI) 에이전트 직접 만들어 적재적소 활용!",
+      "source": "fnewstv.com",
+      "link": "https://www.fnewstv.com/news/newsview.php?ncode=1065611165022781",
+      "publishedAt": "Wed, 22 Jul 2026 11:05:12 GMT",
+      "date": "2026-07-22",
+      "category": "policy",
+      "bullets": [
+        "지식재산처는 인공지능을 활용하여 기존의 정책업무를 혁신할 수 있는 인공지능 에이전트들을 자체 개발하여 사용 중이라고 밝혔다.",
+        "지난 5월 출범한 지식재산인공지능전환추진단(이하, ‘IP-AX 추진단’)은 효율적인 업무수행을 위해 필요한 인공지능 에이전트 3종을 대화형(바이브) 코딩으로 만들어 적재적소에 활용, 일하는 방식을 단계적으로 바꾸고 있다.",
+        "이를 통해 정책별 추진이력을 체계적으로 쉽게 파악할 수 있고, 신규 정책을 발굴하는데 인공지능의 조력을 받는 등 정책업무 방식도 인공지능 대전환에 발맞출 수 있을 것으로 기대된다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "“포털 종속 반복 안 된다”… AI 시대 ‘뉴스공급자협회’ 설립 제안",
       "source": "IT조선",
       "link": "https://it.chosun.com/news/articleView.html?idxno=2023092166292",
@@ -185,30 +199,16 @@
       "contentVerified": true
     },
     {
-      "title": "\"AI로부터 노동권 보호\"…전종덕 의원, AI 노동통제·차별 방지법 발의",
-      "source": "문화저널21",
-      "link": "https://www.mhj21.com/news/articleView.html?idxno=253241",
-      "publishedAt": "Wed, 22 Jul 2026 07:24:59 GMT",
+      "title": "보유자 없는 무형유산, AI로 보존할 법적 근거 만든다",
+      "source": "edaily.co.kr",
+      "link": "https://www.edaily.co.kr/News/Read?newsId=04319766645517144&mediaCodeNo=257",
+      "publishedAt": "Wed, 22 Jul 2026 05:54:35 GMT",
       "date": "2026-07-22",
       "category": "policy",
       "bullets": [
-        "AI가 노동자를 과도하게 감시·통제하거나 차별하는 것을 막기 위한 법안이 발의됐다.",
-        "전종덕 진보당 의원은 22일 '인공지능 발전과 신뢰 기반 조성 등에 관한 기본법 일부개정법률안' 2건을 대표 발의했다.",
-        "이번 개정안은 AI 확산에 따른 노동환경 변화에 대응해 노동권과 국민의 기본권을 보호하고 인권 침해와 차별을 예방하기 위한 것이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "모델이 규칙을 앞지를 때: 허깅 페이스(Hugging Face) 유출 사건과 앤트로픽의 AI 규제 전략",
-      "source": "Brave New Coin",
-      "link": "https://bravenewcoin.com/ko/insights/when-the-model-outruns-the-rulebook-the-hugging-face-breach-and-anthropics-ai-regulation-playbook",
-      "publishedAt": "Wed, 22 Jul 2026 05:02:32 GMT",
-      "date": "2026-07-22",
-      "category": "policy",
-      "bullets": [
-        "첨단 기술의 한 모델이 안전성 테스트를 우회하여 다른 회사의 서버에 침입했습니다.",
-        "이는 앤트로픽사가 1년 동안 의원들에게 주장해 온 논점을 극명하게 보여주는 사례이기도 합니다.",
-        "화요일에, OpenAI 지난주 내부 안전성 평가에서 자사의 가장 성능이 뛰어난 공개 시스템과 미공개 시스템 등 두 가지 모델에 문제가 있었다고 밝혔습니다."
+        "국가무형유산 보유자 10명 가운데 7명이 70~80대로 전승 단절에 대한 우려가 커지는 가운데, 무형유산의 기록과 보존에 인공지능(AI)을 활용할 수 있도록 법적 근거를 마련하는 방안이 추진된다.",
+        "국회 문화체육관광위원회 소속 김재원 조국혁신당 의원은 22일 ‘무형유산의 보전 및 진흥에 관한 법률 일부개정법률안’(무형유산법 개정안)을 대표 발의했다고 밝혔다.",
+        "현행 무형유산법은 국가유산청장과 지방자치단체장이 무형유산 관련 기록을 수집·작성하고 이를 유지·보존하도록 규정하고 있다."
       ],
       "contentVerified": true
     },
@@ -229,16 +229,16 @@
   ],
   "weekly": [
     {
-      "title": "JT저축은행, 한국폴리텍대학과 생성형 AI 데이터 교육 진행",
-      "source": "뉴스핌",
-      "link": "https://www.newspim.com/news/view/20260722001189",
-      "publishedAt": "Wed, 22 Jul 2026 07:53:00 GMT",
+      "title": "제주은행, 자체 생성형 AI 플랫폼 구축...\"전 직원 AI 업무 개시\"",
+      "source": "헤드라인제주",
+      "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=596308",
+      "publishedAt": "Wed, 22 Jul 2026 05:31:43 GMT",
       "date": "2026-07-22",
       "category": "genai",
       "bullets": [
-        "JT저축은행이 22일 한국폴리텍대학과 AI기반 데이터분석 교육을 실시했다.",
-        "임직원 40명이 20일부터 4일간 AI오피스자동화·금융데이터분석·생성형AI 교육을 받았다.",
-        "JT저축은행은 챗GPT 법인계정 제공 등으로 AI역량을 강화해 업무효율과 고객서비스를 높일 계획이다."
+        "제주은행(은행장 이희수)은 지방은행 최초로 자체 생성형 인공지능(AI) 플랫폼 구축을 완료해 전 직원을 대상으로 AI 에이전트(agent)업무를 개시했다고 22일 밝혔다.",
+        "이번 플랫폼은 단순한 생성형 AI 챗봇을 넘어 직원들이 각자의 업무 목적에 맞는 AI 에이전트를 직접 만들고 활용할 수 있는 통합 플랫폼이다.",
+        "별도의 개발 지식 없이도 챗봇 대화만으로 업무에 필요한 AI 에이전트를 생성할 수 있으며, 보고서 작성, 문서 요약, 규정 검색, 회의자료 작성 등 다양한 업무에 활용할 수 있다."
       ],
       "contentVerified": true
     },
@@ -285,30 +285,72 @@
       "contentVerified": true
     },
     {
-      "title": "글로벌 헬스케어 AI 시장, 2034년 1조달러 돌파 전망",
-      "source": "메디컬투데이",
-      "link": "https://www.mdtoday.co.kr/news/articleView.html?idxno=605381",
-      "publishedAt": "Tue, 21 Jul 2026 00:11:52 GMT",
+      "title": "靑 김용범 “모두의 AI로 인공지능 주권 확보…시장 돌면 정부는 퇴장”",
+      "source": "전자신문",
+      "link": "https://www.etnews.com/20260721000297",
+      "publishedAt": "Tue, 21 Jul 2026 06:41:51 GMT",
       "date": "2026-07-21",
       "category": "biz",
       "bullets": [
-        "글로벌 헬스케어 인공지능(AI) 시장이 2034년 1조달러 규모에 이를 것으로 전망됐다.",
-        "북미와 유럽이 기술과 시장, 정책을 주도하는 가운데 국내 기업들도 글로벌 시장 경쟁력 확보를 위해 국제 규제 대응 역량과 데이터 경쟁력을 강화해야 한다는 제언이 나왔다.",
-        "보고서에 따르면 북미는 2025년 글로벌 AI 헬스케어 시장의 44.5%(약 175억1000만달러)를 차지하는 최대 시장이다."
+        "김용범 정책실장이 21일 청와대에서 열린 국무회의에서 이재명 대통령 질문에 답하고 있다.",
+        "청와대가 인공지능(AI)을 국민에게 무료로 제공하는 이른바 '모두의 AI'를 통해 AI 주권을 확보하고 민간 중심의 인공지능 생태계를 조성하겠다는 구상을 밝혔다.",
+        "초기 도입에 따른 위험은 정부가 부담하되 시장이 자생력을 확보한 뒤에는 정부가 물러나는 이른바 '시장 조직자' 역할을 맡겠다는 의미다."
       ],
       "contentVerified": true
     },
     {
-      "title": "루닛, 글로벌 8개社 '신약개발 AI 컨소시엄' 참여",
-      "source": "바이오스펙테이터",
-      "link": "https://www.biospectator.com/news/view/29319",
-      "publishedAt": "Thu, 16 Jul 2026 01:05:00 GMT",
-      "date": "2026-07-16",
+      "title": "인공지능(AI)은 인간을 정말 쓸모없게 만들까?",
+      "source": "뉴스타운",
+      "link": "https://www.newstown.co.kr/news/articleView.html?idxno=709800",
+      "publishedAt": "Tue, 21 Jul 2026 06:28:03 GMT",
+      "date": "2026-07-21",
+      "category": "biz",
+      "bullets": [
+        "인공지능은 한때 인간의 전유물로 여겨졌던 작업들을 점점 더 능숙하게 수행하고 있다.",
+        "인공지능(AI)에게 물어보면 그럴듯한 답을 해준다.",
+        "캐나다에 본사를 둔 글로벌 뉴스 웹사이트이자 통신사인 ‘디지털 저널’에 보내진 IT 자산 관리 그룹 (IT-AMG)의 최근 연구는 바로 이 질문에 대한 답을 찾고자 했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "광주교통공사, AI 기반 철도차량 상태기반 유지보수 시스템 실증 본격화",
+      "source": "전기신문",
+      "link": "https://www.electimes.com/news/articleViewAmp.html?idxno=370518",
+      "publishedAt": "Tue, 21 Jul 2026 13:24:55 GMT",
+      "date": "2026-07-21",
       "category": "tech",
       "bullets": [
-        "이 기사는 유료회원을 위한 BioS+ 기사입니다.",
-        "의료 인공지능(AI) 기업 루닛(Lunit)은 AI와 디지털 병리, 정밀진단 분야의 글로벌 기업 8개사가 참여하는 '신약개발 AI 컨소시엄'에 합류했다고 16일 밝혔다.",
-        "이번 컨소시엄은 글로벌 제약사가 환자 선별, 임상시험 운영, 동반진단(CDx) 개발 등 신약개발 전 과정에서의 AI 기반 병리분석과 바이오마커 개발역량을 강화하고, 신약개발을 가속화하기 위해 출범했다."
+        "광주교통공사가 인공지능(AI) 기술을 활용한 차세대 철도차량 유지보수 시스템 실증에 나서며 미래 철도기술 선도에 박차를 가한다.",
+        "CBM 기술은 센서와 데이터 분석 알고리즘을 통해 철도차량 핵심 장치의 상태를 실시간으로 감시하고, 결함 징후를 조기에 진단·예측하는 차세대 정비 방식이다.",
+        "공사는 광주도시철도 1호선 전동차 1개 편성에 ‘Physical AI’ 기반 CBM 시스템을 시범 적용한다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "배경훈 \"중국 AI 기술 부럽지만... K-AI 모델 생존 위한 선택\"",
+      "source": "OhmyNews",
+      "link": "https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003252754",
+      "publishedAt": "Mon, 20 Jul 2026 08:06:00 GMT",
+      "date": "2026-07-20",
+      "category": "tech",
+      "bullets": [
+        "\"솔직히 중국에서 인공지능(AI) 스타트업들이 좋은 성과를 내는 것은 굉장히 부러운 일이라고 생각한다.",
+        "하지만 지금은 (개방형) 모델을 공개하더라도 어느 정도 목적이 달성되면 폐쇄형으로 바뀔 수 있다.",
+        "배경훈 부총리 겸 과학기술정보통신부 장관의 말이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "'AI기본법’ 시행령 21일부터 시행... \"‘고영향 AI’ 직접 규제\"",
+      "source": "법률방송뉴스",
+      "link": "https://www.lawtv.kr/news/articleView.html?idxno=60463",
+      "publishedAt": "Tue, 21 Jul 2026 03:24:09 GMT",
+      "date": "2026-07-21",
+      "category": "policy",
+      "bullets": [
+        "'인공지능 발전과 신뢰 기반 조성 등에 관한 기본법(AI기본법)' 개정 법률과 하위 시행령이 21일부터 본격 시행에 들어갔다.",
+        "지난 1월 원안 시행 이후 반년 만에 이뤄지는 후속 조치로, 그간 선언적 수준에 머물렀던 AI 규제와 산업 지원 방안이 이날부터 구체적인 의무와 절차로 산업 현장에 직접 적용된다.",
+        "AI기본법은 유럽연합(EU) 인공지능법(AI Act)에 이어 세계에서 두 번째로 제정된 국가 단위 인공지능 관련 기본법이다."
       ],
       "contentVerified": true
     }
