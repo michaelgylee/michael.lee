@@ -1,7 +1,49 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-07-24T19:50:11Z",
+  "generated_at": "2026-07-24T22:29:42Z",
   "daily": [
+    {
+      "title": "보안 좋고 연동 쉽고… 카드업계, MS 코파일럿 AI 도입 속도 - 조선비즈",
+      "source": "Chosunbiz",
+      "link": "https://biz.chosun.com/stock/finance/2026/07/25/64LIGDUFKZHNXFW55FS3JURGNM/",
+      "publishedAt": "Fri, 24 Jul 2026 21:04:31 GMT",
+      "date": "2026-07-25",
+      "category": "genai",
+      "bullets": [
+        "최근 카드업계에서 마이크로소프트(MS)의 생성형 인공지능(AI) 서비스인 코파일럿(Copilot) 도입이 확산하고 있다.",
+        "보안을 유지한 채 사내 문서와 규정, 보고서 등을 검색하고 회의록 작성과 자료 요약까지 지원하는 기능이 금융권 업무 환경에 적합하다는 평가가 나온다.",
+        "25일 카드업계에 따르면 금융 당국이 규제를 완화하면서 코파일럿 도입이 속도를 내기 시작했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "[AI+] AI도 '데이터 요금제' 시대…\"월 1500만원 썼다\" - 머니투데이",
+      "source": "머니투데이",
+      "link": "https://www.mt.co.kr/amp/tech/2026/07/25/2026072123320296499",
+      "publishedAt": "Fri, 24 Jul 2026 21:00:00 GMT",
+      "date": "2026-07-25",
+      "category": "genai",
+      "bullets": [
+        "[편집자주] AI 뉴스는 매일 쏟아지지만 진짜 재미는 그 뒤에 있다.",
+        "'AI+'는 국내외 AI 이슈와 글로벌 기업들의 움직임을 따라간다.",
+        "낯선 기술 뒤에 숨은 돈의 흐름과 시장 참여자들의 선택, 산업의 변화를 이야기로 풀어낸다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "AI 보고서 올렸다가 ‘시말서 폭탄’ … 환각 없는 RAG 어때요",
+      "source": "매일경제",
+      "link": "https://www.mk.co.kr/news/it/12106641",
+      "publishedAt": "Fri, 24 Jul 2026 19:30:00 GMT",
+      "date": "2026-07-25",
+      "category": "genai",
+      "bullets": [
+        "![Image 10: 인공지능(AI)은 최신 데이터를 찾아 정확한 정보를 생성할 때 RAG 기술을 활용한다.",
+        "인공지능(AI)은 최신 데이터를 찾아 정확한 정보를 생성할 때 RAG 기술을 활용한다.",
+        "지난 글에서는 생성형 AI가 사실과 다른 내용을 자연스럽게 만들어내는 ‘환각(Hallucination)’ 현상을 살펴봤다."
+      ],
+      "contentVerified": true
+    },
     {
       "title": "남이섬, 생성형 AI 숏폼 공모전 개최…디지털 콘텐츠로 관광 홍보 새 바람",
       "source": "뉴스타운",
@@ -17,44 +59,16 @@
       "contentVerified": true
     },
     {
-      "title": "[OECD] “대학생 생성형 AI 사용 보편화…대학 정책은 못 따라가”",
-      "source": "교육플러스",
-      "link": "https://www.edpl.co.kr/news/articleView.html?idxno=21178",
-      "publishedAt": "Fri, 24 Jul 2026 13:19:35 GMT",
-      "date": "2026-07-24",
-      "category": "genai",
+      "title": "구리시, 간부 공무원 맞춤형 인공지능(AI) 교육 실시",
+      "source": "일간투데이",
+      "link": "https://www.dtoday.co.kr/news/articleView.html?idxno=782794",
+      "publishedAt": "Fri, 24 Jul 2026 15:20:32 GMT",
+      "date": "2026-07-25",
+      "category": "biz",
       "bullets": [
-        "세계 대학에서 생성형 인공지능(AI) 활용이 빠르게 일상화됐지만, 대학의 수업·평가 방식과 개인정보 보호, 교직원 교육체계는 이를 따라가지 못하고 있다는 경제협력개발기구(OECD)의 진단이 나왔다.",
-        "OECD는 생성형 AI를 금지하거나 개인 선택에 맡기는 데서 벗어나, 대학과 정부가 안전한 도구와 명확한 이용 원칙을 체계적으로 마련해야 한다고 주문했다.",
-        "독일 대학생은 2023년 63%에서 2025년 90% 이상으로 늘었고, 미국 전문학사·학사과정 학생의 약 88%도 AI 도구를 적어도 가끔 사용하는 것으로 조사됐다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "\"공무원 한 명이 만들었다\"…김포시, 생성형 AI 행정시스템 '포미캐처' 자체 개발",
-      "source": "더 데일리가드",
-      "link": "https://www.dailyguard.co.kr/news/articleView.html?idxno=302789",
-      "publishedAt": "Fri, 24 Jul 2026 11:00:00 GMT",
-      "date": "2026-07-24",
-      "category": "genai",
-      "bullets": [
-        "김포시(시장 이기형)가 생성형 인공지능(AI)을 활용해 일정 공유와 업무보고를 통합한 내부 행정 시스템 '포미캐처(Pomi Catcher)'를 자체 개발했다.",
-        "시는 시범 배포 2주 만에 직원 250명이 가입해 업무 일정 681건을 공유하는 등 현장 활용도가 빠르게 높아지고 있다고 24일 밝혔다.",
-        "'포미캐처'는 김포시 캐릭터 '포미'와 '일정을 놓치지 않고 잡는다'는 의미의 '캐처(Catcher)'를 결합한 이름으로, '서로의 일을 아는 소통 조직'을 구현하는 데 초점을 맞췄다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "교보증권, 임직원 대상 생성형 AI 교육 실시",
-      "source": "현대경제신문",
-      "link": "http://www.finomy.com/news/articleViewAmp.html?idxno=257952",
-      "publishedAt": "Fri, 24 Jul 2026 08:07:25 GMT",
-      "date": "2026-07-24",
-      "category": "genai",
-      "bullets": [
-        "지난 21일 여의도 본사 19층 비전홀에서 임직원 AI 리터러시 교육을 진행하고 있다.",
-        "현대경제신문 최현서 기자 |교보증권이 생성형 인공지능(AI) 기반 실습 교육을 통해 임직원의 디지털 역량을 강화하고 AI를 활용한 업무 혁신을 본격 추진한다.",
-        "교보증권은 임직원의 AI 활용 능력을 높이고 업무 혁신을 위해 생성형 AI 기반 실습형 교육을 실시한다고 24일 밝혔다."
+        "이번 교육은 김헌기 인공지능 전문강사를 초빙하여 급변하는 인공지능 기술의 흐름을 정책 기획과 시정 운영에 신속하게 접목하고, 간부 공무원들이 솔선해 조직 내 디지털 혁신 문화를 확산하기 위해 마련됐다.",
+        "시청 전산 교육장에서 진행되는 이번 특강은 부시장과 간부 공무원의 직무 특성에 맞춰 실무 중심의 직원 교육과 차별화된 정책·전략 중심의 교육 과정으로 구성됐다.",
+        "공직자 윤리 분야에서는 이해 충돌 방지 등에 관한 내용도 함께 다룬다."
       ],
       "contentVerified": true
     },
@@ -73,34 +87,6 @@
       "contentVerified": true
     },
     {
-      "title": "구리시, 간부 공무원 맞춤형 인공지능(AI) 교육 실시",
-      "source": "전국시민의소리",
-      "link": "https://www.gnsiminsori.com/news/articleView.html?idxno=42727",
-      "publishedAt": "Fri, 24 Jul 2026 11:32:31 GMT",
-      "date": "2026-07-24",
-      "category": "biz",
-      "bullets": [
-        "이번 교육은 김헌기 인공지능 전문강사를 초빙하여 급변하는 인공지능 기술의 흐름을 정책 기획과 시정 운영에 신속하게 접목하고, 간부 공무원들이 솔선해 조직 내 디지털 혁신 문화를 확산하기 위해 마련됐다.",
-        "시청 전산 교육장에서 진행되는 이번 특강은 부시장과 간부 공무원의 직무 특성에 맞춰 실무 중심의 직원 교육과 차별화된 정책·전략 중심의 교육 과정으로 구성됐다.",
-        "공직자 윤리 분야에서는 이해 충돌 방지 등에 관한 내용도 함께 다룬다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "\"GPU만의 시대 끝?\"…인텔, AI 추론 타고 ’깜짝 실적’ EBN",
-      "source": "Investing.com 한국어",
-      "link": "https://m.kr.investing.com/news/stock-market-news/article-2028276?ampMode=1",
-      "publishedAt": "Fri, 24 Jul 2026 10:41:00 GMT",
-      "date": "2026-07-24",
-      "category": "biz",
-      "bullets": [
-        "미국 반도체 기업 인텔이 인공지능(AI) 추론 시장 확대에 힘입어 시장 예상을 뛰어넘는 2분기 실적을 내놨다.",
-        "AI 학습 중심의 그래픽처리장치(GPU) 시장에서 AI 서비스 확대와 함께 중앙처리장치(CPU) 역할이 다시 부각되면서 데이터센터 사업이 실적을 견인했다.",
-        "부진했던 파운드리 사업도 시장 전망을 웃돌며 회복 신호를 보였다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "울산, 산업 AI 전환 승부수… 실물AI·데이터센터 육성 본격화",
       "source": "브릿지경제",
       "link": "https://www.viva100.com/article/20260724500667",
@@ -111,6 +97,34 @@
         "울산시가 실물 인공지능(피지컬AI)과 인공지능 데이터센터(AIDC)를 미래 성장축으로 삼아 세계적인 산업 인공지능 전환(AX) 중심도시 도약에 나선다.",
         "제조업 경쟁력과 에너지 기반을 바탕으로 신성장 산업을 육성하고 기업 투자와 전문 인재 양성을 확대해 지역 경제의 새로운 도약을 이끌겠다는 구상이다.",
         "울산시는 24일 시청 본관에서 김상욱 시장 주재로 ‘3대 메가 프로젝트 대응 방안 보고회’를 열고 정부 정책에 대응한 산업 인공지능전환(AX) 전략을 논의했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "인텔(INTC), AI 서버 수요에 실적 서프라이즈... \"높은 밸류에이션은 부담\"",
+      "source": "인포스탁데일리",
+      "link": "https://www.infostockdaily.co.kr/news/articleView.html?idxno=217077",
+      "publishedAt": "Fri, 24 Jul 2026 07:16:27 GMT",
+      "date": "2026-07-24",
+      "category": "biz",
+      "bullets": [
+        "인텔이 인공지능(AI) 데이터센터 수요 급증에 힘입어 시장 예상치를 크게 웃도는 '깜짝 실적'을 발표했다.",
+        "AI 서버용 반도체 수요가 빠르게 늘면서 매출 증가율은 약 15년 만에 최고치를 기록했다.",
+        "3분기 실적 전망도 월가의 기대를 웃돌면서 인텔 주가는 시간외 거래에서 급등했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "파로스아이바이오, 국가 연구기관과 AI 신약 협력…항암제 개발 탄력",
+      "source": "경제투데이",
+      "link": "http://www.e-today.kr/news/articleViewAmp.html?idxno=912791",
+      "publishedAt": "Fri, 24 Jul 2026 19:30:15 GMT",
+      "date": "2026-07-25",
+      "category": "tech",
+      "bullets": [
+        "윤정혁 파로스아이바이오 대표이사와 박구선 케이메디허브 이사장이 'AI 기반 신약개발 공동연구 업무협약'을 체결한 뒤 기념촬영을 하고 있다.",
+        "인공지능(AI) 기반 신약개발 기업 파로스아이바이오(388870)가 국가 연구 인프라와 손잡고 차세대 표적항암제 개발에 속도를 낸다.",
+        "파로스아이바이오는 대구경북첨단의료산업진흥재단과 AI 기반 신약개발 공동연구 업무협약(MOU)을 체결했다고 24일 밝혔다."
       ],
       "contentVerified": true
     },
@@ -157,20 +171,6 @@
       "contentVerified": true
     },
     {
-      "title": "KT, 개발부터 운영까지 AI로 혁신… AID-X 적용 경험과 노하우 공유",
-      "source": "인공지능신문",
-      "link": "https://www.aitimes.kr/news/articleView.html?idxno=41151",
-      "publishedAt": "Fri, 24 Jul 2026 10:17:34 GMT",
-      "date": "2026-07-24",
-      "category": "tech",
-      "bullets": [
-        "KT(대표이사 박윤영)는 경기도 성남시 KT 판교사옥에서 IT부문과 IT 전문 그룹사 KT DS가 참여하는 ‘AID-X Demo Day'를 개최했다고 24일 밝혔다.",
-        "AIDD가 소프트웨어 개발 전 과정에 AI를 적용하는 체계라면 AID-X는 기획, UX/UI 디자인, 품질관리(QA), 운영 등 IT 업무 전반으로 AI 활용 범위를 확대하는 것이 핵심이다.",
-        "KT는 인공지능을 단순한 업무 보조 도구를 넘어 개발 프로젝트 전 과정에 적용하는 체계를 구축하고, 이를 기반으로 일하는 방식을 전환해 왔다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "美 하원, AI 해킹에 '킬스위치법' 발의…백악관도 주시",
       "source": "전자신문",
       "link": "https://www.etnews.com/20260724000011",
@@ -185,16 +185,16 @@
       "contentVerified": true
     },
     {
-      "title": "빅테크, 개방형AI 규제반대 서한…＂개방생태계에 美지배력 달려＂",
-      "source": "한국경제TV",
-      "link": "https://www.wowtv.co.kr/NewsCenter/News/Read?articleId=AKR20260725002100091",
-      "publishedAt": "Fri, 24 Jul 2026 17:43:00 GMT",
-      "date": "2026-07-25",
+      "title": "고대안암병원 연구팀, 의료 AI 설명 평가 핵심 지표로 ‘강건성’ 제시",
+      "source": "주간한국",
+      "link": "https://weekly.hankooki.com/news/articleViewAmp.html?idxno=7175772",
+      "publishedAt": "Fri, 24 Jul 2026 11:48:20 GMT",
+      "date": "2026-07-24",
       "category": "policy",
       "bullets": [
-        "엔비디아를 비롯한 미국의 주요 기술기업이 도널드 트럼프 행정부의 개방형(오픈소스) 인공지능(AI) 모델 규제 움직임에 반대 목소리를 냈다.",
-        "거대 기술기업과 벤처 투자사 등 20여곳은 '오픈웨이트(가중치 개방형)와 미국의 AI 지배력'이라는 제목의 공개서한을 24일(현지시간) 공개했다.",
-        "오픈웨이트란 AI 모델의 가중치를 공개하고 이를 맞춤형으로 수정할 수 있도록 하는 개방형 모델의 일종이다."
+        "강건성은 같은 구조의 AI를 서로 다른 조건에서 여러 차례 학습시켰을 때, AI가 제시하는 설명이 얼마나 일관되게 유지되는지를 나타내는 지표다.",
+        "강건성이 높을수록 AI의 설명이 특정 학습 과정에 우연히 의존하지 않고 안정적으로 유지된다는 의미다.",
+        "의료 AI의 신뢰도를 높이기 위해 최근에는 AI가 판단한 근거를 사람이 이해할 수 있도록 보여주는 ‘설명가능 인공지능(XAI)’ 기술이 활발히 개발되고 있다."
       ],
       "contentVerified": true
     },
@@ -229,6 +229,48 @@
   ],
   "weekly": [
     {
+      "title": "“농민도 생성형 AI 활용법 배워요”",
+      "source": "농민신문",
+      "link": "https://www.nongmin.com/article/20260722500509",
+      "publishedAt": "Wed, 22 Jul 2026 07:00:00 GMT",
+      "date": "2026-07-22",
+      "category": "genai",
+      "bullets": [
+        "제주 서귀포 효돈농협(조합장 백성익)에서 농민 20여명이 생성형 인공지능(AI) 활용 교육을 듣고 있다.",
+        "제주 서귀포 효돈농협(조합장 백성익)이 농민을 대상으로 생성형 인공지능(AI) 활용 교육을 하고 있다.",
+        "교육은 디지털 시대에 발맞춰 조합원의 AI 이해도를 높이고 실생활 활용 역량을 강화하고자 마련됐다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "생성형 AI 워터마크 의무화…고영향 AI 관리체계 가동",
+      "source": "연합뉴스TV",
+      "link": "https://www.yonhapnewstv.co.kr/news/MYH20260722051136unL",
+      "publishedAt": "Tue, 21 Jul 2026 20:11:00 GMT",
+      "date": "2026-07-22",
+      "category": "genai",
+      "bullets": [
+        "기사 읽어주기 서비스는 크롬기반의 브라우저에서만 사용하실 수 있습니다.",
+        "AI 기본법 후속 개정안이 시행됐습니다.",
+        "하지만 일각에선 우려의 목소리가 여전합니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "\"생성형 AI, 진단·행정 혁신 주도…'인간 참여형' 협업 모델 필수“",
+      "source": "의학신문",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3008954",
+      "publishedAt": "Thu, 23 Jul 2026 23:46:18 GMT",
+      "date": "2026-07-24",
+      "category": "genai",
+      "bullets": [
+        "서울성모병원 고태훈 교수는 지난 21일 서울시병원회가 개최한 '제45차 병원CEO포럼'에서 ‘생성형 AI의 의료 헬스케어 적용 및 과제’를 주제로 강연을 진행했다.",
+        "고 교수는 이날 의료 파운데이션 모델의 최신 동향과 실제 병원에 도입된 AI 응용 사례, 향후 해결 과제 등을 집중 조망했다.",
+        "이날 포럼에서는 의료진의 업무 부담을 경감하고 진료 효율성을 높이기 위해 개발된 다양한 현장 특화 AI 솔루션들이 대거 공개됐다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "한국수력원자력, 사내 생성형 AI 플랫폼 활용 스마트 문서 혁신 시동",
       "source": "인공지능신문",
       "link": "https://www.aitimes.kr/news/articleView.html?idxno=41122",
@@ -243,72 +285,30 @@
       "contentVerified": true
     },
     {
-      "title": "인천펜타포트, AI 검색 만으로 정보 ‘한눈에’··· 생성형 엔진 최적화",
-      "source": "인천투데이",
-      "link": "https://www.incheontoday.com/news/articleView.html?idxno=321516",
-      "publishedAt": "Thu, 23 Jul 2026 09:04:45 GMT",
-      "date": "2026-07-23",
-      "category": "genai",
-      "bullets": [
-        "인천시가 주최하고 인천관광공사와 경기일보가 공동주관하는 ‘인천펜타포트 음악축제’는 오는 7월 31일부터 8월 2일까지 송도달빛축제공원에서 열린다.",
-        "문화체육관광부가 선정한 ‘대한민국 대표 글로벌 축제’로, 시는 이번 생성형 엔진 최적화(GEO) 도입으로 해외 인지도를 높이고 외국 관광객의 정보 접근성을 강화할 계획이다.",
-        "생성형 엔진 최적화(GEO)는 생성형 인공지능(AI) 검색 환경에서 축제 정보가 효과적으로 노출되도록 최적화하는 기술이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "한수원, 사내 생성형 AI 활용 스마트 문서 혁신 ‘가속도’",
-      "source": "dt.co.kr",
-      "link": "https://www.dt.co.kr/article/12074415",
-      "publishedAt": "Thu, 23 Jul 2026 07:01:12 GMT",
-      "date": "2026-07-23",
-      "category": "genai",
-      "bullets": [
-        "혁신적으로 실제 업무에 전면 적용하면 업무 효율성을 극대화하고, 원전 보안을 유지할 수 있기 때문이다.",
-        "한국수력원자력이 자체 구축한 사내 자료 기반 생성형 AI 플랫폼인 ‘하이누리(Hy-NuRI)’에 한컴의 AI 지능형 문서 작성 도구인 ‘한컴어시스턴트’를 결합한 뒤 현업에 적용해 눈길을 끈다.",
-        "하이누리는 건설은 물론 발전 운영, 원전 안전 등 사내의 방대한 문서 데이터를 검색증강생성(RAG) 기술로 학습한 지식 기반 AI 플랫폼이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "“AI는 일본을 좋아해”?... 생성형 AI ‘일본’ 가장 많이 언급",
-      "source": "조선일보",
-      "link": "https://www.chosun.com/economy/tech_it/2026/07/24/EV46TJTYZZGSJCPB5NYESPCDME/",
-      "publishedAt": "Fri, 24 Jul 2026 05:32:15 GMT",
+      "title": "한컴, 사명 및 종목명 변경 완료 ...AI 기업으로 자본시장 첫발, AI 기업 전환 본격화",
+      "source": "인공지능신문",
+      "link": "https://www.aitimes.kr/news/articleView.html?idxno=41132",
+      "publishedAt": "Fri, 24 Jul 2026 02:21:02 GMT",
       "date": "2026-07-24",
-      "category": "genai",
+      "category": "biz",
       "bullets": [
-        "대형언어모델(LLM)에게 특정 국가를 명시하지 않고 질문을 할 경우 ‘일본’을 가장 많이 언급한다는 연구 결과가 나왔다.",
-        "주요 AI 모델이 미국이나 유럽 중심의 답변에 치우쳐 있다는 기존 통념을 깨는 결과다.",
-        "On the Hidden Cultural and Regional Biases of LLMs)라는 제목의 논문(사전 논문)을 지난 4월 발표했다."
+        "한컴이 36년 만에 ‘한글과컴퓨터’에서 ‘한컴(HANCOM)’으로 공식 사명 변경을 완료하고, 종목명 변경까지 마치며 AI 기업으로서 자본시장에 본격 진입했다.",
+        "한컴은 이번 사명 및 종목명 변경을 통해 인공지능 기업으로의 정체성을 자본시장에 명확히 각인시켰다.",
+        "1989년 창립 이후 ‘아래아한글’로 대한민국 IT 역사를 써온 한컴이 상징적인 이름을 내려놓은 것은 AI 기업으로서의 완전한 변화를 의미한다."
       ],
       "contentVerified": true
     },
     {
-      "title": "“물리 세계 이해하는 AI 최고 기술”…KAIST, ICML 국제 챌린지 우승",
-      "source": "로봇신문",
-      "link": "https://www.irobotnews.com/news/articleView.html?idxno=47553",
-      "publishedAt": "Thu, 23 Jul 2026 02:51:29 GMT",
-      "date": "2026-07-23",
+      "title": "[과기원NOW] KAIST-엔비디아, AI 공동연구소 설립 外",
+      "source": "동아사이언스",
+      "link": "https://www.dongascience.com/ko/news/79102",
+      "publishedAt": "Fri, 24 Jul 2026 08:35:00 GMT",
+      "date": "2026-07-24",
       "category": "tech",
       "bullets": [
-        "그림과 글을 함께 이해해 물리 법칙을 적용하고 스스로 추론하는 인공지능(AI)이 항공기와 로봇 등 실제 물리 세계를 설계하는 시대가 한 걸음 가까워졌다.",
-        "KAIST 연구팀이 세계 최고 권위의 인공지능(AI)·기계학습 학회인 국제머신러닝학회(ICML) 국제 챌린지에서 세계 정상에 오르며 이 같은 기술력을 입증했다.",
-        "연구팀은 최종 평가에서 가장 높은 성적을 거두며 우승을 차지했으며, 7월 11일 서울에서 열린 ICML 공식 시상식에서 1등상을 수상했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "백악관, 오픈AI ‘인간통제 이탈’ 주시…의회선 ‘AI 킬스위치법’ 발의",
-      "source": "한겨레",
-      "link": "https://www.hani.co.kr/arti/economy/it/1269792.html",
-      "publishedAt": "Fri, 24 Jul 2026 05:08:00 GMT",
-      "date": "2026-07-24",
-      "category": "policy",
-      "bullets": [
-        "오픈에이아이(AI)의 첨단 인공지능 모델이 인간 통제망을 뚫고 외부 플랫폼을 해킹한 사건을 계기로 미국 정부와 의회가 대응 방안 마련에 나서는 모습이다.",
-        "로이터통신은 23일(현지시각) 백악관 관계자를 인용해 도널드 트럼프 미국 대통령의 기술정책 고문인 마이클 크라치오스 백악관 과학기술정책실장이 오픈에이아이의 사건 공개 내용을 보고받고 상황을 주시하고 있다고 보도했다.",
-        "오픈에이아이는 지난 21일 자사의 인공지능 에이전트가 보안 시험을 위해 마련된 격리 환경을 벗어나 인공지능 개발 플랫폼인 허깅페이스의 기반시설을 침해하는 해킹을 촉발했다고 밝힌 상태다."
+        "■ KAIST는 글로벌 인공지능(AI) 컴퓨팅 기업 엔비디아와 함께 김재철AI대학원에 ‘NVIDIA-KAIST AI 공동연구소'를 설립하고 차세대 AI 핵심기술 공동연구를 본격화한다고 24일 밝혔다.",
+        "이번 협력은 초기 5년간 총 3억 달러 규모로 추진되며 매년 5000만 달러 상당의 AI 컴퓨팅 자원이 제공된다.",
+        "공동연구소 참여 연구자들은 국내 엔비디아 클라우드 파트너를 통해 최신 엔비디아 AI 컴퓨팅 인프라를 활용할 수 있게 된다."
       ],
       "contentVerified": true
     }
