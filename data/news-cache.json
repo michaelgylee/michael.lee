@@ -1,6 +1,6 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-07-25T14:05:14Z",
+  "generated_at": "2026-07-25T16:13:46Z",
   "daily": [
     {
       "title": "롯데마트 문화센터, AI·가족 콘텐츠로 가을 고객 잡는다",
@@ -59,20 +59,6 @@
       "contentVerified": true
     },
     {
-      "title": "[비즈+]삼성SDS, 앤트로픽과 전략적 제휴…국내 엔터프라이즈 AI 시장 공략 본격화",
-      "source": "비즈니스플러스",
-      "link": "https://www.businessplus.kr/news/articleView.html?idxno=114607",
-      "publishedAt": "Sat, 25 Jul 2026 12:25:12 GMT",
-      "date": "2026-07-25",
-      "category": "biz",
-      "bullets": [
-        "국내 기업들의 생성형 AI 도입이 확산되는 가운데 삼성SDS가 앤트로픽과 전략적 협력을 맺고 기업용 AI 사업을 공동 확대하며 국내 엔터프라이즈 AI 시장 선점에 나섰다.",
-        "삼성SDS는 글로벌 인공지능(AI) 기업 앤트로픽과 엔터프라이즈 AI 시장 확대를 위한 전략적 파트너십(SPA)을 체결했다고 25일 밝혔다.",
-        "이번 협약은 양사가 보유한 AI 기술과 산업별 디지털 전환 역량을 결합해 국내 기업의 AI 도입을 지원하고 새로운 사업 기회를 공동 발굴하기 위한 것이다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "삼성SDS, 앤트로픽과 '클로드' 기반 엔터프라이즈 AI 사업 확대 '맞손'",
       "source": "초이스경제",
       "link": "http://www.choicenews.co.kr/news/articleViewAmp.html?idxno=168726",
@@ -111,6 +97,20 @@
         "삼성SDS가 글로벌 인공지능(AI) 선도 기업 앤트로픽(Anthropic)과 첫 전략적 파트너십을 맺고 국내 기업용 AI 시장 공략에 속도를 낸다.",
         "삼성SDS는 앤트로픽과 국내 엔터프라이즈 AI 시장 확대를 위한 전략적 파트너십 계약을 체결했다고 25일 밝혔다.",
         "양사는 이번 협약을 통해 국내 시장에서 신규 사업 기회를 공동으로 발굴하고, 기업들의 성공적인 AI 도입과 활용을 다각도로 지원하기로 했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "울산 글로벌 산업AX 선도도시 추진…'피지컬AI'와 'AIDC' 양축",
+      "source": "전자신문",
+      "link": "https://www.etnews.com/20260725000031",
+      "publishedAt": "Sat, 25 Jul 2026 09:03:56 GMT",
+      "date": "2026-07-25",
+      "category": "biz",
+      "bullets": [
+        "울산시가 피지컬인공지능(AI)과 AI데이터센터(AIDC776)를 양 축으로 글로벌 산업인공지능전환(AX909) 선도도시로 도약한다.",
+        "울산시는 24일 김상욱 시장 주재로 '정부 3대 메가 프로젝트 대응 방안 보고회'를 열고 글로벌 산업AX 중심도시 대전환을 목표로 '피지컬AI'와 'AIDC' 분야에 역량을 집중하기로 했다.",
+        "지난달 정부가 발표한 3대 메가 프로젝트와 관련해 울산 산업생태계, 민선 9기 시정 방향, 민간 투자 계획 등을 종합 검토한 결과다."
       ],
       "contentVerified": true
     },
@@ -172,7 +172,7 @@
     },
     {
       "title": "\"의료 AI의 '설명'까지 검증한다…신뢰성 평가 핵심기준 입증\" 고려대 연구팀, 의료 AI 설명 신뢰성 평가 핵심기준 '강건성' 입증",
-      "source": "더글로벌기빙뉴스",
+      "source": "mliberty.kr",
       "link": "https://theggnews.com/ko-kr/articles/27124",
       "publishedAt": "Sat, 25 Jul 2026 12:57:00 GMT",
       "date": "2026-07-25",
@@ -199,20 +199,6 @@
       "contentVerified": true
     },
     {
-      "title": "AI 음악을 이용해 저작권료를 '회피'하려는 추세에 대해 변호사들은 어떻게 생각할까요?",
-      "source": "Vietnam.vn",
-      "link": "https://www.vietnam.vn/ko/luat-su-noi-gi-ve-trao-luu-su-dung-nhac-ai-de-ne-phi-ban-quyen",
-      "publishedAt": "Sat, 25 Jul 2026 08:29:23 GMT",
-      "date": "2026-07-25",
-      "category": "policy",
-      "bullets": [
-        "변호사들에 따르면, AI 음악을 사용하는 사업주가 자동으로 저작권료 납부 의무에서 면제된다고 주장할 수는 없습니다.",
-        "저작권 및 관련 권리에 관한 지식재산권법 시행에 대한 세부 조항 및 조치를 담은 정부 령 제17/2023/ND-CP호의 일부 조항을 개정 및 보완하는 정부령 제134/2026/ND-CP호가 7월 1일부터 시행됩니다.",
-        "특히, 레스토랑이나 카페와 같은 사업체로부터 음악 저작권료를 징수하는 문제는 오랫동안 대중과 언론의 관심을 끌어온 주제입니다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "이재용·올트먼, 오픈AI 본사서 회동··· 인공지능 인프라 관련 협력 논의할 듯",
       "source": "경향신문",
       "link": "https://www.khan.co.kr/article/202607251546001",
@@ -223,6 +209,20 @@
         "이재용 삼성전자 회장과 샘 올트먼 오픈AI 최고경영자가 미국 샌프란시스코 오픈AI 본사에서 만나 양사의 협력 방안을 논의한다.",
         "삼성전자는 오픈AI의 최대 규모 글로벌 기업 고객 중 하나로, 전 임직원을 대상으로 챗GPT와 AI 코딩 도구 코덱스를 도입하기로 했다.",
         "이번 회의에선 삼성전자 메모리 반도체와 파운드리 역량을 오픈AI가 추진하는 대규모 AI 인프라 사업과 연계하는 방안이 논의될 것으로 전망된다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "의료 AI 얼마나 신뢰할 수 있을까? AI 진단 신뢰도 높일 핵심 기준 찾았다",
+      "source": "브레인미디어",
+      "link": "https://www.brainmedia.co.kr/NEW/25540",
+      "publishedAt": "Sat, 25 Jul 2026 05:36:00 GMT",
+      "date": "2026-07-25",
+      "category": "policy",
+      "bullets": [
+        "의료 연구에 인공지능 AI 활용이 활발하다.",
+        "의료 AI를 믿으려면 결과뿐 아니라 ‘왜 그렇게 판단했는지’도 알아야 한다.",
+        "딥러닝 AI는 뇌 MRI 판독처럼 어려운 의료 영상 분석에서 전문의 수준의 성능을 보인다."
       ],
       "contentVerified": true
     }
@@ -299,20 +299,6 @@
       "contentVerified": true
     },
     {
-      "title": "[김대호 진단] 반도체 열전 ⑱ 오픈AI… 흔들리는 인공지능 AI 원조",
-      "source": "글로벌이코노믹",
-      "link": "https://www.g-enews.com/article/Opinion/2026/07/202607211056245429906806b77b_1",
-      "publishedAt": "Thu, 23 Jul 2026 15:00:00 GMT",
-      "date": "2026-07-24",
-      "category": "biz",
-      "bullets": [
-        "세계 인공지능(AI) 시장에 거대한 지각변동이 일어나고 있다.",
-        "뉴욕증시 시장에서는 오픈AI의 독주 체제가 종식되고 진정한 치킨게임이 시작되었다는 평가가 나온다.",
-        "오픈AI의 최대 주주이자 전략적 투자자로 거액을 집어넣었던 일본 소프트뱅크그룹(SoftBank Group)의 주가가 시장에서 폭락세를 면치 못했다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "최휘영 장관 \"AI로 상상력에 날개…콘텐츠 시장 선도할 것\"",
       "source": "연합뉴스",
       "link": "https://www.yna.co.kr/amp/view/AKR20260723180300005",
@@ -327,30 +313,44 @@
       "contentVerified": true
     },
     {
-      "title": "삼성SDS, 앤트로픽과 전략적 협력…20개 관계사에 '클로드' 공급 |",
-      "source": "연합인포맥스",
-      "link": "https://news.einfomax.co.kr/news/articleViewAmp.html?idxno=4426838",
-      "publishedAt": "Sat, 25 Jul 2026 07:19:28 GMT",
+      "title": "‘세계의 공장’ 중국, 이제 ‘지능’도 수출…AI 모델 세계 시장으로",
+      "source": "조선일보",
+      "link": "https://www.chosun.com/economy/tech_it/2026/07/25/TA532LZ77FAIPLESLV5S5VZXKQ/",
+      "publishedAt": "Sat, 25 Jul 2026 00:10:37 GMT",
       "date": "2026-07-25",
       "category": "biz",
       "bullets": [
-        "삼성SDS가 생성형 인공지능(AI) 기업 앤트로픽과 손잡고 국내 엔터프라이즈 AI 시장 공략을 강화한다.",
-        "삼성SDS는 앤트로픽과 엔터프라이즈 AI 사업 확대를 위한 전략적 파트너십을 체결했다고 25일 밝혔다.",
-        "양사는 이번 협약을 통해 한국 시장에서 신규 사업 기회를 공동 발굴하고, 앤트로픽의 AI 모델인 '클로드' 구축·운영 전문 인력을 양성하기로 했다."
+        "지난 18일 중국 상하이에서 열린 세계인공지능대회(WAIC)에서 관람객들이 중국의 인공지능(AI) 스타트업 ‘문샷’의 부스를 둘러보고 있다.",
+        "문샷은 이날 오픈소스 AI 모델 ‘키미(Kimi) K3’를 공개했다.",
+        "중국 기업들이 반도체와 컴퓨터 등 실물 제품을 넘어 인공지능(AI) 모델과 응용 프로그램, 기업용 API(응용 프로그램 인터페이스)를 수출하기 시작했다."
       ],
       "contentVerified": true
     },
     {
-      "title": "철도연-伊 Mermec, AI 기반 스마트 철도 유지관리 기술 개발 맞손",
-      "source": "전기신문",
-      "link": "https://www.electimes.com/news/articleViewAmp.html?idxno=370670",
-      "publishedAt": "Fri, 24 Jul 2026 07:15:48 GMT",
+      "title": "[과기원NOW] KAIST-엔비디아, AI 공동연구소 설립 外",
+      "source": "동아사이언스",
+      "link": "https://www.dongascience.com/ko/news/79102",
+      "publishedAt": "Fri, 24 Jul 2026 08:35:00 GMT",
       "date": "2026-07-24",
       "category": "tech",
       "bullets": [
-        "한국철도기술연구원이 이탈리아 철도 전문기업과 손잡고 인공지능(AI) 기반 스마트 철도 유지관리 기술 개발에 나선다.",
-        "양 기관은 이번 협약을 계기로 AI를 활용한 차세대 스마트 철도 유지관리 기술 개발에 협력하기로 했다.",
-        "협약에는 국제 공동연구, 기술 세미나·워크숍 개최, 철도산업 발전을 위한 기술 자문 등 다양한 분야의 협력 계획이 담겼다."
+        "■ KAIST는 글로벌 인공지능(AI) 컴퓨팅 기업 엔비디아와 함께 김재철AI대학원에 ‘NVIDIA-KAIST AI 공동연구소'를 설립하고 차세대 AI 핵심기술 공동연구를 본격화한다고 24일 밝혔다.",
+        "이번 협력은 초기 5년간 총 3억 달러 규모로 추진되며 매년 5000만 달러 상당의 AI 컴퓨팅 자원이 제공된다.",
+        "공동연구소 참여 연구자들은 국내 엔비디아 클라우드 파트너를 통해 최신 엔비디아 AI 컴퓨팅 인프라를 활용할 수 있게 된다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "NIA, 인간 중심 'AI 기본사회' 구현한다…법·제도 과제 논의",
+      "source": "지디넷코리아",
+      "link": "https://zdnet.co.kr/view/?no=20260723172042",
+      "publishedAt": "Thu, 23 Jul 2026 08:31:56 GMT",
+      "date": "2026-07-23",
+      "category": "policy",
+      "bullets": [
+        "한국지능정보사회진흥원(NIA)이 인공지능(AI) 기본사회 구현을 위한 법·제도 정비 논의에 나섰다.",
+        "의료·교육·노동 분야를 중심으로 AI 확산에 따른 권리 보호와 국가 역할을 논의하고 기술 발전과 국민 신뢰를 뒷받침할 제도 마련에 속도를 낸다는 목표다.",
+        "NIA는 서울 중앙우체국에서 'AI 기본사회, 의료·교육·노동 분야 법제도 대응 과제 논의'를 주제로 공개 세미나를 개최했다고 23일 밝혔다."
       ],
       "contentVerified": true
     }
