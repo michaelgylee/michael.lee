@@ -1,21 +1,7 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-07-30T11:22:59Z",
+  "generated_at": "2026-07-30T14:36:17Z",
   "daily": [
-    {
-      "title": "“생성형 AI 시대, 청소년 AI윤리 역량 키운다”",
-      "source": "영남신문",
-      "link": "https://www.ynamnews.co.kr/news/articleView.html?idxno=138514",
-      "publishedAt": "Thu, 30 Jul 2026 11:11:43 GMT",
-      "date": "2026-07-30",
-      "category": "genai",
-      "bullets": [
-        "한국지능정보사회진흥원(원장 김형철, 이하 NIA)은 7월 30일(목) 숙명여자대학교에서 KT, 교보교육재단과 함께 2026년 제1회 「AI윤리 ON」 청소년 캠프를 개최했다고 밝혔다.",
-        "「AI윤리 ON」 청소년 캠프는 2025년부터 개최되었으며, 생성형 AI 시대에 청소년들의 책임 있는 AI 활용 역량을 키우기 위해 마련된 체험과 토론 중심 교육 프로그램이다.",
-        "이번 캠프에는 전국에서 선발된 중학생 79명이 참여했으며, 모집 단계부터 높은 관심을 받아 216명이 신청해 3대 1의 경쟁률을 기록하는 등 청소년과 학부모의 높은 관심 속에 진행됐다."
-      ],
-      "contentVerified": true
-    },
     {
       "title": "AI가 경기도 공무원 업무 돕는다…엠티데이타, 생성형AI 플랫폼 구축",
       "source": "뉴스웍스",
@@ -46,7 +32,7 @@
     },
     {
       "title": "AI 전쟁 중인데, 韓 과학계는 구독 영수증 '풀칠' 중?",
-      "source": "헬로디디",
+      "source": "hellodd.com",
       "link": "https://www.hellodd.com/news/articleView.html?idxno=112625",
       "publishedAt": "Thu, 30 Jul 2026 08:55:31 GMT",
       "date": "2026-07-30",
@@ -59,15 +45,43 @@
       "contentVerified": true
     },
     {
-      "title": "인천시, 1조 원대 AI 커넥티드카 국비사업 유치 총력전 돌입",
-      "source": "투데이경제",
-      "link": "https://www.tookyung.com/news/articleView.html?idxno=731039",
-      "publishedAt": "Thu, 30 Jul 2026 10:34:45 GMT",
+      "title": "AI가 알려준 법, 그대로 믿었다간… 경찰이 경고한 '생성형 AI의 함정'",
+      "source": "뉴스앤넷",
+      "link": "https://www.newsnnet.com/news/articleView.html?idxno=30468",
+      "publishedAt": "Thu, 30 Jul 2026 08:36:39 GMT",
+      "date": "2026-07-30",
+      "category": "genai",
+      "bullets": [
+        "생성형 AI가 일상 속 검색과 상담의 도구로 빠르게 자리 잡으면서 법률 정보까지 AI에 의존하는 사례가 늘고 있다.",
+        "그러나 편리함만 믿고 AI 답변을 그대로 활용했다가는 잘못된 법 적용이나 민원 제기로 이어질 수 있다는 경고가 나왔다.",
+        "경찰은 생성형 AI의 답변은 참고자료일 뿐 법적 효력을 갖는 공식 해석이 아니라며, 반드시 국가의 공식 법령과 판례 등을 통해 최종 확인해야 한다고 강조했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "실적 앞둔 애플, AI 투자 피난처 부상…“월가 안전지대”",
+      "source": "마켓인",
+      "link": "https://marketin.edaily.co.kr/News/ReadE?newsId=07609606645519768",
+      "publishedAt": "Thu, 30 Jul 2026 11:27:47 GMT",
       "date": "2026-07-30",
       "category": "biz",
       "bullets": [
-        "박찬대 인천광역시장이 30일 시청 영상회의실에서 열린 'AI 커넥티드 모빌리티 TF 점검회의'에서 추진상황을 점검하고 있다.",
-        "인천광역시는 인공지능(AI) 커넥티비티 산업의 주도권을 확보하기 위해 시장 직속 전담조직(T/F)를 전면 가동하고, 1조 원 규모의 국비 사업 유치에 나섰다.",
+        "실적 발표를 앞둔 애플(AAPL)이 인공지능(AI) 투자 열풍에서 벗어난 ‘안전지대’로 부상하고 있다는 분석이 나왔다.",
+        "비즈니스인사이더는 30일(현지 시간) 최근 AI 인프라 투자 확대에 대한 피로감이 커지면서 투자자들이 대규모 AI 투자보다 안정적인 현금흐름과 주주환원 정책을 갖춘 애플로 눈을 돌리고 있다고 논평했다.",
+        "이날 애플이 장 마감 후에 실적을 발표하는 가운데, 시장은 실적 자체뿐 아니라 향후 AI 전략과 사업 전망에 대한 경영진의 발언에 주목하고 있다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "' 시장 직속 TF팀 가동' 시, 1조 원대 AI 커넥티드카 국비사업 유치 총력전 돌입",
+      "source": "남동뉴스",
+      "link": "http://www.namdongnews.co.kr/news/articleViewAmp.html?idxno=92633",
+      "publishedAt": "Thu, 30 Jul 2026 11:15:25 GMT",
+      "date": "2026-07-30",
+      "category": "biz",
+      "bullets": [
+        "인천시는 인공지능(AI) 커넥티비티 산업의 주도권을 확보하기 위해 시장 직속 전담조직(T/F)를 전면 가동하고, 1조 원 규모의 국비 사업 유치에 나섰다.",
+        "시는 30일 시청 영상회의실에서 박찬대 시장 주재로 ‘인공지능(AI) 커넥티드 모빌리티 전담조직(T/F) 점검회의’를 개최하고, 인공지능(AI) 커넥티드카와 사이버보안 산업 육성을 위한 추진 상황을 집중 점검했다고 밝혔다.",
         "이번 회의는 지난 7월 27일 전담조직(T/F) 발족 및 첫 회의(Kick-off Meeting)에 이은 후속 점검회의로, 공약을 신속하게 추진하기 위한 전략을 수립하는 차원에서 마련됐다."
       ],
       "contentVerified": true
@@ -101,22 +115,22 @@
       "contentVerified": true
     },
     {
-      "title": "인천시, 1조원대 AI 커넥티드카 국책사업 유치 총력…시장 직속 TF 가동",
-      "source": "기호일보",
-      "link": "https://www.kihoilbo.co.kr/news/articleView.html?idxno=3030392",
-      "publishedAt": "Thu, 30 Jul 2026 07:42:42 GMT",
+      "title": "이병훈 산업인력공단 이사장 “AI 기술, 노동현장서 활용할 수 있도록 훈련”",
+      "source": "경향신문",
+      "link": "https://www.khan.co.kr/article/202607302014005/amp",
+      "publishedAt": "Thu, 30 Jul 2026 11:14:00 GMT",
       "date": "2026-07-30",
-      "category": "biz",
+      "category": "tech",
       "bullets": [
-        "인천시는 30일 박찬대 시장 주재로 ‘인공지능(AI) 커넥티드 모빌리티 전담조직(T/F) 점검회의’를 개최했다.",
-        "인천시가 총사업비 1조 원대의 국가 연구개발(R&D) 사업인 ‘AI 커넥티드카 기술개발혁신사업’ 유치에 본격적으로 나섰다.",
-        "시장 직속 전담조직(TF)을 가동해 미래 모빌리티 핵심 산업을 선점하고 대규모 국비 확보에 총력을 기울인다는 방침이다."
+        "인공지능(AI)이 노동시장을 빠르게 바꾸고 있다.",
+        "이병훈 신임 한국산업인력공단 이사장은 산업화 시대 기능인력을 양성해온 공단이 이제 AI 시대 노동자의 재교육을 맡는 기관으로 바뀌어야 한다고 본다.",
+        "노동자가 변화에서 밀려나지 않으려면 새로운 직무를 배우는 ‘리스킬링’(reskilling)과 기존 직무의 능력을 높이는 ‘업스킬링’(upskilling)이 필요하다는 것이다."
       ],
       "contentVerified": true
     },
     {
       "title": "피지컬 AI 접목… 부산항 스마트기술 개발 속도",
-      "source": "paxetv.com",
+      "source": "팍스경제TV",
       "link": "http://www.paxetv.com/news/articleView.html?idxno=278292",
       "publishedAt": "Thu, 30 Jul 2026 09:50:48 GMT",
       "date": "2026-07-30",
@@ -130,7 +144,7 @@
     },
     {
       "title": "스스로 계획하고 일하는 AI···정부, 26개 기관과 개발 착수",
-      "source": "헬로디디",
+      "source": "hellodd.com",
       "link": "https://www.hellodd.com/news/articleView.html?idxno=112663",
       "publishedAt": "Thu, 30 Jul 2026 08:40:00 GMT",
       "date": "2026-07-30",
@@ -139,20 +153,6 @@
         "![Image 6: 과학기술정보통신부와 정보통신기획평가원이 사람의 개입을 10% 이하로 줄이면서 스스로 목표를 세워 판단·행동하는 에이전틱 AI 기술개발 사업에 나선다.",
         "이번 사업에는 NC AI, 메디컬파크, 심심이, 브이이엔지 등 4개 주관기관을 비롯해 산학연 연구기관 26곳이 참여한다.",
         "단계평가를 거쳐 2027년 말에 우수 과제 1개가 선정된다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "한국형 AI 스마트항만 구축…BPA, HD현대삼호와 협력",
-      "source": "해사신문",
-      "link": "http://www.haesanews.com/news/articleView.html?idxno=149815",
-      "publishedAt": "Thu, 30 Jul 2026 08:25:22 GMT",
-      "date": "2026-07-30",
-      "category": "tech",
-      "bullets": [
-        "부산항만공사(BPA)가 HD현대삼호와 손잡고 피지컬 인공지능(AI)을 활용한 항만장비와 운영시스템, 예방정비 기술 개발에 나선다.",
-        "개별 하역장비의 자동화를 넘어 항만 운영 전 과정에 AI를 적용해 부산항의 한국형 스마트항만 전환을 앞당긴다는 구상이다.",
-        "BPA는 30일 부산항만공사 본사에서 HD현대삼호와 ‘피지컬 AI 기반 항만 미래기술 공동 연구개발 업무협약’을 체결했다고 밝혔다."
       ],
       "contentVerified": true
     },
@@ -199,30 +199,30 @@
       "contentVerified": true
     },
     {
-      "title": "AI 규제 놓고 맞선 오픈AI·앤스로픽 진영…같은 美의원 밀었다",
-      "source": "뉴시스",
-      "link": "https://mobile.newsis.com/view_amp.html?ar_id=NISX20260730_0003730109",
-      "publishedAt": "Thu, 30 Jul 2026 06:23:05 GMT",
+      "title": "전직 관료의 작심 \"그물망 규제에 연구자는 잠재적 범죄자\"\"법은 한 줄 , 현장 옥죄는 지침·규칙은 점증주의\"",
+      "source": "hellodd.com",
+      "link": "https://www.hellodd.com/news/articleView.html?idxno=112672",
+      "publishedAt": "Thu, 30 Jul 2026 09:00:00 GMT",
       "date": "2026-07-30",
       "category": "policy",
       "bullets": [
-        "[서울=뉴시스]박영환 기자 = 인공지능(AI) 규제 방향을 놓고 맞서온 미국의 두 정치자금 진영이 11월 중간선거에서 같은 민주당 하원의원을 지원하고 나섰다.",
-        "민주당이 확실히 우세한 선거구에서까지 지원에 나선 것은 차기 의회의 AI 규칙 제정에 영향력을 행사할 의원과 미리 관계를 구축하려는 포석이라는 분석이 나온다.",
-        "5선 현역 의원인 고트하이머는 뉴저지주 5선거구 민주당 후보로 11월 본선에 나선다."
+        "30여 년간 과학기술 정책 현장을 지켜본 전직 과학기술 관료의 입에서 나온 말이다.",
+        "전직 관료는 최근 대덕넷과의 인터뷰에서 \"정부는 자율성을 준다고 하지만 연구자는 한 번도 제대로 자율성을 가져본 적이 없다\"며 \"법보다 시행령과 내부 지침이 더 무서운 구조가 됐다\"고 말했다.",
+        "그는 현재 국가 연구개발 제도를 '그물망 규제'라고 표현했다."
       ],
       "contentVerified": true
     },
     {
-      "title": "카카오, AI기본법 대응 윤리 자문단 가동",
-      "source": "포쓰저널",
-      "link": "https://www.4th.kr/news/articleView.html?idxno=2115531",
-      "publishedAt": "Thu, 30 Jul 2026 06:16:59 GMT",
+      "title": "[데일리픽] XRP 소송 주역, 美 최고 정보 수장으로…MS·메타 AI 수익화에 '희비'",
+      "source": "디지털투데이",
+      "link": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=688359",
+      "publishedAt": "Thu, 30 Jul 2026 08:00:00 GMT",
       "date": "2026-07-30",
       "category": "policy",
       "bullets": [
-        "카카오가 자율형 인공지능(AI)인 '에이전틱 AI'의 확산과 AI기본법 시행에 대응하기 위해 안전·법·아동권리·국제정책 분야 외부 전문가 7명의 의견을 사내 AI 기술정책에 반영하는 체계를 가동한다.",
-        "30일 카카오는 AI 윤리 거버넌스를 강화하기 위해 'AI&기술윤리소위원회'의 외부 전문 자문단을 발족했다고 밝혔다.",
-        "자문단은 에이전틱 AI에서 발생할 수 있는 사회적 위험과 국내·외 규제·안전 논의를 검토해 카카오가 적용할 AI 윤리 기준과 정책 방향을 제시한다."
+        "제이 클레이턴 전 미국 증권거래위원회(SEC) 의장이 미국 국가정보국(DNI) 국장으로 공식 인준됐다.",
+        "암호화폐 업계에서는 리플랩스를 상대로 한 XRP 증권성 소송을 시작한 인물로 잘 알려진 만큼 그의 복귀에 업계의 관심이 쏠리고 있다.",
+        "미국 상원은 이날 본회의에서 클레이턴 국가정보국장 지명을 찬성 51표, 반대 47표로 가결했다."
       ],
       "contentVerified": true
     }
@@ -257,6 +257,20 @@
       "contentVerified": true
     },
     {
+      "title": "생성형 AI 시대 브랜드 경쟁력도 'AI가 답하는 시대'…에이아이빅스랩, AI 브랜드 지수 공개",
+      "source": "전자신문",
+      "link": "https://www.etnews.com/20260729000008",
+      "publishedAt": "Tue, 28 Jul 2026 22:54:00 GMT",
+      "date": "2026-07-29",
+      "category": "genai",
+      "bullets": [
+        "생성형 인공지능(AI)이 소비자의 제품 검색과 브랜드 선택에 영향을 미치면서 AI가 브랜드를 얼마나 추천하고 인용하는지를 수치화한 브랜드 경쟁력 지표가 처음 공개됐다.",
+        "에이아이빅스랩(대표 김준현)은 28일 서울 중구 한국의집에서 기자간담회를 열고 생성형 AI 기반 브랜드 경쟁력 지수인 'AIBIX(AI Brand Index)'를 공개했다.",
+        "AIBIX는 생성형 AI가 브랜드를 어떻게 인식하고 추천하는지를 100점 만점으로 평가하는 지수다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "성북구, 누리집에 생성형 AI 도입…챗봇·검색·번역 서비스",
       "source": "v.daum.net",
       "link": "https://v.daum.net/v/20260728144950172?f=p",
@@ -271,44 +285,58 @@
       "contentVerified": true
     },
     {
-      "title": "AI 전쟁 중인데, 韓 과학계는 구독 영수증 '풀칠' 중?",
-      "source": "헬로디디",
-      "link": "https://www.hellodd.com/news/articleView.html?idxno=112625",
-      "publishedAt": "Thu, 30 Jul 2026 08:55:31 GMT",
-      "date": "2026-07-30",
-      "category": "genai",
+      "title": "허태정, 김민석 만나 “AI 산업 거점은 대전” 지원 요청",
+      "source": "디트NEWS24",
+      "link": "https://www.dtnews24.com/news/articleView.html?idxno=813739",
+      "publishedAt": "Wed, 29 Jul 2026 06:06:50 GMT",
+      "date": "2026-07-29",
+      "category": "biz",
       "bullets": [
-        "생성형 AI는 이미 연구현장에 광범위하게 들어왔고 정부 연구비로 유료 서비스를 이용하는 것도 가능하다.",
-        "기관 단위 통합구매와 연간 계약을 활용할 제도적 근거도 마련됐다.",
-        "그럼에도 실제 현장에서는 개인·연구실·부서마다 계약과 결제 방식이 다르고, 연구자가 직접 증빙과 정산을 떠안는 사례가 적지 않다."
+        "허태정 대전시장이 김민석 더불어민주당 당대표 후보를 만나 대전이 인공지능(AI) 산업 육성 최적지임을 강조했다.",
+        "허 시장은 29일 김 후보와의 대전 조찬 회동에서 “대전이 국가의 R&D 산실이었던 역할을 넘어 AI 혁신 기반이 돼야 한다.",
+        "지역의 산업 육성, 일자리 창출로도 이어져야 할 것”이라며 “당이 역할을 해달라”고 당부했다."
       ],
       "contentVerified": true
     },
     {
-      "title": "SK하이닉스, 일본 증시도 흔든다... AI 시대 핵심 기업 부상",
-      "source": "인포스탁데일리",
-      "link": "https://www.infostockdaily.co.kr/news/articleView.html?idxno=217166",
-      "publishedAt": "Thu, 30 Jul 2026 01:29:46 GMT",
+      "title": "[분석-글로벌성공기업] [빅에어AI] AI로 국방·공급망 혁신… 美 의사결정 플랫폼 시장 정조준",
+      "source": "비즈니스리포트",
+      "link": "http://www.businessreport.kr/news/articleView.html?idxno=53318",
+      "publishedAt": "Thu, 30 Jul 2026 03:53:20 GMT",
       "date": "2026-07-30",
       "category": "biz",
       "bullets": [
-        "세계 인공지능(AI) 반도체 시장의 핵심 기업으로 자리매김한 SK하이닉스(000660)가 일본 언론과 투자자들의 주목을 받고 있다.",
-        "일본 반도체 산업과 증시에 미치는 영향력이 커지면서 현지 언론이 주목하는 대표적인 해외 기업으로 떠올랐다.",
-        "30일 니혼게이자이신문은 종합 1면에서 SK하이닉스의 2분기 실적과 주가 흐름을 비중 있게 다뤘다."
+        "‘작지만 강한 기업이 대한민국의 미래’라는 캐치프레이즈로 ‘강소기업’ 발굴에 앞장서고 있습니다.",
+        "지금은 유명하지 않지만 세계인을 사로잡을 우량 강소기업(제품)을 찾아, 초일류 명품브랜드가 될 수 있도록 돕습니다.",
+        "나아가 이들 강소기업이 글로벌시장을 이끌 ‘히든챔피언’ 이 될 수 있도록 작은 힘이지만 보태겠습니다."
       ],
       "contentVerified": true
     },
     {
-      "title": "NC AI-씨메스로보틱스, 차세대 로보틱스 솔루션 개발",
-      "source": "디일렉",
-      "link": "https://www.thelec.kr/news/articleView.html?idxno=60334",
-      "publishedAt": "Thu, 30 Jul 2026 06:59:42 GMT",
-      "date": "2026-07-30",
+      "title": "오픈AI·구글 직원들 \"AI 개발, 브레이크도 필요하다\"",
+      "source": "mstoday.co.kr",
+      "link": "https://www.mstoday.co.kr/news/articleView.html?idxno=102161",
+      "publishedAt": "Wed, 29 Jul 2026 01:56:56 GMT",
+      "date": "2026-07-29",
       "category": "tech",
       "bullets": [
-        "NC AI와 씨메스로보틱스가 피지컬 인공지능(AI) 기반의 공동 연구개발과 상호 기술 공유를 골자로 하는 전략적 업무협약을 체결했다.",
-        "양사가 보유한 AI 기술과 로보틱스 역량을 결합해 제조∙물류 산업에 적용 가능한 차세대 피지컬 AI 기반 로보틱스 솔루션을 공동 개발한다는 목표다.",
-        "NC AI에 따르면 양사는 △피지컬 AI 기반 공동 연구개발 △핵심 기술과 연구 성과 공유 △차세대 로보틱스 솔루션 발굴과 기술 고도화 등에서 협력 체계를 구축한다."
+        "[MS투데이] 인공지능(AI) 기술 개발을 선도해 온 글로벌 빅테크 기업 내부에서 AI 발전 속도를 조절해야 한다는 목소리가 커지고 있다.",
+        "오픈AI와 앤트로픽, 구글, 메타 등 주요 AI 기업의 연구진과 임직원들은 미국 정부에 AI 개발 속도를 관리할 국제적 안전체계를 마련해 달라고 공식 요청하며 기술 경쟁보다 안전 확보가 우선돼야 한다고 강조했다.",
+        "참여자들은 AI 기술이 급속도로 발전하면서 인간의 이해와 통제 능력을 뛰어넘을 가능성이 커지고 있다며, 산업계와 정부가 위험성을 충분히 검증하고 대응할 시간을 확보할 수 있도록 새로운 거버넌스가 필요하다고 주장했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "AI 규제 놓고 맞선 오픈AI·앤스로픽 진영…같은 美의원 밀었다",
+      "source": "뉴시스",
+      "link": "https://mobile.newsis.com/view_amp.html?ar_id=NISX20260730_0003730109",
+      "publishedAt": "Thu, 30 Jul 2026 06:23:05 GMT",
+      "date": "2026-07-30",
+      "category": "policy",
+      "bullets": [
+        "[서울=뉴시스]박영환 기자 = 인공지능(AI) 규제 방향을 놓고 맞서온 미국의 두 정치자금 진영이 11월 중간선거에서 같은 민주당 하원의원을 지원하고 나섰다.",
+        "민주당이 확실히 우세한 선거구에서까지 지원에 나선 것은 차기 의회의 AI 규칙 제정에 영향력을 행사할 의원과 미리 관계를 구축하려는 포석이라는 분석이 나온다.",
+        "5선 현역 의원인 고트하이머는 뉴저지주 5선거구 민주당 후보로 11월 본선에 나선다."
       ],
       "contentVerified": true
     }
