@@ -1,7 +1,21 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-07-30T16:52:34Z",
+  "generated_at": "2026-07-30T19:55:59Z",
   "daily": [
+    {
+      "title": "서울플래닝, AI 영상 제작 자회사 ‘서울스튜디오’ 설립",
+      "source": "한국원자력신문",
+      "link": "http://www.knpnews.com/news/articleViewAmp.html?idxno=34199",
+      "publishedAt": "Thu, 30 Jul 2026 18:00:09 GMT",
+      "date": "2026-07-31",
+      "category": "genai",
+      "bullets": [
+        "AI 영상 콘텐츠 제작사 서울플래닝이 생성형 인공지능 기반 영상 제작을 전담할 자회사 ‘서울스튜디오’를 설립했다.",
+        "영상 제작과 콘텐츠 사업은 서울플래닝과 서울스튜디오가 맡고, 기업 대상 PR·마케팅 기획과 납품은 계열사 라이징팝스가 담당하는 형태로 사업 구조를 재편한다.",
+        "서울스튜디오가 공개한 제작 절차는 기획 및 AI 스토리보딩 단계에서 시작된다."
+      ],
+      "contentVerified": true
+    },
     {
       "title": "생성형 AI 확산에… 사이버 침해사고 상반기 20% 늘어",
       "source": "동아일보",
@@ -17,8 +31,22 @@
       "contentVerified": true
     },
     {
+      "title": "플랜아이, 과기부 ‘AX 원스톱 바우처’ 선정… 생성형 AI 플랫폼으로 제조기업 디지털 전환 지원",
+      "source": "스타트업엔(StartupN)",
+      "link": "https://www.startupn.kr/news/articleViewAmp.html?idxno=59138",
+      "publishedAt": "Thu, 30 Jul 2026 15:27:33 GMT",
+      "date": "2026-07-31",
+      "category": "genai",
+      "bullets": [
+        "정보기술(IT) 기업 플랜아이(대표이사 이명기)가 정부 주도의 인공지능 전환(AX) 지원 사업에 선정되며 제조기업 대상 생성형 AI 적용 확대에 나선다.",
+        "플랜아이는 과학기술정보통신부와 정보통신산업진흥원(NIPA)이 추진하는 ‘2026년도 AX 원스톱 바우처’ 지원사업에 선정됐다고 30일 밝혔다.",
+        "이번 사업은 기업 내부에 축적된 데이터와 업무 시스템을 생성형 AI 기술과 연결해 업무 효율성을 높이고, 산업 현장의 AI 전환을 지원하는 프로젝트다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "캐나다 근로자 3명 중 1명, 직장에서 생성형 AI 사용 - 통계청",
-      "source": "kr.investing.com",
+      "source": "Investing.com 한국어",
       "link": "https://kr.investing.com/news/economy-news/article-93CH-2037712",
       "publishedAt": "Thu, 30 Jul 2026 14:58:00 GMT",
       "date": "2026-07-30",
@@ -31,44 +59,30 @@
       "contentVerified": true
     },
     {
-      "title": "AI가 경기도 공무원 업무 돕는다…엠티데이타, 생성형AI 플랫폼 구축",
-      "source": "뉴스웍스",
-      "link": "https://www.newsworks.co.kr/news/articleViewAmp.html?idxno=848931",
-      "publishedAt": "Thu, 30 Jul 2026 09:34:55 GMT",
-      "date": "2026-07-30",
-      "category": "genai",
-      "bullets": [
-        "엠티데이타가 130억원 규모의 '경기 생성형AI 플랫폼 구축 사업'을 마무리하고 정식 서비스에 들어갔다.",
-        "경기도 행정데이터와 생성형 인공지능(AI)을 결합해 공무원의 문서 작성과 법률 검색, 회의 자료 정리 등을 하나의 대화형 환경에서 지원하는 체계를 갖췄다.",
-        "지난해 6월부터 올해 6월까지 약 1년간 사업을 추진해 올해 5월 29일 플랫폼 정식 서비스를 시작했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "[과기원NOW] KAIST, 스스로 약점 찾는 AI 안전성 검증 기술 개발",
-      "source": "동아사이언스",
-      "link": "https://www.dongascience.com/ko/news/79194",
-      "publishedAt": "Thu, 30 Jul 2026 09:02:00 GMT",
-      "date": "2026-07-30",
-      "category": "genai",
-      "bullets": [
-        "연구결과는 AI 분야 국제 학술대회인 국제기계학습학회(ICML 2026)에서 상위 2.2% 스포트라이트 논문으로 선정됐다.",
-        "레드팀(Red Teaming)은 AI가 유해하거나 위험한 답변을 하도록 유도하는 공격 프롬프트를 만들어 배포 전 취약점을 찾는 과정이다.",
-        "공격 성공률과 공격 다양성을 함께 확보하는 것이 중요하다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "실적 앞둔 애플, AI 투자 피난처 부상…“월가 안전지대”",
-      "source": "marketin.edaily.co.kr",
-      "link": "https://marketin.edaily.co.kr/News/ReadE?newsId=07609606645519768",
-      "publishedAt": "Thu, 30 Jul 2026 11:27:47 GMT",
-      "date": "2026-07-30",
+      "title": "[패트롤] 인천시-인천교통공사",
+      "source": "에너지경제신문",
+      "link": "https://m.ekn.kr/view.php?key=20260731023468142",
+      "publishedAt": "Thu, 30 Jul 2026 19:38:06 GMT",
+      "date": "2026-07-31",
       "category": "biz",
       "bullets": [
-        "실적 발표를 앞둔 애플(AAPL)이 인공지능(AI) 투자 열풍에서 벗어난 ‘안전지대’로 부상하고 있다는 분석이 나왔다.",
-        "비즈니스인사이더는 30일(현지 시간) 최근 AI 인프라 투자 확대에 대한 피로감이 커지면서 투자자들이 대규모 AI 투자보다 안정적인 현금흐름과 주주환원 정책을 갖춘 애플로 눈을 돌리고 있다고 논평했다.",
-        "이날 애플이 장 마감 후에 실적을 발표하는 가운데, 시장은 실적 자체뿐 아니라 향후 AI 전략과 사업 전망에 대한 경영진의 발언에 주목하고 있다."
+        "인천=에너지경제신문 송기우 기자 인천시가 인공지능(AI) 커넥티드카 산업 육성과 1조 원 규모의 국비사업 유치를 위해 시장 직속 전담조직(T/F)을 본격 가동했다.",
+        "인천시는 30일 시청 영상회의실에서 박찬대 시장 주재로 '인공지능(AI) 커넥티드 모빌리티 전담조직(T/F) 점검회의'를 열고 AI 커넥티드카와 사이버보안 산업 육성 방안을 논의했다고 밝혔다.",
+        "이번 회의는 지난 27일 전담조직 출범과 첫 회의에 이어 열린 후속 점검회의로, 공약사업 추진 전략을 구체화하고 실행력을 높이기 위해 마련됐다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "지미션, ‘2026 한·일 IT기업 교류회’ 참가… 일본 AI·DX 시장 협력 확대 나서",
+      "source": "뉴스에이",
+      "link": "https://www.newsa.co.kr/news/articleView.html?idxno=401973",
+      "publishedAt": "Thu, 30 Jul 2026 17:17:01 GMT",
+      "date": "2026-07-31",
+      "category": "biz",
+      "bullets": [
+        "지미션은 행사에서 AI FAX, Agentic G-FAX, DXHUND(VLM OCR), RETRIEVER 등 AI 기반 문서 자동화 솔루션을 중심으로 기업의 인공지능 전환(AX) 전략을 소개했다.",
+        "특히 온프레미스 환경에서도 구축 가능한 AI 문서처리 기술과 비정형 문서 자동화, 생성형 AI 기반 업무 자동화 기술을 선보이며 일본 기업들의 높은 관심을 받았다.",
+        "지미션은 일본 기업들의 디지털 전환 수요와 문서 기반 업무 환경을 고려한 AI 적용 방안을 공유했으며, 향후 기술 실증(PoC)과 현지 파트너십 확대 가능성에 대해서도 논의했다."
       ],
       "contentVerified": true
     },
@@ -87,64 +101,36 @@
       "contentVerified": true
     },
     {
-      "title": "경북 AI 산업",
-      "source": "Vietnam.vn",
-      "link": "https://www.vietnam.vn/ko/nganh-ai-tai-kyungpook",
-      "publishedAt": "Thu, 30 Jul 2026 08:13:28 GMT",
+      "title": "관광·AI 훈풍에 부산 창업 활기",
+      "source": "busan.com",
+      "link": "https://www.busan.com/view/busan/view.php?code=2026073018285492425",
+      "publishedAt": "Thu, 30 Jul 2026 09:30:09 GMT",
       "date": "2026-07-30",
       "category": "biz",
       "bullets": [
-        "인공지능(AI)은 노동 시장을 재편하고 있으며, 기업들은 AI 도구를 활용하는 것을 넘어 실제 문제를 해결하기 위해 기술을 개발하고 적용해야 합니다.",
-        "경북대학교 프로그램은 탄탄한 컴퓨터 과학 기초, 심도 있는 AI 지식, 그리고 실무 경험을 결합한 교육과정을 통해 학생들이 디지털 시대에 필요한 기술을 습득할 수 있도록 지원합니다.",
-        "디지털 전환이 가속화됨에 따라 AI 전문가에 대한 수요도 증가하고 있습니다."
+        "부산 신설법인 규모가 지난해부터 반등세를 이어가고 있다.",
+        "관광시장 확대와 국가적인 인공지능(AI) 정책이 창업 시장에도 영향을 미친 것으로 분석된다.",
+        "부산상공회의소가 30일 발표한 2026년 상반기 부산 지역 신설법인 현황 조사 결과에 따르면, 올해 1~6월 부산에 신설된 법인은 2317개로, 지난해 같은 기간(2122개)보다 9.2% 늘었다."
       ],
       "contentVerified": true
     },
     {
-      "title": "인천시, 1조원대 AI 커넥티드카 국책사업 유치 총력…시장 직속 TF 가동",
-      "source": "v.daum.net",
-      "link": "https://v.daum.net/v/20260730163548725",
-      "publishedAt": "Thu, 30 Jul 2026 07:35:48 GMT",
-      "date": "2026-07-30",
-      "category": "biz",
-      "bullets": [
-        "인천시는 30일 박찬대 시장 주재로 '인공지능(AI) 커넥티드 모빌리티 전담조직(T/F) 점검회의'를 개최했다.",
-        "인천시가 총사업비 1조 원대의 국가 연구개발(R&D) 사업인 'AI 커넥티드카 기술개발혁신사업' 유치에 본격적으로 나섰다.",
-        "시장 직속 전담조직(TF)을 가동해 미래 모빌리티 핵심 산업을 선점하고 대규모 국비 확보에 총력을 기울인다는 방침이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "이병훈 산업인력공단 이사장 “AI 기술, 노동현장서 활용할 수 있도록 훈련”",
-      "source": "경향신문",
-      "link": "https://www.khan.co.kr/article/202607302014005/amp",
-      "publishedAt": "Thu, 30 Jul 2026 11:14:00 GMT",
-      "date": "2026-07-30",
+      "title": "EU, 'AI 기가팩토리' 7곳 건설…기술 주권 강화 차원",
+      "source": "연합뉴스",
+      "link": "https://www.yna.co.kr/amp/view/AKR20260731001500098",
+      "publishedAt": "Thu, 30 Jul 2026 15:48:35 GMT",
+      "date": "2026-07-31",
       "category": "tech",
       "bullets": [
-        "인공지능(AI)이 노동시장을 빠르게 바꾸고 있다.",
-        "이병훈 신임 한국산업인력공단 이사장은 산업화 시대 기능인력을 양성해온 공단이 이제 AI 시대 노동자의 재교육을 맡는 기관으로 바뀌어야 한다고 본다.",
-        "노동자가 변화에서 밀려나지 않으려면 새로운 직무를 배우는 ‘리스킬링’(reskilling)과 기존 직무의 능력을 높이는 ‘업스킬링’(upskilling)이 필요하다는 것이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "BPA, HD현대삼호와 항만장비 피지컬AI 기술 연구개발 협력",
-      "source": "뉴스1",
-      "link": "https://www.news1.kr/local/busan-gyeongnam/6244691",
-      "publishedAt": "Thu, 30 Jul 2026 09:56:45 GMT",
-      "date": "2026-07-30",
-      "category": "tech",
-      "bullets": [
-        "부산항만공사(BPA)는 30일 HD현대삼호㈜와 '피지컬 AI 기반 항만 미래기술 공동 연구개발' 업무협약을 체결했다고 밝혔다.",
-        "이번 협약은 부산항을 한국형 AI 스마트항만으로 육성하기 위해 국내 항만장비 제조 전문기업과 연구개발 협력을 강화하고 지속적인 기술협력 기반을 마련하기 위해 추진됐다.",
-        "특히 기술 적용 범위를 개별 장비에 한정하지 않고 장비 운용을 지원하는 시스템과 예방정비 등 유지보수 기술까지 확대해 항만운영 전 과정의 관리기술을 개발할 예정이다."
+        "미국, 중국과의 기술 경쟁에서 밀리며 위기감을 느끼고 있는 유럽연합(EU)이 100억 유로(약 16조5천억원)의 지원금을 투입해 EU 전역에 7곳의 '인공지능(AI) 기가팩토리'를 건설한다.",
+        "EU 집행위원회는 유럽 내에서 AI 모델을 훈련하기 위해 최대 7곳의 'AI 기가팩토리'를 짓기로 하고 공공 자금 지원을 위한 입찰 공고를 시작한다고 30일(현지시간) 밝혔다.",
+        "AI 기가팩토리는 최첨단 고성능 특수 반도체 칩을 갖춘 대규모 시설로 차세대 AI 기술, 특히 대규모 언어모델(LLM)을 학습시키기 위해 설계된다."
       ],
       "contentVerified": true
     },
     {
       "title": "피지컬 AI 접목… 부산항 스마트기술 개발 속도",
-      "source": "팍스경제TV",
+      "source": "paxetv.com",
       "link": "http://www.paxetv.com/news/articleView.html?idxno=278292",
       "publishedAt": "Thu, 30 Jul 2026 09:50:48 GMT",
       "date": "2026-07-30",
@@ -171,16 +157,44 @@
       "contentVerified": true
     },
     {
-      "title": "트럼프 \"AI 규제 검토하지만…중국에 뒤처지면 안 돼\" - 머니투데이",
-      "source": "머니투데이",
-      "link": "https://www.mt.co.kr/world/2026/07/30/2026073016291399767",
-      "publishedAt": "Thu, 30 Jul 2026 12:05:00 GMT",
+      "title": "\"사람 개입 10% 이하\"…정부, 에이전틱 AI 개발에 180억 원 지원",
+      "source": "한국일보",
+      "link": "https://www.hankookilbo.com/news/article/amp/A2026073014150001191",
+      "publishedAt": "Thu, 30 Jul 2026 08:00:00 GMT",
+      "date": "2026-07-30",
+      "category": "tech",
+      "bullets": [
+        "구윤철 부총리 겸 재정경제부 장관이 23일 오후 에이전틱 인공지능(Agentic AI) 첨단분야 인재양성 현장인 서울 강남구 개포동 이노베이션 아카데미를 방문해 아카데미 관계자 및 교육생들과 간담회를 하고 있다.",
+        "정부가 인공지능(AI) 스스로 판단해 일하는 '에이전틱 AI' 기술 개발에 180억 원을 투자한다.",
+        "최근 세계 AI 수요가 새 콘텐츠를 만드는 '생성형 AI'에서 에이전틱 AI로 확산하는 만큼, 관련 시장을 선점할 수 있는 국산 기술을 육성하겠다는 것이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "장철민 의원, 산업 AI 전환 전 과정 지원…산업인공지능전환법 대표 발의",
+      "source": "브릿지경제",
+      "link": "https://www.viva100.com/article/20260730500017",
+      "publishedAt": "Wed, 29 Jul 2026 22:31:00 GMT",
       "date": "2026-07-30",
       "category": "policy",
       "bullets": [
-        "도널드 트럼프 미국 대통령이 최근 발생한 인공지능(AI) 사이버 보안 사고와 관련해 통제 방안을 검토중이라고 밝혔다.",
-        "트럼프 대통령은 29일(현지시간) 백악관 기자회견에서 오픈AI의 일부 테스트용 모델이 일으킨 사이버 공격 관련 질문을 받자 \"AI 기술의 안전성 및 통제 방안을 주시하고 있다\"며 이같이 답했다.",
-        "다만 \"중요한 것은 미국이 중국과의 AI 패권 경쟁에서 압도적 우위를 유지하는 것\"이라며 \"지나친 규제로 미국 기업들의 발목을 잡아선 안된다\"고 설명했다."
+        "여당 간사인 더불어민주당 장철민 의원(오른쪽 두 번째)이 지난 27일 국회에서 열린 산업통상자원중소벤처기업위원회 전체회의에서 인사말을 하고 있다.",
+        "M.AX를 위한 산업 생태계 조성과 인공지능(AI)의 신뢰 기반, 산업데이터의 활용·보호를 위한 지원 체계를 마련하는 것이 법안의 골자이다.",
+        "30일 산업부와 장철민 의원실에 따르면 장 의원은 제조업의 AI 전환(M.AX)을 국가 차원에서 체계적으로 지원하는 산업인공지능전환법안(M.AX법)을 최근 발의했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "한국앤컴퍼니그룹, AI 활용 기준 담은 사내 교육 콘텐츠 제작",
+      "source": "getnews.co.kr",
+      "link": "https://www.getnews.co.kr/news/articleView.html?idxno=876603",
+      "publishedAt": "Thu, 30 Jul 2026 14:47:46 GMT",
+      "date": "2026-07-30",
+      "category": "policy",
+      "bullets": [
+        "한국앤컴퍼니그룹이 임직원의 생성형 인공지능(AI) 활용 역량을 높이기 위해 사내 교육 콘텐츠를 제작했다.",
+        "생성형 AI 활용 원칙과 정보보호, 윤리, AI 관련 법·제도 등을 담은 'AI 리터러시(AI Literacy)' 시리즈를 마련했다고 30일 밝혔다.",
+        "이번 콘텐츠는 AI 활용 원칙과 정보보호, 개인정보 관리, AI 관련 법·제도 등을 중심으로 구성했다."
       ],
       "contentVerified": true
     },
@@ -199,30 +213,16 @@
       "contentVerified": true
     },
     {
-      "title": "트럼프 \"AI 규제 검토\"…中과 경쟁 고려해 강한 규제엔 선 그어",
-      "source": "조선일보",
-      "link": "https://www.chosun.com/economy/tech_it/2026/07/30/EID3UWITRJCT3DZ4TNB67R4J6E/",
-      "publishedAt": "Thu, 30 Jul 2026 07:24:12 GMT",
+      "title": "전직 관료의 작심 \"그물망 규제에 연구자는 잠재적 범죄자\"\"법은 한 줄, 현장 옥죄는 지침·규칙은 점증주의\"",
+      "source": "헬로디디",
+      "link": "https://www.hellodd.com/news/articleView.html?idxno=112672",
+      "publishedAt": "Thu, 30 Jul 2026 09:00:00 GMT",
       "date": "2026-07-30",
       "category": "policy",
       "bullets": [
-        "도널드 트럼프 미국 대통령이 인공지능(AI) 규제 방안을 검토하고 있다고 밝혔다.",
-        "트럼프 대통령이 AI 안전 문제에 대한 정부 차원의 대응 가능성을 직접 언급한 것은 처음이다.",
-        "다만 중국과 AI 경쟁에서 미국 기업의 발목을 잡을 정도로 강한 규제를 도입해서는 안 된다는 입장도 분명히 했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "AI 규제 놓고 맞선 오픈AI·앤스로픽 진영…같은 美의원 밀었다",
-      "source": "뉴시스",
-      "link": "https://mobile.newsis.com/view_amp.html?ar_id=NISX20260730_0003730109",
-      "publishedAt": "Thu, 30 Jul 2026 06:23:05 GMT",
-      "date": "2026-07-30",
-      "category": "policy",
-      "bullets": [
-        "[서울=뉴시스]박영환 기자 = 인공지능(AI) 규제 방향을 놓고 맞서온 미국의 두 정치자금 진영이 11월 중간선거에서 같은 민주당 하원의원을 지원하고 나섰다.",
-        "민주당이 확실히 우세한 선거구에서까지 지원에 나선 것은 차기 의회의 AI 규칙 제정에 영향력을 행사할 의원과 미리 관계를 구축하려는 포석이라는 분석이 나온다.",
-        "5선 현역 의원인 고트하이머는 뉴저지주 5선거구 민주당 후보로 11월 본선에 나선다."
+        "30여 년간 과학기술 정책 현장을 지켜본 전직 과학기술 관료의 입에서 나온 말이다.",
+        "전직 관료는 최근 대덕넷과의 인터뷰에서 \"정부는 자율성을 준다고 하지만 연구자는 한 번도 제대로 자율성을 가져본 적이 없다\"며 \"법보다 시행령과 내부 지침이 더 무서운 구조가 됐다\"고 말했다.",
+        "그는 현재 국가 연구개발 제도를 '그물망 규제'라고 표현했다."
       ],
       "contentVerified": true
     }
@@ -257,6 +257,20 @@
       "contentVerified": true
     },
     {
+      "title": "생성형 AI 시대 브랜드 경쟁력도 'AI가 답하는 시대'…에이아이빅스랩, AI 브랜드 지수 공개",
+      "source": "전자신문",
+      "link": "https://www.etnews.com/20260729000008",
+      "publishedAt": "Tue, 28 Jul 2026 22:54:00 GMT",
+      "date": "2026-07-29",
+      "category": "genai",
+      "bullets": [
+        "생성형 인공지능(AI)이 소비자의 제품 검색과 브랜드 선택에 영향을 미치면서 AI가 브랜드를 얼마나 추천하고 인용하는지를 수치화한 브랜드 경쟁력 지표가 처음 공개됐다.",
+        "에이아이빅스랩(대표 김준현)은 28일 서울 중구 한국의집에서 기자간담회를 열고 생성형 AI 기반 브랜드 경쟁력 지수인 'AIBIX(AI Brand Index)'를 공개했다.",
+        "AIBIX는 생성형 AI가 브랜드를 어떻게 인식하고 추천하는지를 100점 만점으로 평가하는 지수다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "성북구, 누리집에 생성형 AI 도입…챗봇·검색·번역 서비스",
       "source": "v.daum.net",
       "link": "https://v.daum.net/v/20260728144950172?f=p",
@@ -271,16 +285,58 @@
       "contentVerified": true
     },
     {
-      "title": "AI가 경기도 공무원 업무 돕는다…엠티데이타, 생성형AI 플랫폼 구축",
-      "source": "뉴스웍스",
-      "link": "https://www.newsworks.co.kr/news/articleViewAmp.html?idxno=848931",
-      "publishedAt": "Thu, 30 Jul 2026 09:34:55 GMT",
-      "date": "2026-07-30",
-      "category": "genai",
+      "title": "이동석 충주시장 “충주를 인공지능(AI) 산업의 수도로 만들 것”",
+      "source": "충청타임즈",
+      "link": "https://www.cctimes.kr/news/articleView.html?idxno=919172",
+      "publishedAt": "Wed, 29 Jul 2026 08:11:42 GMT",
+      "date": "2026-07-29",
+      "category": "biz",
       "bullets": [
-        "엠티데이타가 130억원 규모의 '경기 생성형AI 플랫폼 구축 사업'을 마무리하고 정식 서비스에 들어갔다.",
-        "경기도 행정데이터와 생성형 인공지능(AI)을 결합해 공무원의 문서 작성과 법률 검색, 회의 자료 정리 등을 하나의 대화형 환경에서 지원하는 체계를 갖췄다.",
-        "지난해 6월부터 올해 6월까지 약 1년간 사업을 추진해 올해 5월 29일 플랫폼 정식 서비스를 시작했다."
+        "그러면서 “전국에서 가장 빠른 인허가 절차를 통해 데이터센터 유치를 확고히 할 계획”이라며 “데이터센터 유치에 가장 핵심인 전력 문제와 관련해선 345kV급 전력 공급 방안을 한국전력과 협의하고 있다”고 덧붙였다.",
+        "이 시장은 충주는 지리적으로 공업용수 확보 등 입지적 조건도 좋지만, 수도권과 인접해 있고 정주 여건도 뛰어나다는 것을 장점으로 꼽았다.",
+        "장기적으로는 전력 확보를 위해 천연가스나 수소를 원료로 한 발전소 건립도 검토하고 있다고 했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "싱가포르 중앙은행, \"AI 투자 둔화 땐 세계 성장·금융시장 충격\"",
+      "source": "한국경제",
+      "link": "https://www.hankyung.com/article/202607292032i",
+      "publishedAt": "Tue, 28 Jul 2026 23:39:24 GMT",
+      "date": "2026-07-29",
+      "category": "biz",
+      "bullets": [
+        "Google 검색에서 한국경제 기사를 더 자주 볼 수 있습니다.",
+        "싱가포르 중앙은행(MAS)은 글로벌 인공지능(AI) 투자 둔화가 세계 경제와 반도체 산업에 큰 타격을 줄 수 있다고 경고하고, AI 기술 발전에 따른 금융권 사이버 보안 위협에 대응할 것을 촉구했다.",
+        "싱가포르 중앙은행이 인공지능(AI) 투자 열기가 꺾일 경우 세계 경제와 금융시장이 큰 충격을 받을 수 있다고 경고했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "중국 AI, 기업의 '실제 업무'를 맡기 시작했다",
+      "source": "OhmyNews",
+      "link": "https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003254682",
+      "publishedAt": "Tue, 28 Jul 2026 00:29:00 GMT",
+      "date": "2026-07-28",
+      "category": "biz",
+      "bullets": [
+        "중국 전자상거래 시장에서 인공지능(AI)의 역할이 상품 추천과 고객 상담을 넘어 매장 운영 전반으로 확대되고 있다.",
+        "새로운 상품 이미지를 제작하고 소비자의 반응도 분석한다.",
+        "여러 사람이 나눠 맡았던 업무가 하나의 AI 운영 체계 안에서 연결되기 시작한 것이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "[분석-글로벌성공기업] [빅에어AI] AI로 국방·공급망 혁신… 美 의사결정 플랫폼 시장 정조준",
+      "source": "비즈니스리포트",
+      "link": "http://www.businessreport.kr/news/articleView.html?idxno=53318",
+      "publishedAt": "Thu, 30 Jul 2026 03:53:20 GMT",
+      "date": "2026-07-30",
+      "category": "biz",
+      "bullets": [
+        "‘작지만 강한 기업이 대한민국의 미래’라는 캐치프레이즈로 ‘강소기업’ 발굴에 앞장서고 있습니다.",
+        "지금은 유명하지 않지만 세계인을 사로잡을 우량 강소기업(제품)을 찾아, 초일류 명품브랜드가 될 수 있도록 돕습니다.",
+        "나아가 이들 강소기업이 글로벌시장을 이끌 ‘히든챔피언’ 이 될 수 있도록 작은 힘이지만 보태겠습니다."
       ],
       "contentVerified": true
     },
@@ -299,16 +355,30 @@
       "contentVerified": true
     },
     {
-      "title": "‘규제 AI’ 챗코딧, 범용 AI와 비교해보니… 속도·업무성 강점 [구픽 AI, 쓰고 묻다] ②",
-      "source": "디지털데일리",
-      "link": "https://www.ddaily.co.kr/page/view/2026072718182909418",
-      "publishedAt": "Mon, 27 Jul 2026 21:56:50 GMT",
+      "title": "NC AI-씨메스로보틱스, 차세대 로보틱스 솔루션 개발",
+      "source": "thelec.kr",
+      "link": "https://www.thelec.kr/news/articleView.html?idxno=60334",
+      "publishedAt": "Thu, 30 Jul 2026 06:59:42 GMT",
+      "date": "2026-07-30",
+      "category": "tech",
+      "bullets": [
+        "NC AI와 씨메스로보틱스가 피지컬 인공지능(AI) 기반의 공동 연구개발과 상호 기술 공유를 골자로 하는 전략적 업무협약을 체결했다.",
+        "양사가 보유한 AI 기술과 로보틱스 역량을 결합해 제조∙물류 산업에 적용 가능한 차세대 피지컬 AI 기반 로보틱스 솔루션을 공동 개발한다는 목표다.",
+        "NC AI에 따르면 양사는 △피지컬 AI 기반 공동 연구개발 △핵심 기술과 연구 성과 공유 △차세대 로보틱스 솔루션 발굴과 기술 고도화 등에서 협력 체계를 구축한다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "장철민 의원, 제조 AI 대전환 위한 ‘산업인공지능전환법’ 대표발의",
+      "source": "일간투데이",
+      "link": "https://www.dtoday.co.kr/news/articleView.html?idxno=783329",
+      "publishedAt": "Tue, 28 Jul 2026 04:02:46 GMT",
       "date": "2026-07-28",
       "category": "policy",
       "bullets": [
-        "[편집자주] AI 서비스 리뷰와 개발자 인터뷰는 따로 노는 경우가 많다.",
-        "리뷰는 리뷰대로, 인터뷰는 제품을 실제로 써보지 않은 채 진행되곤 한다.",
-        "‘구픽 AI, 쓰고 묻다’는 이 둘을 하나로 엮는다."
+        "이번 개정안은 제조 AI 전환을 위한 기업 간 협업부터 산업 데이터 구축, 연구개발, 실증·인증, 안전관리까지 전 과정을 체계적으로 지원하는 제도적 기반 마련을 목표로 한다.",
+        "법률명도 산업인공지능전환 촉진법」으로 변경해 산업 AI 중심의 정책 추진 근거를 강화했다.",
+        "우리 제조업은 생산연령인구 감소와 글로벌 기술 경쟁 심화라는 과제에 직면한 상황이다."
       ],
       "contentVerified": true
     }
