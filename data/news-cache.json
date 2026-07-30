@@ -1,7 +1,35 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-07-30T14:36:17Z",
+  "generated_at": "2026-07-30T16:52:34Z",
   "daily": [
+    {
+      "title": "생성형 AI 확산에… 사이버 침해사고 상반기 20% 늘어",
+      "source": "동아일보",
+      "link": "https://www.donga.com/news/Economy/article/all/20260730/134397785/2",
+      "publishedAt": "Thu, 30 Jul 2026 15:30:00 GMT",
+      "date": "2026-07-31",
+      "category": "genai",
+      "bullets": [
+        "추천 검색어는 많이 본 뉴스 기사의 키워드를 수집하여 선정하였습니다.",
+        "올해 상반기(1∼6월) 국내 사이버 침해사고 신고가 지난해 같은 기간보다 20% 가까이 늘었다.",
+        "생성형 인공지능(AI) 확산으로 사이버 공격의 문턱이 낮아지고 있다는 분석이 나온다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "캐나다 근로자 3명 중 1명, 직장에서 생성형 AI 사용 - 통계청",
+      "source": "kr.investing.com",
+      "link": "https://kr.investing.com/news/economy-news/article-93CH-2037712",
+      "publishedAt": "Thu, 30 Jul 2026 14:58:00 GMT",
+      "date": "2026-07-30",
+      "category": "genai",
+      "bullets": [
+        "📉 최고의 매매 기회는 기다려주지 않습니다.",
+        "Investing.com — 캐나다 통계청이 오늘 발표한 바에 따르면, 2026년 3월까지 12개월 동안 캐나다 근로자 3명 중 1명이 직장에서 생성형 인공지능(AI) 도구를 사용한 것으로 나타났다.",
+        "통계청은 2026년 3월에 수집된 노동력 조사(Labour Force Survey)의 추가 질문을 바탕으로 15세에서 69세 사이 캐나다 근로자의 AI 사용을 추적하는 정기 시리즈의 첫 번째 결과를 발표했다."
+      ],
+      "contentVerified": true
+    },
     {
       "title": "AI가 경기도 공무원 업무 돕는다…엠티데이타, 생성형AI 플랫폼 구축",
       "source": "뉴스웍스",
@@ -31,36 +59,8 @@
       "contentVerified": true
     },
     {
-      "title": "AI 전쟁 중인데, 韓 과학계는 구독 영수증 '풀칠' 중?",
-      "source": "hellodd.com",
-      "link": "https://www.hellodd.com/news/articleView.html?idxno=112625",
-      "publishedAt": "Thu, 30 Jul 2026 08:55:31 GMT",
-      "date": "2026-07-30",
-      "category": "genai",
-      "bullets": [
-        "생성형 AI는 이미 연구현장에 광범위하게 들어왔고 정부 연구비로 유료 서비스를 이용하는 것도 가능하다.",
-        "기관 단위 통합구매와 연간 계약을 활용할 제도적 근거도 마련됐다.",
-        "그럼에도 실제 현장에서는 개인·연구실·부서마다 계약과 결제 방식이 다르고, 연구자가 직접 증빙과 정산을 떠안는 사례가 적지 않다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "AI가 알려준 법, 그대로 믿었다간… 경찰이 경고한 '생성형 AI의 함정'",
-      "source": "뉴스앤넷",
-      "link": "https://www.newsnnet.com/news/articleView.html?idxno=30468",
-      "publishedAt": "Thu, 30 Jul 2026 08:36:39 GMT",
-      "date": "2026-07-30",
-      "category": "genai",
-      "bullets": [
-        "생성형 AI가 일상 속 검색과 상담의 도구로 빠르게 자리 잡으면서 법률 정보까지 AI에 의존하는 사례가 늘고 있다.",
-        "그러나 편리함만 믿고 AI 답변을 그대로 활용했다가는 잘못된 법 적용이나 민원 제기로 이어질 수 있다는 경고가 나왔다.",
-        "경찰은 생성형 AI의 답변은 참고자료일 뿐 법적 효력을 갖는 공식 해석이 아니라며, 반드시 국가의 공식 법령과 판례 등을 통해 최종 확인해야 한다고 강조했다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "실적 앞둔 애플, AI 투자 피난처 부상…“월가 안전지대”",
-      "source": "마켓인",
+      "source": "marketin.edaily.co.kr",
       "link": "https://marketin.edaily.co.kr/News/ReadE?newsId=07609606645519768",
       "publishedAt": "Thu, 30 Jul 2026 11:27:47 GMT",
       "date": "2026-07-30",
@@ -87,20 +87,6 @@
       "contentVerified": true
     },
     {
-      "title": "관광·AI 훈풍에 부산 창업 활기",
-      "source": "부산일보",
-      "link": "https://www.busan.com/view/busan/view.php?code=2026073018285492425",
-      "publishedAt": "Thu, 30 Jul 2026 09:30:09 GMT",
-      "date": "2026-07-30",
-      "category": "biz",
-      "bullets": [
-        "부산 신설법인 규모가 지난해부터 반등세를 이어가고 있다.",
-        "관광시장 확대와 국가적인 인공지능(AI) 정책이 창업 시장에도 영향을 미친 것으로 분석된다.",
-        "부산상공회의소가 30일 발표한 2026년 상반기 부산 지역 신설법인 현황 조사 결과에 따르면, 올해 1~6월 부산에 신설된 법인은 2317개로, 지난해 같은 기간(2122개)보다 9.2% 늘었다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "경북 AI 산업",
       "source": "Vietnam.vn",
       "link": "https://www.vietnam.vn/ko/nganh-ai-tai-kyungpook",
@@ -115,6 +101,20 @@
       "contentVerified": true
     },
     {
+      "title": "인천시, 1조원대 AI 커넥티드카 국책사업 유치 총력…시장 직속 TF 가동",
+      "source": "v.daum.net",
+      "link": "https://v.daum.net/v/20260730163548725",
+      "publishedAt": "Thu, 30 Jul 2026 07:35:48 GMT",
+      "date": "2026-07-30",
+      "category": "biz",
+      "bullets": [
+        "인천시는 30일 박찬대 시장 주재로 '인공지능(AI) 커넥티드 모빌리티 전담조직(T/F) 점검회의'를 개최했다.",
+        "인천시가 총사업비 1조 원대의 국가 연구개발(R&D) 사업인 'AI 커넥티드카 기술개발혁신사업' 유치에 본격적으로 나섰다.",
+        "시장 직속 전담조직(TF)을 가동해 미래 모빌리티 핵심 산업을 선점하고 대규모 국비 확보에 총력을 기울인다는 방침이다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "이병훈 산업인력공단 이사장 “AI 기술, 노동현장서 활용할 수 있도록 훈련”",
       "source": "경향신문",
       "link": "https://www.khan.co.kr/article/202607302014005/amp",
@@ -125,6 +125,20 @@
         "인공지능(AI)이 노동시장을 빠르게 바꾸고 있다.",
         "이병훈 신임 한국산업인력공단 이사장은 산업화 시대 기능인력을 양성해온 공단이 이제 AI 시대 노동자의 재교육을 맡는 기관으로 바뀌어야 한다고 본다.",
         "노동자가 변화에서 밀려나지 않으려면 새로운 직무를 배우는 ‘리스킬링’(reskilling)과 기존 직무의 능력을 높이는 ‘업스킬링’(upskilling)이 필요하다는 것이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "BPA, HD현대삼호와 항만장비 피지컬AI 기술 연구개발 협력",
+      "source": "뉴스1",
+      "link": "https://www.news1.kr/local/busan-gyeongnam/6244691",
+      "publishedAt": "Thu, 30 Jul 2026 09:56:45 GMT",
+      "date": "2026-07-30",
+      "category": "tech",
+      "bullets": [
+        "부산항만공사(BPA)는 30일 HD현대삼호㈜와 '피지컬 AI 기반 항만 미래기술 공동 연구개발' 업무협약을 체결했다고 밝혔다.",
+        "이번 협약은 부산항을 한국형 AI 스마트항만으로 육성하기 위해 국내 항만장비 제조 전문기업과 연구개발 협력을 강화하고 지속적인 기술협력 기반을 마련하기 위해 추진됐다.",
+        "특히 기술 적용 범위를 개별 장비에 한정하지 않고 장비 운용을 지원하는 시스템과 예방정비 등 유지보수 기술까지 확대해 항만운영 전 과정의 관리기술을 개발할 예정이다."
       ],
       "contentVerified": true
     },
@@ -144,7 +158,7 @@
     },
     {
       "title": "스스로 계획하고 일하는 AI···정부, 26개 기관과 개발 착수",
-      "source": "hellodd.com",
+      "source": "헬로디디",
       "link": "https://www.hellodd.com/news/articleView.html?idxno=112663",
       "publishedAt": "Thu, 30 Jul 2026 08:40:00 GMT",
       "date": "2026-07-30",
@@ -157,30 +171,16 @@
       "contentVerified": true
     },
     {
-      "title": "\"사람 개입 10% 이하\"…정부, 에이전틱 AI 개발에 180억 원 지원",
-      "source": "한국일보",
-      "link": "https://www.hankookilbo.com/news/article/amp/A2026073014150001191",
-      "publishedAt": "Thu, 30 Jul 2026 08:00:00 GMT",
-      "date": "2026-07-30",
-      "category": "tech",
-      "bullets": [
-        "구윤철 부총리 겸 재정경제부 장관이 23일 오후 에이전틱 인공지능(Agentic AI) 첨단분야 인재양성 현장인 서울 강남구 개포동 이노베이션 아카데미를 방문해 아카데미 관계자 및 교육생들과 간담회를 하고 있다.",
-        "정부가 인공지능(AI) 스스로 판단해 일하는 '에이전틱 AI' 기술 개발에 180억 원을 투자한다.",
-        "최근 세계 AI 수요가 새 콘텐츠를 만드는 '생성형 AI'에서 에이전틱 AI로 확산하는 만큼, 관련 시장을 선점할 수 있는 국산 기술을 육성하겠다는 것이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "장철민 의원, 산업 AI 전환 전 과정 지원…산업인공지능전환법 대표 발의",
-      "source": "브릿지경제",
-      "link": "https://www.viva100.com/article/20260730500017",
-      "publishedAt": "Wed, 29 Jul 2026 22:31:00 GMT",
+      "title": "트럼프 \"AI 규제 검토하지만…중국에 뒤처지면 안 돼\" - 머니투데이",
+      "source": "머니투데이",
+      "link": "https://www.mt.co.kr/world/2026/07/30/2026073016291399767",
+      "publishedAt": "Thu, 30 Jul 2026 12:05:00 GMT",
       "date": "2026-07-30",
       "category": "policy",
       "bullets": [
-        "여당 간사인 더불어민주당 장철민 의원(오른쪽 두 번째)이 지난 27일 국회에서 열린 산업통상자원중소벤처기업위원회 전체회의에서 인사말을 하고 있다.",
-        "M.AX를 위한 산업 생태계 조성과 인공지능(AI)의 신뢰 기반, 산업데이터의 활용·보호를 위한 지원 체계를 마련하는 것이 법안의 골자이다.",
-        "30일 산업부와 장철민 의원실에 따르면 장 의원은 제조업의 AI 전환(M.AX)을 국가 차원에서 체계적으로 지원하는 산업인공지능전환법안(M.AX법)을 최근 발의했다."
+        "도널드 트럼프 미국 대통령이 최근 발생한 인공지능(AI) 사이버 보안 사고와 관련해 통제 방안을 검토중이라고 밝혔다.",
+        "트럼프 대통령은 29일(현지시간) 백악관 기자회견에서 오픈AI의 일부 테스트용 모델이 일으킨 사이버 공격 관련 질문을 받자 \"AI 기술의 안전성 및 통제 방안을 주시하고 있다\"며 이같이 답했다.",
+        "다만 \"중요한 것은 미국이 중국과의 AI 패권 경쟁에서 압도적 우위를 유지하는 것\"이라며 \"지나친 규제로 미국 기업들의 발목을 잡아선 안된다\"고 설명했다."
       ],
       "contentVerified": true
     },
@@ -199,30 +199,30 @@
       "contentVerified": true
     },
     {
-      "title": "전직 관료의 작심 \"그물망 규제에 연구자는 잠재적 범죄자\"\"법은 한 줄 , 현장 옥죄는 지침·규칙은 점증주의\"",
-      "source": "hellodd.com",
-      "link": "https://www.hellodd.com/news/articleView.html?idxno=112672",
-      "publishedAt": "Thu, 30 Jul 2026 09:00:00 GMT",
+      "title": "트럼프 \"AI 규제 검토\"…中과 경쟁 고려해 강한 규제엔 선 그어",
+      "source": "조선일보",
+      "link": "https://www.chosun.com/economy/tech_it/2026/07/30/EID3UWITRJCT3DZ4TNB67R4J6E/",
+      "publishedAt": "Thu, 30 Jul 2026 07:24:12 GMT",
       "date": "2026-07-30",
       "category": "policy",
       "bullets": [
-        "30여 년간 과학기술 정책 현장을 지켜본 전직 과학기술 관료의 입에서 나온 말이다.",
-        "전직 관료는 최근 대덕넷과의 인터뷰에서 \"정부는 자율성을 준다고 하지만 연구자는 한 번도 제대로 자율성을 가져본 적이 없다\"며 \"법보다 시행령과 내부 지침이 더 무서운 구조가 됐다\"고 말했다.",
-        "그는 현재 국가 연구개발 제도를 '그물망 규제'라고 표현했다."
+        "도널드 트럼프 미국 대통령이 인공지능(AI) 규제 방안을 검토하고 있다고 밝혔다.",
+        "트럼프 대통령이 AI 안전 문제에 대한 정부 차원의 대응 가능성을 직접 언급한 것은 처음이다.",
+        "다만 중국과 AI 경쟁에서 미국 기업의 발목을 잡을 정도로 강한 규제를 도입해서는 안 된다는 입장도 분명히 했다."
       ],
       "contentVerified": true
     },
     {
-      "title": "[데일리픽] XRP 소송 주역, 美 최고 정보 수장으로…MS·메타 AI 수익화에 '희비'",
-      "source": "디지털투데이",
-      "link": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=688359",
-      "publishedAt": "Thu, 30 Jul 2026 08:00:00 GMT",
+      "title": "AI 규제 놓고 맞선 오픈AI·앤스로픽 진영…같은 美의원 밀었다",
+      "source": "뉴시스",
+      "link": "https://mobile.newsis.com/view_amp.html?ar_id=NISX20260730_0003730109",
+      "publishedAt": "Thu, 30 Jul 2026 06:23:05 GMT",
       "date": "2026-07-30",
       "category": "policy",
       "bullets": [
-        "제이 클레이턴 전 미국 증권거래위원회(SEC) 의장이 미국 국가정보국(DNI) 국장으로 공식 인준됐다.",
-        "암호화폐 업계에서는 리플랩스를 상대로 한 XRP 증권성 소송을 시작한 인물로 잘 알려진 만큼 그의 복귀에 업계의 관심이 쏠리고 있다.",
-        "미국 상원은 이날 본회의에서 클레이턴 국가정보국장 지명을 찬성 51표, 반대 47표로 가결했다."
+        "[서울=뉴시스]박영환 기자 = 인공지능(AI) 규제 방향을 놓고 맞서온 미국의 두 정치자금 진영이 11월 중간선거에서 같은 민주당 하원의원을 지원하고 나섰다.",
+        "민주당이 확실히 우세한 선거구에서까지 지원에 나선 것은 차기 의회의 AI 규칙 제정에 영향력을 행사할 의원과 미리 관계를 구축하려는 포석이라는 분석이 나온다.",
+        "5선 현역 의원인 고트하이머는 뉴저지주 5선거구 민주당 후보로 11월 본선에 나선다."
       ],
       "contentVerified": true
     }
@@ -257,20 +257,6 @@
       "contentVerified": true
     },
     {
-      "title": "생성형 AI 시대 브랜드 경쟁력도 'AI가 답하는 시대'…에이아이빅스랩, AI 브랜드 지수 공개",
-      "source": "전자신문",
-      "link": "https://www.etnews.com/20260729000008",
-      "publishedAt": "Tue, 28 Jul 2026 22:54:00 GMT",
-      "date": "2026-07-29",
-      "category": "genai",
-      "bullets": [
-        "생성형 인공지능(AI)이 소비자의 제품 검색과 브랜드 선택에 영향을 미치면서 AI가 브랜드를 얼마나 추천하고 인용하는지를 수치화한 브랜드 경쟁력 지표가 처음 공개됐다.",
-        "에이아이빅스랩(대표 김준현)은 28일 서울 중구 한국의집에서 기자간담회를 열고 생성형 AI 기반 브랜드 경쟁력 지수인 'AIBIX(AI Brand Index)'를 공개했다.",
-        "AIBIX는 생성형 AI가 브랜드를 어떻게 인식하고 추천하는지를 100점 만점으로 평가하는 지수다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "성북구, 누리집에 생성형 AI 도입…챗봇·검색·번역 서비스",
       "source": "v.daum.net",
       "link": "https://v.daum.net/v/20260728144950172?f=p",
@@ -285,58 +271,44 @@
       "contentVerified": true
     },
     {
-      "title": "허태정, 김민석 만나 “AI 산업 거점은 대전” 지원 요청",
-      "source": "디트NEWS24",
-      "link": "https://www.dtnews24.com/news/articleView.html?idxno=813739",
-      "publishedAt": "Wed, 29 Jul 2026 06:06:50 GMT",
-      "date": "2026-07-29",
-      "category": "biz",
-      "bullets": [
-        "허태정 대전시장이 김민석 더불어민주당 당대표 후보를 만나 대전이 인공지능(AI) 산업 육성 최적지임을 강조했다.",
-        "허 시장은 29일 김 후보와의 대전 조찬 회동에서 “대전이 국가의 R&D 산실이었던 역할을 넘어 AI 혁신 기반이 돼야 한다.",
-        "지역의 산업 육성, 일자리 창출로도 이어져야 할 것”이라며 “당이 역할을 해달라”고 당부했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "[분석-글로벌성공기업] [빅에어AI] AI로 국방·공급망 혁신… 美 의사결정 플랫폼 시장 정조준",
-      "source": "비즈니스리포트",
-      "link": "http://www.businessreport.kr/news/articleView.html?idxno=53318",
-      "publishedAt": "Thu, 30 Jul 2026 03:53:20 GMT",
+      "title": "AI가 경기도 공무원 업무 돕는다…엠티데이타, 생성형AI 플랫폼 구축",
+      "source": "뉴스웍스",
+      "link": "https://www.newsworks.co.kr/news/articleViewAmp.html?idxno=848931",
+      "publishedAt": "Thu, 30 Jul 2026 09:34:55 GMT",
       "date": "2026-07-30",
-      "category": "biz",
+      "category": "genai",
       "bullets": [
-        "‘작지만 강한 기업이 대한민국의 미래’라는 캐치프레이즈로 ‘강소기업’ 발굴에 앞장서고 있습니다.",
-        "지금은 유명하지 않지만 세계인을 사로잡을 우량 강소기업(제품)을 찾아, 초일류 명품브랜드가 될 수 있도록 돕습니다.",
-        "나아가 이들 강소기업이 글로벌시장을 이끌 ‘히든챔피언’ 이 될 수 있도록 작은 힘이지만 보태겠습니다."
+        "엠티데이타가 130억원 규모의 '경기 생성형AI 플랫폼 구축 사업'을 마무리하고 정식 서비스에 들어갔다.",
+        "경기도 행정데이터와 생성형 인공지능(AI)을 결합해 공무원의 문서 작성과 법률 검색, 회의 자료 정리 등을 하나의 대화형 환경에서 지원하는 체계를 갖췄다.",
+        "지난해 6월부터 올해 6월까지 약 1년간 사업을 추진해 올해 5월 29일 플랫폼 정식 서비스를 시작했다."
       ],
       "contentVerified": true
     },
     {
-      "title": "오픈AI·구글 직원들 \"AI 개발, 브레이크도 필요하다\"",
-      "source": "mstoday.co.kr",
-      "link": "https://www.mstoday.co.kr/news/articleView.html?idxno=102161",
-      "publishedAt": "Wed, 29 Jul 2026 01:56:56 GMT",
-      "date": "2026-07-29",
+      "title": "스스로 계획하고 일하는 AI···정부, 26개 기관과 개발 착수",
+      "source": "헬로디디",
+      "link": "https://www.hellodd.com/news/articleView.html?idxno=112663",
+      "publishedAt": "Thu, 30 Jul 2026 08:40:00 GMT",
+      "date": "2026-07-30",
       "category": "tech",
       "bullets": [
-        "[MS투데이] 인공지능(AI) 기술 개발을 선도해 온 글로벌 빅테크 기업 내부에서 AI 발전 속도를 조절해야 한다는 목소리가 커지고 있다.",
-        "오픈AI와 앤트로픽, 구글, 메타 등 주요 AI 기업의 연구진과 임직원들은 미국 정부에 AI 개발 속도를 관리할 국제적 안전체계를 마련해 달라고 공식 요청하며 기술 경쟁보다 안전 확보가 우선돼야 한다고 강조했다.",
-        "참여자들은 AI 기술이 급속도로 발전하면서 인간의 이해와 통제 능력을 뛰어넘을 가능성이 커지고 있다며, 산업계와 정부가 위험성을 충분히 검증하고 대응할 시간을 확보할 수 있도록 새로운 거버넌스가 필요하다고 주장했다."
+        "![Image 6: 과학기술정보통신부와 정보통신기획평가원이 사람의 개입을 10% 이하로 줄이면서 스스로 목표를 세워 판단·행동하는 에이전틱 AI 기술개발 사업에 나선다.",
+        "이번 사업에는 NC AI, 메디컬파크, 심심이, 브이이엔지 등 4개 주관기관을 비롯해 산학연 연구기관 26곳이 참여한다.",
+        "단계평가를 거쳐 2027년 말에 우수 과제 1개가 선정된다."
       ],
       "contentVerified": true
     },
     {
-      "title": "AI 규제 놓고 맞선 오픈AI·앤스로픽 진영…같은 美의원 밀었다",
-      "source": "뉴시스",
-      "link": "https://mobile.newsis.com/view_amp.html?ar_id=NISX20260730_0003730109",
-      "publishedAt": "Thu, 30 Jul 2026 06:23:05 GMT",
-      "date": "2026-07-30",
+      "title": "‘규제 AI’ 챗코딧, 범용 AI와 비교해보니… 속도·업무성 강점 [구픽 AI, 쓰고 묻다] ②",
+      "source": "디지털데일리",
+      "link": "https://www.ddaily.co.kr/page/view/2026072718182909418",
+      "publishedAt": "Mon, 27 Jul 2026 21:56:50 GMT",
+      "date": "2026-07-28",
       "category": "policy",
       "bullets": [
-        "[서울=뉴시스]박영환 기자 = 인공지능(AI) 규제 방향을 놓고 맞서온 미국의 두 정치자금 진영이 11월 중간선거에서 같은 민주당 하원의원을 지원하고 나섰다.",
-        "민주당이 확실히 우세한 선거구에서까지 지원에 나선 것은 차기 의회의 AI 규칙 제정에 영향력을 행사할 의원과 미리 관계를 구축하려는 포석이라는 분석이 나온다.",
-        "5선 현역 의원인 고트하이머는 뉴저지주 5선거구 민주당 후보로 11월 본선에 나선다."
+        "[편집자주] AI 서비스 리뷰와 개발자 인터뷰는 따로 노는 경우가 많다.",
+        "리뷰는 리뷰대로, 인터뷰는 제품을 실제로 써보지 않은 채 진행되곤 한다.",
+        "‘구픽 AI, 쓰고 묻다’는 이 둘을 하나로 엮는다."
       ],
       "contentVerified": true
     }
