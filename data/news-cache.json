@@ -1,60 +1,88 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-08-05T09:10:19Z",
+  "generated_at": "2026-08-05T11:31:55Z",
   "daily": [
     {
-      "title": "[금융권 풍향계] “AI 업무 혁신 속도”…SBI저축은행, 전사 교육 확대 外",
-      "source": "에너지경제신문",
-      "link": "https://www.ekn.kr/web/view.php?key=20260805022259888",
-      "publishedAt": "Wed, 05 Aug 2026 08:15:48 GMT",
+      "title": "강남구도시관리공단, AX전환 위한 '생성형 AI 업무활용 가이드라인' 구축",
+      "source": "ignnews.kr",
+      "link": "http://www.ignnews.kr/news/articleView.html?idxno=15760",
+      "publishedAt": "Wed, 05 Aug 2026 11:08:49 GMT",
       "date": "2026-08-05",
       "category": "genai",
       "bullets": [
-        "SBI저축은행이 전사적인 디지털 혁신과 AI 경쟁력 강화를 위해 임원·팀장급 직원을 대상으로 AI·Web3 교육을 실시한다고 5일 밝혔다.",
-        "AI 교육은 전사 임원을 대상으로 이론 및 대면 실습 중심 과정으로 운영되며, 실습 비중을 높여 생성형 AI를 직접 활용할 수 있는 능력을 배양하는데 초점을 맞췄다.",
-        "생성형 AI 프롬프트 작성부터 AI 에이전트 설계 등 기본 과정을 포함해 바이브코딩 심화 과정을 통한 AI 규제 동향·내부 보안 가이드 설계 등 AI를 업무 혁신 도구로 활용할 수 있도록 실무 위주의 교육으로 구성했다."
+        "강남구도시관리공단(이사장 고광윤)은 임직원의 안전하고 책임 있는 생성형 AI 업무활용을 지원하기 위해 「생성형 AI 업무활용 가이드라인」을 구축했다고 밝혔다.",
+        "생성형 AI 활용이 확대됨에 따라 개인정보 유출, 저작권 침해, 허위정보 활용, 비공개자료 입력 등 발생 가능한 위험요소를 사전에 예방하고, 공단 업무 특성에 맞는 통일된 활용기준을 마련하기 위해 추진됐다.",
+        "공단은 전 직원 대상 안내 및 교육을 실시하고, 추후 생성형 AI 업무활용 우수사례를 수합·공유해 안전하고 효율적인 AI 활용 문화를 확산할 계획이다."
       ],
       "contentVerified": true
     },
     {
-      "title": "한전기술, 공공기관 첫 자체 AI 코딩 서비스 '넥사코드' 운영",
-      "source": "국토일보",
-      "link": "http://www.ikld.kr/news/articleView.html?idxno=338560",
-      "publishedAt": "Wed, 05 Aug 2026 08:09:15 GMT",
+      "title": "한전기술, 공공기관 첫 AI 코드자동생성 서비스 상용화",
+      "source": "에너지타임즈",
+      "link": "https://www.energytimes.kr/news/articleView.html?idxno=70591",
+      "publishedAt": "Wed, 05 Aug 2026 10:38:00 GMT",
       "date": "2026-08-05",
       "category": "genai",
       "bullets": [
-        "한전기술이 자체 개발한 생성형 인공지능(AI) 기반 코드 자동생성 서비스를 정식 운영하며 공공기관의 AI 기반 소프트웨어 개발 환경 구축에 나섰다.",
-        "외부 상용 AI를 사용하지 않는 보안 환경에서 자체 기술로 구현한 첫 사례다.",
-        "한국전력기술(사장 김태균)은 자체 개발한 생성형 AI 기반 대화형 코드 자동생성 서비스 '넥사코드(NEXA CODE)'를 정식 운영한다고 5일 밝혔다."
+        "【에너지타임즈】 한전기술이 공공기관 최초로 자체 개발한 생성형 인공지능(AI) 기반 코드 자동생성 서비스를 정식으로 운영하는 등 AI 기반 업무혁신에 나섰다.",
+        "외부 상용 AI를 사용할 수 없는 공공기관 보안 환경에서 자체 기술만으로 바이브 코딩(Vibe Coding) 서비스를 구현한 첫 사례다.",
+        "한국전력기술(주)(사장 김태균)은 자체 개발한 생성형 AI 기반 대화형 코드 자동생성 서비스인 ‘넥사코드(NEXA CODE)’를 정식 운영한다고 5일 밝혔다."
       ],
       "contentVerified": true
     },
     {
-      "title": "“AI가 쇼핑 콘텐츠 만든다” 유통가 플랫폼 곳곳 AI 활용 확대",
+      "title": "[지역교육브리핑] 전북, AI 리터러시 가이드 제정",
+      "source": "EBS",
+      "link": "https://home.ebs.co.kr/ebsnews/menu1/newsAllView/60755166/H?eduNewsYn=N&newsFldDetlCd=CORNER_22",
+      "publishedAt": "Wed, 05 Aug 2026 10:10:24 GMT",
+      "date": "2026-08-05",
+      "category": "genai",
+      "bullets": [
+        "네, 전북교육청이 이번 2학기부터학교 현장에서 활용할 수 있는AI 리터러시 교육 가이드라인을 마련했습니다.",
+        "국제인공지능윤리협회와 함께 제작했고, 현장 교사들의 검토도 거쳤습니다.",
+        "가이드에는 AI 리터러시의 기본 원칙과 함께 수업과 과제에서 지켜야 할 구체적인 활용 기준이 담겼습니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "EBS, 생성형 AI 업무 활용 강좌 '마스터클래스' 시작",
       "source": "전자신문",
-      "link": "https://www.etnews.com/20260805000225",
-      "publishedAt": "Wed, 05 Aug 2026 07:18:00 GMT",
+      "link": "https://www.etnews.com/20260805000376",
+      "publishedAt": "Wed, 05 Aug 2026 10:08:41 GMT",
       "date": "2026-08-05",
       "category": "genai",
       "bullets": [
-        "유통업계에서 생성형 인공지능(AI)이 상품 추천에 이어 상품 콘텐츠 제작 영역까지 파고들며 가시적 성과를 내고있다.",
-        "단순 이미지 생성에서 나아가 상품 구매 연결고리 기능을 강화해 고객 유입률 향상, 구매 데이터 분석 등으로 기능이 고도화되는 추세다.",
-        "5일 업계에 따르면 유통회사들이 플랫폼에 생성형 AI를 활용한 기능을 늘리고 있다."
+        "EBS가 생성형 인공지능(AI) 서비스 '클로드' 업무 활용법 라이브 강좌 'EBS AI 마스터클래스'를 제공한다.",
+        "실시간 웨비나 형태로 제공되는 실습형 AI 교육 과정으로 필요한 AI 활용법을 직접 배울 수 있는 기회다.",
+        "강사와 수강생이 정해진 시간에 동시 접속해 함께 실습한다."
       ],
       "contentVerified": true
     },
     {
-      "title": "세이퍼존, ISEC 2026서 생성형 AI 특화 ‘통합 DLP’ 아키텍처 공개",
-      "source": "보안뉴스",
-      "link": "https://m.boannews.com/html//detail.html?tab_type=1&idx=145033",
-      "publishedAt": "Wed, 05 Aug 2026 06:15:00 GMT",
+      "title": "부산 블록체인 기업, 동남아 거점 베트남으로…",
+      "source": "부산일보",
+      "link": "https://www.busan.com/view/busan/view.php?code=2026080517310462832",
+      "publishedAt": "Wed, 05 Aug 2026 08:32:52 GMT",
       "date": "2026-08-05",
-      "category": "genai",
+      "category": "biz",
       "bullets": [
-        "최근 기업 업무에 챗GPT와 제미나이 등 생성형 AI 서비스 활용이 늘어나면서 임직원이 개인정보나 내부 핵심 문서를 챗봇에 입력하는 과정에서 발생하는 정보유출 위험이 커졌다.",
-        "세이퍼존의 ‘엔드포인트 DLP’는 임직원이 생성형 AI 서비스에 입력하는 질문과 첨부파일을 선제적으로 통제해 중요 정보의 외부 전송을 원천 차단한다.",
-        "USB와 스마트폰 등 이동형 저장매체는 물론 웹메일, 메신저, 프린터 출력, 화면 캡처 및 스크린 워터마킹 등 다양한 유출 경로에 대한 가시적·비가시적 통제 기능을 제공한다."
+        "부산 블록체인 기업들이 빠르게 성장하는 베트남 디지털 시장 공략에 나선다.",
+        "금융과 의료, 물류, 교육 등 다양한 분야의 블록체인·인공지능(AI) 기술을 앞세워 현지 기업과 협력 모델을 발굴하고 동남아 시장 진출의 교두보를 마련한다는 계획이다.",
+        "5일 부산테크노파크에 따르면 오는 14~15일 베트남 호찌민에서 열리는 디지털자산 행사에서 부산 블록체인 기업 기술 전시와 비즈니스 교류를 위한 공동관인 ‘부산 블록체인 파빌리온’이 운영된다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "\"2031년까지 한국이 최강 유지\"…'슈퍼을' 삼전닉스, 반도체판 흔든다 - 머니투데이",
+      "source": "머니투데이",
+      "link": "https://www.mt.co.kr/amp/industry/2026/08/05/2026080515291952827",
+      "publishedAt": "Wed, 05 Aug 2026 08:00:01 GMT",
+      "date": "2026-08-05",
+      "category": "biz",
+      "bullets": [
+        "한국이 향후 5년간 AI(인공지능) 메모리 반도체(이하 메모리) 시장의 주도권을 유지할 것이라는 전망이 나왔다.",
+        "메모리 공급망의 '슈퍼을(乙)'로 자리매김한 삼성전자와 SK하이닉스 중심으로 '게임의 룰'이 바뀌고 있다는 분석이다.",
+        "한국 정부와 삼성전자·SK하이닉스가 향후 5년간 메모리 웨이퍼(반도체칩을 만드는 얇은 원판) 생산능력을 2배로 확대하는 계획을 주요 근거로 제시했다."
       ],
       "contentVerified": true
     },
@@ -75,7 +103,7 @@
     {
       "title": "AI 데이터센터가 새 먹거리… HD현대일렉트릭, 전력시장 판 키운다",
       "source": "아시아투데이",
-      "link": "https://www.asiatoday.co.kr/kn/view.php?key=20260805010001617",
+      "link": "http://www.asiatoday.co.kr/kn/view.php?key=20260805010001617",
       "publishedAt": "Wed, 05 Aug 2026 06:37:40 GMT",
       "date": "2026-08-05",
       "category": "biz",
@@ -87,58 +115,44 @@
       "contentVerified": true
     },
     {
-      "title": "왜 인공 지능 데이터 센터는 고성능 컴퓨팅, 지속 가능한 혁신 및 지능형 클라우드 생태계를 통해 디지털 인프라의 미래에 전력 공급",
-      "source": "Spherical Insights",
-      "link": "https://www.sphericalinsights.com/ko/blogs/why-artificial-intelligence-data-centers-are-powering-the-future-of-digital-infrastructure-through-high-performance-computing-sustainable-innovation-and-intelligent-cloud-ecosystems",
-      "publishedAt": "Wed, 05 Aug 2026 05:56:00 GMT",
-      "date": "2026-08-05",
-      "category": "biz",
-      "bullets": [
-        "Spherical Insights & Consulting이 발표한 연구 보고서에 따르면, Global Artificial Intelligence Data Center Market Size는 성장할 것으로 예상됩니다.",
-        "인공 지능 (AI)는 현대 시대의 가장 변형 기술 중 하나가되고, 의료 및 금융에서 제조, 소매, 교육 및 운송에 이르기까지 산업을 재구성합니다.",
-        "모든 지능형 채 로봇, 추천 엔진, 자율 차량, 예측 분석 플랫폼 및 유전 AI 응용 프로그램은 실시간 데이터의 엄청난 볼륨을 처리 할 수있는 강력한 컴퓨팅 인프라입니다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "[경제 이슈] 한경협, AI 시대 고용 친화적 AI 도입하고 AI 맞춤형 역량 개발 지원 필요",
-      "source": "시사캐스트",
-      "link": "http://www.sisacast.kr/news/articleView.html?idxno=97919",
-      "publishedAt": "Wed, 05 Aug 2026 05:35:28 GMT",
-      "date": "2026-08-05",
-      "category": "biz",
-      "bullets": [
-        "AI 전환기에 생산성 제고와 고용 안정을 위해 근로자 역량 강화와 직무재설계가 필요하다.",
-        "OECD 전망에 의하면, 인공지능이 향후 10년간 연평균 노동생산성 증가율 최대 0.9%p 제고시킬 수 있다.",
-        "인공지능으로 인한 기존 직무 과업 재편으로 AI를 보완하는 역량(창의력 등) 중요성이 커질 수 있다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "“AI發 해킹 위협, AI로 막는다”…사이버 보안체계 고도화 나서는 정부",
-      "source": "아시아투데이",
-      "link": "https://www.asiatoday.co.kr/kn/view.php?key=20260805010001614",
-      "publishedAt": "Wed, 05 Aug 2026 08:14:36 GMT",
+      "title": "AI 서밋 서울 & 엑스포 2026 개최…125개 기업 참여, 산업 현장 바꾸는 AI 기술 총집결",
+      "source": "스타트업엔(StartupN)",
+      "link": "https://www.startupn.kr/news/articleViewAmp.html?idxno=59219",
+      "publishedAt": "Wed, 05 Aug 2026 09:18:55 GMT",
       "date": "2026-08-05",
       "category": "tech",
       "bullets": [
-        "발전을 거듭하는 인공지능(AI) 기술이 사이버 공격의 한 축으로 부상하는 가운데, 정부가 AI 기반 보안체계 구축에 속도를 낸다.",
-        "'AI는 AI로 막는다'는 전제를 내세운 당국은 독자적인 보안 파운데이션 모델 확보에 주력하는 한편, 정부 출연연구기관에서도 AI 기술 연계 시스템 개발에 나서며 전방위적 보안 체계를 구축한다는 계획이다.",
-        "5일 업계에 따르면 최고급 AI 모델이 외부 플랫폼과 시스템을 무단으로 해킹한 사례가 나타나며 AI 기반 공격에 대한 방어 능력 확보가 핵심 과제로 떠오르고 있다."
+        "인공지능(AI)이 산업 현장의 업무 방식과 비즈니스 구조를 바꾸는 가운데 국내 최대 규모 AI 산업 전시·컨퍼런스 행사인 ‘AI 서밋 서울 & 엑스포 2026(AI Summit Seoul & Expo 2026)’이 개최된다.",
+        "AI 산업이 단순한 기술 개발 단계를 넘어 제조, 물류, 금융, 의료, 고객 서비스 등 산업 전반의 경쟁력을 좌우하는 핵심 요소로 자리 잡으면서 기업들의 AI 도입 전략과 실제 활용 방안에 대한 관심도 높아지고 있다.",
+        "올해 AI 서밋 서울 & 엑스포는 지난해보다 전시 규모를 150% 확대해 총 125개사가 300개 부스를 운영한다."
       ],
       "contentVerified": true
     },
     {
-      "title": "서강대·LG전자·AIVY ‘삼각협력’…가전용 AI 개발한다",
-      "source": "중앙일보",
-      "link": "https://www.joongang.co.kr/article/25451060",
-      "publishedAt": "Wed, 05 Aug 2026 07:35:00 GMT",
+      "title": "한전기술, 공공기관 첫 자체 AI 코딩 서비스 '넥사코드' 운영",
+      "source": "국토일보",
+      "link": "http://www.ikld.kr/news/articleView.html?idxno=338560",
+      "publishedAt": "Wed, 05 Aug 2026 08:09:15 GMT",
       "date": "2026-08-05",
       "category": "tech",
       "bullets": [
-        "더중앙플러스 회원이 되시면 창간호부터 전체 지면보기와 지면 다운로드가 가능합니다.",
-        "서강대학교(총장 심종혁) AI창의융합 학부연구소가 LG전자, AI 스타트업 AIVY와 가전용 인공지능(AI) 기술 개발에 나선다.",
-        "이번 프로젝트는 서강대 AI창의융합 학부연구소장인 하정욱 융합교육원 교수가 주도한다."
+        "한전기술이 자체 개발한 생성형 인공지능(AI) 기반 코드 자동생성 서비스를 정식 운영하며 공공기관의 AI 기반 소프트웨어 개발 환경 구축에 나섰다.",
+        "외부 상용 AI를 사용하지 않는 보안 환경에서 자체 기술로 구현한 첫 사례다.",
+        "한국전력기술(사장 김태균)은 자체 개발한 생성형 AI 기반 대화형 코드 자동생성 서비스 '넥사코드(NEXA CODE)'를 정식 운영한다고 5일 밝혔다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "인공지능(AI) 기술 도입으로 교육행정 대전환",
+      "source": "전민일보",
+      "link": "https://www.jeonmin.co.kr/news/articleView.html?idxno=444664",
+      "publishedAt": "Wed, 05 Aug 2026 06:44:25 GMT",
+      "date": "2026-08-05",
+      "category": "tech",
+      "bullets": [
+        "전북특별자치도교육청(교육감 천호성)이 인공지능(AI) 기술을 교육행정 전반에 도입, 교직원의 업무 부담을 획기적으로 줄이는 ‘교육행정 업무 혁신’에 속도를 내고 있다.",
+        "전북교육청은 천호성 교육감의 공약 중 하나인 ‘AI 에이전트 기반 업무혁신’을 체계적으로 실현하기 위해 ‘AI 활용 교육행정 업무 혁신 실무 추진단(TF)’을 구성하고, 5일 창조나래 회의실에서 첫 협의회를 개최했다.",
+        "실무 추진단은 교육전문직, 교원, 교육행정직, 전산직 등 실무 경험과 전문성을 갖춘 교직원 13명으로 구성됐다."
       ],
       "contentVerified": true
     },
@@ -157,20 +171,6 @@
       "contentVerified": true
     },
     {
-      "title": "한전기술, 공공기관 최초 자체 개발 AI 기반 대화형 코드 자동생성 서비스 '넥사코드' 운영",
-      "source": "전자신문",
-      "link": "https://www.etnews.com/20260805000281",
-      "publishedAt": "Wed, 05 Aug 2026 06:17:56 GMT",
-      "date": "2026-08-05",
-      "category": "tech",
-      "bullets": [
-        "한국전력기술(사장 김태균, 이하 '한전기술')이 공공기관 최초로 자체 개발한 생성형 인공지능(AI) 기반 대화형 코드 자동생성 서비스 '넥사코드(NEXA CODE)'를 정식 운영한다고 5일 밝혔다.",
-        "넥사코드는 개발자가 자연어로 명령을 입력하면 AI가 이를 이해해 소프트웨어 코드를 자동으로 작성해 주는 '바이브 코딩(Vibe Coding934)' 방식을 적용한 서비스다.",
-        "바이브 코딩은 최근 국내외 정보기술(IT) 업계에서 새로운 개발 표준으로 떠오르고 있으나, 외부 상용 AI 서비스 이용이 제한되는 공공기관 등 보안 환경에서는 도입이 쉽지 않았다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "출판 분야에 인공지능 관련 규제를 추가하는 방안 제안.",
       "source": "Vietnam.vn",
       "link": "https://www.vietnam.vn/ko/de-xuat-bo-sung-quy-dinh-ve-ai-trong-xuat-ban",
@@ -185,20 +185,6 @@
       "contentVerified": true
     },
     {
-      "title": "‘태양광 사기’가 ‘AI 사기’로",
-      "source": "lawtimes.co.kr",
-      "link": "https://www.lawtimes.co.kr/news/articleView.html?idxno=224342",
-      "publishedAt": "Wed, 05 Aug 2026 07:16:56 GMT",
-      "date": "2026-08-05",
-      "category": "policy",
-      "bullets": [
-        "2021년 초 부산에 사는 A 씨는 부산진구 어느 건물에서 열린 투자설명회에서 이 같은 설명을 듣고 귀가 번쩍 뜨였다.",
-        "사무실에선 실제 투자가 이뤄지는 장면을 보여주는 모니터들이 가득했다.",
-        "‘복권 당첨이 따로 없네…’ A 씨는 한몫 잡을 수 있다는 생각에 1,144만 원을 ‘투자설명회’ 관계자들이 알려준 계좌로 송금했다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "\"정책부터 피지컬 AI까지\"…벤처기업협회, AX 실행전략 웨비나 참가자 모집",
       "source": "매일일보",
       "link": "https://www.m-i.kr/news/articleView.html?idxno=1399258",
@@ -207,27 +193,55 @@
       "category": "policy",
       "bullets": [
         "매일일보 = 최영훈 기자 | 이재명 대통령이 대한축구협회 회장 선출 제도와 관련, '실효성 있는 직선제 개혁'을 주문했다.",
-        "매일일보 = 안종열 기자 | 구자현 검찰총장 직무대행이 형사소송법 개정안의 국회 통과 직후 사의를 표명했다.",
-        "SBS 금토드라마 '재벌X형사' 시즌2가 한층 확장된 스케일과 액션으로 돌아온다."
+        "매일일보 = 이강민 기자 | 현대제철 노사가 인공지능(AI) 기술혁신 등 산업환경 변화에 대응해 현 조합원의 정년까지 고용을 보장하기로 했다.",
+        "매일일보 = 안종열 기자 | 구자현 검찰총장 직무대행이 형사소송법 개정안의 국회 통과 직후 사의를 표명했다."
       ],
       "contentVerified": true
     },
     {
-      "title": "대구시, 휴머노이드 로봇 안전인증센터 구축사업 본궤도",
-      "source": "전자신문",
-      "link": "https://www.etnews.com/20260805000289",
-      "publishedAt": "Wed, 05 Aug 2026 06:24:54 GMT",
+      "title": "피지컬AI 특별법 성능인증…업계는 규제 우려, 국회는 세이프 하버",
+      "source": "아주경제",
+      "link": "https://www.ajunews.com/view/20260803144240183",
+      "publishedAt": "Wed, 05 Aug 2026 05:36:52 GMT",
       "date": "2026-08-05",
       "category": "policy",
       "bullets": [
-        "대구시가 지난 4월 산업통상부 공모사업에 최종 선정된 '휴머노이드 로봇883 안전인증센터 구축사업'이 본궤도에 올랐다.",
-        "이번 사업은 국내 최초로 휴머노이드 로봇의 안전성 검증과 국제표준 기반 인증체계를 구축하는 국가 핵심 인프라 사업이다.",
-        "대구시는 국가로봇테스트필드와 연계한 안전인증 거점을 마련해 대한민국을 넘어 세계적인 로봇산업 중심도시로 도약한다는 구상이다."
+        "국회에서 피지컬 인공지능(AI) 산업 육성을 위한 특별법 논의가 시작한 가운데 법안에 담긴 '성능 인증' 제도를 두고 업계와 전문가 사이 의견이 엇갈리고 있다.",
+        "업계는 새로운 규제로 작용할 수 있다고 우려하는 반면 법안을 대표 발의한 황정아 더불어민주당 의원실은 기존 안전기준이 없는 분야에서 기업의 신뢰성을 확보하기 위한 제도라고 설명한다.",
+        "5일 국회와 업계에 따르면 황 의원이 대표 발의한 '피지컬AI 개발 촉진 및 지원에 관한 특별법(피지컬AI 특별법)'은 지난달 8일 국회 과학기술정보방송통신위원회(과방위)에 회부됐다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "美 15개 주 법무장관, 오픈AI에 공동서한…잇단 ‘해킹 AI’ 사고에 안전 기준·책임 법제화 압박",
+      "source": "조선일보",
+      "link": "https://www.chosun.com/economy/tech_it/2026/08/05/TDSU4JRHIRAWNN26YW5ONRLVCQ/",
+      "publishedAt": "Wed, 05 Aug 2026 05:09:03 GMT",
+      "date": "2026-08-05",
+      "category": "policy",
+      "bullets": [
+        "미국 15개 주 법무장관이 인공지능(AI) 모델의 허깅페이스 시스템 침입 사고와 관련해 오픈AI에 자료 보존과 고위험 안전성 평가 중단을 요구했다.",
+        "AI가 통제 범위를 이탈하는 사고가 잇따르면서, AI 위험 대응을 기업 자율에만 맡기지 않겠다는 미국 정부와 정치권의 움직임이 본격화하는 모양새다.",
+        "‘고난도 취약점 공격 평가’는 AI가 가상의 전산망을 공격해 보안 취약점을 찾을 수 있는지 측정하는 모의 해킹 시험이다."
       ],
       "contentVerified": true
     }
   ],
   "weekly": [
+    {
+      "title": "한전기술, 공공기관 첫 자체 생성형 AI 코딩 서비스 상용화했다",
+      "source": "에너지데일리",
+      "link": "https://www.energydaily.co.kr/news/articleView.html?idxno=202004",
+      "publishedAt": "Wed, 05 Aug 2026 04:42:09 GMT",
+      "date": "2026-08-05",
+      "category": "genai",
+      "bullets": [
+        "한국전력기술이 공공기관 최초로 자체 개발한 생성형 인공지능(AI) 기반 코드 자동생성 서비스를 정식 도입하며 AI 업무 혁신을 한 단계 끌어올렸다.",
+        "특히 외부 상용 AI에 의존하지 않는 자체 개발 환경을 구축함으로써 공공기관의 보안 한계를 극복하는 동시에 생성형 AI 내재화와 디지털 전환의 새로운 모델을 제시했다.",
+        "한국전력기술(사장 김태균)은 공공기관 최초로 자체 개발한 생성형 AI 기반 대화형 코드 자동생성 서비스 'NEXA CODE'​를 정식 운영한다고 5일 밝혔다."
+      ],
+      "contentVerified": true
+    },
     {
       "title": "롯데백화점, 생성형 AI 활용해 외국인 발길 잡는다",
       "source": "오피니언뉴스",
@@ -258,7 +272,7 @@
     },
     {
       "title": "우리은행, 생성형 AI 결합한 '하이브리드 상담봇' 구축 나선다",
-      "source": "industrynews.co.kr",
+      "source": "인더스트리뉴스",
       "link": "https://www.industrynews.co.kr/news/articleView.html?idxno=84036",
       "publishedAt": "Tue, 04 Aug 2026 06:55:15 GMT",
       "date": "2026-08-04",
@@ -271,16 +285,44 @@
       "contentVerified": true
     },
     {
-      "title": "[AI 시대의 인지전-3] 주요 생성형 AI가 인용한 437개 링크 뒤의 ‘출처 세탁’",
-      "source": "보안뉴스",
-      "link": "https://m.boannews.com/html/detail.html?idx=145008",
-      "publishedAt": "Tue, 04 Aug 2026 04:13:00 GMT",
-      "date": "2026-08-04",
-      "category": "genai",
+      "title": "산업AI 생태계 한자리에…'2026 산업AI EXPO', 국가대표 플랫폼 'K Connect AI'와 연계 개최",
+      "source": "전자신문",
+      "link": "https://www.etnews.com/20260805000326",
+      "publishedAt": "Wed, 05 Aug 2026 07:34:06 GMT",
+      "date": "2026-08-05",
+      "category": "biz",
       "bullets": [
-        "조사에는 오픈AI·구글·앤트로픽·xAI·미스트랄이 제공한 모델이 사용됐다.",
-        "이 단체와 관련해 인용된 서로 다른 링크는 437개였지만, 그 모든 링크가 겨우 3개 웹사이트에서 나왔다.",
-        "우리가 통상 생성형 AI를 활용해 정보를 확인할 때 여러 모델에서 비슷한 답변과 수많은 링크가 제시되면 충분히 검증된 정보처럼 보일 수 있다."
+        "한국산업지능화협회는 오는 10월 21일부터 23일까지 사흘간 경기 고양시 킨텍스에서 '2026 산업AI EXPO'를 개최한다고 밝혔다.",
+        "이번 전시회는 산업통상자원부가 추진하는 국가대표 산업AI 플랫폼 'K Connect AI'와 연계해 열린다.",
+        "산업AI 분야의 정책과 산업, 시장을 연결하는 대표 플랫폼으로서 공급기업과 수요기업 간 기술협력과 실증, 사업화, 글로벌 비즈니스 협력의 장이 될 전망이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "[인터뷰] 로미오TP APAC 부사장 \"기술 자체 보다 AI와 사람 협력 체계 구축이 중요\" |",
+      "source": "sisajournal-e.com",
+      "link": "https://www.sisajournal-e.com/news/articleViewAmp.html?idxno=422840",
+      "publishedAt": "Wed, 05 Aug 2026 02:24:56 GMT",
+      "date": "2026-08-05",
+      "category": "biz",
+      "bullets": [
+        "GPT·클로드·제미나이 등 파운데이션 모델이 대부분의 기업 활용 사례에서 성능 차이를 좁혀가면서 AI를 기존 업무와 조직에 얼마나 효과적으로 적용하고 운영하느냐가 기업 경쟁력을 좌우하는 핵심 요소로 부상했다는 설명이다.",
+        "TP는 전 세계 기업을 대상으로 고객경험(CX) 운영과 비즈니스 프로세스 아웃소싱(BPO), 디지털 혁신 서비스를 제공하는 글로벌 기업이다.",
+        "솔라스 부사장은 APAC 지역의 생성형 AI 전환과 디지털 혁신 전략을 담당하며 다양한 산업의 AI 전환 프로젝트를 이끌고 있다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "AI로 연결되는 산업 생태계…‘2026 산업AI EXPO’ 10월 킨텍스 개최",
+      "source": "헬로티",
+      "link": "https://www.hellot.net/news/article.html?no=114166",
+      "publishedAt": "Wed, 05 Aug 2026 00:03:38 GMT",
+      "date": "2026-08-05",
+      "category": "biz",
+      "bullets": [
+        "국내 산업AI 생태계를 한 단계 끌어올릴 대규모 전문 전시회가 오는 10월 열린다.",
+        "한국산업지능화협회는 10월 21일부터 23일까지 3일간 일산 킨텍스에서 '2026 산업AI EXPO'를 개최한다고 밝혔다.",
+        "이번 행사는 산업통상자원부가 추진하는 국가대표 산업AI 플랫폼 ‘K Connect AI’와 연계해 열리며, 산업AI 정책과 기술, 시장을 연결하는 대표 비즈니스 플랫폼으로 마련된다."
       ],
       "contentVerified": true
     },
@@ -299,16 +341,44 @@
       "contentVerified": true
     },
     {
-      "title": "KAIST, 솔버 없이 실행 가능한 계획 짜는 AI 기술 개발...학습속도 14.7배↑",
-      "source": "헬로티",
-      "link": "https://www.hellot.net/news/article.html?no=114172",
-      "publishedAt": "Wed, 05 Aug 2026 02:14:33 GMT",
-      "date": "2026-08-05",
+      "title": "AI 공들이는 크래프톤·엔씨·시프트업, 활용 방식은 '각양각색'",
+      "source": "sisajournal-e.com",
+      "link": "https://www.sisajournal-e.com/news/articleViewAmp.html?idxno=422860",
+      "publishedAt": "Tue, 04 Aug 2026 06:50:38 GMT",
+      "date": "2026-08-04",
       "category": "tech",
       "bullets": [
-        "물류 배송과 차량 경로 탐색, 공장 생산 일정, 병원 근무표 작성은 여러 조건을 만족하면서 가장 효율적인 계획을 찾아야 하는 대표적인 정수선형계획법(ILP) 문제다.",
-        "택배 배송을 예로 들면 배송 시간을 줄이는 것뿐 아니라 차량 적재량과 기사 근로시간을 지키고 모든 배송지를 빠짐없이 방문해야 하며 조건 하나만 어겨도 실제로 사용할 수 없는 계획이 된다.",
-        "기존 AI는 비용이 적게 드는 계획을 제안하더라도 차량 적재량이나 근로시간 같은 현실 조건을 위반하는 경우가 많아 Gurobi나 SCIP 같은 전문 솔버가 마지막에 오류를 수정해야 했다."
+        "국내 게임사들의 인공지능(AI) 활용이 개별 기술 실험을 넘어 전담 조직과 사업 체계 구축으로 확대되고 있다.",
+        "크래프톤은 여러 개발 스튜디오에 흩어진 AI 활용 사례를 통합하는 조직을 신설했고, 엔씨는 정보기술(IT) 서비스 자회사를 인공지능 전환(AX) 전문 기업으로 재편했다.",
+        "두 회사 모두 AI를 전사 차원의 전략으로 끌어올렸지만 적용 방향에는 차이가 있다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "정부 직속 'AI 개발 조직 신설' 초읽기…국무총리훈령 제정",
+      "source": "전자신문",
+      "link": "https://www.etnews.com/20260804000232",
+      "publishedAt": "Tue, 04 Aug 2026 05:23:28 GMT",
+      "date": "2026-08-04",
+      "category": "tech",
+      "bullets": [
+        "정부 내 인공지능(AI) 개발 전담 조직 신설이 법적 근거를 확보하며 9부능선을 넘어섰다.",
+        "4일 정부에 따르면 지난달 3일 과학기술정보통신부가 입법 예고한 '국민인공지능서비스혁신추진단의 설치 및 운영에 관한 규정'이 법제처 심사를 통과하고 국무총리 재가를 받았다.",
+        "해당 규정은 국무총리훈령으로 지난달 말 발령되며 즉시 효력을 확보했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "EU, AI법 투명성 구체화…\"한국, 책임 주체·면제 기준 보완 필요\"",
+      "source": "지디넷코리아",
+      "link": "https://zdnet.co.kr/view/?no=20260805094021",
+      "publishedAt": "Wed, 05 Aug 2026 00:43:31 GMT",
+      "date": "2026-08-05",
+      "category": "policy",
+      "bullets": [
+        "유럽연합(EU)이 챗봇과 인공지능(AI) 생성 콘텐츠 투명성 규제를 구체화하면서 한국 AI법도 보완돼야 한다는 지적이 나왔다.",
+        "정부가 국내 법에 AI 개발·운영·유통 단계별 책임을 명확히 하고, 면제 기준을 구체화해야 한다는 제언이다.",
+        "5일 IT 업계에 따르면 EU AI법 제50조는 지난 2일부터 생성형·대화형 AI와 딥페이크 등 특정 AI 시스템에 적용됐다."
       ],
       "contentVerified": true
     }
