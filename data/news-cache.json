@@ -1,24 +1,52 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-08-08T04:30:54Z",
+  "generated_at": "2026-08-08T09:57:09Z",
   "daily": [
     {
-      "title": "성균관대학교, ‘AI와 대학’ 국제포럼 개최…생성형 AI 시대 대학의 역할 재정립",
-      "source": "한국강사신문",
-      "link": "https://www.lecturernews.com/news/articleView.html?idxno=208015",
-      "publishedAt": "Sat, 08 Aug 2026 02:52:00 GMT",
+      "title": "구미상공회의소, 생성형 AI 실무 활용 교육 개최",
+      "source": "hidomin.com",
+      "link": "https://www.hidomin.com/news/articleView.html?idxno=716441",
+      "publishedAt": "Sat, 08 Aug 2026 09:49:01 GMT",
       "date": "2026-08-08",
       "category": "genai",
       "bullets": [
-        "성균관대학교가 생성형 인공지능(AI)의 확산으로 급변하는 교육·연구 환경 속에서 대학이 나아가야 할 방향과 인문학의 미래를 모색하는 국제포럼을 열었다.",
-        "성균관대학교(총장 유지범)는 지난 27일 서울 종로구 성균관대학교 인문사회과학캠퍼스 경영관에서 ‘2026 Seoul Forum on AI and University(2026 서울 포럼)’를 개최했다고 밝혔다.",
-        "성균관대와 토론토대학교가 공동으로 마련한 이번 포럼은 ‘생성형 AI 시대, 대학의 미션 재고’를 주제로 진행됐다."
+        "구미상공회의소(회장 윤재호)는 7일 오전 10시, 구미상공회의소 1층 중회의실에서 구미 지역기업 임직원이 참석한 가운데 ‘생성형 AI 실무 활용 교육’을 개최했다.",
+        "이번 프로그램은 지난 5월 실시된 AI 활용 교육의 후속과정으로, 실질적인 업무 생산성 향상과 문서 자동화를 목표로 기획됐다.",
+        "강의는 Microsoft사에서 인증한 AI 전문가인 최정빈 강사가 강의를 맡아 실무 중심의 심도 있는 내용을 전달했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "\"내 분신이 '19금 대사' 읽더라\"…日유명 성우들, 생성형 AI 무단 복제에 '분통'",
+      "source": "아시아경제",
+      "link": "https://www.asiae.co.kr/article/2026080814280231461",
+      "publishedAt": "Sat, 08 Aug 2026 06:52:28 GMT",
+      "date": "2026-08-08",
+      "category": "genai",
+      "bullets": [
+        "숏 뉴스 AI 요약 기술은 핵심만 전달합니다.",
+        "일본 인기 성우들의 목소리를 생성형 인공지능(AI)으로 무단 복제해 성적인 대사를 말하거나 사 기·종교 권유에 악용하는 사례까지 늘고 있지만 피해를 막기 어렵다는 지적이 이어지고 있다.",
+        "그는 \"매우 불쾌하고 용서할 수 없다\"며 \"내가 맡은 캐릭터는 내 일부를 온전히 쏟아부어 만든 분신과 같다\"고 분통을 터트렸다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "클라이온, 여수세계섬박람회에 생성형 AI 통역 솔루션 'LXHUB' 공급… 30만 건 특화 데이터 학습",
+      "source": "스타트업엔(StartupN)",
+      "link": "https://www.startupn.kr/news/articleViewAmp.html?idxno=59261",
+      "publishedAt": "Sat, 08 Aug 2026 04:36:36 GMT",
+      "date": "2026-08-08",
+      "category": "genai",
+      "bullets": [
+        "클라이온과 2026여수세계섬박람회 조직위원회가 AI 통역 서비스 후원 협약을 체결하고 있다.",
+        "AI 클라우드 전문기업 클라이온이 '2026 여수세계섬박람회'에 생성형 AI 통역 솔루션 'LXHUB'를 공급하며 국제행사 현장의 다국어 소통 지원에 나선다.",
+        "클라이온은 6일 2026 여수세계섬박람회 조직위원회와 AI 통역 서비스 후원 협약을 체결하고, 박람회 기간 생성형 AI 통역 솔루션 LXHUB를 주요 행사장과 종합안내소에 제공한다고 밝혔다."
       ],
       "contentVerified": true
     },
     {
       "title": "삼성·한화·교보부터 대형 손보사까지…보험업계 AI 전면전",
-      "source": "ntoday.co.kr",
+      "source": "투데이신문",
       "link": "https://www.ntoday.co.kr/news/articleViewAmp.html?idxno=128638",
       "publishedAt": "Sat, 08 Aug 2026 01:39:42 GMT",
       "date": "2026-08-08",
@@ -31,164 +59,150 @@
       "contentVerified": true
     },
     {
-      "title": "한국앤컴퍼니그룹, 생성형 AI 도입 가속도 '조현범 혁신 DNA' 이식",
-      "source": "블로터",
-      "link": "https://www.bloter.net/news/articleViewAmp.html?idxno=670403",
-      "publishedAt": "Sat, 08 Aug 2026 01:31:58 GMT",
+      "title": "삼전닉스 낸드 훈풍 이어지나..샌디스크 \"물량 없어 못 번다\" 공식화 - 머니투데이",
+      "source": "머니투데이",
+      "link": "https://www.mt.co.kr/amp/industry/2026/08/08/2026080715300138850",
+      "publishedAt": "Sat, 08 Aug 2026 06:30:00 GMT",
       "date": "2026-08-08",
-      "category": "genai",
+      "category": "biz",
       "bullets": [
-        "한국앤컴퍼니그룹이 조현범 회장 주도의 디지털전환(DX)을 기반으로 생성형 AI를 단순한 업무 도구가 아닌 현업의 문제를 해결하는 핵심 파트너로 활용한다.",
-        "현업 중심의 인공지능 전환(AX)을 본격화하며 업무와 조직문화 혁신에 나선다.",
-        "한국앤컴퍼니그룹은 6월 서울 강남구 구글 스타트업 캠퍼스에서 'AI Vibe Coding(바이브 코딩) 해커톤 2026' 본선을 개최하고 같은 달 판교 테크노플렉스 본사에서 시상식을 열었다."
+        "샌디스크가 시장 기대를 웃도는 실적에도 공급 부족을 이유로 보수적인 매출 전망을 하면서 AI(인공지능) SSD(솔리드스테이트드라이브) 시장의 공급 제약이 확인됐다.",
+        "업계에서는 낸드플래시(이하 낸드) 공급 부족이 단기간 해소되기 어렵다는 점에서 삼성전자와 SK하이닉스의 낸드 사업에도 우호적인 업황이 이어질 것으로 보는 분위기다.",
+        "8일 반도체업계에 따르면 샌디스크는 회계연도 1분기(7~9월) 매출 전망치를 103억~108억달러(약 14조원~15조원)로 제시했다."
       ],
       "contentVerified": true
     },
     {
-      "title": "AI 학습데이터 투명성·창작자 권리보호·인간 창작 기여도 등 입법·정책 과제 모색",
+      "title": "[경기소식] 이상일 용인시장, 베트남 다낭서 '반도체·AI' 경쟁력 알려 등",
+      "source": "서울파이낸스",
+      "link": "https://www.seoulfn.com/news/articleView.html?idxno=635237",
+      "publishedAt": "Sat, 08 Aug 2026 05:45:00 GMT",
+      "date": "2026-08-08",
+      "category": "biz",
+      "bullets": [
+        "이상일 용인시장이 베트남 다낭에서 용인의 대규모 반도체 프로젝트와 인공지능(AI)을 활용한 시민 생활 지원 정책을 소개했다.",
+        "이 시장은 7일(현지시간) 다낭 푸라마 리조트에서 열린 '한국과의 만남(Meet Korea in Da Nang)' 콘퍼런스에서 'AI-성장과 발전의 새로운 동력'을 주제로 발표했다.",
+        "행사는 '2026 한국·베트남 페스티벌'의 주요 프로그램으로, 베트남 정부와 다낭시 관계자, 한국 지방정부·기업·대학 관계자 등이 참석했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "이상일 시장, 다낭서 '반도체·AI 도시 용인' 알리고 한·베 우정 넓혔다",
+      "source": "뉴스1",
+      "link": "https://www.news1.kr/local/gyeonggi/6253073",
+      "publishedAt": "Sat, 08 Aug 2026 05:22:50 GMT",
+      "date": "2026-08-08",
+      "category": "biz",
+      "bullets": [
+        "이상일 경기 용인특례시장이 7일 베트남 다낭에서 열린 '한국과의 만남'(Meet Korea in Da Nang) 콘퍼런스에서 용인의 초대형 반도체 프로젝트와 인공지능(AI)을 활용한 시민생활 지원 정책을 소개했다.",
+        "그러면서 \"삼성전자와 SK하이닉스의 프로젝트가 완성되면 용인은 단일 도시로는 세계 최대 규모의 반도체 생태계를 갖추게 될 것\"이라고 강조했다.",
+        "이어 AI순이와 돌봄로봇 효돌·보미·실벗을 활용한 어르신 건강·인지관리, AI 스마트 횡단보도, 도로 위험요소를 실시간 감지하는 AI 영상기록장치, 24시간 행정상담 등 시민생활에 적용한 AI 정책을 소개했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "“AI 시장, 어떻게 전개되든 승자는 엔비디아” 모건스탠리",
+      "source": "문화일보",
+      "link": "https://www.munhwa.com/article/11608132",
+      "publishedAt": "Sat, 08 Aug 2026 05:01:55 GMT",
+      "date": "2026-08-08",
+      "category": "biz",
+      "bullets": [
+        "인공지능(AI) 시장의 경쟁 구도가 어떻게 전개되더라도 엔비디아가 가장 큰 수혜 기업이 될 것이라는 전망이 제기됐다.",
+        "AI 모델 간 경쟁보다 이를 뒷받침하는 반도체와 서버 등 인프라 수요가 지속적으로 확대될 가능성이 크다는 분석이다.",
+        "5일(현지시간) 비즈니스인사이더에 따르면 모건스탠리는 최근 보고서를 통해 AI 시장의 향후 전개를 △폐쇄형 모델 중심 △폐쇄형과 오픈소스의 혼합 △오픈소스 중심 등 세 가지 시나리오로 나눠 전망했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "北도 AI 전쟁 뛰어들었다…김일성大에 ‘인공지능학부’, 유치원부터 로봇 교육",
+      "source": "sandtimes.co.kr",
+      "link": "https://www.sandtimes.co.kr/news/articleView.html?idxno=4628",
+      "publishedAt": "Sat, 08 Aug 2026 07:38:43 GMT",
+      "date": "2026-08-08",
+      "category": "tech",
+      "bullets": [
+        "북한이 인공지능(AI)을 국가 차원의 전략기술로 육성하기 시작한 정황이 잇따라 포착되고 있다.",
+        "김일성종합대학에 AI 전담 학부와 연구소를 두고 머신러닝·딥러닝·데이터 마이닝 등을 가르치는 한편 초·중등 교육에도 로봇과 AI 교육을 확대하고 있다.",
+        "북한이 AI를 단순한 교육·산업 기술이 아니라 국가 경쟁력을 좌우할 핵심 기술로 보고 인재 양성부터 군사 분야 활용까지 동시에 추진하고 있다는 분석이 나온다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "캘리포니아주, 미국 최초로 인공지능 안전법 통과",
+      "source": "vietnam.vn",
+      "link": "https://www.vietnam.vn/ko/california-thong-qua-luat-an-toan-tri-tue-nhan-tao-dau-tien-tai-my",
+      "publishedAt": "Sat, 08 Aug 2026 07:17:55 GMT",
+      "date": "2026-08-08",
+      "category": "tech",
+      "bullets": [
+        "캘리포니아주가 미국 최초로 인공지능(AI) 안전법을 제정하면서 급속도로 발전하는 AI 기술 규제 노력에 있어 중요한 전환점을 맞이했습니다.",
+        "이러한 움직임은 선구적인 동시에 논란의 여지가 있는데, 이는 AI 붐 시대에 기술 혁신 촉진의 필요성과 안전 및 사회적 책임에 대한 요구 사이의 갈등을 반영하기 때문입니다.",
+        "캘리포니아주의 인공지능 규제 제정은 미국 내 한 주를 훨씬 넘어선 광범위한 영향을 미칠 것입니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "이스트시큐리티-퓨리오사AI, ‘차세대 K-AI 보안 솔루션 개발 및 기술 협력 위한 업무협약’ 체결",
+      "source": "데일리시큐",
+      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207963",
+      "publishedAt": "Sat, 08 Aug 2026 06:49:13 GMT",
+      "date": "2026-08-08",
+      "category": "tech",
+      "bullets": [
+        "이스트시큐리티는 퓨리오사AI와 '차세대 K-AI 보안 솔루션 개발 및 기술 협력을 위한 업무협약(MOU)'을 체결했다고 7일 밝혔다.",
+        "협약식은 지난 6일 이스트시큐리티 서초 사옥에서 정상원 이스트시큐리티 대표와 백준호 퓨리오사AI 대표 등 양사 관계자들이 참석한 가운데 열렸다.",
+        "이번 협약에 따라 양사는 AI 에이전트 기반의 알약 EDR 등 보안 솔루션에 퓨리오사AI의 2세대 AI 추론 가속기 RNGD와 소프트웨어 스택을 적용한다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "현대차·글로벌 기업이 찾은 AI…마키나락스의 승부수",
       "source": "핀포인트뉴스",
-      "link": "https://www.pinpointnews.co.kr/news/articleViewAmp.html?idxno=475171",
-      "publishedAt": "Sat, 08 Aug 2026 00:39:57 GMT",
-      "date": "2026-08-08",
-      "category": "genai",
-      "bullets": [
-        "생성형 인공지능(AI)이 음악 제작 전반으로 빠르게 확산되면서 창작자의 권리 보호와 공정한 보상 체계를 제도적으로 마련하는 논의의 장이 마련됐다.",
-        "기술 혁신과 저작권 보호의 균형을 찾기 위한 정책 논의다.",
-        "국회 문화체육관광위원회 소속 김재원은 오는10일 국회의원회관 대회의실에서 한국음악저작권협회와 함께 '생성형 AI 시대의 지속가능한 음악산업을 위한 창작자 보호와 합리적 보상 체계'를 주제로 정책토론회를 연다고 8일 밝혔다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "이상일 용인특례시장, 베트남 다낭 콘퍼런스서AI 활용한 시민 지원 정책 발표",
-      "source": "인천일보",
-      "link": "http://incheonilbo.com/news/articleView.html?idxno=1329112",
-      "publishedAt": "Sat, 08 Aug 2026 03:30:00 GMT",
-      "date": "2026-08-08",
-      "category": "biz",
-      "bullets": [
-        "이 시장은 이날 푸라마 리조트에서 ‘AI-성장과 발전의 새로운 동력’을 주제로 열린 콘퍼런스에 발표자로 나섰다.",
-        "콘퍼런스는 6일부터 9일까지 열리는 2026년 제5회 한국·베트남 페스티벌의 핵심 행사 중 하나다.",
-        "콘퍼런스에는 베트남 중앙정부와 다낭시 관계자, 용인을 비롯한 한국 지방정부 관계자, 주다낭 한국총영사관 관계자, 한국 기업·대학 관계자, AI 전문가 등이 참석했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "이상일 용인시장, 다낭서 반도체·AI 협력 시동…상시 협력채널 가동",
-      "source": "필드뉴스",
-      "link": "http://www.fieldnews.kr/news/articleViewAmp.html?idxno=30556",
-      "publishedAt": "Sat, 08 Aug 2026 02:05:29 GMT",
-      "date": "2026-08-08",
-      "category": "biz",
-      "bullets": [
-        "이상일 용인특례시장이 베트남 다낭에서 용인의 초대형 반도체 프로젝트와 인공지능(AI) 기반 시민생활 지원정책을 소개했다.",
-        "용인시와 다낭시는 반도체·AI 등 공동 관심 분야의 협력 방안을 논의하기 위한 상시 실무 소통채널을 가동하기로 했다.",
-        "이 시장은 7일 오후(현지시간) 다낭 푸라마 리조트에서 열린 ‘한국과의 만남(Meet Korea in Da Nang)’ 콘퍼런스에 발표자로 참석했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "이상일 용인특시장, 베트남 다낭 콘퍼런스서 반도체·AI 정책 소개",
-      "source": "이코노뉴스",
-      "link": "https://www.econonews.co.kr/news/articleView.html?idxno=442506",
-      "publishedAt": "Sat, 08 Aug 2026 01:53:17 GMT",
-      "date": "2026-08-08",
-      "category": "biz",
-      "bullets": [
-        "콘퍼런스에는 6일부터 9일까지 열리는 2026년 제5회 한국‧베트남 페스티벌의 핵심 행사 중 하나다.",
-        "이번 발표는 용인이 반도체 생산기지를 조성하는 데 그치지 않고 반도체를 기반으로 AI 산업과 도시행정 혁신까지 연결하려는 전략을 해외에 소개했다는 데 의미가 있다.",
-        "첨단산업 투자와 기술 경쟁력을 시민의 일상에서 체감할 수 있는 서비스로 확장해 ‘산업도시’와 ‘스마트도시’를 함께 구축하겠다는 방향을 제시한 것이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "이상일, 베트남 다낭서 'AI 도시 용인' 비전 제시…“반도체·AI로 시민 삶 바꾼다”",
-      "source": "비욘드포스트",
-      "link": "https://www.beyondpost.co.kr/view.php?ud=2026080809101592924c878f8fa1_30",
-      "publishedAt": "Sat, 08 Aug 2026 00:33:15 GMT",
-      "date": "2026-08-08",
-      "category": "biz",
-      "bullets": [
-        "이번 콘퍼런스는 2026 한국·베트남 페스티벌의 핵심 행사로, 베트남 중앙정부와 다낭시 관계자를 비롯해 한국 지방정부, 기업, 대학, AI 전문가 등이 참석해 AI 산업과 미래 협력 방안을 논의했다.",
-        "이 시장은 발표에서 \"반도체와 인공지능은 함께 발전하는 시대\"라며 \"용인은 세계 최대 규모의 반도체 생태계 조성과 함께 AI를 행정과 복지, 교통, 교육 등 시민 생활 전반에 접목해 도시 경쟁력을 높이고 있다\"고 강조했다.",
-        "그는 \"기술 혁신의 궁극적인 목표는 시민의 삶을 더욱 안전하고 편리하게 만드는 것\"이라며 AI 행정의 방향성을 제시했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "미토스 전철 밟나?…오픈AI, ‘아스트라’ 개발 제동 “사이버공격 능력 최고 수준”",
-      "source": "디지털데일리",
-      "link": "https://m.ddaily.co.kr/page/view/2026080812060609423",
-      "publishedAt": "Sat, 08 Aug 2026 03:42:06 GMT",
+      "link": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=475535",
+      "publishedAt": "Sat, 08 Aug 2026 06:17:13 GMT",
       "date": "2026-08-08",
       "category": "tech",
       "bullets": [
-        "오픈AI가 차세대 인공지능(AI) 모델 ‘아스트라(Astra)’ 출시를 늦춘다.",
-        "내부 평가에서 아스트라의 사이버공격 능력이 자체 안전 기준상 최고 위험 수준에 근접한 것으로 나타나면서다.",
-        "차세대 AI의 성능 경쟁이 가속화하는 가운데 모델 공개 전 안전성을 어디까지 검증해야 하는지를 둘러싼 논의도 한층 거세질 전망이다."
+        "인공지능(AI)이 공장 안으로 들어오고 있다.",
+        "키움증권은 최근 보고서에서 마키나락스에 대해 “제조업 특화 피지컬 AI 솔루션 기업”으로 평가하며 피지컬 AI 전환의 선두주자로 주목했다.",
+        "마키나락스는 제조업 현장에 특화된 AI 솔루션을 개발하는 기업이다."
       ],
       "contentVerified": true
     },
     {
-      "title": "전북대학교 실험실 창업기업 홉스바이오사이언스, AI 기반 신약개발 기업으로 전환 본격화",
-      "source": "한국강사신문",
-      "link": "https://www.lecturernews.com/news/articleView.html?idxno=208010",
-      "publishedAt": "Sat, 08 Aug 2026 02:59:00 GMT",
-      "date": "2026-08-08",
-      "category": "tech",
-      "bullets": [
-        "전북대학교 실험실 창업기업인 ㈜홉스바이오사이언스가 글로벌 기업 협업 프로그램 선정을 계기로 인공지능(AI)을 신약개발 전반에 적용하는 ‘AX(AI Transformation)’ 전환에 본격적으로 나선다.",
-        "다온다 프로그램은 국내 유망 창업기업이 글로벌 기업의 기술과 전문인력, 네트워크 등을 활용해 연구개발 역량을 높이고 해외 시장 진출 기반을 마련할 수 있도록 지원하는 사업이다.",
-        "홉스바이오사이언스는 천연물 소재를 기반으로 신약을 개발하는 기업으로, 그동안 CRISPR/Cas9 DNA-Free 육종 기술을 활용해 헴프와 상추 등 식물 품종 개발을 진행해왔다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "제약업계 AI 활용 넓어진다…신약개발부터 업무 혁신까지",
-      "source": "쿠키뉴스",
-      "link": "https://www.kukinews.com/article/view/kuk202608070145",
-      "publishedAt": "Sat, 08 Aug 2026 02:19:05 GMT",
-      "date": "2026-08-08",
-      "category": "tech",
-      "bullets": [
-        "국내 제약업계의 인공지능(AI) 활용 범위가 빠르게 넓어지고 있다.",
-        "후보물질 발굴과 독성 예측 등 신약 연구개발(R&D)을 넘어 임직원의 업무 자동화와 디지털 헬스케어 등 다양한 영역으로 확산하는 모습이다.",
-        "7일 업계에 따르면 AI를 연구 보조기술을 넘어 기업 경쟁력을 높이는 핵심 인프라로 활용하려는 제약사들이 늘고 있다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "“미래 전장, 하늘에서 바뀐다”···대한항공, AI·AAM 방산 영토 확장",
-      "source": "시사저널e",
-      "link": "https://www.sisajournal-e.com/news/articleViewAmp.html?idxno=422932",
-      "publishedAt": "Sat, 08 Aug 2026 01:07:07 GMT",
-      "date": "2026-08-08",
-      "category": "tech",
-      "bullets": [
-        "대한항공이 군용 미래항공모빌리티(AAM)와 인공지능(AI) 기반 무인기 등을 앞세워 미래 방산 시장 공략에 속도를 낸다.",
-        "단순히 새로운 항공기를 개발하는 수준을 넘어 AI, 무인기, 디지털 정비(MRO), 통합 관제까지 아우르는 미래 항공 생태계 구축에 나서면서 항공사 이미지를 넘어 첨단 항공우주·방산 기업으로 사업 영역을 넓히는 모습이다.",
-        "특히 미국 전기수직이착륙기(eVTOL) 기업 아처 에비에이션과 손잡고 군용 AAM 개발을 추진하는 것은 국내 방산업계에서도 주목하는 사업이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "[AI 정책] 응급실 공백 메울 ‘AI 닥터’…정부 “게임체인저로 키운다”",
-      "source": "AI라이프경제",
-      "link": "http://www.aifnlife.co.kr/news/articleViewAmp.html?idxno=27542",
-      "publishedAt": "Sat, 08 Aug 2026 02:56:46 GMT",
+      "title": "[글로벌인사이트] 결혼 안 할까 봐? AI 연인 지운 중국…\"내 연인을 돌려내\" 청년들 '발칵'",
+      "source": "v.daum.net",
+      "link": "https://v.daum.net/v/20260808173612773",
+      "publishedAt": "Sat, 08 Aug 2026 08:36:12 GMT",
       "date": "2026-08-08",
       "category": "policy",
       "bullets": [
-        "정부가 응급실과 지역 필수의료 공백을 메우기 위해 의료 인공지능(AI)을 전면에 배치한다.",
-        "진단 보조 수준을 넘어 응급 이송, 공공병원 진료, 신약 개발까지 의료 전 주기에 AI를 접목해 현 보건의료체계를 뒤흔들 ‘게임 체인저’로 키우겠다는 구상이다.",
-        "정부는 6일 국가정책조정회의에서 이 같은 내용을 담은 ‘AI 기본의료 전략’을 확정했다."
+        "자동요약 기사 제목과 주요 문장을 기반으로 자동요약한 결과입니다.",
+        "전체 맥락을 이해하기 위해서는 본문 보기를 권장합니다.",
+        "중국 AI 정책을 연구하는 맷 시핸 카네기국제평화재단 연구원은 월스트리트저널과의 인터뷰에서 \"중국 당국은 자국 인구의 상당수가 챗봇과 깊은 감정적 관계를 맺는 상황을 원치 않는다\"고 밝혔습니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "금융硏 \"AI 거버넌스는 자율적으로…금융당국, 원칙 중심 감독해야\"",
+      "source": "연합인포맥스",
+      "link": "https://news.einfomax.co.kr/news/articleViewAmp.html?idxno=4429263",
+      "publishedAt": "Sat, 08 Aug 2026 06:00:30 GMT",
+      "date": "2026-08-08",
+      "category": "policy",
+      "bullets": [
+        "금융회사의 인공지능(AI) 활용을 활성화하면서도 금융안정을 확보하기 위해 금융당국이 세부 규제보다 핵심 원칙을 제시하는 '원칙 중심' AI 거버넌스를 구축해야 한다는 제언이 나왔다.",
+        "AI 개발·운영 과정의 책임자를 책무구조도로 명확히 하고, 금융규제 샌드박스를 활용해 새로운 AI 서비스의 안전성을 검증하는 등 감독체계도 정비해야 한다는 주장이다.",
+        "서 선임연구위원은 \"가이드라인은 어디까지나 자율성을 전제로 한 연성규율(soft regulation)이므로 단순히 이를 지키지 않았다는 이유만으로 제재해서는 안 된다\"고 강조했다."
       ],
       "contentVerified": true
     },
     {
       "title": "[월드IT뷰] EU, 'AI법' 투명성 의무화…챗봇도 딥페이크도 AI인지 밝혀야",
-      "source": "뉴스웍스",
-      "link": "https://www.newsworks.co.kr/news/articleViewAmp.html?idxno=849758",
-      "publishedAt": "Sat, 08 Aug 2026 01:10:00 GMT",
+      "source": "newsworks.co.kr",
+      "link": "https://www.newsworks.co.kr/news/articleView.html?idxno=849758",
+      "publishedAt": "Sat, 08 Aug 2026 01:00:00 GMT",
       "date": "2026-08-08",
       "category": "policy",
       "bullets": [
@@ -199,30 +213,16 @@
       "contentVerified": true
     },
     {
-      "title": "세종TP-한국인공지능협회, 세종 AI 산업 육성 위해 맞손",
-      "source": "뉴스홈(newshome)",
-      "link": "https://www.news-home.co.kr/news/articleView.html?idxno=70703",
-      "publishedAt": "Fri, 07 Aug 2026 22:48:23 GMT",
+      "title": "[AI 정책] 응급실 공백 메울 ‘AI 닥터’…정부 “게임체인저로 키운다”",
+      "source": "AI라이프경제",
+      "link": "http://www.aifnlife.co.kr/news/articleView.html?idxno=27542",
+      "publishedAt": "Fri, 07 Aug 2026 23:45:59 GMT",
       "date": "2026-08-08",
       "category": "policy",
       "bullets": [
-        "세종테크노파크(이하 세종 TP) 디지털융합센터와 (사)한국인공지능협회는 8 월 6 일 세종테크노파크 5 층 회의실에서 ‘세종 인공지능산업 육성을 위한 업무협약(MOU)’을 체결했다.",
-        "이번 협약은 양 기관이 보유한 전문성과 산업 네트워크를 바탕으로 지역 제조업의 인공지능 전환을 가속화하고, 미래 신산업 분야 경쟁력을 높이기 위해 마련됐다.",
-        "세종 TP 는 그동안 디지털융합센터를 중심으로 지역 산업의 인공지능 전환을 지원하는 다양한 사업을 추진해 왔으며, 기업 현장에서 활용 가능한 실증과 기술 적용 확대에 집중해왔다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "국가대표 인공지능 선발 위한 독자 AI 모델 2차 평가 돌입",
-      "source": "2news.co.kr",
-      "link": "https://www.2news.co.kr/news/articleView.html?idxno=19997",
-      "publishedAt": "Fri, 07 Aug 2026 22:36:00 GMT",
-      "date": "2026-08-08",
-      "category": "policy",
-      "bullets": [
-        "국가대표 인공지능을 선발하는 독자 AI 파운데이션 모델 프로젝트 2차 단계 평가가 본격적인 검증에 착수했다.",
-        "뉴스1에 따르면 이번 평가는 기존 벤치마크와 전문가 평가를 넘어 일반 시민으로 구성된 국민 평가단이 직접 모델을 사용해 실용성을 검증하는 방식으로 진행되며 이르면 오는 12일 결과가 발표될 전망이다.",
-        "과학기술정보통신부는 주민등록인구 통계를 바탕으로 성별과 나이별 비례 할당을 거쳐 선발된 200명의 국민 평가단을 운영한다."
+        "정부가 응급실과 지역 필수의료 공백을 메우기 위해 의료 인공지능(AI)을 전면에 배치한다.",
+        "진단 보조 수준을 넘어 응급 이송, 공공병원 진료, 신약 개발까지 의료 전 주기에 AI를 접목해 현 보건의료체계를 뒤흔들 ‘게임 체인저’로 키우겠다는 구상이다.",
+        "정부는 6일 국가정책조정회의에서 이 같은 내용을 담은 ‘AI 기본의료 전략’을 확정했다."
       ],
       "contentVerified": true
     }
@@ -243,6 +243,20 @@
       "contentVerified": true
     },
     {
+      "title": "KOMSA, 생성형 AI 안전교육 도입…연안여객선 선원 '팟캐스트'로 배운다",
+      "source": "해사신문",
+      "link": "http://www.haesanews.com/news/articleView.html?idxno=150042",
+      "publishedAt": "Thu, 06 Aug 2026 21:45:24 GMT",
+      "date": "2026-08-07",
+      "category": "genai",
+      "bullets": [
+        "한국해양교통안전공단(KOMSA)이 생성형 인공지능(AI)을 활용한 팟캐스트 형태의 안전교육을 도입하며 연안여객선 선원과 종사자를 위한 디지털 교육 체계를 확대한다.",
+        "KOMSA는 생성형 AI를 활용한 연안여객선 선원·종사자 안전교육용 팟캐스트를 올해부터 본격 운영한다고 7일 밝혔다.",
+        "이번 교육은 장기간 해상 근무로 집합교육 참석이 어려운 선원들의 교육 접근성을 높이기 위해 마련됐다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "시장 1위가 AI에선 4위…생성형 AI가 고른 브랜드는 달랐다",
       "source": "조선일보",
       "link": "https://www.chosun.com/economy/tech_it/2026/08/06/NBLJRCW3INHCFGGUQ3QNKZ2RW4/",
@@ -257,16 +271,44 @@
       "contentVerified": true
     },
     {
-      "title": "[AI돋보기] 시장이 사라진 AI 반도체 전쟁…한국의 선택은",
-      "source": "연합뉴스",
-      "link": "https://www.yna.co.kr/amp/view/AKR20260806114700017",
-      "publishedAt": "Fri, 07 Aug 2026 21:33:01 GMT",
+      "title": "(3) “상대가 AI라는 것 알려라” EU 법 시행의 의미",
+      "source": "법률신문",
+      "link": "https://www.lawtimes.co.kr/news/articleViewAmp.html?idxno=224446",
+      "publishedAt": "Fri, 07 Aug 2026 20:00:00 GMT",
       "date": "2026-08-08",
+      "category": "genai",
+      "bullets": [
+        "최근 유럽 AI 규제는 새로운 국면을 맞이했다.",
+        "8월 2일부터 본격 적용되기 시작한 EU AI 법의 투명성 규정은 AI에 대한 규제가 ‘신뢰 구축’으로 이동하고 있음을 보여준다.",
+        "그동안 기업들은 AI 법을 ‘고위험 AI에 대한 규제’ 정도로 이해하는 경우가 많았다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "이상일 용인시장, 다낭 반도체·AI 산업 현장 시찰",
+      "source": "서울경제TV",
+      "link": "https://www.sentv.co.kr/article/view/sentv202608060078",
+      "publishedAt": "Thu, 06 Aug 2026 04:15:53 GMT",
+      "date": "2026-08-06",
       "category": "biz",
       "bullets": [
-        "글로벌 반도체 시장에서 수요와 공급을 조절하던 '보이지 않는 손'이 작동을 멈췄다.",
-        "제품의 기술 우위와 생산 원가, 자율적인 수급에 의해 가격과 출하량이 결정되던 기존의 시장 질서가 무너지고 그 자리를 인공지능(AI) 패권을 노리는 미국과 중국의 무한 경쟁이 대체하고 있다.",
-        "초거대 AI 모델 학습과 구동에 쓰이는 첨단 반도체는 단순한 정보통신(IT) 부품을 넘어 국가 경쟁력을 좌우하는 전략 무기가 됐다."
+        "이상일 용인특례시장이 베트남 다낭을 방문해 반도체와 인공지능(AI) 산업 현장을 둘러보고 용인 기업과의 협력 확대 방안을 모색했다.",
+        "이 시장은 5일(현지시간) FPT 하이테크·반도체 연구개발(R&D)센터와 다낭 반도체·AI센터를 찾아 베트남의 첨단산업 육성 전략을 살펴보고 FPT 그룹 관계자들과 협력 방안을 논의했다.",
+        "이 시장은 용인이 삼성전자와 SK하이닉스를 중심으로 세계 최대 규모의 반도체 클러스터를 구축하고 있다며, FPT가 추진하는 반도체 테스트·패키징 분야와 용인 반도체 기업 간 협력이 확대되길 기대한다고 밝혔다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "원본자료 공유 없이 오류 라벨 찾아내는 분산 AI 기술 개발",
+      "source": "hidomin.com",
+      "link": "https://www.hidomin.com/news/articleView.html?idxno=716348",
+      "publishedAt": "Thu, 06 Aug 2026 10:50:18 GMT",
+      "date": "2026-08-06",
+      "category": "tech",
+      "bullets": [
+        "포스텍 연구진이 원본 데이터를 직접 확인하지 않고도 인공지능(AI) 학습에 사용된 오류 데이터를 찾아내 AI 성능을 높일 수 있는 기술을 개발했다.",
+        "개인정보를 보호하면서도 AI를 더 정확하게 학습시킬 수 있는 기술이어서 의료와 금융 등 데이터 공유가 어려운 분야에서 활용될 것으로 기대된다.",
+        "포스텍 인공지능대학원·전자전기공학과 김광인 교수 연구팀은 원본 데이터를 공유하지 않고도 잘못된 라벨(정답 정보)이 붙은 데이터를 찾아내는 분산 인공지능(AI) 기술을 개발했다고 6일 밝혔다."
       ],
       "contentVerified": true
     },
@@ -299,16 +341,16 @@
       "contentVerified": true
     },
     {
-      "title": "건보공단, 생성형 인공지능(AI) 활용해 홍보 콘텐츠 자체 제작",
-      "source": "데일리메디팜",
-      "link": "http://m.dailymedipharm.com/news/articleView.html?idxno=77326",
-      "publishedAt": "Fri, 07 Aug 2026 03:45:40 GMT",
-      "date": "2026-08-07",
+      "title": "EU, LLM 등 범용 AI 규제 발효…'사회적 위험 식별' 등 의무화",
+      "source": "뉴시스",
+      "link": "https://www.newsis.com/view/NISX20260803_0003733554",
+      "publishedAt": "Mon, 03 Aug 2026 02:33:12 GMT",
+      "date": "2026-08-03",
       "category": "policy",
       "bullets": [
-        "아래의 URL을 길게 누르면 복사하실수 있습니다.",
-        "국민건강보험공단(이사장 강청희)은 생성형 인공지능(AI)을 활용해 콘텐츠 기획부터 이미지·영상·음성 제작과 편집까지 전 과정을 자체 수행하며, 대내외 홍보 역량을 강화하고 있다고 밝혔다.",
-        "공단의 인공지능(AI)기반 콘텐츠 제작은 2004년부터 운영해 온 사내 방송 팀을 중심으로 이뤄지고 있으며, 사내 방송 팀은 콘텐츠 기획부터 촬영, 편집까지 자체 제작 체계를 갖추고 있다."
+        "![Image 26: [에센=AP/뉴시스] 유럽연합(EU)의 AI법 중 대규모 언어모델 등 범용 AI 모델에 대한 규제가 2일(현지 시간) 본격 시행됐다.",
+        "[에센=AP/뉴시스] 유럽연합(EU)의 AI법 중 대규모 언어모델 등 범용 AI 모델에 대한 규제가 2일(현지 시간) 본격 시행됐다.",
+        "[서울=뉴시스]신정원 기자 = 유럽연합(EU)의 인공지능법(AI Act) 가운데 대규모 언어모델(LLM)을 규율하는 핵심 조항이 2일(현지 시간) 시행됐다."
       ],
       "contentVerified": true
     }
