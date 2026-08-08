@@ -1,32 +1,32 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-08-08T15:49:39Z",
+  "generated_at": "2026-08-08T19:02:18Z",
   "daily": [
     {
+      "title": "AI 추론도 '분업' 시대… GPU 하나로 모두 처리하는 공식 깨진다",
+      "source": "한국클라우드신문",
+      "link": "https://www.kcloudnews.co.kr/news/articleView.html?idxno=16484",
+      "publishedAt": "Sat, 08 Aug 2026 13:35:23 GMT",
+      "date": "2026-08-08",
+      "category": "genai",
+      "bullets": [
+        "생성형 인공지능(AI) 데이터 센터의 추론 방식이 바뀌고 있다.",
+        "AI 서비스 속도를 높이고, 비용을 낮추기 위한 변화다.",
+        "대규모 언어 모델(LLM)의 추론 과정은 크게 '프리필(prefill)'과 '디코드(decode)'로 나뉜다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "생성형 AI 면접, 기업은 무엇을 묻나",
-      "source": "얼리어답터뉴스",
-      "link": "https://www.eanews.kr/news/985797",
-      "publishedAt": "Sat, 08 Aug 2026 12:29:16 GMT",
+      "source": "뉴스N연합",
+      "link": "https://newsyonhap.com/news/118363",
+      "publishedAt": "Sat, 08 Aug 2026 12:31:00 GMT",
       "date": "2026-08-08",
       "category": "genai",
       "bullets": [
         "기업들은 단순 코딩 능력 외에 'AI 유창성(AI fluency)'을 채용의 판단 기준으로 적극 반영하기 시작했다는 점이다.",
         "단, 이 수치의 원출처 기관 및 조사 방법론은 영상에서 별도로 공개되지 않아 독립적 검증이 필요하다.",
         "이 수치 자체가 기업의 선호도를 바꾸는 직접적 요인으로 작용한다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "“AI가 내 고민을 팔고 있다”…챗GPT 광고 시대, 내 대화는 안전한가",
-      "source": "쿠키뉴스",
-      "link": "https://www.kukinews.com/article/view/kuk202604100184",
-      "publishedAt": "Sat, 08 Aug 2026 10:57:20 GMT",
-      "date": "2026-08-08",
-      "category": "genai",
-      "bullets": [
-        "이에 개인정보 침해 우려는 더 커지고 있다.",
-        "박기웅 세종대 정보보호학과 교수는 “SNS나 검색보다 훨씬 민감한 정보를 파악할 수 있는 구조”라며 “데이터가 오·남용될 경우 2차 피해가 더 클 수 있다”고 지적했다.",
-        "이 같은 구조가 국내에 도입될 경우 현행 개인정보보호법(PIPA)과 정면으로 부딪힐 가능성이 크다는 지적도 나온다."
       ],
       "contentVerified": true
     },
@@ -115,6 +115,20 @@
       "contentVerified": true
     },
     {
+      "title": "바이오젠AI, 300억 시리즈 B 유치…AI 신약 개발 생태계 전환 신호탄",
+      "source": "kcemedia.com",
+      "link": "http://knpp.co.kr/news/531477",
+      "publishedAt": "Sat, 08 Aug 2026 18:57:24 GMT",
+      "date": "2026-08-09",
+      "category": "tech",
+      "bullets": [
+        "이번 투자는 미래벤처스와 K-혁신파트너스가 주도했으며, AI 플랫폼 기술력과 신약 파이프라인 잠재력에 대한 시장의 높은 평가를 반영한다.",
+        "단순한 자금 조달을 넘어, 인공지능(AI)이 신약 개발 자원을 끌어들이는 방식이 실질적으로 바뀌고 있음을 보여주는 사례로 평가된다.",
+        "이번 투자가 한국 제약·바이오 산업과 환자 치료 접근성에 어떤 변화를 가져올지 구체적으로 짚어본다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "개도국 저성장 극복, AI가 '100년 발전을 10년으로' 당긴다",
       "source": "ESG비즈니스리뷰",
       "link": "https://www.esgbusinessreview.kr/news/articleView.html?idxno=6905",
@@ -129,8 +143,22 @@
       "contentVerified": true
     },
     {
+      "title": "호치민시는 고등학생들의 디지털 및 인공지능(AI) 기술 개발을 장려하고 있습니다.",
+      "source": "Vietnam.vn",
+      "link": "https://www.vietnam.vn/ko/tphcm-thuc-day-phat-trien-nang-luc-so-nang-luc-ai-cho-hoc-sinh-pho-thong",
+      "publishedAt": "Sat, 08 Aug 2026 14:24:37 GMT",
+      "date": "2026-08-08",
+      "category": "tech",
+      "bullets": [
+        "GD&TĐ - 호치민시는 고등학생들의 디지털 및 AI 기술 개발을 촉진하기 위해 전문가, 학교 및 기업 간의 연계를 강화하고 있습니다.",
+        "8월 8일, 호치민시 과학기술국, 호치민시 교육훈련국 산하 정보교육프로그램센터, 그리고 KDI 교육 주식회사는 호치민시에서 \"교육 혁신 활동 - 고등학생의 디지털 및 인공지능 역량 개발 \" 워크숍을 공동으로 개최했습니다.",
+        "이번 행사에는 전문가, 연구기관, 기업, 교육 행정가 및 학과장들이 참석했습니다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "北도 AI 전쟁 뛰어들었다…김일성大에 ‘인공지능학부’, 유치원부터 로봇 교육",
-      "source": "샌드타임즈",
+      "source": "sandtimes.co.kr",
       "link": "https://www.sandtimes.co.kr/news/articleView.html?idxno=4628",
       "publishedAt": "Sat, 08 Aug 2026 13:48:31 GMT",
       "date": "2026-08-08",
@@ -143,37 +171,9 @@
       "contentVerified": true
     },
     {
-      "title": "응에안은 사무 관리 및 운영에 AI를 적용합니다.",
-      "source": "Vietnam.vn",
-      "link": "https://www.vietnam.vn/ko/nghe-an-ung-dung-ai-trong-quan-ly-va-dieu-hanh-van-phong",
-      "publishedAt": "Sat, 08 Aug 2026 13:32:54 GMT",
-      "date": "2026-08-08",
-      "category": "tech",
-      "bullets": [
-        "응에안성 과학기술부는 CMC 응용기술연구소와 협력하여 최근 사무 관리 및 운영에 인공지능(AI)을 적용하는 모델 구축 연구 프로젝트의 초기 결과를 소개하는 과학 워크숍을 개최했습니다.",
-        "시범적으로 구현된 세 가지 AI 솔루션은 관리 효율성을 향상시킬 수 있는 잠재력을 보여주었으며, 향후 응에안성 전역의 정부 기관으로 모델을 확대 적용할 수 있는 가능성을 제시했습니다.",
-        "인공지능은 행정 관리에 새로운 접근 방식을 제시합니다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "[AI는 지금] \"LLM 키울 데이터가 없다\"…中 AI, 중국어 부족에 비상등",
-      "source": "지디넷코리아",
-      "link": "https://zdnet.co.kr/view/?no=20260808194326",
-      "publishedAt": "Sat, 08 Aug 2026 10:46:45 GMT",
-      "date": "2026-08-08",
-      "category": "tech",
-      "bullets": [
-        "중국 인공지능(AI) 기업들이 고품질 학습 데이터 확보에 비상이 걸렸다.",
-        "온라인에서 활용할 수 있는 중국어 데이터가 제한적인 데다 공개 데이터 고갈 우려까지 커지면서 차세대 대규모언어모델(LLM) 개발을 위한 데이터 확보 부담도 높아지고 있다.",
-        "8일 사우스차이나모닝포스트(SCMP)가 인용한 인터넷 통계업체 W3테크스(Techs) 자료에 따르면 이달 기준 전 세계 웹 콘텐츠에서 중국어가 차지하는 비중은 1.3% 수준이다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "트럼프 “미 의회, AI 규제로 기업들 위기”…규제안 둘러싼 갈등 격화",
       "source": "v.daum.net",
-      "link": "https://v.daum.net/v/20260809000710422",
+      "link": "https://v.daum.net/v/UKc4JgaevY",
       "publishedAt": "Sat, 08 Aug 2026 15:07:00 GMT",
       "date": "2026-08-09",
       "category": "policy",
@@ -244,7 +244,7 @@
     },
     {
       "title": "KOMSA, 생성형 AI 안전교육 도입…연안여객선 선원 '팟캐스트'로 배운다",
-      "source": "해사신문",
+      "source": "haesanews.com",
       "link": "http://www.haesanews.com/news/articleView.html?idxno=150042",
       "publishedAt": "Thu, 06 Aug 2026 21:45:24 GMT",
       "date": "2026-08-07",
@@ -253,20 +253,6 @@
         "한국해양교통안전공단(KOMSA)이 생성형 인공지능(AI)을 활용한 팟캐스트 형태의 안전교육을 도입하며 연안여객선 선원과 종사자를 위한 디지털 교육 체계를 확대한다.",
         "KOMSA는 생성형 AI를 활용한 연안여객선 선원·종사자 안전교육용 팟캐스트를 올해부터 본격 운영한다고 7일 밝혔다.",
         "이번 교육은 장기간 해상 근무로 집합교육 참석이 어려운 선원들의 교육 접근성을 높이기 위해 마련됐다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "시장 1위가 AI에선 4위…생성형 AI가 고른 브랜드는 달랐다",
-      "source": "조선일보",
-      "link": "https://www.chosun.com/economy/tech_it/2026/08/06/NBLJRCW3INHCFGGUQ3QNKZ2RW4/",
-      "publishedAt": "Thu, 06 Aug 2026 04:03:16 GMT",
-      "date": "2026-08-06",
-      "category": "genai",
-      "bullets": [
-        "판매량이나 매장 수가 많은 브랜드가 생성형 인공지능(AI)의 답변에서도 가장 많이 등장하는 것은 아니라는 조사 결과가 나왔다.",
-        "AI 브랜드 분석기업 에이아이빅스랩은 식음료·프랜차이즈 30개 분야, 715개 브랜드를 대상으로 조사한 ‘AI 브랜드 경쟁력 지수(AIBIX)’를 6일 공개했다.",
-        "AIBIX는 챗GPT·제미나이·퍼플렉시티·클로드에 같은 소비자 질문을 반복 입력한 뒤 브랜드 등장률과 언급 점유율, 공식 자료 인용 여부 등을 100점 만점으로 평가한 지수다."
       ],
       "contentVerified": true
     },
@@ -285,44 +271,44 @@
       "contentVerified": true
     },
     {
-      "title": "엔비디아, 소버린 AI 점유율 92%…‘국가 AI’ 시장도 장악",
-      "source": "v.daum.net",
-      "link": "https://v.daum.net/v/20260806094931883?f=p",
-      "publishedAt": "Thu, 06 Aug 2026 00:49:31 GMT",
-      "date": "2026-08-06",
+      "title": "제주도청 공직자마다 개인 생성형 AI로 업무",
+      "source": "한라일보",
+      "link": "http://www.ihalla.com/article.php?aid=1786078425789050073",
+      "publishedAt": "Fri, 07 Aug 2026 04:53:45 GMT",
+      "date": "2026-08-07",
+      "category": "genai",
+      "bullets": [
+        "[한라일보] 제주도청 공직자들이 8월부터 각자의 생성형 인공지능(AI) 계정을 갖는다.",
+        "제주특별자치도는 행정의 일하는 방식을 혁신하기 위해 개인형 생성형 인공지능 업무환경 ‘AI:ON’을 이달부터 운영한다고 7일 밝혔다.",
+        "부서가 하나의 AI 모델을 공용계정으로 함께 쓰던 방식을 개인별 멀티 AI 계정으로 바꿔 생성형 AI를 모든 직원이 일상적으로 기본 업무 도구로 넓히겠다는 구상이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "[AI돋보기] 시장이 사라진 AI 반도체 전쟁…한국의 선택은",
+      "source": "연합뉴스",
+      "link": "https://www.yna.co.kr/amp/view/AKR20260806114700017",
+      "publishedAt": "Fri, 07 Aug 2026 21:33:01 GMT",
+      "date": "2026-08-08",
       "category": "biz",
       "bullets": [
-        "자동요약 기사 제목과 주요 문장을 기반으로 자동요약한 결과입니다.",
-        "전체 맥락을 이해하기 위해서는 본문 보기를 권장합니다.",
-        "세계 각국이 자국 데이터와 인공지능(AI) 기술을 자체적으로 구축하는 '소버린 AI(Sovereign AI·자국 AI)' 경쟁에 뛰어든 가운데 엔비디아가 관련 AI 인프라 시장의 절대 강자로 자리 잡았다는 분석이 나왔다."
+        "글로벌 반도체 시장에서 수요와 공급을 조절하던 '보이지 않는 손'이 작동을 멈췄다.",
+        "제품의 기술 우위와 생산 원가, 자율적인 수급에 의해 가격과 출하량이 결정되던 기존의 시장 질서가 무너지고 그 자리를 인공지능(AI) 패권을 노리는 미국과 중국의 무한 경쟁이 대체하고 있다.",
+        "초거대 AI 모델 학습과 구동에 쓰이는 첨단 반도체는 단순한 정보통신(IT) 부품을 넘어 국가 경쟁력을 좌우하는 전략 무기가 됐다."
       ],
       "contentVerified": true
     },
     {
-      "title": "원본자료 공유 없이 오류 라벨 찾아내는 분산 AI 기술 개발",
-      "source": "hidomin.com",
-      "link": "https://www.hidomin.com/news/articleView.html?idxno=716348",
-      "publishedAt": "Thu, 06 Aug 2026 10:50:18 GMT",
-      "date": "2026-08-06",
-      "category": "tech",
-      "bullets": [
-        "포스텍 연구진이 원본 데이터를 직접 확인하지 않고도 인공지능(AI) 학습에 사용된 오류 데이터를 찾아내 AI 성능을 높일 수 있는 기술을 개발했다.",
-        "개인정보를 보호하면서도 AI를 더 정확하게 학습시킬 수 있는 기술이어서 의료와 금융 등 데이터 공유가 어려운 분야에서 활용될 것으로 기대된다.",
-        "포스텍 인공지능대학원·전자전기공학과 김광인 교수 연구팀은 원본 데이터를 공유하지 않고도 잘못된 라벨(정답 정보)이 붙은 데이터를 찾아내는 분산 인공지능(AI) 기술을 개발했다고 6일 밝혔다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "중국, 이제 AI를 외교 카드로 쓰고 있어요",
-      "source": "조선일보",
-      "link": "https://www.chosun.com/kid/kid_nie/kid_upper-grades/2026/08/07/WELPGJOGEVG2ZMHB75OMPLSPYM/",
-      "publishedAt": "Fri, 07 Aug 2026 07:09:00 GMT",
+      "title": "AI 기술 활용, 공공의료 강화…2030년까지 교통사고 사망자 30%↓",
+      "source": "대한민국 정책브리핑",
+      "link": "https://www.korea.kr/news/policyNewsView.do?newsId=148969567&pWise=sub&pWiseSub=R4",
+      "publishedAt": "Thu, 06 Aug 2026 17:04:18 GMT",
       "date": "2026-08-07",
       "category": "tech",
       "bullets": [
-        "이에 대해 조지 첸 아시아그룹(Asia Group) 디지털 부문 공동대표는 “중국이 궁극적으로 원하는 건 세계 다수가 미국 기술이 아닌 중국 기술에 의존하도록 만드는 것”이라고 했답니다.",
-        "일대일로(一帶一路): 중국이 미국을 넘어서기 위해 2014년부터 시작한 정책이다.",
-        "중국과 유럽, 아프리카, 동남아 등 대륙을 잇는 사업이다."
+        "이 누리집은 대한민국 공식 전자정부 누리집입니다.",
+        "정부는 의료 전 분야에 인공지능(AI)을 접목하는 'AI 기본의료 전략'을 수립해 지역·필수·공공의료 공백을 해소하고 국민 누구나 일상에서 AI 의료혁신 혜택을 고르게 누릴 수 있도록 한다.",
+        "또 교통사고 주요 요인의 데이터 분석과 페달오조작 방지장치 지원 등을 통해 교통사고 사망자를 2030년까지 30% 낮추고 중고차 시장의 불투명한 거래과정과 불공정 관행에 대한 점검도 강화한다."
       ],
       "contentVerified": true
     }
