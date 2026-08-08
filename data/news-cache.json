@@ -1,6 +1,6 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-08-08T13:15:18Z",
+  "generated_at": "2026-08-08T15:49:39Z",
   "daily": [
     {
       "title": "생성형 AI 면접, 기업은 무엇을 묻나",
@@ -17,16 +17,16 @@
       "contentVerified": true
     },
     {
-      "title": "광주창의융합교육원, 중등 영어교사 대상 AI 활용 평가·기록 연수",
-      "source": "jngjedu.kr",
-      "link": "https://www.jngjedu.kr/news/articleViewAmp.html?idxno=119395",
-      "publishedAt": "Sat, 08 Aug 2026 10:17:29 GMT",
+      "title": "“AI가 내 고민을 팔고 있다”…챗GPT 광고 시대, 내 대화는 안전한가",
+      "source": "쿠키뉴스",
+      "link": "https://www.kukinews.com/article/view/kuk202604100184",
+      "publishedAt": "Sat, 08 Aug 2026 10:57:20 GMT",
       "date": "2026-08-08",
       "category": "genai",
       "bullets": [
-        "지난 8일 광주창의융합교육원 뉴턴실에서 진행된 ‘스마트 영어수업을 위한 AI 활용 평가-기록 실전’ 연수에 참여한 광주지역 중등 영어교사들이 AI를 활용 학생부 기록 실습을 하고 있다.",
-        "전남광주통합특별시교육청광주창의융합교육원(이하 광주창의융합교육원)은 지난 8일 본원 뉴턴실에서 광주지역 중·고등학교 영어교사 30명을 대상으로‘스마트 영어수업을 위한 AI 활용 평가·기록 실전’ 직무연수를 운영했다.",
-        "이번 연수는 교사들이 생성형 인공지능 도구를 활용해 학생 맞춤형 수업·평가와 학생부 기록 역량을 높일 수 있도록 지원하기 위해 마련됐다."
+        "이에 개인정보 침해 우려는 더 커지고 있다.",
+        "박기웅 세종대 정보보호학과 교수는 “SNS나 검색보다 훨씬 민감한 정보를 파악할 수 있는 구조”라며 “데이터가 오·남용될 경우 2차 피해가 더 클 수 있다”고 지적했다.",
+        "이 같은 구조가 국내에 도입될 경우 현행 개인정보보호법(PIPA)과 정면으로 부딪힐 가능성이 크다는 지적도 나온다."
       ],
       "contentVerified": true
     },
@@ -46,7 +46,7 @@
     },
     {
       "title": "칠곡과학발명교육센터, AI·로봇 활용 여름방학 특별과정 운영",
-      "source": "kbsm.net",
+      "source": "경북신문",
       "link": "https://www.kbsm.net/news/view.php?idx=529626",
       "publishedAt": "Sat, 08 Aug 2026 09:16:58 GMT",
       "date": "2026-08-08",
@@ -55,6 +55,20 @@
         "칠곡과학발명교육센터는 '2026학년도 여름방학 특별과정'을 운영했다.",
         "칠곡과학발명교육센터가 초·중학생들이 인공지능(AI)과 로봇, 3D 프린팅 등 미래기술을 직접 체험하며 창의적 문제해결 능력을 키우는 여름방학 특별과정을 운영했다.",
         "센터는 4일부터 7일까지 초등학교 3학년부터 중학교 3학년 학생들을 대상으로 ‘2026학년도 여름방학 특별과정’을 진행했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "인공지능을 마스터하려면 인프라를 마스터해야 합니다.",
+      "source": "Vietnam.vn",
+      "link": "https://www.vietnam.vn/ko/muon-lam-chu-ai-phai-lam-chu-ha-tang",
+      "publishedAt": "Sat, 08 Aug 2026 15:20:15 GMT",
+      "date": "2026-08-09",
+      "category": "biz",
+      "bullets": [
+        "인공지능(AI)의 급속한 발전은 컴퓨팅 용량과 데이터 센터부터 발전 및 송전망에 이르기까지 베트남의 디지털 인프라에 새로운 요구를 제기하고 있습니다.",
+        "전문가들은 AI를 지속 가능하게 발전시키고 외부 의존도를 줄이기 위해 베트남이 유연하고 동기화된 인프라를 구축하고 전략적 구성 요소를 점진적으로 숙달해야 한다고 강조합니다.",
+        "베트남은 인공지능(AI) 분야의 급속한 발전 시기에 접어들고 있다."
       ],
       "contentVerified": true
     },
@@ -73,6 +87,20 @@
       "contentVerified": true
     },
     {
+      "title": "이상일 용인시장, 다낭서 반도체·AI 기반 혁신정책 소개",
+      "source": "이뉴스투데이",
+      "link": "http://www.enewstoday.co.kr/news/articleViewAmp.html?idxno=2457324",
+      "publishedAt": "Sat, 08 Aug 2026 11:24:02 GMT",
+      "date": "2026-08-08",
+      "category": "biz",
+      "bullets": [
+        "세계 최대 규모의 반도체 생태계를 조성 중인 용인특례시의 산업 경쟁력과 인공지능(AI)을 접목한 시민생활 지원정책이 베트남 다낭에서 소개됐다.",
+        "이상일 용인특례시장은 7일 오후(현지시간) 다낭시 푸라마 리조트에서 열린 ‘한국과의 만남(Meet Korea in Da Nang)’ 콘퍼런스에 발표자로 참석해 용인의 초대형 반도체 프로젝트와 AI 행정혁신 사례를 알렸다.",
+        "‘AI-성장과 발전의 새로운 동력’을 주제로 열린 이번 콘퍼런스는 6일부터 9일까지 진행되는 ‘2026년 제5회 한국·베트남 페스티벌’의 핵심 행사다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "삼전닉스 낸드 훈풍 이어지나..샌디스크 \"물량 없어 못 번다\" 공식화 - 머니투데이",
       "source": "머니투데이",
       "link": "https://www.mt.co.kr/amp/industry/2026/08/08/2026080715300138850",
@@ -87,30 +115,16 @@
       "contentVerified": true
     },
     {
-      "title": "[경기소식] 이상일 용인시장, 베트남 다낭서 '반도체·AI' 경쟁력 알려 등",
-      "source": "서울파이낸스",
-      "link": "https://www.seoulfn.com/news/articleView.html?idxno=635237",
-      "publishedAt": "Sat, 08 Aug 2026 05:45:00 GMT",
+      "title": "개도국 저성장 극복, AI가 '100년 발전을 10년으로' 당긴다",
+      "source": "ESG비즈니스리뷰",
+      "link": "https://www.esgbusinessreview.kr/news/articleView.html?idxno=6905",
+      "publishedAt": "Sat, 08 Aug 2026 14:42:10 GMT",
       "date": "2026-08-08",
-      "category": "biz",
+      "category": "tech",
       "bullets": [
-        "이상일 용인시장이 베트남 다낭에서 용인의 대규모 반도체 프로젝트와 인공지능(AI)을 활용한 시민 생활 지원 정책을 소개했다.",
-        "이 시장은 7일(현지시간) 다낭 푸라마 리조트에서 열린 '한국과의 만남(Meet Korea in Da Nang)' 콘퍼런스에서 'AI-성장과 발전의 새로운 동력'을 주제로 발표했다.",
-        "행사는 '2026 한국·베트남 페스티벌'의 주요 프로그램으로, 베트남 정부와 다낭시 관계자, 한국 지방정부·기업·대학 관계자 등이 참석했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "중국 AI 산업 심층분석② \"가격 파괴자\"는 왜 가격을 올렸나",
-      "source": "미디어피아",
-      "link": "https://www.mediapia.co.kr/news/articleView.html?idxno=79463",
-      "publishedAt": "Sat, 08 Aug 2026 04:50:10 GMT",
-      "date": "2026-08-08",
-      "category": "biz",
-      "bullets": [
-        "불과 1년 전만 해도 중국 생성형 인공지능(AI) 시장의 경쟁 구도는 단순했다.",
-        "더 뛰어난 모델을 만드는 것보다 더 낮은 가격을 제시하는 기업이 시장을 선점할 수 있다는 믿음이 지배했다.",
-        "경쟁사보다 훨씬 저렴한 API 가격을 앞세워 국내외 개발자와 스타트업을 빠르게 끌어들였고, '가격 파괴자(Price Disruptor)'라는 별칭까지 얻었다."
+        "전 세계적인 저성장 기조 속에서 인공지능(AI)이 개발도상국에 수세기가 걸릴 발전을 단 10년 만에 이뤄낼 수 있는 일생일대의 기회를 제공하고 있다는 분석이 나왔다.",
+        "다만 이러한 기회를 결실로 맺기 위해서는 전력, 인터넷 연결성, 인적 역량, 제도적 기반 등 개도국의 고질적인 인프라 공백을 정부 차원에서 신속히 메워야 할 것으로 지적됐다.",
+        "개도국에 대한 AI의 영향을 최초로 종합 평가한 이번 보고서는 개도국의 기업과 정부가 이미 AI를 어떻게 활용하기 시작했는지를 구체적으로 조명했다."
       ],
       "contentVerified": true
     },
@@ -118,7 +132,7 @@
       "title": "北도 AI 전쟁 뛰어들었다…김일성大에 ‘인공지능학부’, 유치원부터 로봇 교육",
       "source": "샌드타임즈",
       "link": "https://www.sandtimes.co.kr/news/articleView.html?idxno=4628",
-      "publishedAt": "Sat, 08 Aug 2026 07:38:43 GMT",
+      "publishedAt": "Sat, 08 Aug 2026 13:48:31 GMT",
       "date": "2026-08-08",
       "category": "tech",
       "bullets": [
@@ -129,50 +143,50 @@
       "contentVerified": true
     },
     {
-      "title": "캘리포니아주, 미국 최초로 인공지능 안전법 통과",
+      "title": "응에안은 사무 관리 및 운영에 AI를 적용합니다.",
       "source": "Vietnam.vn",
-      "link": "https://www.vietnam.vn/ko/california-thong-qua-luat-an-toan-tri-tue-nhan-tao-dau-tien-tai-my",
-      "publishedAt": "Sat, 08 Aug 2026 07:17:55 GMT",
+      "link": "https://www.vietnam.vn/ko/nghe-an-ung-dung-ai-trong-quan-ly-va-dieu-hanh-van-phong",
+      "publishedAt": "Sat, 08 Aug 2026 13:32:54 GMT",
       "date": "2026-08-08",
       "category": "tech",
       "bullets": [
-        "캘리포니아주가 미국 최초로 인공지능(AI) 안전법을 제정하면서 급속도로 발전하는 AI 기술 규제 노력에 있어 중요한 전환점을 맞이했습니다.",
-        "이러한 움직임은 선구적인 동시에 논란의 여지가 있는데, 이는 AI 붐 시대에 기술 혁신 촉진의 필요성과 안전 및 사회적 책임에 대한 요구 사이의 갈등을 반영하기 때문입니다.",
-        "캘리포니아주의 인공지능 규제 제정은 미국 내 한 주를 훨씬 넘어선 광범위한 영향을 미칠 것입니다."
+        "응에안성 과학기술부는 CMC 응용기술연구소와 협력하여 최근 사무 관리 및 운영에 인공지능(AI)을 적용하는 모델 구축 연구 프로젝트의 초기 결과를 소개하는 과학 워크숍을 개최했습니다.",
+        "시범적으로 구현된 세 가지 AI 솔루션은 관리 효율성을 향상시킬 수 있는 잠재력을 보여주었으며, 향후 응에안성 전역의 정부 기관으로 모델을 확대 적용할 수 있는 가능성을 제시했습니다.",
+        "인공지능은 행정 관리에 새로운 접근 방식을 제시합니다."
       ],
       "contentVerified": true
     },
     {
-      "title": "SK바이오사이언스, 게이츠재단과 AI 백신 개발 플랫폼 구축",
-      "source": "kukinews.com",
-      "link": "https://www.kukinews.com/article/view/kuk202607020112",
-      "publishedAt": "Sat, 08 Aug 2026 07:07:19 GMT",
+      "title": "[AI는 지금] \"LLM 키울 데이터가 없다\"…中 AI, 중국어 부족에 비상등",
+      "source": "지디넷코리아",
+      "link": "https://zdnet.co.kr/view/?no=20260808194326",
+      "publishedAt": "Sat, 08 Aug 2026 10:46:45 GMT",
       "date": "2026-08-08",
       "category": "tech",
       "bullets": [
-        "SK바이오사이언스가 게이츠재단과 손잡고 인공지능(AI)을 활용한 백신 개발 혁신에 나선다.",
-        "게이츠재단은 자체 펀딩을 통해 프로젝트 비용을 지원한다.",
-        "비영리 국제보건기구 PATH(Program for Appropriate Technology in Health)와 글로벌 IT 기술 컨설팅 기업 슬라럼(Slalom)도 공동 참여한다."
+        "중국 인공지능(AI) 기업들이 고품질 학습 데이터 확보에 비상이 걸렸다.",
+        "온라인에서 활용할 수 있는 중국어 데이터가 제한적인 데다 공개 데이터 고갈 우려까지 커지면서 차세대 대규모언어모델(LLM) 개발을 위한 데이터 확보 부담도 높아지고 있다.",
+        "8일 사우스차이나모닝포스트(SCMP)가 인용한 인터넷 통계업체 W3테크스(Techs) 자료에 따르면 이달 기준 전 세계 웹 콘텐츠에서 중국어가 차지하는 비중은 1.3% 수준이다."
       ],
       "contentVerified": true
     },
     {
-      "title": "이스트시큐리티-퓨리오사AI, ‘차세대 K-AI 보안 솔루션 개발 및 기술 협력 위한 업무협약’ 체결",
-      "source": "데일리시큐",
-      "link": "https://www.dailysecu.com/news/articleView.html?idxno=207963",
-      "publishedAt": "Sat, 08 Aug 2026 06:49:13 GMT",
-      "date": "2026-08-08",
-      "category": "tech",
+      "title": "트럼프 “미 의회, AI 규제로 기업들 위기”…규제안 둘러싼 갈등 격화",
+      "source": "v.daum.net",
+      "link": "https://v.daum.net/v/20260809000710422",
+      "publishedAt": "Sat, 08 Aug 2026 15:07:00 GMT",
+      "date": "2026-08-09",
+      "category": "policy",
       "bullets": [
-        "이스트시큐리티는 퓨리오사AI와 '차세대 K-AI 보안 솔루션 개발 및 기술 협력을 위한 업무협약(MOU)'을 체결했다고 7일 밝혔다.",
-        "협약식은 지난 6일 이스트시큐리티 서초 사옥에서 정상원 이스트시큐리티 대표와 백준호 퓨리오사AI 대표 등 양사 관계자들이 참석한 가운데 열렸다.",
-        "이번 협약에 따라 양사는 AI 에이전트 기반의 알약 EDR 등 보안 솔루션에 퓨리오사AI의 2세대 AI 추론 가속기 RNGD와 소프트웨어 스택을 적용한다."
+        "자동요약 기사 제목과 주요 문장을 기반으로 자동요약한 결과입니다.",
+        "전체 맥락을 이해하기 위해서는 본문 보기를 권장합니다.",
+        "도널드 트럼프 미국 대통령이 미국 의회의 인공지능(AI) 규제 움직임에 강도 높게 비판했다."
       ],
       "contentVerified": true
     },
     {
       "title": "[기경학회 AX칼럼] 표준 선점 국가가 시장 규칙 만든다",
-      "source": "zdnet.co.kr",
+      "source": "지디넷코리아",
       "link": "https://zdnet.co.kr/view/?no=20260808204521",
       "publishedAt": "Sat, 08 Aug 2026 11:45:21 GMT",
       "date": "2026-08-08",
@@ -199,30 +213,16 @@
       "contentVerified": true
     },
     {
-      "title": "[글로벌인사이트] 결혼 안 할까 봐? AI 연인 지운 중국…\"내 연인을 돌려내\" 청년들 '발칵'",
-      "source": "v.daum.net",
-      "link": "https://v.daum.net/v/20260808173612773",
-      "publishedAt": "Sat, 08 Aug 2026 08:36:12 GMT",
+      "title": "캘리포니아주, 미국 최초로 인공지능 안전법 통과",
+      "source": "Vietnam.vn",
+      "link": "https://www.vietnam.vn/ko/california-thong-qua-luat-an-toan-tri-tue-nhan-tao-dau-tien-tai-my",
+      "publishedAt": "Sat, 08 Aug 2026 07:17:55 GMT",
       "date": "2026-08-08",
       "category": "policy",
       "bullets": [
-        "자동요약 기사 제목과 주요 문장을 기반으로 자동요약한 결과입니다.",
-        "전체 맥락을 이해하기 위해서는 본문 보기를 권장합니다.",
-        "중국 AI 정책을 연구하는 맷 시핸 카네기국제평화재단 연구원은 월스트리트저널과의 인터뷰에서 \"중국 당국은 자국 인구의 상당수가 챗봇과 깊은 감정적 관계를 맺는 상황을 원치 않는다\"고 밝혔습니다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "금융硏 \"AI 거버넌스는 자율적으로…금융당국, 원칙 중심 감독해야\"",
-      "source": "news.einfomax.co.kr",
-      "link": "https://news.einfomax.co.kr/news/articleViewAmp.html?idxno=4429263",
-      "publishedAt": "Sat, 08 Aug 2026 06:00:30 GMT",
-      "date": "2026-08-08",
-      "category": "policy",
-      "bullets": [
-        "금융회사의 인공지능(AI) 활용을 활성화하면서도 금융안정을 확보하기 위해 금융당국이 세부 규제보다 핵심 원칙을 제시하는 '원칙 중심' AI 거버넌스를 구축해야 한다는 제언이 나왔다.",
-        "AI 개발·운영 과정의 책임자를 책무구조도로 명확히 하고, 금융규제 샌드박스를 활용해 새로운 AI 서비스의 안전성을 검증하는 등 감독체계도 정비해야 한다는 주장이다.",
-        "서 선임연구위원은 \"가이드라인은 어디까지나 자율성을 전제로 한 연성규율(soft regulation)이므로 단순히 이를 지키지 않았다는 이유만으로 제재해서는 안 된다\"고 강조했다."
+        "캘리포니아주가 미국 최초로 인공지능(AI) 안전법을 제정하면서 급속도로 발전하는 AI 기술 규제 노력에 있어 중요한 전환점을 맞이했습니다.",
+        "이러한 움직임은 선구적인 동시에 논란의 여지가 있는데, 이는 AI 붐 시대에 기술 혁신 촉진의 필요성과 안전 및 사회적 책임에 대한 요구 사이의 갈등을 반영하기 때문입니다.",
+        "캘리포니아주의 인공지능 규제 제정은 미국 내 한 주를 훨씬 넘어선 광범위한 영향을 미칠 것입니다."
       ],
       "contentVerified": true
     }
@@ -285,72 +285,44 @@
       "contentVerified": true
     },
     {
-      "title": "[AI돋보기] 시장이 사라진 AI 반도체 전쟁…한국의 선택은",
-      "source": "연합뉴스",
-      "link": "https://www.yna.co.kr/amp/view/AKR20260806114700017",
-      "publishedAt": "Fri, 07 Aug 2026 21:33:01 GMT",
-      "date": "2026-08-08",
+      "title": "엔비디아, 소버린 AI 점유율 92%…‘국가 AI’ 시장도 장악",
+      "source": "v.daum.net",
+      "link": "https://v.daum.net/v/20260806094931883?f=p",
+      "publishedAt": "Thu, 06 Aug 2026 00:49:31 GMT",
+      "date": "2026-08-06",
       "category": "biz",
       "bullets": [
-        "글로벌 반도체 시장에서 수요와 공급을 조절하던 '보이지 않는 손'이 작동을 멈췄다.",
-        "제품의 기술 우위와 생산 원가, 자율적인 수급에 의해 가격과 출하량이 결정되던 기존의 시장 질서가 무너지고 그 자리를 인공지능(AI) 패권을 노리는 미국과 중국의 무한 경쟁이 대체하고 있다.",
-        "초거대 AI 모델 학습과 구동에 쓰이는 첨단 반도체는 단순한 정보통신(IT) 부품을 넘어 국가 경쟁력을 좌우하는 전략 무기가 됐다."
+        "자동요약 기사 제목과 주요 문장을 기반으로 자동요약한 결과입니다.",
+        "전체 맥락을 이해하기 위해서는 본문 보기를 권장합니다.",
+        "세계 각국이 자국 데이터와 인공지능(AI) 기술을 자체적으로 구축하는 '소버린 AI(Sovereign AI·자국 AI)' 경쟁에 뛰어든 가운데 엔비디아가 관련 AI 인프라 시장의 절대 강자로 자리 잡았다는 분석이 나왔다."
       ],
       "contentVerified": true
     },
     {
-      "title": "[인공지능 줌인] \"AI가 내 일자리를 삼켰다\"…중국, 무분별한 AI 도입 속 노동시장 '격랑'",
-      "source": "위키리크스한국",
-      "link": "http://www.wikileaks-kr.org/news/articleView.html?idxno=190489",
-      "publishedAt": "Fri, 07 Aug 2026 21:02:07 GMT",
-      "date": "2026-08-08",
-      "category": "biz",
-      "bullets": [
-        "중국 전역이 급속도로 확산하는 인공지능(AI) 기술과 로봇 도입으로 인해 극심한 고용 불안에 휩싸였다.",
-        "중국 정부가 서방 세계를 압도하는 속도로 AI 기술을 전방위적으로 밀어붙이면서 취약해진 노동시장에 막대한 사회적 갈등과 파장을 불러일으키고 있다고 가디언이 보도했다.",
-        "실제로 후베이성 우한시의 거리를 누비던 바이두의 무인 자율주행 택시(로봇택시) '아폴로 고'가 시스템 오류로 도로 한복판에 멈춰 서며 교통 대란을 일으킨 사건은 AI가 불러온 일상의 균열을 고스란히 보여줬다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "포스텍, 원본 데이터 공유 없이 라벨 오류 찾아내는 분산 AI 기술 개발",
-      "source": "전자신문",
-      "link": "https://www.etnews.com/20260806000011",
-      "publishedAt": "Wed, 05 Aug 2026 23:23:58 GMT",
+      "title": "원본자료 공유 없이 오류 라벨 찾아내는 분산 AI 기술 개발",
+      "source": "hidomin.com",
+      "link": "https://www.hidomin.com/news/articleView.html?idxno=716348",
+      "publishedAt": "Thu, 06 Aug 2026 10:50:18 GMT",
       "date": "2026-08-06",
       "category": "tech",
       "bullets": [
-        "포스텍(POSTECH)은 김광인 인공지능대학원·전자전기공학과 교수 연구팀이 원본 데이터를 열어보지 않고도 문제 있는 데이터를 콕 집어내, 적은 비용으로 인공지능(AI) 성능을 끌어올리는 기술을 개발했다고 6일 밝혔다.",
-        "이번 연구는 최근 AI 분야 국제학회 중 하나인 'AAAI 2026(The Fortieth AAAI Conference on Artificial Intelligence)'에 메인 테크니컬 트랙 논문으로 게재됐다.",
-        "AI를 잘 학습시키려면 데이터마다 '고양이', '강아지'라고 알려주는 '라벨(label)'이 필요하다."
+        "포스텍 연구진이 원본 데이터를 직접 확인하지 않고도 인공지능(AI) 학습에 사용된 오류 데이터를 찾아내 AI 성능을 높일 수 있는 기술을 개발했다.",
+        "개인정보를 보호하면서도 AI를 더 정확하게 학습시킬 수 있는 기술이어서 의료와 금융 등 데이터 공유가 어려운 분야에서 활용될 것으로 기대된다.",
+        "포스텍 인공지능대학원·전자전기공학과 김광인 교수 연구팀은 원본 데이터를 공유하지 않고도 잘못된 라벨(정답 정보)이 붙은 데이터를 찾아내는 분산 인공지능(AI) 기술을 개발했다고 6일 밝혔다."
       ],
       "contentVerified": true
     },
     {
-      "title": "[김성현의AI지표] 빅테크 로비 사상 최대…AI 규제·IPO·반도체 관세 삼각파도",
-      "source": "아주경제",
-      "link": "https://www.ajunews.com/view/20260806143854071",
-      "publishedAt": "Thu, 06 Aug 2026 05:49:34 GMT",
-      "date": "2026-08-06",
-      "category": "policy",
+      "title": "중국, 이제 AI를 외교 카드로 쓰고 있어요",
+      "source": "조선일보",
+      "link": "https://www.chosun.com/kid/kid_nie/kid_upper-grades/2026/08/07/WELPGJOGEVG2ZMHB75OMPLSPYM/",
+      "publishedAt": "Fri, 07 Aug 2026 07:09:00 GMT",
+      "date": "2026-08-07",
+      "category": "tech",
       "bullets": [
-        "미국 빅테크·AI 기업들의 상반기 연방 로비 지출이 사상 최대치를 기록했다.",
-        "백악관을 중심으로 한 AI 규제 논의와 하반기 기업공개(IPO), 반도체 관세 압박이 동시에 맞물리며 미국 진출 기업들의 '워싱턴 방어전'이 격화하는 모습이다.",
-        "6일 미 의회에 따르면 알파벳·마이크로소프트(MS)·메타·엔비디아·앤트로픽·오픈AI 등 주요 테크·AI 기업 11곳과 관련 업계 단체들의 올해 상반기 누적 로비 지출은 4180만달러로, 전년 동기 대비 10% 증가했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "EU, LLM 등 범용 AI 규제 발효…'사회적 위험 식별' 등 의무화",
-      "source": "뉴시스",
-      "link": "https://www.newsis.com/view/NISX20260803_0003733554",
-      "publishedAt": "Mon, 03 Aug 2026 02:33:12 GMT",
-      "date": "2026-08-03",
-      "category": "policy",
-      "bullets": [
-        "![Image 26: [에센=AP/뉴시스] 유럽연합(EU)의 AI법 중 대규모 언어모델 등 범용 AI 모델에 대한 규제가 2일(현지 시간) 본격 시행됐다.",
-        "[에센=AP/뉴시스] 유럽연합(EU)의 AI법 중 대규모 언어모델 등 범용 AI 모델에 대한 규제가 2일(현지 시간) 본격 시행됐다.",
-        "[서울=뉴시스]신정원 기자 = 유럽연합(EU)의 인공지능법(AI Act) 가운데 대규모 언어모델(LLM)을 규율하는 핵심 조항이 2일(현지 시간) 시행됐다."
+        "이에 대해 조지 첸 아시아그룹(Asia Group) 디지털 부문 공동대표는 “중국이 궁극적으로 원하는 건 세계 다수가 미국 기술이 아닌 중국 기술에 의존하도록 만드는 것”이라고 했답니다.",
+        "일대일로(一帶一路): 중국이 미국을 넘어서기 위해 2014년부터 시작한 정책이다.",
+        "중국과 유럽, 아프리카, 동남아 등 대륙을 잇는 사업이다."
       ],
       "contentVerified": true
     }
