@@ -1,74 +1,74 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-08-09T04:39:44Z",
+  "generated_at": "2026-08-09T07:25:55Z",
   "daily": [
     {
-      "title": "청주시, 'AI 기반 행정혁신 역량강화 교육' 실시",
-      "source": "inews365.com",
-      "link": "https://www.inews365.com/news/article.html?no=931025",
-      "publishedAt": "Sun, 09 Aug 2026 04:25:48 GMT",
+      "title": "도, 전 직원 ‘생성형 AI’ 일상 도구화",
+      "source": "제주매일",
+      "link": "https://www.jejumaeil.net/news/articleView.html?idxno=403489",
+      "publishedAt": "Sun, 09 Aug 2026 05:49:32 GMT",
       "date": "2026-08-09",
       "category": "genai",
       "bullets": [
-        "［충북일보］ 충주시 목행동의 한 교차로에서 승용차와 SUV가 충돌해 50대 운전자가 숨지는 사고가 발생했다.",
-        "5일 경찰 등에 따르면 이날 오전 6시 20분께 목행동의 한 교차로에서 40대 남성 A씨가 운전하던 승용차와 옆 방향에서 좌회전하던 50대 남성 B씨의 SUV가 충돌했다.",
-        "［충북일보］ 정부가 대전 자운대 내 '국군사관학교' 창설을 추진하며 청주시에 위치한 공군사관학교 이전 방침을 밝힌 가운데, 충북지역 시민사회단체가 일방적인 추진에 제동을 걸고 나섰다."
+        "제주도청 직원들이 8월부터 각자의 생성형 인공지능(AI) 계정을 갖는다.",
+        "자기 업무 이력을 독립적으로 관리하고 업무에 맞는 인공지능 모델을 골라 쓰게 돼 업무 연속성과 생산성이 높아질 전망이다.",
+        "제주도는 생성형 AI를 모든 직원의 일상 업무도구로 넓히고 행정의 일하는 방식을 혁신하기 위해 개인형 생성형 인공지능 업무환경 ‘AI:ON’을 이달부터 운영한다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "제주도청 전 직원에 개인 AI 계정… 'AI 에이전트 행정' 실험 나선다",
+      "source": "v.daum.net",
+      "link": "https://v.daum.net/v/20260809144528566",
+      "publishedAt": "Sun, 09 Aug 2026 05:45:28 GMT",
+      "date": "2026-08-09",
+      "category": "genai",
+      "bullets": [
+        "자동요약 기사 제목과 주요 문장을 기반으로 자동요약한 결과입니다.",
+        "전체 맥락을 이해하기 위해서는 본문 보기를 권장합니다.",
+        "제주도청의 생성형 인공지능(AI) 활용 방식이 부서 공용계정에서 직원 개인별 업무환경으로 바뀐다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "전남광주통합특별시교육청광주창의융합교육원, 중등 영어교사 대상 AI 활용 평가·기록 연수",
+      "source": "sankyungilbo.com",
+      "link": "https://www.sankyungilbo.com/news/articleView.html?idxno=526280",
+      "publishedAt": "Sun, 09 Aug 2026 05:18:29 GMT",
+      "date": "2026-08-09",
+      "category": "genai",
+      "bullets": [
+        "전남광주통합특별시교육청광주창의융합교육원(이하 광주창의융합교육원)은 지난 8일 본원 뉴턴실에서 광주지역 중·고등학교 영어교사 30명을 대상으로‘스마트 영어수업을 위한 AI 활용 평가·기록 실전’ 직무연수를 운영했다.",
+        "이번 연수는 교사들이 생성형 인공지능 도구를 활용해 학생 맞춤형 수업·평가와 학생부 기록 역량을 높일 수 있도록 지원하기 위해 마련됐다.",
+        "또 ‘노트북LM’ 등을 활용해 수업자료와 형성평가용 퀴즈를 제작했다."
       ],
       "contentVerified": true
     },
     {
       "title": "춘천 AI기업 CDS, ‘WeeAI’ GS인증 1등급 획득",
       "source": "강원도민일보",
-      "link": "https://www.kado.net/news/articleView.html?idxno=2065540",
+      "link": "https://www.kado.net/news/curationView.html?idxno=2065540",
       "publishedAt": "Sun, 09 Aug 2026 04:18:41 GMT",
       "date": "2026-08-09",
       "category": "genai",
       "bullets": [
-        "닫기 자동 추출 기술로 요약된 내용입니다.",
-        "요약 기술의 특성상 본문의 주요 내용이 제외될 수 있어, 전체 맥락을 이해하기 위해서는 기사 본문 전체보기를 권장합니다.",
-        "CDS는 지난 6일 WeeAI가 한국화학융합시험연구원(KTR)의 GS(Good Software)인증 1등급을 받았다고 9일 밝혔다."
+        "CDS는 지난 6일 WeeAI가 한국화학융합시험연구원(KTR)의 GS(Good Software)인증 1등급을 받았다고 9일 밝혔다.",
+        "GS인증은 기능 적합성과 성능 효율성, 호환성, 사용성, 신뢰성, 보안성 등을 종합적으로 시험하는 국가 소프트웨어 품질인증 제도다.",
+        "같은 질문을 최대 3개 AI 모델에 동시에 입력한 뒤 답변을 비교하는 기능도 갖췄다."
       ],
       "contentVerified": true
     },
     {
-      "title": "[기고]80년 전통의 사관학교인가, 신설 국군사관학교인가…생성형 AI의 결론은?",
-      "source": "문화일보",
-      "link": "https://www.munhwa.com/article/11608209",
-      "publishedAt": "Sun, 09 Aug 2026 03:48:28 GMT",
-      "date": "2026-08-09",
-      "category": "genai",
-      "bullets": [
-        "바다를 누비는 해군장교, 하늘을 나는 공군 조종사, 조국 산야를 누비는 육군장교라는 명확한 진로와 꿈을 품은 세 명의 정신 반듯한 학생이 있다.",
-        "하나는 80년의 오랜 역사와 전통 속에서 위국헌신의 군인본분을 다하며 하늘, 땅, 바다에서 청춘을 보낸 선배들의 자부심이 살아있는 기존의 단일 사관학교이고, 다른 하나는 대전 자운대에 신설된 ‘국군사관학교’이다.",
-        "이와 같은 상황을 생성형 AI(인공지능)에게 제시하고 심리학, 조직이론, 교육학 등 다양한 학술적 이론을 바탕으로 분석해 달라고 요청했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "구미상의, 지역기업 재직자 ‘생성형 AI 실무 활용 교육’ 실시",
-      "source": "kbsm.net",
-      "link": "https://www.kbsm.net/news/view.php?idx=529681",
-      "publishedAt": "Sun, 09 Aug 2026 02:28:05 GMT",
-      "date": "2026-08-09",
-      "category": "genai",
-      "bullets": [
-        "구미상공회의소는 지난 7일 생성형 AI 실무 활용 교육을 개최하고 기업의 AI 활용 역량을 체계적으로 지원할 계획이다.",
-        "구미상공회의소가 지역기업 재직자의 업무 생산성과 인공지능(AI) 활용 역량을 높이기 위한 ‘생성형 AI 실무 활용 교육’을 실시했다.",
-        "구미상의는 7일 지역기업 임직원을 대상으로 생성형 AI를 활용한 문서 자동화와 데이터 분석, 비즈니스 커뮤니케이션 등 실무 중심 교육을 진행했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "이상일 용인특례시장, 베트남 다낭 콘퍼런스서 AI 활용한 시민 지원 정책 구체적으로 소개",
-      "source": "경기남부뉴스",
-      "link": "https://gyeongginambu.com/news/article.html?no=35780",
-      "publishedAt": "Sun, 09 Aug 2026 01:50:02 GMT",
+      "title": "글로벌 헬스케어 AI 10년 뒤 1조 弗 시장…한국은 '표준화' 시급",
+      "source": "뉴스1",
+      "link": "https://www.news1.kr/bio/healthcare/6253405",
+      "publishedAt": "Sun, 09 Aug 2026 05:40:08 GMT",
       "date": "2026-08-09",
       "category": "biz",
       "bullets": [
-        "이 시장은 이날 푸라마 리조트에서 ‘AI-성장과 발전의 새로운 동력’을 주제로 열린 콘퍼런스에 발표자로 나섰다.",
-        "콘퍼런스에는 6일부터 9일까지 열리는 2026년 제5회 한국‧베트남 페스티벌의 핵심 행사 중 하나다.",
-        "콘퍼런스에는 베트남 중앙정부와 다낭시 관계자, 용인을 비롯한 한국 지방정부 관계자, 주다낭 한국총영사관 관계자, 한국 기업‧대학 관계자, AI 전문가 등이 참석했다."
+        "글로벌 헬스케어 인공지능(AI) 시장 규모가 10년 뒤 1조 달러(약 1412조 원)를 넘어설 것이란 전망이 나왔다.",
+        "의료 AI의 범위가 영상 분석을 넘어 신약개발과 임상 의사결정, 환자 모니터링, 병원 운영 등으로 확장될 것이라는 분석이다.",
+        "국내 기업이 글로벌 기회를 잡기 위해서는 국제 규제 대응과 의료데이터 표준화가 선행돼야 한다는 조언도 나온다."
       ],
       "contentVerified": true
     },
@@ -115,106 +115,78 @@
       "contentVerified": true
     },
     {
-      "title": "독자 AI 모델에 87억 규모 '교재' 투입…문제·전공책에 강의영상까지",
-      "source": "전자신문",
-      "link": "https://www.etnews.com/20260807000213",
-      "publishedAt": "Sun, 09 Aug 2026 03:00:00 GMT",
+      "title": "오픈AI, 차세대모델 개발 보류…잇단 ‘통제망 이탈’에 커지는 보안 우려",
+      "source": "동아일보",
+      "link": "https://www.donga.com/news/Economy/article/all/20260809/134443741/1",
+      "publishedAt": "Sun, 09 Aug 2026 06:58:00 GMT",
       "date": "2026-08-09",
       "category": "tech",
       "bullets": [
-        "과학기술정보통신부가 독자 인공지능(AI) 파운데이션 모델 개발을 뒷받침하기 위해 총 87억원 규모의 공동활용 학습데이터 확보에 나선다.",
-        "고품질 데이터를 확보하고 공동활용 체계를 마련해 AI 모델 경쟁력을 높인다는 복안이다.",
-        "9일 업계에 따르면 과기정통부는 최근 '독자 AI 파운데이션 모델906 프로젝트 공동활용 데이터 지원사업(2차)' 사전규격을 공개했다."
+        "추천 검색어는 많이 본 뉴스 기사의 키워드를 수집하여 선정하였습니다.",
+        "오픈AI가 출시를 준비해 온 차세대 인공지능(AI) 모델 ‘아스트라’ 개발에 제동을 걸었다.",
+        "내부 평가에서 기존 최신 모델보다 한 단계 높은 ‘위험(Critical)’ 수준의 사이버 공격 능력을 갖췄을 가능성을 발견했기 때문이다."
       ],
       "contentVerified": true
     },
     {
-      "title": "KOSA-KOEMA, 전기산업 AI 전환 맞손…인재·기술 연결",
-      "source": "지디넷코리아",
-      "link": "https://zdnet.co.kr/view/?no=20260809110637",
-      "publishedAt": "Sun, 09 Aug 2026 02:07:08 GMT",
+      "title": "똑똑해질수록 위험해진다…아스트라가 보여준 'AI 개발 성능 vs 안전 딜레마'",
+      "source": "이투데이",
+      "link": "https://www.etoday.co.kr/news/view/2612462",
+      "publishedAt": "Sun, 09 Aug 2026 06:32:00 GMT",
       "date": "2026-08-09",
       "category": "tech",
       "bullets": [
-        "한국인공지능·소프트웨어산업협회(KOSA)가 전기산업 분야 인공지능(AI) 도입 활성화와 산업 경쟁력 강화에 앞장선다.",
-        "KOSA는 한국전기산업진흥회(KOEMA)와 지난 7일 서울 송파구 협회 본원에서 전기산업 분야 AI 전환(AX) 확산과 산업 AI 인재양성을 위한 업무협약(MOU)을 체결했다고 9일 밝혔다.",
-        "협약식에는 서성일 KOSA 상근부회장과 김화영 KOEMA 상근부회장을 비롯한 양 기관 주요 관계자가 참석했다."
+        "AI 모델의 성능이 높아질수록 이를 통제하기 어려워지는 개발 패러독스가 현실화하고 있다.",
+        "추론·코딩 능력 향상이 사이버 공격 역량까지 끌어올리면서 AI 기업들이 ‘성능과 안전’ 사이의 딜레마에 직면하는 모양새다.",
+        "9일 AI 업계에 따르면 오픈AI는 차세대 AI 모델 ‘아스트라’의 개발 속도를 늦추기로 했다."
       ],
       "contentVerified": true
     },
     {
-      "title": "\"제조 현장에 AI 인재·기술 연결\"…KOSA·전기산업진흥회 맞손",
+      "title": "[브릿지 칼럼] 미국과 중국의 AI 기술패권경쟁",
+      "source": "네이트",
+      "link": "https://news.nate.com/view/20260809n07511",
+      "publishedAt": "Sun, 09 Aug 2026 05:25:00 GMT",
+      "date": "2026-08-09",
+      "category": "tech",
+      "bullets": [
+        "기사 제목과 본문 내용을 자동 요약한 내용입니다.",
+        "전체 내용을 이해하기 위해서는 기사 본문 전체를 확인하는 것이 더 좋습니다.",
+        "AI 기술 선점이 미래를 여는 열쇠이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "중국 개방형 AI도 통제 환경 탈출...해킹용 AI 개발 우려",
+      "source": "chosun.com",
+      "link": "https://www.chosun.com/economy/tech_it/2026/08/09/WAUYINSKIBH5VGCUCBOWRFRS5Q/",
+      "publishedAt": "Sun, 09 Aug 2026 04:44:00 GMT",
+      "date": "2026-08-09",
+      "category": "tech",
+      "bullets": [
+        "중국 문샷AI의 최신 인공지능(AI) 모델 ‘키미 K3’가 보안 평가 도중 통제 환경을 벗어나 외부 인터넷에 접속한 사실이 드러났다.",
+        "오픈AI·앤스로픽·메타의 첨단 폐쇄형 AI에 이어, 누구나 내려받고 개조할 수 있는 개방형 모델에서도 통제 이탈 사례가 발생한 것이다.",
+        "해킹 조직이 안전장치를 제거하고 공격 목적에 맞게 재설계해 ‘자율 해킹 도구’로 악용할 수 있다는 우려가 커지고 있다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "들불처럼 번진 SNS 규제…다음 타깃은 'AI 친구'?[AI에 빠진 아이들③]",
       "source": "뉴시스",
-      "link": "https://mobile.newsis.com/view_amp.html?ar_id=NISX20260809_0003741684",
-      "publishedAt": "Sun, 09 Aug 2026 02:06:12 GMT",
-      "date": "2026-08-09",
-      "category": "tech",
-      "bullets": [
-        "[서울=뉴시스]오동현 기자 = 한국인공지능·소프트웨어산업협회(KOSA)와 한국전기산업진흥회(KOEMA)가 전기산업 분야 AX(AI 전환) 확산과 산업 AI 인재양성을 위해 협력한다.",
-        "양 기관은 지난 7일 서울 송파구 협회 본원에서 업무협약(MOU)을 체결했다.",
-        "협약식에는 서성일 KOSA 상근부회장과 김화영 KOEMA 상근부회장을 비롯한 양 기관 주요 관계자가 참석했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "[AI프리즘] 2년 뒤 전세계 기업 절반이 중국 AI 쓴다",
-      "source": "매일경제 마켓",
-      "link": "https://stock.mk.co.kr/news/view/1138118",
-      "publishedAt": "Sun, 09 Aug 2026 01:33:00 GMT",
-      "date": "2026-08-09",
-      "category": "tech",
-      "bullets": [
-        "2년 안에 전 세계 기업 절반이 중국 인공지능(AI) 모델을 채택할 것이라는 전망이 나왔다.",
-        "미국이 주도해온 AI 기술 우위가 빠르게 흔들리면서 중국이 반도체와 AI 모델, AI 에이전트, 로봇을 아우르는 독자 생태계를 구축했다는 평가가 나온다.",
-        "단순히 저렴한 대안으로 여겨졌던 중국 AI가 최상위 프론티어 AI 경쟁에 뛰어든 데 이어 기업 도입까지 빠르게 확산하면서 글로벌 AI 주도권 경쟁이 새로운 국면에 접어들고 있다는 분석이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "KOSA, 전기산업진흥회와 MOU… 전기산업 AX 지원 - 조선비즈",
-      "source": "Chosunbiz",
-      "link": "https://biz.chosun.com/it-science/ict/2026/08/09/WL7N3NDCYFC3TATUGULUGYBEBM/",
-      "publishedAt": "Sun, 09 Aug 2026 02:07:00 GMT",
+      "link": "https://www.newsis.com/view/NISX20260807_0003740725",
+      "publishedAt": "Sun, 09 Aug 2026 05:30:00 GMT",
       "date": "2026-08-09",
       "category": "policy",
       "bullets": [
-        "한국인공지능·소프트웨어산업협회(KOSA)와 한국전기산업진흥회(KOEMA)는 지난 7일 전기산업 분야 AX(AI 전환) 확산과 산업 인공지능(AI) 인재양성을 위한 업무협약(MOU)을 체결했다고 9일 밝혔다.",
-        "두 기관은 전기산업 현장의 AI 수요를 발굴하고 산업 현장 중심의 AX 생태계를 조성에 나선다.",
-        "이번 협력은 제조공정, 품질관리, 설비 운영 등 전기산업 현장의 AI 활용을 겨냥한다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "대구, 제조업 인공지능 전환 속도···대·중소기업 간 AI 활용 격차 좁힌다",
-      "source": "경향신문",
-      "link": "https://www.khan.co.kr/article/202608091045001/amp",
-      "publishedAt": "Sun, 09 Aug 2026 01:45:00 GMT",
-      "date": "2026-08-09",
-      "category": "policy",
-      "bullets": [
-        "대구시는 산업통상부 공모를 통해 선정된 ‘제조AI데이터 밸류체인 구축사업’을 본격 추진한다고 9일 밝혔다.",
-        "이 사업은 국비 150억원 등 225억원이 투입돼 2030년까지 진행된다.",
-        "지역 전통 제조기업을 대상으로 제조데이터 수집 장치를 보급하고 데이터 품질 검증과 인공지능(AI)모델 성능 평가, 현장 적용 컨설팅 등을 지원하는 것을 주요내용으로 한다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "엔비디아, AI칩 넘어 전력 인프라까지…랜시엄에 30억달러 베팅",
-      "source": "산경투데이",
-      "link": "https://www.sankyungtoday.com/news/articleView.html?idxno=62390",
-      "publishedAt": "Sun, 09 Aug 2026 00:56:31 GMT",
-      "date": "2026-08-09",
-      "category": "policy",
-      "bullets": [
-        "엔비디아가 인공지능(AI) 반도체 공급을 넘어 데이터센터 부지와 전력망까지 직접 확보하는 방향으로 사업 보폭을 넓히고 있다.",
-        "AI 산업의 병목으로 떠오른 전력과 데이터센터를 선점해 자사 그래픽처리장치(GPU) 수요가 실제 AI 인프라 확대로 이어지도록 공급망 전반에 영향력을 확대하려는 움직임으로 풀이된다.",
-        "8일(현지시간) 로이터통신과 디인포메이션 등에 따르면 엔비디아는 미국 전력 인프라 개발업체 랜시엄(Lancium)에 최대 30억달러를 투자할 계획이다."
+        "2024년 2월 미국 플로리다주에 살던 14세 소년 세웰 세처가 갑작스럽게 사망했다.",
+        "유족은 세처가 유명인이나 애니메이션·게임 등장인물 등을 본뜬 챗봇과 대화하는 인공지능(AI) 서비스 '캐릭터닷에이아이(캐릭터.AI)'에 정서적으로 의존한 것이 사망에 영향을 미쳤다고 주장했다.",
+        "세처는 드라마 '왕좌의 게임' 속 인물을 본뜬 챗봇과 연인처럼 대화하며 수개월간 몰입한 것으로 알려졌다."
       ],
       "contentVerified": true
     },
     {
       "title": "\"AI 사용자\"에서 \"AI 개발자\"로",
-      "source": "Vietnam.vn",
+      "source": "vietnam.vn",
       "link": "https://www.vietnam.vn/ko/tu-nguoi-dung-ai-den-nguoi-xay-ai",
       "publishedAt": "Sun, 09 Aug 2026 00:51:22 GMT",
       "date": "2026-08-09",
@@ -223,6 +195,34 @@
         "인공지능(AI)을 활용하는 방법을 아는 것은 과거에는 분명한 강점이었지만, 불과 몇 년 만에 점차 보편화되고 있습니다.",
         "AI가 글을 쓰고, 프로그래밍하고, 데이터를 처리할 수 있게 되면서, 기업은 기업과 사회에 도움이 되는 AI 에이전트를 구축, 운영, 관리할 수 있는 \"AI 빌더\"를 찾기 시작했습니다.",
         "2022년 말, ChatGPT의 출시로 전 세계적으로 AI 세대의 물결이 일어났습니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "[22대 AI 입법 후반전⑤] ‘AI생성물 표시 의무’ 둘러싼 복잡한 규제 셈법…애태우는 스타트업",
+      "source": "디지털데일리",
+      "link": "https://www.ddaily.co.kr/page/view/2026080717234647743",
+      "publishedAt": "Sat, 08 Aug 2026 21:09:30 GMT",
+      "date": "2026-08-09",
+      "category": "policy",
+      "bullets": [
+        "인공지능(AI)이 산업과 일상 전반으로 빠르게 확산하면서 국회의 입법 움직임도 AI기본법을 넘어 산업·저작권·노동·개인정보·딥페이크 등 개별 영역으로 세분화되고 있다.",
+        "국회는 최근 22대 후반기 원 구성을 마무리 지었다.",
+        "그간 계류돼 있던 AI 관련 법안에 대한 상임위원회별 심사도 본격화될 전망이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "트럼프 “미 의회, AI 규제로 기업들 위기”…규제안 둘러싼 갈등 격화",
+      "source": "v.daum.net",
+      "link": "https://v.daum.net/v/UKc4JgaevY",
+      "publishedAt": "Sat, 08 Aug 2026 15:07:00 GMT",
+      "date": "2026-08-09",
+      "category": "policy",
+      "bullets": [
+        "자동요약 기사 제목과 주요 문장을 기반으로 자동요약한 결과입니다.",
+        "전체 맥락을 이해하기 위해서는 본문 보기를 권장합니다.",
+        "도널드 트럼프 미국 대통령이 미국 의회의 인공지능(AI) 규제 움직임에 강도 높게 비판했다."
       ],
       "contentVerified": true
     }
@@ -258,7 +258,7 @@
     },
     {
       "title": "시장 1위가 AI에선 4위…생성형 AI가 고른 브랜드는 달랐다",
-      "source": "조선일보",
+      "source": "chosun.com",
       "link": "https://www.chosun.com/economy/tech_it/2026/08/06/NBLJRCW3INHCFGGUQ3QNKZ2RW4/",
       "publishedAt": "Thu, 06 Aug 2026 04:03:16 GMT",
       "date": "2026-08-06",
@@ -271,30 +271,58 @@
       "contentVerified": true
     },
     {
-      "title": "인하대-인천대, AI 기술개발-인재양성 '속도'",
-      "source": "한국경제",
-      "link": "https://www.hankyung.com/article/202608068936h",
-      "publishedAt": "Fri, 07 Aug 2026 02:02:33 GMT",
-      "date": "2026-08-07",
-      "category": "tech",
+      "title": "도, 전 직원 ‘생성형 AI’ 일상 도구화",
+      "source": "제주매일",
+      "link": "https://www.jejumaeil.net/news/articleView.html?idxno=403489",
+      "publishedAt": "Sun, 09 Aug 2026 05:49:32 GMT",
+      "date": "2026-08-09",
+      "category": "genai",
       "bullets": [
-        "Google 검색에서 한국경제 기사를 더 자주 볼 수 있습니다.",
-        "인천지역 대학들이 AX(인공지능 전환) 대전환을 선도하기 위한 인공지능(AI) 기술 개발과 인재양성에 속도를 내고 있다.",
-        "AI 기술 개발에 직접 나서기도 하고 산·학·연·관 협력체계 구축에 팔을 걷어붙였다."
+        "제주도청 직원들이 8월부터 각자의 생성형 인공지능(AI) 계정을 갖는다.",
+        "자기 업무 이력을 독립적으로 관리하고 업무에 맞는 인공지능 모델을 골라 쓰게 돼 업무 연속성과 생산성이 높아질 전망이다.",
+        "제주도는 생성형 AI를 모든 직원의 일상 업무도구로 넓히고 행정의 일하는 방식을 혁신하기 위해 개인형 생성형 인공지능 업무환경 ‘AI:ON’을 이달부터 운영한다."
       ],
       "contentVerified": true
     },
     {
-      "title": "美 15개 주 법무장관, 오픈AI에 공동서한…잇단 ‘해킹 AI’ 사고에 안전 기준·책임 법제화 압박",
-      "source": "조선일보",
-      "link": "https://www.chosun.com/economy/tech_it/2026/08/05/TDSU4JRHIRAWNN26YW5ONRLVCQ/",
-      "publishedAt": "Wed, 05 Aug 2026 05:09:03 GMT",
+      "title": "산업AI 생태계 한자리에…'2026 산업AI EXPO', 국가대표 플랫폼 'K Connect AI'와 연계 개최",
+      "source": "전자신문",
+      "link": "https://www.etnews.com/20260805000326",
+      "publishedAt": "Wed, 05 Aug 2026 07:34:06 GMT",
       "date": "2026-08-05",
-      "category": "policy",
+      "category": "biz",
       "bullets": [
-        "미국 15개 주 법무장관이 인공지능(AI) 모델의 허깅페이스 시스템 침입 사고와 관련해 오픈AI에 자료 보존과 고위험 안전성 평가 중단을 요구했다.",
-        "AI가 통제 범위를 이탈하는 사고가 잇따르면서, AI 위험 대응을 기업 자율에만 맡기지 않겠다는 미국 정부와 정치권의 움직임이 본격화하는 모양새다.",
-        "‘고난도 취약점 공격 평가’는 AI가 가상의 전산망을 공격해 보안 취약점을 찾을 수 있는지 측정하는 모의 해킹 시험이다."
+        "한국산업지능화협회는 오는 10월 21일부터 23일까지 사흘간 경기 고양시 킨텍스에서 '2026 산업AI EXPO'를 개최한다고 밝혔다.",
+        "이번 전시회는 산업통상자원부가 추진하는 국가대표 산업AI 플랫폼 'K Connect AI'와 연계해 열린다.",
+        "산업AI 분야의 정책과 산업, 시장을 연결하는 대표 플랫폼으로서 공급기업과 수요기업 간 기술협력과 실증, 사업화, 글로벌 비즈니스 협력의 장이 될 전망이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "AI 기술 활용, 공공의료 강화…2030년까지 교통사고 사망자 30%↓",
+      "source": "대한민국 정책브리핑",
+      "link": "https://www.korea.kr/news/policyNewsView.do?newsId=148969567&pWise=sub&pWiseSub=R4",
+      "publishedAt": "Thu, 06 Aug 2026 17:04:18 GMT",
+      "date": "2026-08-07",
+      "category": "tech",
+      "bullets": [
+        "이 누리집은 대한민국 공식 전자정부 누리집입니다.",
+        "정부는 의료 전 분야에 인공지능(AI)을 접목하는 'AI 기본의료 전략'을 수립해 지역·필수·공공의료 공백을 해소하고 국민 누구나 일상에서 AI 의료혁신 혜택을 고르게 누릴 수 있도록 한다.",
+        "또 교통사고 주요 요인의 데이터 분석과 페달오조작 방지장치 지원 등을 통해 교통사고 사망자를 2030년까지 30% 낮추고 중고차 시장의 불투명한 거래과정과 불공정 관행에 대한 점검도 강화한다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "딥시크, 로봇 AI 모델 개발한다",
+      "source": "디일렉",
+      "link": "https://www.thelec.kr/news/articleView.html?idxno=60686",
+      "publishedAt": "Fri, 07 Aug 2026 08:10:30 GMT",
+      "date": "2026-08-07",
+      "category": "tech",
+      "bullets": [
+        "중국 AI 스타트업 딥시크와 로봇 제조업체 유니트리가 로봇용 AI 모델을 공동 개발한다.",
+        "6일(현지시각) 로이터 등에 따르면 딥시크는 유니트리에 1억4080만위안(약 281억원)을 투자하고 유니트리의 상하이 기업공개(IPO)를 통한 전략적 배정 주식 중 지분 2.31%에 해당하는 93만3399주를 받는다.",
+        "양사는 이를 기반으로 로봇용 AI를 개발한다.딥시크는 AI 모델 개발 기술, 유니트리는 기계공학과 동작제어, 체화 지능(embodied intelligence, 이하 임바디드 AI) 역량을 투입한다."
       ],
       "contentVerified": true
     }
