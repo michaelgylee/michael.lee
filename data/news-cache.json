@@ -1,12 +1,54 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-08-09T02:31:52Z",
+  "generated_at": "2026-08-09T04:39:44Z",
   "daily": [
     {
+      "title": "청주시, 'AI 기반 행정혁신 역량강화 교육' 실시",
+      "source": "inews365.com",
+      "link": "https://www.inews365.com/news/article.html?no=931025",
+      "publishedAt": "Sun, 09 Aug 2026 04:25:48 GMT",
+      "date": "2026-08-09",
+      "category": "genai",
+      "bullets": [
+        "［충북일보］ 충주시 목행동의 한 교차로에서 승용차와 SUV가 충돌해 50대 운전자가 숨지는 사고가 발생했다.",
+        "5일 경찰 등에 따르면 이날 오전 6시 20분께 목행동의 한 교차로에서 40대 남성 A씨가 운전하던 승용차와 옆 방향에서 좌회전하던 50대 남성 B씨의 SUV가 충돌했다.",
+        "［충북일보］ 정부가 대전 자운대 내 '국군사관학교' 창설을 추진하며 청주시에 위치한 공군사관학교 이전 방침을 밝힌 가운데, 충북지역 시민사회단체가 일방적인 추진에 제동을 걸고 나섰다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "춘천 AI기업 CDS, ‘WeeAI’ GS인증 1등급 획득",
+      "source": "강원도민일보",
+      "link": "https://www.kado.net/news/articleView.html?idxno=2065540",
+      "publishedAt": "Sun, 09 Aug 2026 04:18:41 GMT",
+      "date": "2026-08-09",
+      "category": "genai",
+      "bullets": [
+        "닫기 자동 추출 기술로 요약된 내용입니다.",
+        "요약 기술의 특성상 본문의 주요 내용이 제외될 수 있어, 전체 맥락을 이해하기 위해서는 기사 본문 전체보기를 권장합니다.",
+        "CDS는 지난 6일 WeeAI가 한국화학융합시험연구원(KTR)의 GS(Good Software)인증 1등급을 받았다고 9일 밝혔다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "[기고]80년 전통의 사관학교인가, 신설 국군사관학교인가…생성형 AI의 결론은?",
+      "source": "문화일보",
+      "link": "https://www.munhwa.com/article/11608209",
+      "publishedAt": "Sun, 09 Aug 2026 03:48:28 GMT",
+      "date": "2026-08-09",
+      "category": "genai",
+      "bullets": [
+        "바다를 누비는 해군장교, 하늘을 나는 공군 조종사, 조국 산야를 누비는 육군장교라는 명확한 진로와 꿈을 품은 세 명의 정신 반듯한 학생이 있다.",
+        "하나는 80년의 오랜 역사와 전통 속에서 위국헌신의 군인본분을 다하며 하늘, 땅, 바다에서 청춘을 보낸 선배들의 자부심이 살아있는 기존의 단일 사관학교이고, 다른 하나는 대전 자운대에 신설된 ‘국군사관학교’이다.",
+        "이와 같은 상황을 생성형 AI(인공지능)에게 제시하고 심리학, 조직이론, 교육학 등 다양한 학술적 이론을 바탕으로 분석해 달라고 요청했다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "구미상의, 지역기업 재직자 ‘생성형 AI 실무 활용 교육’ 실시",
-      "source": "경북신문",
+      "source": "kbsm.net",
       "link": "https://www.kbsm.net/news/view.php?idx=529681",
-      "publishedAt": "Sun, 09 Aug 2026 01:46:47 GMT",
+      "publishedAt": "Sun, 09 Aug 2026 02:28:05 GMT",
       "date": "2026-08-09",
       "category": "genai",
       "bullets": [
@@ -17,44 +59,16 @@
       "contentVerified": true
     },
     {
-      "title": "경남인재평생교육진흥원 함양 평생교육 강사 생성형 AI 실무 교육",
-      "source": "경남도민일보",
-      "link": "https://www.idomin.com/news/articleView.html?idxno=2011910",
-      "publishedAt": "Sun, 09 Aug 2026 01:42:21 GMT",
+      "title": "이상일 용인특례시장, 베트남 다낭 콘퍼런스서 AI 활용한 시민 지원 정책 구체적으로 소개",
+      "source": "경기남부뉴스",
+      "link": "https://gyeongginambu.com/news/article.html?no=35780",
+      "publishedAt": "Sun, 09 Aug 2026 01:50:02 GMT",
       "date": "2026-08-09",
-      "category": "genai",
+      "category": "biz",
       "bullets": [
-        "경남도민일보는 6000여명의 도민이 주주로 참여하여 창간한 개혁적 지역정론지입니다.",
-        "경남인재평생교육진흥원(원장 황태수)이 6일 함양군종합사회복지관에서 평생교육 강사 17명을 대상으로 생성형 인공지능(AI) 실무교육을 했다.",
-        "이번 교육은 ‘경남도민 AI 미래역량 아카데미’의 첫 지역 생활권 AI 순회 교육으로 이뤄졌다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "연안여객선 선원 안전교육, ‘AI 팟캐스트’로 손쉽게 듣는다…KOMSA, 본격 운영",
-      "source": "부산일보",
-      "link": "https://mobile.busan.com/view/bstoday/view.php?code=2026080909341214617",
-      "publishedAt": "Sun, 09 Aug 2026 00:44:55 GMT",
-      "date": "2026-08-09",
-      "category": "genai",
-      "bullets": [
-        "이젠 해상 근무자들도 연안여객선 선원 안전교육을 생성형 인공지능(AI) 기반 팟캐스트로 손쉽게 들을 수 있게 됐다.",
-        "한국해양교통안전공단(KOMSA)은 생성형 AI를 활용한 연안여객선 선원·종사자 안전교육용 팟캐스트를 지난해 시범 운영을 거쳐 올해부터 본격 운영한다고 9일 밝혔다.",
-        "이에따라 해상 근무 특성상 집합교육 등 교육 참여 기회가 제한됐던 선원·종사자들도 이제는 바다 위에서 필요한 안전교육을 받을 수 있게 됐다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "크리메타쏭·위드AI솔루션, 외국인 유학생 대상 '생성형 AI 비주얼 콘텐츠·디지털 브랜딩' 실무 교육 진행",
-      "source": "파이낸스투데이",
-      "link": "https://www.fntoday.co.kr/news/articleView.html?idxno=390045",
-      "publishedAt": "Sat, 08 Aug 2026 23:58:33 GMT",
-      "date": "2026-08-09",
-      "category": "genai",
-      "bullets": [
-        "민족정론지 Fn투데이가 미디어 군자금을 모금합니다.",
-        "대한민국의 국익을 위한 목소리를 냈다는 이유로 Fn투데이는 중국공산당과 법적으로 싸우고 있습니다.",
-        "부정선거와 코로나19의 음모를 파헤치면서도 많은 공격을 받고 네이버와도 소송중입니다."
+        "이 시장은 이날 푸라마 리조트에서 ‘AI-성장과 발전의 새로운 동력’을 주제로 열린 콘퍼런스에 발표자로 나섰다.",
+        "콘퍼런스에는 6일부터 9일까지 열리는 2026년 제5회 한국‧베트남 페스티벌의 핵심 행사 중 하나다.",
+        "콘퍼런스에는 베트남 중앙정부와 다낭시 관계자, 용인을 비롯한 한국 지방정부 관계자, 주다낭 한국총영사관 관계자, 한국 기업‧대학 관계자, AI 전문가 등이 참석했다."
       ],
       "contentVerified": true
     },
@@ -73,38 +87,10 @@
       "contentVerified": true
     },
     {
-      "title": "삼성은 AI칩, LG는 냉각…전자업계 성장축 'AI 인프라'로 이동",
-      "source": "빅데이터뉴스",
-      "link": "https://www.thebigdata.co.kr/view.php?ud=2026080414473353330ecbf9426b_23",
-      "publishedAt": "Sun, 09 Aug 2026 00:00:00 GMT",
-      "date": "2026-08-09",
-      "category": "biz",
-      "bullets": [
-        "삼성전자와 LG전자가 인공지능(AI) 시대를 맞아 사업 무게중심을 기업 대상(B2B) 영역으로 옮기고 있다.",
-        "TV와 생활가전 등 전통적인 소비자 시장이 성숙기에 접어든 가운데 삼성전자는 AI 반도체를 중심으로 데이터센터 생태계 공략을 강화하고 LG전자는 냉각솔루션·전장·로봇 등 기업용 솔루션 사업 확대에 속도를 내고 있다.",
-        "9일 업계에 따르면 LG전자는 2분기 생활가전과 프리미엄 제품 경쟁력에 더해 B2B 사업 확대 효과로 수익성을 방어한 반면 삼성전자는 디바이스경험(DX) 부문의 TV·생활가전 수익성이 악화됐다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "이상일 용인시장, 다낭서 ‘AI 시민행정’ 소개…반도체 도시 경쟁력 알렸다",
-      "source": "dailyn.net",
-      "link": "https://dailyn.net/news/article.html?no=115023",
-      "publishedAt": "Sat, 08 Aug 2026 23:39:15 GMT",
-      "date": "2026-08-09",
-      "category": "biz",
-      "bullets": [
-        "이상일 용인특례시장은 7일 오후 베트남 다낭에서 열린 ‘한국과의 만남(Meet Korea in Da Nang)’ 콘퍼런스에서 용인의 대규모 반도체 프로젝트와 인공지능(AI)을 활용한 시민 지원 정책을 소개했다.",
-        "이 시장은 이날 푸라마 리조트에서 열린 ‘AI-성장과 발전의 새로운 동력’ 콘퍼런스 발표자로 참석했다.",
-        "이번 콘퍼런스는 6일부터 9일까지 열리는 ‘2026년 제5회 한국·베트남 페스티벌’의 주요 행사다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "이상일 용인특례시장, 베트남서 \"반도체·AI는 한 몸\" 강조…시민형 AI 정책 대거 공개",
+      "title": "이상일 용인특례시장, 베트남서 \"반도체·AI는 한 몸\" 강조…시민형 AI 정책 대거 공개 |",
       "source": "더퍼블릭",
-      "link": "https://www.thepublic.kr/news/articleView.html?idxno=314296",
-      "publishedAt": "Sat, 08 Aug 2026 23:39:08 GMT",
+      "link": "https://www.thepublic.kr/news/articleViewAmp.html?idxno=314296",
+      "publishedAt": "Sun, 09 Aug 2026 00:24:19 GMT",
       "date": "2026-08-09",
       "category": "biz",
       "bullets": [
@@ -115,16 +101,30 @@
       "contentVerified": true
     },
     {
-      "title": "전북 '피지컬 AI 기반 K-재난로봇 실증연구센터' 구축 추진",
-      "source": "news.nate.com",
-      "link": "https://m.news.nate.com/view/20260809n04581?mid=m03&list=recent&cpcd=",
-      "publishedAt": "Sun, 09 Aug 2026 02:19:00 GMT",
+      "title": "이상일 용인시장, 베트남 다낭서 ‘AI 행정’ 알렸다.. ‘시민생활 혁신’ 강조",
+      "source": "스포츠동아",
+      "link": "https://sports.donga.com/region/article/all/20260809/134442083/1",
+      "publishedAt": "Sun, 09 Aug 2026 00:11:21 GMT",
+      "date": "2026-08-09",
+      "category": "biz",
+      "bullets": [
+        "이상일 용인특례시장이 베트남 다낭에서 용인의 반도체 산업과 인공지능(AI)을 활용한 시민생활 지원 정책을 소개하며 양 도시 간 AI·반도체 분야 협력 가능성을 강조했다.",
+        "이 시장은 용인 첨단시스템반도체 국가산업단지와 용인 반도체클러스터 일반산업단지, 삼성전자 기흥캠퍼스 미래연구단지, 경기용인 플랫폼시티 등 주요 개발사업을 설명하며 “반도체와 인공지능은 함께 가는 시대”라고 밝혔다.",
+        "이어 “삼성전자가 용인 국가산단에 반도체 생산시설 6기, SK하이닉스가 용인 반도체클러스터 일반산단에 4기를 건설하는 프로젝트가 완성되면 용인은 단일도시로는 세계 최대 규모의 반도체 생태계를 갖추게 될 것”이라고 강조했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "독자 AI 모델에 87억 규모 '교재' 투입…문제·전공책에 강의영상까지",
+      "source": "전자신문",
+      "link": "https://www.etnews.com/20260807000213",
+      "publishedAt": "Sun, 09 Aug 2026 03:00:00 GMT",
       "date": "2026-08-09",
       "category": "tech",
       "bullets": [
-        "기사 제목과 본문 내용을 자동 요약한 내용입니다.전체 내용을 이해하기 위해서는 기사 본문 전체를 확인하는 것이 더 좋습니다.",
-        "전북도는 화재·침수 등 재난 현장에서 스스로 판단하고 임무를 수행하는 인공지능(AI) 재난로봇을 개발·검증할 실증연구센터 구축을 추진한다고 9일 밝혔다.",
-        "도는 전북이 추진 중인 피지컬 AI 연구개발 사업과 익산·김제·군산의 관련 산업·연구 기반을 재난로봇 개발과 실증에 활용한다는 구상이다."
+        "과학기술정보통신부가 독자 인공지능(AI) 파운데이션 모델 개발을 뒷받침하기 위해 총 87억원 규모의 공동활용 학습데이터 확보에 나선다.",
+        "고품질 데이터를 확보하고 공동활용 체계를 마련해 AI 모델 경쟁력을 높인다는 복안이다.",
+        "9일 업계에 따르면 과기정통부는 최근 '독자 AI 파운데이션 모델906 프로젝트 공동활용 데이터 지원사업(2차)' 사전규격을 공개했다."
       ],
       "contentVerified": true
     },
@@ -144,8 +144,8 @@
     },
     {
       "title": "\"제조 현장에 AI 인재·기술 연결\"…KOSA·전기산업진흥회 맞손",
-      "source": "newsis.com",
-      "link": "https://www.newsis.com/view/NISX20260809_0003741684",
+      "source": "뉴시스",
+      "link": "https://mobile.newsis.com/view_amp.html?ar_id=NISX20260809_0003741684",
       "publishedAt": "Sun, 09 Aug 2026 02:06:12 GMT",
       "date": "2026-08-09",
       "category": "tech",
@@ -158,8 +158,8 @@
     },
     {
       "title": "[AI프리즘] 2년 뒤 전세계 기업 절반이 중국 AI 쓴다",
-      "source": "연합뉴스 한민족센터",
-      "link": "https://www.koreancenter.or.kr/news/articleView.html?idxno=1392878",
+      "source": "매일경제 마켓",
+      "link": "https://stock.mk.co.kr/news/view/1138118",
       "publishedAt": "Sun, 09 Aug 2026 01:33:00 GMT",
       "date": "2026-08-09",
       "category": "tech",
@@ -185,6 +185,34 @@
       "contentVerified": true
     },
     {
+      "title": "대구, 제조업 인공지능 전환 속도···대·중소기업 간 AI 활용 격차 좁힌다",
+      "source": "경향신문",
+      "link": "https://www.khan.co.kr/article/202608091045001/amp",
+      "publishedAt": "Sun, 09 Aug 2026 01:45:00 GMT",
+      "date": "2026-08-09",
+      "category": "policy",
+      "bullets": [
+        "대구시는 산업통상부 공모를 통해 선정된 ‘제조AI데이터 밸류체인 구축사업’을 본격 추진한다고 9일 밝혔다.",
+        "이 사업은 국비 150억원 등 225억원이 투입돼 2030년까지 진행된다.",
+        "지역 전통 제조기업을 대상으로 제조데이터 수집 장치를 보급하고 데이터 품질 검증과 인공지능(AI)모델 성능 평가, 현장 적용 컨설팅 등을 지원하는 것을 주요내용으로 한다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "엔비디아, AI칩 넘어 전력 인프라까지…랜시엄에 30억달러 베팅",
+      "source": "산경투데이",
+      "link": "https://www.sankyungtoday.com/news/articleView.html?idxno=62390",
+      "publishedAt": "Sun, 09 Aug 2026 00:56:31 GMT",
+      "date": "2026-08-09",
+      "category": "policy",
+      "bullets": [
+        "엔비디아가 인공지능(AI) 반도체 공급을 넘어 데이터센터 부지와 전력망까지 직접 확보하는 방향으로 사업 보폭을 넓히고 있다.",
+        "AI 산업의 병목으로 떠오른 전력과 데이터센터를 선점해 자사 그래픽처리장치(GPU) 수요가 실제 AI 인프라 확대로 이어지도록 공급망 전반에 영향력을 확대하려는 움직임으로 풀이된다.",
+        "8일(현지시간) 로이터통신과 디인포메이션 등에 따르면 엔비디아는 미국 전력 인프라 개발업체 랜시엄(Lancium)에 최대 30억달러를 투자할 계획이다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "\"AI 사용자\"에서 \"AI 개발자\"로",
       "source": "Vietnam.vn",
       "link": "https://www.vietnam.vn/ko/tu-nguoi-dung-ai-den-nguoi-xay-ai",
@@ -195,34 +223,6 @@
         "인공지능(AI)을 활용하는 방법을 아는 것은 과거에는 분명한 강점이었지만, 불과 몇 년 만에 점차 보편화되고 있습니다.",
         "AI가 글을 쓰고, 프로그래밍하고, 데이터를 처리할 수 있게 되면서, 기업은 기업과 사회에 도움이 되는 AI 에이전트를 구축, 운영, 관리할 수 있는 \"AI 빌더\"를 찾기 시작했습니다.",
         "2022년 말, ChatGPT의 출시로 전 세계적으로 AI 세대의 물결이 일어났습니다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "‘AI 인프라 투자’ 늘리는 네이버, ‘AI서비스’ 힘주는 카카오",
-      "source": "시사저널e",
-      "link": "https://www.sisajournal-e.com/news/articleView.html?idxno=422933",
-      "publishedAt": "Sun, 09 Aug 2026 00:00:00 GMT",
-      "date": "2026-08-09",
-      "category": "policy",
-      "bullets": [
-        "국내 양대 플랫폼 기업인 네이버와 카카오가 인공지능(AI)을 미래 성장동력으로 내세우고 있지만, 세부 전략은 뚜렷하게 갈리고 있다.",
-        "정신아 카카오 대표는 최근 진행한 올해 2분기 실적발표 컨퍼런스콜에서 연말까지 카카오톡 기반 AI 서비스를 대중화하고, 내년부터 본격적인 수익화에 나서겠다고 밝혔다.",
-        "AI 인프라 사업에는 신중한 태도를 유지하는 대신 이용자가 직접 사용하는 서비스에 역량을 집중하겠다는 전략이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "오픈AI, 챗GPT 무료도 최신 모델 무한 지원…'아스트라' 출시 연기",
-      "source": "전자신문",
-      "link": "https://www.etnews.com/20260809000015",
-      "publishedAt": "Sat, 08 Aug 2026 23:57:23 GMT",
-      "date": "2026-08-09",
-      "category": "policy",
-      "bullets": [
-        "오픈AI가 생성형 인공지능(AI) 서비스 챗GPT 무료 이용자도 최신 AI 모델을 무제한 사용할 수 있다.",
-        "오픈AI는 최신 AI 모델 'GPT-5.6'의 경량화 모델 '루나'와 텍스트 대화를 무료 이용자와 저가형 '고(Go)' 요금제 이용자에 무제한 제공한다고 밝혔다.",
-        "무제한 대화는 텍스트로만 가능하고 파일 업로드, 이미지 생성, 음성 대화 등은 기존과 동일하게 토큰955 한도가 있다."
       ],
       "contentVerified": true
     }
@@ -257,58 +257,44 @@
       "contentVerified": true
     },
     {
-      "title": "생성형 AI가 노리는 지식 노동… 초년생 고용 타격",
-      "source": "글로벌이코노믹",
-      "link": "https://www.g-enews.com/article/Global-Biz/2026/08/2026080905273544382bd56fbc3c_1",
-      "publishedAt": "Sat, 08 Aug 2026 20:30:39 GMT",
-      "date": "2026-08-09",
-      "category": "genai",
-      "bullets": [
-        "생성형 인공지능은 글쓰기와 코딩 및 분석 등 고소득 지식 노동자의 인지 영역을 직접적으로 위협하고 있다.",
-        "인공지능이 사무실과 연구소의 전문 업무 영역을 빠르게 파고들면서 노동 시장 전반에 거대한 구조적 변화를 예고하고 있다.",
-        "CNBC는 8월 8일(현지시각) 과거의 자동화가 육체노동과 반복적 사무직을 겨냥했던 것과 달리, 생성형 인공지능은 글쓰기와 코딩 및 분석 등 고소득 지식 노동자의 인지 영역을 직접적으로 위협하고 있다고 보도했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "(3) “상대가 AI라는 것 알려라” EU 법 시행의 의미",
-      "source": "법률신문",
-      "link": "https://www.lawtimes.co.kr/news/articleViewAmp.html?idxno=224446",
-      "publishedAt": "Fri, 07 Aug 2026 20:00:00 GMT",
-      "date": "2026-08-08",
-      "category": "genai",
-      "bullets": [
-        "최근 유럽 AI 규제는 새로운 국면을 맞이했다.",
-        "8월 2일부터 본격 적용되기 시작한 EU AI 법의 투명성 규정은 AI에 대한 규제가 ‘신뢰 구축’으로 이동하고 있음을 보여준다.",
-        "그동안 기업들은 AI 법을 ‘고위험 AI에 대한 규제’ 정도로 이해하는 경우가 많았다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "AI 기술 활용, 공공의료 강화…2030년까지 교통사고 사망자 30%↓",
-      "source": "대한민국 정책브리핑",
-      "link": "https://www.korea.kr/news/policyNewsView.do?newsId=148969567&pWise=main&pWiseMain=A5",
-      "publishedAt": "Thu, 06 Aug 2026 09:22:25 GMT",
+      "title": "시장 1위가 AI에선 4위…생성형 AI가 고른 브랜드는 달랐다",
+      "source": "조선일보",
+      "link": "https://www.chosun.com/economy/tech_it/2026/08/06/NBLJRCW3INHCFGGUQ3QNKZ2RW4/",
+      "publishedAt": "Thu, 06 Aug 2026 04:03:16 GMT",
       "date": "2026-08-06",
+      "category": "genai",
+      "bullets": [
+        "판매량이나 매장 수가 많은 브랜드가 생성형 인공지능(AI)의 답변에서도 가장 많이 등장하는 것은 아니라는 조사 결과가 나왔다.",
+        "AI 브랜드 분석기업 에이아이빅스랩은 식음료·프랜차이즈 30개 분야, 715개 브랜드를 대상으로 조사한 ‘AI 브랜드 경쟁력 지수(AIBIX)’를 6일 공개했다.",
+        "AIBIX는 챗GPT·제미나이·퍼플렉시티·클로드에 같은 소비자 질문을 반복 입력한 뒤 브랜드 등장률과 언급 점유율, 공식 자료 인용 여부 등을 100점 만점으로 평가한 지수다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "인하대-인천대, AI 기술개발-인재양성 '속도'",
+      "source": "한국경제",
+      "link": "https://www.hankyung.com/article/202608068936h",
+      "publishedAt": "Fri, 07 Aug 2026 02:02:33 GMT",
+      "date": "2026-08-07",
       "category": "tech",
       "bullets": [
-        "이 누리집은 대한민국 공식 전자정부 누리집입니다.",
-        "정부는 의료 전 분야에 인공지능(AI)을 접목하는 'AI 기본의료 전략'을 수립해 지역·필수·공공의료 공백을 해소하고 국민 누구나 일상에서 AI 의료혁신 혜택을 고르게 누릴 수 있도록 한다.",
-        "또 교통사고 주요 요인의 데이터 분석과 페달오조작 방지장치 지원 등을 통해 교통사고 사망자를 2030년까지 30% 낮추고 중고차 시장의 불투명한 거래과정과 불공정 관행에 대한 점검도 강화한다."
+        "Google 검색에서 한국경제 기사를 더 자주 볼 수 있습니다.",
+        "인천지역 대학들이 AX(인공지능 전환) 대전환을 선도하기 위한 인공지능(AI) 기술 개발과 인재양성에 속도를 내고 있다.",
+        "AI 기술 개발에 직접 나서기도 하고 산·학·연·관 협력체계 구축에 팔을 걷어붙였다."
       ],
       "contentVerified": true
     },
     {
-      "title": "[김성현의AI지표] 빅테크 로비 사상 최대…AI 규제·IPO·반도체 관세 삼각파도",
-      "source": "아주경제",
-      "link": "https://www.ajunews.com/view/20260806143854071",
-      "publishedAt": "Thu, 06 Aug 2026 05:49:34 GMT",
-      "date": "2026-08-06",
+      "title": "美 15개 주 법무장관, 오픈AI에 공동서한…잇단 ‘해킹 AI’ 사고에 안전 기준·책임 법제화 압박",
+      "source": "조선일보",
+      "link": "https://www.chosun.com/economy/tech_it/2026/08/05/TDSU4JRHIRAWNN26YW5ONRLVCQ/",
+      "publishedAt": "Wed, 05 Aug 2026 05:09:03 GMT",
+      "date": "2026-08-05",
       "category": "policy",
       "bullets": [
-        "미국 빅테크·AI 기업들의 상반기 연방 로비 지출이 사상 최대치를 기록했다.",
-        "백악관을 중심으로 한 AI 규제 논의와 하반기 기업공개(IPO), 반도체 관세 압박이 동시에 맞물리며 미국 진출 기업들의 '워싱턴 방어전'이 격화하는 모습이다.",
-        "6일 미 의회에 따르면 알파벳·마이크로소프트(MS)·메타·엔비디아·앤트로픽·오픈AI 등 주요 테크·AI 기업 11곳과 관련 업계 단체들의 올해 상반기 누적 로비 지출은 4180만달러로, 전년 동기 대비 10% 증가했다."
+        "미국 15개 주 법무장관이 인공지능(AI) 모델의 허깅페이스 시스템 침입 사고와 관련해 오픈AI에 자료 보존과 고위험 안전성 평가 중단을 요구했다.",
+        "AI가 통제 범위를 이탈하는 사고가 잇따르면서, AI 위험 대응을 기업 자율에만 맡기지 않겠다는 미국 정부와 정치권의 움직임이 본격화하는 모양새다.",
+        "‘고난도 취약점 공격 평가’는 AI가 가상의 전산망을 공격해 보안 취약점을 찾을 수 있는지 측정하는 모의 해킹 시험이다."
       ],
       "contentVerified": true
     }
