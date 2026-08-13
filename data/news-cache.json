@@ -1,7 +1,21 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-08-13T19:28:49Z",
+  "generated_at": "2026-08-13T22:05:47Z",
   "daily": [
+    {
+      "title": "[비즈톡톡] 자체 개발 ‘챗봇’으로는 한계… AI 에이전트 전환에 빗장 푸는 제조사들 - 조선비즈",
+      "source": "Chosunbiz",
+      "link": "https://biz.chosun.com/it-science/ict/2026/08/14/5XJPIZQHANGVBKJ27WSUV56X7M/",
+      "publishedAt": "Thu, 13 Aug 2026 21:00:00 GMT",
+      "date": "2026-08-14",
+      "category": "genai",
+      "bullets": [
+        "국내 제조사들의 인공지능(AI) 활용 방식이 달라지고 있습니다.",
+        "폐쇄형 환경과 자체 개발 솔루션에 무게를 두던 기업들이 챗GPT(오픈AI)·클로드(앤트로픽)·제미나이(구글) 같은 외부 모델을 사내로 끌어들이며 '일하는 방식'을 바꾸고 있는 겁니다.",
+        "제조 현장에서 다루는 설계도와 공정 조건, 제품 개발 정보는 밖으로 새는 순간 막대한 사업 손실이나 경쟁력 훼손으로 이어질 수 있습니다."
+      ],
+      "contentVerified": true
+    },
     {
       "title": "마에스트로 포렌식, AI 스마트 안경·생성형 AI 범죄 수사 포렌식 도구 공개해",
       "source": "elec4",
@@ -45,16 +59,16 @@
       "contentVerified": true
     },
     {
-      "title": "엑스큐어넷, ISEC 2026서 생성형 AI 통합 보안 전략 제시",
-      "source": "IT조선",
-      "link": "https://it.chosun.com/news/articleViewAmp.html?idxno=2023092168132",
-      "publishedAt": "Thu, 13 Aug 2026 08:41:32 GMT",
-      "date": "2026-08-13",
-      "category": "genai",
+      "title": "“AI-로봇과 공존하는 도시 만들것… 초지역 ‘펜타 역세권’ 개발”",
+      "source": "v.daum.net",
+      "link": "https://v.daum.net/v/20260814043515799",
+      "publishedAt": "Thu, 13 Aug 2026 19:35:15 GMT",
+      "date": "2026-08-14",
+      "category": "biz",
       "bullets": [
-        "AI 기반 정보 유출 보안 전문기업 엑스큐어넷이 생성형 인공지능(AI)과 사용자 단말, 네트워크를 아우르는 통합 정보유출 방지 전략을 공개했다.",
-        "기업 내 생성형 AI 활용이 빠르게 확산하면서 기존 네트워크 중심의 보안 체계만으로는 정보 유출 위험을 관리하기 어렵다는 지적이 커지고 있다.",
-        "직원이 생성형 AI에 입력하는 프롬프트나 첨부파일뿐 아니라 이메일·메신저, USB, 인쇄 등 단말을 통해 이동하는 정보까지 함께 관리해야 할 필요성이 높아지는 모습이다."
+        "자동요약 기사 제목과 주요 문장을 기반으로 자동요약한 결과입니다.",
+        "전체 맥락을 이해하기 위해서는 본문 보기를 권장합니다.",
+        "경기 안산시 최초의 연임 시장이라는 기록을 쓴 이민근 안산시장은 7일 본보와의 인터뷰에서 민선 9기 시정의 핵심 과제로 미래 첨단산업 육성과 도시 대전환을 제시했다."
       ],
       "contentVerified": true
     },
@@ -101,20 +115,6 @@
       "contentVerified": true
     },
     {
-      "title": "AI·디지털자산 시대, K-블록체인 새로운 시장 찾는다",
-      "source": "하이테크정보",
-      "link": "http://www.hitech.co.kr/news/articleViewAmp.html?idxno=60307",
-      "publishedAt": "Thu, 13 Aug 2026 08:57:41 GMT",
-      "date": "2026-08-13",
-      "category": "biz",
-      "bullets": [
-        "정부와 기업이 모여 디지털자산과 인공지능(AI) 융합 분야에서 새롭게 형성되는 블록체인 수요를 확인하고, 국내 기술과 서비스를 실제 사업으로 연결할 수 있는 방안을 모색했다.",
-        "과학기술정보통신부는 한국인터넷진흥원(KISA)과 함께 13일 서울 섬유센터 스카이볼룸에서 블록체인 분야 민·관 협력 플랫폼인 블록체인 수요·공급자 협의체 '에이블'(ABLE) 정례세미나를 개최했다고 밝혔다.",
-        "이번 정례세미나는 국내 기업이 새로운 시장 수요를 파악하고, 사업 협력과 해외진출 기회를 발굴할 수 있도록 마련됐다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "LG AI연구원 ‘TraceMAS’, KDD 베스트 페이퍼 선정…AI 예측 과정 추적",
       "source": "아이티데일리",
       "link": "https://www.itdaily.kr/news/articleView.html?idxno=240997",
@@ -131,7 +131,7 @@
     {
       "title": "오픈AI·엔비디아, 한국 개발자 만났다...“AI 에이전트가 다음 개발 환경”",
       "source": "더에이아이",
-      "link": "https://www.newstheai.com/news/articleView.html?idxno=21347",
+      "link": "http://www.newstheai.com/news/articleView.html?idxno=21347",
       "publishedAt": "Thu, 13 Aug 2026 09:18:03 GMT",
       "date": "2026-08-13",
       "category": "tech",
@@ -143,22 +143,8 @@
       "contentVerified": true
     },
     {
-      "title": "AI 신약개발 거점 된 대구, ‘성공신화’ 만들길",
-      "source": "경북매일",
-      "link": "https://www.kbmaeil.com/article/20260813500069",
-      "publishedAt": "Thu, 13 Aug 2026 09:16:00 GMT",
-      "date": "2026-08-13",
-      "category": "tech",
-      "bullets": [
-        "과학기술정보통신부가 12일 대구에서 ‘합성신약분야 혁신연구거점 조성시범사업단’ 출범식을 열고 인공지능(AI)을 활용한 신약개발 시스템 구축에 나섰다.",
-        "‘K-문샷’으로 명명된 정부의 AI 기반 과학기술 프로젝트 중의 하나다.",
-        "AI가 신약 후보물질과 실험조건을 제안하면 자동화 실험실이 이를 검증하고, 실험 결과를 다시 AI가 학습하는 시스템이다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "[헬로즈업] 머신비전, 제조업 AI의 첫 대규모 성공 사례로 부상",
-      "source": "hellot.net",
+      "source": "헬로티",
       "link": "https://www.hellot.net/news/article.html?no=114343",
       "publishedAt": "Thu, 13 Aug 2026 08:45:56 GMT",
       "date": "2026-08-13",
@@ -171,39 +157,25 @@
       "contentVerified": true
     },
     {
-      "title": "클래리티 공백 속 CFTC, ‘디지털자산·예측시장’ 규제 윤곽 잡나",
-      "source": "블록미디어",
-      "link": "https://www.blockmedia.co.kr/archives/1127591",
-      "publishedAt": "Thu, 13 Aug 2026 17:52:00 GMT",
+      "title": "마음AI, '2026 AI 응용제품 신속 상용화 지원사업' 선정…피지컬AI 상용화 속도",
+      "source": "지디넷코리아",
+      "link": "https://zdnet.co.kr/view/?no=20260813173758",
+      "publishedAt": "Thu, 13 Aug 2026 08:37:58 GMT",
+      "date": "2026-08-13",
+      "category": "tech",
+      "bullets": [
+        "마음AI(대표 유태준)가 과학기술정보통신부가 총괄하고 한국지능정보사회진흥원(NIA)이 전담하는 '2026년 AI 응용제품 신속 상용화 지원사업'의 수행기관에 선정됐다.",
+        "인공지능 기술 조기 상용화와 산업현장 적용 확대를 목표로 추진하는 정부 지원사업이다.",
+        "회사는 높은 경쟁률을 뚫고 '비정형 화물 분류 및 이동을 위한 피지컬 AI 응용제품 상용화' 과제에 참여한다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "인공지능(AI) 농업 현장코치 양성 본격화",
+      "source": "충청메시지",
+      "link": "https://www.ccmessage.kr/news/articleView.html?idxno=118120",
+      "publishedAt": "Thu, 13 Aug 2026 21:07:29 GMT",
       "date": "2026-08-14",
-      "category": "policy",
-      "bullets": [
-        "미국 상품선물거래위원회(CFTC)가 혁신자문위원회(IAC) 첫 회의를 열고 디지털자산(가상자산) 규제체계와 인공지능(AI), 예측시장 문제를 논의한다.",
-        "미 상원에서 클래리티법(CLARITY Act) 처리가 지연되는 가운데 CFTC는 시장 혁신을 촉진하면서 시장 건전성과 고객 보호를 유지할 수 있는 연방 규제체계 구축 방안을 검토할 예정이다.",
-        "13일(현지시각) 코인게이프에 따르면 CFTC는 오는 20일 첫 혁신자문위원회 회의를 열고 디지털자산 규제 방향을 논의한다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "FPT와 세계적인 AI 연구기관이 협력을 확대하여 전략적 기술 습득을 촉진합니다.",
-      "source": "vietnam.vn",
-      "link": "https://www.vietnam.vn/ko/fpt-va-vien-nghien-cuu-ai-hang-dau-the-gioi-mo-rong-hop-tac-thuc-day-lam-chu-cong-nghe-chien-luoc",
-      "publishedAt": "Thu, 13 Aug 2026 14:40:19 GMT",
-      "date": "2026-08-13",
-      "category": "policy",
-      "bullets": [
-        "8월 13일, FPT 그룹은 캐나다 퀘벡에 본사를 둔 세계적인 인공지능(AI) 연구기관인 밀라(Mila)와 AI 연구, 고품질 인재 개발 및 지식 이전에 관한 협력 계약을 체결했습니다.",
-        "이 행사에는 호꾸옥중 부총리, 황민 과학기술부 차관, 에밀리 카리에 주베트남 캐나다 대사관 임시 대리대사, 프레데릭 로린 밀라 연구소 퀘벡 지부 선임소장, 그리고 국내외 기관, 단체 및 파트너 대표들이 참석했습니다.",
-        "이와 동시에 정부는 베트남의 인공지능 개발, 적용 및 관리 방향을 더욱 구체화하기 위해 새로운 국가 인공지능 전략과 국가 인공지능 전환 전략(AIX) 개발을 추진하고 있습니다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "충남도, 인공지능(AI) 농업 현장코치 양성 본격화",
-      "source": "금산중앙신문방송",
-      "link": "http://www.geumsan-news.com/news/articleView.html?idxno=32533",
-      "publishedAt": "Thu, 13 Aug 2026 12:40:02 GMT",
-      "date": "2026-08-13",
       "category": "policy",
       "bullets": [
         "충남도 농업기술원은 13-14일 보령시 한화리조트 대천파로스에서 농업인학습단체 임원과 시군 관계자 등 100여 명을 대상으로 ‘2026 농업인학습단체 인공지능(AI) 현장코치 양성과정’을 운영한다.",
@@ -213,38 +185,52 @@
       "contentVerified": true
     },
     {
-      "title": "FPT와 밀라의 협력은 베트남의 인공지능 개발 촉진에 기여합니다.",
-      "source": "vietnam.vn",
-      "link": "https://www.vietnam.vn/ko/hop-tac-fpt-va-mila-gop-phan-thuc-day-phat-trien-ai-tai-viet-nam",
-      "publishedAt": "Thu, 13 Aug 2026 10:21:07 GMT",
+      "title": "트럼프와 갈등 빚은 엔트로픽…로비비용은 AI기업 중 1위",
+      "source": "서울경제",
+      "link": "https://www.sedaily.com/article/20079047",
+      "publishedAt": "Thu, 13 Aug 2026 20:30:00 GMT",
+      "date": "2026-08-14",
+      "category": "policy",
+      "bullets": [
+        "미국에서 주요 인공지능(AI) 기업들이 정책 결정에 영향력을 행사하기 위해 수백만달러의 돈을 지출하면서 로비를 하고 있는 것으로 나타났다.",
+        "일본 니혼게이자이신문(닛케이)은 13일 로비활동 보고서를 바탕으로 “올해 상반기 앤트로픽, 오픈AI, 엔비디아 3사가 로비를 위해 쓴 돈은 829만 달러(약 117억 원)로 집계됐다”고 보도했다.",
+        "이는 3년 새 30배 늘어난 수치이며, 앤트로픽이 353만 달러, 오픈AI가 222만 달러, 엔비디아가 254만 달러를 각각 지출했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "삼성·SK, 美 로비에 850만달러…AI ‘룰 전쟁’ 본격화",
+      "source": "아시아투데이",
+      "link": "https://www.asiatoday.co.kr/kn/view.php?key=20260813010004615",
+      "publishedAt": "Thu, 13 Aug 2026 08:26:10 GMT",
       "date": "2026-08-13",
       "category": "policy",
       "bullets": [
-        "베트남은 국제 협력이 지식을 연결하고, 자원을 활용하여 인간적이고 지속 가능한 글로벌 AI 생태계를 구축하며, 디지털 시대에 국제 사회와 발맞춰 나가는 데 있어 핵심적인 기둥임을 인식하고 있습니다.",
-        "이 행사에서 정부 지도자들을 대표하여 부총리는FPT 와 Mila-퀘벡 인공지능 연구소(Mila)의 과거 협력 성과와 향후 연구 계획에 대해 감사를 표하고 축하했습니다.",
-        "부총리는 정치국 결의안 제57-NQ/TW호에서 과학, 기술, 혁신 및 디지털 전환이 국가 발전의 중요한 원동력으로 규정되었다고 강조했습니다."
+        "삼성과 SK그룹이 미국에서 통상·반도체·배터리 등 기존 사업 관련 정책 대응은 물론 인공지능(AI)·에너지·차세대 기술 등으로 로비 전선을 넓히고 있다.",
+        "미국 내 투자 확대와 함께 정책·규제 변화가 사업 경쟁력에 미치는 영향이 커지면서 단순한 통상 대응을 넘어 사업별 이해관계를 반영하기 위한 대관 활동도 정교해지는 모습이다.",
+        "여기에 앤트로픽·오픈AI·엔비디아 등 AI 기업들도 로비 규모를 빠르게 늘리면서 미국의 AI·반도체 정책을 둘러싼 기업 간 '룰 전쟁'도 본격화하고 있다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "‘AI 농업 현장코치’ 양성 본격화",
+      "source": "뉴스홈(newshome)",
+      "link": "https://www.news-home.co.kr/news/articleView.html?idxno=71262",
+      "publishedAt": "Thu, 13 Aug 2026 06:29:04 GMT",
+      "date": "2026-08-13",
+      "category": "policy",
+      "bullets": [
+        "충남도 농업기술원은 13 일부터 14 일까지 보령시 한화리조트 대천파로스에서 농업인학습단체 임원과 시·군 관계자 등 100 여 명을 대상으로 ‘2026 농업인학습단체 인공지능(AI) 현장코치 양성과정’을 운영한다.",
+        "이번 교육은 농업인들이 일상과 영농 현장에서 AI 를 보다 쉽게 활용할 수 있는 환경을 조성하고, 지역 농업 현장에서 AI 활용을 확산시킬 현장코치를 양성하기 위해 마련됐다.",
+        "교육은 박수현 지사의 ‘농업인과 함께, 충남 농업의 미래’ 특강을 시작으로 진행됐다."
       ],
       "contentVerified": true
     }
   ],
   "weekly": [
     {
-      "title": "유튜브 '맛쿨멋쿨TV' 통해 생성형 AI 실습형 콘텐츠 제공",
-      "source": "데일리대구경북뉴스",
-      "link": "https://www.dailydgnews.com/news/article.html?no=260091",
-      "publishedAt": "Wed, 12 Aug 2026 23:51:28 GMT",
-      "date": "2026-08-13",
-      "category": "genai",
-      "bullets": [
-        "‘경북형 웍스 AI’는 생성형 AI 최신 모델 7종을 기반으로 문서 작성과 요약, 데이터 분석, 자료 검색, 이미지 생성 등 다양한 기능을 하나의 플랫폼에서 제공하는 통합 서비스다.",
-        "교직원들은 업무 목적에 맞는 AI 모델을 손쉽게 활용해 행정업무의 효율성을 높이고, 수업자료 제작과 학생 맞춤형 교육에도 폭넓게 활용할 수 있다.",
-        "이번 동영상 강의는 기존에 보급한 활용 매뉴얼을 보다 쉽게 이해하고 실제 업무에 적용할 수 있도록 제작됐다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "글로벌 생성형 AI 특허 1년 새 2배 '급증'… 韓 4위로 밀려나, 제조업 AI 융합 '시급'",
-      "source": "mtnews.net",
+      "source": "기계신문",
       "link": "https://www.mtnews.net/news/articleView.html?idxno=25635",
       "publishedAt": "Wed, 12 Aug 2026 06:17:06 GMT",
       "date": "2026-08-12",
@@ -257,22 +243,8 @@
       "contentVerified": true
     },
     {
-      "title": "학습자 다차원 평가로 생성형 AI 언어학습 도구의 탁월성 규명",
-      "source": "411개 대학을 연결하는 '힘'",
-      "link": "https://news.unn.net/news/articleView.html?idxno=595858",
-      "publishedAt": "Wed, 12 Aug 2026 04:42:10 GMT",
-      "date": "2026-08-12",
-      "category": "genai",
-      "bullets": [
-        "이번 연구 결과는 컴퓨터 활용 언어학습(CALL) 분야의 세계적 학술지인 ReCALL 38권 3호에 출판됐다.",
-        "그러나 새로운 기술 기반 학습 도구가 정작 학습의 주체인 학습자의 관점에서 어떻게 평가되는지, 그리고 학습자들이 학습 도구를 평가할 때 어떤 기준을 얼마나 중요하게 여기는지에 대한 체계적인 실증 연구는 부족한 실정이었다.",
-        "이에 연구팀은 언어 교육 분야에서 ‘계층화 분석법(AHP)’을 선도적으로 도입해 연구의 방법론적 혁신을 이끌어냈다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "생성형AI 검색 기능 대체…챗GPT·제미나이, 이용 경험률 1·2위",
-      "source": "연합뉴스TV",
+      "source": "yonhapnewstv.co.kr",
       "link": "https://www.yonhapnewstv.co.kr/news/AKR20260812091116mlk",
       "publishedAt": "Wed, 12 Aug 2026 00:11:00 GMT",
       "date": "2026-08-12",
@@ -285,16 +257,30 @@
       "contentVerified": true
     },
     {
-      "title": "오킨스전자, 대만 지사 설립… \"글로벌 AI 반도체 공략 가속\" - 머니투데이",
-      "source": "머니투데이",
-      "link": "https://www.mt.co.kr/stock/2026/08/13/2026081307005873556",
-      "publishedAt": "Wed, 12 Aug 2026 23:00:00 GMT",
-      "date": "2026-08-13",
-      "category": "biz",
+      "title": "[단독] “딥페이크 막았다는데 성착취물 1천건 생성”…범죄 도구된 AI",
+      "source": "KBS 뉴스",
+      "link": "https://news.kbs.co.kr/news/view.do?ncd=8634367",
+      "publishedAt": "Tue, 11 Aug 2026 12:11:00 GMT",
+      "date": "2026-08-11",
+      "category": "genai",
       "bullets": [
-        "반도체 테스트 솔루션 전문 기업 오킨스전자(15,840원 0%)가 대만 지사를 설립하고 글로벌 반도체 시장 공략을 강화한다고 13일 밝혔다.",
-        "글로벌 고객 대응력을 높이고 메모리 시장을 넘어 인공지능(AI) 반도체 및 비메모리 시장 진출을 가속화하기 위한 전략적 거점 확보 차원이다.",
-        "대만은 글로벌 파운드리 기업 TSMC를 비롯해 반도체 설계 기업(팹리스), 외주 반도체 패키징 및 테스트(OSAT) 기업들이 밀집한 세계 최대 반도체 산업 클러스터로, 차세대 반도체 공급망의 핵심 지역이다."
+        "현재 관심이 높아지고 있는 키워드 입니다.",
+        "상 / 하 방향키는 음량이 + 5 / -5로 조절됩니다.",
+        "스페이스 바를 누르시면 영상이 재생 / 중단 됩니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "마에스트로 포렌식, AI 스마트 안경·생성형 AI 범죄 수사 포렌식 솔루션 공개",
+      "source": "인공지능신문",
+      "link": "https://www.aitimes.kr/news/articleView.html?idxno=41432",
+      "publishedAt": "Thu, 13 Aug 2026 01:37:56 GMT",
+      "date": "2026-08-13",
+      "category": "genai",
+      "bullets": [
+        "이 두 제품은 기존 통합 디지털 포렌식 플랫폼 '마에스트로 위즈덤(MAESTRO WiSDOM)' 제품군의 최신 솔루션으로, 최근 급증하는 AI 스마트 안경 악용 범죄와 생성형 AI 기반 디지털 범죄에 특화됐다.",
+        "기존 포렌식 도구는 PC와 스마트폰 중심으로 개발돼 AI 스마트 안경 데이터나 생성형 AI 서비스 사용 흔적을 분석하는 데 한계가 있었다.",
+        "특히 생성형 AI는 질문·응답, 음성 명령, 이미지 분석, 위치정보, 클라우드 연동 등 다양한 데이터를 만들어내기 때문에 단순 파일 복구나 로그 분석만으로는 범죄의 전체 흐름을 파악하기 어렵다."
       ],
       "contentVerified": true
     },
@@ -313,142 +299,72 @@
       "contentVerified": true
     },
     {
-      "title": "7500억 달러 투자 폭발...“글로벌 AI 인프라 시장 ‘추론’으로 세대교체한다”",
-      "source": "hellot.net",
-      "link": "https://www.hellot.net/news/article.html?no=114304",
-      "publishedAt": "Wed, 12 Aug 2026 05:42:56 GMT",
+      "title": "콘진원, ‘Ai4 2026·2026 론치패드’서 AI스타트업 지원",
+      "source": "문화일보",
+      "link": "https://www.munhwa.com/article/11608914",
+      "publishedAt": "Tue, 11 Aug 2026 23:51:14 GMT",
       "date": "2026-08-12",
       "category": "biz",
       "bullets": [
-        "생성형 AI(Generative AI) 모델의 고도화와 산업 현장 적용 확대로 글로벌 인공지능(AI) 산업의 중심이 '추론' 분야로 전환되고 있다.",
-        "이에 따라 전력·부지·공급망 등을 적기에 확보하고, 장기적인 실효 수요와 연계하는 인프라 운용 역량이 새로운 핵심 경쟁력으로 떠오르는 추세다.",
-        "해당 보고서는 미국 하이퍼스케일러의 2026년 설비 투자액과 추론 중심 시장 재편에 따른 AI 인프라 시장의 구조적 성장을 분석한 자료다."
+        "인공지능(AI) 스타트업 기업의 미국 시장 진출을 지원하는 행사가 성공적으로 열렸다.",
+        "콘진원은 행사별 특성에 맞춰 국내 콘텐츠 스타트업의 미국 시장 진출과 글로벌 투자유치 기회 확대를 위한 지원 프로그램을 운영했다.",
+        "이를 통해 참가기업 22개사는 총 515건의 비즈니스 상담과 10건의 업무협약(MOU)을 체결하고, 9742만 달러(한화 약 1380억 원, 1달러당 1417원 환율 기준) 규모의 수출 상담과 투자 유치 성과를 거뒀다."
       ],
       "contentVerified": true
     },
     {
-      "title": "대한민국 인공지능(AI) 기반 1번지로 비상(飛上)하고 있는 수원특례시",
-      "source": "bulkyo21.com",
-      "link": "https://www.bulkyo21.com/news/articleView.html?idxno=64742",
-      "publishedAt": "Wed, 12 Aug 2026 05:42:12 GMT",
-      "date": "2026-08-12",
+      "title": "메타, AI·크리에이터·커머스 결합…아태지역 시장 공략한다",
+      "source": "연합뉴스",
+      "link": "https://www.yna.co.kr/view/AKR20260813162600017",
+      "publishedAt": "Thu, 13 Aug 2026 09:37:36 GMT",
+      "date": "2026-08-13",
       "category": "biz",
       "bullets": [
-        "수원특례시 본관 1층에는 지난 2024년 10월말부터 로봇이 투입돼 민인원인 수원시민들을 맞고 있다.",
-        "반가운 인사와 함께 민원인인 수원시민들을 만나고 있는 로봇 이름은 ‘새로’다.",
-        "‘새로’는 수원시청에 민원을 보러 오는 시민들에게 각 실과에서 추진하는 업무를 안내하고 실과 사무실 위치도 알려 주고 있다."
+        "메타가 아시아태평양 지역을 겨냥해 인공지능 기반 마케팅 도구와 크리에이터 파트너십을 포괄하는 비즈니스 생태계 전략을 13일 발표했다.",
+        "메타는 이날 진행한 'APAC 비즈니스 업데이트'에서 소셜 플랫폼 중심의 아태지역 쇼핑 트렌드와 이를 지원하기 위한 비즈니스 설루션을 공개했다.",
+        "인공지능이 자동으로 줄인 '세 줄 요약' 기술을 사용합니다."
       ],
       "contentVerified": true
     },
     {
-      "title": "DGIST, 103억 원 규모 ‘AI 유방 초음파 로봇’ 개발 과제 선정",
-      "source": "경북신문",
-      "link": "https://www.kbsm.net/news/view.php?idx=530229",
-      "publishedAt": "Wed, 12 Aug 2026 10:55:00 GMT",
+      "title": "외국 연계된 '여론 흔들기 댓글' 찾아낸다…KAIST, AI 기술 개발",
+      "source": "연합뉴스",
+      "link": "https://www.yna.co.kr/view/AKR20260812065900063",
+      "publishedAt": "Wed, 12 Aug 2026 01:58:22 GMT",
       "date": "2026-08-12",
       "category": "tech",
       "bullets": [
-        "대구경북과학기술원(이하 DGIST)가 스스로 진단 과정을 조율하는 인공지능(AI) 기반 유방 초음파 로봇 개발에 나선다.",
-        "DGIST는 과학기술정보통신부와 정보통신기획평가원(IITP)의 '실세계 능동행동형 에이전틱 AI 기술개발' 신규 과제에 선정됐다고 12일 밝혔다.",
-        "주관기관인 ㈜메디칼파크, 공동연구기관인 연세대학교 산학협력단과 함께 '자율 로봇 진단 기술을 적용한 지능형 유방 초음파 스캐닝 솔루션' 상용화를 추진한다."
+        "연구팀은 이러한 결과가 외국 연계 영향력 활동을 단순히 '어느 정치 세력을 지지하는가'의 관점만으로 바라봐서는 안 된다는 점을 보여준다고 설명했다.",
+        "인공지능이 자동으로 줄인 '세 줄 요약' 기술을 사용합니다.",
+        "전체 내용을 이해하기 위해서는 기사 본문과 함께 읽어야 합니다."
       ],
       "contentVerified": true
     },
     {
-      "title": "AI가 신약 후보 찾고 실험실이 검증…대구서 '혁신연구거점' 출범",
-      "source": "대한민국 정책브리핑",
-      "link": "https://www.korea.kr/news/policyNewsView.do?newsId=148969962&pWise=sub&pWiseSub=R2",
-      "publishedAt": "Wed, 12 Aug 2026 09:09:40 GMT",
-      "date": "2026-08-12",
+      "title": "'전체 근로자의 8.4%만 업무에 AI 사용'... 일본의 AI 도입이 더딘 이유",
+      "source": "BBC",
+      "link": "https://www.bbc.com/korean/articles/cd7lp08lydpo",
+      "publishedAt": "Thu, 13 Aug 2026 07:18:45 GMT",
+      "date": "2026-08-13",
       "category": "tech",
       "bullets": [
-        "이 누리집은 대한민국 공식 전자정부 누리집입니다.",
-        "정부가 인공지능(AI)이 신약 후보물질을 찾고 자동화 실험실이 이를 검증한 결과를 다시 AI가 학습하는 'K-문샷' 신약개발 연구체계 구축에 나선다.",
-        "첫 혁신연구거점은 대구에 마련해 AI 기반 신약개발의 새로운 모델을 본격 실증한다."
+        "심각한 노동력 부족, 인구 고령화, 만성적인 생산성 문제 등에 직면한 일본은 기업들이 인공지능(AI) 기술 도입에 적극적일 것만 같다.",
+        "그러나 미국과 영국에 비해 많은 기업들이 AI 기술 도입을 머뭇거리며 조심스러운 태도를 보이고 있다.",
+        "AI에 대한 일본 사회의 반응은 일본의 느릿느릿한 전통 가무극인 '노'를 보는 듯하다."
       ],
       "contentVerified": true
     },
     {
-      "title": "DGIST, ‘스스로 진단하는’ AI 유방 초음파 로봇 개발 나선다",
-      "source": "로봇신문",
-      "link": "https://www.irobotnews.com/news/articleView.html?idxno=47890",
-      "publishedAt": "Wed, 12 Aug 2026 08:06:52 GMT",
-      "date": "2026-08-12",
-      "category": "tech",
-      "bullets": [
-        "DGIST(총장 이건우)는 과학기술정보통신부와 정보통신기획평가원(IITP)이 추진하는 ‘실세계 능동행동형 에이전틱 AI 기술개발’ 사업의 신규 과제에 최종 선정됐다고 12일 밝혔다.",
-        "이를 통해 주관기관인 메디칼파크, 공동연구개발기관인 연세대학교 산학협력단과 함께 ‘자율 로봇 진단 기술을 적용한 지능형 유방 초음파 스캐닝 솔루션’ 상용화에 나선다.",
-        "이번 과제는 2026년 7월부터 2028년 12월까지 약 2년 6개월간 총 103억4000만원(정부 지원금 85억원) 규모로 추진된다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "AI에 '내 정보' 맡겼는데 … 활용 넓히는 법안, 보호는 뒷전",
-      "source": "뉴데일리",
-      "link": "https://www.newdaily.co.kr/site/data/html/2026/08/12/2026081200250.amp.html",
-      "publishedAt": "Wed, 12 Aug 2026 08:02:07 GMT",
-      "date": "2026-08-12",
-      "category": "tech",
-      "bullets": [
-        "[편집자주] 개인정보는 더 이상 '유출되는 정보'만이 아니다.",
-        "우리는 오늘도 얼굴과 목소리, 경력과 고민을 AI에 맡긴다.",
-        "AI 시대 개인정보 보호 체계의 현주소와 당면한 과제를 3회에 걸쳐 짚어본다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "[연속워크숍⓹] 국가 주도 인공지능 정책이 지역사회에 미치는 영향 개최(8/19)",
-      "source": "참여연대",
-      "link": "https://peoplepower21.org/publiclaw/2027401",
-      "publishedAt": "Wed, 12 Aug 2026 00:13:11 GMT",
-      "date": "2026-08-12",
-      "category": "policy",
-      "bullets": [
-        "인공지능 기술이 빠르게 발전하며 전 국민의 일상에 영향을 미치고 있습니다.",
-        "정부는 인공지능 기술을 국가 핵심 전략으로 꼽으며 산업 육성과 사회 전 분야의 인공지능 전환을 강력하게 추진하고 있습니다.",
-        "그러나 이 과정에서 해고와 노동 강도 강화, 환경과 자원의 수탈, 기본권 침해 등 신기술 도입으로 인한 새로운 사회 문제와 기존 문제의 심화는 충분히 고려되지 못하고 있습니다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "[22대 AI 입법 후반전⑥完] 세계 첫 AI법 유럽도 속도조절…기준 없는 선규제 경고",
-      "source": "디지털데일리",
-      "link": "https://www.ddaily.co.kr/page/view/2026080718333745283",
-      "publishedAt": "Tue, 11 Aug 2026 23:20:26 GMT",
-      "date": "2026-08-12",
-      "category": "policy",
-      "bullets": [
-        "인공지능(AI)이 산업과 일상 전반으로 빠르게 확산하면서 국회의 입법 움직임도 AI기본법을 넘어 산업·저작권·노동·개인정보·딥페이크 등 개별 영역으로 세분화되고 있다.",
-        "국회는 최근 22대 후반기 원 구성을 마무리 지었다.",
-        "그간 계류돼 있던 AI 관련 법안에 대한 상임위원회별 심사도 본격화될 전망이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "법무법인 바른, ‘병원 AI 전환·규제 대응 전략’ 포럼 9월 8일 개최",
-      "source": "법률신문",
-      "link": "https://www.lawtimes.co.kr/news/articleViewAmp.html?idxno=224698",
-      "publishedAt": "Tue, 11 Aug 2026 05:53:30 GMT",
+      "title": "국가검진에 AI 도입…의료계도, AI 업계도 \"안전 위한 제도부터 마련해야\"",
+      "source": "동아사이언스",
+      "link": "https://www.dongascience.com/ko/news/79373",
+      "publishedAt": "Tue, 11 Aug 2026 04:58:00 GMT",
       "date": "2026-08-11",
       "category": "policy",
       "bullets": [
-        "법무법인 바른 (대표변호사 이동훈 · 이영희 · 김도형 )이 병원의 인공지능(AI) 전환과 관련한 법·제도 및 현장 대응 전략을 논의하는 포럼을 연다.",
-        "바른은 9월 8일 서울 양재동 엘타워 별관 5층 멜론홀에서 ‘제1회 AI 혁신 리더스 포럼-병원 AI 대전환과 도약: 데이터·거버넌스에서 임상 솔루션까지’를 개최한다.",
-        "이번 포럼은 바른과 갈렙앤컴퍼니가 공동 주최하고 한국보건의료정보원, 에이아이네이션, 정원엔시스가 협력 파트너로 참여한다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "[AI 규제] AI 챗봇이 써준 문서, 함부로 썼다간 ‚AI산‘ 표시 영원히 못 지운다",
-      "source": "녹색경제신문",
-      "link": "http://www.greened.kr/news/articleView.html?idxno=347534",
-      "publishedAt": "Thu, 13 Aug 2026 00:46:31 GMT",
-      "date": "2026-08-13",
-      "category": "policy",
-      "bullets": [
-        "앞으로 클로드 AI 챗봇을 사용해 텍스트 문서를 작성하는 사용자는 AI로 작성했다는 흔적을 영원히 지울 수 없게 될 전망이어서, 분별 있는 활용이 필요할 것으로 보인다.",
-        "또, 클로드에서 생성한 콘텐츠를 AWS, 구글 클라우드, 마이크로소프트 파운드리를 거쳐 접근해도 워터마크 추적이 가능하다.",
-        "최신판 클로드 AI 챗봇의 워터마크 삽입제는 8월 2일부터 법적 효력을 갖게 된다."
+        "보건복지부는 지난 6월 30일 '제4차 국가건강검진종합계획(2026~2030)'을 발표하며 국가건강검진에 AI 기술을 접목하겠다고 밝혔다.",
+        "AI를 이용해 검진 전 질환 발생 위험을 예측하고, 검진 시 영상 판독 정확도를 높이고, 검진 후 건강 코칭(사후 관리) 및 검진 결과 설명 기능을 서비스하겠다는 것이다.",
+        "대한의사협회(의협)는 지난달 7일 성명서를 통해 국가건강검진 AI 도입에 반대하는 입장을 냈다."
       ],
       "contentVerified": true
     }
