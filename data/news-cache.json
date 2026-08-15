@@ -1,12 +1,26 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-08-15T13:01:49Z",
+  "generated_at": "2026-08-15T15:38:38Z",
   "daily": [
+    {
+      "title": "의왕도시공사, 전 직원 개인정보보호 교육…생성형 AI 위험까지 다뤘다",
+      "source": "한국사회복지저널",
+      "link": "http://www.ksw-news.com/news/articleView.html?idxno=3023961",
+      "publishedAt": "Sat, 15 Aug 2026 15:29:52 GMT",
+      "date": "2026-08-16",
+      "category": "genai",
+      "bullets": [
+        "의왕도시공사가 8월 12일과 13일 이틀간 본사 1층 대강당에서 전 직원을 대상으로 '2026년 개인정보보호 교육'을 진행했다.",
+        "이번 교육은 임직원의 개인정보 보호 인식을 높이고, 업무 과정에서 발생할 수 있는 개인정보 유출 및 침해사고를 예방하기 위해 마련됐다.",
+        "교육은 직원의 직무와 역할을 고려해 총 3회에 걸쳐 나눠 운영됐다."
+      ],
+      "contentVerified": true
+    },
     {
       "title": "서울 AI 허브, 피지컬 AI 해커톤 연다",
       "source": "핀포인트뉴스",
-      "link": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=477752",
-      "publishedAt": "Sat, 15 Aug 2026 12:51:47 GMT",
+      "link": "https://www.pinpointnews.co.kr/news/articleViewAmp.html?idxno=477752",
+      "publishedAt": "Sat, 15 Aug 2026 12:54:20 GMT",
       "date": "2026-08-15",
       "category": "genai",
       "bullets": [
@@ -45,20 +59,6 @@
       "contentVerified": true
     },
     {
-      "title": "AI로 일상을 더 편리하게…익산시, 9월 정보화교육 운영",
-      "source": "뉴스홈(newshome)",
-      "link": "https://www.news-home.co.kr/news/articleView.html?idxno=71344",
-      "publishedAt": "Sat, 15 Aug 2026 08:55:40 GMT",
-      "date": "2026-08-15",
-      "category": "genai",
-      "bullets": [
-        "전북 익산시는 시민들의 디지털 활용 역량을 높이고 정보격차를 해소하기 위해 ‘9 월 AI 디지털배움터’를 운영한다.",
-        "교육은 익산시청 지하 1 층 AI 디지털배움터(정보화교육장)에서 진행된다.",
-        "교육시간은 오전 9 시부터 낮 12 시, 오후 1 시 30 분부터 3 시 30 분, 오후 3 시 30 분부터 5 시 30 분까지이며 과정별 정원은 각각 15 명, 20 명, 20 명이다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "뱅크오브아메리카 하트넷 \"민주당 상원 장악 시 주식 10% 이상 하락\"",
       "source": "블록미디어",
       "link": "https://www.blockmedia.co.kr/archives/1128140",
@@ -88,7 +88,7 @@
     },
     {
       "title": "AI - 디지털 경제의 새로운 원동력.",
-      "source": "Vietnam.vn",
+      "source": "vietnam.vn",
       "link": "https://www.vietnam.vn/ko/ai-dong-luc-moi-cua-kinh-te-so",
       "publishedAt": "Sat, 15 Aug 2026 11:01:42 GMT",
       "date": "2026-08-15",
@@ -101,16 +101,16 @@
       "contentVerified": true
     },
     {
-      "title": "크라우드웍스, AI 데이터 경쟁력 앞세워 피지컬 AI 시장 정조준",
-      "source": "핀포인트뉴스",
-      "link": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=477722",
-      "publishedAt": "Sat, 15 Aug 2026 06:09:31 GMT",
+      "title": "티오리 AI 모의해킹 솔루션 '진트', 'IDC 이노베이터' 선정",
+      "source": "지디넷코리아",
+      "link": "https://zdnet.co.kr/view/?no=20260815191653",
+      "publishedAt": "Sat, 15 Aug 2026 10:16:53 GMT",
       "date": "2026-08-15",
       "category": "biz",
       "bullets": [
-        "인공지능(AI) 산업이 고도화하면서 AI가 학습할 수 있는 양질의 데이터 확보가 새로운 경쟁력으로 떠오르고 있다.",
-        "서울평가정보는 크라우드웍스를 AI 학습데이터 구축 역량을 기반으로 기업용 AI 솔루션과 피지컬 AI까지 사업 영역을 넓혀가는 통합 AI 데이터 파운드리 기업으로 평가했다.",
-        "AI 시장의 경쟁이 단순히 모델의 성능을 겨루는 단계에서 데이터의 품질과 활용 능력을 중시하는 단계로 넘어가고 있다."
+        "오펜시브 사이버보안 전문기업 티오리(Theori, 대표 박세준)의 AI 기반 모의해킹 솔루션 '진트(Xint)'가 글로벌 IT 시장조사기관 IDC가 선정한 'AI 기반 자율 침투 테스트 분야' 혁신 제품에 뽑혔다.",
+        "이번 보고서는 소프트웨어 개발·보안·운영 통합 환경에서 AI 에이전트 기반 자율 침투 테스트를 제공하는 대표 기업 7곳을 분석했다.",
+        "특히 개별 기능을 따로 점검하는 데 그치지 않고 사용자 행동 순서와 상태, 권한을 함께 추적해 실제 악용 가능한 경로까지 검증한다는 점에 주목했다."
       ],
       "contentVerified": true
     },
@@ -157,30 +157,44 @@
       "contentVerified": true
     },
     {
-      "title": "애플, 알리바바와 중국용 자체 AI 개발",
-      "source": "IT조선",
-      "link": "https://it.chosun.com/news/articleView.html?idxno=2023092168263",
-      "publishedAt": "Sat, 15 Aug 2026 02:24:16 GMT",
+      "title": "애플, 알리바바 힘 빌려 中서 ‘자체 AI’ 승부수",
+      "source": "한스경제",
+      "link": "http://www.hansbiz.co.kr/news/articleView.html?idxno=857171",
+      "publishedAt": "Sat, 15 Aug 2026 05:21:42 GMT",
       "date": "2026-08-15",
       "category": "tech",
       "bullets": [
-        "애플이 알리바바와 협력해 자체 인공지능(AI)을 개발했다고 로이터 통신이 14일(현지시각) 보도했다.",
-        "이를 통해 중국 시장을 겨냥한 자체 자체 대규모언어모델(LLM)을 훈련한 것으로 알려졌다.",
-        "애플은 그간 중국에서 팔리는 아이폰에 AI를 적용할 수 없었다."
+        "| 서울=한스경제 박정현 기자 | 애플이 중국 인공지능(AI) 기업 알리바바의 힘을 빌려 중국 시장 지키기에 나선다.",
+        "14일(현지시간) 로이터통신은 애플이 알리바바와 협력해 중국 시장 전용 인공지능(AI) 모델을 자체 개발했다고 보도했다.",
+        "애플은 알리바바의 지원을 받아 해당 모델을 학습한 것으로 전해졌다."
       ],
       "contentVerified": true
     },
     {
-      "title": "인공지능: AI가 미국 의회 선거에 점차 영향력을 확대하고 있다.",
-      "source": "Vietnam.vn",
-      "link": "https://www.vietnam.vn/ko/tri-tue-nhan-tao-ai-len-sau-vao-cuoc-dua-tranh-cu-quoc-hoi-my",
-      "publishedAt": "Sat, 15 Aug 2026 09:35:46 GMT",
+      "title": "일리노이, 대형 AI기업에 안전조치법 2027년 시행…재앙적 위험 72시간내 신고 의무화",
+      "source": "위키트리",
+      "link": "https://www.wikitree.co.kr/articles/1152695",
+      "publishedAt": "Sat, 15 Aug 2026 13:31:00 GMT",
       "date": "2026-08-15",
       "category": "policy",
       "bullets": [
-        "후보자들이 선거 운동에서 인공지능 관련 문제를 다루는 경향은 이 기술이 미국의 경제, 사회, 정책 생활에서 차지하는 중요성을 반영합니다.",
-        "인공지능(AI)은 미국 중간선거 운동에서 점점 더 중요한 화두로 떠오르고 있습니다.",
-        "워싱턴 포스트가 8월 14일 발표한 분석에 따르면, 올해 미국 중간 선거 에 출마한 선거 캠페인 웹사이트 중 거의 40%가 인공지능을 언급했습니다."
+        "일리노이주가 대형 인공지능(AI) 개발사를 정조준한 포괄적 안전 규제를 확정했다.",
+        "인공지능안전조치법(Artificial Intelligence Safety Measures Act)은 2026년 7월(현지시각) 서명돼 2027년 1월 1일부터 시행되며 일부 조항은 2028년부터 적용된다.",
+        "연매출 5억 달러(약 7,090억 원, 1달러=1,418원 기준)를 넘기면서 이른바 “프런티어 모델(frontier model)”을 개발하거나 사용하는 대형 AI 기업이 규제 대상이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "법률 문서를 검토하는 데 인공지능을 사용하는 것은 허용되지만, 인간의 결론을 대체해서는 안 됩니다.",
+      "source": "vietnam.vn",
+      "link": "https://www.vietnam.vn/ko/su-dung-ai-ra-soat-van-ban-phap-luat-nhung-khong-duoc-thay-con-nguoi-ket-luan",
+      "publishedAt": "Sat, 15 Aug 2026 12:09:17 GMT",
+      "date": "2026-08-15",
+      "category": "policy",
+      "bullets": [
+        "과학기술부는 중복되는 규정이나 법적 공백을 찾아내고 참고 자료를 확인하는 등 법률 문서 검토를 지원하기 위해 인공지능을 활용하는 방법에 대한 지침을 제공하지만, 최종 결론은 여전히 ​​사람이 내려야 합니다.",
+        "인공지능 (AI)은 방대한 양의 텍스트를 검색, 비교 및 ​​분석하여 상충되거나 중복되는 규정, 불충분한 규정 또는 법적 허점을 찾아내는 데 사용될 수 있습니다.",
+        "그러나 AI는 법적 구속력이 있는 결론을 자동으로 도출할 수는 없으며, 최종 결과에 대한 책임은 관련 당국에 있습니다."
       ],
       "contentVerified": true
     },
@@ -200,7 +214,7 @@
     },
     {
       "title": "허위영상물(딥페이크) 범죄, 경찰 인공지능(AI) 3중 대응으로 끝까지 쫓는다",
-      "source": "bbnnews.co.kr",
+      "source": "부패방지뉴스",
       "link": "https://www.bbnnews.co.kr/news/articleView.html?idxno=47829",
       "publishedAt": "Sat, 15 Aug 2026 06:12:29 GMT",
       "date": "2026-08-15",
@@ -211,29 +225,15 @@
         "개발 후 현재까지 총 1,636 건 활용되었으며, 특히 올해는 선거범죄 등 기타 수사 분야에서도 72 건 활용되는 등 그 영역을 넓혀가고 있다."
       ],
       "contentVerified": true
-    },
-    {
-      "title": "\"글 교정만 맡겨도 AI 낙인?\"…클로드 워터마크 논란에 앤트로픽이 내놓은 해명",
-      "source": "AI포스트",
-      "link": "https://www.aipostkorea.com/news/articleViewAmp.html?idxno=12385",
-      "publishedAt": "Sat, 15 Aug 2026 05:23:03 GMT",
-      "date": "2026-08-15",
-      "category": "policy",
-      "bullets": [
-        "유럽연합(EU)의 'EU AI법(EU AI Act)' 투명성 의무 규정을 준수하기 위한 조치로, 복사해서 붙여넣거나 일부 문장을 수정하더라도 워터마크가 유지되는 방식이다.",
-        "그러나 사람이 직접 쓴 글을 오탈자 교정만 맡겨도 AI 글로 오인될 수 있다는 논란이 일자, 앤트로픽은 \"워터마크는 텍스트를 처리했다는 표시일 뿐\"이라며 즉각 해명에 나섰다.",
-        "거대언어모델(LLM)은 한 번에 한 단어(토큰)씩 생성하며, 문맥상 들어갈 확률이 높은 여러 단어 후보 중 하나를 선택한다."
-      ],
-      "contentVerified": true
     }
   ],
   "weekly": [
     {
       "title": "[단독] “딥페이크 막았다는데 성착취물 1천건 생성”…범죄 도구된 AI",
-      "source": "KBS 뉴스",
+      "source": "news.kbs.co.kr",
       "link": "https://news.kbs.co.kr/news/view.do?ncd=8634367",
-      "publishedAt": "Tue, 11 Aug 2026 12:11:00 GMT",
-      "date": "2026-08-11",
+      "publishedAt": "Tue, 11 Aug 2026 22:51:00 GMT",
+      "date": "2026-08-12",
       "category": "genai",
       "bullets": [
         "현재 관심이 높아지고 있는 키워드 입니다.",
@@ -285,58 +285,128 @@
       "contentVerified": true
     },
     {
-      "title": "메타, AI·크리에이터·커머스 결합…아태지역 시장 공략한다",
-      "source": "연합뉴스",
-      "link": "https://www.yna.co.kr/view/AKR20260813162600017",
-      "publishedAt": "Thu, 13 Aug 2026 09:37:36 GMT",
+      "title": "[기획] 한선호 베스핀글로벌 CAIO “AI 시대 승부처는 구축 아닌 운영…'AI MSP'로 간다”",
+      "source": "전자신문",
+      "link": "https://www.etnews.com/20260813000017",
+      "publishedAt": "Wed, 12 Aug 2026 23:48:49 GMT",
       "date": "2026-08-13",
       "category": "biz",
       "bullets": [
-        "메타가 아시아태평양 지역을 겨냥해 인공지능 기반 마케팅 도구와 크리에이터 파트너십을 포괄하는 비즈니스 생태계 전략을 13일 발표했다.",
-        "메타는 이날 진행한 'APAC 비즈니스 업데이트'에서 소셜 플랫폼 중심의 아태지역 쇼핑 트렌드와 이를 지원하기 위한 비즈니스 설루션을 공개했다.",
-        "인공지능이 자동으로 줄인 '세 줄 요약' 기술을 사용합니다."
+        "“인공지능(AI) 기술이나 솔루션 도입 자체가 목적이 돼서는 안 됩니다.",
+        "한선호 베스455 핀글로벌 최고인공지능책임자(CAIO)는 최근 전자신문과 인터뷰에서 기업 인공지능 전환(AX909)의 한계를 이같이 설명했다.",
+        "그는 AI 시장의 경쟁축이 에이전트를 구축하는 것에서 실제 업무에 적용하고 지속적으로 운영해 성과를 만드는 방향으로 이동할 것으로 내다봤다."
       ],
       "contentVerified": true
     },
     {
-      "title": "AI 투자 기대에 반도체 강세…메모리 성장 전망 확대",
-      "source": "mstoday.co.kr",
-      "link": "https://www.mstoday.co.kr/news/articleView.html?idxno=102326",
-      "publishedAt": "Fri, 14 Aug 2026 00:44:56 GMT",
+      "title": "오킨스전자, 대만 지사 설립… \"글로벌 AI 반도체 공략 가속\" - 머니투데이",
+      "source": "머니투데이",
+      "link": "https://www.mt.co.kr/stock/2026/08/13/2026081307005873556",
+      "publishedAt": "Wed, 12 Aug 2026 23:00:00 GMT",
+      "date": "2026-08-13",
+      "category": "biz",
+      "bullets": [
+        "반도체 테스트 솔루션 전문 기업 오킨스전자(16,640원 ▲800 +5.05%)가 대만 지사를 설립하고 글로벌 반도체 시장 공략을 강화한다고 13일 밝혔다.",
+        "글로벌 고객 대응력을 높이고 메모리 시장을 넘어 인공지능(AI) 반도체 및 비메모리 시장 진출을 가속화하기 위한 전략적 거점 확보 차원이다.",
+        "대만은 글로벌 파운드리 기업 TSMC를 비롯해 반도체 설계 기업(팹리스), 외주 반도체 패키징 및 테스트(OSAT) 기업들이 밀집한 세계 최대 반도체 산업 클러스터로, 차세대 반도체 공급망의 핵심 지역이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "“인공지능 AI로 똑똑하게, 휴식은 아날로그 감성”…지금은 ‘이원적 관광’ 시대 [여행+]",
+      "source": "v.daum.net",
+      "link": "https://v.daum.net/v/tNIZz3nQje",
+      "publishedAt": "Wed, 12 Aug 2026 08:34:00 GMT",
+      "date": "2026-08-12",
+      "category": "biz",
+      "bullets": [
+        "자동요약 기사 제목과 주요 문장을 기반으로 자동요약한 결과입니다.",
+        "전체 맥락을 이해하기 위해서는 본문 보기를 권장합니다.",
+        "최근 국내외 여행 시장은 인공지능(AI)과 아날로그 감성이 융합하는 새로운 변화를 맞이하고 있다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "AI 반도체 ‘2030년 호황’ 자신감…샌디스크 14% 뛰었다",
+      "source": "조선일보",
+      "link": "https://www.chosun.com/economy/stock-finance/2026/08/14/FGNTML3WOVEPTGKCPHJ4J46NKE/",
+      "publishedAt": "Thu, 13 Aug 2026 23:21:05 GMT",
       "date": "2026-08-14",
       "category": "biz",
       "bullets": [
-        "[MS투데이] 인공지능(AI) 인프라 투자가 장기화할 것이라는 기대가 확산되면서 글로벌 반도체 업종에 다시 훈풍이 불고 있다.",
-        "메모리 업체들은 2030년까지 두 자릿수 성장을 전망했고, 반도체 장비 기업들도 대규모 연구개발(R&D) 투자와 장기 수요 확대를 예고하면서 AI 중심의 반도체 시장 성장세가 이어질 것이라는 기대를 키우고 있다.",
-        "13일(현지시간) 뉴욕증시에서 낸드플래시 업체 샌디스크는 장기 성장 전망을 발표한 이후 주가가 13% 넘게 급등했다."
+        "인공지능(AI) 투자 확대에 힘입어 미국 메모리와 반도체 장비 업체들이 잇따라 강한 성장 전망을 내놓고 있다.",
+        "13일(현지 시각) 뉴욕 증시에서 샌디스크는 2030년까지 두 자릿수 매출 성장을 자신하면서 주가가 14% 가까이 급등했고, 마이크론과 SK하이닉스의 미국 주식예탁증서(ADR)도 동반 상승했다.",
+        "메모리 제조업체인 샌디스크는 닷컴 버블 시대와 AI(인공지능) 투자 시대 모두에 걸쳐 높은 주가 상승률을 기록하고 있다."
       ],
       "contentVerified": true
     },
     {
-      "title": "AI가 신약 후보 찾고 실험실이 검증…대구서 '혁신연구거점' 출범",
-      "source": "한국방송뉴스",
-      "link": "https://www.ikbn.news/news/article.html?no=213533",
-      "publishedAt": "Wed, 12 Aug 2026 11:58:02 GMT",
+      "title": "외국 연계된 '여론 흔들기 댓글' 찾아낸다…KAIST, AI 기술 개발",
+      "source": "연합뉴스",
+      "link": "https://www.yna.co.kr/view/AKR20260812065900063",
+      "publishedAt": "Wed, 12 Aug 2026 01:58:22 GMT",
       "date": "2026-08-12",
       "category": "tech",
       "bullets": [
-        "정부가 인공지능(AI)이 신약 후보물질을 찾고 자동화 실험실이 이를 검증한 결과를 다시 AI가 학습하는 'K-문샷' 신약개발 연구체계 구축에 나선다.",
-        "첫 혁신연구거점은 대구에 마련해 AI 기반 신약개발의 새로운 모델을 본격 실증한다.",
-        "과학기술정보통신부는 12일 대구에서 개최한 '합성신약 분야 AIx바이오 혁신연구거점 조성 시범사업단 출범식'에 참석해 AI 기반 신약개발 혁신거점의 출범을 알리고 향후 사업 추진 방향을 공유했다고 전했다."
+        "연구팀은 이러한 결과가 외국 연계 영향력 활동을 단순히 '어느 정치 세력을 지지하는가'의 관점만으로 바라봐서는 안 된다는 점을 보여준다고 설명했다.",
+        "인공지능이 자동으로 줄인 '세 줄 요약' 기술을 사용합니다.",
+        "전체 내용을 이해하기 위해서는 기사 본문과 함께 읽어야 합니다."
       ],
       "contentVerified": true
     },
     {
-      "title": "[AI 규제] AI 챗봇이 써준 문서, 함부로 썼다간 ‚AI산‘ 표시 영원히 못 지운다",
-      "source": "녹색경제신문",
-      "link": "http://www.greened.kr/news/articleView.html?idxno=347534",
-      "publishedAt": "Thu, 13 Aug 2026 00:46:31 GMT",
+      "title": "AI 수술로봇 개발 현장 찾은 조달청장…첨단기술 현장 행보",
+      "source": "로봇신문",
+      "link": "https://www.irobotnews.com/news/articleView.html?idxno=47911",
+      "publishedAt": "Thu, 13 Aug 2026 08:15:32 GMT",
       "date": "2026-08-13",
+      "category": "tech",
+      "bullets": [
+        "조달청(청장 백승보)은 13일 대전 KAIST 문지캠퍼스에 위치한 로엔서지컬(대표 권동수)을 찾아, AI 기반 수술로봇의 제품 개발 현장을 살펴보고 혁신조달을 통한 첨단제품의 판로 및 성장 지원을 논의했다.",
+        "로엔서지컬은 AI 기술과 레이저를 이용해 신장 결석을 정밀하게 분쇄·제거하는 ‘신장결석 수술로봇(자메닉스)’으로 지난해 조달청 혁신제품 지정을 받고 현재 시범구매를 통해 국립중앙의료원에서 실증을 진행하고 있다.",
+        "혁신제품 시범구매는 조달청이 혁신제품을 선도적으로 구매해 공공기관에 제공하고 실제 사용 환경에서 성능을 검증하는 사업으로 혁신제품의 공공구매 확산에 마중물 역할을 하고 있다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "AI규제는 풀고 OTT는 발목 잡고…'영화 6개월 홀드백' 논란",
+      "source": "지디넷코리아",
+      "link": "https://zdnet.co.kr/view/?no=20260807232230",
+      "publishedAt": "Sat, 08 Aug 2026 23:00:34 GMT",
+      "date": "2026-08-09",
       "category": "policy",
       "bullets": [
-        "앞으로 클로드 AI 챗봇을 사용해 텍스트 문서를 작성하는 사용자는 AI로 작성했다는 흔적을 영원히 지울 수 없게 될 전망이어서, 분별 있는 활용이 필요할 것으로 보인다.",
-        "또, 클로드에서 생성한 콘텐츠를 AWS, 구글 클라우드, 마이크로소프트 파운드리를 거쳐 접근해도 워터마크 추적이 가능하다.",
-        "최신판 클로드 AI 챗봇의 워터마크 삽입제는 8월 2일부터 법적 효력을 갖게 된다."
+        "극장에서 막을 내린 영화가 OTT에서 보려면 6개월의 '공백'이 생길 수 있다.",
+        "제작사와 투자사가 영화를 더 빨리 OTT에 공급하고 싶어도 일정 기간 기다려야 한다.",
+        "국회에서 논의 중인 '홀드백' 의무화 법안이 시행될 경우 벌어질 수 있는 상황이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "세계 각국 AI 안경 규제하는데…늑장 부리면 ‘변태안경’ 천국 된다",
+      "source": "더스쿠프",
+      "link": "https://www.thescoop.co.kr/news/articleView.html?idxno=311202",
+      "publishedAt": "Mon, 10 Aug 2026 08:26:16 GMT",
+      "date": "2026-08-10",
+      "category": "policy",
+      "bullets": [
+        "기술이 발전하면 그에 걸맞은 제도적 방어책이 필요하다.",
+        "관련 피해를 막을 수 있는 방어수단을 만들고 정비하는 건 정부와 입법부의 책무다.",
+        "스마트 글라스가 범죄 수단으로 악용되는 사례가 늘고 있다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "[AI프리즘] AI 시대 윤리도 바뀐다…\"규제 아닌 혁신의 기반\"",
+      "source": "연합뉴스",
+      "link": "https://www.yna.co.kr/view/AKR20260814033200017",
+      "publishedAt": "Fri, 14 Aug 2026 01:22:53 GMT",
+      "date": "2026-08-14",
+      "category": "policy",
+      "bullets": [
+        "인공지능이 사회 전반의 핵심 인프라로 자리 잡고 에이전트형 AI와 피지컬 AI 등 신기술이 빠르게 확산하면서 AI 윤리의 역할도 새롭게 정립해야 한다는 목소리가 커지고 있다.",
+        "AI 윤리를 기술 발전을 제약하는 규범으로만 볼 것이 아니라 혁신을 뒷받침하면서 법·제도가 따라가지 못하는 기술 변화에 대응하는 실질적인 기준으로 활용해야 한다는 것이다.",
+        "인공지능이 자동으로 줄인 '세 줄 요약' 기술을 사용합니다."
       ],
       "contentVerified": true
     }
