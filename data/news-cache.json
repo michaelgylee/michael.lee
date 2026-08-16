@@ -1,7 +1,35 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-08-16T18:49:24Z",
+  "generated_at": "2026-08-16T21:37:15Z",
   "daily": [
+    {
+      "title": "누구나 정치 홍보 전문가가 된 시대…AI가 바꾼 한국 정치의 그늘",
+      "source": "주간경향",
+      "link": "https://weekly.khan.co.kr/article/202608170600101",
+      "publishedAt": "Sun, 16 Aug 2026 21:00:00 GMT",
+      "date": "2026-08-17",
+      "category": "genai",
+      "bullets": [
+        "더불어민주당 8·17 전국당원대회를 앞두고 후보 지지자 단체대화방에는 수백 장이 넘는 웹자보가 쏟아졌다.",
+        "그 가운데 정청래·김민석 후보 지지 진영의 메시지와 AI 활용 양상을 상징적으로 보여주는 두 장을 골랐다.",
+        "정청래 당대표 후보 지지자 단체대화방에 8월 16일 공유된 웹자보는 “BTS가 그래미를 거부했듯이 명픽 김민석과 최고위 후보들을 거부한다”고 주장한다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "[단독]서울시, '일하는 AI' 만든다…문서 요약·회의실 예약도 '척척'",
+      "source": "뉴스1",
+      "link": "https://www.news1.kr/amp/local/moi/6259436",
+      "publishedAt": "Sun, 16 Aug 2026 20:00:00 GMT",
+      "date": "2026-08-17",
+      "category": "genai",
+      "bullets": [
+        "서울시가 문서를 요약하고 회의실을 예약하는 등 공무원의 행정 업무를 직접 처리하는 인공지능(AI) 시스템 구축에 나선다.",
+        "지금까지는 AI가 질문에 답하거나 문서 작성을 돕는 수준이었다면, 앞으로는 공무원의 지시를 받아 필요한 자료를 찾고 실제 업무까지 처리하도록 하는 것이다.",
+        "반복 업무에 드는 시간을 줄여 민원 대응 등 다른 업무에 더 집중할 수 있도록 하겠다는 취지다."
+      ],
+      "contentVerified": true
+    },
     {
       "title": "AI 생성 코드, 서버와 격리해 실행… 클라우드 빅3 '샌드박스' 경쟁",
       "source": "한국클라우드신문",
@@ -31,30 +59,30 @@
       "contentVerified": true
     },
     {
-      "title": "대한항공, 생성형 AI·클라우드 기반 정비결함 분석 시스템 오픈",
-      "source": "디펜스투데이",
-      "link": "https://www.defensetoday.kr/news/articleView.html?idxno=10529",
-      "publishedAt": "Sun, 16 Aug 2026 11:15:29 GMT",
-      "date": "2026-08-16",
-      "category": "genai",
+      "title": "[인공지능 줌인] \"AI 일자리 대멸종은 없었다\"…예측과 다른 노동 시장의 실상",
+      "source": "위키리크스한국",
+      "link": "https://www.wikileaks-kr.org/news/articleView.html?idxno=190888",
+      "publishedAt": "Sun, 16 Aug 2026 21:10:00 GMT",
+      "date": "2026-08-17",
+      "category": "biz",
       "bullets": [
-        "[디펜스투데이] 대한항공은 최근 생성형 인공지능(AI)과 클라우드 기술을 활용한 정비결함 분석 시스템을 오픈했다고 8월 14일 밝혔다.",
-        "신규 시스템은 대한항공이 정비 현장의 의사결정을 지원하고 항공 정비 업무의 디지털 전환을 가속화하기 위해 구축됐다.",
-        "LG CNS와 아마존웹서비스(AWS, Amazon Web Services)가 협력해 약 6개월간 개발했으며, 생성형 AI를 활용해 정비 데이터를 보다 쉽고 빠르게 검색·분석할 수 있도록 했다."
+        "스탠퍼드 경제정책연구소(SIEPR)의 분석에서는 ChatGPT 출시 이후 AI 노출도가 높은 상위 20% 직종의 실업률 상승폭(0.77%p)은 오히려 노출도가 가장 낮은 직종(0.85%p)보다 소폭 낮았다.",
+        "가디언에 따르면 스탠퍼드대 에리카 맥엔타퍼 연구원은 \"과거 컴퓨터 혁명이 노동 시장을 완전히 바꾸는 데 수십 년이 걸렸듯, 현재 시장은 대대적인 파괴 대신 차분한 적응 과정을 거치고 있다\"고 평가했다.",
+        "다만 고용 시장 내부에서는 유의미한 변화가 포착된다."
       ],
       "contentVerified": true
     },
     {
-      "title": "AI가 화면 밖 현실로…서울 AI 허브, '피지컬 AI' 해커톤 개최",
-      "source": "인공지능신문",
-      "link": "https://www.aitimes.kr/news/articleView.html?idxno=41468",
-      "publishedAt": "Sun, 16 Aug 2026 06:16:27 GMT",
-      "date": "2026-08-16",
-      "category": "genai",
+      "title": "세계 최고의 10 기업 AI Apps Market 크기, 성장 및 동향",
+      "source": "Spherical Insights",
+      "link": "https://www.sphericalinsights.com/ko/blogs/world-s-top-10-companies-in-ai-apps-market-2025-industry-intelligence-report-by-spherical-insights-2026-2035",
+      "publishedAt": "Sun, 16 Aug 2026 19:43:43 GMT",
+      "date": "2026-08-17",
+      "category": "biz",
       "bullets": [
-        "오픈AI는 이번 행사의 공식 후원사로 참여한다.",
-        "스타트업 대표를 비롯해 개발자, 기획자, 디자이너 등 아이디어를 실제 제품으로 구현해보고 싶은 빌더라면 누구나 신청할 수 있으며, 신청자 가운데 100명을 선발한다.",
-        "이번 행사는 지난 6월 열린 'Cursor Hackathon Seoul vol.3'에 이어 서울 AI 허브가 AI 기업 및 기술·빌더 커뮤니티와 협력해 추진하는 해커톤이다."
+        "시장은 증가 사용에 의해 구동된다 인공 지능 사업에서, 자동화를 위한 수요, 유전적인 AI 소프트웨어의 사용법은, 증가된 생산력 및 개인화한 결정을 위한 구름 계산의 증가된 채택, 및 필요조건의 수에, 증가합니다.",
+        "AI 응용 프로그램은 기계 학습, 자연 언어 처리, 컴퓨터 비전, 유전 AI 및 인간 지능을 요구하는 작업에 대한 예측 분석을위한 소프트웨어 응용 프로그램으로 설명 할 수 있습니다.",
+        "AI 신청은 건강 관리 기업 금융 서비스, 소매, 교육, 오락, 소비자 봉사, cybersecurity 및 기업 생산력과 같은 다른 기업에서 이용되었습니다."
       ],
       "contentVerified": true
     },
@@ -75,7 +103,7 @@
     {
       "title": "[인천, 삶과 산업을 함께 키우다①] 인공지능·바이오·콘텐츠·에너지, 인천의 새 성장판",
       "source": "24news.kr",
-      "link": "https://www.24news.kr/news/articleView.html?idxno=305534",
+      "link": "https://www.24news.kr/news/articleViewAmp.html?idxno=305534",
       "publishedAt": "Sun, 16 Aug 2026 14:47:39 GMT",
       "date": "2026-08-16",
       "category": "biz",
@@ -87,30 +115,30 @@
       "contentVerified": true
     },
     {
-      "title": "AI 기업 '그림자 부채' 700억달러…채권시장 뇌관되나",
-      "source": "한국경제",
-      "link": "https://www.hankyung.com/article/2026081642021",
-      "publishedAt": "Sun, 16 Aug 2026 09:07:16 GMT",
+      "title": "몬드리안에이아이, 해군 함정 ‘AI 일지 자동작성’ 사업 수주… ‘스마트 해군’ 만든다",
+      "source": "koreasprint.com",
+      "link": "https://www.koreasprint.com/news/articleView.html?idxno=17399",
+      "publishedAt": "Sun, 16 Aug 2026 14:35:00 GMT",
       "date": "2026-08-16",
-      "category": "biz",
+      "category": "tech",
       "bullets": [
-        "Google 검색에서 한국경제 기사를 더 자주 볼 수 있습니다.",
-        "인공지능(AI) 인프라 투자를 지원하기 위해 브로드컴, 메타 등이 제공한 ‘잔존가치 보증’ 규모가 700억달러(약 99조3000억원)에 이르는 것으로 집계됐다.",
-        "재무제표상 부채로 잡히지 않지만 AI 업황이 꺾이면 우발채무로 대거 전환될 수 있어 채권시장의 새로운 위험 요인으로 지목된다."
+        "이번 과제는 네비웍스가 주관기관으로 전체 시스템 설계와 폐쇄망 통합 플랫폼 구축을 맡고, 한국해양대학교가 공동연구기관으로 참여하며, 몬드리안에이아이가 핵심 기술 개발을 전담하는 형태로 진행된다.",
+        "그동안 해군 함정 내 30여 종의 일지는 승조원들이 직접 수기로 작성해 왔다.",
+        "그러나 병력 절감형 함정이 도입되면서 승조원 규모가 기존 대비 60~70% 수준으로 줄어들어 제한된 인원이 동일한 행정 업무를 처리해야 하는 부담이 커졌다."
       ],
       "contentVerified": true
     },
     {
-      "title": "세계로 뻗는 대구 AI기업들…‘버티컬 AI’ 앞세워 글로벌 시장 노크",
-      "source": "v.daum.net",
-      "link": "https://v.daum.net/v/20260816135016208?t=m&x_mn=6a81b4dda2e9ff7ce622c41a",
-      "publishedAt": "Sun, 16 Aug 2026 04:50:16 GMT",
+      "title": "보라매병원 교수 연구팀, CT서 놓치기 쉬운 골전이 찾는 AI 개발…“판독 안전망 기대”",
+      "source": "더퍼스트미디어",
+      "link": "https://www.thefirstmedia.net/news/articleView.html?idxno=206196",
+      "publishedAt": "Sun, 16 Aug 2026 09:47:23 GMT",
       "date": "2026-08-16",
-      "category": "biz",
+      "category": "tech",
       "bullets": [
-        "자동요약 기사 제목과 주요 문장을 기반으로 자동요약한 결과입니다.",
-        "전체 맥락을 이해하기 위해서는 본문 보기를 권장합니다.",
-        "대구 인공지능(AI) 기업들이 차별화한 기술력을 앞세워 글로벌 시장에서 두각을 나타내고 있다."
+        "서울특별시보라매병원 연구팀이 CT 영상에서 뚜렷하게 확인하기 어려운 골전이까지 탐지할 수 있는 인공지능(AI) 모델을 개발했다.",
+        "골전이는 암의 병기와 치료 방향을 결정하는 데 중요한 요소지만 CT에서 변화가 뚜렷하지 않은 경우 발견이 쉽지 않다.",
+        "진단이 늦어지면 병적 골절이나 척수 압박 등 합병증으로 이어질 수 있다."
       ],
       "contentVerified": true
     },
@@ -130,7 +158,7 @@
     },
     {
       "title": "정부 AX 드라이브…산업계, AI 데이터 확보전",
-      "source": "zdnet.co.kr",
+      "source": "지디넷코리아",
       "link": "https://zdnet.co.kr/view/?no=20260816133600",
       "publishedAt": "Sun, 16 Aug 2026 06:09:31 GMT",
       "date": "2026-08-16",
@@ -139,34 +167,6 @@
         "미국과 중국의 기술 패권 경쟁이 심화하는 가운데 정부가 인공지능(AI) 국가 경쟁력과 기술 주권 확보에 나섰다.",
         "AI 모델 경쟁력을 높이려면 이를 학습시킬 양질의 데이터가 뒷받침돼야 한다는 인식이 확산하면서 분야별 데이터 인프라를 구축하려는 움직임도 빨라지고 있다.",
         "16일 업계에 따르면 정부는 지난 6월 반도체, 로봇·피지컬 AI, AI 데이터 센터를 3대 축으로 삼는 '대한민국 대도약 3대 메가 프로젝트'를 발표했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "로봇·AI 개발하는 디즈니... ‘마법’을 현실로 만드는 기술들",
-      "source": "조선일보",
-      "link": "https://www.chosun.com/economy/tech_it/2026/08/16/2UBCCA3JGFC4TLVRGQOOHH6V24/",
-      "publishedAt": "Sun, 16 Aug 2026 05:45:36 GMT",
-      "date": "2026-08-16",
-      "category": "tech",
-      "bullets": [
-        "월트디즈니(디즈니) 애니메이션 ‘겨울왕국’의 눈사람 캐릭터 올라프가 뒤뚱뒤뚱 무대 위로 걸어 나왔다.",
-        "진행자가 “올라프, 왼쪽에 있는 사람들에게 인사해줘”라고 하자 고개를 돌린 뒤 무대 왼편으로 걸어가 관객들에게 인사를 건넸다.",
-        "“노래 한 곡 해달라”고 하자 노래를 불렀고, “이제 들어갈 시간이야”라는 말에는 아쉬운 표정을 짓고 한숨을 쉬며 작별 인사를 했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "AI기술 확산 빠른데…“AI윤리 역할도 새로 정립해야”",
-      "source": "itbiznews.com",
-      "link": "https://www.itbiznews.com/news/articleView.html?idxno=221986",
-      "publishedAt": "Sun, 16 Aug 2026 05:00:00 GMT",
-      "date": "2026-08-16",
-      "category": "tech",
-      "bullets": [
-        "인공지능(AI) 기술이 빠르게 도입되면서 이에 대한 윤리(AI윤리)의 역할도 새로 정립돼야 한다는 주장이 제기됐다.",
-        "과학기술정보통신부와 정보통신정책연구원(KISDI)은 14일 서울 프레지던트호텔에서 산업계와 시민단체, 학계 전문가, 일반 시민 등 70여명이 참석한 가운데 ‘대한민국 인공지능(AI) 윤리 원칙’ 대토론회를 개최했다.",
-        "이날 토론회는 ‘모두를 위한 AI, 함께 만들어가는 인공지능 윤리원칙’을 주제로 현재 마련 중인 인공지능 윤리원칙(안)의 주요 쟁점을 일반 시민과 다양한 이해관계자가 함께 논의하기 위해 마련됐다."
       ],
       "contentVerified": true
     },
@@ -186,7 +186,7 @@
     },
     {
       "title": "“이 글, 인공지능이 썼을까?”…이제 알 수 있다, 앤트로픽 'AI 텍스트'에 워터마크 심는다",
-      "source": "인공지능신문",
+      "source": "aitimes.kr",
       "link": "https://www.aitimes.kr/news/articleView.html?idxno=41471",
       "publishedAt": "Sun, 16 Aug 2026 08:39:54 GMT",
       "date": "2026-08-16",
@@ -216,7 +216,7 @@
       "title": "AI: 중고책 판매가 급증하고 있다...인공지능 때문일까?",
       "source": "BBC",
       "link": "https://www.bbc.com/korean/articles/cn4nn3k8dxdo",
-      "publishedAt": "Sun, 16 Aug 2026 06:02:49 GMT",
+      "publishedAt": "Sun, 16 Aug 2026 06:05:28 GMT",
       "date": "2026-08-16",
       "category": "policy",
       "bullets": [
@@ -257,6 +257,20 @@
       "contentVerified": true
     },
     {
+      "title": "충남개발공사, 생성형 AI 업무혁신 속도…보안·데이터 역량도 강화",
+      "source": "브릿지경제",
+      "link": "https://www.viva100.com/article/20260816500097",
+      "publishedAt": "Sun, 16 Aug 2026 04:51:00 GMT",
+      "date": "2026-08-16",
+      "category": "genai",
+      "bullets": [
+        "충남개발공사가 생성형 인공지능(AI)을 공공업무에 활용하기 위한 직원 역량 강화에 나섰다.",
+        "AI 기술의 업무 적용뿐 아니라 개인정보보호와 공공데이터 활용, 정보보안까지 함께 점검해 디지털 기반의 행정 혁신 기반을 마련한다는 구상이다.",
+        "충남개발공사는 지난 12일 개인정보보호 실무협의회와 공공데이터·데이터기반행정 실무협의회를 개최하고 생성형 AI 활용과 보안을 주제로 전문가 특강을 진행했다고 밝혔다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "세종대, 생성형 AI 실무 교육 운영…청년 AI 활용 역량 높인다",
       "source": "전자신문",
       "link": "https://www.etnews.com/20260814000258",
@@ -271,72 +285,30 @@
       "contentVerified": true
     },
     {
-      "title": "대전 청년은 생성형 AI 무료…청년공간 10곳 AX 전환",
-      "source": "서울신문",
-      "link": "https://www.seoul.co.kr/news/society/2026/08/14/20260814500152",
-      "publishedAt": "Fri, 14 Aug 2026 05:27:30 GMT",
-      "date": "2026-08-14",
-      "category": "genai",
-      "bullets": [
-        "대전시가 전국 처음으로 청년공간 10곳에 생성형 AI 무료 이용 체계를 도입해 AX 전환을 추진했다.",
-        "청년들은 WiFi 환경에서 챗지피티, 제미나이, 클로드 등을 비용 없이 쓸 수 있고, 한도 초과 시 경량 모델로 이어서 이용할 수 있다.",
-        "시는 통합 API 종량제로 예산을 줄이고, 이용 데이터를 정책 개선에 활용할 계획이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "\"한국이 아시아 진출 교두보\"···한국 공략 속도 내는 글로벌 AI 기업들 |",
-      "source": "시사저널e",
-      "link": "https://www.sisajournal-e.com/news/articleViewAmp.html?idxno=423107",
-      "publishedAt": "Sun, 16 Aug 2026 02:30:07 GMT",
+      "title": "세계로 뻗는 대구 AI기업들…‘버티컬 AI’ 앞세워 글로벌 시장 노크",
+      "source": "영남일보",
+      "link": "https://www.yeongnam.com/web/view.php?key=20260816020021936",
+      "publishedAt": "Sun, 16 Aug 2026 04:49:58 GMT",
       "date": "2026-08-16",
       "category": "biz",
       "bullets": [
-        "글로벌 인공지능(AI) 기업들이 한국 진출에 속도를 내는 모습이다.",
-        "국내 법인과 지사를 세우는 데 그치지 않고 고객사 현장에 기술 인력을 투입해 AI를 실제 업무에 적용하고, 국내 기업과 산업별 서비스를 공동 개발하는 등 활동 범위를 넓히고 있다.",
-        "제조·금융·통신 등 AI 수요가 큰 국내 산업에서 성과를 입증한 뒤 이를 아시아·태평양(APAC) 시장으로 확산하려는 전략으로 풀이된다."
+        "대구 인공지능(AI) 기업들이 차별화한 기술력을 앞세워 글로벌 시장에서 두각을 나타내고 있다.",
+        "거대언어모델(LLM) 등 범용 모델 경쟁보다는 제조·의료·안전 등 특정 산업에 AI를 접목한 '버티컬 AI'가 이들의 승부수다.",
+        "지역 주력산업에 AI를 얹는 대구시의 'AI 대전환(AX)' 전략 성과가 가시화하고 있다는 평가다."
       ],
       "contentVerified": true
     },
     {
-      "title": "'세계 1위'로 입증한 토종 '비전 AI' 경쟁력…피지컬 AI 시장 공략",
-      "source": "unicornfactory.co.kr",
-      "link": "https://www.unicornfactory.co.kr/article/2026080413044526123",
-      "publishedAt": "Fri, 14 Aug 2026 20:00:00 GMT",
+      "title": "현대차, 직원 80%가 AI 쓴다···AX 넘어 ‘피지컬 AI’ 체질전환",
+      "source": "시사저널e",
+      "link": "https://www.sisajournal-e.com/news/articleView.html?idxno=423069",
+      "publishedAt": "Sat, 15 Aug 2026 01:26:00 GMT",
       "date": "2026-08-15",
-      "category": "biz",
-      "bullets": [
-        "\"고객사 중에는 대기업이 아닌 곳도 많아 최고급 사양의 GPU(그래픽처리장치)를 활용하기 어려운 경우가 있습니다.",
-        "여기에 최고 성능의 AI(인공지능) 모델까지 탑재하면 원활하게 구동되지 않고, AI 도입을 위해 추가 예산을 투입하기도 쉽지 않습니다.",
-        "그래서 가볍고 빠르게 작동하는 모델이 필요하다고 판단했습니다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "현대자동차그룹 AX - 제조 특화 AI 에이전트｜임용택 책임매니저 | 영상미디어 | 현대자동차그룹",
-      "source": "Hyundai Motor Group",
-      "link": "https://www.hyundaimotorgroup.com/ko/tv/hyundai-motor-group-ax-manufacturing-ai-agent",
-      "publishedAt": "Wed, 12 Aug 2026 02:48:12 GMT",
-      "date": "2026-08-12",
       "category": "tech",
       "bullets": [
-        "현장의 노하우를 AI 에이전트로 구현한 ‘E-FOREST: POLARIS’를 구축했습니다.",
-        "🔊과학커뮤니케이터 이독실, 여도은 앵커,그리고 카이스트 김대식 교수와 함께했습니다.",
-        "[[동영상] 현대차그룹 신기술 브랜드 음원 '정련(精鍊, Temper)' 전자음악가 ‘키라라(KIRARA)’가 현대차그룹의 신기술을 음악으로 만들었습니다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "AI윤리원칙 두고 “사전규제vs완충제”…업계·정부 미묘한 시각차",
-      "source": "디지털데일리",
-      "link": "https://m.ddaily.co.kr/page/view/2026081411354358021",
-      "publishedAt": "Fri, 14 Aug 2026 04:03:19 GMT",
-      "date": "2026-08-14",
-      "category": "policy",
-      "bullets": [
-        "정부가 새롭게 마련하는 ‘대한민국 인공지능(AI) 윤리 원칙’을 두고 정부와 산업계가 미묘한 시각차를 보이고 있다.",
-        "산업계 일각에서는 이미 AI 기본법이 시행된 상황에서 별도 국가 윤리 원칙까지 마련되면서 향후 규제를 위한 사전 단계로 작용할 가능성을 경계하고 있다.",
-        "반면 정부는 오히려 자율규범을 통해 추가적인 법적 규제 필요성을 줄이는 ‘완충지대’로 활용하겠다는 입장이다."
+        "현대자동차그룹이 전사적인 인공지능 전환(AX)에 속도를 내고 있다.",
+        "단순히 차량에 인공지능(AI) 기술을 적용하는 수준을 넘어 연구개발부터 생산, 정비, 고객 서비스까지 회사 전반의 업무 체계를 AI 중심으로 바꾸겠다는 전략이다.",
+        "특히 현대차그룹은 일반 직원까지 AI를 활용해 직접 업무 도구를 만드는 단계로 활용 범위를 넓히고 있다."
       ],
       "contentVerified": true
     }
