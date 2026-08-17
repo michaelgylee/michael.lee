@@ -1,10 +1,38 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-08-17T13:10:02Z",
+  "generated_at": "2026-08-17T15:43:29Z",
   "daily": [
     {
+      "title": "항공기 정비·결함도 AI가 알아서 척척 해결한다?",
+      "source": "여행신문",
+      "link": "https://www.traveltimes.co.kr/news/articleView.html?idxno=500226",
+      "publishedAt": "Mon, 17 Aug 2026 15:10:00 GMT",
+      "date": "2026-08-18",
+      "category": "genai",
+      "bullets": [
+        "대한항공이 생성형 인공지능(AI)과 클라우드 기술을 현장 정비 업무에 본격 접목하며 항공 안전 관리의 디지털 전환(DX)을 고도화하고 있다.",
+        "대한항공은 사내에 분산되어 있던 정비 데이터를 하나로 통합하고 생성형 AI 기반의 자연어 검색 및 분석이 가능한 '정비결함 분석 시스템'을 공식 가동했다고 14일 밝혔다.",
+        "LG CNS 및 아마존웹서비스(AWS)와 협력해 구축한 이번 시스템은 정비사가 결함 상황을 자연어로 입력하면 AI가 문맥을 파악해 유사 정비 이력과 해결 사례를 실시간으로 제시하는 구조다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "강남구, AI로 지방세 환급 속도 높였다…처리기간 5일→2일",
+      "source": "강남포스트",
+      "link": "http://www.ignnews.kr/news/articleView.html?idxno=15802",
+      "publishedAt": "Mon, 17 Aug 2026 14:07:56 GMT",
+      "date": "2026-08-17",
+      "category": "genai",
+      "bullets": [
+        "강남구(구청장 김현기)는 직원이 생성형 AI를 활용해 자체 개발한 ‘명의일치율검증시스템’을 개인지방소득세 대량 환급 업무에 적용해 행정처리 기간을 평균 5일에서 2일로 단축했다.",
+        "종합소득분 개인지방소득세는 개인이 한 해 동안 얻은 사업·근로·이자·배당 등의 소득을 합산해 납부하는 종합소득세와 함께 신고·납부하는 지방세다.",
+        "프리랜서나 강사 등이 보수를 받을 때 미리 납부한 세금이 이듬해 5월 최종 산정된 세액보다 많을 경우 지자체가 차액을 환급한다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "의왕도시공사 생성형 AI 활용 확산에 맞춰 개인정보 보호 교육",
-      "source": "ajunews.com",
+      "source": "아주경제",
       "link": "https://www.ajunews.com/view/20260817214703128",
       "publishedAt": "Mon, 17 Aug 2026 12:54:37 GMT",
       "date": "2026-08-17",
@@ -31,34 +59,6 @@
       "contentVerified": true
     },
     {
-      "title": "[제천소식] 생성형 AI 오디오북 제작 미디어교육 성황리 마무리 외",
-      "source": "이뉴스투데이",
-      "link": "http://www.enewstoday.co.kr/news/articleViewAmp.html?idxno=2459937",
-      "publishedAt": "Mon, 17 Aug 2026 09:14:08 GMT",
-      "date": "2026-08-17",
-      "category": "genai",
-      "bullets": [
-        "제천문화관광재단이 인공지능 기술을 활용한 미디어교육을 성공적으로 마친 가운데, 무더위 속 자활근로자 격려 행사를 개최하고 실버세대 전문 인력 양성을 위한 자격과정 수강생을 모집한다.",
-        "제천문화관광재단은 제천영상미디어센터 ‘봄’에서 센터 미디어교육 4차 과정인 ‘구자형 성우와 함께하는 인공지능 오디오북 제작’ 과정을 성공적으로 마쳤다.",
-        "재단은 앞으로도 시민들이 변화하는 미디어 환경에 맞춰 새로운 기술을 경험하고 창작 역량을 키울 수 있도록 지원할 방침이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "광양제철소, 생성형 AI로 현장 혁신…직원 아이디어 57건 '경쟁'",
-      "source": "노컷뉴스",
-      "link": "https://www.nocutnews.co.kr/news/6563799",
-      "publishedAt": "Mon, 17 Aug 2026 08:43:00 GMT",
-      "date": "2026-08-17",
-      "category": "genai",
-      "bullets": [
-        "광양제철소가 생성형 인공지능(AI)을 활용한 현장 업무 혁신에 나서고 있다.",
-        "광양제철소는 직원들을 대상으로 진행한 '생성형 AI 경진대회' 결과를 발표했다고 17일 밝혔다.",
-        "이번 대회에는 직원들이 현장 업무를 AI 기반 에이전트 시스템으로 구현한 기술 57건이 출품됐으며, 완성도와 창의성, 기대효과 등을 종합해 우수사례를 선정했다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "[인공지능 줌인] \"AI 일자리 대멸종은 없었다\"…예측과 다른 노동 시장의 실상",
       "source": "위키리크스한국",
       "link": "https://www.wikileaks-kr.org/news/articleView.html?idxno=190888",
@@ -73,8 +73,22 @@
       "contentVerified": true
     },
     {
+      "title": "핑거모션, 라이켄 AI 컴퓨팅 지분 9.9% 인수 완료…기업용 AI 컴퓨팅 시장 진출",
+      "source": "datatooza.com",
+      "link": "https://www.datatooza.com/article/202608172317076996cd1e78c2e1_80",
+      "publishedAt": "Mon, 17 Aug 2026 14:17:07 GMT",
+      "date": "2026-08-17",
+      "category": "biz",
+      "bullets": [
+        "핑거모션은 알셋 AI 벤처스(Alset AI Ventures Inc., 이하 알셋 AI)로부터 라이켄 지분 9.9%를 인수하는 거래를 종결했다고 17일(현지시간) 발표했다.",
+        "이번 거래는 지난 8월 13일 처음 발표됐으며, 토론토 벤처거래소(TSX Venture Exchange)의 승인을 거쳐 최종 완료됐다.",
+        "계약 조건에 따라 핑거모션은 라이켄의 발행 및 유통 보통주 중 9.9%에 해당하는 보통주 9만 9,000주를 인수했다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "안양시노사민정협의회, ‘인공지능(AI) 전환과 노동권 포럼’ 개최",
-      "source": "경기경제신문",
+      "source": "ggeco.co.kr",
       "link": "https://www.ggeco.co.kr/news/article.html?no=347218",
       "publishedAt": "Mon, 17 Aug 2026 11:49:44 GMT",
       "date": "2026-08-17",
@@ -101,16 +115,30 @@
       "contentVerified": true
     },
     {
-      "title": "K-AI 성공의 열쇠 '시장'… 수요 이끌어낼 정책 세워야",
-      "source": "v.daum.net",
-      "link": "https://v.daum.net/v/20260817180710131",
-      "publishedAt": "Mon, 17 Aug 2026 09:07:10 GMT",
+      "title": "삼성전자, 러닝·데이터 전문가 영입…반도체 AI 전환 '가속화' : 네이버 블로그",
+      "source": "Naver Blog",
+      "link": "https://blog.naver.com/PostView.naver?blogId=dealsite&logNo=224381294721&redirect=Dlog",
+      "publishedAt": "Mon, 17 Aug 2026 14:47:54 GMT",
       "date": "2026-08-17",
-      "category": "biz",
+      "category": "tech",
       "bullets": [
-        "배경훈 부총리 겸 과학기술정보통신부 장관(가운데)과 참석자들이 지난 3일 국립광주과학관에서 열린 '모두의 AI 성장사다리 프로젝트' 출범식 세리머니를 하고 있다.",
-        "정부가 인공지능(AI) 모델 개발-AI데이터센터(AIDC) 등 인프라 구축으로 이어지는 정책 큰 그림을 구체화하면서, 글로벌 인공지능 3강 달성을 위한 청사진이 완성도를 높여가고 있다.",
-        "그러나 국내 AI 정책이 개발과 공급에 초점을 맞추고 있어, 정작 지속적인 AI 수요 창줄을 위한 시장확보 정책은 부족하다는 지적이 잇따라 제기되고 있다."
+        "변경 전 공유된 블로그/글/클립 링크는 연결이 끊길 수 있습니다.",
+        "삼성전자가 인공지능(AI) 전문가 2명을 임원으로 영입했습니다.",
+        "반도체 공정부터 설계 등 핵심 업무 전반에 AI 적용을 확대하기 위해서입니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "1억개 댓글 속 '해외 공작' 찾아낸 AI…판단 근거까지 보여줬다",
+      "source": "citytimes.co.kr",
+      "link": "https://www.citytimes.co.kr/news/articleViewAmp.html?idxno=90171",
+      "publishedAt": "Mon, 17 Aug 2026 12:44:03 GMT",
+      "date": "2026-08-17",
+      "category": "tech",
+      "bullets": [
+        "온라인 여론에 영향을 미치려는 외국 연계 의심 계정을 인공지능(AI)이 찾아내고, '왜 의심스러운지' 판단 근거까지 사람이 확인할 수 있는 기술이 개발됐다.",
+        "전문가가 AI의 판단 근거를 직접 확인한 뒤 최종 판단할 수 있어 선거나 국가적 위기 상황에서 온라인 여론 모니터링 등에 활용할 수 있다는 게 연구진의 설명이다.",
+        "의심 계정들은 외국을 직접 찬양하기보다 한국과 국내 정치인을 비난하는 메시지를 훨씬 많이 작성하는 특징을 보였다."
       ],
       "contentVerified": true
     },
@@ -129,20 +157,6 @@
       "contentVerified": true
     },
     {
-      "title": "AI 야구 에이전트 [AI 웹툰 '지구인이 AI를 쓰는 가장 완벽한 방법' 36화]",
-      "source": "AI포스트",
-      "link": "https://www.aipostkorea.com/news/articleView.html?idxno=12398",
-      "publishedAt": "Mon, 17 Aug 2026 10:41:09 GMT",
-      "date": "2026-08-17",
-      "category": "tech",
-      "bullets": [
-        "※ 본 작품은 문화체육관광부 한국콘텐츠진흥원의 '2025 인공지능 콘텐츠 제작지원작'으로 선정된 (주)디오비스튜디오의 AI 웹툰으로, AI포스트와의 협력 하에 본 지면에 연재됩니다.",
-        "'금옥씨 보호모드!'는 매주 수요일, '딸의 방'은 매주 금요일, '지구인이 AI를 쓰는 가장 완벽한 방법'은 매주 월요일에 AI포스트(AIPOST) 플랫폼을 통해 연재됩니다.",
-        "(주)디오비스튜디오는 AI 기술로 세상에 가치를 더하는 AI 콘텐츠 전문 기업으로, AI 이미지/영상 스타일링 서비스 devit.ai 와 LiveStyler 등 다양한 AI 서비스를 제공하고 있습니다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "日혼다, 차량 안전설계에 AI 도입…개발기간 40% 단축 목표",
       "source": "연합뉴스",
       "link": "https://www.yna.co.kr/view/AKR20260817061700073",
@@ -153,20 +167,6 @@
         "일본 혼다가 자동차 안전 기술 개발에 인공지능을 활용해 개발 기간을 40% 단축한다는 목표를 세웠다고 니혼게이자이신문이 17일 보도했다.",
         "AI를 활용하면 개발 기간을 단축하고 차량 성능은 높일 수 있을 것으로 기대된다고 닛케이는 전했다.",
         "이는 신차 개발 속도에서 앞서가는 중국 자동차 업체들에 대응하기 위한 조처로 풀이됐다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "삼성전자, 러닝·데이터 전문가 영입…반도체 AI 전환 '가속화' : 네이버 블로그",
-      "source": "Naver Blog",
-      "link": "https://blog.naver.com/PostView.naver?blogId=dealsite&logNo=224381294721&redirect=Dlog",
-      "publishedAt": "Mon, 17 Aug 2026 08:47:54 GMT",
-      "date": "2026-08-17",
-      "category": "tech",
-      "bullets": [
-        "변경 전 공유된 블로그/글/클립 링크는 연결이 끊길 수 있습니다.",
-        "삼성전자가 인공지능(AI) 전문가 2명을 임원으로 영입했습니다.",
-        "반도체 공정부터 설계 등 핵심 업무 전반에 AI 적용을 확대하기 위해서입니다."
       ],
       "contentVerified": true
     },
@@ -185,20 +185,6 @@
       "contentVerified": true
     },
     {
-      "title": "AI 범죄는 진화, 법은 제자리…처벌·삭제·수사 'AI 안전망' 갖춰야",
-      "source": "v.daum.net",
-      "link": "https://v.daum.net/v/20260817070205973",
-      "publishedAt": "Sun, 16 Aug 2026 22:02:05 GMT",
-      "date": "2026-08-17",
-      "category": "policy",
-      "bullets": [
-        "자동요약 기사 제목과 주요 문장을 기반으로 자동요약한 결과입니다.",
-        "전체 맥락을 이해하기 위해서는 본문 보기를 권장합니다.",
-        "인공지능(AI)은 우리의 일상을 바꾸는 것 뿐만 아니라, 범죄의 수법과 수사 방식까지 근본적으로 변화시키고 있다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "\"美 독점보다 통제력 높다\"… EU 경계에도 中 AI 모델, 유럽 시장서 영토 확장",
       "source": "글로벌이코노믹",
       "link": "https://www.g-enews.com/article/Global-Biz/2026/08/2026081616381363770c8c1c064d_1",
@@ -209,6 +195,20 @@
         "미국 빅테크의 폐쇄형 독점 클라우드에 의존하는 대신, 소스코드가 공개된 중국산 모델을 유럽 내 자체 인프라에 직접 설치해 운영하는 것이 데이터 통제권 확보에 오히려 유리하다는 판단이 확산된 결과다.",
         "Little)의 볼커 피르싱(Volker Pfirsching) 파트너는 인터뷰를 통해 유럽 기업들이 중국산 오픈 가중치 모델을 로컬 서버에서 직접 운영하며 운영 주권을 강화하고 있다고 밝혔다.",
         "피르싱 파트너는 기술 주권의 개념을 단순히 기술 공급자의 국적으로만 한정해서는 안 된다고 강조했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "국가 AI 인재양성 핵심사업 대거 유치… 한양대, AI 선도대학으로 비상",
+      "source": "조선일보",
+      "link": "https://www.chosun.com/special/special_section/2026/08/18/QXULIQEKYRF6JGFXFFTULATQJE/",
+      "publishedAt": "Mon, 17 Aug 2026 15:35:29 GMT",
+      "date": "2026-08-18",
+      "category": "policy",
+      "bullets": [
+        "한양대학교가 AI 인재의 성장 전 과정을 하나로 잇는 인재 양성 체계를 구축했다.",
+        "서울·ERICA 양 캠퍼스에서 추진하는 주요 AI 인재 양성 사업은 24건으로, 연간 사업 규모는 약 389억원에 달한다.",
+        "교육부·과학기술정보통신부·산업통상부가 추진하는 핵심 사업 기반으로 대학 교육과 고급 연구, 산업 현장을 연결하고 있다."
       ],
       "contentVerified": true
     },
@@ -257,30 +257,30 @@
       "contentVerified": true
     },
     {
-      "title": "청년공간 가면 챗GPT 무료···대전시, 10곳 'AI 거점' 전환",
-      "source": "헬로디디",
-      "link": "https://www.hellodd.com/news/articleView.html?idxno=112826",
-      "publishedAt": "Fri, 14 Aug 2026 07:50:00 GMT",
-      "date": "2026-08-14",
+      "title": "충남개발공사, 생성형 AI 업무혁신 속도…보안·데이터 역량도 강화",
+      "source": "viva100.com",
+      "link": "https://www.viva100.com/article/20260816500097",
+      "publishedAt": "Sun, 16 Aug 2026 04:51:00 GMT",
+      "date": "2026-08-16",
       "category": "genai",
       "bullets": [
-        "대전지역 청년공간 10곳에서 챗GPT와 제미나이, 클로드 등 생성형 인공지능(AI)을 무료로 이용할 수 있게 됐다.",
-        "대전시는 청년공간을 AI 활용 거점으로 바꾸고, 이용 데이터를 향후 청년정책 개선에도 활용할 계획이다.",
-        "시범운영 대상은 시가 운영하는 △청춘두두두△청춘너나들이△청춘나들목△동구동락△청년벙커△청춘스럽△청춘정거장△청춘포털△청년모아△유성구청년지원센터 등 모두 10곳이다."
+        "충남개발공사가 생성형 인공지능(AI)을 공공업무에 활용하기 위한 직원 역량 강화에 나섰다.",
+        "AI 기술의 업무 적용뿐 아니라 개인정보보호와 공공데이터 활용, 정보보안까지 함께 점검해 디지털 기반의 행정 혁신 기반을 마련한다는 구상이다.",
+        "충남개발공사는 지난 12일 개인정보보호 실무협의회와 공공데이터·데이터기반행정 실무협의회를 개최하고 생성형 AI 활용과 보안을 주제로 전문가 특강을 진행했다고 밝혔다."
       ],
       "contentVerified": true
     },
     {
-      "title": "대한항공, 생성형 AI로 항공기 정비결함 찾는다",
-      "source": "디지털데일리",
-      "link": "https://www.ddaily.co.kr/page/view/2026081409583215171",
-      "publishedAt": "Fri, 14 Aug 2026 04:48:12 GMT",
-      "date": "2026-08-14",
+      "title": "의왕도시공사 생성형 AI 활용 확산에 맞춰 개인정보 보호 교육",
+      "source": "아주경제",
+      "link": "https://www.ajunews.com/view/20260817214703128",
+      "publishedAt": "Mon, 17 Aug 2026 12:54:37 GMT",
+      "date": "2026-08-17",
       "category": "genai",
       "bullets": [
-        "대한항공이 생성형 인공지능(AI)을 항공기 정비 현장에 도입한다.",
-        "수백만 건에 달하는 정비 데이터를 한곳에 모으고 AI가 과거 결함 사례와 발생 패턴까지 분석해 정비사의 판단을 돕는다.",
-        "14일 대한항공은 생성형 AI와 클라우드 기술을 활용한 정비결함 분석 시스템을 최근 구축했다고 밝혔다."
+        "경기 의왕도시공사가 디지털 업무환경 변화에 대응해 직원들의 개인정보 보호 역량을 높이는 교육을 진행했다.",
+        "공사에 따르면, 지난 12∼13일까지 양일간 전 직원을 대상으로 ‘2026년 개인정보보호 교육’을 실시했다.",
+        "이번 교육은 업무 과정에서 발생할 수 있는 개인정보 유출과 침해사고를 예방하고, 임직원의 개인정보 보호에 대한 이해도를 높이기 위해 마련됐다."
       ],
       "contentVerified": true
     },
@@ -299,22 +299,148 @@
       "contentVerified": true
     },
     {
-      "title": "오픈AI, 기업 고객 매출 과반 돌파…개인 매출 첫 추월",
-      "source": "산경투데이",
-      "link": "https://www.sankyungtoday.com/news/articleView.html?idxno=62505",
-      "publishedAt": "Sat, 15 Aug 2026 01:19:25 GMT",
-      "date": "2026-08-15",
+      "title": "\"AI·로봇이 일자리 다 가져간다\"...흔들리는 中 노동시장",
+      "source": "더구루",
+      "link": "https://www.theguru.co.kr/news/article.html?no=105791",
+      "publishedAt": "Sun, 16 Aug 2026 15:00:48 GMT",
+      "date": "2026-08-17",
       "category": "biz",
       "bullets": [
-        "오픈AI의 성장 중심축이 개인 이용자에서 기업 시장으로 빠르게 이동하고 있다.",
-        "기업들이 생성형 인공지능(AI)을 단순한 업무 보조 도구가 아닌 개발·분석·자동화 인프라로 활용하기 시작하면서 기업용 AI 시장을 둘러싼 경쟁도 한층 치열해질 전망이다.",
-        "14일(현지시간) 열린 오픈AI의 비공개 주주·투자자 회의에서는 기업 고객을 대상으로 한 사업 성장세가 주요 화두로 떠올랐다."
+        "중국 노동 시장이 인공지능(AI)과 로봇 기술의 급격한 확산으로 인해 구조적 전환기에 진입하면서 일자리 대체 속도가 창출을 앞지르는 현상이 심화되고 있다.",
+        "부동산 침체 장기화와 청년 실업으로 고용 기반이 취약해진 상황에서 기술 도입이 전방위로 이어지며 단기 고용 충격이 가속화되는 추세다.",
+        "17일 대외경제정책연구원(KIEP) 산하 포털 'CSF(중국전문가포럼)'에 따르면 중국 인적자원 담당 부처는 고용과 가계소득 증가 압력의 주요 원인 중 하나로 AI 기술 도입을 지목했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "세계로 뻗는 대구 AI기업들…‘버티컬 AI’ 앞세워 글로벌 시장 노크",
+      "source": "영남일보",
+      "link": "https://www.yeongnam.com/web/view.php?key=20260816020021936",
+      "publishedAt": "Sun, 16 Aug 2026 04:49:58 GMT",
+      "date": "2026-08-16",
+      "category": "biz",
+      "bullets": [
+        "대구 인공지능(AI) 기업들이 차별화한 기술력을 앞세워 글로벌 시장에서 두각을 나타내고 있다.",
+        "거대언어모델(LLM) 등 범용 모델 경쟁보다는 제조·의료·안전 등 특정 산업에 AI를 접목한 '버티컬 AI'가 이들의 승부수다.",
+        "지역 주력산업에 AI를 얹는 대구시의 'AI 대전환(AX)' 전략 성과가 가시화하고 있다는 평가다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "\"한국이 아시아 진출 교두보\"···한국 공략 속도 내는 글로벌 AI 기업들 |",
+      "source": "시사저널e",
+      "link": "https://www.sisajournal-e.com/news/articleViewAmp.html?idxno=423107",
+      "publishedAt": "Sun, 16 Aug 2026 02:30:07 GMT",
+      "date": "2026-08-16",
+      "category": "biz",
+      "bullets": [
+        "글로벌 인공지능(AI) 기업들이 한국 진출에 속도를 내는 모습이다.",
+        "국내 법인과 지사를 세우는 데 그치지 않고 고객사 현장에 기술 인력을 투입해 AI를 실제 업무에 적용하고, 국내 기업과 산업별 서비스를 공동 개발하는 등 활동 범위를 넓히고 있다.",
+        "제조·금융·통신 등 AI 수요가 큰 국내 산업에서 성과를 입증한 뒤 이를 아시아·태평양(APAC) 시장으로 확산하려는 전략으로 풀이된다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "현대자동차그룹 AX - 제조 특화 AI 에이전트｜임용택 책임매니저 | 영상미디어 | 현대자동차그룹",
+      "source": "Hyundai Motor Group",
+      "link": "https://www.hyundaimotorgroup.com/ko/tv/hyundai-motor-group-ax-manufacturing-ai-agent",
+      "publishedAt": "Wed, 12 Aug 2026 02:48:12 GMT",
+      "date": "2026-08-12",
+      "category": "tech",
+      "bullets": [
+        "본 현대자동차그룹 홈페이지를 관리하는 현대자동차(주) 및 기아(주)는 다음의 목적을 위해 개인정보 수집·이용을 안내합니다.",
+        "동의하지 않을 경우 이벤트 참여하기가 되지 않습니다.",
+        "본 현대자동차그룹 홈페이지를 관리하는 현대자동차㈜ 및 기아㈜는 다음의 목적을 위해 개인정보 수집·이용을 안내합니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "[과학1열] 독자 AI 모델 2차 평가…4개팀 중 1개팀 탈락",
+      "source": "YTN 사이언스",
+      "link": "https://science.ytn.co.kr/mobile/program/view_today.php?s_mcd=0082&key=202608111602582402",
+      "publishedAt": "Tue, 11 Aug 2026 00:00:00 GMT",
+      "date": "2026-08-11",
+      "category": "tech",
+      "bullets": [
+        "국내 독자 기술로 개발하는 '인공지능(AI) 파운데이션 모델' 개발 프로젝트 2차 평가결과가 이달 안으로 나올 예정입니다.",
+        "주요 관전 포인트, 이성규 기자와 함께 알아보겠습니다.",
+        "네, 독자 인공지능 파운데이션 모델에서 파운데이션 모델은 기본 모델이라는 뜻입니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "스피어AX, AI 기술 확장성·글로벌 진출 속도…마키나락스와 전략적 업무협약 체결",
+      "source": "전자신문",
+      "link": "https://www.etnews.com/20260814000016",
+      "publishedAt": "Thu, 13 Aug 2026 22:24:45 GMT",
+      "date": "2026-08-14",
+      "category": "tech",
+      "bullets": [
+        "스피어AX(대표 박윤하)가 피지컬AI 기업 마키나락스(대표 윤성호)와 손잡고 자사 비전 AI 기술을 각 산업분야에 최적화해 확장성을 키우는 사업에 속도를 낸다.",
+        "두 기업은 최근 전략적 업무협약(MOU)을 체결하고, 국방과 제조, 스마트시티, 의료, 환경 등 다양한 산업 분야의 신규 AI 사업을 공동 발굴하고 사업화하기로 했다.",
+        "이번 협력은 스피어AX가 추진해 온 엣지 AI870 핵심기술 확보와 전략적 파트너십, 산업현장 적용, 국내 레퍼런스 확보, 해외시장 확대 전략을 한 단계 끌어올리겠다는 취지다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "로봇·AI 개발하는 디즈니... ‘마법’을 현실로 만드는 기술들",
+      "source": "조선일보",
+      "link": "https://www.chosun.com/economy/tech_it/2026/08/16/2UBCCA3JGFC4TLVRGQOOHH6V24/",
+      "publishedAt": "Sun, 16 Aug 2026 05:45:36 GMT",
+      "date": "2026-08-16",
+      "category": "tech",
+      "bullets": [
+        "월트디즈니(디즈니) 애니메이션 ‘겨울왕국’의 눈사람 캐릭터 올라프가 뒤뚱뒤뚱 무대 위로 걸어 나왔다.",
+        "진행자가 “올라프, 왼쪽에 있는 사람들에게 인사해줘”라고 하자 고개를 돌린 뒤 무대 왼편으로 걸어가 관객들에게 인사를 건넸다.",
+        "“노래 한 곡 해달라”고 하자 노래를 불렀고, “이제 들어갈 시간이야”라는 말에는 아쉬운 표정을 짓고 한숨을 쉬며 작별 인사를 했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "앤트로픽·오픈AI·엔비디아, 올해 로비로 117억 지출…3년새 30배↑ - 머니투데이",
+      "source": "머니투데이",
+      "link": "https://www.mt.co.kr/world/2026/08/13/2026081311282980309",
+      "publishedAt": "Thu, 13 Aug 2026 02:56:36 GMT",
+      "date": "2026-08-13",
+      "category": "policy",
+      "bullets": [
+        "미국에서 인공지능(AI) 기업의 로비 지출이 급증하고 있다.",
+        "AI 관련 규제를 둘러싼 논의가 이어지는 가운데 주요 AI 기업들이 정책 결정에 영향력을 행사하기 위해 수백만달러를 쏟아부었다.",
+        "일본 니혼게이자이신문(이하 닛케이)가 로비활동 보고서를 토대로 보도한 내용에 따르면 올해 상반기 앤트로픽, 오픈AI, 엔비디아 3사가 로비를 위해 쓴 돈은 829만달러(약 117억원)로 집계됐다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "[AI 규제] AI 챗봇이 써준 문서, 함부로 썼다간 ‚AI산‘ 표시 영원히 못 지운다",
+      "source": "녹색경제신문",
+      "link": "https://www.greened.kr/news/articleView.html?idxno=347534",
+      "publishedAt": "Thu, 13 Aug 2026 00:46:31 GMT",
+      "date": "2026-08-13",
+      "category": "policy",
+      "bullets": [
+        "앞으로 클로드 AI 챗봇을 사용해 텍스트 문서를 작성하는 사용자는 AI로 작성했다는 흔적을 영원히 지울 수 없게 될 전망이어서, 분별 있는 활용이 필요할 것으로 보인다.",
+        "또, 클로드에서 생성한 콘텐츠를 AWS, 구글 클라우드, 마이크로소프트 파운드리를 거쳐 접근해도 워터마크 추적이 가능하다.",
+        "최신판 클로드 AI 챗봇의 워터마크 삽입제는 8월 2일부터 법적 효력을 갖게 된다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "“이 글, 인공지능이 썼을까?”…이제 알 수 있다, 앤트로픽 'AI 텍스트'에 워터마크 심는다",
+      "source": "인공지능신문",
+      "link": "https://www.aitimes.kr/news/articleView.html?idxno=41471",
+      "publishedAt": "Sun, 16 Aug 2026 08:39:54 GMT",
+      "date": "2026-08-16",
+      "category": "policy",
+      "bullets": [
+        "앤트로픽(Anthropic)이 자사의 생성형 AI 클로드(Claude)가 생성하는 텍스트에 워터마크를 적용한다.",
+        "앤트로픽은 14일(현지시간) 공개한 기술 설명을 통해 향후 클로드 모델이 생성하는 텍스트에 워터마크를 포함한다고 밝혔다.",
+        "이번 조치는 유럽연합(EU) 인공지능법(AI Act)에 따른 AI 생성 콘텐츠 표시 의무에 대응하기 위한 것으로, 앤트로픽은 다른 주요 인공지능 사업자들과 함께 관련 조치를 추진하고 있다고 설명했다."
       ],
       "contentVerified": true
     },
     {
       "title": "(7) 넓어지고, 닮아가고, AI와 섞이고… 세 갈래 미국 개인정보보호법",
-      "source": "법률신문",
+      "source": "lawtimes.co.kr",
       "link": "https://www.lawtimes.co.kr/news/articleViewAmp.html?idxno=224802",
       "publishedAt": "Fri, 14 Aug 2026 20:00:00 GMT",
       "date": "2026-08-15",
