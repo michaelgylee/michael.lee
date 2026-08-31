@@ -871,44 +871,99 @@ if (btnTreesoop) {
     });
 }
 
-async function fetchTextWithCorsFallback(url) {
-    const requestUrls = [
-        url,
-        `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
-        `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
-        `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`
+// ---------------------------------------------------------------------------
+// CORS relay (v3.2.6)
+// treesoop.com sends no Access-Control-Allow-Origin header, so the browser can
+// only reach it through a public relay — the origin itself answers in ~0.1s.
+// Measured: a relay that succeeds takes 6-8s, but api.allorigins.win/raw, /get
+// and api.codetabs.com each fail (408/500/520/522) about three attempts out of
+// four, and they fail at independent times. The old single 7s round therefore
+// cut off even the successful responses and killed the pipeline while the
+// source was perfectly up. Widen the window past the observed success latency
+// and retry the whole fan-out before giving up.
+// ---------------------------------------------------------------------------
+const CORS_RELAY_TIMEOUT_MS = 15000;
+const CORS_RELAY_ROUNDS = 2;
+
+function unwrapAllOriginsPayload(body) {
+    // /get answers {"contents": "...", "status": {...}} instead of raw bytes.
+    try {
+        return JSON.parse(body)?.contents || '';
+    } catch (_) {
+        return '';
+    }
+}
+
+function corsRelayRoutes(url) {
+    const encoded = encodeURIComponent(url);
+    return [
+        { label: 'allorigins/raw', url: `https://api.allorigins.win/raw?url=${encoded}` },
+        // /raw and /get sit behind different backends and recover at different
+        // times, so /get earns a slot despite the JSON envelope.
+        { label: 'allorigins/get', url: `https://api.allorigins.win/get?url=${encoded}`, unwrap: unwrapAllOriginsPayload },
+        { label: 'codetabs', url: `https://api.codetabs.com/v1/proxy?quest=${encoded}` },
+        // corsproxy.io now demands an API key and rejects with HTTP 401. It
+        // costs one instant rejection per round and returns for free if that
+        // ever lifts.
+        { label: 'corsproxy', url: `https://corsproxy.io/?url=${encoded}` }
     ];
-    const requestText = async (requestUrl, index) => {
+}
+
+async function fetchTextWithCorsFallback(url, options = {}) {
+    const timeoutMs = options.timeoutMs || CORS_RELAY_TIMEOUT_MS;
+    const rounds = options.rounds || CORS_RELAY_ROUNDS;
+    const minLength = options.minLength || 0;
+    const routes = corsRelayRoutes(url);
+
+    const requestText = async (requestUrl, unwrap) => {
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 7000);
+        const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
         try {
             const response = await fetch(requestUrl, { cache: 'no-store', signal: controller.signal });
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            return await response.text();
+            const body = await response.text();
+            const text = unwrap ? unwrap(body) : body;
+            // A relay that hands back its own landing page or an empty body is a
+            // failure, not a document — let the remaining routes answer instead.
+            if (!text.trim() || text.length < minLength) throw new Error('본문이 비어 있습니다.');
+            return text;
         } finally {
             clearTimeout(timeoutId);
         }
     };
 
-    updateAgentProgress('researcher', 28, '실시간 소스 직접 연결 확인 중');
-    try {
-        return await requestText(requestUrls[0], 0);
-    } catch (directError) {
-        addLog("Researcher", `직접 연결 실패(${directError.name === 'AbortError' ? '시간 초과' : directError.message}), 3개 경량 경로를 병렬 확인합니다.`, "warning");
-    }
-
-    updateAgentProgress('researcher', 38, '대체 연결 경로 3개 병렬 확인 중');
-    return new Promise((resolve, reject) => {
+    const raceRelays = () => new Promise((resolve, reject) => {
         let failed = 0;
         let lastError;
-        requestUrls.slice(1).forEach((requestUrl, offset) => {
-            requestText(requestUrl, offset + 1).then(resolve).catch(error => {
+        routes.forEach(route => {
+            requestText(route.url, route.unwrap).then(resolve).catch(error => {
                 lastError = error;
                 failed += 1;
-                if (failed === requestUrls.length - 1) reject(lastError || new Error('실시간 소스를 불러오지 못했습니다.'));
+                if (failed === routes.length) reject(lastError || new Error('실시간 소스를 불러오지 못했습니다.'));
             });
         });
     });
+
+    updateAgentProgress('researcher', 28, '실시간 소스 직접 연결 확인 중');
+    try {
+        return await requestText(url);
+    } catch (directError) {
+        addLog("Researcher", `직접 연결 실패(${directError.name === 'AbortError' ? '시간 초과' : directError.message}), ${routes.length}개 경량 경로를 병렬 확인합니다.`, "warning");
+    }
+
+    let lastError;
+    for (let round = 1; round <= rounds; round += 1) {
+        updateAgentProgress('researcher', 38, `대체 연결 경로 ${routes.length}개 병렬 확인 중 (${round}/${rounds})`);
+        try {
+            return await raceRelays();
+        } catch (error) {
+            lastError = error;
+            if (round < rounds) {
+                addLog('Researcher', `대체 경로 ${round}차 시도 실패(${error.name === 'AbortError' ? '시간 초과' : error.message}), 재시도합니다.`, 'warning');
+            }
+        }
+    }
+    throw lastError || new Error('실시간 소스를 불러오지 못했습니다.');
 }
 
 function cachedNewsForMode(mode, categories) {
@@ -1065,7 +1120,7 @@ async function fetchLatestGoogleNews(mode, categories) {
 }
 
 // ---------------------------------------------------------------------------
-// TreeSoop daily AI news collector (v3.2.5)
+// TreeSoop daily AI news collector (v3.2.5, relay hardening v3.2.6)
 // TreeSoop split its blog into /blog (insights) and /blog/news (daily AI news),
 // so scanning /blog for `/blog/ai-news-` links always returned zero candidates.
 // We now resolve the post for an explicit target date, with a dated URL walk-back
@@ -1074,7 +1129,10 @@ async function fetchLatestGoogleNews(mode, categories) {
 const TREESOOP_ORIGIN = 'https://treesoop.com';
 const TREESOOP_NEWS_INDEXES = ['/blog/news', '/blog/news/page/2', '/blog'];
 const TREESOOP_LOOKBACK_DAYS = 10;
-const TREESOOP_SKIP_HEADINGS = /^(?:블로그|댓글|이전\s*글|다음\s*글|정리|자주\s*묻는\s*질문|관련\s*서비스|서비스|채용|products|navigation|contact)/i;
+// A relay error page is a few hundred bytes; a real TreeSoop page is 70KB+.
+const TREESOOP_MIN_HTML_BYTES = 2000;
+const TREESOOP_MAX_POST_ATTEMPTS = 3;
+const TREESOOP_SKIP_HEADINGS = /^(?:블로그|댓글|이전\s*글|다음\s*글|정리|자주\s*묻는\s*질문|관련\s*서비스|서비스|채용|마치며|들어가며|products|navigation|contact)/i;
 
 function treesoopYmdFromUrl(url) {
     return String(url || '').match(/ai-news-(\d{4}-\d{2}-\d{2})/)?.[1] || '';
@@ -1104,21 +1162,27 @@ function pickTreeSoopPost(links, targetYmd) {
         || '';
 }
 
-async function resolveTreeSoopPostUrl(targetYmd) {
+// Returns every usable post URL, best match first, so that a post whose body
+// fails to come back through the relays can fall back to the next one instead
+// of taking the whole pipeline down with it.
+async function resolveTreeSoopPostCandidates(targetYmd) {
     const tried = [];
 
     for (const path of TREESOOP_NEWS_INDEXES) {
         const indexUrl = `${TREESOOP_ORIGIN}${path}?ts=${Date.now()}`;
         tried.push(indexUrl);
         try {
-            const links = extractTreeSoopNewsLinks(await fetchTextWithCorsFallback(indexUrl));
+            const links = extractTreeSoopNewsLinks(await fetchTextWithCorsFallback(indexUrl, { minLength: TREESOOP_MIN_HTML_BYTES }));
             if (!links.length) {
                 addLog('Researcher', `${path} 에는 AI 뉴스 링크가 없어 다음 목록을 확인합니다.`, 'warning');
                 continue;
             }
             addLog('Researcher', `${path} 에서 AI 뉴스 게시물 ${links.length}건 발견 (최신 ${treesoopYmdFromUrl(links[0])})`, 'researcher');
             const picked = pickTreeSoopPost(links, targetYmd);
-            if (picked) return picked;
+            if (picked) {
+                const rest = links.filter(link => link !== picked && treesoopYmdFromUrl(link) <= targetYmd);
+                return [picked, ...rest];
+            }
         } catch (error) {
             addLog('Researcher', `${path} 목록 조회 실패(${error.message}), 다음 경로를 시도합니다.`, 'warning');
         }
@@ -1132,10 +1196,10 @@ async function resolveTreeSoopPostUrl(targetYmd) {
         const postUrl = treesoopPostUrlForYmd(ymd);
         tried.push(postUrl);
         try {
-            const html = await fetchTextWithCorsFallback(`${postUrl}?ts=${Date.now()}`);
+            const html = await fetchTextWithCorsFallback(`${postUrl}?ts=${Date.now()}`, { minLength: TREESOOP_MIN_HTML_BYTES });
             if (/<h2/i.test(html)) {
                 addLog('Researcher', `날짜 직접 조회 성공: ${ymd}`, 'researcher');
-                return postUrl;
+                return [postUrl];
             }
         } catch (_) {
             // No post published that day — keep walking back.
@@ -1145,17 +1209,61 @@ async function resolveTreeSoopPostUrl(targetYmd) {
     throw new Error(`TreeSoop AI 뉴스 게시물을 찾지 못했습니다. 시도 ${tried.length}건 (예: ${tried.slice(0, 3).join(' , ')})`);
 }
 
+// The cache is written by scripts/update_treesoop_cache.py in GitHub Actions,
+// which reaches treesoop.com without any CORS restriction. Reading it from our
+// own origin needs no relay at all, so it is tried first and the flaky public
+// proxies become a fallback rather than a single point of failure.
+async function fetchTreeSoopFromCache(targetYmd) {
+    const response = await fetch(`data/treesoop-cache.json?ts=${Date.now()}`, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const payload = await response.json();
+    const posts = (payload?.posts || []).filter(post => post?.date && post.entries?.length);
+    if (!posts.length) throw new Error('캐시에 게시물이 없습니다.');
+
+    posts.sort((a, b) => b.date.localeCompare(a.date));
+    const post = posts.find(item => item.date === targetYmd)
+        || posts.find(item => item.date <= targetYmd);
+    if (!post) throw new Error(`${targetYmd} 이전 발행분이 캐시에 없습니다.`);
+
+    if (post.date !== targetYmd) {
+        addLog('Researcher', `${targetYmd} 게시물이 아직 없어 가장 최근 발행분(${post.date})으로 진행합니다.`, 'warning');
+    }
+    const articles = buildTreeSoopArticles(post.entries, post.postUrl, post.date);
+    if (!articles.length) throw new Error(`${post.date} 캐시 항목에서 카드를 만들지 못했습니다.`);
+    addLog('Researcher', `${post.date} 게시물에서 뉴스 ${articles.length}건 파싱 완료 (동일 출처 캐시, 갱신 ${payload.generated_kst || payload.generated_at || '시각 미상'})`, 'success');
+    return articles;
+}
+
 async function fetchTreeSoopNews(targetYmd = formatYmd(getKstDate())) {
-    const postUrl = await resolveTreeSoopPostUrl(targetYmd);
+    try {
+        return await fetchTreeSoopFromCache(targetYmd);
+    } catch (cacheError) {
+        addLog('Researcher', `동일 출처 캐시 사용 불가(${cacheError.message}), 실시간 조회로 전환합니다.`, 'warning');
+    }
+
+    const candidates = await resolveTreeSoopPostCandidates(targetYmd);
+    let lastError;
+    for (const candidate of candidates.slice(0, TREESOOP_MAX_POST_ATTEMPTS)) {
+        try {
+            return await parseTreeSoopPost(candidate, targetYmd);
+        } catch (error) {
+            lastError = error;
+            addLog('Researcher', `${treesoopYmdFromUrl(candidate) || candidate} 본문 조회 실패(${error.message}), 이전 발행분으로 재시도합니다.`, 'warning');
+        }
+    }
+    throw lastError || new Error('TreeSoop AI 뉴스 본문을 불러오지 못했습니다.');
+}
+
+async function parseTreeSoopPost(postUrl, targetYmd) {
     const publishedAt = treesoopYmdFromUrl(postUrl) || targetYmd;
     if (publishedAt !== targetYmd) {
         addLog('Researcher', `${targetYmd} 게시물이 아직 없어 가장 최근 발행분(${publishedAt})으로 진행합니다.`, 'warning');
     }
     addLog('Researcher', `${publishedAt} AI 뉴스 본문 파싱 시작: ${postUrl}`, 'researcher');
 
-    const postHtml = await fetchTextWithCorsFallback(`${postUrl}?ts=${Date.now()}`);
+    const postHtml = await fetchTextWithCorsFallback(`${postUrl}?ts=${Date.now()}`, { minLength: TREESOOP_MIN_HTML_BYTES });
     const doc = new DOMParser().parseFromString(postHtml, 'text/html');
-    const articles = [];
+    const entries = [];
 
     for (const heading of doc.querySelectorAll('h2')) {
         const title = heading.textContent.trim();
@@ -1196,9 +1304,24 @@ async function fetchTreeSoopNews(targetYmd = formatYmd(getKstDate())) {
             if (external) sourceUrl = external;
         }
 
+        entries.push({ title, paragraphs, sourceUrl });
+    }
+
+    const articles = buildTreeSoopArticles(entries, postUrl, publishedAt);
+    if (!articles.length) {
+        throw new Error(`TreeSoop ${publishedAt} 게시물에서 뉴스 본문을 찾지 못했습니다. (${postUrl})`);
+    }
+    addLog('Researcher', `${publishedAt} 게시물에서 뉴스 ${articles.length}건 파싱 완료`, 'success');
+    return articles;
+}
+
+// Shared by the cached and the live path so both render identical cards.
+function buildTreeSoopArticles(entries, postUrl, publishedAt) {
+    const articles = [];
+    for (const { title, paragraphs, sourceUrl } of entries) {
         // Two points already make a readable card; demanding exactly three used to
         // silently drop whole news items.
-        const bullets = litifyTldrBullets(paragraphs, 2, 3);
+        const bullets = litifyTldrBullets(paragraphs || [], 2, 3);
         if (bullets.length < 2) continue;
 
         let sourceName = 'TreeSoop';
@@ -1218,10 +1341,6 @@ async function fetchTreeSoopNews(targetYmd = formatYmd(getKstDate())) {
         });
     }
 
-    if (!articles.length) {
-        throw new Error(`TreeSoop ${publishedAt} 게시물에서 뉴스 본문을 찾지 못했습니다. (${postUrl})`);
-    }
-    addLog('Researcher', `${publishedAt} 게시물에서 뉴스 ${articles.length}건 파싱 완료`, 'success');
     return articles;
 }
 
