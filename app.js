@@ -1064,55 +1064,164 @@ async function fetchLatestGoogleNews(mode, categories) {
     return selectCardCandidates(verifiedFallback, 8);
 }
 
-async function fetchTreeSoopNews() {
-    const indexHtml = await fetchTextWithCorsFallback(`https://treesoop.com/blog?ts=${Date.now()}`);
-    const indexDoc = new DOMParser().parseFromString(indexHtml, 'text/html');
-    const candidates = [...indexDoc.querySelectorAll('a[href*="/blog/ai-news-"]')]
+// ---------------------------------------------------------------------------
+// TreeSoop daily AI news collector (v3.2.5)
+// TreeSoop split its blog into /blog (insights) and /blog/news (daily AI news),
+// so scanning /blog for `/blog/ai-news-` links always returned zero candidates.
+// We now resolve the post for an explicit target date, with a dated URL walk-back
+// for the case where every index page is unreachable.
+// ---------------------------------------------------------------------------
+const TREESOOP_ORIGIN = 'https://treesoop.com';
+const TREESOOP_NEWS_INDEXES = ['/blog/news', '/blog/news/page/2', '/blog'];
+const TREESOOP_LOOKBACK_DAYS = 10;
+const TREESOOP_SKIP_HEADINGS = /^(?:블로그|댓글|이전\s*글|다음\s*글|정리|자주\s*묻는\s*질문|관련\s*서비스|서비스|채용|products|navigation|contact)/i;
+
+function treesoopYmdFromUrl(url) {
+    return String(url || '').match(/ai-news-(\d{4}-\d{2}-\d{2})/)?.[1] || '';
+}
+
+function treesoopPostUrlForYmd(ymd) {
+    return `${TREESOOP_ORIGIN}/blog/ai-news-${ymd}`;
+}
+
+// Collect every dated AI-news permalink on an index page, newest date first.
+function extractTreeSoopNewsLinks(html) {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const links = [...doc.querySelectorAll('a[href*="ai-news-"]')]
         .map(anchor => anchor.getAttribute('href'))
         .filter(Boolean)
-        .map(href => new URL(href, 'https://treesoop.com').href)
-        .sort((a, b) => b.localeCompare(a));
-    if (!candidates.length) throw new Error('TreeSoop 최신 뉴스 게시물을 찾지 못했습니다.');
+        .map(href => {
+            try { return new URL(href, TREESOOP_ORIGIN).href; } catch (_) { return ''; }
+        })
+        .filter(href => treesoopYmdFromUrl(href));
+    return [...new Set(links)].sort((a, b) => treesoopYmdFromUrl(b).localeCompare(treesoopYmdFromUrl(a)));
+}
 
-    const postUrl = [...new Set(candidates)][0];
-    const dateMatch = postUrl.match(/ai-news-(\d{4}-\d{2}-\d{2})/);
-    const publishedAt = dateMatch?.[1] || '';
+// Prefer the exact target date; otherwise fall back to the newest post on or before it.
+function pickTreeSoopPost(links, targetYmd) {
+    return links.find(link => treesoopYmdFromUrl(link) === targetYmd)
+        || links.find(link => treesoopYmdFromUrl(link) <= targetYmd)
+        || '';
+}
+
+async function resolveTreeSoopPostUrl(targetYmd) {
+    const tried = [];
+
+    for (const path of TREESOOP_NEWS_INDEXES) {
+        const indexUrl = `${TREESOOP_ORIGIN}${path}?ts=${Date.now()}`;
+        tried.push(indexUrl);
+        try {
+            const links = extractTreeSoopNewsLinks(await fetchTextWithCorsFallback(indexUrl));
+            if (!links.length) {
+                addLog('Researcher', `${path} 에는 AI 뉴스 링크가 없어 다음 목록을 확인합니다.`, 'warning');
+                continue;
+            }
+            addLog('Researcher', `${path} 에서 AI 뉴스 게시물 ${links.length}건 발견 (최신 ${treesoopYmdFromUrl(links[0])})`, 'researcher');
+            const picked = pickTreeSoopPost(links, targetYmd);
+            if (picked) return picked;
+        } catch (error) {
+            addLog('Researcher', `${path} 목록 조회 실패(${error.message}), 다음 경로를 시도합니다.`, 'warning');
+        }
+    }
+
+    // Every index page failed: probe the dated permalink pattern backwards from the target day.
+    addLog('Researcher', '목록 페이지 조회에 모두 실패해 날짜 기반 URL 직접 조회로 전환합니다.', 'warning');
+    const cursor = parseSourceDate(targetYmd) || getKstDate();
+    for (let back = 0; back < TREESOOP_LOOKBACK_DAYS; back += 1) {
+        const ymd = formatYmd(new Date(cursor.getTime() - back * DAY_MS));
+        const postUrl = treesoopPostUrlForYmd(ymd);
+        tried.push(postUrl);
+        try {
+            const html = await fetchTextWithCorsFallback(`${postUrl}?ts=${Date.now()}`);
+            if (/<h2/i.test(html)) {
+                addLog('Researcher', `날짜 직접 조회 성공: ${ymd}`, 'researcher');
+                return postUrl;
+            }
+        } catch (_) {
+            // No post published that day — keep walking back.
+        }
+    }
+
+    throw new Error(`TreeSoop AI 뉴스 게시물을 찾지 못했습니다. 시도 ${tried.length}건 (예: ${tried.slice(0, 3).join(' , ')})`);
+}
+
+async function fetchTreeSoopNews(targetYmd = formatYmd(getKstDate())) {
+    const postUrl = await resolveTreeSoopPostUrl(targetYmd);
+    const publishedAt = treesoopYmdFromUrl(postUrl) || targetYmd;
+    if (publishedAt !== targetYmd) {
+        addLog('Researcher', `${targetYmd} 게시물이 아직 없어 가장 최근 발행분(${publishedAt})으로 진행합니다.`, 'warning');
+    }
+    addLog('Researcher', `${publishedAt} AI 뉴스 본문 파싱 시작: ${postUrl}`, 'researcher');
+
     const postHtml = await fetchTextWithCorsFallback(`${postUrl}?ts=${Date.now()}`);
     const doc = new DOMParser().parseFromString(postHtml, 'text/html');
-    const headings = [...doc.querySelectorAll('h2')];
     const articles = [];
-    for (const heading of headings) {
+
+    for (const heading of doc.querySelectorAll('h2')) {
         const title = heading.textContent.trim();
-        if (!title || /블로그|댓글|이전 글|다음 글|products|navigation|contact/i.test(title)) continue;
-        const bullets = [];
+        if (!title || TREESOOP_SKIP_HEADINGS.test(title)) continue;
+
+        const paragraphs = [];
+        const anchorHrefs = [];
         let sourceUrl = '';
         let node = heading.nextElementSibling;
+
         while (node && node.tagName !== 'H2') {
             if (node.matches('p')) {
                 const paragraph = node.textContent.trim();
                 const plainUrl = paragraph.match(/https?:\/\/[^\s<>()]+/i)?.[0];
-                if (!sourceUrl && plainUrl) sourceUrl = plainUrl.replace(/[),.;]+$/, '');
-                const isSourceCopy = /원문\s*보기|https?:\/\/|www\.|^(?:github|gitlab)\./i.test(paragraph);
-                if (paragraph && !isSourceCopy) bullets.push(paragraph);
+                if (plainUrl && !sourceUrl) sourceUrl = plainUrl.replace(/[),.;]+$/, '');
+                // "원문: https://..." is the citation line, not a summary point.
+                const isSourceLine = /^원문\s*[:：]|원문\s*보기|https?:\/\//i.test(paragraph);
+                if (paragraph && !isSourceLine) paragraphs.push(paragraph);
             }
-            const link = node.matches('a[href]') ? node : node.querySelector?.('a[href]');
-            if (link && (/원문|링크/.test(link.textContent) || !sourceUrl)) {
-                sourceUrl = new URL(link.getAttribute('href'), postUrl).href;
-            }
+            const anchors = node.matches('a[href]') ? [node] : [...(node.querySelectorAll?.('a[href]') || [])];
+            anchors.forEach(anchor => {
+                const href = anchor.getAttribute('href');
+                if (href) anchorHrefs.push(href);
+            });
             node = node.nextElementSibling;
         }
-        if (bullets.length) {
-            let sourceName = 'TreeSoop';
-            try {
-                sourceName = new URL(sourceUrl || postUrl).hostname.replace(/^www\./, '');
-            } catch (_) {}
-            const summaryBullets = litifyTldrBullets(bullets, 3, 3);
-            if (summaryBullets.length === 3) {
-                articles.push({ title, source: sourceName, link: sourceUrl || postUrl, postUrl, publishedAt, date: publishedAt, bullets: summaryBullets, contentVerified: true });
-            }
+
+        if (!paragraphs.length) continue;
+
+        // Only take an anchor as the source when no plain "원문:" URL was printed,
+        // and never let an internal TreeSoop link stand in for the original source.
+        if (!sourceUrl && anchorHrefs.length) {
+            const external = anchorHrefs
+                .map(href => {
+                    try { return new URL(href, postUrl).href; } catch (_) { return ''; }
+                })
+                .find(href => href && !href.startsWith(TREESOOP_ORIGIN));
+            if (external) sourceUrl = external;
         }
+
+        // Two points already make a readable card; demanding exactly three used to
+        // silently drop whole news items.
+        const bullets = litifyTldrBullets(paragraphs, 2, 3);
+        if (bullets.length < 2) continue;
+
+        let sourceName = 'TreeSoop';
+        try {
+            sourceName = new URL(sourceUrl || postUrl).hostname.replace(/^www\./, '');
+        } catch (_) {}
+
+        articles.push({
+            title,
+            source: sourceName,
+            link: sourceUrl || postUrl,
+            postUrl,
+            publishedAt,
+            date: publishedAt,
+            bullets,
+            contentVerified: true
+        });
     }
-    if (!articles.length) throw new Error('TreeSoop 최신 게시물에서 뉴스 본문을 찾지 못했습니다.');
+
+    if (!articles.length) {
+        throw new Error(`TreeSoop ${publishedAt} 게시물에서 뉴스 본문을 찾지 못했습니다. (${postUrl})`);
+    }
+    addLog('Researcher', `${publishedAt} 게시물에서 뉴스 ${articles.length}건 파싱 완료`, 'success');
     return articles;
 }
 
@@ -1152,7 +1261,7 @@ btnRun.addEventListener("click", async () => {
         addLog("System", "에이전트 협업 팀 가동이 활성화되었습니다.", "system");
         
         if (appState.treesoopMode) {
-            addLog("Researcher", `https://treesoop.com/blog 에서 ${todayStr} AI 뉴스 포스트 수집 및 파싱 시작...`, "researcher");
+            addLog("Researcher", `https://treesoop.com/blog/news 에서 ${todayStr} AI 뉴스 포스트 수집 및 파싱 시작...`, "researcher");
         } else {
             addLog("Researcher", `실시간 AI 뉴스 채널 수집 및 파싱 중 (카테고리: ${appState.categories.join(', ')})`, "researcher");
         }
@@ -1166,7 +1275,7 @@ btnRun.addEventListener("click", async () => {
         const includeLlmReleases = document.getElementById("cat-llm-releases").checked;
 
         if (appState.treesoopMode) {
-            rawNews = await fetchTreeSoopNews();
+            rawNews = await fetchTreeSoopNews(formatYmd(getKstDate()));
         } else {
             try {
                 rawNews = await fetchLatestGoogleNews(appState.mode, appState.categories);
@@ -1621,12 +1730,10 @@ function generateTreeSoopCard(news) {
     let crawledDate = getKstDate();
     
     for (let art of news) {
-        if (art.link && art.link.includes('ai-news-')) {
-            const m = art.link.match(/ai-news-(\d{4})-(\d{2})-(\d{2})/);
-            if (m) {
-                crawledDate = parseSourceDate(`${m[1]}-${m[2]}-${m[3]}`) || crawledDate;
-                break;
-            }
+        const postYmd = treesoopYmdFromUrl(art.postUrl || art.link);
+        if (postYmd) {
+            crawledDate = parseSourceDate(postYmd) || crawledDate;
+            break;
         }
         if (art.date) {
             const parts = art.date.split("-");
@@ -1653,14 +1760,14 @@ function generateTreeSoopCard(news) {
     // One content card per item published in the selected TreeSoop daily post.
     // Preserve the publisher's order and do not apply the general eight-card cap.
     const topArticles = news
-        .map(article => ({ ...article, bullets: litifyTldrBullets(article.bullets || [], 3, 3) }))
-        .filter(article => article.title && article.bullets.length === 3);
+        .map(article => ({ ...article, bullets: litifyTldrBullets(article.bullets || [], 2, 3) }))
+        .filter(article => article.title && article.bullets.length >= 2);
     
     topArticles.forEach((art, idx) => {
         let titleClean = art.title.replace(/^\d+\.\s*/, '').replace(/^\[[^\]]+\]\s*/, '');
         let displayTitle = titleClean;
         
-        const bullets = litifyTldrBullets(art.bullets || []);
+        const bullets = litifyTldrBullets(art.bullets || [], 2, 3);
         
         slides.push({
             slide_index: idx + 2,
