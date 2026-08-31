@@ -944,11 +944,15 @@ async function fetchTextWithCorsFallback(url, options = {}) {
         });
     });
 
-    updateAgentProgress('researcher', 28, '실시간 소스 직접 연결 확인 중');
-    try {
-        return await requestText(url);
-    } catch (directError) {
-        addLog("Researcher", `직접 연결 실패(${directError.name === 'AbortError' ? '시간 초과' : directError.message}), ${routes.length}개 경량 경로를 병렬 확인합니다.`, "warning");
+    // The freshness probe skips this: treesoop.com sends no CORS header, so a
+    // direct browser request cannot succeed and would only burn a full timeout.
+    if (!options.skipDirect) {
+        updateAgentProgress('researcher', 28, '실시간 소스 직접 연결 확인 중');
+        try {
+            return await requestText(url);
+        } catch (directError) {
+            addLog("Researcher", `직접 연결 실패(${directError.name === 'AbortError' ? '시간 초과' : directError.message}), ${routes.length}개 경량 경로를 병렬 확인합니다.`, "warning");
+        }
     }
 
     let lastError;
@@ -1132,6 +1136,9 @@ const TREESOOP_LOOKBACK_DAYS = 10;
 // A relay error page is a few hundred bytes; a real TreeSoop page is 70KB+.
 const TREESOOP_MIN_HTML_BYTES = 2000;
 const TREESOOP_MAX_POST_ATTEMPTS = 3;
+// One short relay round: enough for a healthy relay (6-8s observed), while a
+// dead proxy tier costs seconds instead of minutes before we fall back.
+const TREESOOP_FRESH_PROBE = { timeoutMs: 10000, rounds: 1, skipDirect: true, minLength: TREESOOP_MIN_HTML_BYTES };
 const TREESOOP_SKIP_HEADINGS = /^(?:블로그|댓글|이전\s*글|다음\s*글|정리|자주\s*묻는\s*질문|관련\s*서비스|서비스|채용|마치며|들어가며|products|navigation|contact)/i;
 
 function treesoopYmdFromUrl(url) {
@@ -1213,7 +1220,7 @@ async function resolveTreeSoopPostCandidates(targetYmd) {
 // which reaches treesoop.com without any CORS restriction. Reading it from our
 // own origin needs no relay at all, so it is tried first and the flaky public
 // proxies become a fallback rather than a single point of failure.
-async function fetchTreeSoopFromCache(targetYmd) {
+async function readTreeSoopCache(targetYmd) {
     const response = await fetch(`data/treesoop-cache.json?ts=${Date.now()}`, { cache: 'no-store' });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const payload = await response.json();
@@ -1225,20 +1232,43 @@ async function fetchTreeSoopFromCache(targetYmd) {
         || posts.find(item => item.date <= targetYmd);
     if (!post) throw new Error(`${targetYmd} 이전 발행분이 캐시에 없습니다.`);
 
-    if (post.date !== targetYmd) {
-        addLog('Researcher', `${targetYmd} 게시물이 아직 없어 가장 최근 발행분(${post.date})으로 진행합니다.`, 'warning');
-    }
     const articles = buildTreeSoopArticles(post.entries, post.postUrl, post.date);
     if (!articles.length) throw new Error(`${post.date} 캐시 항목에서 카드를 만들지 못했습니다.`);
-    addLog('Researcher', `${post.date} 게시물에서 뉴스 ${articles.length}건 파싱 완료 (동일 출처 캐시, 갱신 ${payload.generated_kst || payload.generated_at || '시각 미상'})`, 'success');
-    return articles;
+    return { date: post.date, articles, generated: payload.generated_kst || payload.generated_at || '시각 미상' };
+}
+
+function logTreeSoopCacheHit(cached) {
+    addLog('Researcher', `${cached.date} 게시물에서 뉴스 ${cached.articles.length}건 파싱 완료 (동일 출처 캐시, 갱신 ${cached.generated})`, 'success');
+    return cached.articles;
 }
 
 async function fetchTreeSoopNews(targetYmd = formatYmd(getKstDate())) {
+    let cached = null;
     try {
-        return await fetchTreeSoopFromCache(targetYmd);
+        cached = await readTreeSoopCache(targetYmd);
     } catch (cacheError) {
         addLog('Researcher', `동일 출처 캐시 사용 불가(${cacheError.message}), 실시간 조회로 전환합니다.`, 'warning');
+    }
+
+    // The cache already holds the requested day: nothing to check, nothing to wait for.
+    if (cached && cached.date === targetYmd) return logTreeSoopCacheHit(cached);
+
+    // The cache is rebuilt on a schedule, so a post published since its last run
+    // is not in it yet. Ask treesoop.com for that exact day before settling for an
+    // older one — a single dated permalink, so this costs one bounded round trip
+    // instead of the full index walk.
+    addLog('Researcher', `${targetYmd} 발행분이 캐시에 없어 원본에서 직접 확인합니다.`, 'researcher');
+    try {
+        return await parseTreeSoopPost(treesoopPostUrlForYmd(targetYmd), targetYmd, TREESOOP_FRESH_PROBE);
+    } catch (probeError) {
+        addLog('Researcher', `${targetYmd} 원본 확인 실패(${probeError.message}).`, 'warning');
+    }
+
+    // Today's post genuinely is not up yet (or the relays are down); the cache is
+    // authoritative for earlier days, so use it rather than crawling the indexes.
+    if (cached) {
+        addLog('Researcher', `${targetYmd} 게시물이 아직 없어 가장 최근 발행분(${cached.date})으로 진행합니다.`, 'warning');
+        return logTreeSoopCacheHit(cached);
     }
 
     const candidates = await resolveTreeSoopPostCandidates(targetYmd);
@@ -1254,14 +1284,14 @@ async function fetchTreeSoopNews(targetYmd = formatYmd(getKstDate())) {
     throw lastError || new Error('TreeSoop AI 뉴스 본문을 불러오지 못했습니다.');
 }
 
-async function parseTreeSoopPost(postUrl, targetYmd) {
+async function parseTreeSoopPost(postUrl, targetYmd, fetchOptions = null) {
     const publishedAt = treesoopYmdFromUrl(postUrl) || targetYmd;
     if (publishedAt !== targetYmd) {
         addLog('Researcher', `${targetYmd} 게시물이 아직 없어 가장 최근 발행분(${publishedAt})으로 진행합니다.`, 'warning');
     }
     addLog('Researcher', `${publishedAt} AI 뉴스 본문 파싱 시작: ${postUrl}`, 'researcher');
 
-    const postHtml = await fetchTextWithCorsFallback(`${postUrl}?ts=${Date.now()}`, { minLength: TREESOOP_MIN_HTML_BYTES });
+    const postHtml = await fetchTextWithCorsFallback(`${postUrl}?ts=${Date.now()}`, fetchOptions || { minLength: TREESOOP_MIN_HTML_BYTES });
     const doc = new DOMParser().parseFromString(postHtml, 'text/html');
     const entries = [];
 

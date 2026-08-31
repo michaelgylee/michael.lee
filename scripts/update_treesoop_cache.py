@@ -33,7 +33,7 @@ ORIGIN = "https://treesoop.com"
 INDEX_PATHS = ("/blog/news", "/blog/news/page/2")
 KST = dt.timezone(dt.timedelta(hours=9))
 SSL_CONTEXT = ssl.create_default_context()
-HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; AIT-TreeSoop-Cache/3.2.6)"}
+HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; AIT-TreeSoop-Cache/3.2.7)"}
 
 # How many recent posts to mirror. Enough for the daily card set plus several
 # days of fallback when the newest day has not been published yet.
@@ -141,7 +141,7 @@ def main() -> None:
 
     now = dt.datetime.now(dt.timezone.utc).replace(microsecond=0)
     payload = {
-        "version": "3.2.6",
+        "version": "3.2.7",
         "generated_at": now.isoformat().replace("+00:00", "Z"),
         "generated_kst": now.astimezone(KST).strftime("%Y-%m-%d %H:%M:%S"),
         "posts": posts,

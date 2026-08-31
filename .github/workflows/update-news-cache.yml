@@ -3,7 +3,9 @@ name: Update verified news cache
 on:
   workflow_dispatch:
   schedule:
-    - cron: "17 */3 * * *"
+    # Hourly: TreeSoop publishes once a day, and this keeps the window between
+    # a new post and the cache picking it up down to about an hour.
+    - cron: "17 * * * *"
 
 permissions:
   contents: write
