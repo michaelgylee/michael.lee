@@ -1,7 +1,21 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-09-01T18:29:42Z",
+  "generated_at": "2026-09-01T21:46:10Z",
   "daily": [
+    {
+      "title": "한림성심대 재학생 등 대상 ‘생성형 AI 툴’ 무상 제공",
+      "source": "강원일보",
+      "link": "https://m.kwnews.co.kr/article/20260901501455?site_preference=normal",
+      "publishedAt": "Tue, 01 Sep 2026 18:36:14 GMT",
+      "date": "2026-09-02",
+      "category": "genai",
+      "bullets": [
+        "한림성심대 AID지원사업단이 교직원 및 재학생 등을 대상으로 생성형 AI 툴을 무상 제공한다고 1일 밝혔다.",
+        "AID지원사업단은 이번 사업을 통해 최신 대규모 언어모델(LLM)을 아우르는 ‘멀티 AI 플랫폼 및 생성형 AI 서비스’를 구축하고 단일 통합 관리 플랫폼을 통해 학생 교육의 효율성을 극대화한다.",
+        "또 이용자들이 안심하고 플랫폼을 활용할 수 있도록 개인별 사용 기록 보호 시스템을 구축해 개인의 사용 기록은 본인만 확인 가능할 수 있도록 했으며, 외부 사용자 및 관리자의 열람을 원천 차단했다."
+      ],
+      "contentVerified": true
+    },
     {
       "title": "EU, ‘챗GPT’에도 디지털법 규제 적용",
       "source": "동아일보",
@@ -31,58 +45,30 @@
       "contentVerified": true
     },
     {
-      "title": "바디프랜드, '생성형 AI 탑재' 헬스케어 로봇 2종 출시",
-      "source": "bizwnews.com",
-      "link": "http://www.bizwnews.com/news/articleView.html?idxno=144875",
-      "publishedAt": "Tue, 01 Sep 2026 12:58:00 GMT",
+      "title": "[산업AI EXPO 프리뷰] AI 업무 지능화 ⑪ | 씨디에스 ‘위에이아이’, 생성형 AI 선택부터 조직별 권한 관리까지 한곳에",
+      "source": "헬로티",
+      "link": "https://www.hellot.net/news/article.html?no=114707",
+      "publishedAt": "Tue, 01 Sep 2026 14:28:32 GMT",
       "date": "2026-09-01",
       "category": "genai",
       "bullets": [
-        "[비즈월드]바디프랜드(대표 곽도연·김철환)가 사용자와의 음성 대화를 바탕으로 마사지 프로그램을 실시간 생성하는 인공지능(AI) 헬스케어로봇을 선보인다.",
-        "바디프랜드는 생성형 AI 마사지 기술을 적용한 하이엔드 AI 헬스케어로봇 ‘퀀텀AI프로(QUANTUM AI Pro)’와 ‘다빈치AI프로(DAVINCI AI Pro)’를 출시했다고 1일 밝혔다.",
-        "회사에 따르면 신제품 2종에는 자연어를 이해하고 추론하는 거대언어모델(LLM) 기반 생성형 AI가 적용돼 사용자와 나눈 음성 대화를 토대로 맞춤형 마사지를 생성하고 실행한다."
+        "다중 생성형 AI(Generative AI) 모델의 활용과 기관 내부 문서 검색, 사용자 관리를 하나의 플랫폼에 담았다.",
+        "국내 정보통신기술(ICT)·소프트웨어 기술 업체 씨디에스가 ‘2026 산업AI EXPO’에서 소개할 다중 모델 생성형 AI 플랫폼 ‘위에이아이(WeeAI)’다.",
+        "공공기관·교육기관·기업 등의 조직구조와 업무환경에 맞춰 인공지능(AI) 활용 기능과 관리체계를 함께 구성하는 기술이다."
       ],
       "contentVerified": true
     },
     {
-      "title": "계명대, 차세대 생성형 AI 플랫폼 도입…대학 혁신 가속",
-      "source": "kyongbuk.co.kr",
-      "link": "https://www.kyongbuk.co.kr/news/articleView.html?idxno=4082863",
-      "publishedAt": "Tue, 01 Sep 2026 09:28:27 GMT",
-      "date": "2026-09-01",
-      "category": "genai",
-      "bullets": [
-        "계명대학교가 올해 2학기부터 전 재학생을 대상으로 70여 개 인공지능(AI) 모델을 통합한 ‘차세대 생성형 AI 플랫폼’을 도입한다.",
-        "1일 계명대에 따르면 이번 플랫폼은 챗GPT와 클로드, 제미나이 등 생성형 AI를 하나의 환경에서 이용할 수 있도록 구축됐다.",
-        "이는 지난해 재학생과 교직원 약 2만 명에게 생성형 AI를 무상 제공한 ‘AI 풀패키지 정책’을 한 단계 확대한 것이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "영란은행 총재 \"인공지능(AI), 사이버 공격으로 글로벌 금융위기 키운다\" 경고",
-      "source": "코인리더스",
-      "link": "https://www.coinreaders.com/255984",
-      "publishedAt": "Tue, 01 Sep 2026 15:00:00 GMT",
+      "title": "“AI 거품 꺼지면 금융위기 온다” 영란은행 총재의 섬뜩한 경고",
+      "source": "더스쿠프",
+      "link": "https://www.thescoop.co.kr/news/articleView.html?idxno=311454",
+      "publishedAt": "Tue, 01 Sep 2026 20:56:01 GMT",
       "date": "2026-09-02",
       "category": "biz",
       "bullets": [
-        "최첨단 인공지능(AI)이 사이버 공격의 속도와 파급력을 키우면서 글로벌 금융시장을 흔들 새로운 위험으로 떠올랐다.",
-        "그는 최신 인공지능 모델이 “갈수록 정교한 자율성과 문제 해결 능력, 위협 능력을 보여주고 있다”고 밝혔다.",
-        "베일리가 가장 먼저 지목한 위험은 사이버 공격이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "포브로 '딸깍넷', 2026 혁신 IT 대상 수상 실무형 인공지능 시장 선도",
-      "source": "뉴스N연합",
-      "link": "https://www.newsyonhap.com/news/122540",
-      "publishedAt": "Tue, 01 Sep 2026 14:23:05 GMT",
-      "date": "2026-09-01",
-      "category": "biz",
-      "bullets": [
-        "내우외환 풍파 닥쳐도 김민석,반드시 돌파해 내겠습니다.",
-        "(자막방송) 삼대가 떳떳하게 살고 있다.",
-        "(자막방송) 본질을 가리는 말장난입니다."
+        "인공지능(AI) 열풍 뒤편에서 글로벌 금융 시스템을 위협하는 뇌관이 커지고 있다는 경고가 나왔다.",
+        "소수 빅테크 기업으로 자금이 쏠린 상황에서 AI 성장세가 꺾일 경우 전 세계적인 금융 충격과 경기 침체로 이어질 수 있다는 분석이다.",
+        "아울러 AI 모델이 해킹에 악용되는 ‘AI 사이버 보안 리스크’도 금융 안정을 뒤흔들 복병으로 지목됐다."
       ],
       "contentVerified": true
     },
@@ -102,7 +88,7 @@
     },
     {
       "title": "세계 가전전시회 장악한 로봇…삼성·LG, 중국 추격 속 AI홈 경쟁",
-      "source": "hani.co.kr",
+      "source": "한겨레",
       "link": "https://www.hani.co.kr/arti/economy/marketing/1275735.html",
       "publishedAt": "Tue, 01 Sep 2026 10:38:00 GMT",
       "date": "2026-09-01",
@@ -115,16 +101,58 @@
       "contentVerified": true
     },
     {
-      "title": "[산업AI EXPO 프리뷰] AI 업무 지능화 ⑩ | 딥앤하이 ‘베리핏’이 채용 평가 자료로 삼은 지원자의 업무 행동",
+      "title": "충남의 경제·문화·인공지능(AI) ‘세계와 통했다’",
+      "source": "동방일보",
+      "link": "https://www.dongbangilbo.co.kr/news/articleView.html?idxno=103796",
+      "publishedAt": "Tue, 01 Sep 2026 09:44:31 GMT",
+      "date": "2026-09-01",
+      "category": "biz",
+      "bullets": [
+        "【동방일보】 조중연 기자 = 충남도가 내년 우리나라에서 개최되는 세계청년대회 때 레오 14세 교황의 충남 방문을 성사시키기 위한 디딤돌을 놨다.",
+        "또 민선 9기 첫 외자유치에 성공하고, 도내 기업의 해외시장 진출 확대, 유럽 기관・기업 등과 인공지능(AI)을 비롯한 미래 산업 협력 발판도 다졌다.",
+        "박수현 지사는 31일 도청 프레스센터에서 기자 간담회를 갖고, 민선 9기 첫 공무국외출장 결과를 설명했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "\"자율 AI 에이전트로 해킹 방어\"… 日 NTT데이터·美 팔로알토, '보안 AI' 동맹",
+      "source": "초이스스탁US",
+      "link": "https://www.choicestock.co.kr/stock/news_view/180934?bu=",
+      "publishedAt": "Tue, 01 Sep 2026 21:36:21 GMT",
+      "date": "2026-09-02",
+      "category": "tech",
+      "bullets": [
+        "양사 협력의 핵심은 '자율 AI 에이전트 기술'의 전면 도입이다.",
+        "최근 생성형 AI 기술을 악용한 정교한 피싱, 제로데이 취약점 공격, 랜섬웨어 변종이 급증함에 따라 전통적인 보안 인력 중심의 수동 관제로는 한계에 봉착했다는 판단이다.",
+        "양사가 개발하는 차세대 보안 플랫폼은 자율 AI 에이전트가 네트워크 및 엔드포인트에서 발생하는 이상 징후를 실시간으로 탐지하고, 사람의 개입 없이도 즉각적인 격리 및 차단 대응을 자율적으로 수행한다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "[산업AI EXPO 프리뷰] AI 업무 지능화 ③ | 누비콤, AI 코드 생성과 예지보전 접목 노린다",
       "source": "헬로티",
-      "link": "https://www.hellot.net/news/article.html?no=114698",
-      "publishedAt": "Tue, 01 Sep 2026 14:11:19 GMT",
+      "link": "https://www.hellot.net/news/article.html?no=114699",
+      "publishedAt": "Tue, 01 Sep 2026 14:13:01 GMT",
       "date": "2026-09-01",
       "category": "tech",
       "bullets": [
-        "인공지능(AI) 기술·교육 전문 업체 딥앤하이가 ‘2026 산업AI EXPO’에서 선보일 솔루션은 직무 역량 검증 솔루션이다.",
-        "지원자의 성향과 업무 수행 역량을 함께 평가하는 채용·교육 솔루션을 제시한다.",
+        "‘2026 산업AI EXPO’ 현장에 누비콤이 참전한다.",
+        "테스트·측정 및 자동화 솔루션을 공급하는 회사는 이 자리에서 테스트 개발과 설비 유지보수에 각각 특화된 인공지능(AI) 솔루션을 들고 나온다.",
         "‘2026 산업AI EXPO’는 실제 산업 현장을 움직이는 AI 기술·솔루션을 한자리에서 선보이는 산업 AI 전문 전시회다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "전 국민 AI서비스 지원한다…과기정통부 내년 예산 29.6조 원",
+      "source": "대한민국 정책브리핑",
+      "link": "https://www.korea.kr/news/policyNewsView.do?newsId=148971010&pWise=sub&pWiseSub=C3",
+      "publishedAt": "Tue, 01 Sep 2026 09:33:45 GMT",
+      "date": "2026-09-01",
+      "category": "tech",
+      "bullets": [
+        "내년에는 국민 누구나 범용 인공지능(AI) 챗봇과 공공 AI 에이전트 등을 보다 쉽게 활용할 수 있도록 지원하는 사업이 새로 추진된다.",
+        "AI중심대학도 올해 18개에서 67개로 대폭 늘어난다.",
+        "과학기술정보통신부는 AI 대전환과 미래 첨단기술 확보를 뒷받침하기 위해 2027년 예산안을 올해보다 24.5% 늘어난 29조 6000억 원 규모로 편성했다고 1일 밝혔다."
       ],
       "contentVerified": true
     },
@@ -143,48 +171,6 @@
       "contentVerified": true
     },
     {
-      "title": "한양대 신승준 교수, 국내 최초로 제조 AI 기술의 본질 다룬 '제조 AI' 출간",
-      "source": "전자신문",
-      "link": "https://www.etnews.com/20260901000386",
-      "publishedAt": "Tue, 01 Sep 2026 07:25:54 GMT",
-      "date": "2026-09-01",
-      "category": "tech",
-      "bullets": [
-        "한양대학교 기술혁신대학 산업융합학부 신승준 교수가 제조 현장의 관점에서 인공지능(AI)의 개발과 운영, 데이터 관리, 시스템 구축 전반을 다룬 신간 '제조 AI'를 출간했다.",
-        "최근 제조업 전반에서 AI 활용에 대한 관심이 높아지고 있지만, 관련 논의는 주로 AI 플랫폼이나 비즈니스 가치, 최신 모델의 성능에 집중돼 왔다.",
-        "신 교수는 제조 현장에서 실제로 AI를 도입하고 장기간 운영하기 위해 필요한 기술과 과정을 체계적으로 설명할 필요가 있다고 보고 이번 책을 집필했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "비씨월드제약, AI 기반 '항생제 내성' 신약 개발",
-      "source": "데일리팜",
-      "link": "https://dailypharm.com/user/news/341996",
-      "publishedAt": "Tue, 01 Sep 2026 06:55:14 GMT",
-      "date": "2026-09-01",
-      "category": "tech",
-      "bullets": [
-        "비씨월드제약이 인공지능(AI)과 양자역학 기반 약물 설계 기술을 활용해 항생제 내성에 대응하는 혁신신약 개발에 나선다.",
-        "비씨월드제약은 중소벤처기업부가 주관하는 '2026년 중소기업기술혁신개발사업'의 AI 후보물질 탐색 과제 주관연구개발기관으로 최종 선정됐다고 1일 밝혔다.",
-        "이번 과제에는 양자컴퓨터 기반 계산화학 솔루션 기업 큐노바가 공동연구개발기관으로 참여한다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "EU, '챗GPT'에도 디지털법 규제 적용",
-      "source": "네이트",
-      "link": "https://news.nate.com/view/20260902n00352",
-      "publishedAt": "Tue, 01 Sep 2026 15:31:00 GMT",
-      "date": "2026-09-02",
-      "category": "policy",
-      "bullets": [
-        "기사 제목과 본문 내용을 자동 요약한 내용입니다.",
-        "전체 내용을 이해하기 위해서는 기사 본문 전체를 확인하는 것이 더 좋습니다.",
-        "유럽연합(EU)이 지난달 31일(현지 시간) 생성형 인공지능(AI) 서비스 중 처음으로 오픈AI의 ‘챗GPT’를 디지털서비스법(DSA) 적용 대상에 추가했다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "[현장리포트] 제3회 미래법제포럼, AI 시대 법제 과제 논의… 스타트업 대응 전략",
       "source": "investnews.co.kr",
       "link": "https://www.investnews.co.kr/news/articleView.html?idxno=3002734",
@@ -195,20 +181,6 @@
         "8월 28일 서울 서초구 양재동 엘타워에서 법제처와 한국법제연구원이 공동 주최한 '제3회 미래법제포럼'이 열렸다.",
         "이날 포럼은 인공지능(AI)을 비롯한 첨단 신기술의 산업 활용이 빨라지는 가운데, 기술 혁신을 저해하지 않으면서 사회적 위험을 관리할 수 있는 법·제도 기반을 논의하기 위해 마련됐다.",
         "기조강연에 나선 박태웅 국가인공지능전략위원회 공공AX분과장은 'AI의 시대를 어떻게 맞이할 것인가'를 주제로 생성형 AI 확산이 전문직과 산업 구조에 미칠 영향을 진단했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "KTL, 제조 AI 전환 경쟁력 강화",
-      "source": "경남일보",
-      "link": "https://www.gnnews.co.kr/news/articleView.html?idxno=644527",
-      "publishedAt": "Tue, 01 Sep 2026 09:21:40 GMT",
-      "date": "2026-09-01",
-      "category": "policy",
-      "bullets": [
-        "한국산업기술시험원(KTL)이 제조기업의 인공지능(AI) 전환과 글로벌 경쟁력 강화를 위한 규제 대응 및 제조데이터 활용 방안을 제시했다.",
-        "KTL은 지난달 31일 충남 천안 신라스테이에서 ‘산업 AI 전환을 위한 규제 및 제조데이터 활용 세미나’를 개최했다고 1일 밝혔다.",
-        "이번 세미나는 제조업 경쟁력이 AI를 중심으로 빠르게 재편되는 가운데 제조데이터 표준화와 AI 신뢰성 확보, 국내외 규제와 국제표준 대응 역량을 강화하기 위해 마련됐다."
       ],
       "contentVerified": true
     },
@@ -225,9 +197,51 @@
         "행사는 ‘국내외 AI 규제 적용성 진단 및 대응 준비 세미나’와 ‘자산관리쉘(AAS) 기반 디스플레이 제조데이터 표준화 및 AI 활용 세미나’ 등 2개 부문으로 구성됐다."
       ],
       "contentVerified": true
+    },
+    {
+      "title": "[로펌소식] 지평, ‘AI회계감리대응센터’ 확대 개편… 회계 관련 규제 대응 강화",
+      "source": "news.koreanbar.or.kr",
+      "link": "https://news.koreanbar.or.kr/news/articleView.html?idxno=36081",
+      "publishedAt": "Tue, 01 Sep 2026 08:32:35 GMT",
+      "date": "2026-09-01",
+      "category": "policy",
+      "bullets": [
+        "‘주식회사 등의 외부감사에 관한 법률’이 최근 전면 개정함에 따라 기업의 이사·감사 및 외부감사인에게 요구되는 책임과 의무도 한층 엄격해진 가운데, 법무법인 지평이 이러한 변화에 선제적으로 대응하기 위한 준비를 마쳤다.",
+        "법무법인 지평(대표변호사 김지홍·이행규)은 회계 관련 규제와 금융환경 변화에 종합적으로 대응하기 위해 기존 회계규제팀을 ‘AI회계감리대응센터’로 확대·개편했다고 1일 밝혔다.",
+        "최근 금융당국이 회계투명성 제고를 위해 회계감독과 감리·제재 관련 제도 개선을 추진하면서 기업의 회계 관련 리스크에 대한 선제 대응 필요성도 커지고 있다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "EU, 챗GPT '초대형 검색엔진' 지정…규제 수위 대폭 강화",
+      "source": "AI타임스",
+      "link": "https://www.aitimes.com/news/articleView.html?idxno=214705",
+      "publishedAt": "Tue, 01 Sep 2026 07:21:20 GMT",
+      "date": "2026-09-01",
+      "category": "policy",
+      "bullets": [
+        "유럽연합(EU)이 AI 서비스인 오픈AI의 챗GPT를 ‘초대형 검색엔진’으로 지정하며 규제 수위를 높였다.",
+        "EU 내 월평균 사용자가 4500만명을 넘어선 데 따른 조치로, 앞으로 불법 콘텐츠 확산과 미성년자 보호는 물론 알고리즘이 선거와 공공 안전, 이용자의 신체·정신 건강에 미치는 위험까지 평가하고 완화해야 한다.",
+        "EU 집행위원회는 31일(현지시간) 디지털서비스법(DSA)에 따라 챗GPT를 ‘초대형 온라인 검색엔진(VLOSE)’, 레딧과 로블록스를 ‘초대형 온라인 플랫폼(VLOP)’으로 각각 지정했다고 발표했다."
+      ],
+      "contentVerified": true
     }
   ],
   "weekly": [
+    {
+      "title": "[산업AI EXPO 프리뷰] AI 업무 지능화 ⑪ | 씨디에스 ‘위에이아이’, 생성형 AI 선택부터 조직별 권한 관리까지 한곳에",
+      "source": "헬로티",
+      "link": "https://www.hellot.net/news/article.html?no=114707",
+      "publishedAt": "Tue, 01 Sep 2026 14:28:32 GMT",
+      "date": "2026-09-01",
+      "category": "genai",
+      "bullets": [
+        "다중 생성형 AI(Generative AI) 모델의 활용과 기관 내부 문서 검색, 사용자 관리를 하나의 플랫폼에 담았다.",
+        "국내 정보통신기술(ICT)·소프트웨어 기술 업체 씨디에스가 ‘2026 산업AI EXPO’에서 소개할 다중 모델 생성형 AI 플랫폼 ‘위에이아이(WeeAI)’다.",
+        "공공기관·교육기관·기업 등의 조직구조와 업무환경에 맞춰 인공지능(AI) 활용 기능과 관리체계를 함께 구성하는 기술이다."
+      ],
+      "contentVerified": true
+    },
     {
       "title": "계명대, 차세대 생성형 AI 플랫폼 도입…대학 혁신 가속",
       "source": "kyongbuk.co.kr",
@@ -243,34 +257,6 @@
       "contentVerified": true
     },
     {
-      "title": "계명대학교. 2026학년도 2학기부터 ‘차세대 생성형 AI 플랫폼’ 도입",
-      "source": "데일리대구경북뉴스",
-      "link": "https://www.dailydgnews.com/news/article.html?no=261848",
-      "publishedAt": "Tue, 01 Sep 2026 08:28:05 GMT",
-      "date": "2026-09-01",
-      "category": "genai",
-      "bullets": [
-        "계명대는 기존에 운영해 온 ChatGPT, Claude, Gemini 등 유료 생성형 AI 플랫폼 지원 체계를 한층 확장해 70여 개 AI 모델을 통합 제공하는 환경을 구축한다.",
-        "이를 통해 학부 및 전공별 수요를 반영한 ‘전공 맞춤형 AI 활용 모델’을 적용하고, 학문 특성에 따라 최적화된 AI 활용 교육을 강화할 계획이다.",
-        "프롬프트 엔지니어링, 데이터 분석 실습 등 AI 활용 핵심 역량이 정규 및 비교과 과정에 포함되며, 학생들은 단순 AI 활용을 넘어 실제 문제 해결 중심 학습을 수행하게 된다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "석유관리원, 생성형 AI 역량 강화",
-      "source": "에너지데일리",
-      "link": "https://www.energydaily.co.kr/news/articleView.html?idxno=202741",
-      "publishedAt": "Tue, 01 Sep 2026 08:11:02 GMT",
-      "date": "2026-09-01",
-      "category": "genai",
-      "bullets": [
-        "[에너지데일리 변국영 기자 ]한국석유관리원이 공공업무 혁신과 신뢰받는 AI 전환(AX)을 선도하기 위해 전 직원을 대상으로 ‘생성형 AI 활용 점검 및 실습형 체감교육’을 실시했다.",
-        "석유관리원은 이번 교육에 앞서 공공기관의 책무성을 강화하고 안전한 인공지능 활용 기준을 정립하기 위해 ‘공공‧책임‧신뢰 기반의 생성형 AI 활용 가이드’를 자체 제작해 전 부서에 배포했다.",
-        "가이드라인은 비공개 업무 정보 및 개인정보 입력금지, 프롬프트 작성 요령, AI 환각 검증을 위한 ‘AI-인간 협업 프로세스’ 등을 상세히 담고 있다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "“할루시네이션 잡았다”… 영천시, RAG 기반 생성형 ‘AI 챗봇’ 전격 도입",
       "source": "스트레이트뉴스",
       "link": "https://www.straightnews.co.kr/news/articleViewAmp.html?idxno=310194",
@@ -281,6 +267,20 @@
         "경북 영천시가 단순 키워드 검색 방식의 홈페이지 행정을 탈피하고, 최신 생성형 인공지능(AI)과 첨단 검색 증강 기술을 접목한 똑똑한 비서형 챗봇을 선보였다.",
         "영천시는 공식 홈페이지에 생성형 AI 기술을 기반으로 구축한 ‘영천시 AI 챗봇’ 서비스를 완성하고 1일부터 일반 시민과 외국인 주민을 대상으로 본격적인 운영에 돌입했다고 밝혔다.",
         "새롭게 도입된 ‘영천시 AI 챗봇’은 기존 홈페이지의 단순 단어 일치식 검색 한계를 뛰어넘어, 사용자의 일상 대화형 질문 의도를 정밀하게 파악해 최적의 맞춤 답변을 도출한다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "석유관리원, 생성형 AI 업무 활용체계 강화",
+      "source": "국토일보",
+      "link": "https://www.ikld.kr/news/articleView.html?idxno=339882",
+      "publishedAt": "Tue, 01 Sep 2026 06:16:00 GMT",
+      "date": "2026-09-01",
+      "category": "genai",
+      "bullets": [
+        "석유관리원이 생성형 인공지능(AI)의 업무 활용을 확대하면서 정보보안과 윤리, 결과 검증을 아우르는 내부 기준 마련에 나섰다.",
+        "자체 가이드 배포와 전 직원 실습교육에 이어 관리자 대상 교육까지 연계해 공공업무에 적용할 수 있는 AI 활용체계를 구축한다는 방침이다.",
+        "한국석유관리원(이사장 최춘식)은 전 직원을 대상으로 ‘생성형 AI 활용 점검 및 실습형 체감교육’을 실시했다."
       ],
       "contentVerified": true
     },
@@ -341,30 +341,44 @@
       "contentVerified": true
     },
     {
-      "title": "전남광주, AI 기술개발·실증 2단계 착수…2030년까지 4557억원 투입",
-      "source": "AI타임스",
-      "link": "https://www.aitimes.com/news/articleView.html?idxno=214688",
-      "publishedAt": "Tue, 01 Sep 2026 06:17:09 GMT",
+      "title": "전 국민 AI서비스 지원한다…과기정통부 내년 예산 29.6조 원",
+      "source": "대한민국 정책브리핑",
+      "link": "https://www.korea.kr/news/policyNewsView.do?newsId=148971010&pWise=sub&pWiseSub=C3",
+      "publishedAt": "Tue, 01 Sep 2026 09:33:45 GMT",
       "date": "2026-09-01",
       "category": "tech",
       "bullets": [
-        "전남광주통합특별시가 AI 기술개발과 현장 실증, 사업화를 연결하는 2단계 ‘AX실증밸리 조성사업’을 본격 추진한다고 지난 31일 밝혔다.",
-        "2026년부터 2030년까지 5년간 총 4557억원을 투입해 48개 과제를 진행하며, 올해는 시민체감·모빌리티·에너지 분야 26개 신규 과제를 시작한다.",
-        "이번 사업은 국가AI데이터센터 등 컴퓨팅 자원을 구축한 1단계 사업에 이어 연구개발과 실증, 시민 체감형 서비스 확산까지 연결하는 전주기 AI 전환(AX) 생태계 구축을 목표로 한다."
+        "내년에는 국민 누구나 범용 인공지능(AI) 챗봇과 공공 AI 에이전트 등을 보다 쉽게 활용할 수 있도록 지원하는 사업이 새로 추진된다.",
+        "AI중심대학도 올해 18개에서 67개로 대폭 늘어난다.",
+        "과학기술정보통신부는 AI 대전환과 미래 첨단기술 확보를 뒷받침하기 위해 2027년 예산안을 올해보다 24.5% 늘어난 29조 6000억 원 규모로 편성했다고 1일 밝혔다."
       ],
       "contentVerified": true
     },
     {
-      "title": "KTL, 제조 AI 전환 위한 규제·제조데이터 활용 세미나",
-      "source": "한국경제",
-      "link": "https://www.hankyung.com/article/202609016047h",
-      "publishedAt": "Tue, 01 Sep 2026 01:59:37 GMT",
+      "title": "전남광주시, 인공지능(AI) 기반조성 이어 기술개발·실증 본격화 - 머니투데이",
+      "source": "머니투데이",
+      "link": "https://www.mt.co.kr/amp/policy/2026/09/01/2026090110095598469",
+      "publishedAt": "Tue, 01 Sep 2026 01:20:16 GMT",
+      "date": "2026-09-01",
+      "category": "tech",
+      "bullets": [
+        "전남광주시가 인공지능(AI) 2단계인 'AX실증밸리 조성사업'을 본격 추진, 대한민국 AI 실증 거점으로 도약한다고 1일 밝혔다.",
+        "이번 2단계 사업은 국가AI데이터센터 등 컴퓨팅 자원을 구축한 1단계 사업의 성과를 바탕으로 연구개발(R&D), 실증, 시민 체감형 서비스 확산까지 이어지는 전주기 인공지능전환(AX) 생태계를 구축한다.",
+        "2단계는 총사업비 4557억원 규모로 올해부터 2030년까지 5년간 48개 과제가 추진된다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "EU, 챗GPT '초대형 검색엔진' 지정…AI까지 플랫폼 규제",
+      "source": "아시아경제",
+      "link": "https://www.asiae.co.kr/article/2026090108500806609",
+      "publishedAt": "Tue, 01 Sep 2026 01:08:01 GMT",
       "date": "2026-09-01",
       "category": "policy",
       "bullets": [
-        "Google 검색에서 한국경제 기사를 더 자주 볼 수 있습니다.",
-        "KTL 권종원 센터장이 8월31일 열린 세미나에서 국내외 AI 규제 대응과 관련해 발표를 진행하고 있다.",
-        "한국산업기술시험원(이하 KTL)은 제조기업의 AI 전환과 글로벌 경쟁력 강화를 지원하기 위해 ‘산업 AI 전환을 위한 규제 및 제조데이터 활용 세미나’를 개최했다."
+        "숏 뉴스 AI 요약 기술은 핵심만 전달합니다.",
+        "유럽연합(EU)이 인공지능(AI) 기업 오픈AI의 챗GPT를 AI 챗봇 중에는 처음으로 디지털서비스법(DSA)상 규제 대상으로 지정했다.",
+        "트럼프 미국 행정부가 EU의 빅테크 규제에 반발하는 가운데 유럽이 미국 기술기업에 대한 감독을 이어가면서 양측 간 갈등이 더욱 커질 가능성이 제기된다."
       ],
       "contentVerified": true
     }
