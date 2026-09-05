@@ -1,7 +1,21 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-09-05T09:03:58Z",
+  "generated_at": "2026-09-05T12:41:56Z",
   "daily": [
+    {
+      "title": "[AI 남동이] AI, 거짓말 반복하니 '진실'로 믿어…챗GPT 3.5 최악",
+      "source": "남동뉴스",
+      "link": "http://www.namdongnews.co.kr/news/articleViewAmp.html?idxno=93631",
+      "publishedAt": "Sat, 05 Sep 2026 09:46:44 GMT",
+      "date": "2026-09-05",
+      "category": "genai",
+      "bullets": [
+        "생성형 인공지능(AI)이 반복적인 허위 정보에 설득당해 잘못된 내용을 사실로 받아들일 수 있다는 연구 결과가 나왔다.",
+        "4일(현지시간) 미국 애리조나대학교 연구팀은 7개의 생성형 AI 언어모델(LLM)을 대상으로 긴 대화를 통해 오류 가능성, 설득 가능성, 수정 가능성을 평가한 연구 결과를 국제학술지 '사이언티픽 리포트'에 발표했다.",
+        "연구 대상 모델은 챗GPT(GPT-3.5, GPT-4o, GPT-4o-미니), 클로드 3.5 소네트, 제미나이 1.5 프로, 라마-3-70B, 딥시크-R1이다."
+      ],
+      "contentVerified": true
+    },
     {
       "title": "음성 AI 확장 노리는 일레븐랩스 “인력 감소 문제 해결”",
       "source": "더에이아이",
@@ -17,44 +31,44 @@
       "contentVerified": true
     },
     {
-      "title": "[알쓸미잡] AI가 만든 결과물, 결국 사람 손으로…‘AI 클린업’ 일자리 뜬다",
-      "source": "woorinews.co.kr",
-      "link": "http://www.woorinews.co.kr/news/articleViewAmp.html?idxno=75450",
-      "publishedAt": "Sat, 05 Sep 2026 04:22:58 GMT",
+      "title": "울산 북구여성행복맞춤센터, 스마트폰 AI 활용 교육",
+      "source": "경상일보",
+      "link": "https://www.ksilbo.co.kr/news/articleView.html?idxno=1066427",
+      "publishedAt": "Sat, 05 Sep 2026 05:41:45 GMT",
       "date": "2026-09-05",
       "category": "genai",
       "bullets": [
-        "생성형 인공지능(AI)이 만든 글과 이미지, 영상 등을 사람이 다시 고치는 이른바 ‘AI 클린업’ 일자리가 늘고 있다.",
-        "AI가 초안을 빠르게 만들어내는 한편 오류와 품질 문제를 완전히 해결하지 못하면서, 이를 검수하고 수정하는 새로운 형태의 업무가 등장한 것이다.",
-        "프리랜서 플랫폼의 관련 수요도 증가세다."
+        "이번 교육은 이달 18일까지 매주 금요일 초·중·고급으로 단계별 진행될 예정이다.",
+        "이날 초급과정에서는 스마트폰의 주요 기능과 일상생활에서 유용하게 활용할 수 있는 기능을 익히고 ChatGPT 등 생성형 AI의 기본 사용법을 직접 실습하는 시간을 가졌다.",
+        "특히 생성형 AI가 다소 생소한 참여자들도 스마트폰을 활용해 직접 질문하고 답변을 확인하는 등 쉽게 AI를 경험할 수 있도록 도왔다."
       ],
       "contentVerified": true
     },
     {
-      "title": "부천문화재단, 생성형 AI로 시민의 일상과 도시를 예술로..‘나도 아티스트’ 공모전",
-      "source": "부천저널",
-      "link": "https://www.bucheonjournal.com/news/articleView.html?idxno=21437",
-      "publishedAt": "Sat, 05 Sep 2026 04:00:10 GMT",
+      "title": "충남 학생 1830명, AI·로봇으로 ‘끝장 개발’…참가자 788명 늘었다",
+      "source": "교육플러스",
+      "link": "https://www.edpl.co.kr/news/articleView.html?idxno=21457",
+      "publishedAt": "Sat, 05 Sep 2026 05:37:43 GMT",
       "date": "2026-09-05",
       "category": "genai",
       "bullets": [
-        "부천문화재단이 시민의 일상과 상상을 생성형 AI를 활용한 예술 작품으로 표현하는 공모전을 마련해 시민들의 창작 참여를 이끈다.",
-        "생성형 AI 기술을 매개로 개인의 경험과 감정을 예술로 풀어내고, 시민의 시선에서 부천이라는 도시를 새롭게 바라보는 기회가 될 전망이다.",
-        "부천문화재단은 가톨릭대학교, 한국연구재단과 함께 ‘AI 아트 공모전 ’를 개최한다."
+        "충남 초·중·고 학생 1830명이 인공지능(AI)과 로봇을 활용해 직접 문제를 해결하고 디지털 콘텐츠와 비행체까지 제작하는 ‘끝장 개발’에 나섰다.",
+        "전년보다 참가 학생이 788명 늘어나면서 학교 현장에서 생성형 AI뿐 아니라 실제 장치와 결합한 ‘실물 AI’에 대한 관심도 빠르게 커지고 있음을 보여줬다.",
+        "충남교육청은 5일 선문대학교 소프트웨어중심대학사업단과 함께 ‘제5회 인공지능 로봇 끝장 개발 한마당’을 개최했다."
       ],
       "contentVerified": true
     },
     {
-      "title": "미국 영화협회(MPA), 바이트댄스와 IP 보호 협약 체결…생성형 AI ‘시댄스’ 분쟁 해소",
-      "source": "IPDaily",
-      "link": "https://www.ipdaily.co.kr/2026/09/05/12/24/21/50460/%EB%AF%B8%EA%B5%AD-%EC%98%81%ED%99%94%ED%98%91%ED%9A%8Cmpa-%EB%B0%94%EC%9D%B4%ED%8A%B8%EB%8C%84%EC%8A%A4%EC%99%80-ip-%EB%B3%B4%ED%98%B8-%ED%98%91%EC%95%BD-%EC%B2%B4%EA%B2%B0-%EC%83%9D%EC%84%B1/",
-      "publishedAt": "Sat, 05 Sep 2026 03:24:21 GMT",
+      "title": "수원시, 항저우시 대표단과 AI·로봇 협력 논의",
+      "source": "경인미래신문",
+      "link": "https://www.kifuture.com/news/article.html?no=175972",
+      "publishedAt": "Sat, 05 Sep 2026 09:31:01 GMT",
       "date": "2026-09-05",
-      "category": "genai",
+      "category": "biz",
       "bullets": [
-        "미국 영화협회(MPA)가 지난 8월 17일 중국 바이트댄스(ByteDance)와 AI 동영상 생성 모델‘시댄스’의 지식재산권 보호를 위한 전략적 양해각서(MOU)에 서명했다고 발표했다.",
-        "바이트댄스는 글로벌 숏폼 플랫폼 틱톡(TikTok)의 모회사로 올해 2월 멀티모달 AI 영상 생성 모델‘시댄스 2.0(Seedance 2.0)’를 출시했다.",
-        "그러나 AI 모델 이용자가‘시댄스’로 생성한 영상에 브래드 피트,톰 크루즈 등 헐리우드 배우들의 초상이 그대로 등장하고,마치 영화의 한 장면같은 화면이 연출되자 지식재산권 침해 논란에 휩싸였다."
+        "(경인미래신문=민경호 기자) 수원특례시(시장 이재준)의 국제우호도시인 중국 항저우시 대표단이 4일 수원시를 방문해 이재준 수원시장과 양 도시의 협력 방안을 논의했다.",
+        "류샤광(鲁霞光) 부시장 등 5명으로 구성된 대표단은 수원시청을 찾은 뒤 화성행궁과 삼성이노베이션뮤지엄을 시찰했다.",
+        "류샤광 부시장은 수원시와 항저우시가 역사문화와 첨단기술이 융합된 도시라는 공통점을 갖고 있다고 밝혔다."
       ],
       "contentVerified": true
     },
@@ -88,7 +102,7 @@
     },
     {
       "title": "“연내 200대 실증 현장 투입” 라이노스, B2B 로봇 시장 공략 ‘출발’",
-      "source": "hellot.net",
+      "source": "헬로티",
       "link": "https://www.hellot.net/news/article.html?no=114787",
       "publishedAt": "Sat, 05 Sep 2026 04:42:09 GMT",
       "date": "2026-09-05",
@@ -101,37 +115,51 @@
       "contentVerified": true
     },
     {
-      "title": "미국은 인공지능 개발과 라이선스 비용이라는 과제에 직면해 있다.",
+      "title": "VNPT는 PTIT와 협력하여 AI 기반 대학을 설립합니다.",
       "source": "Vietnam.vn",
-      "link": "https://www.vietnam.vn/ko/my-trong-bai-toan-phat-trien-tri-tue-nhan-tao-va-phi-ban-quyen",
-      "publishedAt": "Sat, 05 Sep 2026 04:06:42 GMT",
+      "link": "https://www.vietnam.vn/ko/vnpt-hop-tac-ptit-phat-trien-dai-hoc-ai-native",
+      "publishedAt": "Sat, 05 Sep 2026 12:27:55 GMT",
       "date": "2026-09-05",
-      "category": "biz",
+      "category": "tech",
       "bullets": [
-        "미국 법무부는 최근 여러 주요 언론사를 상대로 제기된 저작권 소송에서 오픈AI를 강력하게 지지하며, 기술 발전은 전통적인 법적 장벽에 의해 저해되어서는 안 된다고 강조했습니다.",
-        "앞서 9월 1일, 트럼프 행정부는 뉴욕 남부 지방법원에 법적 이해관계 진술서를 제출함으로써 일련의 기술 특허 분쟁에 공식적으로 개입했습니다.",
-        "이번 조치는 ChatGPT 도구 개발사인 OpenAI를 뉴욕 타임스와 기술 웹사이트 CNET의 모회사인 Ziff Davis를 비롯한 여러 주요 언론사들이 제기한 저작권 침해 혐의로부터 보호하기 위한 것입니다."
+        "VNPT는 우정통신기술연구소(PTIT)와 협력하여 AI 기반 대학을 설립하고 있습니다.",
+        "이러한 협력은 VNPT의 AI 혁신 허브 구축이라는 포괄적인 전략의 일환입니다.",
+        "9월 5일, 과학기술부 장관이 참석한 가운데 베트남 우정통신그룹(VNPT)과 우정통신기술연구소(PTIT)는 교육 분야 인공지능 개발 협력을 위한 협약을 체결했다."
       ],
       "contentVerified": true
     },
     {
-      "title": "VNPT와 우정통신기술연구소는 인공지능 기반 대학을 설립하고 있습니다.",
-      "source": "Vietnam.vn",
-      "link": "https://www.vietnam.vn/ko/vnpt-va-hoc-vien-cong-nghe-buu-chinh-vien-thong-phat-trien-dai-hoc-ai-native",
-      "publishedAt": "Sat, 05 Sep 2026 08:46:03 GMT",
+      "title": "틀린 곳만 고치는 'AI 업무비서'...KAIST, ‘세이프큐엘’ 개발",
+      "source": "guminews.net",
+      "link": "https://www.guminews.net/news/articleView.html?idxno=16630",
+      "publishedAt": "Sat, 05 Sep 2026 09:15:33 GMT",
       "date": "2026-09-05",
       "category": "tech",
       "bullets": [
-        "이번 협력은 VNPT가 AI 혁신 허브를 구축하기 위한 포괄적인 전략의 일환으로, 베트남의 실질적인 문제를 해결하기 위해 국내외 유수의 연구기관 및 대학과 협력하는 것을 목표로 합니다.",
-        "이번 협력의 핵심은 대규모 베트남어 교육 모델(LLM)을 연구 및 완성 하고 , AI 기반 튜터링 플랫폼을 개발하며, 궁극적으로 AI가 통합된 종합적인 대학 모델인 AI 네이티브 대학을 구축하는 것입니다.",
-        "이 협력 모델에서 VNPT AI는 핵심 기술 분야의 주도 기관으로서 AI 기능을 연구, 개발 및 실제 교육 환경에 통합하는 책임을 맡게 됩니다."
+        "“지난해 가장 많이 팔린 상품을 찾아줘.” AI가 회사 자료를 찾는 과정에서 존재하지 않는 항목을 잘못 사용하면 검색이 실패할 수 있다.",
+        "지금까지는 작은 오류 하나에도 검색 명령 전체를 다시 만들어야 했지만, KAIST 연구진이 틀린 부분만 찾아 바로잡는 기술을 개발했다.",
+        "AI의 데이터 검색을 더 빠르고 정확하게 만들어 기업의 ‘AI 업무비서’ 활용을 앞당길 것으로 기대된다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "[과기원NOW] KAIST, 틀린 곳만 고치는 AI 비서 'SafeQL' 개발 外",
+      "source": "DongA Science",
+      "link": "https://www.dongascience.com/ko/news/79785",
+      "publishedAt": "Sat, 05 Sep 2026 09:12:00 GMT",
+      "date": "2026-09-05",
+      "category": "tech",
+      "bullets": [
+        "■KAIST는 김민수 전산학부 교수팀이 오류 부분만 찾아 단계적으로 수정하는 인공지능(AI) 비서를 개발했다고 4일 밝혔다.",
+        "AI에게 일상적인 말로 질문을 던지면 AI는 이 질문을 데이터베이스에서 원하는 정보를 찾는 컴퓨터 명령어인 SQL로 바꿔 작업을 수행한다.",
+        "문제는 AI가 검색 명령을 만들면서 데이터베이스에 실제로 없는 테이블이나 항목의 이름을 잘못 사용하거나, 자료를 잘못 연결하는 등의 실수를 할 수 있다는 것이다."
       ],
       "contentVerified": true
     },
     {
       "title": "과기정통부, 2027년 예산 29.6조 원 편성…전 국민 AI서비스 지원",
-      "source": "hellot.net",
-      "link": "https://www.hellot.net/news/article.html?no=114788",
+      "source": "헬로티",
+      "link": "https://hellot.net/news/article.html?no=114788",
       "publishedAt": "Sat, 05 Sep 2026 08:44:06 GMT",
       "date": "2026-09-05",
       "category": "tech",
@@ -139,34 +167,6 @@
         "내년에는 국민 누구나 범용 인공지능(AI) 챗봇과 공공 AI 에이전트 등을 보다 쉽게 활용할 수 있도록 지원하는 사업이 새로 추진된다.",
         "AI중심대학도 올해 18개에서 67개로 대폭 확대된다.",
         "과학기술정보통신부는 AI 대전환과 미래 첨단기술 확보를 뒷받침하기 위해 2027년 예산안을 올해보다 24.5% 늘어난 29조 6000억 원 규모로 편성했다고 1일 밝혔다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "국가대표 AI 연구 이끈다…포스텍, 220억 국책 과제 2건 동시 선정",
-      "source": "경북매일",
-      "link": "https://www.kbmaeil.com/article/20260905500122",
-      "publishedAt": "Sat, 05 Sep 2026 07:58:00 GMT",
-      "date": "2026-09-05",
-      "category": "tech",
-      "bullets": [
-        "포항공과대학교(이하 포스텍)가 정부가 추진하는 차세대 인공지능(AI) 원천기술 대형 연구개발 과제 2건을 동시에 따냈다.",
-        "포스텍은 과학기술정보통신부와 정보통신기획평가원(IITP)이 주관하는 ‘AI최고급신진연구자지원사업’에 2개 과제가 최종 선정됐다고 5일 밝혔다.",
-        "컴퓨터공학과 유환조 교수와 인공지능대학원 김원화 교수가 각각 연구책임을 맡아 2026년부터 2031년까지 6년간 총 220억원(과제당 110억원)을 지원받는다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "우주에서 적 위치 찾는다…일본, 'AI 위성' 개발 착수",
-      "source": "edaily.co.kr",
-      "link": "https://www.edaily.co.kr/News/Read?newsId=02125446645577168&mediaCodeNo=257",
-      "publishedAt": "Sat, 05 Sep 2026 07:04:04 GMT",
-      "date": "2026-09-05",
-      "category": "tech",
-      "bullets": [
-        "일본 방위성이 우주 공간에서 감시 위성이 수집한 정보를 자체 분석하는 인공지능(AI) 탑재 위성 개발에 착수한다.",
-        "이번 개발 프로젝트는 장사정 미사일의 운용 능력을 끌어올려 적의 공격을 무력화하는 ‘반격 능력’을 대폭 강화하기 위한 취지로 풀이된다.",
-        "5일 니혼게이자이신문(닛케이) 보도에 따르면 방위성은 2027년도부터 2029년도까지 일본 국내 기업들과 협력해 AI 위성 시제품을 제작하고 지상 성능 검증을 진행한다."
       ],
       "contentVerified": true
     },
@@ -185,16 +185,30 @@
       "contentVerified": true
     },
     {
-      "title": "“AI 누드 이미지 만들면 6억7천만원”…미네소타, xAI 가처분 기각",
-      "source": "munhwa.com",
-      "link": "https://www.munhwa.com/article/11614715",
-      "publishedAt": "Sat, 05 Sep 2026 04:36:05 GMT",
+      "title": "개혁신당 “AI·로봇 규제 과감히 풀어야”...이준석, 새만금 ‘모델시티’ 제안",
+      "source": "M이코노미뉴스",
+      "link": "https://www.m-economynews.com/news/article.html?no=70453",
+      "publishedAt": "Sat, 05 Sep 2026 04:47:18 GMT",
       "date": "2026-09-05",
       "category": "policy",
       "bullets": [
-        "미국 미네소타주가 인공지능(AI)을 이용해 실제 인물의 누드·성적 이미지를 생성하는 기술을 규제하는 가운데, 일론 머스크가 이끄는 AI 기업 xAI가 법 시행을 막아달라며 제기한 가처분 신청이 법원에서 기각됐다.",
-        "미네소타주 연방법원은 4일(현지시간) xAI가 제기한 가처분 신청을 받아들이지 않았다.",
-        "xAI는 지난 7월 미네소타주가 AI 생성 이미지에 대한 표현의 자유를 침해한다며 소송을 제기하고, 법 시행을 일시 중단해 달라고 요청했다."
+        "이준석 개혁신당 전 대표는 AI·로봇·자율주행 산업의 경쟁력 강화를 위해 관련 규제를 대폭 완화한 10만호 규모의 ‘모델시티’를 새만금 등에 조성하자고 제안했다.",
+        "이는 개별 규제 완화 방식에서 벗어나 첨단기술을 실제 도시에서 자유롭게 실증할 수 있는 대규모 테스트베드가 필요하다는 주장이다.",
+        "이날 토론회는 AI와 피지컬 AI, 로봇 산업의 현주소를 점검하고 국내 산업 경쟁력 강화를 위한 규제 개선과 정책 지원 방안을 모색하기 위해 마련됐다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "‘초지능 AI 영구 금지’ 법안 추진",
+      "source": "미주한국일보",
+      "link": "http://www.koreatimes.com/article/20260904/1628539",
+      "publishedAt": "Sat, 05 Sep 2026 03:00:00 GMT",
+      "date": "2026-09-05",
+      "category": "policy",
+      "bullets": [
+        "미 진보 진영의 대부 격인 버니 샌더스(무소속·버몬트) 연방 상원의원이 3일 초지능 인공지능(AI)을 영구적으로 금지하는 법안을 발의하겠다고 밝혔다.",
+        "온라인매체 악시오스에 따르면 샌더스 의원은 초지능의 개발과 이용을 금지하고, AI의 능력을 감시하고 잠재적인 위험을 파악할 정부 기관이 설립될때까지 첨단 AI 모델의 개발을 중단하도록 하는 내용의 법안을 준비중이다.",
+        "샌더스 의원은 이날 엑스(X·옛 트위터)에 올린 글에서 “극도로 위험한 기술에 대한 통제력을 잃고 있다고 주요 AI 기업의 지도자들이 인정한다면, 이들이 제품을 더욱 발전시키도록 허용하는 것은 무책임한 일”이라고 주장했다."
       ],
       "contentVerified": true
     },
@@ -211,20 +225,6 @@
         "보도에 미네소타 연방지방법원은 4일(현지시각) 일론 머스크의 인공지능 기업 xAI가 주 하원 법안 1606호(HF 1606)의 효력을 멈춰달라며 낸 긴급 임시제한명령(TRO) 신청을 기각했다."
       ],
       "contentVerified": true
-    },
-    {
-      "title": "‘AI 누드합성 금지法’ 막으려던 머스크 일단 좌절했지만…美 법무부는 주정부 AI 규제에 제동",
-      "source": "v.daum.net",
-      "link": "https://v.daum.net/v/6amoQe71yK",
-      "publishedAt": "Sat, 05 Sep 2026 02:12:07 GMT",
-      "date": "2026-09-05",
-      "category": "policy",
-      "bullets": [
-        "자동요약 기사 제목과 주요 문장을 기반으로 자동요약한 결과입니다.",
-        "전체 맥락을 이해하기 위해서는 본문 보기를 권장합니다.",
-        "미국 미네소타주가 인공지능(AI)을 이용한 나체 이미지 생성 등을 규제하는 법을 둘러싸고 일론 머스크가 이끄는 xAI와 벌이는 법정 공방에서 일단 승기를 잡았다."
-      ],
-      "contentVerified": true
     }
   ],
   "weekly": [
@@ -239,6 +239,20 @@
         "자동요약 기사 제목과 주요 문장을 기반으로 자동요약한 결과입니다.",
         "전체 맥락을 이해하기 위해서는 본문 보기를 권장합니다.",
         "병원 마케팅 전문기업 ㈜인사커뮤니케이션(대표 김훈)가 운영 중인 인사메디AI가 ChatGPTㆍClaudeㆍGemini 등 생성형 AI를 활용해 자동 생성ㆍ발행한 콘텐츠를 15개월간 추적한 자체 실증 데이터를 공개했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "국민은행, 경영진 대상 생성형 AI실습 교육",
+      "source": "서울경제",
+      "link": "https://www.sedaily.com/article/20086861",
+      "publishedAt": "Thu, 03 Sep 2026 06:44:49 GMT",
+      "date": "2026-09-03",
+      "category": "genai",
+      "bullets": [
+        "KB국민은행이 임원과 본부장급 경영진을 대상으로 생성형 인공지능(AI) 실습 교육을 진행했다.",
+        "KB국민은행은 경영진 50여 명을 대상으로 한 생성형 AI ‘코파일럿(Copilot)’ 활용 실습을 진행했다고 3일 밝혔다.",
+        "이환주 KB국민은행장도 직접 실습에 참여했다."
       ],
       "contentVerified": true
     },
@@ -271,20 +285,6 @@
       "contentVerified": true
     },
     {
-      "title": "씨티, 2027년을 위한 최고의 생성형 AI 주식 추천",
-      "source": "Investing.com 한국어",
-      "link": "https://kr.investing.com/news/stock-market-news/article-2084937",
-      "publishedAt": "Fri, 04 Sep 2026 12:50:00 GMT",
-      "date": "2026-09-04",
-      "category": "genai",
-      "bullets": [
-        "씨티(Citi)는 고성능 컴퓨팅 및 AI 워크로드에 대한 하이퍼스케일 투자가 가속화됨에 따라 글로벌 데이터센터 성장 전망치를 상향 조정하고, 여러 섹터에 걸쳐 수혜가 기대되는 종목 목록을 발표했다.",
-        "씨티는 최근 실적, 토큰 소비에 대한 강한 수요, 빠른 칩 판매 속도, 그리고 기존에는 전망치에서 제외됐던 중국의 기여분을 반영해 글로벌 데이터센터 산업 모델을 업데이트했다고 밝혔다.",
-        "씨티는 현재 글로벌 데이터센터 IT 부하가 연평균 25% 성장해 2026년 121기가와트에서 2031년 370기가와트로 증가할 것으로 전망하고 있다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "서울 중구 기업도약든든펀드, 'AI 시장운영 플랫폼' 기업에 투자",
       "source": "연합뉴스",
       "link": "https://www.yna.co.kr/amp/view/AKR20260903021600004",
@@ -299,86 +299,58 @@
       "contentVerified": true
     },
     {
-      "title": "한국의 일레븐랩스 '네오사피엔스', 상장 초읽기",
-      "source": "mstoday.co.kr",
-      "link": "https://www.mstoday.co.kr/news/articleView.html?idxno=102506",
-      "publishedAt": "Thu, 03 Sep 2026 03:12:28 GMT",
+      "title": "브로드컴 AI칩 매출 2년새 4배 쑥…엔비디아 독주 흔든다",
+      "source": "매일경제",
+      "link": "https://www.mk.co.kr/news/it/12143063",
+      "publishedAt": "Thu, 03 Sep 2026 00:51:45 GMT",
       "date": "2026-09-03",
       "category": "biz",
       "bullets": [
-        "[MSTODAY] 글로벌 인공지능(AI) 시장에서 빠르게 성장하고 있는 AI 음성 산업에서 한국 기업의 첫 본격적인 증시 입성이 초읽기에 들어갔다.",
-        "AI 음성 생성 플랫폼 '타입캐스트(Typecast)'를 운영하는 네오사피엔스가 코스닥 상장을 위한 공모 절차에 돌입했다.",
-        "네오사피엔스는 9월 2일부터 8일까지 기관투자자를 대상으로 수요예측을 진행한 뒤 10~11일 일반투자자 청약을 거쳐 이달 중 코스닥 시장에 상장할 예정이다."
+        "브로드컴이 인공지능(AI) 반도체 수요에 힘입어 3분기 시장 예상을 웃도는 실적을 내놓은 데 이어 앞으로 2년간 AI 반도체 매출이 4배로 커질 것이라는 전망을 제시했다.",
+        "구글에 이어 앤스로픽과 오픈AI가 자체 AI 칩 개발에 속도를 내면서 엔비디아가 장악한 AI 반도체 시장에서 브로드컴의 입지가 빠르게 커지고 있다는 분석이 나온다.",
+        "2일(현지시간) 브로드컴은 3분기 매출이 전년 동기보다 86% 증가한 295억9000만달러를 기록했다고 밝혔다."
       ],
       "contentVerified": true
     },
     {
-      "title": "[BOK 컨퍼런스] \"AI 확산해도 저숙련 노동 부족 해소 어려워\" |",
-      "source": "연합인포맥스",
-      "link": "https://news.einfomax.co.kr/news/articleViewAmp.html?idxno=4433270",
-      "publishedAt": "Thu, 03 Sep 2026 02:30:10 GMT",
-      "date": "2026-09-03",
+      "title": "KOSA, 사우디서 ‘한국 풀스택 AI’ 알렸다…중동 시장 공략",
+      "source": "테크월드",
+      "link": "https://www.epnc.co.kr/news/articleView.html?idxno=406546",
+      "publishedAt": "Fri, 04 Sep 2026 05:06:24 GMT",
+      "date": "2026-09-04",
       "category": "biz",
       "bullets": [
-        "인공지능(AI)이 확산하더라도 고령화가 촉발한 노동시장 부문 간 수급 불균형이 해소되기 어렵다는 전망이 나왔다.",
-        "기술변화가 대체할 수 있는 부문과 실제 인력이 부족해질 부문의 방향이 다르기 때문이라는 설명이다.",
-        "이철희 서울대 경제학부 교수는 3일 한국은행·경제정책연구센터(CEPR)·경제협력개발기구(OECD)가 공동으로 중구 한은 본점에서 개최한 컨퍼런스에서 '인공지능의 부상과 인구변화에 따른 노동시장 불균형'을 주제로 연단에 섰다."
+        "한국인공지능·소프트웨어산업협회(KOSA)가 국내 AI·클라우드 기업들과 풀스택 AI 기술을 앞세워 중동 시장 공략에 나섰다.",
+        "KOSA는 지난달 31일부터 이달 3일까지 사우디아라비아 리야드에서 열린 글로벌 기술 전시회 ‘LEAP 2026’에 참가해 ‘한국 풀스택 AI 공동관’을 운영했다고 밝혔다.",
+        "공동관에는 메가존클라우드와 퓨리오사AI, 업스테이지, NC AI, 유라클 등 5개사가 참여했다."
       ],
       "contentVerified": true
     },
     {
-      "title": "[IT 기획] ‘정치적 금기’에 갇힌 중국 AI와 자유시장의 AI",
-      "source": "데일리뉴스",
-      "link": "https://idailynews.co.kr/article/it-%EA%B8%B0%ED%9A%8D-%EC%A0%95%EC%B9%98%EC%A0%81-%EA%B8%88%EA%B8%B0%EC%97%90-%EA%B0%87%ED%9E%8C-%EC%A4%91%EA%B5%AD-ai%EC%99%80-%EC%9E%90%EC%9C%A0%EC%8B%9C%EC%9E%A5%EC%9D%98-ai-b775161165fea5e770bc",
-      "publishedAt": "Fri, 04 Sep 2026 15:48:00 GMT",
-      "date": "2026-09-05",
-      "category": "biz",
-      "bullets": [
-        "[실리콘밸리] 글로벌 인공지능(AI) 패권을 둘러싼 미국과 중국의 경쟁이 치열한 가운데, 기술적 역량과는 별개로 ‘체제의 차이’가 양국 AI의 성패를 가를 핵심 변수로 부상하고 있다.",
-        "전문가들은 언론의 자유가 없고 사상 통제가 철저한 중국의 폐쇄적인 플랫폼 구조가 결국 중국 AI의 글로벌 시장 진출에 치명적인 걸림돌이 될 것이라고 분석한다.",
-        "미국의 오픈AI(OpenAI), 구글, 메타 등이 이끄는 AI 모델들은 전 세계의 방대한 데이터와 가치관을 여과 없이 학습하며 진화하고 있다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "과기정통부, 2027년 예산 29.6조 원 편성…전 국민 AI서비스 지원",
-      "source": "hellot.net",
-      "link": "https://www.hellot.net/news/article.html?no=114788",
-      "publishedAt": "Sat, 05 Sep 2026 08:44:06 GMT",
-      "date": "2026-09-05",
-      "category": "tech",
-      "bullets": [
-        "내년에는 국민 누구나 범용 인공지능(AI) 챗봇과 공공 AI 에이전트 등을 보다 쉽게 활용할 수 있도록 지원하는 사업이 새로 추진된다.",
-        "AI중심대학도 올해 18개에서 67개로 대폭 확대된다.",
-        "과학기술정보통신부는 AI 대전환과 미래 첨단기술 확보를 뒷받침하기 위해 2027년 예산안을 올해보다 24.5% 늘어난 29조 6000억 원 규모로 편성했다고 1일 밝혔다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "\"설계부터 제조까지, AI가 스스로 협업한다\"...중앙대, 자율화 이끄는 ‘에이전틱 AI’ 개발",
-      "source": "인공지능신문",
-      "link": "https://www.aitimes.kr/news/articleView.html?idxno=41771",
-      "publishedAt": "Fri, 04 Sep 2026 09:26:42 GMT",
+      "title": "LG, 엔비디아·구글 등과 AI 기술 공유…계열사 AX 사례 공개",
+      "source": "IT조선",
+      "link": "https://it.chosun.com/news/articleViewAmp.html?idxno=2023092169487",
+      "publishedAt": "Fri, 04 Sep 2026 01:44:58 GMT",
       "date": "2026-09-04",
       "category": "tech",
       "bullets": [
-        "산업 전반의 엔지니어링 프로세스는 설계, 성능 평가, 제조 등 여러 전문 과정이 유기적으로 연결되는 복합적인 의사결정 과정이다.",
-        "그동안 인공지능(AI) 기술을 활용해 각 단계의 업무를 효율화하려는 다양한 연구가 이루어져 왔으나, 대부분 특정 단계나 개별 업무에 특화된 AI 모델을 중심으로 개발돼 왔다.",
-        "이에 따라 각 단계에서 생성되는 정보와 판단을 연속적으로 연결하고, 전체 엔지니어링 프로세스를 통합적으로 조율하는 데에는 한계가 있었다."
+        "LG가 엔비디아·구글·아마존·마이크로소프트(MS) 등 글로벌 빅테크와 인공지능(AI) 기술 및 개발 사례를 공유한다.",
+        "LG 계열사들이 추진한 AI 전환(AX) 성과도 공개한다.",
+        "LG는 7일부터 17일까지 서울 마곡 LG사이언스파크에서 ‘LG 스파크(SPARK) 2026’을 개최한다고 4일 밝혔다."
       ],
       "contentVerified": true
     },
     {
-      "title": "국방부, 국방 AI 전략 포럼 개최…법 제정·제도 마련 논의",
-      "source": "아주경제",
-      "link": "https://www.ajunews.com/amp/20260902170006281",
-      "publishedAt": "Wed, 02 Sep 2026 08:12:02 GMT",
-      "date": "2026-09-02",
+      "title": "AI·디지털에 칼 빼든 뉴욕시…초·중학생 학교 내 AI 사용 금지",
+      "source": "DongA Science",
+      "link": "https://www.dongascience.com/ko/news/79740",
+      "publishedAt": "Thu, 03 Sep 2026 01:44:00 GMT",
+      "date": "2026-09-03",
       "category": "policy",
       "bullets": [
-        "국방부가 2일 서울 국방컨벤션에서 ‘국방 인공지능(AI) 전략 포럼’을 개최했다.",
-        "이번 포럼은 국방부가 주최하고 사단법인 한국국방기술학회가 주관했다.",
-        "이날 기조강연을 맡은 한보형 서울대 전기공학부 교수는 ‘한국형 국방인공지능 역량 구축 전략’을 주제로 발표에 나섰다."
+        "뉴욕시 공립학교에서 초·중학생의 생성형 인공지능(AI) 사용이 원칙적으로 금지된다.",
+        "고등학생도 제한된 상황에서만 AI를 사용할 수 있으며 교사가 AI를 과제 채점에 활용하는 것도 금지된다.",
+        "미국 내에서도 가장 엄격한 학교 기술 규제라는 설명이다."
       ],
       "contentVerified": true
     }
