@@ -1220,7 +1220,10 @@ async function resolveTreeSoopPostCandidates(targetYmd) {
 // which reaches treesoop.com without any CORS restriction. Reading it from our
 // own origin needs no relay at all, so it is tried first and the flaky public
 // proxies become a fallback rather than a single point of failure.
-async function readTreeSoopCache(targetYmd) {
+// Returns the newest usable day in the cache, or the one pinned by `onlyYmd`.
+// No "on or before today" ceiling: a post dated ahead of the local clock is
+// still the newest thing published, and must not be skipped over.
+async function readTreeSoopCache(onlyYmd = '') {
     const response = await fetch(`data/treesoop-cache.json?ts=${Date.now()}`, { cache: 'no-store' });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const payload = await response.json();
@@ -1228,13 +1231,24 @@ async function readTreeSoopCache(targetYmd) {
     if (!posts.length) throw new Error('캐시에 게시물이 없습니다.');
 
     posts.sort((a, b) => b.date.localeCompare(a.date));
-    const post = posts.find(item => item.date === targetYmd)
-        || posts.find(item => item.date <= targetYmd);
-    if (!post) throw new Error(`${targetYmd} 이전 발행분이 캐시에 없습니다.`);
+    const generated = payload.generated_kst || payload.generated_at || '시각 미상';
+    for (const post of posts) {
+        if (onlyYmd && post.date !== onlyYmd) continue;
+        const articles = buildTreeSoopArticles(post.entries, post.postUrl, post.date);
+        if (articles.length) return { date: post.date, articles, generated };
+    }
+    throw new Error(onlyYmd ? `${onlyYmd} 발행분이 캐시에 없습니다.` : '캐시 항목에서 카드를 만들지 못했습니다.');
+}
 
-    const articles = buildTreeSoopArticles(post.entries, post.postUrl, post.date);
-    if (!articles.length) throw new Error(`${post.date} 캐시 항목에서 카드를 만들지 못했습니다.`);
-    return { date: post.date, articles, generated: payload.generated_kst || payload.generated_at || '시각 미상' };
+// TreeSoop skips days, so "today" is regularly not the newest post and guessing
+// dates one at a time could walk straight past a day that had just gone up. The
+// index answers "what is the latest?" outright, in one bounded request.
+async function resolveNewestTreeSoopDate() {
+    const indexUrl = `${TREESOOP_ORIGIN}${TREESOOP_NEWS_INDEXES[0]}?ts=${Date.now()}`;
+    const links = extractTreeSoopNewsLinks(await fetchTextWithCorsFallback(indexUrl, TREESOOP_FRESH_PROBE));
+    const newest = treesoopYmdFromUrl(links[0]);
+    if (!newest) throw new Error('목록에서 발행일을 찾지 못했습니다.');
+    return newest;
 }
 
 function logTreeSoopCacheHit(cached) {
@@ -1242,36 +1256,69 @@ function logTreeSoopCacheHit(cached) {
     return cached.articles;
 }
 
-async function fetchTreeSoopNews(targetYmd = formatYmd(getKstDate())) {
+// Exactly one day, cache first then the source. Used when a caller pins a date
+// rather than asking for the latest upload.
+async function fetchTreeSoopNewsForDate(ymd) {
+    try {
+        return logTreeSoopCacheHit(await readTreeSoopCache(ymd));
+    } catch (cacheError) {
+        addLog('Researcher', `${ymd} 캐시 조회 실패(${cacheError.message}), 원본에서 확인합니다.`, 'warning');
+    }
+    return parseTreeSoopPost(treesoopPostUrlForYmd(ymd), ymd, TREESOOP_FRESH_PROBE);
+}
+
+async function fetchTreeSoopNews(targetYmd = formatYmd(getKstDate()), options = {}) {
+    // Card generation always wants the latest upload. `pinnedDate` is for callers
+    // that deliberately ask for one specific day.
+    const pinnedDate = options.pinnedDate === true;
+    if (pinnedDate) return fetchTreeSoopNewsForDate(targetYmd);
+
     let cached = null;
     try {
-        cached = await readTreeSoopCache(targetYmd);
+        cached = await readTreeSoopCache();
     } catch (cacheError) {
         addLog('Researcher', `동일 출처 캐시 사용 불가(${cacheError.message}), 실시간 조회로 전환합니다.`, 'warning');
     }
 
-    // The cache already holds the requested day: nothing to check, nothing to wait for.
-    if (cached && cached.date === targetYmd) return logTreeSoopCacheHit(cached);
+    // Nothing can be published later than today, so a cache already holding today
+    // is final and costs no network at all.
+    if (cached && cached.date >= targetYmd) return logTreeSoopCacheHit(cached);
 
-    // The cache is rebuilt on a schedule, so a post published since its last run
-    // is not in it yet. Ask treesoop.com for that exact day before settling for an
-    // older one — a single dated permalink, so this costs one bounded round trip
-    // instead of the full index walk.
-    addLog('Researcher', `${targetYmd} 발행분이 캐시에 없어 원본에서 직접 확인합니다.`, 'researcher');
+    // The cache refreshes hourly, so it can trail a post by up to an hour. Ask the
+    // index what the newest day actually is before showing anything older.
+    addLog('Researcher', `최신 발행일 확인 중 (캐시 최신 ${cached ? cached.date : '없음'})...`, 'researcher');
+    let newestYmd = '';
     try {
-        return await parseTreeSoopPost(treesoopPostUrlForYmd(targetYmd), targetYmd, TREESOOP_FRESH_PROBE);
-    } catch (probeError) {
-        addLog('Researcher', `${targetYmd} 원본 확인 실패(${probeError.message}).`, 'warning');
+        newestYmd = await resolveNewestTreeSoopDate();
+        addLog('Researcher', `목록 기준 최신 발행일: ${newestYmd}`, 'researcher');
+    } catch (error) {
+        addLog('Researcher', `최신 발행일 확인 실패(${error.message}).`, 'warning');
     }
 
-    // Today's post genuinely is not up yet (or the relays are down); the cache is
-    // authoritative for earlier days, so use it rather than crawling the indexes.
+    if (newestYmd && (!cached || newestYmd > cached.date)) {
+        try {
+            return await parseTreeSoopPost(treesoopPostUrlForYmd(newestYmd), newestYmd, TREESOOP_FRESH_PROBE);
+        } catch (error) {
+            addLog('Researcher', `${newestYmd} 본문 조회 실패(${error.message}).`, 'warning');
+        }
+    }
+
     if (cached) {
-        addLog('Researcher', `${targetYmd} 게시물이 아직 없어 가장 최근 발행분(${cached.date})으로 진행합니다.`, 'warning');
+        if (!newestYmd) {
+            // The index check failed, so we cannot claim today's post is missing —
+            // only that we could not find out.
+            addLog('Researcher', `최신 발행일을 확인하지 못해 캐시의 최신 발행분(${cached.date})으로 진행합니다.`, 'warning');
+        } else if (newestYmd > cached.date) {
+            // Say plainly that a newer day exists but could not be fetched, rather
+            // than presenting stale cards as though they were the latest.
+            addLog('Researcher', `${newestYmd} 발행분을 가져오지 못해 캐시의 ${cached.date} 발행분으로 진행합니다. 잠시 후 다시 시도하면 최신본이 반영됩니다.`, 'warning');
+        } else if (cached.date !== targetYmd) {
+            addLog('Researcher', `${targetYmd} 발행분이 없어 가장 최근 발행분(${cached.date})으로 진행합니다.`, 'warning');
+        }
         return logTreeSoopCacheHit(cached);
     }
 
-    const candidates = await resolveTreeSoopPostCandidates(targetYmd);
+    const candidates = await resolveTreeSoopPostCandidates(newestYmd || targetYmd);
     let lastError;
     for (const candidate of candidates.slice(0, TREESOOP_MAX_POST_ATTEMPTS)) {
         try {
