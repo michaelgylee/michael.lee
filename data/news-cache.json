@@ -1,6 +1,6 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-09-07T15:53:30Z",
+  "generated_at": "2026-09-07T19:57:08Z",
   "daily": [
     {
       "title": "오지훈·경기의회, 생성형 AI 활용기준 마련",
@@ -32,7 +32,7 @@
     },
     {
       "title": "NS홈쇼핑, 소상공인에 생성형 AI 교육…상품 홍보·콘텐츠 제작 돕는다",
-      "source": "zdnet.co.kr",
+      "source": "지디넷코리아",
       "link": "https://zdnet.co.kr/view/?no=20260907195110",
       "publishedAt": "Mon, 07 Sep 2026 11:10:01 GMT",
       "date": "2026-09-07",
@@ -46,7 +46,7 @@
     },
     {
       "title": "중부발전 보령본부, 생성형 AI로 공업용수 누수 잡는다",
-      "source": "인사이트N파워",
+      "source": "inpnews.kr",
       "link": "https://www.inpnews.kr/news/articleView.html?idxno=7716",
       "publishedAt": "Mon, 07 Sep 2026 09:48:23 GMT",
       "date": "2026-09-07",
@@ -73,20 +73,6 @@
       "contentVerified": true
     },
     {
-      "title": "유엠브이기술, 'ZYON AI 파트너 서밋 2026'..AI 통합 보안 제시 - 머니투데이",
-      "source": "머니투데이",
-      "link": "https://www.mt.co.kr/amp/industry/2026/09/07/2026090716494115992",
-      "publishedAt": "Mon, 07 Sep 2026 08:10:54 GMT",
-      "date": "2026-09-07",
-      "category": "biz",
-      "bullets": [
-        "이번 서밋은 AI(인공지능) 기반 웹서버·클라우드 통합 보안 플랫폼 'ZYON(자이온)'의 공식 론칭을 선포하고 국내 AI 사이버 보안 시장 내 입지를 강화하기 위해 마련됐다.",
-        "행사는 AI 기반 보안 트렌드와 기술 비전을 다룬 4개 세션으로 진행됐다.",
-        "'ZYON AI'는 회사의 개별 솔루션인 웹쉘 탐지 솔루션 'WSS AI'와 홈페이지 위변조 복구 솔루션 'WARSS'를 하나로 통합한 차세대 AI 통합 보안 플랫폼이다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "[사설] 정보보안시장 쓰나미, 방책 세워야",
       "source": "전자신문",
       "link": "https://www.etnews.com/20260907000375",
@@ -102,7 +88,7 @@
     },
     {
       "title": "AMD, 한국 피지컬 AI 시장 정조준…반도체 장비·차량·로봇 영토 확장",
-      "source": "thelec.kr",
+      "source": "디일렉",
       "link": "https://www.thelec.kr/news/articleView.html?idxno=61882",
       "publishedAt": "Mon, 07 Sep 2026 07:07:25 GMT",
       "date": "2026-09-07",
@@ -115,8 +101,36 @@
       "contentVerified": true
     },
     {
+      "title": "씽크포비엘, 유럽 AI 인증시장 노크",
+      "source": "디지털데일리",
+      "link": "https://www.ddaily.co.kr/page/view/2026090715415261968",
+      "publishedAt": "Mon, 07 Sep 2026 06:48:11 GMT",
+      "date": "2026-09-07",
+      "category": "biz",
+      "bullets": [
+        "씽크포비엘는 지난 4일(현지시간) 스위스 프리부르에서 인증기업 CERTX AG와 인공지능(AI) 신뢰성 분야 기술협력을 위한 양해각서(MOU)를 체결했다고 7일 밝혔다.",
+        "CERTX AG는 AI와 기능안전, 사이버보안 분야 시험·평가·인증을 전문으로 하는 기업이다.",
+        "2018년 설립됐으며 스위스 정부기관 인증을 받은 자국 최초 기업이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "오픈AI 수석과학자 \"AI 발전에 극도의 주의 필요…자율 개선 가능성\"",
+      "source": "블루밍비트",
+      "link": "https://bloomingbit.io/feed/news/119887",
+      "publishedAt": "Mon, 07 Sep 2026 18:48:43 GMT",
+      "date": "2026-09-08",
+      "category": "tech",
+      "bullets": [
+        "본 AI 분석은 참고용 정보 제공을 목적으로 하며, 그 정확성을 보장하지 않습니다.",
+        "또한 본 내용은 투자 권유가 아니며, 모든 투자 판단과 그에 따른 책임은 이용자 본인에게 있습니다.",
+        "보다 자세한 내용은 STAT AI의 분석 기준에서 확인하실 수 있습니다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "테이텀 시큐리티, ‘사이버 보안 특화 AI’ 개발 참여",
-      "source": "zdnet.co.kr",
+      "source": "지디넷코리아",
       "link": "https://zdnet.co.kr/view/?no=20260907203426",
       "publishedAt": "Mon, 07 Sep 2026 11:34:26 GMT",
       "date": "2026-09-07",
@@ -144,7 +158,7 @@
     },
     {
       "title": "[기고] 피지컬AI, 기술·데이터·인프라를 하나로",
-      "source": "hankyung.com",
+      "source": "한국경제",
       "link": "https://www.hankyung.com/article/2026090795461",
       "publishedAt": "Mon, 07 Sep 2026 09:25:55 GMT",
       "date": "2026-09-07",
@@ -157,50 +171,8 @@
       "contentVerified": true
     },
     {
-      "title": "[사설] “AI 발전, 극도의 주의 필요”, 통제불능 단계 곧 닥칠지도",
-      "source": "경향신문",
-      "link": "https://www.khan.co.kr/article/202609071820001/amp",
-      "publishedAt": "Mon, 07 Sep 2026 09:20:00 GMT",
-      "date": "2026-09-07",
-      "category": "tech",
-      "bullets": [
-        "지난 2일(현지시간) 미국 노스캐롤라이나주 채플힐에서 열린 G20 혁신 장관급 정상회의 밖에서 시위 참가자들이 인공지능(AI) 규제를 촉구하는 팻말을 들고 있다.",
-        "인공지능(AI)의 발전과 그로 인한 인류 파멸 위험에 대한 경고가 잇따르고 있다.",
-        "똑똑해진 AI들의 일탈 행동이 이어지면서 통제불능 위기가 머지않아 닥칠 수 있다는 위기의식이 이 분야 종사자들 사이에서 번지고 있다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "AI 기본법 시행…기업들 ‘규제 대응’ 넘어 AI 안전성 입증까지 준비한다",
-      "source": "edaily.co.kr",
-      "link": "https://www.edaily.co.kr/News/Read?newsId=02125446645577824&mediaCodeNo=257",
-      "publishedAt": "Sun, 06 Sep 2026 23:40:19 GMT",
-      "date": "2026-09-07",
-      "category": "policy",
-      "bullets": [
-        "AI 기본법 시행으로 기업들의 인공지능(AI) 관련 규제 대응이 본격화하면서 법률 검토부터 내부 거버넌스 구축, AI 서비스의 안전성과 신뢰성 검증까지 아우르는 실무 대응 전략이 제시된다.",
-        "이번 세미나는 AI 기본법 시행 이후 기업과 공공기관이 AI를 도입하고 운영하는 과정에서 준비해야 할 실질적인 대응 방안을 제시하기 위해 마련됐다.",
-        "단순히 법·제도를 설명하는 데 그치지 않고 규제·보안 환경 변화, 기업 내부 운영체계 구축, AI 서비스의 안전성·신뢰성 평가 등 현장에서 필요한 대응책을 종합적으로 다룬다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "오픈AI, 美 정책팀 인력 확충…주정부 AI 규제 정면 대응",
-      "source": "알파경제",
-      "link": "https://www.alphabiz.co.kr/news/articleView.html?idxno=181524",
-      "publishedAt": "Sun, 06 Sep 2026 22:44:33 GMT",
-      "date": "2026-09-07",
-      "category": "policy",
-      "bullets": [
-        "오픈AI가 미국 내 인공지능(AI) 규제 강화에 대응하기 위해 정책팀 인력을 확대했다.",
-        "오픈AI는 5일(현지시간) 미국 주(州) 정책에 초점을 맞춘 인사 3명을 글로벌 공공정책팀에 영입했다고 밝혔다.",
-        "민주당과 공화당 양측과 연계된 정책 전문가와 업계 출신 인사를 영입해 각 주정부의 AI 규제에 대한 대응 역량을 강화한다는 방침이다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "씽크포비엘, SGS 계열 CERTX와 AI 인증 협력…유럽 시장 진출 교두보",
-      "source": "straightnews.co.kr",
+      "source": "스트레이트뉴스",
       "link": "https://www.straightnews.co.kr/news/articleViewAmp.html?idxno=310606",
       "publishedAt": "Mon, 07 Sep 2026 11:02:11 GMT",
       "date": "2026-09-07",
@@ -225,51 +197,37 @@
         "씽크포비엘은 스위스 프리부르 CERTX 본사에서 AI 신뢰성 공동 연구개발과 사업 추진을 위한 업무협약(MOU)을 체결했다고 7일 밝혔다."
       ],
       "contentVerified": true
+    },
+    {
+      "title": "[JOB현장에선] 노란봉투법 새 쟁점 된 AI 도입·공장 증설…인력 재배치 어디까지 교섭하나",
+      "source": "뉴스투데이",
+      "link": "https://www.news2day.co.kr/article/20260907500054",
+      "publishedAt": "Mon, 07 Sep 2026 07:39:00 GMT",
+      "date": "2026-09-07",
+      "category": "policy",
+      "bullets": [
+        "위 이미지는 기사 이해를 돕기 위해 AI(인공지능)를 활용해 제작했습니다.",
+        "노란봉투법(개정 노동조합법) 시행을 앞두고 인공지능(AI) 도입과 신규 공장 증설에 따른 인력 재배치가 노사관계의 새로운 쟁점으로 떠올랐다.",
+        "정부가 교섭·쟁의 대상의 판단 기준을 제시했지만, 산업 현장에서 구조조정의 범위를 어디까지 적용할지를 놓고 논란이 이어지고 있다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "AI가 불러온 고용 충격과 일터 감시 위험, 포용적 전환 해법은",
+      "source": "연세춘추",
+      "link": "https://chunchu.yonsei.ac.kr/news/articleView.html?idxno=33503",
+      "publishedAt": "Mon, 07 Sep 2026 04:27:02 GMT",
+      "date": "2026-09-07",
+      "category": "policy",
+      "bullets": [
+        "지난 3일, FES-KLI 국제 심포지엄 ‘AI와 노동의 미래: 한국-유럽연합 간 경험 공유 및 포용적 노동전환 모색’(아래 심포지엄)이 명동 프레지던트 호텔에서 열렸다.",
+        "심포지엄에서는 AI 확산에 따른 노동환경의 변화에 대응해 포용적인 노동전환을 이루기 위한 한국과 유럽의 정책을 논의했다.",
+        "귀빈들이 모두 모여 기념 사진을 촬영하고 있다."
+      ],
+      "contentVerified": true
     }
   ],
   "weekly": [
-    {
-      "title": "美 교육현장, AI 부정행위 잡기보다 '실제 학습' 확인 움직임",
-      "source": "연합뉴스",
-      "link": "https://www.yna.co.kr/amp/view/AKR20260907021500009",
-      "publishedAt": "Sun, 06 Sep 2026 23:39:17 GMT",
-      "date": "2026-09-07",
-      "category": "genai",
-      "bullets": [
-        "생성형 인공지능(AI)을 이용한 학생들의 과제 부정행위가 확산하면서 미국 교육 현장에서 AI 사용을 적발하기보다 학생이 실제로 배우고 있는지를 확인하는 쪽으로 평가 방식을 바꾸려는 움직임이 나타나고 있다.",
-        "워싱턴포스트(WP)는 6일(현지시간) 미국 각지의 대학교수와 교사들이 과제 평가 방식을 다시 설계하고 AI를 수업에 제한적으로 활용하는 새로운 교육 방식을 실험하고 있다고 보도했다.",
-        "볼티모어대 글쓰기 프로그램 책임자인 레이철 젤레니는 지난해 AI가 작성한 것으로 의심되는 과제가 급증하자 학생이 구글 문서에서 글을 쓰고 수정한 과정을 기록하는 프로그램을 도입했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "산림안전공단, 생성형 AI로 업무혁신 본격화",
-      "source": "팍스경제TV",
-      "link": "https://www.paxetv.com/news/articleView.html?idxno=281249",
-      "publishedAt": "Mon, 07 Sep 2026 12:33:26 GMT",
-      "date": "2026-09-07",
-      "category": "genai",
-      "bullets": [
-        "[청주=팍스경제TV] 한국산림재난안전기술공단(이하 산림안전공단)은 생성형 인공지능을 활용한 '제규정 검색 서비스'를 자체 구축하고 업무 전반으로 AI 전환을 확대한다고 밝혔습니다.",
-        "이번 서비스는 조직·인사·회계 등 공단 제규정을 하나의 데이터베이스로 통합해 일상적인 문장으로 관련 규정과 조항을 신속하게 확인할 수 있도록 구축됐습니다.",
-        "산림안전공단은 앞으로 산사태 우려지역 조사자료 자동 검수와 산림 연접지 분석, 업무보고서 작성 지원 등 산림재난 분야에도 AI를 단계적으로 적용할 계획입니다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "NS홈쇼핑, 소상공인에 생성형 AI 교육…상품 홍보·콘텐츠 제작 돕는다",
-      "source": "zdnet.co.kr",
-      "link": "https://zdnet.co.kr/view/?no=20260907195110",
-      "publishedAt": "Mon, 07 Sep 2026 11:10:01 GMT",
-      "date": "2026-09-07",
-      "category": "genai",
-      "bullets": [
-        "NS홈쇼핑이 소상공인 예비 협력사의 상품 홍보와 콘텐츠 제작을 돕기 위해 생성형 인공지능(AI) 활용 교육을 지원한다.",
-        "전문 인력이나 비용 부담이 큰 소상공인이 AI를 실무에 활용해 온라인 판매 역량을 높일 수 있도록 한다는 취지다.",
-        "NS홈쇼핑은 지난 2일 판교 본사에서 소상공인 예비 협력사를 대상으로 ‘소상공인 AI 라이브 커머스 아카데미’를 진행했다고 7일 밝혔다."
-      ],
-      "contentVerified": true
-    },
     {
       "title": "모든 장면을 생성형 AI로…90분 장편 SF ‘스틸레이’ 내달 개봉",
       "source": "중앙일보",
@@ -285,30 +243,44 @@
       "contentVerified": true
     },
     {
-      "title": "정부, 보안특화AI 개발 사업자로 ‘네이버 컨소시엄’ 선정",
-      "source": "JTBC",
-      "link": "https://news.jtbc.co.kr/article/NB12316458",
-      "publishedAt": "Thu, 03 Sep 2026 00:13:00 GMT",
-      "date": "2026-09-03",
-      "category": "tech",
+      "title": "'생성형 AI·자동심사' 통했다…DB손해보험, 품질혁신 금상 2관왕",
+      "source": "조세일보",
+      "link": "http://www.joseilbo.com/news/htmls/2026/09/20260907575193.html",
+      "publishedAt": "Mon, 07 Sep 2026 01:30:00 GMT",
+      "date": "2026-09-07",
+      "category": "genai",
       "bullets": [
-        "Google 검색에서 JTBC 기사를 우선적으로 보여줍니다.",
-        "네이버클라우드가 정부의 '사이버 보안 특화 인공지능(AI) 파운데이션 모델 개발' 공모에서 최종 사업자로 선정됐습니다.",
-        "과학기술정보통신부와 정보통신산업진흥원(NIPA)은 네이버클라우드 컨소시엄을 이번 프로젝트 사업 수행기관으로 선정했다고 오늘(3일) 밝혔습니다."
+        "DB손해보험이 인공지능(AI)과 업무 자동화를 앞세운 현장 혁신 성과로 국가품질혁신경진대회에서 5개 상을 휩쓸며 금융권 최초 10년 연속 수상 기록을 세웠다.",
+        "DB손해보험은 '제52회 국가품질혁신경진대회'에서 금상 2개와 동상 3개를 수상했다고 7일 밝혔다.",
+        "전국 예선을 통과한 314개 분임조가 경쟁한 가운데 DB손보가 출전한 5개 팀 모두 수상 명단에 올랐다."
       ],
       "contentVerified": true
     },
     {
-      "title": "美진보대부 샌더스, '초지능 AI 영구 금지' 법안 추진",
-      "source": "연합뉴스",
-      "link": "https://www.yna.co.kr/view/AKR20260904173500009",
-      "publishedAt": "Fri, 04 Sep 2026 11:59:28 GMT",
+      "title": "프로텐, ‘ProVSearch v1.0’, ‘ProLLMOps v2.0’ 인공지능 제품·서비스 확인제 인증…AI기술력 입증·공공시장 확대",
+      "source": "itdaily.kr",
+      "link": "https://www.itdaily.kr/news/articleView.html?idxno=241439",
+      "publishedAt": "Mon, 07 Sep 2026 04:34:28 GMT",
+      "date": "2026-09-07",
+      "category": "biz",
+      "bullets": [
+        "프로텐이 ProVSearch v.1.0과 ProLLMOps v2.0이 인공지능 제품·서비스 확인제 인증을 획득했다.",
+        "인공지능(AI) 제품·서비스 확인제도는 과학기술정보통신부가 공공기관의 혁신적인 AI 제품·서비스 도입을 지원하고 국내 AI 기업의 공공시장 진입을 촉진하기 위해 시행하는 국가 공인 제도다.",
+        "이번에 확인서를 획득한 ‘ProVSearch v1.0’은 자체 개발한 벡터 기술과 RAG(검색증강생성)를 기반으로 신뢰도 높은 자연어 검색과 챗봇 서비스를 제공하는 생성형 AI 검색·챗봇 솔루션이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "美 주도 G20, ‘AI 규제 최소화’ 합의…“새 규제보다 기존 법 우선”",
+      "source": "edaily.co.kr",
+      "link": "https://www.edaily.co.kr/News/Read?newsId=04441126645576840&mediaCodeNo=257",
+      "publishedAt": "Fri, 04 Sep 2026 08:59:55 GMT",
       "date": "2026-09-04",
       "category": "policy",
       "bullets": [
-        "인공지능이 자동으로 줄인 '세 줄 요약' 기술을 사용합니다.",
-        "전체 내용을 이해하기 위해서는 기사 본문과 함께 읽어야 합니다.",
-        "미국 진보 진영의 대부 격인 버니 샌더스(무소속·버몬트) 연방 상원의원이 3일(현지시간) 초지능 인공지능(AI)을 영구적으로 금지하는 법안을 발의하겠다고 밝혔다."
+        "미국이 주요 20개국(G20)과 인공지능(AI) 규제의 기본 방향을 놓고 공감대를 형성했다.",
+        "AI만을 위한 별도 규제체계를 계속 확대하기보다 금융·의료·제조 등 기존 산업별 법과 규제체계를 우선 활용하고, 기존 법으로 다루기 어려운 새로운 사안에 대해서만 추가 규제를 검토한다는 내용이다.",
+        "캐롤라이나 원칙은 AI를 비롯한 신흥기술의 연구개발과 상용화를 촉진하기 위한 비구속적 정책 원칙이다."
       ],
       "contentVerified": true
     }
