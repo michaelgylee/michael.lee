@@ -1,7 +1,35 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-09-11T21:42:49Z",
+  "generated_at": "2026-09-12T00:17:30Z",
   "daily": [
+    {
+      "title": "경남교육청, 교원 대상 '연구윤리 준수·AI 기반' 직무연수",
+      "source": "연합뉴스",
+      "link": "https://www.yna.co.kr/view/AKR20260911114900052",
+      "publishedAt": "Sat, 12 Sep 2026 00:03:01 GMT",
+      "date": "2026-09-12",
+      "category": "genai",
+      "bullets": [
+        "인공지능이 자동으로 줄인 '세 줄 요약' 기술을 사용합니다.",
+        "전체 내용을 이해하기 위해서는 기사 본문과 함께 읽어야 합니다.",
+        "경남도교육청은 12일과 오는 19일 두차례에 걸쳐 창원시 진해구 이순신리더십국제센터에서 교원 35명을 대상으로 인공지능(AI) 기반 직무연수를 한다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "\"월 10만원 AI가 낫다\"…신입 개발자 성장길 막혔다 |",
+      "source": "하이테크정보",
+      "link": "http://www.hitech.co.kr/news/articleViewAmp.html?idxno=61104",
+      "publishedAt": "Fri, 11 Sep 2026 22:14:05 GMT",
+      "date": "2026-09-12",
+      "category": "genai",
+      "bullets": [
+        "생성형 인공지능(AI)이 소프트웨어 개발자의 고용 기회뿐만 아니라, 숙련된 전문가로 성장하는 경로까지 약화시킬 수 있다는 연구 결과가 나왔다.",
+        "서울대학교 공과대학 전기정보공학부 문태섭 교수 연구팀은 생성형 AI가 소프트웨어 개발자의 성장 경로를 어떻게 바꾸고 있는지 조사한 연구 결과를 12일 발표했다.",
+        "연구팀은 심층 인터뷰를 통해 AI가 전통적으로 신입 개발자가 수행하던 업무를 대신하면서, 전문가로 성장하는 데 필요한 실무 경험과 시행착오의 기회마저 줄이고 있음을 발견했다."
+      ],
+      "contentVerified": true
+    },
     {
       "title": "한국석유공사, 132억 투입해 생성형 AI 플랫폼 구축 `박차`…대기업 참여 예외 인정 받아",
       "source": "디지털데일리",
@@ -17,58 +45,30 @@
       "contentVerified": true
     },
     {
-      "title": "게임 그래픽도 생성형 AI 시대… ‘DLSS 5’ 혁신인가 개성 삭제인가",
-      "source": "IT조선",
-      "link": "https://it.chosun.com/news/articleView.html?idxno=2023092169991",
-      "publishedAt": "Fri, 11 Sep 2026 20:00:00 GMT",
+      "title": "[AI+]'적자' OpenAI·앤트로픽, 신용등급 경쟁 벌이는 이유는 - 머니투데이",
+      "source": "머니투데이",
+      "link": "https://www.mt.co.kr/amp/tech/2026/09/12/2026090910445782817",
+      "publishedAt": "Fri, 11 Sep 2026 21:00:00 GMT",
       "date": "2026-09-12",
       "category": "genai",
       "bullets": [
-        "인공지능(AI)이 게임 화면을 보정하는 수준을 넘어 빛과 피부, 사물의 재질까지 새로 구현하는 단계로 진화하고 있다.",
-        "엔비디아가 최근 내놓은 ‘DLSS 5’가 게임 그래픽 제작 방식을 바꿀 기술로 주목받는 이유다.",
-        "성능 최적화와 그래픽 개발 부담을 줄일 수 있다는 기대가 나오지만, AI가 개발자의 의도와 게임 고유의 화풍을 훼손할 수 있다는 우려도 커지고 있다."
+        "[편집자주] AI 뉴스는 매일 쏟아지지만 진짜 재미는 그 뒤에 있다.",
+        "'AI+'는 국내외 AI 이슈와 글로벌 기업들의 움직임을 따라간다.",
+        "낯선 기술 뒤에 숨은 돈의 흐름과 시장 참여자들의 선택, 산업의 변화를 이야기로 풀어낸다."
       ],
       "contentVerified": true
     },
     {
-      "title": "생성형 AI 유료 구독자 62.6%…카드사 ‘AI 구독 혜택’ 내놓는다",
-      "source": "비즈월드",
-      "link": "http://www.bizwnews.com/news/articleView.html?idxno=145717",
-      "publishedAt": "Fri, 11 Sep 2026 19:24:00 GMT",
-      "date": "2026-09-12",
-      "category": "genai",
-      "bullets": [
-        "챗GPT와 클로드, 퍼플렉시티 등 생성형 AI 서비스 이용이 일상화되면서 카드사들도 관련 혜택을 강화하는 모습이다.",
-        "생성형 AI를 무료로만 이용한다는 응답은 31.5%였다.",
-        "AI 서비스를 아예 이용하지 않는다는 응답은 5.9%에 그쳤다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "[2026 주간함양 청소년기자단] 학생들의 학습을 바꾸는 생성형 AI",
-      "source": "hynews.kr",
-      "link": "https://www.hynews.kr/news/view.php?idx=79331",
-      "publishedAt": "Fri, 11 Sep 2026 17:39:27 GMT",
-      "date": "2026-09-12",
-      "category": "genai",
-      "bullets": [
-        "최근 학생들 사이에서 ChatGPT와 같은 생성형 AI를 공부에 활용하는 경우가 많아지고 있다.",
-        "과제나 수행평가를 준비할 때 자료를 찾거나, 어려운 내용을 이해하기 위해 AI를 사용하는 학생들도 쉽게 찾아볼 수 있다.",
-        "특히 모르는 개념이 있을 때 검색하는 것보다 AI에게 질문하면 내가 이해하기 쉽게 설명해 줘서 편하다”고 답했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "\"AI가 만든 보안 구멍, 결국 AI로 막는다?\"… 엔비디아 젠슨 황이 지목한 차세대 조 단위 격전지",
-      "source": "CBC뉴스",
-      "link": "https://www.cbci.co.kr/news/articleView.html?idxno=605927",
-      "publishedAt": "Fri, 11 Sep 2026 15:10:00 GMT",
+      "title": "퓨쳐누리-우즈베키스탄 IT PARK, AI·에듀테크 협력으로 CIS 시장 공동 공략",
+      "source": "미디어데일",
+      "link": "https://www.mediadale.com/news/articleView.html?idxno=289351",
+      "publishedAt": "Fri, 11 Sep 2026 21:58:00 GMT",
       "date": "2026-09-12",
       "category": "biz",
       "bullets": [
-        "이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.",
-        "| 기타 | 이마트24의 보복점 출점 및 자율규약 위반사례 취재 요청드립니다.",
-        "| 정부&공공기관 | 2025년 2월부터 헌법재판소에서 동성결혼 소송 중입니다."
+        "협약식에는 추정호 퓨쳐누리 대표이사와 자혼기르 라자보프(Jakhongir Radjabov) 우즈베키스탄 IT PARK 전무이사가 참석했다.",
+        "양 기관은 디지털 도서관 솔루션, 디지털 플랫폼, 정보시스템 등 기술 기반 프로젝트를 공동으로 발굴·개발·구축하고, 우즈베키스탄의 디지털 전환과 디지털 서비스 접근성 향상에 협력하기로 했다.",
+        "이를 통해 현지 수요에 맞춘 구축·운영·기술지원 체계를 마련하고, 우즈베키스탄의 교육·지식정보 인프라 디지털화를 지원한다는 구상이다."
       ],
       "contentVerified": true
     },
@@ -116,15 +116,29 @@
     },
     {
       "title": "젠슨 황도 찍은 'AI 다음 시장'...보안 특화 AI 개발, 18일 착수",
-      "source": "MTN 머니투데이방송",
-      "link": "https://news.mtn.co.kr/news-detail/2026091122020297347",
-      "publishedAt": "Fri, 11 Sep 2026 21:08:01 GMT",
+      "source": "v.daum.net",
+      "link": "https://v.daum.net/v/20260912060901653",
+      "publishedAt": "Fri, 11 Sep 2026 21:09:00 GMT",
       "date": "2026-09-12",
       "category": "tech",
       "bullets": [
         "인공지능(AI)이 사이버 공격에 활용되면서 이를 AI로 막으려는 경쟁도 본격화하고 있다.",
         "젠슨 황 엔비디아 최고경영자(CEO)가 사이버 보안을 AI의 다음 주요 적용 분야로 꼽은 가운데 국내에서도 보안 특화 AI 개발이 시작된다.",
         "12일 업계에 따르면 네이버클라우드와 LG CNS가 주도하는 컨소시엄은 오는 18일부터 보안 특화 AI 파운데이션 모델 개발에 본격 착수한다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "에이전틱AI '선택과 집중'…서로 다른 과제, 무슨 기준으로 1등 뽑나",
+      "source": "news.mtn.co.kr",
+      "link": "https://news.mtn.co.kr/news-detail/2026091115453524183",
+      "publishedAt": "Fri, 11 Sep 2026 21:04:02 GMT",
+      "date": "2026-09-12",
+      "category": "tech",
+      "bullets": [
+        "정부가 에이전틱 AI 기술개발 사업에 '선택과 집중' 방식을 적용하면서 평가 기준을 둘러싼 논란이 불거졌다.",
+        "성격이 전혀 다른 분야의 사업을 하나의 잣대로 평가해 지원하는 것이 공정하냐는 것이다.",
+        "경쟁을 통해 소수 기업에만 지원하는 경연 방식이 자칫 '탈락 기업'이란 오명을 남기고, 산업 생태계의 다양성까지 해칠 수 있다는 우려도 잇따른다."
       ],
       "contentVerified": true
     },
@@ -143,20 +157,6 @@
       "contentVerified": true
     },
     {
-      "title": "HOT) 말하지 않아도 ‘이게 아닌데’ 눈치채는 AI 개발",
-      "source": "경북구미신문",
-      "link": "https://www.guminews.net/news/articleView.html?idxno=16709",
-      "publishedAt": "Fri, 11 Sep 2026 15:14:02 GMT",
-      "date": "2026-09-12",
-      "category": "tech",
-      "bullets": [
-        "일일이 말하거나 몸짓으로 알려주지 않아도, AI가 사람의 뇌에서 나오는 ‘이게 아닌데’라는 반응을 알아채 스스로 행동을 고치는 시대​가 다가오고 있다.",
-        "KAIST 연구진이 뇌파로 사람과 AI의 인지적 어긋남을 포착해 AI가 사람의 목표에 맞춰 실시간으로 행동을 수정하는 기술을 개발했다.",
-        "‘명령하는 AI’에서 ‘의도를 눈치채는 AI’로의 변화​를 앞당길 것으로 기대된다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "국민연금 ‘AI 기반 환율 분석서비스’ 개발 나선다",
       "source": "주간한국",
       "link": "https://weekly.hankooki.com/news/articleViewAmp.html?idxno=7183665",
@@ -167,6 +167,34 @@
         "국민연금공단은 11일 서울 강서구 마곡서 LG AI연구원과 기금운용 분야 인공지능(AI) 기술 협력을 위한 업무협약을 체결했다.",
         "협약은 국민연금의 기금운용 경험과 LG AI연구원의 AI 기술력을 결합해 금융업무에 특화된 AI 모델과 서비스를 공동 개발하기 위한 것이다.",
         "이에 따라 양 기관은 기금운용 특화 AI 기반 환율 분석 서비스 개발·실증, 투자 관련 AI 기술 공동연구·운용업무 적용, 실무협의체·교육프로그램 운용을 통한 공단의 AI 활용역량 강화 등에 힘을 모은다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "美캘리포니아, 아동 AI규제법 제정…위험 감지되면 부모 알려야",
+      "source": "연합뉴스",
+      "link": "https://www.yna.co.kr/amp/view/AKR20260912012300091",
+      "publishedAt": "Fri, 11 Sep 2026 22:47:11 GMT",
+      "date": "2026-09-12",
+      "category": "policy",
+      "bullets": [
+        "실리콘밸리가 있는 미국 캘리포니아주가 인공지능(AI) 챗봇과 사회관계망서비스(SNS)의 아동·청소년 보호 강화를 위한 규제 패키지법을 제정했다.",
+        "11일(현지시간) 캘리포니아주에 따르면 개빈 뉴섬 주지사는 아동·청소년 보호를 골자로 한 13개 법안 패키지에 서명했다.",
+        "이번에 제정된 법 가운데 가장 핵심은 '애덤법'(Adam's Law)이라는 별칭이 붙은 AI 챗봇 규제법이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "오픈AI, 규제로 기조 전환…\"강력한 AI, 의무적 안전규제 필요\"",
+      "source": "하이테크정보",
+      "link": "https://www.hitech.co.kr/news/articleView.html?idxno=61099",
+      "publishedAt": "Fri, 11 Sep 2026 21:15:00 GMT",
+      "date": "2026-09-12",
+      "category": "policy",
+      "bullets": [
+        "챗GPT 개발사 오픈AI가 가장 강력한 인공지능(AI) 시스템에 법적 구속력이 있는 안전 규제를 도입해야 한다며 미국 의회에 입법을 촉구했다.",
+        "그동안 일부 AI 규제에 반대해 온 오픈AI가 최근 잇따른 AI 통제 이탈 논란을 계기로 규제 강화 쪽으로 방향을 튼 것이다.",
+        "오픈AI는 공통 안전 시험 기준과 최첨단 AI 모델에 대한 독립적 평가, 강화된 사이버보안 요건, 중대한 안전사고에 대한 의무 보고 등을 연방 규제 체계에 포함해야 한다고 제안했다."
       ],
       "contentVerified": true
     },
@@ -186,7 +214,7 @@
     },
     {
       "title": "캘리포니아주, 소셜 미디어 및 AI 챗봇 규제 강화.",
-      "source": "vietnam.vn",
+      "source": "Vietnam.vn",
       "link": "https://www.vietnam.vn/ko/california-siet-quy-dinh-voi-mang-xa-hoi-va-chatbot-ai",
       "publishedAt": "Fri, 11 Sep 2026 15:03:48 GMT",
       "date": "2026-09-12",
@@ -195,34 +223,6 @@
         "미국 캘리포니아주는 기술 기업의 책임을 강화하는 새로운 법률을 제정했는데, 여기에는 과실로 인해 아동에게 피해가 발생할 경우 최대 100만 달러의 벌금이 부과될 수 있다는 내용이 포함되어 있습니다.",
         "캘리포니아 주지사 개빈 뉴섬은 소셜 미디어와 인공지능이 아동에게 미칠 수 있는 잠재적 위험으로부터 아동을 보호하기 위한 포괄적인 법안에 서명했습니다.",
         "이 법안에는 소셜 미디어 기업이 과실로 인해 아동에게 피해를 입힌 것으로 밝혀질 경우 최대 100만 달러의 벌금을 부과할 수 있도록 하는 조항이 포함되어 있습니다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "금융위 \"AI 에이전트 결제, 신용정보법·망분리 규제 단계적 완화\"",
-      "source": "news.nate.com",
-      "link": "https://news.nate.com/view/20260911n28027",
-      "publishedAt": "Fri, 11 Sep 2026 09:01:00 GMT",
-      "date": "2026-09-11",
-      "category": "policy",
-      "bullets": [
-        "기사 제목과 본문 내용을 자동 요약한 내용입니다.",
-        "전체 내용을 이해하기 위해서는 기사 본문 전체를 확인하는 것이 더 좋습니다.",
-        "인공지능(AI)이 사람을 대신해 상품을 비교하고 결제까지 스스로 수행하는 ‘AI 에이전트’가 시대가 다가오면서 이를 뒷받침할 디지털 신뢰 인프라로서 블록체인 기술의 중요성이 커지고 있다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "“AI가 인류를 죽일 수 있다”…앤트로픽 직원의 고백",
-      "source": "KBS 뉴스",
-      "link": "https://news.kbs.co.kr/news/view.do?ncd=8661241",
-      "publishedAt": "Fri, 11 Sep 2026 08:06:00 GMT",
-      "date": "2026-09-11",
-      "category": "policy",
-      "bullets": [
-        "현재 관심이 높아지고 있는 키워드 입니다.",
-        "미국 인공지능 기업 앤트로픽에서 안전 연구를 이끄는 에번 허빙어가 소셜미디어 엑스(X)에 쓴 문장입니다.",
-        "그는 그 일이 앞으로 10년 안에 일어날 확률을 개인적으로 10% 이상으로 본다 고 덧붙였습니다."
       ],
       "contentVerified": true
     }
@@ -243,34 +243,6 @@
       "contentVerified": true
     },
     {
-      "title": "“AI가 만들었다고 내 것이 아니다”... EU, 생성형 AI 시대 ‘IP 함정’ 경고",
-      "source": "특허뉴스",
-      "link": "http://www.e-patentnews.com/15406",
-      "publishedAt": "Wed, 09 Sep 2026 07:52:00 GMT",
-      "date": "2026-09-09",
-      "category": "genai",
-      "bullets": [
-        "생성형 인공지능(AI)으로 이미지와 문서, 프로그램 코드를 만들었다고 해서 그 결과물을 마음대로 상업적으로 이용할 수 있는 것은 아니다.",
-        "AI가 학습한 데이터의 권리는 적법한지, 생성물의 권리는 누구에게 귀속되는지, 다른 사람의 저작물과 유사하지 않은지까지 확인해야 하는 시대가 됐다.",
-        "AI 기술 경쟁이 ‘누가 더 뛰어난 모델을 만드느냐’를 넘어 ‘누가 지식재산(IP) 리스크를 제대로 관리하면서 AI를 개발하고 활용하느냐’의 경쟁으로 확장되고 있다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "모니터랩, 생성형 AI 보안 전면에…EDR 사업화는 내년 상반기로",
-      "source": "전자신문",
-      "link": "https://www.etnews.com/20260909000324",
-      "publishedAt": "Wed, 09 Sep 2026 06:02:27 GMT",
-      "date": "2026-09-09",
-      "category": "genai",
-      "bullets": [
-        "모니터랩이 생성형 인공지능(AI) 보안을 전면에 내세웠다.",
-        "기업의 생성형 AI 사용을 통제하는 보안 기술을 기존 제품과 클라우드 서비스에 확대 적용하고 공공시장 공략에도 나선다.",
-        "모니터랩은 네트워크 보안 솔루션 '시큐어 웹 게이트웨이(SWG)'에 GenAI 시큐리티 기능을 적용하고 있다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "교통 관제에서 ‘초대형 도시 지능체’로 생성형 AI 입은 항저우 ‘City Brain 3.0’",
       "source": "보안뉴스",
       "link": "https://www.boannews.com/news/articleView.html?idxno=145737",
@@ -285,30 +257,58 @@
       "contentVerified": true
     },
     {
-      "title": "대전시 인공지능 정책 총괄할 'AI혁신전략위원회' 출범",
-      "source": "뉴스1",
-      "link": "https://www.news1.kr/amp/local/daejeon-chungnam/6286688",
-      "publishedAt": "Thu, 10 Sep 2026 07:35:17 GMT",
-      "date": "2026-09-10",
-      "category": "biz",
+      "title": "“AI가 뭘 배웠는지 공개하라”... 日, 생성형 AI에 ‘학습데이터·IP 보호’ 투명성 원칙 꺼냈다",
+      "source": "특허뉴스",
+      "link": "http://www.e-patentnews.com/15402",
+      "publishedAt": "Wed, 09 Sep 2026 02:41:00 GMT",
+      "date": "2026-09-09",
+      "category": "genai",
       "bullets": [
-        "대전시 'AI혁신전략위원회'가 10일 출범했다.",
-        "대전시 인공지능 정책을 총괄할 'AI혁신전략위원회'가 10일 출범했다.",
-        "대전시는 이날 오후 시청 중회의실에서 'AI혁신전략위원회' 1차 회의를 열어 위원을 위촉하고 민선 9기 인공지능 혁신전략 추진 계획을 논의했다고 밝혔다."
+        "생성형 인공지능(AI)이 어떤 데이터를 학습했고, 어디에서 수집했으며, 저작권과 지식재산권 침해를 막기 위해 어떤 조치를 취하고 있는지를 AI 사업자가 보다 투명하게 공개하도록 하는 새로운 원칙이 일본에서 제시됐다.",
+        "특히 일본 기업뿐 아니라 일본 시장을 대상으로 생성형 AI 서비스를 제공하는 해외 사업자까지 적용 대상에 포함했다.",
+        "글로벌 AI 기업에도 학습데이터와 지식재산 보호조치에 대한 설명 책임을 요구하겠다는 것이다."
       ],
       "contentVerified": true
     },
     {
-      "title": "국민연금 ‘AI 기반 환율 분석서비스’ 개발 나선다",
-      "source": "주간한국",
-      "link": "https://weekly.hankooki.com/news/articleViewAmp.html?idxno=7183665",
-      "publishedAt": "Fri, 11 Sep 2026 09:35:55 GMT",
-      "date": "2026-09-11",
-      "category": "tech",
+      "title": "생성형 AI 이용자 10명 중 8명 \"개인정보 입력해봤다\"",
+      "source": "한국기자협회",
+      "link": "http://m.journalist.or.kr/m/m_article.html?no=61638",
+      "publishedAt": "Thu, 10 Sep 2026 10:06:07 GMT",
+      "date": "2026-09-10",
+      "category": "genai",
       "bullets": [
-        "국민연금공단은 11일 서울 강서구 마곡서 LG AI연구원과 기금운용 분야 인공지능(AI) 기술 협력을 위한 업무협약을 체결했다.",
-        "협약은 국민연금의 기금운용 경험과 LG AI연구원의 AI 기술력을 결합해 금융업무에 특화된 AI 모델과 서비스를 공동 개발하기 위한 것이다.",
-        "이에 따라 양 기관은 기금운용 특화 AI 기반 환율 분석 서비스 개발·실증, 투자 관련 AI 기술 공동연구·운용업무 적용, 실무협의체·교육프로그램 운용을 통한 공단의 AI 활용역량 강화 등에 힘을 모은다."
+        "제주항공, 서강대, 29cm, 위버스, 강남언니… 최근 한 달여간 고객 등의 개인정보 유출로 문제가 된 곳들이다.",
+        "앞서 이동통신 3사를 비롯해 쿠팡 등에서도 대규모로 개인정보가 유출되는 피해가 발생했다.",
+        "이름, 전화번호, 주소 같은 기본적인 정보는 물론이고 시술 상담 내용과 사진 등 민감정보까지 ‘털면 털리는’ 그런 시대다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "퀄컴·코닝 대형 계약 발표, 美 AI 인프라주 일제히 급등",
+      "source": "chosun.com",
+      "link": "https://www.chosun.com/economy/money/2026/09/09/XVGEXTHLSJBIHBUSM3WGKUIXJI/",
+      "publishedAt": "Wed, 09 Sep 2026 00:25:24 GMT",
+      "date": "2026-09-09",
+      "category": "biz",
+      "bullets": [
+        "인공지능(AI) 투자 열풍이 서버용 반도체와 광섬유, 네트워크 장비 등 데이터센터 인프라 전반으로 확산하고 있다.",
+        "퀄컴과 코닝이 잇따라 수십억~수백억 달러 규모의 AI 인프라 계약을 발표하자 인텔과 AMD, 휴렛팩커드 엔터프라이즈(HPE) 등 관련주가 일제히 급등했다.",
+        "8일(현지 시각) CNBC에 따르면, 이날 미국 증시에서 반도체 업체 인텔은 9%, AMD는 6% 상승했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "'AI 인류멸망' 경고에…美 의회는 “규제”·국방부는 “종말론”",
+      "source": "전자신문",
+      "link": "https://www.etnews.com/20260911000019",
+      "publishedAt": "Thu, 10 Sep 2026 23:24:08 GMT",
+      "date": "2026-09-11",
+      "category": "policy",
+      "bullets": [
+        "인공지능(AI) 기업 앤트로픽의 전·현직 연구원들이 잇달아 'AI가 인류를 멸망시킬 수 있다'는 경고하면서 미국 정치권에서도 논쟁이 확산하고 있다.",
+        "미 의회에서는 AI 위험을 통제하기 위한 입법 움직임이 이어지는 반면, 미 국방부는 해당 우려에 대해 '종말론'이라고 일축했다.",
+        "10일(현지시간) 로이터통신은 미국 상원 상무위원장인 테드 크루즈 의원(공화·텍사스)이 AI의 '재앙적 위험'을 규제하기 위한 법안을 마련 중이라고 보도했다."
       ],
       "contentVerified": true
     }
