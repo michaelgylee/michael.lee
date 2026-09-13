@@ -6,12 +6,19 @@ document.addEventListener("DOMContentLoaded", () => {
     loadSavedApiKey();
 });
 
+// v3.2.9 merged 일간 브리핑 and 주간 트렌드 into one briefing, so the mode is no
+// longer a user choice and every category is always in scope.
+const BRIEFING_MODE = 'daily';
+const ALL_NEWS_CATEGORIES = ['genai', 'biz', 'tech', 'policy'];
+
 // App State
 let appState = {
-    mode: 'daily',
+    mode: BRIEFING_MODE,
     designTheme: 'theme-classic',
-    categories: ['genai', 'biz', 'tech', 'policy'],
+    categories: [...ALL_NEWS_CATEGORIES],
     apiKey: '',
+    treesoopMode: false,
+    treesoopDate: '',
     isRunning: false,
     selectedSlideIndex: 0,
     cardData: null,
@@ -615,8 +622,6 @@ const btnRun = document.getElementById("btn-run");
 const btnExportAll = document.getElementById("btn-export-all");
 const btnCopyText = document.getElementById("btn-copy-text");
 const apiKeyInput = document.getElementById("api-key");
-const modeDaily = document.getElementById("mode-daily");
-const modeWeekly = document.getElementById("mode-weekly");
 const designThemeInputs = document.querySelectorAll('input[name="design-theme"]');
 const slidesContainer = document.getElementById("slides-container");
 const editorPanel = document.getElementById("editor-panel");
@@ -1132,10 +1137,8 @@ async function fetchLatestGoogleNews(mode, categories) {
 // ---------------------------------------------------------------------------
 const TREESOOP_ORIGIN = 'https://treesoop.com';
 const TREESOOP_NEWS_INDEXES = ['/blog/news', '/blog/news/page/2', '/blog'];
-const TREESOOP_LOOKBACK_DAYS = 10;
 // A relay error page is a few hundred bytes; a real TreeSoop page is 70KB+.
 const TREESOOP_MIN_HTML_BYTES = 2000;
-const TREESOOP_MAX_POST_ATTEMPTS = 3;
 // One short relay round: enough for a healthy relay (6-8s observed), while a
 // dead proxy tier costs seconds instead of minutes before we fall back.
 const TREESOOP_FRESH_PROBE = { timeoutMs: 10000, rounds: 1, skipDirect: true, minLength: TREESOOP_MIN_HTML_BYTES };
@@ -1162,64 +1165,6 @@ function extractTreeSoopNewsLinks(html) {
     return [...new Set(links)].sort((a, b) => treesoopYmdFromUrl(b).localeCompare(treesoopYmdFromUrl(a)));
 }
 
-// Prefer the exact target date; otherwise fall back to the newest post on or before it.
-function pickTreeSoopPost(links, targetYmd) {
-    return links.find(link => treesoopYmdFromUrl(link) === targetYmd)
-        || links.find(link => treesoopYmdFromUrl(link) <= targetYmd)
-        || '';
-}
-
-// Returns every usable post URL, best match first, so that a post whose body
-// fails to come back through the relays can fall back to the next one instead
-// of taking the whole pipeline down with it.
-async function resolveTreeSoopPostCandidates(targetYmd) {
-    const tried = [];
-
-    for (const path of TREESOOP_NEWS_INDEXES) {
-        const indexUrl = `${TREESOOP_ORIGIN}${path}?ts=${Date.now()}`;
-        tried.push(indexUrl);
-        try {
-            const links = extractTreeSoopNewsLinks(await fetchTextWithCorsFallback(indexUrl, { minLength: TREESOOP_MIN_HTML_BYTES }));
-            if (!links.length) {
-                addLog('Researcher', `${path} 에는 AI 뉴스 링크가 없어 다음 목록을 확인합니다.`, 'warning');
-                continue;
-            }
-            addLog('Researcher', `${path} 에서 AI 뉴스 게시물 ${links.length}건 발견 (최신 ${treesoopYmdFromUrl(links[0])})`, 'researcher');
-            const picked = pickTreeSoopPost(links, targetYmd);
-            if (picked) {
-                const rest = links.filter(link => link !== picked && treesoopYmdFromUrl(link) <= targetYmd);
-                return [picked, ...rest];
-            }
-        } catch (error) {
-            addLog('Researcher', `${path} 목록 조회 실패(${error.message}), 다음 경로를 시도합니다.`, 'warning');
-        }
-    }
-
-    // Every index page failed: probe the dated permalink pattern backwards from the target day.
-    addLog('Researcher', '목록 페이지 조회에 모두 실패해 날짜 기반 URL 직접 조회로 전환합니다.', 'warning');
-    const cursor = parseSourceDate(targetYmd) || getKstDate();
-    for (let back = 0; back < TREESOOP_LOOKBACK_DAYS; back += 1) {
-        const ymd = formatYmd(new Date(cursor.getTime() - back * DAY_MS));
-        const postUrl = treesoopPostUrlForYmd(ymd);
-        tried.push(postUrl);
-        try {
-            const html = await fetchTextWithCorsFallback(`${postUrl}?ts=${Date.now()}`, { minLength: TREESOOP_MIN_HTML_BYTES });
-            if (/<h2/i.test(html)) {
-                addLog('Researcher', `날짜 직접 조회 성공: ${ymd}`, 'researcher');
-                return [postUrl];
-            }
-        } catch (_) {
-            // No post published that day — keep walking back.
-        }
-    }
-
-    throw new Error(`TreeSoop AI 뉴스 게시물을 찾지 못했습니다. 시도 ${tried.length}건 (예: ${tried.slice(0, 3).join(' , ')})`);
-}
-
-// The cache is written by scripts/update_treesoop_cache.py in GitHub Actions,
-// which reaches treesoop.com without any CORS restriction. Reading it from our
-// own origin needs no relay at all, so it is tried first and the flaky public
-// proxies become a fallback rather than a single point of failure.
 // Returns the newest usable day in the cache, or the one pinned by `onlyYmd`.
 // No "on or before today" ceiling: a post dated ahead of the local clock is
 // still the newest thing published, and must not be skipped over.
@@ -1256,79 +1201,54 @@ function logTreeSoopCacheHit(cached) {
     return cached.articles;
 }
 
-// Exactly one day, cache first then the source. Used when a caller pins a date
-// rather than asking for the latest upload.
-async function fetchTreeSoopNewsForDate(ymd) {
-    try {
-        return logTreeSoopCacheHit(await readTreeSoopCache(ymd));
-    } catch (cacheError) {
-        addLog('Researcher', `${ymd} 캐시 조회 실패(${cacheError.message}), 원본에서 확인합니다.`, 'warning');
+// v3.2.9: the TreeSoop button builds cards for exactly one day - the day it is
+// clicked. There is no "newest available" fallback and no older cached day, so a
+// past date can never quietly end up on the deck. When that day is not published
+// we stop and say so instead of substituting something else.
+const TREESOOP_NO_POST_MESSAGE = '당일 뉴스 업로드 안됨, 업로드 된 이후 다시 시도하세요';
+
+class TreeSoopNoPostError extends Error {
+    constructor(ymd, confirmed) {
+        super(TREESOOP_NO_POST_MESSAGE);
+        this.name = 'TreeSoopNoPostError';
+        this.ymd = ymd;
+        // True when the index actually answered and did not list this day, as
+        // opposed to us simply failing to reach the source.
+        this.confirmed = confirmed;
     }
-    return parseTreeSoopPost(treesoopPostUrlForYmd(ymd), ymd, TREESOOP_FRESH_PROBE);
 }
 
-async function fetchTreeSoopNews(targetYmd = formatYmd(getKstDate()), options = {}) {
-    // Card generation always wants the latest upload. `pinnedDate` is for callers
-    // that deliberately ask for one specific day.
-    const pinnedDate = options.pinnedDate === true;
-    if (pinnedDate) return fetchTreeSoopNewsForDate(targetYmd);
+async function fetchTreeSoopNews(targetYmd = formatYmd(getKstDate())) {
+    appState.treesoopDate = targetYmd;
+    // Nothing from an earlier run may survive into this one.
+    appState.cardData = null;
+    appState.selectedSlideIndex = 0;
+    addLog('Researcher', `${targetYmd} 발행분만 수집합니다 (이전 결과·캐시 초기화).`, 'researcher');
 
-    let cached = null;
+    // The mirror is re-read over the network every time (no-store + cache buster)
+    // and is only accepted when it holds this exact day.
     try {
-        cached = await readTreeSoopCache();
+        return logTreeSoopCacheHit(await readTreeSoopCache(targetYmd));
     } catch (cacheError) {
-        addLog('Researcher', `동일 출처 캐시 사용 불가(${cacheError.message}), 실시간 조회로 전환합니다.`, 'warning');
+        addLog('Researcher', `${targetYmd} 발행분이 캐시에 없어 원본에서 확인합니다.`, 'warning');
     }
 
-    // Nothing can be published later than today, so a cache already holding today
-    // is final and costs no network at all.
-    if (cached && cached.date >= targetYmd) return logTreeSoopCacheHit(cached);
-
-    // The cache refreshes hourly, so it can trail a post by up to an hour. Ask the
-    // index what the newest day actually is before showing anything older.
-    addLog('Researcher', `최신 발행일 확인 중 (캐시 최신 ${cached ? cached.date : '없음'})...`, 'researcher');
-    let newestYmd = '';
     try {
-        newestYmd = await resolveNewestTreeSoopDate();
-        addLog('Researcher', `목록 기준 최신 발행일: ${newestYmd}`, 'researcher');
-    } catch (error) {
-        addLog('Researcher', `최신 발행일 확인 실패(${error.message}).`, 'warning');
+        return await parseTreeSoopPost(treesoopPostUrlForYmd(targetYmd), targetYmd, TREESOOP_FRESH_PROBE);
+    } catch (postError) {
+        addLog('Researcher', `${targetYmd} 원본 조회 실패(${postError.message}).`, 'warning');
     }
 
-    if (newestYmd && (!cached || newestYmd > cached.date)) {
-        try {
-            return await parseTreeSoopPost(treesoopPostUrlForYmd(newestYmd), newestYmd, TREESOOP_FRESH_PROBE);
-        } catch (error) {
-            addLog('Researcher', `${newestYmd} 본문 조회 실패(${error.message}).`, 'warning');
-        }
+    // Ask the index so a relay outage is not reported as the publisher being late.
+    let confirmed = false;
+    try {
+        const newest = await resolveNewestTreeSoopDate();
+        confirmed = true;
+        addLog('Researcher', `목록 확인 결과 최신 발행일은 ${newest}, ${targetYmd} 발행분은 아직 없습니다.`, 'warning');
+    } catch (indexError) {
+        addLog('Researcher', `발행 여부 확인 실패(${indexError.message}) — 원본 연결이 불안정합니다.`, 'warning');
     }
-
-    if (cached) {
-        if (!newestYmd) {
-            // The index check failed, so we cannot claim today's post is missing —
-            // only that we could not find out.
-            addLog('Researcher', `최신 발행일을 확인하지 못해 캐시의 최신 발행분(${cached.date})으로 진행합니다.`, 'warning');
-        } else if (newestYmd > cached.date) {
-            // Say plainly that a newer day exists but could not be fetched, rather
-            // than presenting stale cards as though they were the latest.
-            addLog('Researcher', `${newestYmd} 발행분을 가져오지 못해 캐시의 ${cached.date} 발행분으로 진행합니다. 잠시 후 다시 시도하면 최신본이 반영됩니다.`, 'warning');
-        } else if (cached.date !== targetYmd) {
-            addLog('Researcher', `${targetYmd} 발행분이 없어 가장 최근 발행분(${cached.date})으로 진행합니다.`, 'warning');
-        }
-        return logTreeSoopCacheHit(cached);
-    }
-
-    const candidates = await resolveTreeSoopPostCandidates(newestYmd || targetYmd);
-    let lastError;
-    for (const candidate of candidates.slice(0, TREESOOP_MAX_POST_ATTEMPTS)) {
-        try {
-            return await parseTreeSoopPost(candidate, targetYmd);
-        } catch (error) {
-            lastError = error;
-            addLog('Researcher', `${treesoopYmdFromUrl(candidate) || candidate} 본문 조회 실패(${error.message}), 이전 발행분으로 재시도합니다.`, 'warning');
-        }
-    }
-    throw lastError || new Error('TreeSoop AI 뉴스 본문을 불러오지 못했습니다.');
+    throw new TreeSoopNoPostError(targetYmd, confirmed);
 }
 
 async function parseTreeSoopPost(postUrl, targetYmd, fetchOptions = null) {
@@ -1437,19 +1357,11 @@ btnRun.addEventListener("click", async () => {
     resetPipelineUI();
     consoleLogs.innerHTML = "";
     
-    appState.mode = modeDaily.checked ? 'daily' : 'weekly';
+    // One unified briefing over every category: the 일간/주간 switch and the
+    // category checklist are gone, so there is nothing left to read from the UI.
+    appState.mode = BRIEFING_MODE;
+    appState.categories = [...ALL_NEWS_CATEGORIES];
     appState.designTheme = document.querySelector('input[name="design-theme"]:checked')?.value || 'theme-classic';
-    
-    // Read category checklist
-    appState.categories = [];
-    if (document.getElementById("cat-genai").checked) appState.categories.push("genai");
-    if (document.getElementById("cat-biz").checked) appState.categories.push("biz");
-    if (document.getElementById("cat-tech").checked) appState.categories.push("tech");
-    if (document.getElementById("cat-policy").checked) appState.categories.push("policy");
-
-    if (appState.categories.length === 0) {
-        appState.categories = ['genai', 'biz']; // fallback
-    }
 
     try {
         // --- 1. RESEARCHER AGENT RUN ---
@@ -1459,7 +1371,7 @@ btnRun.addEventListener("click", async () => {
         if (appState.treesoopMode) {
             addLog("Researcher", `https://treesoop.com/blog/news 에서 ${todayStr} AI 뉴스 포스트 수집 및 파싱 시작...`, "researcher");
         } else {
-            addLog("Researcher", `실시간 AI 뉴스 채널 수집 및 파싱 중 (카테고리: ${appState.categories.join(', ')})`, "researcher");
+            addLog("Researcher", '실시간 AI 뉴스 채널 수집 및 파싱 중...', "researcher");
         }
         
         updateAgentProgress('researcher', 8, '수집 조건과 한국시간 기준 확인');
@@ -1468,7 +1380,7 @@ btnRun.addEventListener("click", async () => {
         
         // Fetch raw news based on category selection
         let rawNews = [];
-        const includeLlmReleases = document.getElementById("cat-llm-releases").checked;
+        const includeLlmReleases = true;   // the three major LLM vendors are always in scope
 
         if (appState.treesoopMode) {
             rawNews = await fetchTreeSoopNews(formatYmd(getKstDate()));
@@ -1480,7 +1392,7 @@ btnRun.addEventListener("click", async () => {
             } catch (error) {
                 addLog("Researcher", `실시간 뉴스 경로 오류(${error.message})를 감지해 검증된 내장 뉴스 캐시로 자동 전환합니다.`, "warning");
                 rawNews = cachedNewsForMode(appState.mode, appState.categories);
-                updateAgentProgress('researcher', 72, `${appState.mode === 'daily' ? '일간' : '주간'} 뉴스 캐시 복구 완료`);
+                updateAgentProgress('researcher', 72, '뉴스 캐시 복구 완료');
             }
         }
         
@@ -1664,8 +1576,7 @@ btnRun.addEventListener("click", async () => {
         updateAgentProgress('publisher', 35, '문법·인코딩 검증 3/7 완료');
         await sleep(400);
         
-        const dateRangeText = appState.mode === 'daily' ? '24시간 이내' : '1주일 이내';
-        addLog("Verifier", `[검증 4] 실행 시점 기준 적합성 검증 (${dateRangeText}): ${appState.treesoopMode ? '통과 (TreeSoop 발행일 검증)' : (!hasOldYear ? '통과 (최신 뉴스 검증 완료)' : '실패 (과거 데이터 감지)')}`, !hasOldYear || appState.treesoopMode ? 'success' : 'warning');
+        addLog("Verifier", `[검증 4] 실행 시점 기준 적합성 검증: ${appState.treesoopMode ? `통과 (TreeSoop ${appState.treesoopDate || ''} 발행일 검증)` : (!hasOldYear ? '통과 (최신 뉴스 검증 완료)' : '실패 (과거 데이터 감지)')}`, !hasOldYear || appState.treesoopMode ? 'success' : 'warning');
         await sleep(400);
 
         // [검증 5] 중복 및 유사 뉴스 검증
@@ -1688,26 +1599,10 @@ btnRun.addEventListener("click", async () => {
             }
         }
         addLog("Verifier", `[검증 5] 유사도 및 중복 뉴스 검증: ${!hasDuplicate ? '통과 (중복 및 유사 슬라이드 없음)' : '실패 (중복 뉴스 감지)'}`, !hasDuplicate ? 'success' : 'warning');
-        updateAgentProgress('publisher', 65, '최신성·중복 검증 5/7 완료');
+        updateAgentProgress('publisher', 65, '최신성·중복 검증 5/6 완료');
         await sleep(400);
 
-        // [검증 6] 일간 브리핑 내 주간 뉴스 범위 배제 검증
-        let hasWeeklyRangeInDaily = false;
-        if (appState.mode === 'daily') {
-            for (let slide of cardJson.slides) {
-                if (slide.type === 'content') {
-                    let title = slide.title || "";
-                    if (title.includes("일~") || title.includes("일 ~") || title.includes("주간")) {
-                        hasWeeklyRangeInDaily = true;
-                        break;
-                    }
-                }
-            }
-        }
-        addLog("Verifier", `[검증 6] 일간 브리핑 내 주간 뉴스 범위 배제 검증: ${!hasWeeklyRangeInDaily ? '통과 (일간 48시간 이내 규격 일치)' : '실패 (주간 기사 유입 감지)'}`, !hasWeeklyRangeInDaily ? 'success' : 'warning');
-        await sleep(400);
-        
-        // [검증 7] 최신 날짜 정합성 검증
+        // [검증 6] 최신 날짜 정합성 검증
         let dateCheckPassed = true;
         const dateMismatches = [];
         for (const slide of cardJson.slides) {
@@ -1721,8 +1616,8 @@ btnRun.addEventListener("click", async () => {
                 dateMismatches.push(`${slide.slide_index}장:${expectedDate || '발행일 없음'}`);
             }
         }
-        addLog("Verifier", `[검증 7] 실제 소스 발행일·KST 수집 범위 검증: ${dateCheckPassed ? '통과 (모든 카드가 실제 발행일과 일치)' : `실패 (${dateMismatches.join(', ')})`}`, dateCheckPassed ? 'success' : 'warning');
-        updateAgentProgress('publisher', 90, '발행일·출처 검증 7/7 완료');
+        addLog("Verifier", `[검증 6] 실제 소스 발행일·KST 수집 범위 검증: ${dateCheckPassed ? '통과 (모든 카드가 실제 발행일과 일치)' : `실패 (${dateMismatches.join(', ')})`}`, dateCheckPassed ? 'success' : 'warning');
+        updateAgentProgress('publisher', 90, '발행일·출처 검증 6/6 완료');
         if (!dateCheckPassed) {
             cardJson.slides.filter(slide => slide.type === 'content').forEach((slide, index) => {
                 const article = rawNews.find(item => item.link === slide.source_url) || rawNews[index];
@@ -1772,12 +1667,24 @@ btnRun.addEventListener("click", async () => {
         btnExportAll.disabled = false;
         if (btnCopyText) btnCopyText.disabled = false;
         dbStatusText.textContent = "에이전트 카드뉴스 생성 완료";
-        let modeDisplayText = appState.mode === 'daily' ? '일간 브리핑' : '주간 트렌드';
+        let modeDisplayText = '성아연 AI 뉴스 브리핑';
         if (appState.treesoopMode) modeDisplayText = 'TreeSoop 뉴스레터';
         dbSubText.textContent = `카드뉴스 제작이 모두 끝났습니다. 이제 확인하고 배포하세요. (${modeDisplayText})`;
         
     } catch (e) {
-        addLog("System", `파이프라인 실행 중 오류 발생: ${e.message}`, "warning");
+        if (e instanceof TreeSoopNoPostError) {
+            // "Not uploaded" is only said when the index actually confirmed it.
+            // A relay outage is a different problem and gets its own wording, so
+            // the publisher is never blamed for our network failing.
+            const headline = e.confirmed ? TREESOOP_NO_POST_MESSAGE : '원본 연결 실패, 잠시 후 다시 시도하세요';
+            addLog("System", headline, "warning");
+            dbStatusText.textContent = headline;
+            dbSubText.textContent = e.confirmed
+                ? `${e.ymd} 발행분이 아직 업로드되지 않았습니다.`
+                : `${e.ymd} 발행 여부를 확인하지 못했습니다. CORS 프록시가 모두 응답하지 않습니다.`;
+        } else {
+            addLog("System", `파이프라인 실행 중 오류 발생: ${e.message}`, "warning");
+        }
     } finally {
         appState.isRunning = false;
         appState.treesoopMode = false;
@@ -2004,9 +1911,8 @@ async function generateCardWithGemini(news, mode, apiKey, repairFeedback = '') {
     const yesterdayStr = formatDate(yesterday);
     const lastWeekStr = formatDate(lastWeek);
     
-    const dateRangeInstruction = mode === 'daily'
-        ? `일간(daily) 뉴스이므로, 수집된 뉴스는 반드시 현재 날짜인 ${todayStr} 기준 24시간 이내 (${yesterdayStr} ~ ${todayStr})의 최신 정보여야 합니다.`
-        : `주간(weekly) 뉴스이므로, 수집된 뉴스는 반드시 현재 날짜인 ${todayStr} 기준 1주일 이내 (${lastWeekStr} ~ ${todayStr})의 최신 정보여야 합니다.`;
+    // Single briefing since v3.2.9, so there is no weekly variant to branch on.
+    const dateRangeInstruction = `수집된 뉴스는 반드시 현재 날짜인 ${todayStr} 기준 24시간 이내 (${yesterdayStr} ~ ${todayStr})의 최신 정보여야 합니다.`;
 
     const context = news.map((item, idx) => `[뉴스 ${idx+1}]\n제목: ${item.title}\n실제 발행일(KST): ${formatYmd(parseSourceDate(item.publishedAt || item.date || item.pubDate) || getKstDate())}\n출처: ${item.source}\n내용: ${item.bullets.join(' ')}\nURL: ${item.link || ''}`).join('\n\n');
     const prompt = `
@@ -2032,7 +1938,7 @@ async function generateCardWithGemini(news, mode, apiKey, repairFeedback = '') {
         3순위 - 공식 제품 업데이트 (OpenAI, Anthropic, Google Gemini). 입력 데이터에 이 3대 LLM 업데이트가 포함된 경우 각각 누락 없이 한 장씩 유지하십시오.
         
         [작성 규칙]
-        1. 일간 모드(Daily)인 경우 최근 24시간 이내, 주간 모드(Weekly)인 경우 최근 1주일 이내의 뉴스만 엄격하게 포함시키도록 Google Search를 조율하십시오. 현재 년월일 기준시점은 ${todayStr}입니다.
+        1. 최근 24시간 이내의 뉴스만 엄격하게 포함시키도록 Google Search를 조율하십시오. 현재 년월일 기준시점은 ${todayStr}입니다.
         2. 모든 항목에는 반드시 실제 접근 가능한 원본 출처 URL이 명시되어야 합니다. 기억으로 URL을 지어내지 마십시오.
         3. 1장 (Title Slide): 제목을 반드시 "9대 성아연 뉴스메이커"로 하고, 서브타이틀에 기준 날짜 ${todayStr}를 표시합니다.
         4. 2, 3, 4, 5, 6장 (Content Slide): 각각 주요 뉴스 1, 2, 3, 4, 5를 다룹니다. 제목에는 번호와 날짜를 넣지 말고 뉴스 핵심 제목만 작성하십시오. 본문은 /litify /tl;dr 방식으로 해당 기사만 요약한 3개의 짧고 완결된 불릿 포인트로 작성하십시오. 또한 반드시 출처명(source_name)과 원문 주소(source_url)를 입력 데이터 그대로 매핑하십시오.
@@ -2192,7 +2098,6 @@ function renderCards(cardJson) {
         if (index === 0) cardWrapper.classList.add("active");
         
         let catText = "DAILY BRIEFINGS";
-        if (appState.mode === 'weekly') catText = "WEEKLY TRENDS";
         if (appState.treesoopMode) catText = "TREESOOP NEWS";
 
         const padIndex = String(slide.slide_index).padStart(2, '0');
@@ -2637,7 +2542,7 @@ if (btnCopyText) {
     btnCopyText.addEventListener("click", () => {
         if (!appState.cardData) return;
         
-        let textContent = `📢 ${appState.mode === 'daily' ? '일간' : '주간'} 성아연 AI 뉴스 브리핑\n\n`;
+        let textContent = `📢 성아연 AI 뉴스 브리핑\n\n`;
         
         appState.cardData.slides.forEach((slide) => {
             if (slide.type === 'title') {

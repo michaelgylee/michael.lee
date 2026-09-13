@@ -22,7 +22,7 @@
                     <img src="logo.png" alt="성아연 로고" style="width: 36px; height: 36px; object-fit: contain;">
                     <div>
                         <h1>9대 성아연 뉴스메이커</h1>
-                        <span class="version">v3.2.8 (TreeSoop Latest Always)</span>
+                        <span class="version">v3.2.9 (Unified Briefing)</span>
                     </div>
                 </div>
             </div>
@@ -31,16 +31,6 @@
             <section class="sidebar-section">
                 <h2><i data-lucide="settings"></i> 에이전트 설정</h2>
                 
-                <div class="form-group">
-                    <label>배포 주기</label>
-                    <div class="toggle-group">
-                        <input type="radio" id="mode-daily" name="news-mode" value="daily" checked>
-                        <label for="mode-daily">일간 브리핑</label>
-                        <input type="radio" id="mode-weekly" name="news-mode" value="weekly">
-                        <label for="mode-weekly">주간 트렌드</label>
-                    </div>
-                </div>
-
                 <div class="form-group">
                     <label>전체 카드 디자인 테마</label>
                     <div class="theme-selector" role="radiogroup" aria-label="전체 카드 디자인 테마">
@@ -63,39 +53,13 @@
                     <p class="help-text">선택한 테마가 표지·뉴스·마지막 카드 전체에 적용됩니다.</p>
                 </div>
 
-                <div class="form-group">
-                    <label>뉴스 카테고리</label>
-                    <div class="checkbox-grid">
-                        <label class="checkbox-container">
-                            <input type="checkbox" id="cat-genai" checked>
-                            <span class="checkmark"></span> 생성형 AI / LLM
-                        </label>
-                        <label class="checkbox-container">
-                            <input type="checkbox" id="cat-biz" checked>
-                            <span class="checkmark"></span> 비즈니스 / 기업
-                        </label>
-                        <label class="checkbox-container">
-                            <input type="checkbox" id="cat-tech" checked>
-                            <span class="checkmark"></span> 최신 기술 / 오픈소스
-                        </label>
-                        <label class="checkbox-container">
-                            <input type="checkbox" id="cat-policy" checked>
-                            <span class="checkmark"></span> 정책 / 트렌드
-                        </label>
-                        <label class="checkbox-container">
-                            <input type="checkbox" id="cat-llm-releases" checked>
-                            <span class="checkmark"></span> 3대 LLM 최신 업데이트 (OpenAI, Anthropic, Google 필수 포함)
-                        </label>
-                    </div>
-                </div>
-
                 <div class="form-group API-key-group">
                     <label>Google Gemini API Key (선택)</label>
                     <div class="input-with-icon">
                         <i data-lucide="key" class="input-icon"></i>
                         <input type="password" id="api-key" placeholder="AI 실시간 생성용 API 키 입력">
                     </div>
-                    <p class="help-text">키 입력 시 Gemini가 실시간 크롤링 뉴스를 기반으로 맞춤 카드뉴스를 자동 생성합니다.</p>
+                    <p class="help-text">키 입력 시 Gemini가 실시간 크롤링 뉴스를 기반으로 맞춤 카드뉴스를 자동 생성합니다. 입력한 키는 이 브라우저에 저장되어 다음 방문에도 유지됩니다.</p>
                 </div>
                 
                 <button id="btn-run" class="btn-primary animate-pulse">
@@ -336,6 +300,6 @@
     </div>
 
     <!-- Application Logic -->
-    <script src="app.js?v=3.2.4"></script>
+    <script src="app.js?v=3.2.9"></script>
 </body>
 </html>
