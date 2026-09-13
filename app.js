@@ -1141,7 +1141,10 @@ const TREESOOP_NEWS_INDEXES = ['/blog/news', '/blog/news/page/2', '/blog'];
 const TREESOOP_MIN_HTML_BYTES = 2000;
 // One short relay round: enough for a healthy relay (6-8s observed), while a
 // dead proxy tier costs seconds instead of minutes before we fall back.
-const TREESOOP_FRESH_PROBE = { timeoutMs: 10000, rounds: 1, skipDirect: true, minLength: TREESOOP_MIN_HTML_BYTES };
+// Measured: a healthy transport answers in 8-9s, so the previous 10s ceiling
+// clipped responses that were about to succeed.
+const TREESOOP_FETCH_TIMEOUT_MS = 16000;
+const TREESOOP_FRESH_PROBE = { timeoutMs: TREESOOP_FETCH_TIMEOUT_MS, rounds: 1, skipDirect: true, minLength: TREESOOP_MIN_HTML_BYTES };
 const TREESOOP_SKIP_HEADINGS = /^(?:블로그|댓글|이전\s*글|다음\s*글|정리|자주\s*묻는\s*질문|관련\s*서비스|서비스|채용|마치며|들어가며|products|navigation|contact)/i;
 
 function treesoopYmdFromUrl(url) {
@@ -1188,12 +1191,39 @@ async function readTreeSoopCache(onlyYmd = '') {
 // TreeSoop skips days, so "today" is regularly not the newest post and guessing
 // dates one at a time could walk straight past a day that had just gone up. The
 // index answers "what is the latest?" outright, in one bounded request.
+function newestYmdInText(text) {
+    const dates = [...String(text).matchAll(/ai-news-(\d{4}-\d{2}-\d{2})/g)].map(match => match[1]);
+    return dates.sort().reverse()[0] || '';
+}
+
+// Raced over both transports for the same reason the post fetch is: when the
+// relay tier is down, the index still has to be answerable or we would offer an
+// older day than the one actually published.
 async function resolveNewestTreeSoopDate() {
-    const indexUrl = `${TREESOOP_ORIGIN}${TREESOOP_NEWS_INDEXES[0]}?ts=${Date.now()}`;
-    const links = extractTreeSoopNewsLinks(await fetchTextWithCorsFallback(indexUrl, TREESOOP_FRESH_PROBE));
-    const newest = treesoopYmdFromUrl(links[0]);
-    if (!newest) throw new Error('목록에서 발행일을 찾지 못했습니다.');
-    return newest;
+    const indexPath = `${TREESOOP_ORIGIN}${TREESOOP_NEWS_INDEXES[0]}`;
+    const viaRelay = async () => {
+        const html = await fetchTextWithCorsFallback(`${indexPath}?ts=${Date.now()}`, TREESOOP_FRESH_PROBE);
+        const newest = treesoopYmdFromUrl(extractTreeSoopNewsLinks(html)[0]) || newestYmdInText(html);
+        if (!newest) throw new Error('목록에서 발행일을 찾지 못했습니다.');
+        return newest;
+    };
+    const viaReader = async () => {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), TREESOOP_FETCH_TIMEOUT_MS);
+        try {
+            const response = await fetch(`${TREESOOP_READER_ENDPOINT}${indexPath}`, { cache: 'no-store', signal: controller.signal });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const newest = newestYmdInText(await response.text());
+            if (!newest) throw new Error('리더 목록에서 발행일을 찾지 못했습니다.');
+            return newest;
+        } finally {
+            clearTimeout(timeoutId);
+        }
+    };
+    return Promise.any([viaRelay(), viaReader()]).catch(aggregate => {
+        const reasons = (aggregate.errors || []).map(error => error.message).join(' / ');
+        throw new Error(reasons || aggregate.message || '목록을 불러오지 못했습니다.');
+    });
 }
 
 function logTreeSoopCacheHit(cached) {
@@ -1205,6 +1235,44 @@ function logTreeSoopCacheHit(cached) {
 // clicked. There is no "newest available" fallback and no older cached day, so a
 // past date can never quietly end up on the deck. When that day is not published
 // we stop and say so instead of substituting something else.
+// Promise-based confirm. Used when only an older day is available: the run pauses
+// and the choice to proceed with it is the user's, not ours.
+function askUserConfirm(title, detail, confirmLabel = '계속 진행', cancelLabel = '취소') {
+    return new Promise(resolve => {
+        const overlay = document.createElement('div');
+        overlay.style.cssText = 'position:fixed;inset:0;background:rgba(2,6,23,.72);display:flex;align-items:center;justify-content:center;z-index:9999;padding:20px;';
+        const box = document.createElement('div');
+        box.style.cssText = 'background:#0f172a;color:#e2e8f0;border:1px solid #334155;border-radius:14px;max-width:460px;width:100%;padding:24px;box-shadow:0 20px 50px rgba(0,0,0,.5);font-family:inherit;';
+        const h = document.createElement('h3');
+        h.textContent = title;
+        h.style.cssText = 'margin:0 0 10px;font-size:17px;line-height:1.45;color:#f8fafc;';
+        const p = document.createElement('p');
+        p.textContent = detail;
+        p.style.cssText = 'margin:0 0 20px;font-size:14px;line-height:1.6;color:#94a3b8;white-space:pre-line;';
+        const row = document.createElement('div');
+        row.style.cssText = 'display:flex;gap:10px;justify-content:flex-end;';
+        const cancel = document.createElement('button');
+        cancel.textContent = cancelLabel;
+        cancel.style.cssText = 'padding:9px 16px;border-radius:8px;border:1px solid #475569;background:transparent;color:#cbd5f5;cursor:pointer;font-size:14px;';
+        const ok = document.createElement('button');
+        ok.textContent = confirmLabel;
+        ok.style.cssText = 'padding:9px 16px;border-radius:8px;border:1px solid #10b981;background:linear-gradient(135deg,#10b981,#059669);color:#fff;cursor:pointer;font-size:14px;font-weight:600;';
+        const close = answer => { if (overlay.parentNode) document.body.removeChild(overlay); resolve(answer); };
+        cancel.addEventListener('click', () => close(false));
+        ok.addEventListener('click', () => close(true));
+        overlay.addEventListener('click', event => { if (event.target === overlay) close(false); });
+        document.addEventListener('keydown', function onKey(event) {
+            if (!overlay.parentNode) { document.removeEventListener('keydown', onKey); return; }
+            if (event.key === 'Escape') { document.removeEventListener('keydown', onKey); close(false); }
+        });
+        row.append(cancel, ok);
+        box.append(h, p, row);
+        overlay.append(box);
+        document.body.append(overlay);
+        ok.focus();
+    });
+}
+
 const TREESOOP_NO_POST_MESSAGE = '당일 뉴스 업로드 안됨, 업로드 된 이후 다시 시도하세요';
 
 class TreeSoopNoPostError extends Error {
@@ -1218,47 +1286,153 @@ class TreeSoopNoPostError extends Error {
     }
 }
 
+class TreeSoopCancelledError extends Error {
+    constructor() {
+        super('이전 날짜 뉴스 생성을 취소했습니다.');
+        this.name = 'TreeSoopCancelledError';
+    }
+}
+
+// Newest day we can actually build from, looking at both the mirror and the
+// index so an unreachable index still leaves the cache as an answer.
+async function findNewestAvailableTreeSoopDate(beforeYmd) {
+    const found = [];
+    try {
+        const cached = await readTreeSoopCache();
+        if (cached.date < beforeYmd) found.push(cached.date);
+    } catch (_) { /* no usable mirror */ }
+    try {
+        const newest = await resolveNewestTreeSoopDate();
+        if (newest < beforeYmd) found.push(newest);
+    } catch (_) { /* index unreachable */ }
+    return found.sort().reverse()[0] || '';
+}
+
 async function fetchTreeSoopNews(targetYmd = formatYmd(getKstDate())) {
     appState.treesoopDate = targetYmd;
     // Nothing from an earlier run may survive into this one.
     appState.cardData = null;
     appState.selectedSlideIndex = 0;
-    addLog('Researcher', `${targetYmd} 발행분만 수집합니다 (이전 결과·캐시 초기화).`, 'researcher');
+    addLog('Researcher', `${targetYmd} 발행분을 우선 수집합니다 (이전 결과·캐시 초기화).`, 'researcher');
 
-    // The mirror is re-read over the network every time (no-store + cache buster)
-    // and is only accepted when it holds this exact day.
-    try {
-        return logTreeSoopCacheHit(await readTreeSoopCache(targetYmd));
-    } catch (cacheError) {
-        addLog('Researcher', `${targetYmd} 발행분이 캐시에 없어 원본에서 확인합니다.`, 'warning');
-    }
+    const loadExactDay = async ymd => {
+        // The mirror is re-read over the network every run and accepted only on
+        // an exact date match.
+        try {
+            return logTreeSoopCacheHit(await readTreeSoopCache(ymd));
+        } catch (_) {
+            addLog('Researcher', `${ymd} 발행분이 캐시에 없어 원본에서 확인합니다.`, 'warning');
+        }
+        return parseTreeSoopPost(treesoopPostUrlForYmd(ymd), ymd, TREESOOP_FRESH_PROBE);
+    };
 
     try {
-        return await parseTreeSoopPost(treesoopPostUrlForYmd(targetYmd), targetYmd, TREESOOP_FRESH_PROBE);
+        return await loadExactDay(targetYmd);
     } catch (postError) {
-        addLog('Researcher', `${targetYmd} 원본 조회 실패(${postError.message}).`, 'warning');
+        addLog('Researcher', `${targetYmd} 발행분 수집 실패(${postError.message}).`, 'warning');
     }
 
-    // Ask the index so a relay outage is not reported as the publisher being late.
-    let confirmed = false;
-    try {
-        const newest = await resolveNewestTreeSoopDate();
-        confirmed = true;
-        addLog('Researcher', `목록 확인 결과 최신 발행일은 ${newest}, ${targetYmd} 발행분은 아직 없습니다.`, 'warning');
-    } catch (indexError) {
-        addLog('Researcher', `발행 여부 확인 실패(${indexError.message}) — 원본 연결이 불안정합니다.`, 'warning');
+    // Only an older day is left. Whether to publish yesterday's news under
+    // today's run is the user's call, so stop and ask instead of deciding.
+    const fallbackYmd = await findNewestAvailableTreeSoopDate(targetYmd);
+    if (!fallbackYmd) throw new TreeSoopNoPostError(targetYmd, false);
+
+    addLog('Researcher', `${targetYmd} 발행분을 가져오지 못했습니다. 사용 가능한 최신 발행일은 ${fallbackYmd} 입니다.`, 'warning');
+    const proceed = await askUserConfirm(
+        `${targetYmd} 뉴스를 가져오지 못했습니다`,
+        `사용 가능한 가장 최신 발행분은 ${fallbackYmd} 입니다.\n이 날짜 뉴스로 카드뉴스를 생성할까요?`,
+        `${fallbackYmd} 뉴스로 생성`,
+        '취소'
+    );
+    if (!proceed) {
+        addLog('Researcher', `사용자가 ${fallbackYmd} 발행분 생성을 취소했습니다.`, 'warning');
+        throw new TreeSoopCancelledError();
     }
-    throw new TreeSoopNoPostError(targetYmd, confirmed);
+
+    addLog('Researcher', `사용자 확인 완료: ${fallbackYmd} 발행분으로 진행합니다.`, 'researcher');
+    appState.treesoopDate = fallbackYmd;
+    return loadExactDay(fallbackYmd);
+}
+
+// r.jina.ai renders the page server-side and answers with CORS enabled, so it is
+// reachable from the browser directly. It runs on infrastructure entirely
+// separate from the allorigins/codetabs relays and has stayed up through
+// outages that took all of them down at once, which is exactly the failure that
+// left a published day ungeneratable. It returns markdown, not HTML.
+const TREESOOP_READER_ENDPOINT = 'https://r.jina.ai/';
+
+function parseTreeSoopMarkdown(markdown) {
+    const entries = [];
+    // Each item is "## 제목" followed by paragraphs and a 원문 link.
+    const sections = markdown.split(/^##\s+/m).slice(1);
+    for (const section of sections) {
+        const [rawTitle, ...rest] = section.split('\n');
+        const title = rawTitle.replace(/[*_`]/g, '').trim();
+        if (!title || TREESOOP_SKIP_HEADINGS.test(title)) continue;
+
+        const body = rest.join('\n').split(/^#{1,2}\s+/m)[0];
+        let sourceUrl = '';
+        const paragraphs = [];
+        for (const block of body.split(/\n\s*\n/)) {
+            const text = block.replace(/\s+/g, ' ').trim();
+            if (!text) continue;
+            // "[원문 보기](https://...)" or a bare "원문: https://..." line.
+            const linked = text.match(/\[[^\]]*\]\((https?:\/\/[^\s)]+)\)/);
+            const bare = text.match(/https?:\/\/[^\s<>()]+/);
+            if (!sourceUrl && (linked || bare)) sourceUrl = (linked ? linked[1] : bare[0]).replace(/[),.;]+$/, '');
+            if (/^원문\s*[:：]|원문\s*보기|^\[|^!\[|^https?:\/\//.test(text)) continue;
+            paragraphs.push(text.replace(/`/g, ''));
+        }
+        if (paragraphs.length >= 2) entries.push({ title, paragraphs, sourceUrl });
+    }
+    return entries;
+}
+
+async function fetchTreeSoopEntriesViaReader(postUrl, timeoutMs) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+        const response = await fetch(`${TREESOOP_READER_ENDPOINT}${postUrl}`, { cache: 'no-store', signal: controller.signal });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const entries = parseTreeSoopMarkdown(await response.text());
+        if (!entries.length) throw new Error('리더 응답에서 뉴스 섹션을 찾지 못했습니다.');
+        return entries;
+    } finally {
+        clearTimeout(timeoutId);
+    }
+}
+
+async function fetchTreeSoopEntriesViaRelay(postUrl, fetchOptions) {
+    const postHtml = await fetchTextWithCorsFallback(`${postUrl}?ts=${Date.now()}`, fetchOptions || { minLength: TREESOOP_MIN_HTML_BYTES });
+    const entries = extractTreeSoopEntriesFromHtml(postHtml, postUrl);
+    if (!entries.length) throw new Error('본문에서 뉴스 섹션을 찾지 못했습니다.');
+    return entries;
 }
 
 async function parseTreeSoopPost(postUrl, targetYmd, fetchOptions = null) {
     const publishedAt = treesoopYmdFromUrl(postUrl) || targetYmd;
-    if (publishedAt !== targetYmd) {
-        addLog('Researcher', `${targetYmd} 게시물이 아직 없어 가장 최근 발행분(${publishedAt})으로 진행합니다.`, 'warning');
-    }
     addLog('Researcher', `${publishedAt} AI 뉴스 본문 파싱 시작: ${postUrl}`, 'researcher');
 
-    const postHtml = await fetchTextWithCorsFallback(`${postUrl}?ts=${Date.now()}`, fetchOptions || { minLength: TREESOOP_MIN_HTML_BYTES });
+    const timeoutMs = (fetchOptions && fetchOptions.timeoutMs) || TREESOOP_FETCH_TIMEOUT_MS;
+    // Race the two independent transports: whichever answers first wins, so a
+    // stalled relay tier no longer decides the outcome on its own.
+    const entries = await Promise.any([
+        fetchTreeSoopEntriesViaRelay(postUrl, fetchOptions),
+        fetchTreeSoopEntriesViaReader(postUrl, timeoutMs)
+    ]).catch(aggregate => {
+        const reasons = (aggregate.errors || []).map(error => error.message).join(' / ');
+        throw new Error(reasons || aggregate.message || '본문을 불러오지 못했습니다.');
+    });
+
+    const articles = buildTreeSoopArticles(entries, postUrl, publishedAt);
+    if (!articles.length) {
+        throw new Error(`TreeSoop ${publishedAt} 게시물에서 뉴스 본문을 찾지 못했습니다. (${postUrl})`);
+    }
+    addLog('Researcher', `${publishedAt} 게시물에서 뉴스 ${articles.length}건 파싱 완료`, 'success');
+    return articles;
+}
+
+function extractTreeSoopEntriesFromHtml(postHtml, postUrl) {
     const doc = new DOMParser().parseFromString(postHtml, 'text/html');
     const entries = [];
 
@@ -1304,12 +1478,7 @@ async function parseTreeSoopPost(postUrl, targetYmd, fetchOptions = null) {
         entries.push({ title, paragraphs, sourceUrl });
     }
 
-    const articles = buildTreeSoopArticles(entries, postUrl, publishedAt);
-    if (!articles.length) {
-        throw new Error(`TreeSoop ${publishedAt} 게시물에서 뉴스 본문을 찾지 못했습니다. (${postUrl})`);
-    }
-    addLog('Researcher', `${publishedAt} 게시물에서 뉴스 ${articles.length}건 파싱 완료`, 'success');
-    return articles;
+    return entries;
 }
 
 // Shared by the cached and the live path so both render identical cards.
@@ -1672,7 +1841,11 @@ btnRun.addEventListener("click", async () => {
         dbSubText.textContent = `카드뉴스 제작이 모두 끝났습니다. 이제 확인하고 배포하세요. (${modeDisplayText})`;
         
     } catch (e) {
-        if (e instanceof TreeSoopNoPostError) {
+        if (e instanceof TreeSoopCancelledError) {
+            addLog("System", e.message, "warning");
+            dbStatusText.textContent = '생성을 취소했습니다';
+            dbSubText.textContent = '당일 뉴스가 업로드된 뒤 다시 시도하세요.';
+        } else if (e instanceof TreeSoopNoPostError) {
             // "Not uploaded" is only said when the index actually confirmed it.
             // A relay outage is a different problem and gets its own wording, so
             // the publisher is never blamed for our network failing.
