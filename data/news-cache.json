@@ -1,10 +1,10 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-09-24T09:59:32Z",
+  "generated_at": "2026-09-24T15:04:47Z",
   "daily": [
     {
       "title": "\"추석 보너스 3만원 입금 완료\"…댓글 폭발한 '악덕 회사' 정체 [이슈+]",
-      "source": "한국경제",
+      "source": "hankyung.com",
       "link": "https://www.hankyung.com/article/202609170177g",
       "publishedAt": "Wed, 23 Sep 2026 23:58:34 GMT",
       "date": "2026-09-24",
@@ -17,72 +17,44 @@
       "contentVerified": true
     },
     {
-      "title": "생성형 AI에도 안 나오고 부캉이도 솔깃할 추석 밥상머리 경제 이슈 '3픽'",
-      "source": "글로벌경제신문",
-      "link": "https://www.getnews.co.kr/news/articleView.html?idxno=881756",
-      "publishedAt": "Wed, 23 Sep 2026 23:35:36 GMT",
+      "title": "삼성은 셋 다 깔았다…기업이 AI를 고르는 진짜 기준",
+      "source": "issueon.co.kr",
+      "link": "https://www.issueon.co.kr/news/articleView.html?idxno=13943",
+      "publishedAt": "Thu, 24 Sep 2026 13:47:50 GMT",
       "date": "2026-09-24",
       "category": "genai",
       "bullets": [
-        "지난 여름 역대급 더위를 이기고 나니 시나브로 서늘한 바람과 함께 살랑살랑 가을 정취가 물씬 풍기는 추석 연휴입니다.",
-        "특히, 경남 양산 지역은 지난달 2일 낮 최고기온이 42.5℃로, 우리나라 공식 기상관측 사상 최고 기온을 기록하는 등 여름을 보내고 맞은 올해 추석 연휴인 터라 여느 때보다 설레기도 합니다.",
-        "그래서, 기자가 요즘 화제의 중심인 부캉이(부산 북항 친수공원 수로에 나타난 상어 별명)도 솔깃할 만한 이슈 몇 가지를 꼽아왔습니다."
+        "기업이 AI를 고를 때 보는 것은 성능 순위표가 아니었다.",
+        "삼성전자는 지난 6월 11일 DX부문에 생성형 AI 세 종을 동시에 도입한다고 밝혔다.",
+        "챗GPT와 제미나이 엔터프라이즈, 클로드다."
       ],
       "contentVerified": true
     },
     {
-      "title": "카카오 AI 또 좌초…‘카나나’ 결국 1년 반 만에 종료",
-      "source": "ainews1.co.kr",
-      "link": "https://www.ainews1.co.kr/news/articleView.html?idxno=36898",
-      "publishedAt": "Thu, 24 Sep 2026 07:24:05 GMT",
+      "title": "미국인 10명 중 9명, AI에 \"기대보다 우려\"…규제 강화 요구",
+      "source": "연합뉴스",
+      "link": "https://www.yna.co.kr/view/AKR20260924049100009",
+      "publishedAt": "Thu, 24 Sep 2026 11:00:35 GMT",
       "date": "2026-09-24",
       "category": "genai",
       "bullets": [
-        "카카오가 바둑AI·LLM에 이어 ‘카나나’까지 중단하면서 장기적인 AI 전략 부재에 대한 우려가 커지고 있다.",
-        "카카오가 생성형 AI 챗봇 서비스 ‘카나나’ 를 다음 달 종료한다.",
-        "지난해 5월 베타 서비스를 시작한 지 약 1년 반 만이다."
+        "인공지능이 자동으로 줄인 '세 줄 요약' 기술을 사용합니다.",
+        "전체 내용을 이해하기 위해서는 기사 본문과 함께 읽어야 합니다.",
+        "미국인 10명 중 9명꼴로 인공지능(AI) 기술 발전을 기대보다는 우려의 시선으로 바라본다는 여론조사 결과가 나왔다."
       ],
       "contentVerified": true
     },
     {
-      "title": "AI 반론에 3명 중 1명 판단 바꿨다… 日고베대 실험",
-      "source": "IT조선",
-      "link": "https://it.chosun.com/news/articleView.html?idxno=2023092170853",
-      "publishedAt": "Thu, 24 Sep 2026 06:46:40 GMT",
+      "title": "제주시, 골목형 상점가 소상공인 대상 AI 마케팅 교육 운영",
+      "source": "youngjuilbo.com",
+      "link": "http://www.newslinejeju.com/news/articleView.html?idxno=175606",
+      "publishedAt": "Thu, 24 Sep 2026 10:06:36 GMT",
       "date": "2026-09-24",
       "category": "genai",
       "bullets": [
-        "생성형 인공지능(AI)이 제시하는 반론이 사람의 도덕적 판단까지 바꿀 수 있다는 연구 결과가 나왔다.",
-        "정답이 없는 문제에서 자신의 판단과 반대되는 AI의 주장을 접한 참가자 3명 중 1명 이상이 기존 선택을 뒤집은 것으로 나타났다.",
-        "24일 교도통신 등에 따르면 마스모토 고헤이 고베대 교수 연구팀이 19~28세 56명과 65세 이상 74명 등 130명을 대상으로 생성형 AI가 사람의 도덕적 판단에 미치는 영향을 분석해 이 같은 연구 결과를 도출했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "`휴메인`의 실패 딛고… 퀄컴, 독립형 5G `개인용 AI 핀` 재도전",
-      "source": "디지털데일리",
-      "link": "https://www.ddaily.co.kr/page/view/2026092405380863100",
-      "publishedAt": "Wed, 23 Sep 2026 23:57:34 GMT",
-      "date": "2026-09-24",
-      "category": "biz",
-      "bullets": [
-        "스마트폰을 대체할 차세대 인터페이스로 기대를 모았으나 발열과 느린 반응 속도, 통신 지연 등의 기술적 한계에 부딪히며 고전했던 ‘인공지능(AI) 핀’ 시장에 퀄컴이 다시 도전장을 냈다.",
-        "독립형 5G 연결성과 온디바이스 AI 아키텍처, 그리고 제조 생태계를 포괄하는 ‘스냅드래곤 스타트(Snapdragon Start)’ 프로그램을 앞세워 미완에 그쳤던 폼팩터 혁신을 완성하겠다는 구상이다.",
-        "옷깃이나 주머니에 부착하는 배지 형태의 AI 핀은 과거 실리콘밸리 스타트업들이 ‘포스트 스마트폰’을 표방하며 시장에 선보인 바 있다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "빅테크 AI 경쟁 가속… 개발 ‘속도조절’ 무색",
-      "source": "v.daum.net",
-      "link": "https://v.daum.net/v/tzGYDN0Hca?f=p",
-      "publishedAt": "Wed, 23 Sep 2026 21:03:00 GMT",
-      "date": "2026-09-24",
-      "category": "biz",
-      "bullets": [
-        "자동요약 기사 제목과 주요 문장을 기반으로 자동요약한 결과입니다.",
-        "전체 맥락을 이해하기 위해서는 본문 보기를 권장합니다.",
-        "글로벌 생성형 인공지능(AI) 시장의 최강자인 오픈AI(OpenAI)가 챗GPT의 신규 모델을 내놓았다."
+        "제주시는 오는 10월 골목형 상점가 소상공인을 대상으로 ‘AI 활용 마케팅 교육’을 개설하고, 9월 28일까지 수강생을 모집한다.",
+        "이번 교육은 소상공인이 스마트폰과 생성형 AI 기술을 활용해 매장 홍보 콘텐츠를 직접 기획·제작하고, SNS 채널을 보다 능동적으로 운영할 수 있도록 지원하기 위해 마련됐다.",
+        "교육과정은 ▲인스타그램 계정 최적화 및 프로필 설정 ▲생성형 AI를 활용한 가게 로고송 및 홍보 이미지 제작 ▲릴스(숏폼)와 스토리 실전 업로드 실습 등으로 구성됐다."
       ],
       "contentVerified": true
     },
@@ -94,29 +66,57 @@
       "date": "2026-09-24",
       "category": "biz",
       "bullets": [
-        "본 AI 분석은 참고용 정보 제공을 목적으로 하며, 그 정확성을 보장하지 않습니다.",
-        "또한 본 내용은 투자 권유가 아니며, 모든 투자 판단과 그에 따른 책임은 이용자 본인에게 있습니다.",
-        "보다 자세한 내용은 STAT AI의 분석 기준에서 확인하실 수 있습니다."
+        "블랙록은 인공지능( AI ) 확산이 디지털자산 시장의 주요 성장 촉매로 작용할 수 있다고 전망했다고 전했다.",
+        "블랙록은 에이전트형 AI 가 기계 간 결제와 프로그래밍 가능한 결제·정산에 대한 수요를 확대할 수 있다고 분석했다고 밝혔다.",
+        "블랙록은 에이전트형 AI 확산으로 기계가 직접 사용할 수 있는 결제 인프라와 토큰화 기술에 대한 수요가 커질 수 있다고 내다봤다고 전했다."
       ],
       "contentVerified": true
     },
     {
-      "title": "미국·중국 수요에 올 하반기 eSSD 수요도 급등 기대감...AI 최적화 핵심 떠올라",
-      "source": "아주경제",
-      "link": "https://www.ajunews.com/view/20260924121232060",
-      "publishedAt": "Thu, 24 Sep 2026 09:00:00 GMT",
+      "title": "Public, Kalshi 파트너십으로 AI 에이전트를 예측 시장에 도입",
+      "source": "Unite.AI",
+      "link": "https://www.unite.ai/ko/public-brings-ai-agents-to-prediction-markets-with-kalshi-partnership/",
+      "publishedAt": "Thu, 24 Sep 2026 12:36:03 GMT",
       "date": "2026-09-24",
       "category": "biz",
       "bullets": [
-        "북미 인공지능(AI) 시장이 AI 모델 학습·추론 중심에서 응용 앱으로 확산되면서 기업용 SSD(eSSD) 수요가 한층 확대되는 양상을 보이고 있다.",
-        "반도체 슈퍼사이클에서 저장장치의 비중이 크게 확대될 전망이다.",
-        "24일 대만 시장조사업체 트렌드포스에 따르면 미국 주요 클라우드 사업자(CSP)들이 최근 2주 간 eSSD 수요 전망치를 일제히 상향 조정했다."
+        "이 제품은 출시 시 모든 Public 회원에게 제공되며, 금융 시장을 움직이는 이벤트에 중점을 둡니다.",
+        "회원은 암호화폐, 상품, 기후, 경제, 기업 이벤트, 시장, 지수, 기술 및 과학, 그리고 정치와 선거 등 다양한 카테고리의 실제 결과에 포지션을 취할 수 있습니다.",
+        "공동 CEO이자 공동 설립자인 Leif Abraham은 Public이 포트폴리오를 적극적으로 구성하는 투자자를 위해 설계되었으며, AI 에이전트를 통해 해당 전략을 자동화할 수 있다고 말했습니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "인공지능 시대의 아동 보호.",
+      "source": "Vietnam.vn",
+      "link": "https://www.vietnam.vn/ko/bao-ve-tre-em-trong-ky-nguyen-ai",
+      "publishedAt": "Thu, 24 Sep 2026 10:44:46 GMT",
+      "date": "2026-09-24",
+      "category": "biz",
+      "bullets": [
+        "주목할 만한 점은 아동용 AI 시스템은 시장에 출시되기 전에 테스트, 평가 및 허가를 받아야 한다는 것입니다.",
+        "어린이들은 학습부터 오락에 이르기까지 인공지능 도구에 점점 더 많이 노출되고 있습니다.",
+        "이러한 배경에서 23개국과 8개 유엔 기구는 어제 어린이들을 위해 인공지능이 더욱 안전하게 개발되고 사용되도록 보장하는 행동 계획을 발표했습니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "오픈AI 9750억달러 도달 확률, 폴리마켓서 63%",
+      "source": "토큰포스트",
+      "link": "https://www.tokenpost.kr/news/ai/413329",
+      "publishedAt": "Thu, 24 Sep 2026 05:05:31 GMT",
+      "date": "2026-09-24",
+      "category": "biz",
+      "bullets": [
+        "오픈AI의 기업가치가 2026년 9월 30일까지 9750억달러(약 1331조원)에 도달하는지 묻는 폴리마켓 계약의 ‘예’ 확률이 63%로 집계됐다.",
+        "해당 확률은 최근 24시간 동안 30% 상승했다.",
+        "24일 오후 1시58분(한국시간) 오데일리는 폴리마켓의 해당 계약 확률이 63%까지 올랐다고 전했다."
       ],
       "contentVerified": true
     },
     {
       "title": "“AI 속도조절 아닌 과감한 도전”…정부, 보안 특화 AI 개발 착수",
-      "source": "서울경제TV",
+      "source": "sentv.co.kr",
       "link": "https://www.sentv.co.kr/article/view/sentv202609230057",
       "publishedAt": "Wed, 23 Sep 2026 23:00:05 GMT",
       "date": "2026-09-24",
@@ -125,20 +125,6 @@
         "네이버클라우드가 국내 보안기업의 현장 데이터와 전문가 노하우를 학습시킨 사이버보안 특화 인공지능(AI) 모델 개발에 본격 착수한다.",
         "범용 AI를 그대로 보안 업무에 적용하는 데 그치지 않고 국내 사이버 위협 환경에 맞춘 모델을 만들어 국가 핵심시설과 산업 현장에서 검증하는 것이 목표다.",
         "과학기술정보통신부(과기정통부)는 지난 22일 서울 더 그랜드 롯데 호텔에서 ‘사이버보안 특화 AI 모델 개발’ 프로젝트 착수 간담회를 열고 네이버클라우드 컨소시엄의 개발 계획을 공유했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "🗣️AI는 대답하지만 책임지지 않습니다🚫",
-      "source": "오픈애즈",
-      "link": "https://www.openads.co.kr/content/contentDetail?contsId=20528",
-      "publishedAt": "Wed, 23 Sep 2026 23:00:00 GMT",
-      "date": "2026-09-24",
-      "category": "tech",
-      "bullets": [
-        "거센 물살을 건너는 법은 물보다 빨라지는 것이 아니라 그 힘을 읽고 노를 쥘 순간을 아는 데 있다.",
-        "기계가 실행과 계산을 맡는 시대, 인간에게 남은 역할은 방향을 정하고 결과를 책임지는 일이다.",
-        "기술이 유능해질수록 망설임과 배려, 맥락을 읽는 감각은 오히려 더 중요한 경쟁력이 된다."
       ],
       "contentVerified": true
     },
@@ -157,30 +143,30 @@
       "contentVerified": true
     },
     {
-      "title": "SK텔레콤, 양자암호·공공AI 기술 고도화…고객 신뢰지표도 직접 만든다",
-      "source": "webeconomy.co.kr",
-      "link": "https://www.webeconomy.co.kr/news/articleView.html?idxno=2317284",
-      "publishedAt": "Thu, 24 Sep 2026 08:34:01 GMT",
+      "title": "호주 정부의 의료 데이터 포털이 인공지능(AI)에 의해 해킹당했습니다.",
+      "source": "Vietnam.vn",
+      "link": "https://www.vietnam.vn/ko/cong-du-lieu-y-te-cua-chinh-phu-australia-bi-ai-xam-nhap",
+      "publishedAt": "Thu, 24 Sep 2026 13:20:02 GMT",
       "date": "2026-09-24",
       "category": "tech",
       "bullets": [
-        "SK텔레콤이 양자암호통신망을 실제 구축하기 전에 성능과 운용 가능성을 검증하는 디지털 트윈 기술을 개발하고 공공기관의 인공지능(AI)·빅데이터 활용 확대에 나섰다.",
-        "고객이 실제 통신서비스를 이용할 때 나타나는 행동을 토대로 기업 신뢰도를 측정하는 지표도 고객자문단과 개발하는 한편 추석을 맞아 가족로밍과 해외여행·외식·문화생활 관련 멤버십 혜택을 확대했다.",
-        "핵심은 SK텔레콤의 양자키관리 시스템과 KISTI의 양자키분배(QKD) 시뮬레이터를 유럽전기통신표준협회(ETSI) 표준 호환 인터페이스로 실시간 연동한 것이다."
+        "SKĐS - 인공지능(AI) 에이전트가 호주 정부의 건강 데이터 포털에 침투해 캔버라 정부 관계자들이 긴급 조사에 착수했다.",
+        "뉴욕에서 열린 유엔 총회 기간 중 발표된 성명에서 앤서니 알바네세 호주 총리는 오픈AI가 개발한 인공지능(AI) 에이전트가 호주 정부의 메디케어 시스템 통계 보고 포털에 침투하는 심각한 보안 사고를 공개적으로 밝혔습니다.",
+        "호주 당국에 따르면, 해당 사건은 인공지능이 의료비 지출 데이터 및 의약품 보조금과 관련된 일상적인 조사 작업을 수행하던 중인 6월 18일에 발생했습니다."
       ],
       "contentVerified": true
     },
     {
-      "title": "AI, 안보리 의제로…美中 규제철학 정면차",
-      "source": "OBC 뉴스",
-      "link": "http://www.theonetv.kr/news/articleView.html?idxno=253663",
-      "publishedAt": "Wed, 23 Sep 2026 23:12:14 GMT",
+      "title": "트럼프 \"AI, 시진핑 회담서 주요 의제…있는 그대로 두길 원해\"",
+      "source": "뉴스1",
+      "link": "https://www.news1.kr/amp/world/usa-canada/6301362",
+      "publishedAt": "Thu, 24 Sep 2026 12:23:07 GMT",
       "date": "2026-09-24",
-      "category": "policy",
+      "category": "tech",
       "bullets": [
-        "[OBC뉴스=국제]인공지능이 산업정책과 기업 경쟁을 넘어 유엔 안전보장이사회가 다루는 국제안보 의제로 올라섰습니다.",
-        "세계 주요 AI 기업 최고경영자들이 직접 안보리 회의에 출석해 인간 통제를 벗어날 수 있는 고도 AI 위험을 경고했지만 미국과 중국은 국제 규제를 놓고 서로 다른 접근법을 제시했습니다.",
-        "유엔 안보리는 23일 프랑스 주도로 AI와 국제안보를 논의했습니다."
+        "도널드 트럼프 미국 대통령이 23일(현지시간) 메릴랜드주 앤드루스 합동기지에 도착한 시진핑 중국 국가주석을 공항에서 영접했다.",
+        "도널드 트럼프 미국 대통령이 24일(현지시간) 시진핑 중국 국가주석과의 정상회담에서 인공지능(AI)을 주요 의제로 다루겠다고 밝히면서 AI 규제 도입 논의는 없을 것임을 시사했다.",
+        "트럼프 대통령은 이날 자신의 소셜미디어 트루스소셜을 통해 \"시 주석과의 빅 데이(중요한 날)\"이라며 \"초지능(SI)이 논의의 주요 의제가 될 것\"이라고 밝혔다."
       ],
       "contentVerified": true
     },
@@ -199,30 +185,44 @@
       "contentVerified": true
     },
     {
-      "title": "26일 FTC 퍼거슨, AI 규제 방향 논의",
-      "source": "토큰포스트",
-      "link": "https://www.tokenpost.kr/news/ai/413128",
-      "publishedAt": "Wed, 23 Sep 2026 20:15:00 GMT",
+      "title": "공공 재정이 데이터와 인공지능 시대로 접어들고 있다.",
+      "source": "Vietnam.vn",
+      "link": "https://www.vietnam.vn/ko/tai-chinh-cong-buoc-vao-ky-nguyen-du-lieu-va-ai",
+      "publishedAt": "Thu, 24 Sep 2026 13:02:09 GMT",
       "date": "2026-09-24",
       "category": "policy",
       "bullets": [
-        "앤드루 퍼거슨(Andrew Ferguson) 미국 연방거래위원회(FTC) 위원장이 26일 오전 0시30분 인공지능(AI) 규제 방향을 논의한다.",
-        "신규 법안이나 제재 발표보다 기존 경쟁법·소비자보호법 집행 기조가 재확인될지에 관심이 쏠린다.",
-        "퍼거슨 위원장은 26일 오전 0시30분 Reuters NEXT Newsmaker에 참석한다."
+        "데이터와 인공지능이 관리, 행정 및 국민을 위한 서비스 효율성 향상의 기반이 되면서 공공 재정은 상당한 변화의 시기에 접어들고 있습니다.",
+        "데이터와 인공지능은 공공 재정의 새로운 길을 열어줍니다.",
+        "재정부가 주최한 \"베트남 디지털 금융 2026\"(VDF-2026) 컨퍼런스 및 전시회의 일환으로, 9월 24일 오후 \"데이터와 AI를 통한 스마트 공공 재정 구축\"이라는 주제의 워크숍이 개최되었습니다."
       ],
       "contentVerified": true
     },
     {
-      "title": "트럼프 “AI 규제 반대” 마크롱 “독자 생태계 추진”",
-      "source": "v.daum.net",
-      "link": "https://v.daum.net/v/znHnCdHluj?f=p",
-      "publishedAt": "Wed, 23 Sep 2026 16:42:00 GMT",
+      "title": "엔비디아, \"AI 기업에 반독점·면책 특혜 안 돼\"…젠슨 황 소신 발언 |",
+      "source": "머니네버슬립",
+      "link": "https://moneyneversleeps.co.kr/news/articleViewAmp.html?idxno=107016",
+      "publishedAt": "Thu, 24 Sep 2026 12:18:05 GMT",
       "date": "2026-09-24",
       "category": "policy",
       "bullets": [
-        "자동요약 기사 제목과 주요 문장을 기반으로 자동요약한 결과입니다.",
-        "전체 맥락을 이해하기 위해서는 본문 보기를 권장합니다.",
-        "인공지능(AI) 개발과 안전을 둘러싼 논란이 세계 각국 정상들이 모인 유엔 총회장에서도 불거졌다."
+        "세계에서 가장 기업가치가 높은 상장사인 엔비디아의 젠슨 황 최고경영자(CEO)가 인공지능(AI) 기업들에게 반독점법이나 제조물 책임법의 면제 혜택을 줘서는 안 된다고 목소리를 높였습니다.",
+        "2시간 가까이 이어진 이번 대담에서 황 CEO는 최근 불거진 AI 안전성 논란과 업계의 특혜 요구를 지적했습니다.",
+        "대담에서는 특히 오픈AI의 에이전트들이 오픈소스 AI 소프트웨어 플랫폼인 허깅페이스를 해킹한 사건이 비중 있게 다뤄졌습니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "미국인 10명 중 9명 “AI 기대보다 우려”… 규제 강화 요구",
+      "source": "newscj.com",
+      "link": "https://www.newscj.com/news/articleView.html?idxno=3435456",
+      "publishedAt": "Thu, 24 Sep 2026 12:00:00 GMT",
+      "date": "2026-09-24",
+      "category": "policy",
+      "bullets": [
+        "미국인 10명 중 9명꼴로 인공지능(AI) 기술 발전을 기대보다 우려의 시선으로 바라보고 있다는 조사 결과가 나왔다.",
+        "AI가 인간 지능을 넘어설 가능성뿐 아니라 데이터센터 확대, 생활 방식 변화 등에 대해서도 부정적인 인식이 높게 나타났다.",
+        "미 CNN 방송은 여론조사업체 SSRS와 함께 지난 16∼17일 미국 성인 1206명을 조사한 결과 이같이 나타났다고 23일(현지시간) 보도했다고 연합뉴스가 전했다."
       ],
       "contentVerified": true
     }
@@ -230,7 +230,7 @@
   "weekly": [
     {
       "title": "보험업권, 생성형 AI 도입 앞두고 ‘면책’과 ‘보장’ 기로",
-      "source": "straightnews.co.kr",
+      "source": "스트레이트뉴스",
       "link": "https://www.straightnews.co.kr/news/articleView.html?idxno=311898",
       "publishedAt": "Wed, 23 Sep 2026 05:43:41 GMT",
       "date": "2026-09-23",
@@ -257,6 +257,20 @@
       "contentVerified": true
     },
     {
+      "title": "초등생까지 생성형 AI 성인물 이용…박지혜 \"피해 별도 집계 없어\"",
+      "source": "cpbc News",
+      "link": "https://news.cpbc.co.kr/article/1175932",
+      "publishedAt": "Tue, 22 Sep 2026 05:41:00 GMT",
+      "date": "2026-09-22",
+      "category": "genai",
+      "bullets": [
+        "청소년 2명 중 1명이 생성형 인공지능(AI)을 이용하는 가운데, 초등학생도 생성형 AI를 통해 성인용 영상물을 접한 것으로 나타났다.",
+        "하지만 정부는 이용 플랫폼과 피해·상담 현황을 별도로 파악하지 않고 있어 관련 관리체계가 미흡한 실정이다.",
+        "국회 성평등가족위원회 소속 더불어민주당 박지혜 의원이 21일 성평등가족부로부터 제출받은 자료에 따르면, 청소년의 생성형 AI 이용률은 49.9%로 집계됏다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "파수AI, 생성형 AI에 입력하는 기밀정보 유출 차단 기술 공개",
       "source": "블로터",
       "link": "https://www.bloter.net/news/articleViewAmp.html?idxno=674202",
@@ -267,20 +281,6 @@
         "파수AI가 임직원이 생성형 인공지능(AI)에 입력하는 기업 기밀과 개인정보를 탐지·차단하는 보안 기술을 선보였다.",
         "프롬프트 입력뿐 아니라 복사·붙여넣기와 화면 캡처 등으로 정보가 전달되는 경로까지 통제하는 방식이다.",
         "파수AI는 이달 16일부터 사흘간 서울 강남구 코엑스에서 열린 '사이버서밋코리아2026(CSK2026)'에 참가해 AI 활용 과정의 데이터 유출 대응 방안을 소개했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "\"생성형 AI에 개인정보 넣지 마세요\"…지역정보개발원 보안 강화",
-      "source": "한국경제",
-      "link": "https://www.hankyung.com/article/202609219345h",
-      "publishedAt": "Mon, 21 Sep 2026 14:47:40 GMT",
-      "date": "2026-09-21",
-      "category": "genai",
-      "bullets": [
-        "Google 검색에서 한국경제 기사를 더 자주 볼 수 있습니다.",
-        "한국지역정보개발원이 생성형 인공지능(AI) 확산에 대응해 임직원과 협력사, 지역 주민을 대상으로 개인정보 보호 캠페인을 벌인다.",
-        "한국지역정보개발원은 제6회 '개인정보 보호의 날'(30일)을 앞두고 다음달 2일까지 2주간을 '개인정보 보호 주간'으로 운영한다고 21일 밝혔다."
       ],
       "contentVerified": true
     },
@@ -299,6 +299,90 @@
       "contentVerified": true
     },
     {
+      "title": "스마트 안경 경쟁 본격화…AI 시대, 개인정보가 변수",
+      "source": "mstoday.co.kr",
+      "link": "https://www.mstoday.co.kr/news/articleView.html?idxno=102683",
+      "publishedAt": "Wed, 23 Sep 2026 07:01:49 GMT",
+      "date": "2026-09-23",
+      "category": "biz",
+      "bullets": [
+        "[MS투데이] 인공지능(AI)이 스마트폰을 벗어나 안경과 목걸이, 소형 음성기록 장치 등 일상에서 착용하는 기기로 확장되면서 글로벌 기술기업들의 하드웨어 경쟁이 새로운 국면에 접어들었다.",
+        "메타가 스마트 안경 시장을 확대하는 가운데 삼성전자와 구글, 오픈AI도 차세대 기기 개발에 속도를 내고 있다.",
+        "그러나 주변 사람의 동의 없는 촬영과 개인정보 수집 문제가 불거지면서 기술력뿐 아니라 이용자 신뢰가 시장 선점의 주요 변수로 떠올랐다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "배일권 세종시 신임 행정부시장 28일 취임…AI·디지털 행정 강화",
+      "source": "뉴스핌",
+      "link": "https://www.newspim.com/news/view/20260923000855",
+      "publishedAt": "Wed, 23 Sep 2026 06:14:00 GMT",
+      "date": "2026-09-23",
+      "category": "biz",
+      "bullets": [
+        "세종시가 23일 배일권 신임 행정부시장의 28일 취임을 밝혔다.",
+        "배 신임 부시장은 행안부 AI·디지털정부 분야를 두루 거친 전문가다.",
+        "시가 AI 기반 스마트 행정수도 조성과 주요 사업 추진을 기대했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "AMD 1조달러 돌파…AI 경쟁, GPU 넘어 ‘시스템 전쟁’",
+      "source": "mstoday.co.kr",
+      "link": "https://www.mstoday.co.kr/news/articleView.html?idxno=102678",
+      "publishedAt": "Tue, 22 Sep 2026 01:17:44 GMT",
+      "date": "2026-09-22",
+      "category": "biz",
+      "bullets": [
+        "[MS투데이] AMD가 사상 처음 시가총액 1조달러를 넘어선 가운데 인공지능(AI) 반도체 시장의 경쟁축이 개별 GPU 성능에서 CPU·네트워크·소프트웨어를 아우르는 데이터센터 전체 시스템으로 빠르게 이동하고 있다.",
+        "21일(현지시간) 뉴욕증시에서 AMD 주가는 전 거래일보다 9.6% 오른 613.31달러에 거래를 마치며 사상 최고치를 기록했다.",
+        "시가총액은 처음으로 1조달러를 돌파했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "오픈AI, 모델 개발 초기 단계부터 외부 기관 검증 추진",
+      "source": "khan.co.kr",
+      "link": "https://www.khan.co.kr/article/202609231129001",
+      "publishedAt": "Wed, 23 Sep 2026 02:29:00 GMT",
+      "date": "2026-09-23",
+      "category": "tech",
+      "bullets": [
+        "인공지능 모델의 안전성을 둘러싼 논쟁이 커지는 가운데 오픈AI가 앞으로 모델 개발 초기 단계에서부터 외부 기관에 평가를 맡기겠다고 밝혔다.",
+        "오픈AI는 22일 블로그 게시글을 통해 모델 개발 초기 단계부터 외부 기관이 안전성 위험을 검증하는 체계를 마련하겠다고 밝혔다.",
+        "지금까지는 모델 출시 직전에 외부 기관에 성능 등을 중심으로 평가를 받았지만, 앞으로는 새 AI 모델의 훈련·평가·배포 단계에서부터 제3자 기관이 기술 안전성 평가를 수행하도록 한다는 계획이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "AI 최전선 연구자들 번아웃 호소…“개발 속도, 안전과 양립 어려워”",
+      "source": "IT조선",
+      "link": "https://it.chosun.com/news/articleViewAmp.html?idxno=2023092170773",
+      "publishedAt": "Wed, 23 Sep 2026 02:08:33 GMT",
+      "date": "2026-09-23",
+      "category": "tech",
+      "bullets": [
+        "인공지능(AI) 개발 경쟁이 심화되면서 최첨단 AI를 연구하는 연구자들의 정신적 부담이 커지고 있다는 지적이 나왔다.",
+        "AI가 사회에 미칠 잠재적 위험에 대한 우려가 커지는 가운데 촉박한 개발 일정과 안전성 부족 등이 연구자들의 정신적 스트레스를 유발하고 있다는 분석이다.",
+        "23일(현지시각) 파이낸셜타임스(FT)에 따르면 영국 AI 보안연구소(AISI) 직원들은 공개되지 않은 AI 모델을 검증하기 위한 촉박한 일정과 AI 기술의 빠른 확산에 대한 우려로 스트레스와 번아웃을 호소하고 있다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "오픈AI, 모델 개발 초기부터 외부 안전성 검증",
+      "source": "연합뉴스",
+      "link": "https://www.yna.co.kr/amp/view/AKR20260923024500009",
+      "publishedAt": "Tue, 22 Sep 2026 23:15:05 GMT",
+      "date": "2026-09-23",
+      "category": "tech",
+      "bullets": [
+        "오픈AI가 인공지능(AI) 모델 개발 초기 단계부터 외부 기관이 모델의 안전성 위험을 검증할 수 있도록 할 계획이다.",
+        "지금까지는 신모델 출시 직전 단계에서 안전성 평가나 성능 검증을 위해 외부 기관을 참여시키는 수준이었다.",
+        "그는 \"AI 기술의 중요성과 파급력이 커짐에 따라, 실제 서비스 배포 단계뿐만 아니라 그에 못지않게 중요한 학습 및 평가 단계에서도 안전성을 면밀히 검토하고자 한다\"고 말했다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "[송하주의 AI 톡] AI의 고삐를 누가 쥘 것인가",
       "source": "부산일보",
       "link": "https://mobile.busan.com/view/busan/view.php?code=2026092217592893863",
@@ -313,30 +397,58 @@
       "contentVerified": true
     },
     {
-      "title": "\"같은 문제 또 안 묻는다\"···KAIST, 모바일 AI 기술 개발",
-      "source": "헬로디디",
-      "link": "https://www.hellodd.com/news/articleView.html?idxno=113245",
-      "publishedAt": "Mon, 21 Sep 2026 06:50:00 GMT",
-      "date": "2026-09-21",
-      "category": "tech",
+      "title": "엔비디아, \"AI 기업에 반독점·면책 특혜 안 돼\"…젠슨 황 소신 발언 |",
+      "source": "머니네버슬립",
+      "link": "https://moneyneversleeps.co.kr/news/articleViewAmp.html?idxno=107016",
+      "publishedAt": "Thu, 24 Sep 2026 12:18:05 GMT",
+      "date": "2026-09-24",
+      "category": "policy",
       "bullets": [
-        "스마트폰 속 인공지능(AI)이 서버에서 배운 지식을 쌓아두고 스스로 재활용하는 기술이 개발됐다.",
-        "비슷한 문제를 다시 만났을 때 서버에 의존하지 않아 통신량과 대기 시간을 줄일 수 있다.",
-        "KAIST(총장 배충식)는 이재길 전산학부 교수 연구팀이 기기와 서버의 AI를 효율적으로 연결하는 기술 'CURE(Cumulative Knowledge Reuse)'를 개발했다고 21일 밝혔다."
+        "세계에서 가장 기업가치가 높은 상장사인 엔비디아의 젠슨 황 최고경영자(CEO)가 인공지능(AI) 기업들에게 반독점법이나 제조물 책임법의 면제 혜택을 줘서는 안 된다고 목소리를 높였습니다.",
+        "2시간 가까이 이어진 이번 대담에서 황 CEO는 최근 불거진 AI 안전성 논란과 업계의 특혜 요구를 지적했습니다.",
+        "대담에서는 특히 오픈AI의 에이전트들이 오픈소스 AI 소프트웨어 플랫폼인 허깅페이스를 해킹한 사건이 비중 있게 다뤄졌습니다."
       ],
       "contentVerified": true
     },
     {
-      "title": "26일 FTC 퍼거슨, AI 규제 방향 논의",
-      "source": "토큰포스트",
-      "link": "https://www.tokenpost.kr/news/ai/413128",
-      "publishedAt": "Wed, 23 Sep 2026 20:15:00 GMT",
+      "title": "[신간] 인공지능의 법과 정책...각계 전문가 34명 저술",
+      "source": "지디넷코리아",
+      "link": "https://zdnet.co.kr/view/?no=20260924113916",
+      "publishedAt": "Thu, 24 Sep 2026 02:39:16 GMT",
       "date": "2026-09-24",
       "category": "policy",
       "bullets": [
-        "앤드루 퍼거슨(Andrew Ferguson) 미국 연방거래위원회(FTC) 위원장이 26일 오전 0시30분 인공지능(AI) 규제 방향을 논의한다.",
-        "신규 법안이나 제재 발표보다 기존 경쟁법·소비자보호법 집행 기조가 재확인될지에 관심이 쏠린다.",
-        "퍼거슨 위원장은 26일 오전 0시30분 Reuters NEXT Newsmaker에 참석한다."
+        "우리 사회 곳곳에 스며들어 있기 때문이다.",
+        "기술 개발과 활용, 그리고 그 과정에서 발생하는 책임과 위험도 이해해야 한다.",
+        "AI를 제대로 이해하려면 기술만 알아서는 안 되고, 그 기술이 사회에서 작동하는 법·제도·정책까지 함께 알아야 하는 것이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "미 의회 CBC, AI 규제에 한목소리… 내년 1월 이전 당내 합의안 도출",
+      "source": "글로벌이코노믹",
+      "link": "https://www.g-enews.com/article/Global-Biz/2026/09/202609212040025908fda4f5ab74_1",
+      "publishedAt": "Mon, 21 Sep 2026 21:56:48 GMT",
+      "date": "2026-09-22",
+      "category": "policy",
+      "bullets": [
+        "미국 의회 흑인의원연맹(CBC)은 최근 소속 하원의원 62명 중 최소 60명이 AI 인공지능 안전 지침과 투명성 강화를 골자로 한 규제 법안에 찬성표를 던질 것이라고 밝혔다.",
+        "미국 경제전문매체 CNBC는 CBC가 중국과의 기술 경쟁 논리보다 시민 권리 보호를 위한 법적 울타리 마련에 입장을 모았다고 20일(현지시각) 보도했다.",
+        "이 같은 미 의회의 규제 움직임은 대미 수출을 확대 중인 한국 전력기자재 업계에도 주요 정책적 변수로 떠오를 것으로 보인다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "트럼프와 보조 맞춘 젠슨 황…AI 규제전 핵심 우군 부상",
+      "source": "서울경제",
+      "link": "https://www.sedaily.com/article/20093539",
+      "publishedAt": "Mon, 21 Sep 2026 07:27:00 GMT",
+      "date": "2026-09-21",
+      "category": "policy",
+      "bullets": [
+        "최근 트럼프 대통령은 황 CEO에게 직접 전화를 걸자 황 CEO가 행사 무대에서 이를 스피커폰으로 공개하며 두 사람의 유사한 입장을 그대로 드러냈다.",
+        "황 CEO는 지난 14일 미국 로스앤젤레스(LA)에서 열린 ‘올인 서밋(All-In Summit)’ 행사에 참석해 AI 안전 문제에 대해 토론하던 도중 트럼프 대통령에게 전화를 받았다.",
+        "황 CEO는 트럼프 대통령의 동의를 얻어 통화를 스피커폰으로 전환해 행사 참석자들이 대화를 들을 수 있도록 했다."
       ],
       "contentVerified": true
     }
