@@ -1,12 +1,26 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-09-25T07:46:47Z",
+  "generated_at": "2026-09-25T13:45:46Z",
   "daily": [
+    {
+      "title": "전기차로 팝콘 만들고 AI로 캠핑사진…기업들 미래기술 체험 경쟁",
+      "source": "v.daum.net",
+      "link": "https://v.daum.net/v/20260925070328949?f=p",
+      "publishedAt": "Thu, 24 Sep 2026 22:03:00 GMT",
+      "date": "2026-09-25",
+      "category": "genai",
+      "bullets": [
+        "자동요약 기사 제목과 주요 문장을 기반으로 자동요약한 결과입니다.",
+        "전체 맥락을 이해하기 위해서는 본문 보기를 권장합니다.",
+        "전기차에서 끌어온 전력으로 팝콘을 만들고, 생성형 인공지능(AI)으로 자신의 캠핑 사진을 꾸민다."
+      ],
+      "contentVerified": true
+    },
     {
       "title": "영상·음성·음악까지…콘텐츠 제작 바꾸는 특화 AI",
       "source": "IT조선",
-      "link": "https://it.chosun.com/news/articleViewAmp.html?idxno=2023092170738",
-      "publishedAt": "Thu, 24 Sep 2026 21:06:38 GMT",
+      "link": "https://it.chosun.com/news/articleView.html?idxno=2023092170738",
+      "publishedAt": "Thu, 24 Sep 2026 21:00:00 GMT",
       "date": "2026-09-25",
       "category": "genai",
       "bullets": [
@@ -45,20 +59,6 @@
       "contentVerified": true
     },
     {
-      "title": "일자리 늘어도 20대는 밀려난다—생성형 AI가 바꾼 청년 취업의 구조",
-      "source": "유스연합",
-      "link": "https://www.youthassembly.kr/news/1004419",
-      "publishedAt": "Fri, 25 Sep 2026 07:17:25 GMT",
-      "date": "2026-09-25",
-      "category": "genai",
-      "bullets": [
-        "전체 고용 지표가 상승 곡선을 그리는 동안 20대 청년층은 정반대 흐름에 놓여 있다.",
-        "2026년 9월 21일 르데스크가 보도하고 한국은행 조사국이 분석한 결과에 따르면, 생성형 AI와 에이전틱 AI 노출 비중이 높은 직업군에서 20대 취업자 수가 수도권과 비수도권을 막론하고 줄어드는 현상이 확인됐다.",
-        "이는 고용 총량 통계가 포착하지 못하는 구조적 분화이며, 개별 구직자의 노력 부족이 아니라 채용 메커니즘 자체의 변화에서 비롯된 문제다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "AI·반도체 ETF, '투자 필수템' 됐다…순자산 65조 돌파 - 머니투데이",
       "source": "머니투데이",
       "link": "https://www.mt.co.kr/amp/stock/2026/09/25/2026092217551798528",
@@ -69,20 +69,6 @@
         "AI(인공지능) 산업이 빠르게 성장하면서 AI·반도체 ETF(상장지수펀드)가 투자 필수 상품으로 떠올랐다.",
         "올 들어 국내 시장에서 AI·반도체 ETF의 순자산은 39조원 늘어 65조원 규모로 커졌다.",
         "포괄적인 AI·반도체 테마 ETF뿐 아니라 전력, 소프트웨어, 피지컬 AI까지 투자 영역이 세분화·확장되는 추세다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "분석 솔루션 시장의 Oncology의 Global AI 15 기업",
-      "source": "Spherical Insights",
-      "link": "https://www.sphericalinsights.com/ko/blogs/top-15-companies-in-global-ai-in-oncology-for-analytical-solutions-market-2026-2035-expert-view-by-spherical-insights",
-      "publishedAt": "Thu, 24 Sep 2026 23:12:41 GMT",
-      "date": "2026-09-25",
-      "category": "biz",
-      "bullets": [
-        "분석 솔루션 시장의 글로벌 AI는 인공 지능 지원 소프트웨어, 데이터 플랫폼, 분석 도구 및 복잡한 종양학 데이터를 처리하고 해석하기 위해 설계된 관련 서비스로 구성되어 있습니다.",
-        "AI 알고리즘은 의학 이미지, 디지털 병리 슬라이드, 게놈 데이터 세트, 임상 기록 및 패턴을 식별하고 분석 통찰력을 생성하기 위해 다른 멀티 모드 정보를 분석 할 수 있습니다.",
-        "시장은 의료 제공 업체, 제약 회사, 생명 공학 회사, 연구 기관으로 확장하고 점점 정밀 의학 및 데이터 중심 종양학 워크플로우를 채택하고 있습니다."
       ],
       "contentVerified": true
     },
@@ -101,16 +87,30 @@
       "contentVerified": true
     },
     {
-      "title": "AI가 바꾼 '워시 연준' 금리 방정식…추가 인상 1번이냐 3번이냐",
-      "source": "뉴스1",
-      "link": "https://www.news1.kr/amp/world/international-economy/6300025",
-      "publishedAt": "Thu, 24 Sep 2026 22:00:00 GMT",
+      "title": "미국과 중국은 인공지능 분야에서 경쟁을 벌이고 있습니다. 각국은 어떤 분야에서 가장 강점을 보일까요?",
+      "source": "Vietnam.vn",
+      "link": "https://www.vietnam.vn/ko/my-trung-dua-ai-moi-ben-dang-manh-o-dau",
+      "publishedAt": "Fri, 25 Sep 2026 13:04:24 GMT",
       "date": "2026-09-25",
       "category": "biz",
       "bullets": [
-        "인공지능(AI) 투자 붐이 미국 연방준비제도(Fed·연준)의 금리 방정식까지 바꾸고 있다.",
-        "데이터센터를 중심으로 한 막대한 투자가 생산성을 높이는 동시에 전력·건설·장비 수요를 끌어올리면서 물가를 자극할 수 있다는 우려가 커지자 연준의 시선도 공급 충격에서 강한 수요로 이동하고 있다.",
-        "문제는 케빈 워시 의장이 향후 금리 경로를 미리 제시하지 않겠다는 입장을 분명히 하면서 시장이 추가 긴축의 강도를 가늠하기가 더 어려워졌다는 점이다."
+        "서방 전문가들은 인공지능 기술 경쟁에서 미국이 중국보다 약 6개월 정도 앞서 있다고 추정하는 경우가 많습니다.",
+        "시진핑 중국 국가주석은 9월 23일 미국에 도착해 3일간의 국빈 방문 일정을 시작했다.",
+        "이번 방문에서 양측은 관세, 인공지능(AI) 등 다양한 현안에 대해 논의했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "韓·日 MLCC 제조사, AI 집중…중국 제조사 범용 시장 진입",
+      "source": "아시아투데이",
+      "link": "https://www.asiatoday.co.kr/kn/view.php?key=20260925010009095",
+      "publishedAt": "Fri, 25 Sep 2026 11:47:11 GMT",
+      "date": "2026-09-25",
+      "category": "biz",
+      "bullets": [
+        "적층세라믹콘덴서(MLCC) 산업이 인공지능(AI) 수요에 따라 구조적 변화를 맞이하고 있다.",
+        "시장을 선도하는 한국 및 칠본 공급자들은 범용 제품을 줄이는 한편 AI향에 생산능력을 집중하면서다.",
+        "이는 중국 제조사들의 시장 진입 기회라는 평가다."
       ],
       "contentVerified": true
     },
@@ -125,20 +125,6 @@
         "SK텔레콤이 추석 연휴에도 차세대 독자 인공지능(AI) 모델 ‘A.X K3’ 개발과 다음 달 베타 출시를 앞둔 ‘모두의 AI’ 서비스 고도화를 이어간다.",
         "25일 업계에 따르면, SK텔레콤 정예팀은 최근 A.X K3의 아키텍처를 검토하고 데이터 구성과 학습 방법 등을 조합하는 사전학습 실험에 착수했다.",
         "앞선 모델 개발 과정에서 축적한 경험을 바탕으로 학습 환경을 최적화하고 그래픽처리장치(GPU)와 데이터를 효율적으로 활용하는 데 집중하고 있다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "SKT, 추석에도 AI 개발 이어간다…차세대 모델·서비스 투트랙",
-      "source": "매일경제 마켓",
-      "link": "https://stock.mk.co.kr/news/view/1164965",
-      "publishedAt": "Thu, 24 Sep 2026 22:33:01 GMT",
-      "date": "2026-09-25",
-      "category": "tech",
-      "bullets": [
-        "SK텔레콤[017670]이 추석 연휴에도 차세대 독자 인공지능(AI) 모델 A.X K3 개발과 10월 베타 출시를 앞둔 '모두의 AI' 서비스 검증에 속도를 낸다.",
-        "25일 업계에 따르면 SKT 정예팀은 최근 A.X K3의 아키텍처를 검토하고 데이터 구성과 학습 방법 등을 조합하는 사전학습 레시피 실험에 들어갔다.",
-        "앞선 모델 개발 과정에서 축적한 경험과 자산을 바탕으로 학습 환경을 최적화하고 GPU 자원과 데이터를 효율적으로 활용하는 데 주력한다는 방침이다."
       ],
       "contentVerified": true
     },
@@ -171,8 +157,22 @@
       "contentVerified": true
     },
     {
+      "title": "[신중론 이후②] “AI 완전통제, 사실상 불가능”…피해 최소화가 목적",
+      "source": "디지털데일리",
+      "link": "https://www.ddaily.co.kr/page/view/2026092316333414076",
+      "publishedAt": "Fri, 25 Sep 2026 08:00:00 GMT",
+      "date": "2026-09-25",
+      "category": "tech",
+      "bullets": [
+        "인공지능(AI) 개발 속도를 늦춰야 한다는 ‘AI 신중론’이 다시 고개를 들고 있다.",
+        "앞선 논쟁에서는 글로벌 석학들이 실존위험을 경고하는데 그쳤다면 이번에는 업계 한복판에 있는 글로벌 AI 기업 수장이 속도조절론을 꺼내들었다.",
+        "이같은 흐름 속에서 한국 AI 산업계에 주어진 과제는 분명하다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "악시오스 \"트럼프·존슨·美 빅테크 CEO들, 29일 AI 회의\"",
-      "source": "뉴스핌",
+      "source": "newspim.com",
       "link": "https://www.newspim.com/news/view/20260925000039",
       "publishedAt": "Thu, 24 Sep 2026 23:03:00 GMT",
       "date": "2026-09-25",
@@ -257,44 +257,30 @@
       "contentVerified": true
     },
     {
+      "title": "토스페이먼츠, 사업자에 ‘생성형 AI 검색 전략’ 무료 공개",
+      "source": "직썰",
+      "link": "https://www.ziksir.com/news/articleView.html?idxno=147413",
+      "publishedAt": "Wed, 23 Sep 2026 02:23:23 GMT",
+      "date": "2026-09-23",
+      "category": "genai",
+      "bullets": [
+        "토스페이먼츠가 사업자를 대상으로 생성형 인공지능(AI) 검색 환경에서 브랜드와 상품 노출을 높이는 전략을 공유한다.",
+        "AI 검색 유입을 실제 구매와 매출로 연결하는 방법까지 함께 소개해 온라인 사업자의 마케팅 대응을 지원한다.",
+        "비바리퍼블리카의 전자지급결제대행(PG) 계열사 토스페이먼츠는 오는 10월 14일 ‘2026 GEO 그로스 살롱’을 개최한다고 23일 밝혔다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "튜닙, 한국어 최적화 생성형 AI 안전장치 만든다 [서울AI허브 2027]",
       "source": "IT조선",
-      "link": "https://it.chosun.com/news/articleViewAmp.html?idxno=2023092170592",
-      "publishedAt": "Tue, 22 Sep 2026 23:16:31 GMT",
+      "link": "https://it.chosun.com/news/articleView.html?idxno=2023092170592",
+      "publishedAt": "Tue, 22 Sep 2026 23:00:00 GMT",
       "date": "2026-09-23",
       "category": "genai",
       "bullets": [
         "‘서울 AI 허브 2027’ 기획시리즈는 서울 AI 허브에 입주한 스타트업들의 인공지능(AI) 기술과 서비스, 사업화 현황 및 차별점을 살펴봅니다.",
         "산업 현장에서의 적용 가능성과 성장 가능성을 짚어보고, 대한민국 AI 생태계의 한 축을 이루는 이들의 기술과 서비스를 소개합니다.",
         "튜닙의 AI 가드레일 솔루션은 사용자 입력과 AI가 생성한 응답을 실시간으로 분석해 생성형 AI 서비스에서 발생할 수 있는 위험을 탐지하고 제어한다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "고령군, 생성형 AI‘ 챗 GPT’시범 도입",
-      "source": "ynamnews.co.kr",
-      "link": "https://www.ynamnews.co.kr/news/articleView.html?idxno=143138",
-      "publishedAt": "Tue, 22 Sep 2026 11:34:43 GMT",
-      "date": "2026-09-22",
-      "category": "genai",
-      "bullets": [
-        "업무 역량을 강화하기 위해 오는 10월부터 11월까지 2개월간 전 부서를 대상으로‘생성형 AI 유료 계정 서비스(챗GPT)’을 시범 도입하여 활용할 수 있도록 할 예정이라고 밝혔다.",
-        "이번 시범 도입은 생성형 AI를 단순한 정보검색이나 개인적인 활용 수준을 넘어 실제 행정업무에 적용해 직원들의 업무 창의성과 효율성을 높이고, 향후 고령군 행정 전반의 AI 활용 기반을 마련하기 위해 추진되었다.",
-        "본 사업 추진에 앞서 9월 21일(월) 11시 군청 우륵실에서 실과소 및 읍·면 서무 담당자들을 대상으로‘챗GPT 활용 방법 및 개인정보 보호 등 보안 교육’을 실시했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "스마트 안경 경쟁 본격화…AI 시대, 개인정보가 변수",
-      "source": "mstoday.co.kr",
-      "link": "https://www.mstoday.co.kr/news/articleView.html?idxno=102683",
-      "publishedAt": "Wed, 23 Sep 2026 07:01:49 GMT",
-      "date": "2026-09-23",
-      "category": "biz",
-      "bullets": [
-        "[MS투데이] 인공지능(AI)이 스마트폰을 벗어나 안경과 목걸이, 소형 음성기록 장치 등 일상에서 착용하는 기기로 확장되면서 글로벌 기술기업들의 하드웨어 경쟁이 새로운 국면에 접어들었다.",
-        "메타가 스마트 안경 시장을 확대하는 가운데 삼성전자와 구글, 오픈AI도 차세대 기기 개발에 속도를 내고 있다.",
-        "그러나 주변 사람의 동의 없는 촬영과 개인정보 수집 문제가 불거지면서 기술력뿐 아니라 이용자 신뢰가 시장 선점의 주요 변수로 떠올랐다."
       ],
       "contentVerified": true
     },
@@ -313,20 +299,6 @@
       "contentVerified": true
     },
     {
-      "title": "부산시, 제조․항만 산업 인공지능 전문인재 양성",
-      "source": "환경일보",
-      "link": "https://www.hkbs.co.kr/news/articleView.html?idxno=834198",
-      "publishedAt": "Wed, 23 Sep 2026 02:00:00 GMT",
-      "date": "2026-09-23",
-      "category": "biz",
-      "bullets": [
-        "시는 '지역지능화 혁신인재양성' 공모사업에 부산대가 선정됐다고 전했다.",
-        "[부산=환경일보] 장가을 기자 = 부산시(시장 전재수)는 과학기술정보통신부가 추진하는 ‘지역지능화 혁신인재양성’ 공모사업에 부산대학교가 최종 선정됐다고 밝혔다.",
-        "‘지역지능화 혁신인재양성’ 사업은 지역 산업을 고도화·다각화하기 위해 산·학 공동연구와 지역 산업 재직자의 정보통신기술(ICT) 역량 강화를 연계해 지역의 지능화 혁신인재를 양성하는 국가 공모사업이다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "열리기 시작한 휴머노이드 시장…산업현장도 걸음마 수준 [AI노스트라다무스⑩]",
       "source": "한국경제",
       "link": "https://www.hankyung.com/article/202609221125i",
@@ -341,100 +313,72 @@
       "contentVerified": true
     },
     {
-      "title": "빅테크 AI 경쟁 가속… 개발 ‘속도조절’ 무색",
-      "source": "v.daum.net",
-      "link": "https://v.daum.net/v/20260924060347102",
-      "publishedAt": "Wed, 23 Sep 2026 21:03:00 GMT",
+      "title": "메타 ‘뮤즈’ 흥행에 AI 기대감…삼성전자·SK하이닉스 나란히 상승",
+      "source": "매일경제 마켓",
+      "link": "https://stock.mk.co.kr/news/view/1163702",
+      "publishedAt": "Tue, 22 Sep 2026 04:37:47 GMT",
+      "date": "2026-09-22",
+      "category": "biz",
+      "bullets": [
+        "삼성전자와 SK하이닉스가 22일 오전에 이어 오후 장에서도 동반 강세를 보이고 있다.",
+        "전일 미국 증시에서 인공지능(AI) 관련주와 반도체주가 급등한 데 이어 국내 반도체 대형주도 상승세를 이어가는 모습이다.",
+        "한국거래소에 따르면 이날 오후 1시 6분 기준 유가증권시장에서 삼성전자는 전일보다 7000원(2.55%) 오른 28만1000원에 거래되고 있다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "AMD 1조달러 돌파…AI 경쟁, GPU 넘어 ‘시스템 전쟁’",
+      "source": "mstoday.co.kr",
+      "link": "https://www.mstoday.co.kr/news/articleView.html?idxno=102678",
+      "publishedAt": "Tue, 22 Sep 2026 01:17:44 GMT",
+      "date": "2026-09-22",
+      "category": "biz",
+      "bullets": [
+        "[MS투데이] AMD가 사상 처음 시가총액 1조달러를 넘어선 가운데 인공지능(AI) 반도체 시장의 경쟁축이 개별 GPU 성능에서 CPU·네트워크·소프트웨어를 아우르는 데이터센터 전체 시스템으로 빠르게 이동하고 있다.",
+        "21일(현지시간) 뉴욕증시에서 AMD 주가는 전 거래일보다 9.6% 오른 613.31달러에 거래를 마치며 사상 최고치를 기록했다.",
+        "시가총액은 처음으로 1조달러를 돌파했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "[송하주의 AI 톡] AI의 고삐를 누가 쥘 것인가",
+      "source": "부산일보",
+      "link": "https://mobile.busan.com/view/busan/view.php?code=2026092217592893863",
+      "publishedAt": "Tue, 22 Sep 2026 09:02:30 GMT",
+      "date": "2026-09-22",
+      "category": "tech",
+      "bullets": [
+        "최근 주요 AI 기업 대표들이 잇따라 인공지능의 위험을 경고하고 있다.",
+        "엔트로픽의 CEO 다리오 아모데이는 AI의 성능 개선 속도를 조절해 AI 안전 기술과 평가 체계가 따라갈 시간을 확보해야 한다고 주장한다.",
+        "지금처럼 성능 경쟁에만 몰두하다가는 어느 순간 AI가 고삐 풀린 망아지처럼 인간이 통제하기 어려운 존재가 될 수 있다는 우려다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "펀진, KAI와 ‘K-온디바이스 AI’ 개발 나서",
+      "source": "irobotnews.com",
+      "link": "https://www.irobotnews.com/news/articleView.html?idxno=48649",
+      "publishedAt": "Tue, 22 Sep 2026 08:54:55 GMT",
+      "date": "2026-09-22",
+      "category": "tech",
+      "bullets": [
+        "‘K-온디바이스 AI반도체 기술개발사업’은 산업통상부가 추진하는 국책 연구개발사업으로, 국산 AI 반도체를 산업 현장에 적용해 제품 경쟁력을 높이고 국내 AI 반도체 생태계를 강화하는 것을 목표로 한다.",
+        "방산 분야에서는 KAI를 중심으로 고성능 AI 반도체를 탑재한 소모성 공중 무인기와 자율제어 시스템을 개발하고 실제 무인기 플랫폼을 통한 기술 실증을 추진한다.",
+        "펀진은 이 가운데 3세부 과제인 ‘고성능 AI반도체 적용 소모성 공중 무인기 자율 제어 시스템 개발’에 참여해 무인기의 자율임무 수행에 필요한 핵심 AI 기술 개발을 담당한다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "AI 기업 대표들 \"세계와 인류 구하기 위해 AI 기술 규제해야\" 호소",
+      "source": "뉴시스",
+      "link": "https://mobile.newsis.com/view_amp.html?ar_id=NISX20260924_0003803008",
+      "publishedAt": "Thu, 24 Sep 2026 05:40:35 GMT",
       "date": "2026-09-24",
       "category": "tech",
       "bullets": [
-        "자동요약 기사 제목과 주요 문장을 기반으로 자동요약한 결과입니다.",
-        "전체 맥락을 이해하기 위해서는 본문 보기를 권장합니다.",
-        "글로벌 생성형 인공지능(AI) 시장의 최강자인 오픈AI(OpenAI)가 챗GPT의 신규 모델을 내놓았다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "오픈AI, 모델 개발 초기 단계부터 외부 기관 검증 추진",
-      "source": "경향신문",
-      "link": "https://www.khan.co.kr/article/202609231129001",
-      "publishedAt": "Wed, 23 Sep 2026 02:29:00 GMT",
-      "date": "2026-09-23",
-      "category": "tech",
-      "bullets": [
-        "인공지능 모델의 안전성을 둘러싼 논쟁이 커지는 가운데 오픈AI가 앞으로 모델 개발 초기 단계에서부터 외부 기관에 평가를 맡기겠다고 밝혔다.",
-        "오픈AI는 22일 블로그 게시글을 통해 모델 개발 초기 단계부터 외부 기관이 안전성 위험을 검증하는 체계를 마련하겠다고 밝혔다.",
-        "지금까지는 모델 출시 직전에 외부 기관에 성능 등을 중심으로 평가를 받았지만, 앞으로는 새 AI 모델의 훈련·평가·배포 단계에서부터 제3자 기관이 기술 안전성 평가를 수행하도록 한다는 계획이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "AI 최전선 연구자들 번아웃 호소…“개발 속도, 안전과 양립 어려워”",
-      "source": "IT조선",
-      "link": "https://it.chosun.com/news/articleViewAmp.html?idxno=2023092170773",
-      "publishedAt": "Wed, 23 Sep 2026 02:08:33 GMT",
-      "date": "2026-09-23",
-      "category": "tech",
-      "bullets": [
-        "인공지능(AI) 개발 경쟁이 심화되면서 최첨단 AI를 연구하는 연구자들의 정신적 부담이 커지고 있다는 지적이 나왔다.",
-        "AI가 사회에 미칠 잠재적 위험에 대한 우려가 커지는 가운데 촉박한 개발 일정과 안전성 부족 등이 연구자들의 정신적 스트레스를 유발하고 있다는 분석이다.",
-        "23일(현지시각) 파이낸셜타임스(FT)에 따르면 영국 AI 보안연구소(AISI) 직원들은 공개되지 않은 AI 모델을 검증하기 위한 촉박한 일정과 AI 기술의 빠른 확산에 대한 우려로 스트레스와 번아웃을 호소하고 있다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "오픈AI, 모델 개발 초기부터 외부 안전성 검증",
-      "source": "연합뉴스",
-      "link": "https://www.yna.co.kr/amp/view/AKR20260923024500009",
-      "publishedAt": "Tue, 22 Sep 2026 23:15:05 GMT",
-      "date": "2026-09-23",
-      "category": "tech",
-      "bullets": [
-        "오픈AI가 인공지능(AI) 모델 개발 초기 단계부터 외부 기관이 모델의 안전성 위험을 검증할 수 있도록 할 계획이다.",
-        "지금까지는 신모델 출시 직전 단계에서 안전성 평가나 성능 검증을 위해 외부 기관을 참여시키는 수준이었다.",
-        "그는 \"AI 기술의 중요성과 파급력이 커짐에 따라, 실제 서비스 배포 단계뿐만 아니라 그에 못지않게 중요한 학습 및 평가 단계에서도 안전성을 면밀히 검토하고자 한다\"고 말했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "온플법 재점화 속 “AI 시대 플랫폼 정책, 사전규제보다 자율규제로” 산학연 한 목소리",
-      "source": "etnews.com",
-      "link": "https://www.etnews.com/20260922000467",
-      "publishedAt": "Tue, 22 Sep 2026 08:00:00 GMT",
-      "date": "2026-09-22",
-      "category": "policy",
-      "bullets": [
-        "국회를 중심으로 온라인플랫폼법 논의가 재점화한 가운데 국내 플랫폼의 경쟁력 강화를 위해 자율규제 중심의 정책이 필요하다는 제언이 나왔다.",
-        "부총리 부처로 승격된 과학기술정보통신부가 범부처 정책을 조정하고, 플랫폼 이용자의 선택권을 보장할 수 있는 정책 환경을 조성해야 한다는 내용이다.",
-        "한국인터넷기업협회가 디지털플랫폼정책포럼, 한국정보통신법학회와 함께 22일 서울 중구 포스트타워에서 개최한 '플랫폼 산업 경쟁력 강화 세미나'에서 이 같은 발언이 이어졌다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "美 중간선거와 美·中 정상회담…AI 규제 논의는 12월 이후로",
-      "source": "조선일보",
-      "link": "https://www.chosun.com/economy/economy_general/2026/09/22/D36IA5TLEVHTLGZAIISUG2I3DU/",
-      "publishedAt": "Tue, 22 Sep 2026 04:03:36 GMT",
-      "date": "2026-09-22",
-      "category": "policy",
-      "bullets": [
-        "미국 정치권은 이미 오는 11월 중간선거에 모든 관심이 쏠려 있는 분위기이다.",
-        "미국 AI(인공지능) 업계에서 AI 개발 속도에 관한 논쟁이 뜨겁지만 실제 조치는 미국 중간선거가 끝난 뒤인 12월 이후로 미뤄질 전망이다.",
-        "중간선거를 앞두고 미국 의회가 회기 중단 상태에 들어간 데다 시진핑 중국 국가주석의 미국 국빈 방문 등으로 AI 관련 논의가 정치 이슈에서 당분간 멀어지기 때문이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "오픈AI, 캘리포니아에 AI 규제 강화 요구",
-      "source": "미주조선일보",
-      "link": "https://chosundaily.com/bbs/board.php?bo_table=hotclick&wr_id=34905&sst=wr_datetime&sod=desc&sop=and&page=27&device=pc",
-      "publishedAt": "Tue, 22 Sep 2026 02:55:14 GMT",
-      "date": "2026-09-22",
-      "category": "policy",
-      "bullets": [
-        "주별 인공지능(AI)규제에 반대하는 쪽에 서 있었던 챗GPT 개발사 오픈AI가 캘리포니아주의 규제 법안을 도리어 강화해야 한다고 요구하고 나섰다.",
-        "오픈AI 대외협력팀은 23일 SNS 링크트인에 올린 게시물을 통해\"캘리포니아가 최첨단 AI 안전을 선도하는 상황에서 우리는 주의회·주지사와 협력해(AI 규제법인)SB53 법 강화를 위해 노력할 것\"이라고 밝혔다.",
-        "법 개정 방향으로는 훈련·평가 중인 AI 모델이 보안 통제를 우회해 제3자의 기밀 정보를 유출하는 행위에 대한 감시 의무화를 제시했다."
+        "![Image 2: [뉴욕=AP/뉴시스]샘 올트먼 오픈AI 최고경영자(CEO)가 23일(현지 시간) 미국 뉴욕 유엔본부에서 열린 제81차 유엔총회 기간 중 인공지능(AI)을 주제로 한 안전보장이사회 회의에서 발언하고 있다.",
+        "주요 인공지능(AI) 기업의 수장들은 23일(현지시각) 유엔에 자신들이 개발 중인 급성장하는 AI기술을 어떻게든 규제해 세계나 최소한 인류를 구해야 한다고 호소했다.",
+        "[유엔본부=AP/뉴시스] 유세진 기자 = 주요 인공지능(AI) 기업의 수장들은 23일(현지시각) 유엔에 자신들이 개발 중인 급성장하는 AI기술을 어떻게든 규제해 세계나 최소한 인류를 구해야 한다고 호소했다."
       ],
       "contentVerified": true
     },
@@ -449,6 +393,20 @@
         "세계에서 가장 기업가치가 높은 상장사인 엔비디아의 젠슨 황 최고경영자(CEO)가 인공지능(AI) 기업들에게 반독점법이나 제조물 책임법의 면제 혜택을 줘서는 안 된다고 목소리를 높였습니다.",
         "2시간 가까이 이어진 이번 대담에서 황 CEO는 최근 불거진 AI 안전성 논란과 업계의 특혜 요구를 지적했습니다.",
         "대담에서는 특히 오픈AI의 에이전트들이 오픈소스 AI 소프트웨어 플랫폼인 허깅페이스를 해킹한 사건이 비중 있게 다뤄졌습니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "[신간] 인공지능의 법과 정책...각계 전문가 34명 저술",
+      "source": "지디넷코리아",
+      "link": "https://zdnet.co.kr/view/?no=20260924113916",
+      "publishedAt": "Thu, 24 Sep 2026 02:39:16 GMT",
+      "date": "2026-09-24",
+      "category": "policy",
+      "bullets": [
+        "우리 사회 곳곳에 스며들어 있기 때문이다.",
+        "기술 개발과 활용, 그리고 그 과정에서 발생하는 책임과 위험도 이해해야 한다.",
+        "AI를 제대로 이해하려면 기술만 알아서는 안 되고, 그 기술이 사회에서 작동하는 법·제도·정책까지 함께 알아야 하는 것이다."
       ],
       "contentVerified": true
     }
