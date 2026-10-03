@@ -1,11 +1,11 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-10-03T17:15:42Z",
+  "generated_at": "2026-10-03T19:56:45Z",
   "daily": [
     {
       "title": "\"요즘 사람들 말투 왜 이래?\"…챗GPT 쓰더니 직장인까지 'AI 말투'",
       "source": "뉴시스",
-      "link": "https://www.newsis.com/view/NISX20261002_0003812932",
+      "link": "https://mobile.newsis.com/view_amp.html?ar_id=NISX20261002_0003812932",
       "publishedAt": "Sat, 03 Oct 2026 17:00:00 GMT",
       "date": "2026-10-04",
       "category": "genai",
@@ -31,8 +31,22 @@
       "contentVerified": true
     },
     {
+      "title": "中 AI칩 시장 급성장…韓 HBM·첨단 패키징 수혜 기대",
+      "source": "더구루",
+      "link": "https://www.theguru.co.kr/news/article.html?no=107840",
+      "publishedAt": "Sat, 03 Oct 2026 15:00:27 GMT",
+      "date": "2026-10-04",
+      "category": "genai",
+      "bullets": [
+        "중국 AI 칩 시장이 2029년까지 9배 이상 성장할 것으로 예상됐다.",
+        "AI·데이터센터 확대로 고대역폭메모리(HBM)와 첨단 패키징 등 한국 기업의 기회도 커지고 있다.",
+        "2024년부터 2029년까지 연평균 성장률은 약 56.5%로 추산된다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "울산과학대, 생성형 AI 답변 검증·개인정보 보호 가르친다",
-      "source": "중도일보",
+      "source": "joongdo.co.kr",
       "link": "https://www.joongdo.co.kr/web/view.php?key=20261003010000771",
       "publishedAt": "Sat, 03 Oct 2026 13:45:30 GMT",
       "date": "2026-10-03",
@@ -41,48 +55,6 @@
         "울산과학대학교가 재학생들에게 생성형 AI의 답변을 비판적으로 확인하고 개인정보와 저작권 문제까지 고려해 사용하는 방법을 교육했다.",
         "울산과학대는 10월 2일 동부캠퍼스 행정본관 E-스튜디오에서 '생성형 AI 시대, 대학생이 알아야 할 AI 활용과 윤리'를 주제로 특강을 열었다.",
         "강연자로 나선 미래채널 MyF 황준원 대표는 생성형 AI의 기본 원리와 대학생이 활용할 수 있는 방법을 소개했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "영상 기획부터 편집까지 AI 활용…LG유플러스, 구글과 크리에이터 교육",
-      "source": "지이코노미",
-      "link": "https://www.geconomy.co.kr/mobile/article.html?no=324117",
-      "publishedAt": "Sat, 03 Oct 2026 13:31:38 GMT",
-      "date": "2026-10-03",
-      "category": "genai",
-      "bullets": [
-        "지이코노미 강권철 기자 |LG유플러스가 구글코리아와 연계한 생성형 인공지능(AI) 교육을 통해 크리에이터의 콘텐츠 제작 역량 강화에 나섰다.",
-        "LG유플러스는 지난 2일 서울 강남구 구글코리아 오피스에서 크리에이터 커뮤니티 ‘U+BOOSTUS(유플러스 부스터스)’ 우수 활동자 18명을 대상으로 AI 콘텐츠 제작 교육을 진행했다고 4일 밝혔다.",
-        "이번 교육은 생성형 AI 확산으로 달라지는 콘텐츠 제작 환경에 대응하고, 크리에이터들이 AI를 실제 창작 과정에 활용할 수 있도록 돕기 위해 마련됐다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "'잭팟' 꿈꾸고 뛰어들었다가…AI 숏드라마의 '눈물' [김예랑의 K컬처인사이드]",
-      "source": "한국경제",
-      "link": "https://www.hankyung.com/article/202610029908H",
-      "publishedAt": "Sat, 03 Oct 2026 12:10:44 GMT",
-      "date": "2026-10-03",
-      "category": "biz",
-      "bullets": [
-        "Google 검색에서 한국경제 기사를 더 자주 볼 수 있습니다.",
-        "글로벌 미디어 시장을 뒤흔드는 숏폼드라마 열풍에 인공지능(AI) 기술이 결합하며 시장 기대감이 최고조에 달하고 있다.",
-        "정작 AI 숏드라마의 '종주국'이라 불리는 중국 현지에서는 관련 제작사의 90%가 적자의 늪에 빠지며 혹독한 구조조정 한파를 맞닥뜨린 것으로 확인됐다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "프랜차이즈·정유업체의 공통점… AI가 대체 못할 ‘헤일로 기업’의 비밀 [경제용어사전]",
-      "source": "더스쿠프",
-      "link": "https://www.thescoop.co.kr/news/articleView.html?idxno=311789",
-      "publishedAt": "Sat, 03 Oct 2026 08:40:19 GMT",
-      "date": "2026-10-03",
-      "category": "biz",
-      "bullets": [
-        "인공지능(AI)이 빠르게 진화하고 있다.",
-        "한편에선 AI를 개발하는 속도를 늦춰야 한다는 목소리까지 나온다.",
-        "투자시장에서도 이상 기류가 감지되고 있다."
       ],
       "contentVerified": true
     },
@@ -115,6 +87,34 @@
       "contentVerified": true
     },
     {
+      "title": "최대호 안양시장 “AI로 시민 일상 더욱 편리하고 안전하게”…시민이 직접 미래도시 설계",
+      "source": "투어코리아",
+      "link": "https://www.tournews21.com/news/articleView.html?idxno=144896",
+      "publishedAt": "Sat, 03 Oct 2026 01:30:47 GMT",
+      "date": "2026-10-03",
+      "category": "biz",
+      "bullets": [
+        "최대호 안양시장이 AI 기술을 시민 생활과 행정 현장에 접목해 체감할 수 있는 변화를 만들어가겠다는 방향을 밝혔다.",
+        "안양시는 지난 1일 동안구청 5층 대회의실에서 ‘시민이 설계하는 인공지능(AI) 미래도시 안양’을 주제로 민관협치 토론회를 열고 시민들의 의견을 직접 듣는 시간을 가졌다고 3일 밝혔다.",
+        "이번 토론회에는 민관협치위원회 위원과 시민, 시 관계자 등 100여 명이 참석했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "안양시, 인공지능 미래도시 안양 위한 '민관협치 토론회' 개최",
+      "source": "글로벌경제신문",
+      "link": "https://www.getnews.co.kr/news/articleView.html?idxno=882516",
+      "publishedAt": "Sat, 03 Oct 2026 01:25:42 GMT",
+      "date": "2026-10-03",
+      "category": "biz",
+      "bullets": [
+        "경기 안양시(시장 최대호)는 지난 1일 오후 2시 동안구청 5층 대회의실에서 ‘시민이 설계하는 인공지능(AI) 미래도시 안양’을 주제로 민관협치 토론회를 개최했다고 2일 밝혔다.",
+        "이번 토론회는 민관협치위원회 위원, 시민, 시 관계자등 100여명이 참석해, 교통.복지.안전.재난 등 각 분야에서의 시민들의 실생활에 관련된 실질적인 안양시의 AI정책 아이디어를 제안, 발굴하기 위해 마련됐다.",
+        "특히 토론회 전 약 1주 동안 미리 토론 주제에 대한 설문조사 및 교육을 통해 심도 있는 토론을 준비할 수 있도록 했다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "비즈데이터, GATC 사업 선정… 산업폐수 AI 자율운영 기술 개발 본격화",
       "source": "koreasprint.com",
       "link": "https://www.koreasprint.com/news/articleView.html?idxno=20529",
@@ -129,44 +129,44 @@
       "contentVerified": true
     },
     {
-      "title": "트럼프, 신임 AI 차르에 제이 클레이턴 낙점하나",
-      "source": "디지털투데이",
-      "link": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=704951",
-      "publishedAt": "Sat, 03 Oct 2026 12:12:33 GMT",
+      "title": "탈모 관리부터 암 백신까지 AI ‘신물질’ 개발 속도…한계는? [AI:너머]",
+      "source": "v.daum.net",
+      "link": "https://v.daum.net/v/20261003213223291",
+      "publishedAt": "Sat, 03 Oct 2026 12:32:23 GMT",
       "date": "2026-10-03",
       "category": "tech",
       "bullets": [
-        "트럼프 미국 대통령이 새 AI 차르로 제이 클레이턴 국가정보국장을 임명할 것으로 알려졌다.",
-        "클레이턴은 국가정보국장직을 유지한 채 AI 개발과 기업 자율규제 점검을 함께 맡을 가능성이 거론된다.",
-        "도널드 트럼프 미국 대통령이 새 AI 차르에 제이 클레이턴(Jay Clayton) 국가정보국장을 임명하는 방안을 검토 중이다."
+        "자동요약 기사 제목과 주요 문장을 기반으로 자동요약한 결과입니다.",
+        "전체 맥락을 이해하기 위해서는 본문 보기를 권장합니다.",
+        "'신약 개발' 하면 수많은 실패와 고된 연구 과정을 떠올리기 마련입니다."
       ],
       "contentVerified": true
     },
     {
-      "title": "\"독파모 폐지 없다\"…과기정통부 \"프론티어 AI와 별도 추진\" 재확인",
-      "source": "edaily.co.kr",
-      "link": "https://www.edaily.co.kr/News/Read?newsId=02456726645609312&mediaCodeNo=257",
-      "publishedAt": "Sat, 03 Oct 2026 10:51:04 GMT",
+      "title": "에이피알, 뷰티업계 최초 'AI 국제인증' 2관왕",
+      "source": "매경헬스",
+      "link": "https://www.mkhealth.co.kr/news/articleView.html?idxno=80335",
+      "publishedAt": "Sat, 03 Oct 2026 11:40:00 GMT",
       "date": "2026-10-03",
       "category": "tech",
       "bullets": [
-        "과학기술정보통신부가 ‘독자 AI 파운데이션 모델(독파모)’ 사업을 프론티어 AI(최상위급 AI 모델) 개발 사업에 통합해 사실상 폐지하는 것 아니냐는 의혹에 대해 “두 사업을 구분해 병행 추진한다”고 일축했다.",
-        "독파모는 당초 계획대로 내년 2월 3차 단계평가를 통해 3개팀 중 2개 정예팀을 선정해 계속 추진한다는 입장이다.",
-        "과기정통부는 3일 보도설명자료를 통해 “독파모 사업은 프론티어 AI 사업과 구분되는 사업”이라며 이같이 밝혔다."
+        "글로벌 뷰티 기업 에이피알이 뷰티업계 최초로 인공지능(AI) 분야 국제 인증 2종을 동시에 획득했다.",
+        "AI 기술을 체계적으로 관리하기 위한 경영시스템과 실제 제품에 적용된 AI의 신뢰성을 각각 국제 기준에 따라 검증받으며 글로벌 수준의 AI 관리 역량을 입증했다.",
+        "ISO/IEC 42001은 국제표준화기구(ISO)와 국제전기기술위원회(IEC)가 제정한 세계 최초의 AI 경영시스템(AIMS) 국제 표준이다."
       ],
       "contentVerified": true
     },
     {
-      "title": "트럼프 “AI는 SI로” 행정명령 서명…속도조절 대신 개발경쟁 우위 전략",
-      "source": "busan.com",
-      "link": "https://mobile.busan.com/view/bstoday/view.php?code=2026100316473748109",
-      "publishedAt": "Sat, 03 Oct 2026 07:55:01 GMT",
+      "title": "SOFC·SOEC, AI 데이터센터 전력 수요 해법으로 부상 …기술개발·사업화 전략 논의",
+      "source": "더글로벌기빙뉴스",
+      "link": "https://theggnews.com/ko-kr/articles/27965",
+      "publishedAt": "Sat, 03 Oct 2026 11:15:00 GMT",
       "date": "2026-10-03",
       "category": "tech",
       "bullets": [
-        "트럼프 대통령이 9월 29일 AI 기업 최고 경영진들과 만나 대화를 나누고 있다.",
-        "최근 트럼프 대통령은 ‘인공지능(AI)’이라는 말을 연방정부 공식문서에서 ‘슈퍼 인텔리전스(SI)’로 쓰도록 행정명령에 서명했다.",
-        "다만 AI를 둘러싼 부정적 여론에 대응하는 동시에 중국과의 기술 경쟁에서 개발 속도를 늦추지 않겠다는 메시지를 내놓은 것으로 풀이된다."
+        "AI 데이터센터 확산으로 전력 수요가 빠르게 늘어나는 가운데 고효율 발전과 수소 생산을 연계할 수 있는 SOFC(고체산화물 연료전지)와 SOEC(고체산화물 수전해)의 기술개발 및 사업화 전략을 논의하는 자리가 마련된다.",
+        "산업교육연구소는 오는 13일 서울 구로디지털단지 내 KIEI 세미나실과 온라인에서 '차세대 SOFC/SOEC 시장 선점을 위한 핵심 기술개발과 활용방안 및 사업화 전략 세미나'를 개최한다고 3일 밝혔다.",
+        "이번 세미나는 탄소중립과 전력 수요 증가에 대응하기 위한 수소 활용 기술을 중심으로 SOFC·SOEC의 국내외 기술개발 동향과 상용화 가능성을 살펴보는 자리다."
       ],
       "contentVerified": true
     },
@@ -199,20 +199,6 @@
       "contentVerified": true
     },
     {
-      "title": "에이피알, 뷰티업계 최초 'AI 국제인증' 2관왕",
-      "source": "매경헬스",
-      "link": "https://www.mkhealth.co.kr/news/articleView.html?idxno=80335",
-      "publishedAt": "Sat, 03 Oct 2026 11:40:00 GMT",
-      "date": "2026-10-03",
-      "category": "policy",
-      "bullets": [
-        "글로벌 뷰티 기업 에이피알이 뷰티업계 최초로 인공지능(AI) 분야 국제 인증 2종을 동시에 획득했다.",
-        "AI 기술을 체계적으로 관리하기 위한 경영시스템과 실제 제품에 적용된 AI의 신뢰성을 각각 국제 기준에 따라 검증받으며 글로벌 수준의 AI 관리 역량을 입증했다.",
-        "ISO/IEC 42001은 국제표준화기구(ISO)와 국제전기기술위원회(IEC)가 제정한 세계 최초의 AI 경영시스템(AIMS) 국제 표준이다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "트럼프 '슈퍼 인텔리전스' 자율 규제 합의, 글로벌 AI 거버넌스 분열 가속화하나",
       "source": "얼리어답터뉴스",
       "link": "https://www.eanews.kr/news/1010370",
@@ -223,6 +209,20 @@
         "2026년 9월 트럼프 행정부가 발표한 AI 자율 규제 합의는 규제 비용을 누가 부담하고 누가 시장 우위를 가져가느냐는 산업 구조의 핵심 질문을 전면 재편했다.",
         "도널드 트럼프 미국 대통령은 백악관 회담 직후 주요 기술 기업 최고경영자들과의 합의를 '도덕적 구속력 있는 거래(morally binding deal)'라고 규정했다.",
         "이 1페이지 합의가 단순한 정치적 선언인지, 아니면 산업 재편의 기폭제인지는 이제 시장과 기업의 반응이 결정한다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "\"유재석 언제 이런 방송을?\"…10만명 본 '국민MC' 알고보니 [유지희의 ITMI]",
+      "source": "한국경제",
+      "link": "https://www.hankyung.com/article/202610020485i",
+      "publishedAt": "Sat, 03 Oct 2026 02:00:05 GMT",
+      "date": "2026-10-03",
+      "category": "policy",
+      "bullets": [
+        "Google 검색에서 한국경제 기사를 더 자주 볼 수 있습니다.",
+        "우리가 살아가는 수많은 이야기들 가운데 누군가에게는 평생 비밀일 수도 있습니다.",
+        "방송인 유재석 씨가 직접 진행하는 콘텐츠처럼 들리지만 실제 유씨가 한 말이 아니다."
       ],
       "contentVerified": true
     }
@@ -285,16 +285,100 @@
       "contentVerified": true
     },
     {
-      "title": "[현장] AI는 단계적으로, 시장경보는 정교하게…자본시장 감시체계 개선 목소리",
-      "source": "인포스탁데일리",
-      "link": "https://www.infostockdaily.co.kr/news/articleView.html?idxno=218235",
-      "publishedAt": "Thu, 01 Oct 2026 10:09:04 GMT",
+      "title": "\"중국 AI 시장도 챗봇에서 에이전트로 전환 중\"",
+      "source": "thecommoditiesnews.com",
+      "link": "https://thecommoditiesnews.com/news/articleView.html?idxno=11904",
+      "publishedAt": "Thu, 01 Oct 2026 09:11:06 GMT",
       "date": "2026-10-01",
       "category": "biz",
       "bullets": [
-        "인공지능(AI)을 활용해 이상거래 탐지와 시장감시 효율성을 높이는 동시에 현행 시장경보제도도 글로벌 기준에 맞춰 정교화할 필요가 있다는 목소리가 나왔다.",
-        "자본시장 효율성과 투자자 보호를 높이기 위해서는 새로운 기술 도입뿐 아니라 기존 규제 체계의 합리화가 병행돼야 한다는 지적이다.",
-        "황 교수는 AI가 투자정보 분석과 자산배분, 주문 집행뿐 아니라 이상거래와 시세조종 탐지, 투자사기·자금세탁 방지 등 투자자 보호와 시장감시에도 활용될 수 있다고 설명했다."
+        "메타(Meta)가 AI(인공지능) 에이전트 '뮤즈'를 출시하면서 생성형 AI 시장의 경쟁축이 빠르게 바뀌고 있는 가운데 중국 AI 시장도 챗봇에서 에이전트(Agent)로 경쟁축이 이동하고 있다는 진단이 나왔다.",
+        "AI 에이전트란 사용자가 설정한 목표를 달성하기 위해 주변 환경을 스스로 인식하고 판단하며, 외부 도구를 활용해 자율로 작업을 수행하는 인공지능 소프트웨어 시스템을 뜻한다.",
+        "단순히 질문에 답변만 하는 기존 생성형 AI 챗봇과 달리, AI 에이전트는 직접 계획을 세우고 API나 데이터베이스 같은 도구를 호출해 실행까지 완수하는 능력을 지닌다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "브릴스, 코스닥 상장... “글로벌 AI 로봇 플랫폼 기업 도약” 박차",
+      "source": "인공지능신문",
+      "link": "https://www.aitimes.kr/news/articleView.html?idxno=42149",
+      "publishedAt": "Thu, 01 Oct 2026 03:32:23 GMT",
+      "date": "2026-10-01",
+      "category": "biz",
+      "bullets": [
+        "브릴스 코스닥 상장식은 1일, 한국거래소 홍보관에서 진행됐으며 브릴스 임직원을 비롯해 한국거래소와 한국IR협의회, 상장 주관사 관계자들이 참석했다.",
+        "상장계약서 서명과 상장패 전달에 이어 전진 대표이사가 상장 기념 타북 행사를 하며 공식 거래 시작을 알렸다.",
+        "이날 행사에서는 브릴스가 개발한 휴머노이드 로봇과 사족보행 로봇, 저상형 자율이동로봇(AMR)이 시연되며 회사의 기술 비전과 사업 확장 방향을 선보였다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "라이너, 국가 AI 대상 서울특별시장상 수상…글로벌 AI 에이전트 기술력 인정",
+      "source": "zdnet.co.kr",
+      "link": "https://zdnet.co.kr/view/?no=20260930090554",
+      "publishedAt": "Thu, 01 Oct 2026 01:19:07 GMT",
+      "date": "2026-10-01",
+      "category": "biz",
+      "bullets": [
+        "라이너가 글로벌 시장에서 확보한 인공지능(AI) 에이전트 기술력과 사업 성과를 인정받아 국가 AI 대상 서울특별시장상을 수상한다.",
+        "라이너는 오는 6일 서울 코엑스 C홀에서 열리는 'AI페스타' 국가 AI 대상 시상식에서 서울특별시장상 수상으로 이름을 올렸다.",
+        "국가 AI 대상은 과학기술정보통신부가 주최하고 한국인공지능·소프트웨어산업협회(KOSA)가 주관하며 AI 기술 개발과 활용을 통해 산업 발전과 기술·서비스 혁신에 기여한 기업과 리더를 선정하는 상이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "‘AI 속도 조절론’ 확산 한 달…질주하는 AI 기술에 브레이크 걸 수 있을까",
+      "source": "주간경향",
+      "link": "https://weekly.khan.co.kr/article/202610021454001",
+      "publishedAt": "Fri, 02 Oct 2026 05:54:00 GMT",
+      "date": "2026-10-02",
+      "category": "tech",
+      "bullets": [
+        "지난 한 달간 인공지능(AI) 개발 속도를 규제해야 한다는 ‘AI 속도조절론’은 전 세계의 화두가 됐다.",
+        "각국 수반과 주요 빅테크 기업 대표, 종교지도자들까지 나서 기술 발전 속도에 대한 우려를 표하고 나섰다.",
+        "주요 AI 기업 연구 책임자와 석학 22명은 9월 28일(현지시간) AI 개발을 AI에 맡기는 자동화로 수년 걸릴 기술 진보가 수개월로 단축되는 ‘지능 폭발’이 현실화할 수 있다고 경고하는 논문을 발표하기도 했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "뉴로메카, KAIST와 손목 카메라 없는 휴머노이드 정밀조작 AI 기술 개발",
+      "source": "로봇신문",
+      "link": "https://www.irobotnews.com/news/articleView.html?idxno=48800",
+      "publishedAt": "Fri, 02 Oct 2026 00:53:54 GMT",
+      "date": "2026-10-02",
+      "category": "tech",
+      "bullets": [
+        "휴머노이드 로봇의 정밀 조작을 위해 필수적으로 여겨졌던 손목 카메라를 제거하고, 머리에 장착된 RGB 카메라 한 대만으로 손과 물체의 상호작용을 정밀하게 제어하는 피지컬 AI 기술이 공개됐다.",
+        "관련 연구 논문은 국제 로봇학습 학술대회 CoRL 2026에 채택됐다.",
+        "이번 연구는 휴머노이드가 사람과 유사하게 머리 위치의 단일 카메라를 통해 작업 환경을 인식하고, 이를 기반으로 양손의 정밀한 움직임을 생성할 수 있다는 점에서 주목된다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "단호한 트럼프 \"AI규제 안 만든다 … 기업 '셀프 통제'로 충분\"",
+      "source": "매일경제",
+      "link": "https://www.mk.co.kr/news/it/12165159",
+      "publishedAt": "Wed, 30 Sep 2026 08:35:07 GMT",
+      "date": "2026-09-30",
+      "category": "policy",
+      "bullets": [
+        "AI CEO 불러모은 트럼프도널드 트럼프 미국 대통령이 29일(현지시간) 백악관 이스트룸에서 열린 주요 인공지능(AI) 기업 최고경영자(CEO)들과의 오찬에서 발언하고 있다.",
+        "이 자리에서 트럼프 대통령은 AI기업의 '자율 규제'를 강조했다.",
+        "AI 업계의 자율 규제에는 기업들이 내부통제 시스템을 운영하고 외부 감사를 받는다는 내용이 포함됐다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "“규제 기다리다 혁신기업 사라진다”…AI·전문가가 정책 검증하는 'RegDAO' 제안",
+      "source": "전자신문",
+      "link": "https://www.etnews.com/20260930000223",
+      "publishedAt": "Wed, 30 Sep 2026 03:51:14 GMT",
+      "date": "2026-09-30",
+      "category": "policy",
+      "bullets": [
+        "웹3.0포럼 2026 조찬 라운드 테이블이 30일 서울 중구 달개비에서 열렸다.",
+        "한세진 금융감독원 선임조사역이 '금융 규제 거버넌스의 패러다임 전환'을 주제로 기조강연을 하고 있다.",
+        "디지털자산과 토큰955 증권처럼 변화가 빠른 분야의 규제 방식을 바꿔야 한다는 제안이 나왔다."
       ],
       "contentVerified": true
     }
