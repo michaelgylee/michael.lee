@@ -1,12 +1,26 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-10-04T15:21:10Z",
+  "generated_at": "2026-10-04T19:36:02Z",
   "daily": [
+    {
+      "title": "중국 상하이 금융당국, 은행·보험업 AI 활용 확대",
+      "source": "한국보험신문",
+      "link": "https://www.insnews.co.kr/news/articleView.html?idxno=93044",
+      "publishedAt": "Sun, 04 Oct 2026 15:00:00 GMT",
+      "date": "2026-10-05",
+      "category": "genai",
+      "bullets": [
+        "지난 9월 28일 중국 상하이 와이탄(Bund)에서 사람들이 거리를 걷고 있다.",
+        "중국 상하이 금융당국이 은행·보험업의 인공지능(AI) 활용 확대에 나선다.",
+        "금융회사의 마케팅·대출·보험금 심사·위험관리 등 주요 업무에 AI 도입을 촉진하는 동시에 생성형 AI의 환각과 보안 취약점 등에 대한 관리체계도 강화한다."
+      ],
+      "contentVerified": true
+    },
     {
       "title": "'지능생산' 다음은 '실행'···증권사 MTS 주문 버튼 삼켜버린 AI",
       "source": "여성경제신문",
-      "link": "https://www.womaneconomy.co.kr/news/articleViewAmp.html?idxno=259319",
-      "publishedAt": "Sun, 04 Oct 2026 13:15:35 GMT",
+      "link": "https://www.womaneconomy.co.kr/news/articleView.html?idxno=259319",
+      "publishedAt": "Sun, 04 Oct 2026 13:02:04 GMT",
       "date": "2026-10-04",
       "category": "genai",
       "bullets": [
@@ -31,20 +45,6 @@
       "contentVerified": true
     },
     {
-      "title": "평택시, 생성형 AI 영상 제작 교육…농업인 디지털 역량 강화",
-      "source": "뉴스핌",
-      "link": "https://www.newspim.com/news/view/20261003000050",
-      "publishedAt": "Sun, 04 Oct 2026 08:12:00 GMT",
-      "date": "2026-10-04",
-      "category": "genai",
-      "bullets": [
-        "평택시가 지난달 14일부터 29일까지 농업인 대상 생성형 AI 영상 제작 교육을 했다.",
-        "이번 교육은 Vrew 활용 편집과 AI 음성, 자동 자막 제작 등을 실습했다.",
-        "시는 농산물 홍보와 온라인 판매에 디지털 콘텐츠 활용을 기대했다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "의왕시 1인 창조기업지원센터, 생성형 AI 활용 실무교육 진행 > 뉴스",
       "source": "더코리아",
       "link": "http://www.thekorea.kr/bbs/board.php?bo_table=news&wr_id=559772",
@@ -59,8 +59,22 @@
       "contentVerified": true
     },
     {
+      "title": "“전주, 피지컬AI 산업 선도 AI 특별도시로 키울 것”",
+      "source": "국민일보",
+      "link": "https://www.kmib.co.kr/article/view_amp.asp?arcid=9000019790",
+      "publishedAt": "Sun, 04 Oct 2026 17:04:00 GMT",
+      "date": "2026-10-05",
+      "category": "biz",
+      "bullets": [
+        "조지훈 전주시장이 4일 “재정 구조를 근본적으로 개혁하되 도시의 미래를 위한 투자는 멈추지 않겠다”면서 인공지능(AI) 산업에 대한 집중 투자 방침을 밝혔다.",
+        "전주·완주·새만금을 잇는 AX(인공지능 전환) 산업벨트와 전북 14개 시·군을 아우르는 마이스(MICE) 거점을 양축으로 전주의 산업·관광 기능을 넓히겠다는 구상이다.",
+        "조 시장은 시장 집무실에서 진행된 국민일보와의 인터뷰에서 “전주를 대한민국 피지컬 AI 산업을 선도하는 ‘AI 특별도시’로 키우겠다”며 이같이 말했다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "AI데이터센터 훈풍 탄 두산퓨얼셀, 적자 행진 마침표 기대감",
-      "source": "Naver Blog",
+      "source": "blog.naver.com",
       "link": "https://blog.naver.com/PostView.naver?blogId=dealsite&logNo=224429187409&redirect=Dlog",
       "publishedAt": "Sun, 04 Oct 2026 10:56:20 GMT",
       "date": "2026-10-04",
@@ -74,7 +88,7 @@
     },
     {
       "title": "\"AI기업의 빚투, 닷컴버블과 닮아…조정 후 옥석 가려질 것\"",
-      "source": "한국경제",
+      "source": "hankyung.com",
       "link": "https://www.hankyung.com/article/2026100426161",
       "publishedAt": "Sun, 04 Oct 2026 08:53:36 GMT",
       "date": "2026-10-04",
@@ -101,22 +115,22 @@
       "contentVerified": true
     },
     {
-      "title": "빅테크 넘어 OpenAI·앤트로픽 까지…SK하이닉스 메모리 수요 더 커진다",
-      "source": "핀포인트뉴스",
-      "link": "https://www.pinpointnews.co.kr/news/articleViewAmp.html?idxno=492583",
-      "publishedAt": "Sun, 04 Oct 2026 06:59:52 GMT",
-      "date": "2026-10-04",
-      "category": "biz",
+      "title": "미국은 선도적 지위를 유지하기 위해 안전한 인공지능(AI)을 장려하고 있습니다.",
+      "source": "Vietnam.vn",
+      "link": "https://www.vietnam.vn/ko/my-thuc-day-ai-an-toan-de-giu-vi-the-dan-dau",
+      "publishedAt": "Sun, 04 Oct 2026 16:45:41 GMT",
+      "date": "2026-10-05",
+      "category": "tech",
       "bullets": [
-        "SK하이닉스가 인공지능(AI) 반도체 시장의 강한 수요를 바탕으로 실적 우상향 흐름을 이어갈 것이라는 전망이 나왔다.",
-        "신한투자증권은 최근 시장에서 부각된 매크로 불확실성과 보안 관련 우려가 실제 AI 개발 속도 조절이나 설비투자 둔화로 이어지지는 않고 있다고 밝혔다.",
-        "AI 산업의 성장세가 이어지면서 고대역폭메모리(HBM)를 비롯한 고성능 메모리 수요가 계속 확대되고 있다는 설명이다."
+        "스콧 베센트 미국 재무장관은 10월 3일 미국 뉴스 사이트 악시오스와의 인터뷰에서 인공지능(AI) 분야의 \"안전한 가속화\"를 촉진하는 것이 워싱턴의 목표라고 강조했습니다.",
+        "그는 미국이 AI 기술 개발의 안전성을 보장하는 동시에 혁신 속도를 유지해야만 중국 에 대한 우위를 유지할 수 있다고 말했습니다.",
+        "베센트 씨는 인공지능 업계가 우선 자발적으로 안전 조치를 적극적으로 도입해야 한다고 주장했습니다."
       ],
       "contentVerified": true
     },
     {
       "title": "KT, 의료현장 AX로 기업AI 확장…\"최적 AI 자동선택기술도 경쟁력 입증\"",
-      "source": "webeconomy.co.kr",
+      "source": "웹이코노미",
       "link": "https://www.webeconomy.co.kr/news/articleView.html?idxno=2324714",
       "publishedAt": "Sun, 04 Oct 2026 14:00:15 GMT",
       "date": "2026-10-04",
@@ -129,22 +143,8 @@
       "contentVerified": true
     },
     {
-      "title": "AI ‘아텍스’, 해킹 도구로 악용 정황…애초 보안점검 위해 개발",
-      "source": "hani.co.kr",
-      "link": "https://www.hani.co.kr/arti/economy/it/1280877.html",
-      "publishedAt": "Sun, 04 Oct 2026 13:13:00 GMT",
-      "date": "2026-10-04",
-      "category": "tech",
-      "bullets": [
-        "금융권 전반의 개인정보 침해 사고가 잇따른 가운데, 사이버 보안 점검을 목적으로 개발된 인공지능(AI) 도구가 이번 해킹 공격에 악용된 정황이 확인됐다.",
-        "다만 전문가들은 기존 자동화 봇으로도 가능한 공격 수법인 만큼, 이번 사고를 ‘인공지능 기술 발전에 따른 불가피한 피해’로 해석하는 것은 경계해야 한다고 지적한다.",
-        "4일 보안업계 설명을 들어보면, 지난달 말 신한은행 등 국내 주요 은행을 겨냥한 해킹 공격에 사용된 웹서버에서 ‘아텍스(ARTEX)-自主渗透测试控制台(자주삼투측시공제태·자율 침투 테스트 콘솔)’라는 문구가 발견됐다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "KAIST·ETRI·빅테크 20여 곳 뭉쳤다…AI 연구성과 ‘특허 선점’ 경쟁 본격화",
-      "source": "산학뉴스",
+      "source": "sanhaknews.kr",
       "link": "https://www.sanhaknews.kr/news/articleView.html?idxno=21838",
       "publishedAt": "Sun, 04 Oct 2026 09:38:22 GMT",
       "date": "2026-10-04",
@@ -157,108 +157,80 @@
       "contentVerified": true
     },
     {
-      "title": "전 오픈AI 안전 담당자 경고...“AI 개발 속도만 집중, 원전처럼 관리해야”",
-      "source": "M이코노미뉴스",
-      "link": "https://www.m-economynews.com/news/article.html?no=71323",
-      "publishedAt": "Sun, 04 Oct 2026 02:12:55 GMT",
+      "title": "오픈AI 안전 담당자 떠났다…AI 개발 가속에 커지는 안전성 논란",
+      "source": "제민일보",
+      "link": "https://www.jemin.com/news/articleView.html?idxno=843817",
+      "publishedAt": "Sun, 04 Oct 2026 07:03:08 GMT",
       "date": "2026-10-04",
       "category": "tech",
       "bullets": [
-        "인공지능(AI) 기업들이 기술 개발 속도에 치중한 나머지 안전 문제를 충분히 고려하지 않고 있다는 전직 오픈AI 안전 담당자의 경고가 나왔다.",
-        "AI 시스템의 성능이 빠르게 향상되는 만큼 여러 겹의 안전장치와 신중한 개발 체계가 필요하다는 주장이다.",
-        "로빈슨은 오픈AI를 비롯한 AI 기업들이 그동안 문제가 발생하면 안전장치를 보완하는 방식으로 기술을 발전시켜왔다고 평가했다."
+        "인공지능 기술 경쟁이 갈수록 치열해지는 가운데 오픈AI 내부에서 AI 개발 속도와 안전성 사이의 균형을 둘러싼 고민이 다시 수면 위로 떠올랐다.",
+        "AI가 이전보다 훨씬 강력한 수준으로 발전하면서 기술을 빠르게 상용화하는 것뿐 아니라 예상하지 못한 위험을 사전에 관리할 수 있는 체계를 갖춰야 한다는 목소리도 커지고 있다.",
+        "로이터는 10월 3일 오픈AI에서 안전 관련 업무를 담당했던 데이비드 로빈슨이 회사를 떠나면서 AI 개발 방식에 대한 우려를 제기했다고 보도했다."
       ],
       "contentVerified": true
     },
     {
-      "title": "인공지능 교육: 기술을 숙달하는 법 배우기.",
-      "source": "Vietnam.vn",
-      "link": "https://www.vietnam.vn/ko/giao-duc-tri-tue-nhan-tao-hoc-de-lam-chu-cong-nghe",
-      "publishedAt": "Sun, 04 Oct 2026 10:01:07 GMT",
-      "date": "2026-10-04",
+      "title": "뉴섬, 작년 거부했던 ‘로봇 상사 금지법’ 서명…AI 단독 해고·징계 막는다",
+      "source": "wikitree.co.kr",
+      "link": "https://www.wikitree.co.kr/articles/1163931",
+      "publishedAt": "Sun, 04 Oct 2026 18:04:00 GMT",
+      "date": "2026-10-05",
       "category": "policy",
       "bullets": [
-        "인공지능(AI) 교육은 점차 교육과정의 중요한 부분으로 자리 잡고 있으며, 학교는 이에 맞춰 새로운 조직적 접근 방식과 방법을 모색해야 합니다.",
-        "오늘날의 학생들은 지능이 높고 창의적이며, 어릴 때부터 기술을 접합니다.",
-        "새 학년이 시작되면서 익숙한 교과서, 강의, 수업과 더불어 새로운 콘텐츠가 학교에 점차 도입되고 있습니다."
+        "DeeperDive는 신뢰할 수 있는 퍼블리셔를 위해 만들어진 GenAI 기반 답변 엔진입니다.",
+        "지금 사람들이 읽고 있는 콘텐츠를 바탕으로 명확한 답변과 실시간 콘텐츠를 제공하며, WIKITREE 네트워크의 다양한 스토리를 통해 무엇이 일어났는지뿐 아니라 왜 중요한지도 보여줍니다.",
+        "현재 베타 버전으로, 사람이 품질을 검토하고 있습니다."
       ],
       "contentVerified": true
     },
     {
-      "title": "\"놓친 늑대 세는 법, 버그 찾는 데도 통할까요?\"…문제 해결하려 연구자들에게 이메일 보낸 AI",
-      "source": "조선일보",
-      "link": "https://www.chosun.com/economy/tech_it/2026/10/04/TIHQHIVIWVGIZMEJEGCWJS7MU4/",
-      "publishedAt": "Sun, 04 Oct 2026 09:23:00 GMT",
-      "date": "2026-10-04",
+      "title": "AI 스스로 성능 개선 금지…미 의원, '인간 통제' 연방 감독 법안 추진",
+      "source": "얼리어답터뉴스",
+      "link": "https://www.eanews.kr/news/1010691",
+      "publishedAt": "Sun, 04 Oct 2026 16:23:55 GMT",
+      "date": "2026-10-05",
       "category": "policy",
       "bullets": [
-        "인공지능(AI)이 자신의 문제 해결에 도움을 받으려고 학계 연구자들에게 이메일을 보낸 것으로 나타났다.",
-        "이탈리아 파비아대 지구·환경과학과 아하즈 폰 하르덴베르크 교수는 지난 8월 낯선 이메일 한 통을 받았다.",
-        "야생 늑대를 조사할 때 미처 발견하지 못한 개체까지 감안해 전체 개체 수를 추정하는 그의 연구 방법을 소프트웨어 코드에서 놓친 버그를 찾는 데도 활용할 수 있겠느냐는 질문이었다."
+        "이번 입법 시도는 AI를 '활용 규제' 수준에서 '개발 과정 규제'로 끌어올리며, 일상과 산업의 거대한 구조적 변화를 예고한다.",
+        "첫째, 법안은 단순히 제품 배포와 이용 행위를 규제하는 것을 넘어 모델 훈련, 테스트 환경, 하드웨어(고성능 반도체 포함)에까지 범위를 확장한다는 점이다.",
+        "둘째, 연방기관 설치와 라이선스·감사 체계 도입은 기업의 자율적 안전조치가 아닌 정부의 사전 승인·사후 감시 체제를 표준으로 만들려는 시도다."
       ],
       "contentVerified": true
     },
     {
-      "title": "트럼프, AI 대신 'SI' 공식화…연방기관 용어 전면 교체",
-      "source": "뉴스투데이",
-      "link": "https://www.news2day.co.kr/article/20261004500040",
-      "publishedAt": "Sun, 04 Oct 2026 08:37:00 GMT",
-      "date": "2026-10-04",
+      "title": "로 칸나 의원, 'AI 자율 진화 금지' 법안 발의 추진… 연방 감독 기관 신설도 포함",
+      "source": "유스연합",
+      "link": "https://www.youthassembly.kr/news/1007854",
+      "publishedAt": "Sun, 04 Oct 2026 16:21:42 GMT",
+      "date": "2026-10-05",
       "category": "policy",
       "bullets": [
-        "도널드 트럼프 미국 대통령이 연방 행정부에서 '인공지능(AI)' 대신 '슈퍼인텔리전스(SI)'라는 명칭을 사용하도록 했다.",
-        "AI라는 표현이 기술의 발전 수준과 잠재력을 제대로 담지 못한다는 이유에서다.",
-        "트럼프 대통령은 지난달 29일(현지시간) '슈퍼인텔리전스 시대의 개막'이라는 제목의 행정명령에 서명했다."
+        "기존 AI 규제가 개인정보 보호나 저작권 등 AI 활용 방식에 집중했던 것과 달리, 이 법안은 AI 개발 초기 단계부터 정부가 직접 통제권을 행사한다는 점에서 기술 규제의 출발점 자체를 바꾸려는 시도로 평가된다.",
+        "본지 분석에 따르면, 이 법안은 AI 생태계의 규제 비용을 단기적으로 상승시키는 반면, 중장기적으로는 규제 준수 역량을 보유한 기업에 상당한 경쟁 우위를 제공할 가능성이 크다.",
+        "미국의 이번 규제 구상은 세 가지 축에서 산업에 직접적 충격을 가한다."
       ],
       "contentVerified": true
     },
     {
-      "title": "“원전은 사전허가, AI는 자율규제?”…미·중 AI 패권전쟁에 ‘안전’이 변수로",
-      "source": "에너지안전신문",
-      "link": "https://www.esnews.kr/news/articleView.html?idxno=6614",
-      "publishedAt": "Sun, 04 Oct 2026 01:57:56 GMT",
-      "date": "2026-10-04",
+      "title": "[Pocus 심층 해설·실무 가이드] 게티이미지·오픈AI 계약이 튼 AI 예술 저작권… 소송 넘어 라이선스 공존으로",
+      "source": "대한청년일보",
+      "link": "http://knpp.co.kr/news/557401",
+      "publishedAt": "Sun, 04 Oct 2026 16:07:05 GMT",
+      "date": "2026-10-05",
       "category": "policy",
       "bullets": [
-        "미국과 중국의 인공지능(AI) 패권 경쟁이 가속화하는 가운데 ‘AI를 얼마나 빨리 개발하느냐’뿐 아니라 ‘얼마나 안전하게 통제하느냐’가 새로운 경쟁축으로 떠오르고 있다.",
-        "자카리아가 겨냥한 논리는 ‘미국이 AI에 규제를 적용하면 규제가 약한 중국이 앞서간다’는 주장이다.",
-        "그러나 중국 역시 AI를 규제하지 않는 국가가 아니다."
+        "게티이미지와 오픈AI가 2026년 6월 21일 미국에서 다년 라이선스 계약을 체결하며, AI 예술 저작권 분야의 무단 학습 소송을 정식 권리 협약 체제로 전환시켰다.",
+        "이에 따라 창작자들은 무단 이용 소송에서 벗어나, 작업 이력의 정밀한 문서화와 저작권 단체를 통한 로열티 협상이라는 실질적인 실무 대응에 나서고 있다.",
+        "새로운 기술이 등장할 때마다 예술계에서는 기존 창작 방식의 입지가 줄어들 것이라는 우려가 제기되어 왔다."
       ],
       "contentVerified": true
     }
   ],
   "weekly": [
     {
-      "title": "네이션에이, 생성형 AI로 새로운 스토리 콘텐츠 시장 연다 [서울AI허브 2027]",
-      "source": "IT조선",
-      "link": "https://it.chosun.com/news/articleView.html?idxno=2023092171155",
-      "publishedAt": "Wed, 30 Sep 2026 23:00:00 GMT",
-      "date": "2026-10-01",
-      "category": "genai",
-      "bullets": [
-        "‘서울 AI 허브 2027’ 기획시리즈는 서울 AI 허브에 입주한 스타트업들의 인공지능(AI) 기술과 서비스, 사업화 현황 및 차별점을 살펴봅니다.",
-        "산업 현장에서의 적용 가능성과 성장 가능성을 짚어보고, 대한민국 AI 생태계의 한 축을 이루는 이들의 기술과 서비스를 소개합니다.",
-        "생성형 AI의 콘텐츠 활용이 이미지·영상 제작에서 스토리 기반 콘텐츠로 확대되고 있다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "중진공·경북대, 대구 제조기업 ‘생성형 AI’ 실무 역량 키운다",
-      "source": "kyongbuk.co.kr",
-      "link": "https://www.kyongbuk.co.kr/news/articleView.html?idxno=4086004",
-      "publishedAt": "Thu, 01 Oct 2026 08:38:25 GMT",
-      "date": "2026-10-01",
-      "category": "genai",
-      "bullets": [
-        "중소벤처기업진흥공단 대구경북연수원(원장 심찬보)이 경북대학교 첨단정보통신융합산업기술원(원장 김현덕)과 함께 지역 제조 현장의 디지털 전환을 위한 전문 교육의 장을 마련했다.",
-        "중진공 대구경북연수원은 1일 부산 파라다이스 호텔에서 ‘제조기업 생성형 AI 활용 전략’ 협업연수를 개최했다.",
-        "이번 연수는 ‘대구 주도형 AI 대전환 프로젝트’에 참여 중인 기업 임직원과 산학연 컨소시엄 관계자 100명을 대상으로 진행됐다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "LG화학, 육군 간부 대상 생성형 AI 실무교육",
-      "source": "동아일보",
+      "source": "donga.com",
       "link": "https://www.donga.com/news/Economy/article/all/20261001/134769512/1",
       "publishedAt": "Thu, 01 Oct 2026 07:42:49 GMT",
       "date": "2026-10-01",
@@ -281,6 +253,34 @@
         "의왕시 1인 창조기업지원센터가 1인 창조기업과 예비창업자를 대상으로 진행한 생성형 AI 교육의 호응을 바탕으로 추가 교육과 심화 프로그램을 추진한다.",
         "의왕시 1인 창조기업지원센터는 29일 경기중소기업성장지원센터에서 수원시 1인 창조기업지원센터, 경기중소기업성장지원센터와 공동으로 ‘생성형 AI 활용 업무 효율화를 위한 인공지능 교육’을 진행했다.",
         "이번 교육은 생성형 AI에 대한 이해를 높이고 기업 업무에 실제 적용할 수 있는 실무 역량을 강화하기 위해 마련됐다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "\"생성형 AI 가짜 정보 속지 마세요\"…방미통위 SNS 캠페인",
+      "source": "연합뉴스TV",
+      "link": "https://www.yonhapnewstv.co.kr/news/AKR20261001111215x4x",
+      "publishedAt": "Thu, 01 Oct 2026 02:12:00 GMT",
+      "date": "2026-10-01",
+      "category": "genai",
+      "bullets": [
+        "기사 읽어주기 서비스는 크롬기반의 브라우저에서만 사용하실 수 있습니다.",
+        "방송미디어통신위원회는 10∼11월 두 달간 인스타그램과 유튜브 등 사회관계망서비스(SNS) 채널에서 '인공지능(AI) 시대, 확인템 장착이 국룰!' 캠페인을 진행한다고 1일 밝혔습니다.",
+        "캠페인은 청소년과 MZ세대를 대상으로 실제 정보와 조작된 정보를 비교하는 '진짜 대 가짜' 퀴즈와 숏폼을 선보입니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "인천시, 생성형 AI로 소음원 자동 분석 플랫폼 개발",
+      "source": "incheonilbo.com",
+      "link": "https://www.incheonilbo.com/news/articleView.html?idxno=1333260",
+      "publishedAt": "Thu, 01 Oct 2026 01:59:01 GMT",
+      "date": "2026-10-01",
+      "category": "genai",
+      "bullets": [
+        "인천 아파트 신축 9억 vs 구축 3억…같은 동네 다른 집값 지하철 7호선 산곡역 5·6번 출구 앞에 들어서는 2706가구 규모 '산곡역자이힐스테이트&하늘채'가 이달 입주자 모집에 나선다.",
+        "국힘 인천시당, 신재경 체제 출범…“조직 재건·현안 대응 강화” 국민의힘 인천시당이 신재경 신임 시당위원장 체제로 새롭게 출발했다.",
+        "2028년 총선에 대비해 조직을 재정비하고 지역 기반을 다져 나가겠다는 구상이다."
       ],
       "contentVerified": true
     },
@@ -313,20 +313,6 @@
       "contentVerified": true
     },
     {
-      "title": "브릴스, 코스닥 상장... “글로벌 AI 로봇 플랫폼 기업 도약” 박차",
-      "source": "인공지능신문",
-      "link": "https://www.aitimes.kr/news/articleView.html?idxno=42149",
-      "publishedAt": "Thu, 01 Oct 2026 03:32:23 GMT",
-      "date": "2026-10-01",
-      "category": "biz",
-      "bullets": [
-        "브릴스 코스닥 상장식은 1일, 한국거래소 홍보관에서 진행됐으며 브릴스 임직원을 비롯해 한국거래소와 한국IR협의회, 상장 주관사 관계자들이 참석했다.",
-        "상장계약서 서명과 상장패 전달에 이어 전진 대표이사가 상장 기념 타북 행사를 하며 공식 거래 시작을 알렸다.",
-        "이날 행사에서는 브릴스가 개발한 휴머노이드 로봇과 사족보행 로봇, 저상형 자율이동로봇(AMR)이 시연되며 회사의 기술 비전과 사업 확장 방향을 선보였다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "라이너, 국가 AI 대상 서울특별시장상 수상…글로벌 AI 에이전트 기술력 인정",
       "source": "지디넷코리아",
       "link": "https://zdnet.co.kr/view/?no=20260930090554",
@@ -341,58 +327,72 @@
       "contentVerified": true
     },
     {
-      "title": "연구자 22명 “AI가 AI 만드는 ‘지능 폭발’ 대비…인류 멸종 이어질 수도”",
-      "source": "hani.co.kr",
-      "link": "https://www.hani.co.kr/arti/international/america/1279889.html",
-      "publishedAt": "Tue, 29 Sep 2026 11:09:00 GMT",
-      "date": "2026-09-29",
+      "title": "\"4분기 IPO 시장 회복 전망…AI·반도체·로봇 기업 주목\"",
+      "source": "뉴스투데이",
+      "link": "https://www.news2day.co.kr/article/20261001500031",
+      "publishedAt": "Thu, 01 Oct 2026 00:15:00 GMT",
+      "date": "2026-10-01",
+      "category": "biz",
+      "bullets": [
+        "연말을 앞두고 기업공개(IPO) 시장에 다시 활기가 돌 것으로 전망됐다.",
+        "4분기 계절적 성수기에 접어드는 가운데 인공지능(AI)과 반도체 및 로봇 관련 기업의 상장이 이어지면서 투자자의 관심도 커질 것으로 보인다.",
+        "1일 금융투자업계에 따르면 KB증권은 4분기 공모 절차를 진행하거나 상장예비심사를 통과한 기업이 늘면서 IPO 시장이 회복 흐름을 보일 것으로 내다봤다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "\"AI 속도조절 안돼…추격 멈추지 말고 안전 역량 키워야\"",
+      "source": "지디넷코리아",
+      "link": "https://zdnet.co.kr/view/?no=20261001164524",
+      "publishedAt": "Thu, 01 Oct 2026 07:53:26 GMT",
+      "date": "2026-10-01",
       "category": "tech",
       "bullets": [
-        "인공지능(AI) 개발 자체를 인공지능에 맡기는 자동화가 빠르게 진행되면서 수년이 걸릴 기술 진보가 수개월 이하로 압축되는 ‘지능 폭발’이 일어날 가능성이 있다고 세계 주요 인공지능 연구자들이 경고했다.",
-        "이들은 이런 급격한 기술 발전이 인간이 고도화된 인공지능 시스템에 대한 통제력을 잃는 극단적인 위험으로 이어질 수도 있다며 각국 정부의 대응을 촉구했다.",
-        "인공지능 과학·정책 프로그램은 이번 연구를 학계와 첨단 인공지능 기업의 고위 연구자, 시민사회 전문가들이 지능 폭발 가능성과 정책 대응을 함께 분석한 첫 공동 연구라고 설명했다."
+        "인공지능(AI) 개발 속도를 늦추기보다 프런티어 AI 경쟁력을 끌어올리면서 검증과 통제 역량을 더 빠르게 확보해야 한다는 목소리가 학계와 산업계에서 나왔다.",
+        "최근 앤트로픽과 오픈AI 등에서는 프런티어 AI의 능력이 통제 수준보다 빠르게 높아질 수 있다는 우려와 함께 개발 속도를 조절해야 한다는 주장이 제기됐다.",
+        "반면 미국과 중국 정부를 비롯해 AI 기술 경쟁을 이어가야 한다는 입장도 나오면서 속도와 안전을 둘러싼 논의가 확산하고 있다."
       ],
       "contentVerified": true
     },
     {
-      "title": "무서운 AI 발전 속도...각국 정부 '규제 대응' 속수무책",
-      "source": "디지털투데이",
-      "link": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=704138",
-      "publishedAt": "Wed, 30 Sep 2026 22:30:00 GMT",
+      "title": "인트·LG CNS, 피지컬 AI 기술협력 업무협약 체결",
+      "source": "조선일보",
+      "link": "https://www.chosun.com/economy/tech_it/2026/10/01/HTEVXUKHMZCURGF7CD2MGGAIIU/",
+      "publishedAt": "Thu, 01 Oct 2026 07:28:00 GMT",
       "date": "2026-10-01",
-      "category": "policy",
+      "category": "tech",
       "bullets": [
-        "워낙 빠르게 발전하다 보니 각국 정부가 AI에 어떻게 대응할지를 놓고 고민에 빠졌다.",
-        "AI에 대한 법을 만들었다고 해도 유효 기간이 짧다 보니, 크고 작은 고민은 계속되고 있다.",
-        "뉴욕타임스 최근 보도를 보면 2년 전 만들어진 AI 관련 법률은 이미 실효성이 제한적이다."
+        "서강대학교 교수 창업 스타트업 인트(int.)는 지난달 29일 LG CNS와 피지컬 AI(인공지능) 분야의 인재 양성과 기술 R&D를 위한 업무 협약을 체결했다고 1일 밝혔다.",
+        "인트는 기업용 AI 에이전트의 개발·운영에 필요한 성능 평가 자동화 솔루션을 개발하는 스타트업으로, 중소벤처기업부 기술 창업 지원 프로그램 팁스(TIPS)에 선정된 바 있다.",
+        "양측은 우선 피지컬 AI 인재 양성을 위한 인턴십 프로그램인 ‘Physical AI Fellowship’을 공동 운영한다."
       ],
       "contentVerified": true
     },
     {
-      "title": "단호한 트럼프 \"AI규제 안 만든다 … 기업 '셀프 통제'로 충분\"",
-      "source": "매일경제",
-      "link": "https://www.mk.co.kr/news/it/12165159",
-      "publishedAt": "Wed, 30 Sep 2026 08:35:07 GMT",
-      "date": "2026-09-30",
-      "category": "policy",
+      "title": "‘AI 속도 조절론’ 확산 한 달…질주하는 AI 기술에 브레이크 걸 수 있을까",
+      "source": "weekly.khan.co.kr",
+      "link": "https://weekly.khan.co.kr/article/202610021454001",
+      "publishedAt": "Fri, 02 Oct 2026 05:54:00 GMT",
+      "date": "2026-10-02",
+      "category": "tech",
       "bullets": [
-        "AI CEO 불러모은 트럼프도널드 트럼프 미국 대통령이 29일(현지시간) 백악관 이스트룸에서 열린 주요 인공지능(AI) 기업 최고경영자(CEO)들과의 오찬에서 발언하고 있다.",
-        "이 자리에서 트럼프 대통령은 AI기업의 '자율 규제'를 강조했다.",
-        "AI 업계의 자율 규제에는 기업들이 내부통제 시스템을 운영하고 외부 감사를 받는다는 내용이 포함됐다."
+        "지난 한 달간 인공지능(AI) 개발 속도를 규제해야 한다는 ‘AI 속도조절론’은 전 세계의 화두가 됐다.",
+        "각국 수반과 주요 빅테크 기업 대표, 종교지도자들까지 나서 기술 발전 속도에 대한 우려를 표하고 나섰다.",
+        "주요 AI 기업 연구 책임자와 석학 22명은 9월 28일(현지시간) AI 개발을 AI에 맡기는 자동화로 수년 걸릴 기술 진보가 수개월로 단축되는 ‘지능 폭발’이 현실화할 수 있다고 경고하는 논문을 발표하기도 했다."
       ],
       "contentVerified": true
     },
     {
-      "title": "[AI챗봇 과몰입, 법으로 규제] [단독] 청소년 AI 챗봇 과몰입 법으로 막는다....국회, 연령확인·이용시간 제한 추진",
-      "source": "v.daum.net",
-      "link": "https://v.daum.net/v/20261001150013107?f=p",
-      "publishedAt": "Thu, 01 Oct 2026 06:00:13 GMT",
-      "date": "2026-10-01",
-      "category": "policy",
+      "title": "과기부, 독파모·프론티어 AI 사업 통합·개편…8천억원 투입",
+      "source": "연합뉴스",
+      "link": "https://www.yna.co.kr/amp/view/AKR20261002109800017",
+      "publishedAt": "Fri, 02 Oct 2026 05:30:18 GMT",
+      "date": "2026-10-02",
+      "category": "tech",
       "bullets": [
-        "국회가 대화형 인공지능(AI) 서비스에 대한 청소년 보호체계를 마련한다.",
-        "미성년자 연령 확인, 이용 시간대 제한 등을 마련해 AI 챗봇 과몰입을 예방한다는 취지다.",
-        "1일 이주희 더불어민주당 의원은 대화형 AI 서비스의 청소년 이용자 보호를 위한 '정보통신망 이용촉진 및 정보보호 등에 관한 법률(정보통신망법)' 개정안을 발의한다고 밝혔다."
+        "배경훈 부총리 겸 과학기술정보통신부 장관이 지난 7월 29일 서울 강남구 코엑스에서 열린 '2026 대한민국 AI혁신인재 커넥트'의 한 전시부스에서 설명을 듣고 있다.",
+        "과학기술정보통신부가 독자 인공지능(AI) 파운데이션 모델 프로젝트와 차세대 AI 관련 사업 등을 통합·개편해 내년 8천억원 규모의 데이터 경쟁력 강화 지원사업을 추진 중이다.",
+        "2일 국회 과학기술정보방송통신위원회 소속 김선민 조국혁신당 의원실이 공개한 2027년도 예산안·기금운용계획안 사업설명자료에 따르면 정부는 '프론티어급 AI 개발을 위한 데이터 경쟁력 강화 지원' 사업에 8천억원을 편성했다."
       ],
       "contentVerified": true
     }
