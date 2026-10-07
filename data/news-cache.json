@@ -1,7 +1,233 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-10-06T20:18:23Z",
+  "generated_at": "2026-10-07T00:41:07Z",
   "daily": [
+    {
+      "title": "토스뱅크, 카드 상담에 생성형 AI 도입…분실신고까지 채팅으로 처리",
+      "source": "핀포인트뉴스",
+      "link": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=493220",
+      "publishedAt": "Wed, 07 Oct 2026 00:09:36 GMT",
+      "date": "2026-10-07",
+      "category": "genai",
+      "bullets": [
+        "토스뱅크는 카드 관련 문의부터 분실신고까지 대화형 인공지능(AI)으로 처리할 수 있는 ‘AI 채팅 에이전트’를 전 고객 대상으로 도입했다고 7일 밝혔다.",
+        "AI 채팅 에이전트는 생성형 AI(LLM)를 기반으로 고객의 질문 의도와 대화 맥락을 파악해 상담을 제공한다.",
+        "정해진 시나리오에 따라 답변을 제공하던 기존 챗봇과 달리 일상적인 표현으로 질문해도 관련 업무를 안내하거나 필요한 화면으로 연결한다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "로그프레소, '챗GPT 엔터프라이즈' 연동 앱으로 AI 사용 활동까지 관리",
+      "source": "테크월드",
+      "link": "https://www.epnc.co.kr/news/articleView.html?idxno=407850",
+      "publishedAt": "Wed, 07 Oct 2026 00:06:55 GMT",
+      "date": "2026-10-07",
+      "category": "genai",
+      "bullets": [
+        "로그프레소에서 7일 새롭게 출시한 챗GPT 엔터프라이즈 연동 앱은 오픈AI의 챗GPT 컴플라이언스 API와 연동해 생성형 AI 사용 기록을 기존 보안 데이터와 함께 분석할 수 있도록 지원한다.",
+        "정책 위반이 의심되는 활동을 발견하면 관련 대화와 인증, 관리자 작업, 앱 및 MCP 호출 기록을 함께 분석해 사용 경위와 영향을 확인할 수 있다.",
+        "조사 결과는 후속 조치와 내부 감사, 규정 준수 대응 자료로 활용할 수 있다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "진천군, 생성형 AI 유료 구독료 최대 10만원 지원",
+      "source": "www.nsenior.co.kr",
+      "link": "https://www.nsenior.co.kr/news/article.html?no=138670",
+      "publishedAt": "Tue, 06 Oct 2026 23:49:24 GMT",
+      "date": "2026-10-07",
+      "category": "genai",
+      "bullets": [
+        "지원 대상은 진천군에 주소를 둔 19세부터 39세까지 청년이다.",
+        "특히 이번 사업은 단순한 생성형 AI 이론 교육에서 벗어나 청년들이 자신의 목적과 업무에 적합한 AI 도구를 직접 선택하고 취·창업 준비와 실무 학습에 활용할 수 있도록 지원하는 데 초점을 맞췄다.",
+        "이를 통해 생성형 AI 이용에 따른 경제적 부담을 낮추는 동시에 청년들의 디지털 활용 능력과 실무 경쟁력을 높일 수 있을 것으로 군은 기대하고 있다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "부산시 홈페이지 전면 개편…'AI 시민비서' 시범 운영",
+      "source": "연합뉴스",
+      "link": "https://www.yna.co.kr/amp/view/AKR20261007020700051",
+      "publishedAt": "Tue, 06 Oct 2026 23:05:57 GMT",
+      "date": "2026-10-07",
+      "category": "genai",
+      "bullets": [
+        "부산시는 민선 9기 출범 100일을 맞아 시 홈페이지를 전면 개편했다고 7일 밝혔다.",
+        "기존 이미지·영상 중심의 화면 구성에서 벗어나 시민이 필요한 정보를 한눈에 확인할 수 있도록 콘텐츠 중심의 3단 구조로 개편했다.",
+        "시범운영하는 'AI 시민비서'는 시민의 다양한 질문에 24시간 응답하는 생성형 AI 기반 챗봇 서비스다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "한국미래기술교육硏, 28일 'AI 기반 의료·바이오 R&D 혁신 전략' 세미나 개최",
+      "source": "비즈니스플러스",
+      "link": "http://www.businessplus.kr/news/articleView.html?idxno=117784",
+      "publishedAt": "Tue, 06 Oct 2026 23:44:42 GMT",
+      "date": "2026-10-07",
+      "category": "biz",
+      "bullets": [
+        "한국미래기술교육연구원은 오는 28일 'AI 기반 의료·바이오 R&D 혁신 전략' 세미나​를 온·오프라인 병행으로 개최한다고 7일 밝혔다.",
+        "여의도 FKI타워 컨퍼런스센터 2층 사파이어홀​에서 개최되는 이번 세미나는 의료·바이오 연구개발 혁신을 위한 최신 기술과 산업 적용 전략을 종합적으로 살펴보기 위해 마련됐다.",
+        "최근 의료·바이오 산업은 AI를 활용한 영상 판독과 데이터 분석을 넘어, 병원과 연구소, 제약기업의 연구개발 전 과정에 AI를 적용하는 방향으로 빠르게 변화하고 있다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "日 슈퍼호텔, AI 회계 대행업 진출…스타트업 시장 겨냥",
+      "source": "디지털투데이",
+      "link": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=705423",
+      "publishedAt": "Tue, 06 Oct 2026 23:44:23 GMT",
+      "date": "2026-10-07",
+      "category": "biz",
+      "bullets": [
+        "일본의 비즈니스 호텔 체인인 슈퍼호텔이 AI를 활용한 회계 대행 사업에 나선다.",
+        "자체 자동화 노하우를 묶어 스타트업용 외부 서비스로 판매할 계획이다.",
+        "일본 비즈니스호텔 체인 슈퍼호텔이 인공지능(AI)을 활용한 회계 대행 사업에 진출한다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "세종시-액티스코리아 AI데이터센터 건립 협력",
+      "source": "일간투데이",
+      "link": "https://www.dtoday.co.kr/news/articleView.html?idxno=795679",
+      "publishedAt": "Tue, 06 Oct 2026 22:40:25 GMT",
+      "date": "2026-10-07",
+      "category": "biz",
+      "bullets": [
+        "세종특별자치시(시장 조상호)가 글로벌 투자기업 액티스코리아와 손잡고 대규모 인공지능(AI) 데이터센터 건립에 나선다.",
+        "시는 6일 시청 세종실에서 조상호 시장, 최용석 액티스코리아(유) 대표이사가 참석한 가운데 ‘인공지능(AI) 데이터센터 건립 협력을 위한 투자양해각서(MOU)’를 체결했다고 밝혔다.",
+        "액티스코리아는 글로벌 인프라 투자사 액티스(Actis)의 한국법인으로, 2020년 국내 데이터센터 시장에 진출한 후 안양 에포크 데이터센터를 비롯해 국내 데이터센터 투자를 확대해 왔다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "대학들이 인공지능에 투자하고 있음에도 불구하고, 기업들은 여전히 ​​인공지능 관련 요구 사항을 충족할 인력이 부족한 실정입니다.",
+      "source": "Vietnam.vn",
+      "link": "https://www.vietnam.vn/ko/dai-hoc-dau-tu-ai-doanh-nghiep-van-thieu-nhan-luc-dap-ung-yeu-cau",
+      "publishedAt": "Tue, 06 Oct 2026 20:48:53 GMT",
+      "date": "2026-10-07",
+      "category": "biz",
+      "bullets": [
+        "베트남은 인공지능(AI) 도입률이 높은 시장 중 하나입니다.",
+        "설문 조사에 참여한 고등 교육 기관 책임자 중 96%가 소속 기관이 인공지능(AI)에 투자하고 있다고 응답했습니다.",
+        "그러나 베트남 고용주 중 AI가 통합된 업무 환경에 필요한 핵심 역량을 최근 졸업생들이 \"탁월하다\"고 평가한 비율은 15%에 불과했습니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "한국공학대 연구팀, SLW 2026서 유아 교육·돌봄 현장 AI 활용 방안 제시",
+      "source": "한국대학신문",
+      "link": "https://news.unn.net/news/articleView.html?idxno=598341",
+      "publishedAt": "Tue, 06 Oct 2026 23:55:24 GMT",
+      "date": "2026-10-07",
+      "category": "tech",
+      "bullets": [
+        "‘유아 인공지능 동반자 포럼’은 서울시가 주최하는 글로벌 스마트시티·AI 행사인 ‘스마트라이프위크(SLW) 2026’의 프로그램 중 하나로 진행됐다.",
+        "한국공학대가 주관한 이번 포럼은 과학기술정보통신부와 한국연구재단이 지원하는 미래개척융합과학기술개발사업 과제의 일환으로 유아 교육과 돌봄에 활용될 AI 동반자에 대한 개발 및 활용 가이드를 마련하기 위해 개최됐다.",
+        "유아용 인공지능 동반자는 아이의 말과 상황을 이해하고 그에 맞춰 대화를 이어가는 인공지능 기술이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "인천시, 피지컬 AI 실증센터 구축 사업 착수··· 내년 4월 완공 예정",
+      "source": "인천투데이",
+      "link": "https://www.incheontoday.com/news/articleView.html?idxno=324558",
+      "publishedAt": "Tue, 06 Oct 2026 23:47:02 GMT",
+      "date": "2026-10-07",
+      "category": "tech",
+      "bullets": [
+        "시는 '2026년 피지컬 인공지능(AI) 실증센터 구축 및 운영' 사업에 착수해 인천글로벌캠퍼스 내에 기술의 모사와 가상환경 실증을 뒷받침할 '인천 피지컬 인공지능(AI) 실증센터'를 조성한다고 설명했다고 7일 밝혔다.",
+        "이번 사업은 지역 제조와 물류 등 주력산업에 피지컬 인공지능(AI) 기술을 융합하고, 기술 검증에서 실제 현장 적용까지 단계별 연계 기반을 마련하기 위해 추진됐다.",
+        "시는 이달까지 실증센터 설계와 모사·가상환경 실증 수요조사를 마치고, 내년 4월까지 인프라 구축을 완료해 지역 기업을 대상으로 기술 실증 지원에 나설 계획이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "“알렉사·AGI 이끌던 AI 전문가”…보스턴다이나믹스 새 CEO에 로히트 프라사드",
+      "source": "에너지경제신문",
+      "link": "https://www.ekn.kr/web/view.php?key=20261007024443092",
+      "publishedAt": "Tue, 06 Oct 2026 23:42:21 GMT",
+      "date": "2026-10-07",
+      "category": "tech",
+      "bullets": [
+        "현대차그룹의 로봇 계열사 보스턴다이나믹스가 아마존에서 인공지능(AI) 기술 개발을 이끌어온 로히트 프라사드를 신임 최고경영자(CEO)로 영입했다.",
+        "로봇 기술에 AI 역량을 결합해 피지컬 AI 사업 경쟁력을 강화하려는 행보다.",
+        "보스턴다이나믹스는 글로벌 AI 분야 기술 리더인 로히트 프라사드를 신임 CEO로 영입했다고 7일 밝혔다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "보스턴다이나믹스, 아마존 AI 핵심 인재 로히트 프라사드 CEO 영입",
+      "source": "PRESS9",
+      "link": "http://www.press9.kr/news/articleView.html?idxno=83790",
+      "publishedAt": "Tue, 06 Oct 2026 23:23:35 GMT",
+      "date": "2026-10-07",
+      "category": "tech",
+      "bullets": [
+        "[프레스나인]현대자동차그룹의 로봇 계열사 보스턴다이나믹스가 아마존에서 인공지능(AI) 사업을 이끌어온 로히트 프라사드를 신임 최고경영자(CEO)로 영입한다.",
+        "세계 최고 수준의 로봇 기술에 대규모 AI 모델 개발 및 사업화 경험을 결합해 피지컬 AI(Physical AI) 경쟁력을 본격적으로 끌어올리겠다는 전략으로 풀이된다.",
+        "로히트 프라사드는 대화형 AI와 생성형 AI, 멀티모달 AI, 범용인공지능(AGI) 등 다양한 분야에서 기술 개발과 사업화를 이끌어온 AI 전문가다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "코딧, 제품 문서 읽고 규제 찾아주는 AI 기술 특허 등록",
+      "source": "디지털데일리",
+      "link": "https://www.ddaily.co.kr/page/view/2026100709154321708",
+      "publishedAt": "Wed, 07 Oct 2026 00:19:48 GMT",
+      "date": "2026-10-07",
+      "category": "policy",
+      "bullets": [
+        "인공지능(AI) 기반 법·규제·정책 데이터 플랫폼 기업 코딧이 제품 사양서나 매뉴얼을 분석해 관련 규제 정보를 찾아주는 AI 기술에 대한 특허를 확보했다.",
+        "코딧은 거대언어모델(LLM)을 활용한 제품 관련 규제 정보 탐색 기술 특허를 등록했다고 7일 밝혔다.",
+        "해당 기술은 제품 사양서·매뉴얼 등 문서에 담긴 정보를 분석해 제품과 연관된 법령과 규제 자료를 검색하고 관련 조문과 출처를 함께 제공하는 것이 핵심이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "EU AI법 시대, '규제 준수'가 유럽 시장 진입의 핵심 경쟁력이 되다",
+      "source": "한국공공정책신문",
+      "link": "http://knpp.co.kr/news/558350",
+      "publishedAt": "Tue, 06 Oct 2026 20:52:46 GMT",
+      "date": "2026-10-07",
+      "category": "policy",
+      "bullets": [
+        "2026년 10월 1일, 핀란드 헬싱키 대학교 산하 Finnish Center for Artificial Intelligence(FCAI)가 'EU AI Act와 책임 있는 AI 개발 및 배포'에 관한 연구 결과를 발표했다.",
+        "이 연구는 EU의 인공지능 규제법(EU AI Act)에 맞춘 '책임 있는 AI(Responsible AI)' 설계가 제품 전략과 R&D 조직구조를 근본적으로 바꿀 수 있음을 보여준다.",
+        "단순한 규제 해석을 넘어, 기업이 실제 제품 개발 단계에서 규제 요건을 내재화하는 방법론을 제시함으로써 기업 전략 차원에서의 구조적 대응을 요구하는 내용이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "뉴욕시, AI '킬스위치' 의무화...AI 보안·평가시장 주목",
+      "source": "Naver Blog",
+      "link": "https://blog.naver.com/PostView.naver?blogId=dealsite&logNo=224433396136&redirect=Dlog",
+      "publishedAt": "Tue, 06 Oct 2026 18:36:42 GMT",
+      "date": "2026-10-07",
+      "category": "policy",
+      "bullets": [
+        "뉴욕시가 ‘킬스위치’를 의무화하는 법안을 추진하고 있다.",
+        "미국 뉴욕시가 제3자의 검증을 통해 AI가 위험하다고 판단될 경우 사람이 직접 작동을 멈추는 이른바 '킬스위치(Kill Switch)'를 의무화하는 법안을 추진하고 있습니다.",
+        "지난 5일(현지시간) 뉴욕시의회는 AI 청문회를 열어 오픈AI·앤트로픽 등 주요 AI 기업을 상대로 안전성과 통제 문제를 집중적으로 따져 물었습니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "노르웨이, 공공장소 ‘AI 안경’ 일시 금지 추진…세계 첫 규제 움직임",
+      "source": "AI타임스",
+      "link": "https://www.aitimes.com/news/articleView.html?idxno=215999",
+      "publishedAt": "Tue, 06 Oct 2026 08:50:59 GMT",
+      "date": "2026-10-06",
+      "category": "policy",
+      "bullets": [
+        "웨어러블 기술을 둘러싼 개인정보 보호 우려가 커지는 가운데,노르웨이가 주요 국가 가운데 처음으로 일부 공공장소에서 AI 안경 사용을 일시적으로 금지하는 방안을 제안했다.",
+        "카메라와 마이크가 탑재된 AI 안경을 통해 본인도 모르는 사이 사진이나 영상, 음성이 기록될 수 있다는 우려가 커지면서 나온 조치다.",
+        "5일(현지시간) 파이낸셜타임스와 로이터 등에 따르면, 노르웨이 정부는 공원과 해변, 박물관, 쇼핑센터, 공공 행사장 등 사람들이 많이 모이는 장소에서 AI 안경 사용을 제한하는 법안을 조만간 의회에 제출할 예정이다."
+      ],
+      "contentVerified": true
+    }
+  ],
+  "weekly": [
     {
       "title": "[기고] 생성형 AI 시대, 대학 강의실의 재설계",
       "source": "서울신문",
@@ -17,123 +243,137 @@
       "contentVerified": true
     },
     {
-      "title": "음성군, 생성형 AI(상상On) 실무교육으로 공공행정 혁신 이끈다",
-      "source": "음성뉴스",
-      "link": "http://www.esnews.co.kr/news/articleView.html?idxno=34585",
-      "publishedAt": "Tue, 06 Oct 2026 12:25:00 GMT",
+      "title": "성주군 공무원, 생성형 AI로 군정 홍보 콘텐츠 제작",
+      "source": "경북일보",
+      "link": "https://www.kyongbuk.co.kr/news/articleView.html?idxno=4086405",
+      "publishedAt": "Tue, 06 Oct 2026 08:54:02 GMT",
       "date": "2026-10-06",
       "category": "genai",
       "bullets": [
-        "음성군이 생성형 AI실무교육으로 공공행정 혁신을 이끈다.",
-        "음성군이 인공지능 시대에 발맞춰 직원들의 디지털 행정 역량을 강화하고 똑똑하게 일하는 공직 사회 만들기에 본격적으로 나선다.",
-        "군은 이달 6일부터 14일까지 총 6회에 걸쳐 음성읍 정보화교육장에서 직원 200여 명을 대상으로 ‘생성형 AI(상상On) 실무교육’을 실시한다고 밝혔다."
+        "성주군이 생성형 AI를 군정 홍보 현장에 본격 접목한다.",
+        "보도자료 작성부터 카드뉴스, 영상 콘텐츠 제작까지 직원들이 직접 다뤄보며 변화한 미디어 환경에 맞는 실무 능력을 키우는 데 초점을 맞췄다.",
+        "성주군은 6일부터 7일까지 이틀간 기장군 일원에서 소속 공무원을 대상으로 ‘AI 활용 군정 홍보 역량 강화 워크숍’을 진행 중이다."
       ],
       "contentVerified": true
     },
     {
-      "title": "[추론형 AI vs 생성형 AI… \"콘텐츠 생산\"에서 \"판단과 실행\"으로] 추론 AI는 분석, 계획, 의사결정, 작업 수행에 더 중점을 둔다. 쉽게 말해 생성형 AI가 \"답을 만들어내는\" 기술이라면, 추론 AI는 \"문제를 풀고 행동으로 옮기는\" 기술",
-      "source": "AI넷",
-      "link": "http://www.ainet.link/29121",
-      "publishedAt": "Tue, 06 Oct 2026 10:57:11 GMT",
+      "title": "디지털엑스, 앱 전면 개편…생성형 AI 챗봇·대화형 주문 도입",
+      "source": "매일일보",
+      "link": "https://www.m-i.kr/news/articleView.html?idxno=2003074",
+      "publishedAt": "Tue, 06 Oct 2026 06:38:17 GMT",
       "date": "2026-10-06",
       "category": "genai",
       "bullets": [
-        "생성형 AI와 추론 AI는 같은 인공지능 기술 범주에 속하지만, 작동 방식과 활용 목적에서 뚜렷하게 구분된다.",
-        "생성형 AI는 주로 텍스트, 이미지, 코드, 보고서 등 콘텐츠를 만들어내는 데 초점을 맞춘다.",
-        "반면 추론 AI는 분석, 계획, 의사결정, 작업 수행에 더 중점을 둔다."
+        "매일일보 = 최영훈 기자 | 김정은 북한 국무위원장이 7일 블라디미르 푸틴 러시아 대통령에게 생일 축전을 보냈다.",
+        "매일일보 = 이상래 기자 | 중대범죄수사청 개문발차(開門發車) 사태에 대해 윤호중 행정안전부 장관이 6일 \"대단히 송구하게 생각하고 있다\"고 밝혔다.",
+        "매일일보 = 성승환 기자 | PXG어패럴이 26 F/W 시즌을 맞아 한정판 라인업 3종을 선보인다."
       ],
       "contentVerified": true
     },
     {
-      "title": "“전문가 솜씨 그대로 찰칵”… 스튜디오랩, 피지컬·생성형 AI 결합 무인 로봇 촬영 시연",
-      "source": "산업일보",
-      "link": "https://kidd.co.kr/news/247636",
-      "publishedAt": "Tue, 06 Oct 2026 09:50:13 GMT",
+      "title": "서강대, 생성형 AI 아이디어 공모전…10개 팀 수상",
+      "source": "중앙일보",
+      "link": "https://www.joongang.co.kr/article/25467474",
+      "publishedAt": "Tue, 06 Oct 2026 06:04:00 GMT",
       "date": "2026-10-06",
       "category": "genai",
       "bullets": [
-        "이동 통신망을 이용하여 음성을 재생하면 별도의 데이터 통화료가 부과될 수 있습니다.",
-        "로봇 팔에 장착된 카메라가 피사체의 움직임과 포즈에 맞춰 스스로 구도를 설정하고 조명 환경을 조절하며 사진을 촬영한다.스튜디오랩은 비전 AI 기능과 로봇 제어 기술을 결합한 무인 촬영 솔루션을 제공한다.",
-        "이 로봇은 전문 포토그래퍼의 촬영 기술을 학습했다."
+        "더중앙플러스 회원이 되시면 창간호부터 전체 지면보기와 지면 다운로드가 가능합니다.",
+        "‘2026 서강대학교 생성형 AI 기반 아이디어 공모전’ 수상자들이 기념촬영을 하고 있다.",
+        "이번 공모전은 앵커사업의 AI 기반 교육·연구혁신 지원과 AI중심대학사업단의 추진 방향을 연계해 마련됐다."
       ],
       "contentVerified": true
     },
     {
-      "title": "세종시, 1조 8천억 AI데이터센터 유치",
-      "source": "세종시민일보",
-      "link": "https://www.sejongyeonhap.co.kr/news/articleView.html?idxno=57926",
-      "publishedAt": "Tue, 06 Oct 2026 16:17:59 GMT",
-      "date": "2026-10-07",
-      "category": "biz",
-      "bullets": [
-        "세종특별자치시(시장 조상호)가 글로벌 투자기업 액티스코리아와 손잡고 대규모 인공지능(AI) 데이터센터 건립에 나선다.",
-        "시는 2026년 10월 6일 시청 세종실에서 조상호 시장, 최용석 액티스코리아(유) 대표이사가 참석한 가운데 '인공지능(AI) 데이터센터 건립 협력을 위한 투자양해각서(MOU)'를 체결했다고 밝혔다.",
-        "액티스코리아는 글로벌 인프라 투자사 액티스(Actis)의 한국법인으로, 2020년 국내 데이터센터 시장에 진출한 후 안양 에포크 데이터센터를 비롯해 국내 데이터센터 투자를 확대해 왔다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "베르그송의 시간과 AI [한겨레 프리즘]",
-      "source": "한겨레",
-      "link": "https://www.hani.co.kr/arti/opinion/column/1281198.html",
-      "publishedAt": "Tue, 06 Oct 2026 10:37:00 GMT",
+      "title": "AI는 기업이 파트너와 시장을 찾는 새로운 길을 열어줍니다.",
+      "source": "Vietnam.vn",
+      "link": "https://www.vietnam.vn/ko/ai-mo-cach-moi-de-doanh-nghiep-tim-doi-tac-va-thi-truong",
+      "publishedAt": "Tue, 06 Oct 2026 04:30:35 GMT",
       "date": "2026-10-06",
       "category": "biz",
       "bullets": [
-        "2025년 7월 미국 캘리포니아주 샌프란시스코의 한 전봇대에 ‘AI를 멈춰라’라고 적힌 표지판이 걸려 있다.",
-        "인공지능(AI)이 인간이 아직 완전히 이해하지 못하는 방식으로 세상을 바꾸고 있다.",
-        "우리가 알고 있는 분명한 것은 인공지능이 일의 생산성과 자본 증식의 수단이라는 점이다."
+        "기업들이 파트너, 기술 및 시장을 찾는 방식을 바꿀 것으로 기대되는 공유 디지털 플랫폼이 출시되었습니다.",
+        "단순히 무역 박람회에서 며칠 동안 만나는 것에 그치지 않고, 데이터와 AI를 활용하면 기업들은 연중 내내 협업 기회를 지속적으로 탐색, 분석하고 발굴할 수 있습니다.",
+        "10월 5일 오전 하노이에서 과학기술부 산하 혁신국 소속 혁신지원센터(ISC)는 아로비드 테크놀로지(Arobid Technology JSC)와 협력하여 혁신을 연결하는 플랫폼인 ISC 플랫폼을 출범시켰습니다."
       ],
       "contentVerified": true
     },
     {
-      "title": "\"K-콘텐츠 경쟁력 앞세워 세계로\"…스튜디오메타케이, 글로벌 AI 콘텐츠 시장 정조준",
+      "title": "유락, ‘AI 디지털 포렌식’ 앞세워 일본 시장 공략 가속",
+      "source": "보안뉴스",
+      "link": "https://www.boannews.com/news/articleView.html?idxno=146209",
+      "publishedAt": "Tue, 06 Oct 2026 04:26:52 GMT",
+      "date": "2026-10-06",
+      "category": "biz",
+      "bullets": [
+        "AI 디지털 포렌식 전문기업 유락(대표 유봉석)이 AI 기반 디지털 포렌식 기술을 앞세워 일본 사업 확대에 나선다.",
+        "기존 일본 사업을 발판으로 AI 데이터 분석과 데이터 리스크 관리 영역으로 사업 범위를 넓히고, 현지 파트너십을 강화한다는 전략이다.",
+        "![Image 24: ▲유락이 일본 ‘리스콘 도쿄 2026’에서 AI 디지털 포렌식 솔루션 ‘디파스’(DFAS) 시리즈를 선보이고 있다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "[테마시황] AI 훈풍 올라탄 반도체 소부장…국내 반도체 장비株 '들썩'",
+      "source": "인포스탁데일리",
+      "link": "https://www.infostockdaily.co.kr/news/articleView.html?idxno=218267",
+      "publishedAt": "Tue, 06 Oct 2026 02:44:07 GMT",
+      "date": "2026-10-06",
+      "category": "biz",
+      "bullets": [
+        "이 같은 테마 형성과 투자 심리 개선은 지난밤 미국 증시에서 확인된 기술주 중심의 강세 흐름에 영향을 받은 것으로 풀이된다.",
+        "현지시간 5일 미국 증시에서 AI 랠리를 주도하는 대장주 엔비디아 주가는 전 거래일 대비 2.12% 상승한 238.90달러를 기록해 사흘 연속 사상 최고 종가를 경신했다.",
+        "기술주 중심의 나스닥 지수가 1.05%, 필라델피아 반도체 지수가 0.27% 각각 오르며 글로벌 반도체 생태계 전반의 긍정적 기류가 국내 시장에도 전달된 모습이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "김기재 당진시장 \"도약의 발판 마련\"",
+      "source": "굿모닝충청",
+      "link": "https://www.goodmorningcc.com/news/articleView.html?idxno=453492",
+      "publishedAt": "Tue, 06 Oct 2026 01:49:20 GMT",
+      "date": "2026-10-06",
+      "category": "biz",
+      "bullets": [
+        "김기재 당진시장이 인공지능(AI)과 산업 전환, 광역교통망 확충을 민선9기 핵심축으로 제시했다.",
+        "기업과 투자를 유치하는 데 그치지 않고 일자리와 의료·교육·교통·문화 개선으로 연결해 시민이 체감하는 성장 구조를 만들겠다는 구상이다.",
+        "김 시장은 6일 오전 시청 해나루홀에서 취임 100일 기자회견을 열고 지난 성과와 향후 시정 운영 방향을 밝혔다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "자율주행·AI 에이전트 혁신 이끈다… '국가 AI 대상' 10개 기업·1인 선정",
       "source": "지디넷코리아",
-      "link": "https://zdnet.co.kr/view/?no=20261006180717",
-      "publishedAt": "Tue, 06 Oct 2026 09:26:00 GMT",
-      "date": "2026-10-06",
-      "category": "biz",
+      "link": "https://zdnet.co.kr/view/?no=20260928113805",
+      "publishedAt": "Wed, 30 Sep 2026 05:19:49 GMT",
+      "date": "2026-09-30",
+      "category": "tech",
       "bullets": [
-        "AI 콘텐츠·엔터테크 기업 스튜디오메타케이 가 글로벌 인공지능(AI) 콘텐츠 시장을 공략하기 위해 축적한 AI 영상 제작 역량과 사례를 선보인다.",
-        "스튜디오메타케이는 6일 서울 코엑스에서 열린 'AI페스타 26'에 참가해 생성형 AI와 버추얼 휴먼 기술을 실제 상업 콘텐츠 제작 현장에 적용한 사례와 실무형 워크플로우를 소개했다.",
-        "스튜디오메타케이는 이번 전시에서 단순 기술 데모 시연을 탈피하고, 현업에서 즉시 활용 가능한 '실무형 AI 제작 워크플로우'를 중점적으로 공개했다."
+        "피지컬 인공지능(AI)과 자율주행, AI 에이전트 등 다양한 분야에서 기술과 서비스를 개발한 기업 10곳과 혁신가 1명이 국가 AI 대상 수상자로 선정됐다.",
+        "시상식은 다음달 6일 서울 코엑스에서 열리는 AI페스타26에서 진행된다.",
+        "과학기술정보통신부가 주최하고 한국인공지능·소프트웨어산업협회(KOSA)가 주관하는 국가 AI 대상은 AI 기술 개발과 활용을 통해 산업 발전과 기술·서비스 혁신에 기여한 기업과 리더를 선정하는 상이다."
       ],
       "contentVerified": true
     },
     {
-      "title": "韓 스타트업, 日·獨 독점 'AI 반도체 접착소재' 개발",
-      "source": "전자신문",
-      "link": "https://www.etnews.com/20261006000119",
-      "publishedAt": "Tue, 06 Oct 2026 07:00:00 GMT",
-      "date": "2026-10-06",
-      "category": "biz",
-      "bullets": [
-        "일본과 독일 기업이 독점해 온 인공지능(AI) 반도체 접착소재 시장에 우리나라 기업이 진입 준비를 마쳤다.",
-        "국내 소재 스타트업 코파는 반도체 칩과 기판 사이 공간을 채우는 언더필(Underfill) 개발에 성공, 주요 패키징기업과 품질평가(퀄)에 돌입했다고 6일 밝혔다.",
-        "퀄 테스트 결과에 따라 이르면 연내 초기 양산을 개시할 계획이며, 이후 HBM852 용 언더필까지 시장 확장을 타진한다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "모멘트큐브, 멀티모달 AI 기반 예지보전 기술 개발 총괄한다",
-      "source": "elec4",
-      "link": "https://elec4.co.kr/contents/article_detail?article_idx=38458",
-      "publishedAt": "Tue, 06 Oct 2026 17:30:51 GMT",
+      "title": "[에이전틱 AI 맵 2026] 업스테이지, 솔라·문서 AI로 업무 자동화…모델부터 에이전트·포털까지 연결",
+      "source": "IT조선",
+      "link": "https://it.chosun.com/news/articleViewAmp.html?idxno=2023092171433",
+      "publishedAt": "Tue, 06 Oct 2026 22:34:41 GMT",
       "date": "2026-10-07",
       "category": "tech",
       "bullets": [
-        "산업 AI 전문기업 모멘트큐브(대표 정한직)가 중소벤처기업부의 ‘2026년 창업성장기술개발사업 디딤돌 도약(글로벌 R&D)’ 과제에 선정됐다.",
-        "모멘트큐브는 종합 전력 솔루션 기업 근우(대표 김재진)와 함께 전기설비의 이상 징후를 조기에 탐지하고, 원인 분석부터 점검·조치까지 지원하는 AI 기반 예지보전 기술을 개발한다.",
-        "센서 데이터를 통합·처리하는 기술부터 정상·이상 상태를 구분하는 AI 모델, 이상 원인과 위험도를 분석하는 진단 기술, 점검·조치 방향을 제시하는 의사결정 지원 기술까지 개발한다."
+        "인공지능(AI) 에이전트 시대가 본격화되고 있지만 국내에서는 아직 시장을 대표하는 기업이나 생태계의 윤곽이 뚜렷하지 않다.",
+        "IT조선은 한국지능정보사회진흥원(NIA)과 공동기획으로 국내 AI 에이전트 산업의 현주소를 살펴보기 위한 ‘에이전틱 AI 맵’ 프로젝트를 진행한다.",
+        "1차로 에이전틱 AI 얼라이언스 회원사를 대상으로 설문조사를 실시했으며, 응답 기업과 국내 주요 AI 기업을 중심으로 기획시리즈를 이어간다."
       ],
       "contentVerified": true
     },
     {
       "title": "인공지능 모델부터 로봇까지...최첨단 AI기술 '총 집합'",
       "source": "센트럴경제",
-      "link": "http://www.newskr.kr/news/articleViewAmp.html?idxno=106946",
-      "publishedAt": "Tue, 06 Oct 2026 15:19:19 GMT",
-      "date": "2026-10-07",
+      "link": "https://www.newskr.kr/news/articleView.html?idxno=106946",
+      "publishedAt": "Tue, 06 Oct 2026 14:00:00 GMT",
+      "date": "2026-10-06",
       "category": "tech",
       "bullets": [
         "인공지능(AI) 산업의 경쟁 무대가 ‘더 똑똑한 AI’를 만드느냐에서 실제 산업 현장에서 AI를 얼마나 잘 활용하느냐로 이동하고 있다.",
@@ -143,58 +383,44 @@
       "contentVerified": true
     },
     {
-      "title": "한기대 학생들이 만든 AI 기술 한자리에…‘AI 페스타 2026’서 7개 작품 공개",
-      "source": "프레시안",
-      "link": "https://www.pressian.com/pages/articles/2026100617344514638",
-      "publishedAt": "Tue, 06 Oct 2026 08:34:45 GMT",
+      "title": "북한 “AI로 저고도서 궤도 변경”…전문가 “AI 기술 제한적” – RFA 자유아시아방송",
+      "source": "Radio Free Asia",
+      "link": "https://www.rfa.org/korean/in-focus/2026/10/06/north-korea-claims-ai-guided-missile-test/",
+      "publishedAt": "Tue, 06 Oct 2026 08:19:48 GMT",
       "date": "2026-10-06",
       "category": "tech",
       "bullets": [
-        "한국기술교육대학교 학생들이 직접 개발한 인공지능(AI)·소프트웨어(SW) 기술을 국내 최대 규모 AI행사에서 선보인다.",
-        "한국기술교육대는 6일부터 8일까지 서울 코엑스에서 열리는 ‘인공지능 페스타(AI Festa) 2026’에 참가해 학생들의 졸업 연구 작품 7점을 전시한다고 밝혔다.",
-        "이번 행사에는 350개 기업·기관이 500개 부스 규모로 참여하며 약 6만명의 관람객이 찾을 것으로 예상된다."
+        "북한이 인공지능(AI)을 활용해 저고도에서 비행 궤도를 바꿀 수 있는 미사일을 시험 발사했다고 주장했다.",
+        "하지만 한국 군 당국은 해당 미사일의 비행을 충분히 탐지·요격 가능하다고 밝혔으며, 전문가들도 미사일에 활용된 AI 기술이 상당히 제한적일 것이라고 분석했다.",
+        "북한 조선중앙통신은 4일 김정은 국무위원장이 전날 딸 김주애, 부인 리설주와 함께 미사일 발사 훈련을 참관했다고 보도했다."
       ],
       "contentVerified": true
     },
     {
-      "title": "충남콘진원, AI페스타서 영상 제작·헬스케어 AI 기술 조명…스타트업 시장 진출 지원",
-      "source": "지디넷코리아",
-      "link": "https://zdnet.co.kr/view/?no=20261006172439",
-      "publishedAt": "Tue, 06 Oct 2026 08:27:59 GMT",
-      "date": "2026-10-06",
-      "category": "tech",
-      "bullets": [
-        "충남콘텐츠진흥원이 이달 6일부터 8일까지 서울 코엑스에서 열리는 'AI 페스타 26'에 참가해 공동 부스를 운영한다.",
-        "이번 전시는 지역 유망 기업의 우수한 기술 경쟁력을 알리고, 시장 진출을 돕기 위해 마련됐다.",
-        "이날 현장 부스에는 영상 제작 전문 스타트업 '담가라'와 헬스케어·모션 분석 전문기업 '리모'가 참가해 각 분야 혁신 기술을 선보였다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "뉴욕시, AI '킬스위치' 의무화...AI 보안·평가시장 주목",
-      "source": "Naver Blog",
-      "link": "https://blog.naver.com/PostView.naver?blogId=dealsite&logNo=224433396136&redirect=Dlog",
-      "publishedAt": "Tue, 06 Oct 2026 12:36:42 GMT",
-      "date": "2026-10-06",
+      "title": "美 정부, ‘AI’ 대신 ‘슈퍼 인텔리전스(SI)’ 쓴다…'AI'와 'SI'의 이중 용어 체계, 글로벌 혼란 가중",
+      "source": "인공지능신문",
+      "link": "https://www.aitimes.kr/news/articleView.html?idxno=42125",
+      "publishedAt": "Wed, 30 Sep 2026 03:14:21 GMT",
+      "date": "2026-09-30",
       "category": "policy",
       "bullets": [
-        "뉴욕시가 ‘킬스위치’를 의무화하는 법안을 추진하고 있다.",
-        "미국 뉴욕시가 제3자의 검증을 통해 AI가 위험하다고 판단될 경우 사람이 직접 작동을 멈추는 이른바 '킬스위치(Kill Switch)'를 의무화하는 법안을 추진하고 있습니다.",
-        "지난 5일(현지시간) 뉴욕시의회는 AI 청문회를 열어 오픈AI·앤트로픽 등 주요 AI 기업을 상대로 안전성과 통제 문제를 집중적으로 따져 물었습니다."
+        "도널드 트럼프 미국 대통령이 인공지능(AI)을 미국 연방정부에서 공식적으로 ‘슈퍼 인텔리전스(Super Intelligence, SI)’로 부르도록 하는 행정명령에 서명했다.",
+        "미국 백악관은 현지시간 29일 트럼프 대통령이 ‘슈퍼 인텔리전스 시대의 개막(Inaugurating the Era of Super Intelligence)’이라는 제목의 행정명령에 서명했다고 밝혔다.",
+        "행정명령은 미국 행정부가 법률이 허용하는 최대 범위에서 ‘Artificial Intelligence’와 ‘AI’ 대신 ‘Super Intelligence’와 ‘SI’를 사용하도록 규정했다."
       ],
       "contentVerified": true
     },
     {
-      "title": "[글로벌] 챗GPT가 쓴 글, 이제 '흔적' 남는다...오픈AI, '보이지 않는 워터마크' 도입",
-      "source": "테크M",
-      "link": "https://www.techm.kr/news/articleViewAmp.html?idxno=155880",
-      "publishedAt": "Tue, 06 Oct 2026 08:43:41 GMT",
-      "date": "2026-10-06",
+      "title": "코딧, 제품 문서 읽고 규제 찾아주는 AI 기술 특허 등록",
+      "source": "디지털데일리",
+      "link": "https://www.ddaily.co.kr/page/view/2026100709154321708",
+      "publishedAt": "Wed, 07 Oct 2026 00:19:48 GMT",
+      "date": "2026-10-07",
       "category": "policy",
       "bullets": [
-        "오픈AI가 챗GPT와 코덱스가 생성한 글에 '보이지 않는 표시'를 넣기 시작한다.",
-        "사람이 읽을 때는 일반 문장과 차이가 없지만 기계는 해당 글이 인공지능(AI)을 통해 만들어졌다는 신호를 확인할 수 있도록 하는 방식이다.",
-        "6일 주요 외신보도에 따르면 오픈AI는 챗GPT와 코덱스에서 생성되는 텍스트에 기계 판독이 가능한 워터마크를 적용한다."
+        "인공지능(AI) 기반 법·규제·정책 데이터 플랫폼 기업 코딧이 제품 사양서나 매뉴얼을 분석해 관련 규제 정보를 찾아주는 AI 기술에 대한 특허를 확보했다.",
+        "코딧은 거대언어모델(LLM)을 활용한 제품 관련 규제 정보 탐색 기술 특허를 등록했다고 7일 밝혔다.",
+        "해당 기술은 제품 사양서·매뉴얼 등 문서에 담긴 정보를 분석해 제품과 연관된 법령과 규제 자료를 검색하고 관련 조문과 출처를 함께 제공하는 것이 핵심이다."
       ],
       "contentVerified": true
     },
@@ -213,102 +439,16 @@
       "contentVerified": true
     },
     {
-      "title": "중국이 문제가 아니다? 통제법 몰라 '자폭 위기'…전 내부자의 섬뜩 증언 [지금이뉴스]",
-      "source": "YTN",
-      "link": "https://m.ytn.co.kr/news_view.amp.php?param=0545_202610061520014550",
-      "publishedAt": "Tue, 06 Oct 2026 06:20:00 GMT",
+      "title": "앤트로픽 퇴사 연구원 \"AI 통제법 아직 몰라…인류 멸종될 수도\"",
+      "source": "연합뉴스",
+      "link": "https://www.yna.co.kr/view/AKR20261006014500009",
+      "publishedAt": "Mon, 05 Oct 2026 22:32:14 GMT",
       "date": "2026-10-06",
       "category": "policy",
       "bullets": [
-        "인공지능(AI) 개발 경쟁의 위험성을 경고하며 앤트로픽을 떠난 연구원이 미국 뉴욕시의회 청문회에서 \"인류가 AI에 통제권을 잃을 가능성이 더 크다\"고 말했습니다.",
-        "5일(현지시간) 블룸버그 통신과 CNBC 방송에 따르면 앤트로픽 전 연구원 제이컵 콕슨은 이날 뉴욕시의회 AI 청문회에 출석해 \"우리는 아직 어떤 AI 시스템도 통제하는 방법을 모른다\"면서 이같이 말했습니다.",
-        "그는 \"현재 경로대로라면 인류가 AI에 통제권을 잃을 가능성이 그렇지 않을 가능성보다 크며, 이는 인류 멸종으로 끝날 수도 있다\"고 말했습니다."
-      ],
-      "contentVerified": true
-    }
-  ],
-  "weekly": [
-    {
-      "title": "음성군, 생성형 AI(상상On) 실무교육으로 공공행정 혁신 이끈다",
-      "source": "음성뉴스",
-      "link": "http://www.esnews.co.kr/news/articleView.html?idxno=34585",
-      "publishedAt": "Tue, 06 Oct 2026 12:25:00 GMT",
-      "date": "2026-10-06",
-      "category": "genai",
-      "bullets": [
-        "음성군이 생성형 AI실무교육으로 공공행정 혁신을 이끈다.",
-        "음성군이 인공지능 시대에 발맞춰 직원들의 디지털 행정 역량을 강화하고 똑똑하게 일하는 공직 사회 만들기에 본격적으로 나선다.",
-        "군은 이달 6일부터 14일까지 총 6회에 걸쳐 음성읍 정보화교육장에서 직원 200여 명을 대상으로 ‘생성형 AI(상상On) 실무교육’을 실시한다고 밝혔다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "디지털엑스, 앱 전면 개편…생성형 AI 기반 자산관리·대화형 주문 도입",
-      "source": "블루밍비트",
-      "link": "https://bloomingbit.io/feed/news/121661",
-      "publishedAt": "Tue, 06 Oct 2026 05:28:19 GMT",
-      "date": "2026-10-06",
-      "category": "genai",
-      "bullets": [
-        "본 AI 분석은 참고용 정보 제공을 목적으로 하며, 그 정확성을 보장하지 않습니다.",
-        "또한 본 내용은 투자 권유가 아니며, 모든 투자 판단과 그에 따른 책임은 이용자 본인에게 있습니다.",
-        "보다 자세한 내용은 STAT AI의 분석 기준에서 확인하실 수 있습니다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "서강대, 생성형 AI 기반 아이디어 공모전 성료",
-      "source": "한국대학신문",
-      "link": "https://news.unn.net/news/articleView.html?idxno=598278",
-      "publishedAt": "Tue, 06 Oct 2026 01:10:35 GMT",
-      "date": "2026-10-06",
-      "category": "genai",
-      "bullets": [
-        "이번 공모전은 앵커사업(구 RISE사업)의 AI 기반 교육·연구혁신 지원을 바탕으로 AI중심대학사업단의 추진 방향을 연계하여 진행했으며, 생성형 AI를 활용해 대학 현안의 해결 방안을 모색하고자 마련됐다.",
-        "심종혁 총장은 축사를 통해 “AI Driven University라는 서강의 비전이 강의실과 연구실, 행정 현장에서 구체적인 변화로 이어지고 있음을 보여주는 뜻깊은 자리”라며 참가자들의 도전과 노력을 격려했다.",
-        "이어 “여러분의 아이디어가 캠퍼스 곳곳에 뿌리내릴 수 있도록 총장으로서 힘껏 노력하겠다”라고 밝혔다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "평택시, 생성형 AI 영상 제작 교육…농업인 디지털 역량 강화",
-      "source": "뉴스핌",
-      "link": "https://www.newspim.com/news/view/20261003000050",
-      "publishedAt": "Sun, 04 Oct 2026 08:12:00 GMT",
-      "date": "2026-10-04",
-      "category": "genai",
-      "bullets": [
-        "평택시가 지난달 14일부터 29일까지 농업인 대상 생성형 AI 영상 제작 교육을 했다.",
-        "이번 교육은 Vrew 활용 편집과 AI 음성, 자동 자막 제작 등을 실습했다.",
-        "시는 농산물 홍보와 온라인 판매에 디지털 콘텐츠 활용을 기대했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "AI·도시로봇, 도시 문제 해결 기술로 부상…서울시·퀘벡·플랑드르 국제협력 논의",
-      "source": "인공지능신문",
-      "link": "https://www.aitimes.kr/news/articleView.html?idxno=42178",
-      "publishedAt": "Mon, 05 Oct 2026 02:27:10 GMT",
-      "date": "2026-10-05",
-      "category": "tech",
-      "bullets": [
-        "인공지능(AI)과 로봇 기술이 도시의 행정과 생활서비스를 넘어 도시문제 해결을 위한 핵심 기술로 부상하면서 도시정부와 글로벌 연구기관, 기업, 대학 간 기술협력의 중요성이 커지고 있다.",
-        "서울연구원(원장 오균)은 6일 오전 10시 서울 코엑스 컨퍼런스룸 남 3층 307호에서 ‘AI·로보틱스를 통한 도시 과학기술 협력 세미나’를 개최한다.",
-        "이번 세미나는 서울시가 주최하는 ‘스마트라이프위크 2026(Smart Life Week 2026)’ 기간인 10월 6일부터 8일까지 열리는 국제 세미나다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "美 정부, ‘AI’ 대신 ‘슈퍼 인텔리전스(SI)’ 쓴다…'AI'와 'SI'의 이중 용어 체계, 글로벌 혼란 가중",
-      "source": "인공지능신문",
-      "link": "https://www.aitimes.kr/news/articleView.html?idxno=42125",
-      "publishedAt": "Wed, 30 Sep 2026 03:14:21 GMT",
-      "date": "2026-09-30",
-      "category": "policy",
-      "bullets": [
-        "도널드 트럼프 미국 대통령이 인공지능(AI)을 미국 연방정부에서 공식적으로 ‘슈퍼 인텔리전스(Super Intelligence, SI)’로 부르도록 하는 행정명령에 서명했다.",
-        "미국 백악관은 현지시간 29일 트럼프 대통령이 ‘슈퍼 인텔리전스 시대의 개막(Inaugurating the Era of Super Intelligence)’이라는 제목의 행정명령에 서명했다고 밝혔다.",
-        "행정명령은 미국 행정부가 법률이 허용하는 최대 범위에서 ‘Artificial Intelligence’와 ‘AI’ 대신 ‘Super Intelligence’와 ‘SI’를 사용하도록 규정했다."
+        "인공지능이 자동으로 줄인 '세 줄 요약' 기술을 사용합니다.",
+        "전체 내용을 이해하기 위해서는 기사 본문과 함께 읽어야 합니다.",
+        "인공지능(AI) 개발 경쟁의 위험성을 경고하며 앤트로픽을 떠난 연구원이 미국 뉴욕시의회 청문회에서 \"인류가 AI에 통제권을 잃을 가능성이 더 크다\"고 말했다."
       ],
       "contentVerified": true
     }
