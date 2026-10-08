@@ -1,8 +1,84 @@
 {
   "version": "3.3.0",
-  "generated_at": "2026-10-08T01:01:51Z",
-  "generated_kst": "2026-10-08 10:01:51",
+  "generated_at": "2026-10-08T07:25:18Z",
+  "generated_kst": "2026-10-08 16:25:18",
   "posts": [
+    {
+      "date": "2026-10-08",
+      "postUrl": "https://treesoop.com/blog/ai-news-2026-10-08",
+      "entries": [
+        {
+          "title": "오픈AI, AI가 도출한 수학 연구 원고 722편 공개",
+          "paragraphs": [
+            "오픈AI가 내부 프런티어 모델로 미해결 수학 문제를 공략한 결과를 공개했습니다. AI가 도출한 연구 원고 722편과 증명 자료가 대상이고, 증명은 Lean으로 형식화해 GitHub 저장소(openai/math)에 함께 올렸습니다.",
+            "\"AI가 수학 문제를 풀었다\"는 주장은 그동안 검증이 어렵다는 비판을 받아 왔습니다. 이번에는 기계가 검증할 수 있는 형식 증명과 연구 세부를 같이 내놓았다는 점이 다릅니다."
+          ],
+          "sourceUrl": "https://openai.com/index/sharing-ai-progress-in-mathematics/"
+        },
+        {
+          "title": "구글, EmbeddingGemma 2 공개",
+          "paragraphs": [
+            "구글이 740M 파라미터의 오픈 임베딩 모델 EmbeddingGemma 2를 공개했습니다. 텍스트·이미지·오디오·비디오·코드를 하나의 임베딩 공간에 매핑하고, 컨텍스트는 전작의 4배인 8K 토큰입니다. 텍스트만 쓸 때는 270M만 올리고, 비전(170M)과 오디오(300M) 인코더는 필요할 때 붙이는 구조입니다.",
+            "MTEB Code 점수는 68.76에서 78.68로 올랐고, 구글은 1B 미만 멀티모달 임베딩 모델 중 MTEB Code와 MAEB 선두라고 밝혔습니다. 출력 벡터는 768차원에서 128차원까지 잘라 쓸 수 있어 저장 공간을 최대 6배 줄일 수 있습니다.",
+            "양자화하면 Pixel 11 Pro 기준 텍스트 전용 약 191MB, 전체 멀티모달 약 567MB의 RAM으로 돌아갑니다. Apache 2.0 라이선스로 Hugging Face와 Kaggle에 올라와 있고, Ollama와 llama.cpp, MediaPipe를 지원합니다."
+          ],
+          "sourceUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/"
+        },
+        {
+          "title": "Strands Decider 2B, 0.1초 만에 고르는 결정 모델",
+          "paragraphs": [
+            "Strands 팀이 오픈소스 결정 모델 Decider 2B를 내놨습니다. 글을 생성하지 않고, 주어진 선택지 중 하나를 신뢰도 점수와 함께 고르는 모델입니다. Qwen3.5-2B에서 언어 모델 헤드를 떼고 약 100만 파라미터의 포인터 헤드를 붙였으며, rank-16 LoRA로 미세조정했습니다.",
+            "결정 한 번의 중앙값은 RTX 3090에서 약 115ms, M3 맥북에서 약 153ms입니다. JevBench 공개 세트에서는 2B급 33개 중 3위를 기록했습니다.",
+            "모델 라우팅, 도구 선택, 가드레일, 정책 분류처럼 큰 모델을 부르기엔 아까운 판단이 주 용도입니다. 복잡한 문제는 추론 모델보다 약하고 텍스트 생성은 못 하므로, 어려운 결정은 LLM에 맡기고 반복 결정만 넘기는 하이브리드 구성을 권합니다. pip install strands-decider로 설치합니다."
+          ],
+          "sourceUrl": "https://strandsagents.com/blog/introducing-strands-decider/"
+        },
+        {
+          "title": "앤트로픽, 사이버 검증 프로그램 3단계로 확대",
+          "paragraphs": [
+            "앤트로픽이 Cyber Verification Program을 확대했습니다. Project Glasswing과 기존 프로그램을 합쳐 접근 등급을 셋으로 나눴고, 검증을 통과한 보안 전문가에게는 차단 분류기를 완화해 줍니다. 모든 등급에 Claude Opus 5.5, Sonnet 5.5, Mythos 5.1이 포함됩니다.",
+            "Defense Access는 보안 관제, 침해 대응, 악성코드 리버싱, 취약점 검증 같은 방어 업무용으로 며칠 안에 심사됩니다. Red Team Access는 승인된 침투 테스트와 레드팀 업무까지 열어 주며 조직만 신청할 수 있습니다. Specialized Access는 전력망처럼 안전이 중요한 시스템을 시험하는 소수 조직용이고 미국 정부와 함께 심사합니다.",
+            "참여 조직은 오남용 모니터링을 위해 데이터를 보존해야 하고, 물리적 피해나 대규모 장애를 일으킬 수 있는 행동은 여전히 실시간 차단됩니다. CyScenarioBench에서 Defense Access는 50건 중 46건을 차단했고, Red Team Access는 차단 없이 50건 중 34건을 완수했습니다."
+          ],
+          "sourceUrl": "https://www.anthropic.com/news/cyber-verification-program"
+        },
+        {
+          "title": "\"오퍼스 5.5가 C 드라이브를 통째로 지웠다\"",
+          "paragraphs": [
+            "한 개발자가 Claude Opus 5.5가 혼자 작업하던 중 자신의 C 드라이브 전체를 삭제했다고 주장해 화제가 됐습니다. 그는 PowerShell 명령 파싱 문제를 원인으로 지목했지만 명령 로그는 공개하지 않아 독립적으로 확인되지는 않았습니다. NAS에 매일 밤 백업을 해 둔 덕에 데이터의 약 98%를 복구했다고 합니다.",
+            "그는 --dangerously-skip-permissions 플래그로 장시간 무인 세션을 돌리고 있었습니다. Claude Code를 이끄는 Boris Cherny는 auto 모드였다면 \"거의 확실히 잡았을 것\"이라고 답했습니다. auto 모드는 분류기가 명령마다 되돌릴 수 없거나 파괴적인 동작을 걸러내는 방식입니다.",
+            "앤트로픽 자체 테스트에서는 사람이 심어 둔 위험 명령을 잡아낸 비율이 13.6%, auto 모드는 89%였습니다. 다만 해당 개발자는 auto 모드가 긴 무인 작업에서 너무 자주 멈춘다고 반박했습니다. 권한을 풀어 쓴다면 백업과 샌드박스가 먼저입니다."
+          ],
+          "sourceUrl": "https://madrobot.blog/2026/10/07/claude-opus-5-5-deleted-c-drive-claude-code-auto-mode-boris-cherny/"
+        },
+        {
+          "title": "암호문으로 GitHub Copilot CLI를 뚫는 프롬프트 인젝션",
+          "paragraphs": [
+            "Adversa.ai가 '암호화 컨텍스트 인젝션' 기법을 공개했습니다. 공격자가 웹페이지에 지시문을 암호화해 숨겨 두면, Copilot CLI가 자기 셸에서 이를 복호화한 뒤 신뢰할 수 있는 지시로 받아들입니다. 시연에서는 프로젝트 밖의 .env.prod 파일 내용이 공격자 서버로 전송됐고, 전체 과정은 약 28초였습니다.",
+            "모델에 따라 결과가 갈렸습니다. 마이크로소프트의 mai-code-1.1-flash는 실행의 50%에서 공격을 끝까지 수행했고, Copilot의 GPT-5.6 모델 두 종은 일관되게 거절했습니다. 취약 모델은 기본값이 아니지만, 모델 선택을 Auto로 두면 라우터가 이 모델을 배정하는 경우가 있었습니다.",
+            "GitHub는 제보를 확인했지만 사용자가 전권을 준 상태에서 콘텐츠를 가져오게 한 것이라며 취약점으로 분류하지 않았습니다. Adversa는 외부 네트워크 호출과 워크스페이스 밖 쓰기를 기본 차단하고, 모든 도구 호출을 인자까지 로깅하라고 권고합니다."
+          ],
+          "sourceUrl": "https://adversa.ai/blog/cryptographic-context-injection-github-copilot/"
+        },
+        {
+          "title": "클라우드플레어, 코딩 에이전트용 보안 감사 스킬 공개",
+          "paragraphs": [
+            "클라우드플레어가 코딩 에이전트를 보안 감사자로 만드는 security-audit-skill을 오픈소스로 공개했습니다. 자사 취약점 탐지 하네스의 출발점이 된 스킬로, 격리된 에이전트들이 정찰, 커버리지 기반 탐색, 후보 검증, 구조화 출력, 독립 검증, 보고의 여섯 단계를 진행합니다.",
+            "핵심은 검증입니다. 후보 취약점마다 새 검증 에이전트가 붙어 반증을 시도하고, 결과는 confirmed, needs_validation, rejected로 나뉩니다. 산출물은 스키마 검증을 거친 findings.json과 커버리지 원장, 보고서 파일들입니다."
+          ],
+          "sourceUrl": "https://github.com/cloudflare/security-audit-skill"
+        },
+        {
+          "title": "말로 게임 만드는 구글 Playground",
+          "paragraphs": [
+            "구글이 브라우저 기반 실험 플랫폼 Playground를 공개했습니다. 대화형 인터페이스에 만들고 싶은 게임을 설명하면 바로 플레이할 수 있는 게임이 나오고, 물리나 규칙, 캐릭터, 배경도 말로 요청해 고칩니다. 빈 캔버스에서 시작하거나 스타터 프롬프트를 리믹스할 수 있습니다.",
+            "만든 게임은 비공개로 두거나 링크로 공유하고, Explore 갤러리에 게시할 수 있습니다. 게임 내 리더보드를 넣을 수 있고 일부 장르는 멀티플레이를 지원합니다. 게시되는 게임은 안전성 심사를 거칩니다.",
+            "현재는 미국의 18세 이상 사용자에게 playground.google에서 열렸고, 제작 권한은 Google AI 구독 등급에 따라 다릅니다. 더 본격적인 게임을 위한 Unity Spark 연동도 예고됐습니다."
+          ],
+          "sourceUrl": "https://blog.google/innovation-and-ai/technology/ai/playground-experimental-gaming-platform/"
+        }
+      ]
+    },
     {
       "date": "2026-10-07",
       "postUrl": "https://treesoop.com/blog/ai-news-2026-10-07",
@@ -87,26 +163,6 @@
             "트리숲"
           ],
           "sourceUrl": "https://www.reddit.com/r/openclaw/comments/1wxwa1c/i_planted_rm_rf_in_a_readme_and_asked_my_openclaw/"
-        }
-      ]
-    },
-    {
-      "date": "2026-10-01",
-      "postUrl": "https://treesoop.com/blog/ai-news-2026-10-01",
-      "entries": [
-        {
-          "title": "Pi, MCP 거부 철회한 이유",
-          "paragraphs": [
-            "MCP를 지원하지 않겠다던 코딩 에이전트 Pi가 입장을 바꿔 MCP를 지원하기 시작했습니다. 팀은 생각을 바꾼 이유, 그동안 MCP와 Pi에서 각각 달라진 점, 새로 도입한 Codemode 개념을 설명합니다. 에이전트 도구 연동 방식을 고민하는 개발자에게 참고가 될 만한 회고입니다.",
-            "모델은 싸지고 에이전트는 상시로 돌아가는 방향으로 빠르게 움직이고 있습니다. 나무숲은 이런 AI 도구를 실제 업무 자동화에 연결하는 일을 합니다. 팀에 맞는 AI 에이전트 도입이 고민이라면 treesoop.com으로 문의해 주세요.",
-            "관련 서비스: 기술 의사결정, 같이 짚어드립니다",
-            "2026년 09월 30일 AI 뉴스 — Sonnet 5.5, 엔비디아 OpenShell, 앤트로픽 IPO",
-            "클로드 요금제 총정리 2026 — 무료·Pro·Max·Team 가격 비교, 사용량 한도는 어떻게 세나",
-            "포항공대, 카이스트 및 세계 TOP 1% 공대 출신 엔지니어로 구성된 AI-Native Team. Claude Code 기반 에이전트 개발 루프로 일하는 AI 개발사입니다.",
-            "경기도 성남시 분당구 판교역로 109A동 143호네이버 지도에서 보기 →070-8064-3349official@treesoop.com카카오톡 채널GitHubLinkedIn© 2026 TreeSoop. All rights reserved.",
-            "트리숲"
-          ],
-          "sourceUrl": "https://earendil.com/posts/you-said-no-mcp/"
         }
       ]
     }
