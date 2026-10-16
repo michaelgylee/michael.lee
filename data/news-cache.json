@@ -1,12 +1,40 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-10-16T11:21:23Z",
+  "generated_at": "2026-10-16T16:37:21Z",
   "daily": [
+    {
+      "title": "청소년 10명 중 7명 AI에 고민 털어놔",
+      "source": "한국교육신문",
+      "link": "https://www.hangyo.com/news/article.html?no=109693",
+      "publishedAt": "Fri, 16 Oct 2026 13:46:00 GMT",
+      "date": "2026-10-16",
+      "category": "genai",
+      "bullets": [
+        "생성형 인공지능(AI)을 이용하는 청소년 10명 중 7명이 AI와 일상적인 대화를 나누거나 감정과 고민을 공유하는 것으로 나타났다.",
+        "절반 이상은 스스로 AI에 의존적인 편이라고 인식했지만, 청소년의 AI 이용과 자해·자살 위험의 연관성을 살펴보는 국가 차원의 연구는 이뤄지지 않은 것으로 확인됐다.",
+        "국회 보건복지위원회 소속 서영석 의원(더불어민주당)이 16일 한국생명존중희망재단으로부터 제출받은 자료에 따르면 재단은 청소년의 생성형 AI 이용에 따른 자해·자살 위험 관련 연구를 수행한 실적이 없는 것으로 나타났다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "예금보험공사ㆍ네이버클라우드, 2026년 생성형 AI 서비스 협약 체결",
+      "source": "퍼블릭뉴스통신",
+      "link": "http://www.ttlnews.com/news/articleView.html?idxno=3152869",
+      "publishedAt": "Fri, 16 Oct 2026 13:21:44 GMT",
+      "date": "2026-10-16",
+      "category": "genai",
+      "bullets": [
+        "공공 금융 안전망을 책임지는 예금보험공사가 민간의 첨단 초대규모 인공지능 기술을 전격 수혈해 대국민 서비스 체질 개선에 돌입했다.",
+        "예금보험공사는 10월 16일 서울 중구 본사에서 네이버클라우드와 생성형 인공지능 기반 대국민 서비스 혁신을 위한 포괄적 업무협약을 맺었다.",
+        "양측은 이번 공조를 통해 공공 부문의 신뢰도 높은 금융 행정 역량과 민간의 클라우드·소프트웨어 인프라를 결합한다는 구상이다."
+      ],
+      "contentVerified": true
+    },
     {
       "title": "예보, 생성형 AI 도입 본격화…대국민 서비스 늘린다",
       "source": "주간한국",
-      "link": "https://weekly.hankooki.com/news/articleView.html?idxno=7189384",
-      "publishedAt": "Fri, 16 Oct 2026 10:26:26 GMT",
+      "link": "https://weekly.hankooki.com/news/articleViewAmp.html?idxno=7189384",
+      "publishedAt": "Fri, 16 Oct 2026 10:52:45 GMT",
       "date": "2026-10-16",
       "category": "genai",
       "bullets": [
@@ -17,44 +45,16 @@
       "contentVerified": true
     },
     {
-      "title": "가천대, 생성형 AI 활용한 기업분석 특강 운영",
-      "source": "아시아투데이",
-      "link": "https://www.asiatoday.co.kr/kn/view.php?key=20261016010005227",
-      "publishedAt": "Fri, 16 Oct 2026 07:43:07 GMT",
+      "title": "세종사이버대, 생성형 AI·AI 에이전트 활용 공모전 개최",
+      "source": "핀포인트뉴스",
+      "link": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=496052",
+      "publishedAt": "Fri, 16 Oct 2026 08:30:00 GMT",
       "date": "2026-10-16",
       "category": "genai",
       "bullets": [
-        "가천대학교 대학일자리플러스센터가 학생과 졸업생, 그리고 지역 청년들을 대상으로 생성형 인공지능(AI)과 기업 공시자료를 활용한 기업분석 특강을 진행했다.",
-        "이번 '기업분석의 모든 것' 프로그램은 지난 5월부터 10월 15일까지 총 6회에 걸쳐 열렸다.",
-        "대기업, 공공기관, 스타트업 등 다양한 기업 유형별로 맞춤 분석 방법과 실전 취업 전략을 다뤄 실제 구직에 도움이 되도록 구성했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "NH농협카드, 생성형 AI·블록체인 결합 차세대 결제 기술 검증 착수",
-      "source": "FETV",
-      "link": "https://www.fetv.co.kr/news/articleView.html?idxno=311918",
-      "publishedAt": "Fri, 16 Oct 2026 07:13:04 GMT",
-      "date": "2026-10-16",
-      "category": "genai",
-      "bullets": [
-        "NH농협카드가 안랩블록체인컴퍼니와 함께 생성형 AI와 블록체인 기술을 결합한 차세대 결제 기술 검증에 나선다.",
-        "16일 NH농협카드에 따르면 AI 에이전트가 자동 결제를 수행하는 기술과 웹 결제 프로토콜 x402를 결합한 'Agentic Payment PoC'를 추진한다.",
-        "고객이 설정한 조건에 따라 AI가 상품을 선별하고 스테이블코인으로 자동 결제하면 카드사가 이를 검증·정산하는 방식이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "롯데백화점의 생성형 AI 기반 파트너 제안 채널 ‘AI 비즈센터’ 구축기",
-      "source": "Amazon Web Services (AWS)",
-      "link": "https://aws.amazon.com/ko/blogs/tech/lotte-department-store-ai-biz-center/",
-      "publishedAt": "Fri, 16 Oct 2026 02:40:13 GMT",
-      "date": "2026-10-16",
-      "category": "genai",
-      "bullets": [
-        "롯데백화점은 수천 개의 입점 브랜드 및 파트너사와 협력하며 입점, 계약, 행사 기획, 마케팅 제휴 등 다양한 비즈니스 프로세스를 운영하고 있습니다.",
-        "고객용 앱에서 AI 컨시어지 ‘더스틴‘을 운영하는 등 생성형 AI를 고객 접점에 적용해 왔으며, 이번에는 그 활용 범위를 파트너사의 입점 및 협업 지원 영역으로 확장했습니다.",
-        "롯데백화점은 파트너사의 정보 탐색과 제안 준비, 제안서 작성, 담당 부서 연결, 접수 이후 관리를 하나의 흐름으로 지원하는 파트너사 전용 AI 에이전트 서비스 ‘AI 비즈센터’를 구축했습니다."
+        "세종사이버대학교(총장 신구)가 생성형 인공지능(AI)과 AI 에이전트 기술을 활용해 일상생활의 문제를 해결하는 서비스 개발 공모전을 개최한다.",
+        "실제 작동하는 AI 서비스 구현을 중심으로 창의성과 실용성을 평가하고, AI 산업 현장에서 요구하는 실무 역량을 갖춘 인재 양성에도 나선다.",
+        "세종사이버대 AI응용소프트웨어공학과는 ‘일상을 바꿀 생성형 AI·AI 에이전트 활용 공모전’을 개최한다고 밝혔다."
       ],
       "contentVerified": true
     },
@@ -73,16 +73,16 @@
       "contentVerified": true
     },
     {
-      "title": "a16z: AI 비즈니스 모델의 종착지는 '좌석' 판매가 아니라 '수익 배분'이다",
-      "source": "PANews",
-      "link": "https://www.panewslab.com/ko/articles/01a13fb0-d17f-703c-aecf-a05e2add85fa",
-      "publishedAt": "Fri, 16 Oct 2026 09:42:34 GMT",
+      "title": "인공지능 관련 주식의 매도세로 아시아 헤지펀드들은 상당한 손실을 입었습니다.",
+      "source": "Vietnam.vn",
+      "link": "https://www.vietnam.vn/ko/ban-thao-co-phieu-ai-khien-cac-quy-dau-co-chau-a-chiu-thiet-hai-nang",
+      "publishedAt": "Fri, 16 Oct 2026 09:33:13 GMT",
       "date": "2026-10-16",
       "category": "biz",
       "bullets": [
-        "심조 서문: a16z의 이 분석은 AI 상용화의 가장 중요한 전환점, 즉 시간당 비용 절감에서 결과 기반 수익 배분으로의 전환을 정면으로 짚는다.",
-        "SaaS 종사자나 투자자라면, 이 글은 차세대 AI 유니콘이 더 이상 '좌석 요금'을 팔지 않고 고객의 매출 성장 일부를 직접 가져가는 이유를 설명해 준다.",
-        "AI는 이미 이런 고객 서비스 장면을 바꾸고 있다."
+        "인공지능(AI) 열풍으로 큰 이익을 얻었던 전 세계 대형 헤지펀드들이 급격한 시장 조정에 직면하고 있습니다.",
+        "매도 압력은 미국 기술주에서 시작해 한국의 반도체 기업과 대만 등 아시아로 확산되고 있습니다.",
+        "특히, 이러한 하락세는 칩, 데이터 센터, AI 인프라에 대한 막대한 투자가 과연 비용을 상쇄할 만큼 충분한 수익을 창출할 수 있을지에 대한 의문이 투자자들 사이에서 제기되고 있기 때문입니다."
       ],
       "contentVerified": true
     },
@@ -131,8 +131,8 @@
     {
       "title": "문샷·딥시크 글로벌 진출 발목 잡히나… 中, AI 기술 통제 강화",
       "source": "IT조선",
-      "link": "https://it.chosun.com/news/articleView.html?idxno=2023092172207",
-      "publishedAt": "Fri, 16 Oct 2026 10:45:30 GMT",
+      "link": "https://it.chosun.com/news/articleViewAmp.html?idxno=2023092172207",
+      "publishedAt": "Fri, 16 Oct 2026 10:49:04 GMT",
       "date": "2026-10-16",
       "category": "tech",
       "bullets": [
@@ -143,58 +143,30 @@
       "contentVerified": true
     },
     {
-      "title": "넥슨·스마일게이트, 게임 AI 혁신 가속…‘문화기술 연합체’ 합류",
-      "source": "서울경제TV",
-      "link": "https://www.sentv.co.kr/article/view/sentv202610160117",
-      "publishedAt": "Fri, 16 Oct 2026 08:51:33 GMT",
+      "title": "aT, 농산물 가격조사 정확도 높이는 도구개발…AI 경진대회 우수상",
+      "source": "부산일보",
+      "link": "https://www.busan.com/view/busan/view.php?code=2026101619423383987",
+      "publishedAt": "Fri, 16 Oct 2026 10:47:15 GMT",
       "date": "2026-10-16",
       "category": "tech",
       "bullets": [
-        "넥슨과 스마일게이트가 정부 주도의 문화기술 연합체에 합류하며 인공지능(AI)을 활용한 게임 개발 기술 고도화에 나섭니다.",
-        "두 게임사는 AI를 활용한 콘텐츠 제작 자동화와 지능형 캐릭터 개발을 추진하고 있는데, 이번 협력을 통해 기술 경쟁력을 한층 강화할 수 있을지 주목됩니다.",
-        "넥슨과 스마일게이트가 정부 주도의 ‘문화기술 연합체’에 참여합니다."
+        "한국농수산식품유통공사(aT)는 전국 주요지역에서 농수산물에 대한 시장 가격 조사를 정기적으로 한다.",
+        "그런데 이번에 인공지능(AI)을 이용해 주간 가격변동과 이상치를 확인해 가격 정보 신뢰성을 높이는 도구를 개발했다.",
+        "자체적으로 개최한 인공지능 대회 우수상을 받았다."
       ],
       "contentVerified": true
     },
     {
-      "title": "\"AI 도입으로 반도체 개발주기 단축\"…SK하이닉스, AI 기술 고도화",
-      "source": "뉴스톱",
-      "link": "https://www.newstopkorea.com/news/articleView.html?idxno=48245",
-      "publishedAt": "Fri, 16 Oct 2026 07:25:32 GMT",
+      "title": "크랜베리·인터엠, 중기부 음향 위험 감지 AI 기술개발 과제 선정",
+      "source": "투데이신문",
+      "link": "https://www.ntoday.co.kr/news/articleView.html?idxno=130124",
+      "publishedAt": "Fri, 16 Oct 2026 09:08:43 GMT",
       "date": "2026-10-16",
       "category": "tech",
       "bullets": [
-        "SK하이닉스가 인공지능(AI)을 활용해 메모리 반도체 연구개발 속도를 높이는 기술 개발을 가속화하고 있다.",
-        "반도체 공정이 미세화·고적층화되면서 개발에 필요한 시간과 비용이 증가하자,가상 환경에서 AI로 공정 조건과 소자 특성을 예측하는 기술을 적용하는 등 AI 활용을 고도화하고 있다.",
-        "이에 따라 AI를 반도체 제품에 적용하는 것을 넘어, AI를 활용해 반도체 자체를 얼마나 빠르고 정확하게 개발하느냐가 새로운 기술 경쟁력으로 떠오르고 있다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "‘AI 낙관론자’ 빌 게이츠 전격 변신…AI 규제 전면전 앞장선다",
-      "source": "뉴스로드",
-      "link": "http://www.newsroad.co.kr/news/articleViewAmp.html?idxno=65877",
-      "publishedAt": "Thu, 15 Oct 2026 23:59:07 GMT",
-      "date": "2026-10-16",
-      "category": "policy",
-      "bullets": [
-        "마이크로소프트(MS) 공동창업자 빌 게이츠가 인공지능(AI)의 급격한 발전에 따른 위험을 통제하기 위해 본격적인 복귀를 선언했다.",
-        "과거 AI 기술의 잠재력과 긍정적 효과를 강조했던 그가 최근에는 강력한 규제의 필요성을 역설하며 기업과 정부를 상대로 영향력을 행사하려는 움직임을 보이고 있다.",
-        "미국 온라인 매체 악시오스는 15일(현지시간) 게이츠가 AI 안전 대책을 대폭 강화하기 위해 주요 기업 경영진을 직접 설득하고, 관련 활동에 상당한 자원을 투입하는 방안을 검토하고 있다고 단독 보도했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "경북도, 인공지능(AI) 인재 혁신대학 조성 본격 추진",
-      "source": "구미뉴스",
-      "link": "http://www.guminews.co.kr/bbs/board.php?bo_table=news&wr_id=114484",
-      "publishedAt": "Thu, 15 Oct 2026 23:18:00 GMT",
-      "date": "2026-10-16",
-      "category": "policy",
-      "bullets": [
-        "=경상북도가 대학 전반에 인공지능(AI) 교육을 확대하고 기업 실무 프로젝트와 연계해 실무형 인재를 양성하는 ‘AI 인재 혁신대학’ 조성에 나선다.",
-        "AI 인재 혁신대학은 전공과 상관없이 AI 교육을 보편화하고 기업 AI 프로젝트와 실전 경력을 연계하는 대학 모델이다.",
-        "도는 ‘앵커 혁신 특구(가칭)’와 연계해 정부의 규제 특례와 예산 지원을 확보하고, AI 인재 혁신대학을 지역 AI 산업 허브로 육성할 계획이다."
+        "【투데이신문 권신영 기자】인공지능(AI) 기반 음향 분석 기술을 개발하는 크랜베리가 인터엠, 서울과학기술대학교와 함께 소리로 위험 상황을 감지하고 구조 요청을 인식하는 AI 기술 개발에 참여한다.",
+        "크랜베리는 자사가 참여하고 인터엠이 주관하는 연구개발 과제가 중소벤처기업부의 ‘중소기업기술혁신개발사업 글로벌선도기술개발(수출지향형)’ 과제로 선정됐다고 16일 밝혔다.",
+        "이번 과제의 정식 명칭은 ‘실환경 기반 음향 이벤트 및 다국어 음성 인지 Acoustic Intelligence 플랫폼 개발’이다."
       ],
       "contentVerified": true
     },
@@ -213,35 +185,49 @@
       "contentVerified": true
     },
     {
-      "title": "대만, 中 AI 반도체 수출 규제 강화…밀수출 땐 형사처벌",
-      "source": "아시아경제",
-      "link": "https://www.asiae.co.kr/article/2026101616242905832",
-      "publishedAt": "Fri, 16 Oct 2026 07:26:13 GMT",
+      "title": "대만, 美 대중국 반도체 수출 규제 동참…AI 칩 밀수 형사처벌 추진",
+      "source": "블루밍비트",
+      "link": "https://bloomingbit.io/feed/news/122355",
+      "publishedAt": "Fri, 16 Oct 2026 09:31:08 GMT",
       "date": "2026-10-16",
       "category": "policy",
       "bullets": [
-        "숏 뉴스 AI 요약 기술은 핵심만 전달합니다.",
-        "도널드 트럼프 미국 행정부의 대중(對中) 반도체 수출 통제 기조에 발맞춰 대만 정부가 인공지능(AI) 서버와 첨단 반도체를 수출 통제 품목에 추가한다.",
-        "쿵밍신 대만 경제부 장관은 16일(현지시간) 공개된 블룸버그통신 인터뷰에서 \"미국과 체결한 상호무역협정에서 상당한 약속을 한 만큼 앞으로 일부 수출 통제 조치를 미국의 조치에 맞출 것\"이라고 밝혔다."
+        "본 AI 분석은 참고용 정보 제공을 목적으로 하며, 그 정확성을 보장하지 않습니다.",
+        "또한 본 내용은 투자 권유가 아니며, 모든 투자 판단과 그에 따른 책임은 이용자 본인에게 있습니다.",
+        "보다 자세한 내용은 STAT AI의 분석 기준에서 확인하실 수 있습니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "경북교육청, 4개 시도교육청 손잡고 인공지능(AI) 기반 학생평가 혁신 나선다",
+      "source": "데일리대구경북뉴스",
+      "link": "https://www.dailydgnews.com/news/article.html?no=266141",
+      "publishedAt": "Fri, 16 Oct 2026 08:22:19 GMT",
+      "date": "2026-10-16",
+      "category": "policy",
+      "bullets": [
+        "특히 경북교육청이 추진 중인 ‘경북 학생평가 대전환’ 정책과 연계해 학생의 사고 과정과 성장을 중시하는 평가를 확산하고, 교사의 평가 전문성을 뒷받침하는 공동 협력 기반을 마련했다는 점에서 의미가 크다.",
+        "이날 협약식에는 임종식 경북교육감을 비롯한 4개 시도교육청 교육감과 관계자들이 참석해 인공지능(AI) 기반 학생평가 혁신을 위한 협력 의지를 다졌다.",
+        "이번 협약에 따라 4개 시도교육청은 평가 문항 개발과 시스템 운영, 교원 역량 강화 등 서‧논술형 평가의 현장 안착에 필요한 과제를 함께 추진하며 협력체계를 강화할 계획이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "이수영 OCU 연구교수 “AI 재난 예측 넘어 피해자 권리 보장해야”",
+      "source": "스타트업엔(StartupN)",
+      "link": "https://www.startupn.kr/news/articleViewAmp.html?idxno=60250",
+      "publishedAt": "Fri, 16 Oct 2026 05:57:26 GMT",
+      "date": "2026-10-16",
+      "category": "policy",
+      "bullets": [
+        "인공지능(AI)과 디지털트윈을 활용한 재난 예측 기술이 확산하는 가운데 기술의 정확성뿐 아니라 재난피해자의 권리와 구제 절차를 보장하는 제도적 장치가 필요하다는 제언이 나왔다.",
+        "AI 시스템의 기획과 개발부터 운영, 사고 대응, 폐기까지 단계별 책임을 명확히 하고 피해자가 손쉽게 피해를 입증할 수 있도록 법·제도를 개선해야 한다는 주장이다.",
+        "이수영 한국열린사이버대학교(OCU) 스마트AI경영학과 연구교수는 오는 10월 23일 서울 종로구 별들의 집에서 열리는 ‘제3회 재난피해자권리센터 신진연구자포럼’에서 이 같은 내용을 발표한다."
       ],
       "contentVerified": true
     }
   ],
   "weekly": [
-    {
-      "title": "제주테크노파크, 24일 ‘제주 청소년 생성형 AI 창작 교육 캠프’ 개최",
-      "source": "제주일보",
-      "link": "http://www.jejunews.com/news/articleView.html?idxno=2228242",
-      "publishedAt": "Wed, 14 Oct 2026 10:37:47 GMT",
-      "date": "2026-10-14",
-      "category": "genai",
-      "bullets": [
-        "캠프는 청소년들이 급변하는 인공지능 기술을 올바르게 이해하고, 능동적인 AI(인공지능) 창작자로 성장할 수 있도록 돕기 위해 기획됐다.",
-        "캠프 프로그램은 ㈜퍼포먼스플러스와 제주대 지능소프트웨어교육연구소가 협업해 초등부와 중·고등부 학생의 눈높이에 맞춰 개발했다.",
-        "연구소는 캠프 당일 학생들이 생성형 AI 도구를 능숙하게 다루고 안전하게 창작 활동에 몰입할 수 있도록 밀착 멘토링과 전반적인 실습 가이드 역할을 수행한다."
-      ],
-      "contentVerified": true
-    },
     {
       "title": "'제약사도 생성형 AI 도입 속도' 연구 효율보다 중요한 것은…",
       "source": "매경헬스",
@@ -257,30 +243,44 @@
       "contentVerified": true
     },
     {
-      "title": "구리시, 홈페이지 생성형 AI기반 ‘구리봇’ 서비스 개시",
-      "source": "기호일보",
-      "link": "https://www.kihoilbo.co.kr/news/articleView.html?idxno=3037590",
-      "publishedAt": "Wed, 14 Oct 2026 06:30:31 GMT",
-      "date": "2026-10-14",
+      "title": "롯데·GS·LGD, ‘생성형 AI 검문소' 세운다",
+      "source": "디일렉",
+      "link": "https://www.thelec.kr/news/articleView.html?idxno=63786",
+      "publishedAt": "Thu, 15 Oct 2026 11:07:39 GMT",
+      "date": "2026-10-15",
       "category": "genai",
       "bullets": [
-        "구리시가 대표 홈페이지 메인 디자인을 개편하고, 생성형 AI 기반의 검색 챗봇 ‘구리봇’ 시범 서비스를 개시했다고 14일 밝혔다.",
-        "‘구리봇’은 자연어 질문을 분석해 필요한 행정정보를 요약 제공하고, 글자 크기 조절과 사이드바 고정 등 사용자 맞춤형 편의 기능을 지원한다.",
-        "아울러 시는 대표 홈페이지와 열린시장실의 디자인을 함께 개편해 주요 시정 소식과 행정정보에 대한 접근성을 강화했다."
+        "국내 유통·제조 대기업들이 생성형 인공지능(AI) 보안 솔루션을 도입 중인 것으로 확인됐다.",
+        "챗GPT, 제미나이와 같은 AI를 활용한 업무가 잦아지면서 주요 정보가 AI 질문창(프롬프트)을 통해 유출될 우려가 커졌기 때문이다.",
+        "'시큐어브리지'는 챗GPT, 클로드, 제미나이 등 외부 AI 서비스를 업무에 사용할 때 회사의 기밀정보가 유출되지 않도록 막는 솔루션이다."
       ],
       "contentVerified": true
     },
     {
-      "title": "제주 청소년, 생성형 AI로 숏폼 영상 만든다",
-      "source": "제주도민일보",
-      "link": "https://www.jejudomin.co.kr/news/articleView.html?idxno=401217",
-      "publishedAt": "Wed, 14 Oct 2026 06:11:33 GMT",
-      "date": "2026-10-14",
+      "title": "포항상의, 생성형 AI 활용 SNS 홍보 실무교육 실시",
+      "source": "페로타임즈",
+      "link": "https://www.ferrotimes.com/news/articleView.html?idxno=50936",
+      "publishedAt": "Thu, 15 Oct 2026 08:24:56 GMT",
+      "date": "2026-10-15",
       "category": "genai",
       "bullets": [
-        "제주 청소년들이 생성형 인공지능(AI)을 활용해 글·이미지·음성을 제작하고 이를 바탕으로 영상 콘텐츠를 만드는 체험형 교육 캠프가 열린다.",
-        "제주테크노파크(JTP)는 오는 24일 오후 1시부터 5시까지 JDC 스마트빌딩 4층 회의실에서 '제주 청소년 생성형 AI 창작 교육 캠프-손끝에서 펼쳐지는 AI 세상'을 개최한다고 밝혔다.",
-        "이번 캠프는 도내 청소년이 빠르게 변화하는 AI 기술을 올바르게 이해하고, 수동적인 이용자를 넘어 능동적인 창작자로 성장할 수 있도록 지원하기 위해 마련됐다."
+        "포항상공회의소가 지역 기업 재직자를 대상으로 생성형 인공지능(AI)을 활용한 사회관계망서비스(SNS) 홍보 실무교육을 실시했다.",
+        "포항상공회의소는 지난 14일 회의실에서 ‘AI 활용, SNS 홍보 실무’ 과정을 진행했다고 밝혔다.",
+        "이번 교육은 생성형 AI를 마케팅·홍보 업무에 적용하는 방법을 익히고, 기업 재직자의 디지털 활용 역량을 높이기 위해 마련됐다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "교수도 AI에게 묻습니다... 전공별 생성형 AI 활용법",
+      "source": "뉴스H",
+      "link": "https://www.newshyu.com/news/articleView.html?idxno=1026590",
+      "publishedAt": "Thu, 15 Oct 2026 02:19:58 GMT",
+      "date": "2026-10-15",
+      "category": "genai",
+      "bullets": [
+        "생성형 인공지능(AI)이 대학의 연구와 교육 현장에 빠르게 자리 잡고 있다.",
+        "학생들이 과제와 학습 과정에서 AI를 활용하는 모습도 쉽게 볼 수 있다.",
+        "공학과 인문·사회, 상경, 예체능 계열 교수들을 만나 연구와 강의 과정에서 생성형 AI를 사용하는 방법을 들어봤다."
       ],
       "contentVerified": true
     },
@@ -299,72 +299,30 @@
       "contentVerified": true
     },
     {
-      "title": "중국 피지컬 AI 시장, 2030년 수천억 위안 전망…로봇 가격 하락이 산업 확산 이끈다",
-      "source": "미디어피아",
-      "link": "https://www.mediapia.co.kr/news/articleView.html?idxno=200600",
-      "publishedAt": "Wed, 14 Oct 2026 13:55:14 GMT",
-      "date": "2026-10-14",
-      "category": "biz",
-      "bullets": [
-        "중국의 피지컬 AI(Physical AI·물리적 인공지능) 산업이 로봇 기술과 인공지능의 결합을 바탕으로 제조·물류·서비스 분야의 실용화를 추진하고 있다.",
-        "신화통신과 중국 공업정보화부의 관련 발표를 보면 산업의 관심은 기술 시연에서 실제 작업 환경의 검증과 상시 배치로 옮겨가는 추세다.",
-        "시장 규모 전망은 조사기관과 산정 범위에 따라 차이가 있지만, 중국 정부는 2026년 말까지 인간형 로봇과 구체지능 제품의 대표적 현장 적용을 확대하겠다는 목표를 제시했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "라온시큐어 ‘원쉴드’ AI 제품·서비스 확인서 획득, 공공·금융 시장 정조준",
-      "source": "보안뉴스",
-      "link": "https://www.boannews.com/news/articleView.html?idxno=146392",
-      "publishedAt": "Wed, 14 Oct 2026 06:22:46 GMT",
-      "date": "2026-10-14",
-      "category": "biz",
-      "bullets": [
-        "라온시큐어는 자사 AI 세이프 가드레일 솔루션인 ‘원쉴드’(OneShield)가 ‘인공지능 제품·서비스 확인서’를 획득했다고 14일 밝혔다.",
-        "‘인공지능 제품·서비스 확인제도’는 한국인공지능·소프트웨어산업협회(KOSA)가 인공지능기본법에 따라 제품이나 서비스에 AI 기술이 실제 적용됐는지 확인하는 제도다.",
-        "제품에 적용된 AI의 학습·추론 특성과 기능 기여도 등을 기술적으로 심사해 확인서를 발급한다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "[뉴욕마켓워치] 시장이 온통 AI 눈치만 본다…주식·채권↑달러↓ |",
-      "source": "연합인포맥스",
-      "link": "https://news.einfomax.co.kr/news/articleViewAmp.html?idxno=4439538",
-      "publishedAt": "Thu, 15 Oct 2026 23:22:34 GMT",
-      "date": "2026-10-16",
-      "category": "biz",
-      "bullets": [
-        "15일(현지시간) 뉴욕 금융시장은 예상치를 대폭 웃돈 미국 도매 물가보다 인공지능(AI) 산업이 촉발한 안전 선호 심리의 향방에 더 주의를 기울였다.",
-        "뉴욕증시의 3대 주가지수는 반등에 성공했다.",
-        "미국 9월 생산자물가지수(PPI)가 예상치를 크게 웃돌았지만 증시는 유의미하게 반응하지 않았다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "산업부·식약처, 바이오 AI 기술개발부터 수출까지 맞손",
-      "source": "히트뉴스",
-      "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=79883",
-      "publishedAt": "Mon, 12 Oct 2026 07:00:00 GMT",
-      "date": "2026-10-12",
+      "title": "인공지능이 장면 전환이 불러온 인물 추적 오류 잡았다…UNIST 백승렬 교수팀, 3D 복원 AI 개발",
+      "source": "인공지능신문",
+      "link": "https://www.aitimes.kr/news/articleView.html?idxno=42308",
+      "publishedAt": "Thu, 15 Oct 2026 00:14:25 GMT",
+      "date": "2026-10-15",
       "category": "tech",
       "bullets": [
-        "산업통상부(장관 김정관, 이하 산업부)와 식품의약품안전처(처장 오유경, 이하 식약처)는 14일 강원 춘천바이오산업진흥원에서 '바이오 산업의 인공지능 전환과 글로벌 경쟁력 강화를 위한 업무협약'을 체결했다.",
-        "식약처에 따르면 AI 확산과 글로벌 공급망 재편으로 바이오 산업의 개발·제조·품질관리·수출 전반에 변화가 요구되는 가운데, 두 기관은 기술개발과 규제서비스를 연계해 국내 기업의 경쟁력 확보를 지원하기로 했다.",
-        "두 기관은 향후 국장급 협의체를 통해 M.AX 바이오와 바이오 소재·부품·장비 분야의 공동 연구개발(R&D) 과제를 비롯한 협력 과제를 발굴하고 추진 상황을 점검할 계획이다."
+        "AI생성이미지로 멀티썸즈는 컷을 이어붙여 만드는 영화, 스포츠 중계 영상에서 인물의 움직임을 복원하는 데 쓸 수 있다.",
+        "영화나 스포츠 중계처럼 카메라 앵글과 화면이 수시로 바뀌는 영상에서도 여러 인물의 움직임을 일관되게 추적해 3차원으로 복원하는 인공지능(AI) 기술이 개발됐다.",
+        "UNIST 인공지능대학원 백승렬 교수 연구팀은 여러 사람의 3차원 인체 형상과 움직임을 영상 전반에 걸쳐 일관되게 추적하는 AI 기술 ‘멀티썸즈(Multi-THuMBS)’를 개발했다고 15일 밝혔다."
       ],
       "contentVerified": true
     },
     {
-      "title": "일본 신입 변호사들 ‘나 떨고 있니'…글로벌 ‘법률 AI’ 잇단 상륙",
-      "source": "한겨레",
-      "link": "https://www.hani.co.kr/arti/international/international_general/1282360.html",
-      "publishedAt": "Wed, 14 Oct 2026 07:09:00 GMT",
-      "date": "2026-10-14",
+      "title": "MS 사장 \"세탁기·우유보다 못한 AI 규제…이제 법적 의무화 나설 때\"",
+      "source": "AI타임스",
+      "link": "https://www.aitimes.com/news/articleView.html?idxno=216185",
+      "publishedAt": "Tue, 13 Oct 2026 06:42:38 GMT",
+      "date": "2026-10-13",
       "category": "policy",
       "bullets": [
-        "일본 법률시장에 글로벌 법률 인공지능(AI) 기업들의 잇단 진출로 디지털기술을 활용한 이른바 ‘리걸테크’(법률 기술) 경쟁이 주목받고 있다.",
-        "하비는 와인버그 최고경영자가 인공지능 전문가와 2022년 공동 창업한 회사다.",
-        "생성형 인공지능을 활용한 법률 에이전트 500여 종을 제공해 기업의 법무 담당자와 함께 법률문서 작성, 계약서 검토, 판례 검토, 기업 인수·합병(M&A) 실사 등의 작업을 빠르게 처리하도록 돕는다."
+        "브래드 스미스 마이크로소프트(MS) 부회장 겸 사장이 AI에 대한 글로벌 안전 규제와 독립적인 검증 체계 마련을 촉구했다.",
+        "스미스 사장은 12일(현지시간) BBC와의 인터뷰에서 AI를 \"도구이자 무기\"라고 규정하며 국제적으로 통용되는 안전 규칙을 마련해야 한다고 강조했다.",
+        "그는 \"지금은 세탁기가 AI보다 더 많은 안전 규제를 받는다\"며 \"슈퍼마켓에서 볼 수 있는 우유 한 팩도 안전 규정과 검사를 거친다\"고 지적했다."
       ],
       "contentVerified": true
     }
