@@ -1,16 +1,16 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-10-17T11:36:14Z",
+  "generated_at": "2026-10-17T15:32:38Z",
   "daily": [
     {
       "title": "구미상공회의소, 생성형 AI 실무 활용 교육 개최",
-      "source": "경북도민일보",
-      "link": "https://www.hidomin.com/news/articleView.html?idxno=725237",
-      "publishedAt": "Sat, 17 Oct 2026 07:40:18 GMT",
+      "source": "구미일보",
+      "link": "http://www.gmilbo.net/news/article.html?no=81497",
+      "publishedAt": "Sat, 17 Oct 2026 13:56:43 GMT",
       "date": "2026-10-17",
       "category": "genai",
       "bullets": [
-        "구미상공회의소(회장 윤재호)는 지난 16일 오전 10시, 구미상공회의소 1층 중회의실에서 구미 지역기업 임직원 20여명이 참석한 가운데 ‘생성형 AI 실무 활용 교육’을 개최했다.",
+        "구미상공회의소(회장 윤재호)는 10월 16일(금) 10:00-18:00 구미상공회의소 1층 중회의실에서 구미 지역기업 임직원 20여명이 참석한 가운데「생성형 AI 실무 활용 교육」을 개최하였다.",
         "이번 강의는 Microsoft사에서 인증한 AI 전문가인 박용락 강사가 맡아 업무 생산성 향상과 문서 자동화에 활용할 수 있는 실무 중심의 내용을 전달했다.",
         "본 교육은 구미상공회의소와 대한상공회의소가 공동으로 추진하는 재직자 AI 교육 사업으로, 우선지원대상기업 재직자는 과정의 80% 이상 수료 시 교육비의 95%를 환급받을 수 있다."
       ],
@@ -24,9 +24,9 @@
       "date": "2026-10-17",
       "category": "genai",
       "bullets": [
-        "매일일보 = 이강민 기자 | 중국 메모리 반도체 기업 창신메모리(CXMT)의 자사주 매입 가능성이 새로운 수급 변수로 떠올랐다.",
-        "청소년기는 신체적·정서적으로 큰 변화를 겪으며 자신의 정체성을 형성하는 시기다.",
-        "이 과정에서 가정환경과 학교생활, 또래 관계 등 다양한 문제로 어려움을 겪기도 한다."
+        "매일일보 = 이정수 기자 | 구미상공회의소는 16일 지역기업 임직원 20여명을 대상으로 업무 생산성과 문서 자동화 역량을 높이기 위한 '생성형 AI 실무 활용 교육'을 열었다.",
+        "교육 장소는 구미상공회의소 1층 중회의실로, 오전 10시부터 오후 6시까지 진행됐다.",
+        "강의는 Microsoft사가 인증한 AI 전문가인 박용락 강사가 맡았다."
       ],
       "contentVerified": true
     },
@@ -59,6 +59,20 @@
       "contentVerified": true
     },
     {
+      "title": "성남시, 이탈리아 볼로냐와 손잡고 AI·스마트도시 국제협력 확대",
+      "source": "한스경제",
+      "link": "http://www.hansbiz.co.kr/news/articleViewAmp.html?idxno=873839",
+      "publishedAt": "Sat, 17 Oct 2026 13:01:26 GMT",
+      "date": "2026-10-17",
+      "category": "biz",
+      "bullets": [
+        "| 성남=한스경제 김두일 기자 | 성남시(시장 신상진)가 이탈리아 볼로냐시와 자매결연을 맺고 인공지능(AI)과 스마트시티, 디지털 콘텐츠 등 첨단산업 분야의 국제협력 확대에 나섰다.",
+        "성남시는 지난 16일(현지시간) 이탈리아 볼로냐시청에서 마테오 레포레(Matteo Lepore) 볼로냐시장과 자매결연 협약을 체결했다고 밝혔다.",
+        "이번 협약은 두 도시가 보유한 첨단산업 역량과 연구·혁신 기반을 연결하고 경제·과학기술·문화·교육 등 다양한 분야에서 교류를 확대하기 위해 마련됐다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "\"AI 수요는 넘치는데 빚은 누가 갚나\"…코어위브발 반도체 시장 충격",
       "source": "https://www.seoulilbo.co.kr/",
       "link": "https://www.seoulilbo.co.kr/news/articleView.html?idxno=22105",
@@ -74,9 +88,9 @@
     },
     {
       "title": "AI 유니콘의 기업가치 전쟁: 데모에서 운영 계약으로 이동한 수익화 경쟁",
-      "source": "뉴스N연합",
-      "link": "https://newsyonhap.com/news/131281",
-      "publishedAt": "Sat, 17 Oct 2026 10:25:42 GMT",
+      "source": "https://www.didimkorea.net/",
+      "link": "https://www.didimkorea.net/news/563932",
+      "publishedAt": "Sat, 17 Oct 2026 10:15:40 GMT",
       "date": "2026-10-17",
       "category": "biz",
       "bullets": [
@@ -101,16 +115,16 @@
       "contentVerified": true
     },
     {
-      "title": "성남시, 이탈리아 볼로냐시와 자매결연…유럽 첨단산업 협력 새 지평 열어",
-      "source": "세계환경신문",
-      "link": "https://www.e-newsp.com/news/article.html?no=92521",
-      "publishedAt": "Sat, 17 Oct 2026 08:54:43 GMT",
+      "title": "뒤집힌 AI 판도… 토큰 점유율 중국 50%, 미국 11%로 역전",
+      "source": "뉴스비전e",
+      "link": "http://www.nvp.co.kr/news/articleView.html?idxno=319552",
+      "publishedAt": "Sat, 17 Oct 2026 13:15:42 GMT",
       "date": "2026-10-17",
-      "category": "biz",
+      "category": "tech",
       "bullets": [
-        "이번 협약은 볼로냐시가 한국 도시와 체결한 첫 자매결연이자 성남시가 이탈리아 도시와 맺은 첫 자매결연으로, 두 도시의 국제교류에 새로운 이정표를 세웠다.",
-        "이날 협약식에는 신 시장을 비롯한 성남시 대표단과 마테오 레포레 볼로냐시장, 볼로냐시의원, 최태호 주밀라노 대한민국 총영사 등이 참석했다.",
-        "성남시와 볼로냐시는 이를 계기로 경제·과학기술·문화·교육 등 다양한 분야에서 지속적인 교류와 협력을 이어가기로 했다."
+        "글로벌 인공지능(AI) 시장의 경쟁 구도가 빠르게 달라지고 있다.",
+        "첨단 AI 기술 경쟁에서 미국이 주도권을 유지하는 가운데, 실제 AI 서비스 이용량을 보여주는 토큰 처리 점유율에서는 중국 모델이 미국을 앞서는 흐름이 나타났다.",
+        "10월 5일부터 11일까지 전 세계 AI 모델이 처리한 토큰은 약 172조 개로 집계됐다."
       ],
       "contentVerified": true
     },
@@ -157,30 +171,30 @@
       "contentVerified": true
     },
     {
-      "title": "중국 AI 연구인력, 미국 3.6배…'AI 굴기' 추격 가속",
-      "source": "넷제로뉴스",
-      "link": "http://www.netzeronews.kr/news/articleViewAmp.html?idxno=6486",
-      "publishedAt": "Sat, 17 Oct 2026 02:53:53 GMT",
+      "title": "신현송 \"서로 다른 AI 써도 같이 움직여…고전적 금융규제 중요\"",
+      "source": "연합인포맥스",
+      "link": "https://news.einfomax.co.kr/news/articleView.html?idxno=4439756",
+      "publishedAt": "Sat, 17 Oct 2026 10:27:08 GMT",
       "date": "2026-10-17",
-      "category": "tech",
+      "category": "policy",
       "bullets": [
-        "[ 넷제로뉴스 ] 중국이 미국보다 약 3.6배 많은 인공지능(AI) 연구인력을 확보하고 자국 출신 연구자의 국내 활동 비율을 높이면서 미국의 AI 기술패권을 추격하고 있는 것으로 나타났습니다.",
-        "중국의 AI 연구 생태계는 논문을 발표하는 연구인력 규모에서 미국을 크게 앞선 것으로 나타났습니다.",
-        "학술정보 분석기업 디지털사이언스(Digital Science)의 자료에 따르면 2025년 중국의 AI 논문 발표 연구자는 약 5만1000명으로 미국의 약 1만4000명보다 약 3.6배 많았습니다."
+        "신현송 한국은행 총재는 금융시장 참가자들이 서로 다른 인공지능(AI) 모델을 쓰더라도 획일적으로 움직일 수 있다면서 금융안정을 확보하기 위한 고전적 규제의 중요성이 커질 것이라고 강조했다.",
+        "이날 세미나는 파블로 에르난데스 데 코스 국제결제은행(BIS) 사무총장이 좌장을 맡았다.",
+        "패널로는 신 총재와 크리스탈리나 게오르기에바 IMF 총재, 앤드루 베일리 영란은행(BOE) 총재, 올라예미 카르도소 나이지리아 중앙은행 총재가 참석했다."
       ],
       "contentVerified": true
     },
     {
-      "title": "앤트로픽은 미국에서 위험한 AI 모델의 사용을 중단시키는 메커니즘을 제안합니다.",
-      "source": "Vietnam.vn",
-      "link": "https://www.vietnam.vn/ko/anthropic-de-xuat-co-che-dinh-chi-cac-mo-hinh-ai-nguy-hiem-tai-my",
-      "publishedAt": "Sat, 17 Oct 2026 06:53:07 GMT",
+      "title": "4개 시도교육청, 인공지능(AI) 기반 학생평가 혁신나서",
+      "source": "경북구미신문",
+      "link": "https://www.guminews.net/news/articleView.html?idxno=17167",
+      "publishedAt": "Sat, 17 Oct 2026 06:51:55 GMT",
       "date": "2026-10-17",
       "category": "policy",
       "bullets": [
-        "(GLO) - 미국 기술 기업 앤스로픽(Anthropic)이 인공지능(AI) 안전에 관한 법안 초안을 의원들에게 제출한 것으로 알려졌다.",
-        "이 법안은 특히 심각한 위해를 초래할 위험이 있는 AI 모델의 출시 또는 사용을 연방 법원이 중단할 수 있도록 하는 내용을 담고 있다.",
-        "이에 따라, 앤트로픽사 대표들은 미국 의회 의원들과 비공개 접촉을 통해 첨단 AI 모델의 안전 및 보안에 관한 규정 초안을 제출해 왔습니다."
+        "경북교육청은 16일 제주특별자치도에 있는 그랜드 조선 제주에서 서울특별시교육청, 충청남도교육청, 세종특별자치시교육청과 ‘인공지능(AI) 서‧논술형 평가지원시스템 공동운영 업무협약’을 체결했다고 밝혔다.",
+        "특히 경북교육청이 추진 중인 ‘경북 학생평가 대전환’ 정책과 연계해 학생의 사고 과정과 성장을 중시하는 평가를 확산하고, 교사의 평가 전문성을 뒷받침하는 공동 협력 기반을 마련했다는 점에서 의미가 크다.",
+        "이날 협약식에는 임종식 경북교육감을 비롯한 4개 시도교육청 교육감과 관계자들이 참석해 인공지능(AI) 기반 학생평가 혁신을 위한 협력 의지를 다졌다."
       ],
       "contentVerified": true
     },
@@ -211,20 +225,6 @@
         "해당 제안에 따르면 AI 모델이 10억 달러 이상의 피해를 야기하거나 50명 이상의 사망 또는 중상을 초래할 예측 가능하고 임박한 위험을 제기할 경우에만 정부 개입이 허용된다."
       ],
       "contentVerified": true
-    },
-    {
-      "title": "[WCM 오픈 기획｜AI 시대, 인간의 자리는 어디인가 ②] 기업은 기술로, 미국은 협약으로, 한국은 법으로…그 약속은 누가 확인하나",
-      "source": "세계중심나주뉴스",
-      "link": "https://www.mainnaju.com/news/articleView.html?idxno=10048",
-      "publishedAt": "Fri, 16 Oct 2026 22:26:39 GMT",
-      "date": "2026-10-17",
-      "category": "policy",
-      "bullets": [
-        "【AI 협업 기획 안내】 이 기획은 WCM 편집국이 생성형 AI인 ChatGPT(오픈AI), Claude(앤트로픽), Perplexity를 교차 활용해 제작한다.",
-        "AI는 자료 탐색과 정리, 문장 편집, 사실관계와 출처 대조를 보조했다.",
-        "오픈AI와 앤트로픽은 이 글이 다루는 백악관 협약의 서명사다."
-      ],
-      "contentVerified": true
     }
   ],
   "weekly": [
@@ -243,6 +243,34 @@
       "contentVerified": true
     },
     {
+      "title": "구리시, 홈페이지 생성형 AI기반 ‘구리봇’ 서비스 개시",
+      "source": "기호일보",
+      "link": "https://www.kihoilbo.co.kr/news/articleView.html?idxno=3037590",
+      "publishedAt": "Wed, 14 Oct 2026 06:30:31 GMT",
+      "date": "2026-10-14",
+      "category": "genai",
+      "bullets": [
+        "구리시가 대표 홈페이지 메인 디자인을 개편하고, 생성형 AI 기반의 검색 챗봇 ‘구리봇’ 시범 서비스를 개시했다고 14일 밝혔다.",
+        "‘구리봇’은 자연어 질문을 분석해 필요한 행정정보를 요약 제공하고, 글자 크기 조절과 사이드바 고정 등 사용자 맞춤형 편의 기능을 지원한다.",
+        "아울러 시는 대표 홈페이지와 열린시장실의 디자인을 함께 개편해 주요 시정 소식과 행정정보에 대한 접근성을 강화했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "작가 김희천이 이제서야 생성형 AI를 택한 이유",
+      "source": "하퍼스 바자 코리아",
+      "link": "https://www.harpersbazaar.co.kr/article/1910660",
+      "publishedAt": "Tue, 13 Oct 2026 22:00:00 GMT",
+      "date": "2026-10-14",
+      "category": "genai",
+      "bullets": [
+        "2015년 “세상은 스크린이 되었다” 말하던 작가 김희천에게, 더 이상 스크린의 존재 유무는 문제가 되지 않는다.",
+        "중요한 건 몇 장의 이미지로 살아 움직이는 장면을 만들어내는 AI 앞에 앉아 조각난 미래를 더듬는 일, 그리하여 당도한 미래와 그 안의 나를 발견하는 일, 그뿐이다.",
+        "먼저 2023년 게임 엔진으로 만들었던 영상 와 가 있습니다."
+      ],
+      "contentVerified": true
+    },
+    {
       "title": "롯데·GS·LGD, ‘생성형 AI 검문소' 세운다",
       "source": "디일렉",
       "link": "https://www.thelec.kr/news/articleView.html?idxno=63786",
@@ -257,58 +285,72 @@
       "contentVerified": true
     },
     {
-      "title": "포항상의, 생성형 AI 활용 SNS 홍보 실무교육 실시",
-      "source": "페로타임즈",
-      "link": "https://www.ferrotimes.com/news/articleView.html?idxno=50936",
-      "publishedAt": "Thu, 15 Oct 2026 08:24:56 GMT",
+      "title": "삼성전자, 동남아 AI 가전·공조 시장 공략…식재료 인식부터 건물 통합 제어까지",
+      "source": "인공지능신문",
+      "link": "https://www.aitimes.kr/news/articleView.html?idxno=42307",
+      "publishedAt": "Wed, 14 Oct 2026 23:39:05 GMT",
       "date": "2026-10-15",
-      "category": "genai",
+      "category": "biz",
       "bullets": [
-        "포항상공회의소가 지역 기업 재직자를 대상으로 생성형 인공지능(AI)을 활용한 사회관계망서비스(SNS) 홍보 실무교육을 실시했다.",
-        "포항상공회의소는 지난 14일 회의실에서 ‘AI 활용, SNS 홍보 실무’ 과정을 진행했다고 밝혔다.",
-        "이번 교육은 생성형 AI를 마케팅·홍보 업무에 적용하는 방법을 익히고, 기업 재직자의 디지털 활용 역량을 높이기 위해 마련됐다."
+        "삼성전자가 인공지능(AI) 기반 가전과 통합 냉난방공조(HVAC) 솔루션을 앞세워 동남아 시장 공략을 강화한다.",
+        "삼성전자는 지난 14일 베트남 하노이에서 동남아 가전 테크세미나 ‘더 브리프(The Brief)’를 개최하고 현지 생활환경과 라이프스타일에 맞춘 AI 가전 및 기업 간 거래(B2B) 솔루션을 공개했다고 15일 밝혔다.",
+        "행사는 지난 8월 개관한 삼성전자 ‘비즈니스 익스피리언스 스튜디오(BES)’에서 진행됐다."
       ],
       "contentVerified": true
     },
     {
-      "title": "교수도 AI에게 묻습니다... 전공별 생성형 AI 활용법",
-      "source": "뉴스H",
-      "link": "https://www.newshyu.com/news/articleView.html?idxno=1026590",
-      "publishedAt": "Thu, 15 Oct 2026 02:19:58 GMT",
+      "title": "인공지능이 장면 전환이 불러온 인물 추적 오류 잡았다…UNIST 백승렬 교수팀, 3D 복원 AI 개발",
+      "source": "인공지능신문",
+      "link": "https://www.aitimes.kr/news/articleView.html?idxno=42308",
+      "publishedAt": "Thu, 15 Oct 2026 00:14:25 GMT",
       "date": "2026-10-15",
-      "category": "genai",
+      "category": "tech",
       "bullets": [
-        "생성형 인공지능(AI)이 대학의 연구와 교육 현장에 빠르게 자리 잡고 있다.",
-        "학생들이 과제와 학습 과정에서 AI를 활용하는 모습도 쉽게 볼 수 있다.",
-        "공학과 인문·사회, 상경, 예체능 계열 교수들을 만나 연구와 강의 과정에서 생성형 AI를 사용하는 방법을 들어봤다."
+        "AI생성이미지로 멀티썸즈는 컷을 이어붙여 만드는 영화, 스포츠 중계 영상에서 인물의 움직임을 복원하는 데 쓸 수 있다.",
+        "영화나 스포츠 중계처럼 카메라 앵글과 화면이 수시로 바뀌는 영상에서도 여러 인물의 움직임을 일관되게 추적해 3차원으로 복원하는 인공지능(AI) 기술이 개발됐다.",
+        "UNIST 인공지능대학원 백승렬 교수 연구팀은 여러 사람의 3차원 인체 형상과 움직임을 영상 전반에 걸쳐 일관되게 추적하는 AI 기술 ‘멀티썸즈(Multi-THuMBS)’를 개발했다고 15일 밝혔다."
       ],
       "contentVerified": true
     },
     {
-      "title": "크랜베리·인터엠, 중기부 음향 위험 감지 AI 기술개발 과제 선정",
-      "source": "투데이신문",
-      "link": "https://www.ntoday.co.kr/news/articleView.html?idxno=130124",
-      "publishedAt": "Fri, 16 Oct 2026 09:08:43 GMT",
+      "title": "\"AI 도입으로 반도체 개발주기 단축\"…SK하이닉스, AI 기술 고도화",
+      "source": "뉴스톱",
+      "link": "https://www.newstopkorea.com/news/articleView.html?idxno=48245",
+      "publishedAt": "Fri, 16 Oct 2026 07:25:32 GMT",
       "date": "2026-10-16",
       "category": "tech",
       "bullets": [
-        "【투데이신문 권신영 기자】인공지능(AI) 기반 음향 분석 기술을 개발하는 크랜베리가 인터엠, 서울과학기술대학교와 함께 소리로 위험 상황을 감지하고 구조 요청을 인식하는 AI 기술 개발에 참여한다.",
-        "크랜베리는 자사가 참여하고 인터엠이 주관하는 연구개발 과제가 중소벤처기업부의 ‘중소기업기술혁신개발사업 글로벌선도기술개발(수출지향형)’ 과제로 선정됐다고 16일 밝혔다.",
-        "이번 과제의 정식 명칭은 ‘실환경 기반 음향 이벤트 및 다국어 음성 인지 Acoustic Intelligence 플랫폼 개발’이다."
+        "SK하이닉스가 인공지능(AI)을 활용해 메모리 반도체 연구개발 속도를 높이는 기술 개발을 가속화하고 있다.",
+        "반도체 공정이 미세화·고적층화되면서 개발에 필요한 시간과 비용이 증가하자,가상 환경에서 AI로 공정 조건과 소자 특성을 예측하는 기술을 적용하는 등 AI 활용을 고도화하고 있다.",
+        "이에 따라 AI를 반도체 제품에 적용하는 것을 넘어, AI를 활용해 반도체 자체를 얼마나 빠르고 정확하게 개발하느냐가 새로운 기술 경쟁력으로 떠오르고 있다."
       ],
       "contentVerified": true
     },
     {
-      "title": "일본 신입 변호사들 ‘나 떨고 있니'…글로벌 ‘법률 AI’ 잇단 상륙",
-      "source": "한겨레",
-      "link": "https://www.hani.co.kr/arti/international/international_general/1282360.html",
-      "publishedAt": "Wed, 14 Oct 2026 07:09:00 GMT",
+      "title": "화학연, ‘말로 소통하는’ 자율실험실 AI 기술 개발… 소재 탐색 기간 20일 단축",
+      "source": "기계신문",
+      "link": "http://www.mtnews.net/news/articleView.html?idxno=26243",
+      "publishedAt": "Fri, 16 Oct 2026 01:23:11 GMT",
+      "date": "2026-10-16",
+      "category": "tech",
+      "bullets": [
+        "자율실험실은 정해진 공정만 반복하는 단순 자동화 장비와 달리, AI가 도출된 실험 결과를 학습하고 조건을 변경해가며 최적점을 탐색하는 차세대 연구 시스템이다.",
+        "그러나 기존 자율실험실 AI는 사전 지식 없이 백지 상태에서 탐색을 시작해 기초적인 화학적 상식조차 반복 실험을 통해 확인해야 하는 비효율이 존재했다.",
+        "특히 합성 및 분석에 수 시간 이상이 소요되고 시약·에너지 비용이 큰 촉매 및 신소재 분야에서는 초기 탐색에 따르는 손실이 컸다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "오픈AI·앤트로픽, 英 AI 안전 입법 지지…구글·메타는 표준·기존 규제 강조",
+      "source": "메트로신문",
+      "link": "https://www.metroseoul.co.kr/article/20261014500394",
+      "publishedAt": "Wed, 14 Oct 2026 05:53:03 GMT",
       "date": "2026-10-14",
       "category": "policy",
       "bullets": [
-        "일본 법률시장에 글로벌 법률 인공지능(AI) 기업들의 잇단 진출로 디지털기술을 활용한 이른바 ‘리걸테크’(법률 기술) 경쟁이 주목받고 있다.",
-        "하비는 와인버그 최고경영자가 인공지능 전문가와 2022년 공동 창업한 회사다.",
-        "생성형 인공지능을 활용한 법률 에이전트 500여 종을 제공해 기업의 법무 담당자와 함께 법률문서 작성, 계약서 검토, 판례 검토, 기업 인수·합병(M&A) 실사 등의 작업을 빠르게 처리하도록 돕는다."
+        "[메트로신문] 오픈AI·앤트로픽·구글 딥마인드·메타가 영국 의회에서 인공지능(AI) 규제 방식을 두고 입장 차이를 드러냈다.",
+        "오픈AI와 앤트로픽은 법으로 정한 의무가 필요하다고 했고, 구글 딥마인드와 메타는 새 법보다 기술표준과 기존 법을 앞세웠다.",
+        "14일 정보기술(IT)업계에 따르면 영국 하원 기업통상위원회는 13일(현지시간) AI 기업 출신 연구자, 기업 4곳의 정책 책임자, 정부 관계자를 차례로 불러 AI 안전 문제를 물었다."
       ],
       "contentVerified": true
     }
