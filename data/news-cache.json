@@ -1,60 +1,88 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-10-22T18:31:23Z",
+  "generated_at": "2026-10-22T22:19:15Z",
   "daily": [
     {
-      "title": "경복대학교, 산업단지 AI Camp 2호점 운영…생성형 AI 현장 활용 확대",
-      "source": "이뉴스투데이",
-      "link": "http://www.enewstoday.co.kr/news/articleViewAmp.html?idxno=2483563",
-      "publishedAt": "Thu, 22 Oct 2026 17:06:42 GMT",
+      "title": "AI 콘텐츠에 '이름표' 다는 세계... EU·미국·중국, 표시 의무 본격화",
+      "source": "디지털포용뉴스",
+      "link": "https://www.dginclusion.com/news/articleView.html?idxno=1880",
+      "publishedAt": "Thu, 22 Oct 2026 21:25:51 GMT",
       "date": "2026-10-23",
       "category": "genai",
       "bullets": [
-        "경복대학교가 남양주시 진관산업단지에서 재직자 대상 실습형 인공지능(AI) 교육을 시작하며 산업단지 AI Camp 운영 지역을 넓혔다.",
-        "경복대학교 앵커사업단이 마련한 ‘산업단지로 찾아가는 AI 직무교육’은 지역 기업에서 일하는 이들이 AI 기술을 익혀 업무와 일상에 적용하도록 돕는 직무역량 강화 프로그램이다.",
-        "이번 과정은 광릉테크노밸리에 이은 산업단지 AI Camp 2호점으로 운영된다."
+        "AI 생성 콘텐츠의 투명성과 신뢰성을 확보하기 위해 EU, 미국 캘리포니아, 중국, 한국이 각기 다른 표시·검증 제도를 마련하고 있다.",
+        "인공지능(AI)이 만든 이미지와 영상, 음성, 글을 어떻게 구분할 것인가는 디지털 사회의 중요한 정책 과제가 됐다.",
+        "생성형 AI를 활용하면 실제 인물의 얼굴과 목소리를 재현하거나 존재하지 않는 사건을 실제 뉴스처럼 보이게 만들 수 있다."
       ],
       "contentVerified": true
     },
     {
-      "title": "[창간특집-일상에 스며든 AI]업무 지원부터 여론동향 관리까지",
-      "source": "강원일보",
-      "link": "https://www.kwnews.co.kr/article/20261018500811",
-      "publishedAt": "Thu, 22 Oct 2026 15:00:00 GMT",
+      "title": "경일대 앵커사업본부, 구미 지역 고령층 대상 생성형 AI 교육 실시",
+      "source": "헤럴드경제",
+      "link": "https://mbiz.heraldcorp.com/article/10911983",
+      "publishedAt": "Thu, 22 Oct 2026 19:33:27 GMT",
       "date": "2026-10-23",
       "category": "genai",
       "bullets": [
-        "2016년 3월 알파고와 이세돌 9단이 구글 딥마인드 챌린지 매치를 치른지 10년 사이 인공지능(AI)은 영화와 소설에서 벗어나 일상이 됐다.",
-        "2022년 챗GPT를 시작으로 불과 4년만에 스마트폰, 가전, 금융, 교통 등 다양한 분야에서 현실화 되고 생활 속 깊숙히 스며들고 있다.",
-        "단순한 질문·답변을 넘어 행정, 의료 등 우리가 의식하지 못한 분야까지 일상생활에서 활용되고 있는 AI의 모습을 살펴본다."
+        "경일대 앵커사업본부는 지난 14일과 21일 대한노인회 구미시지회관에서 지역 고령층 주민을 대상으로 디지털 역량강화를 위한 생성형 인공지능(AI) 교육을 실시했다.",
+        "이번 교육은 경일대 앵커사업본부 산하 ACE사업단이 주최하고 대한노인회 구미시지회관이 주관했으며 양일간 총 50명이 참여했다.",
+        "지역 고령층의 디지털 기술에 대한 이해를 높이고 생성형 AI를 일상생활에서 직접 활용할 수 있도록 지원하기 위해 마련됐다."
       ],
       "contentVerified": true
     },
     {
-      "title": "녹십자수의약품, 생성형 AI를 활용한 축산 동물용의약품 광고로 업계 선도",
-      "source": "돼지와사람",
-      "link": "https://www.pigpeople.net/mobile/article.html?no=20175",
-      "publishedAt": "Thu, 22 Oct 2026 12:48:49 GMT",
-      "date": "2026-10-22",
+      "title": "[금융 HOT 뉴스] BNK금융, 생성형 AI 플랫폼 구축…삼성SDS 우선협상대상자 선정",
+      "source": "비즈월드",
+      "link": "https://www.bizwnews.com/news/articleView.html?idxno=149724",
+      "publishedAt": "Thu, 22 Oct 2026 19:32:00 GMT",
+      "date": "2026-10-23",
       "category": "genai",
       "bullets": [
-        "이에 녹십자수의약품은 AI 영상·이미지 생성, AI 음성 내레이션, 모션그래픽 등을 결합한 자체 제작 방식을 도입했습니다.",
-        "실제 농장을 촬영하지 않고도 돼지와 소 등 가축의 모습과 농장 환경, 약물의 작용 원리 등을 시각적으로 구현할 수 있어 제작 비용과 기간을 크게 줄였다는 설명입니다.",
-        "대표적인 사례가 모돈 발정동기화 제품인 '제스탭정'과 복합 영양 주사제 '모디비타산 주사'입니다."
+        "[비즈월드]BNK금융그룹(회장 빈대인)은 ‘그룹 공동 생성형 AI(인공지능) 플랫폼 구축 사업’의 우선협상대상자로 삼성SDS를 선정했다고 밝혔다.",
+        "그룹 차원의 디지털 혁신과 업무 생산성 향상을 위한 사업을 본격 추진한다.",
+        "23일 BNK금융에 따르면 이번 사업은 전 계열사가 공동으로 활용할 수 있는 표준화된 AI 기반을 마련하고 다양한 업무에 생성형 AI를 적용하기 위해 추진됐다."
       ],
       "contentVerified": true
     },
     {
-      "title": "BNK금융, 전 계열사 공동 생성형 AI 플랫폼 구축",
-      "source": "비즈트리뷴",
-      "link": "https://www.biztribune.co.kr/news/articleView.html?idxno=361081",
-      "publishedAt": "Thu, 22 Oct 2026 11:46:36 GMT",
-      "date": "2026-10-22",
+      "title": "창과 방패 든 생성형 AI···사이버 전장 '초지능 해킹전쟁' 점화",
+      "source": "글로벌E",
+      "link": "https://www.globale.co.kr/news/articleViewAmp.html?idxno=41179",
+      "publishedAt": "Thu, 22 Oct 2026 19:22:32 GMT",
+      "date": "2026-10-23",
       "category": "genai",
       "bullets": [
-        "BNK금융그룹이 전 계열사가 함께 사용하는 생성형 인공지능(AI) 플랫폼 구축에 나선다.",
-        "삼성SDS를 우선협상대상자로 선정하고 여신·외환·사내 지식검색 등 주요 업무에 생성형 AI를 단계적으로 적용할 계획이다.",
-        "22일 BNK금융은 ‘그룹 공동 생성형 AI 플랫폼 구축’ 사업의 우선협상대상자로 삼성SDS를 선정했다고 밝혔다."
+        "생성형 인공지능(AI)과 자율 에이전트 기술이 고도화되면서 글로벌 사이버 보안 전장이 대전환기를 맞았다.",
+        "취약점 발굴과 공격 코드 생성을 초 단위로 수행하는 공격형 AI의 위협이 현실화된 반면, 실시간 이상 징후를 차단하고 가상 방어막을 세우는 방어형 AI 역시 급격히 진화하며 양측 간 '초지능 해킹전쟁'이 본격화됐다.",
+        "최근 세계 웹 및 게임 인프라를 뒤흔든 프로그래밍 언어 PHP의 코어 취약점 PHP2Shell과 일본 대형 게임사 캡콤(Capcom)의 1,177만 건 계정 침해 사고는 AI가 촉발한 공격의 비대칭성을 단적으로 드러냈다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "소상공인용 AI 에이전트로 기업 시장 공략 나선 메타..왜?",
+      "source": "데일리카",
+      "link": "https://www.dailycar.co.kr/content/news.html?type=view&autoId=62920",
+      "publishedAt": "Thu, 22 Oct 2026 21:15:16 GMT",
+      "date": "2026-10-23",
+      "category": "biz",
+      "bullets": [
+        "메타가 개인용 인공지능(AI) 에이전트 뮤즈(Muse)로 기업용 AI 시장을 공략한다.",
+        "페이스북과 인스타그램을 운영하는 메타가 개인용 인공지능(AI) 에이전트 뮤즈(Muse)를 소상공인용으로 확대한다.",
+        "소셜미디어 계정뿐 아니라 각종 업무용 소프트웨어를 연결해 사업 운영과 마케팅, 고객 확보까지 지원하는 서비스다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "메타 오픈AI이어 앤트로픽도 AI 에이전트 '클로드 듀엣' 공개..개인 AI 에이전트 시장 뜨거운 경쟁시대 돌입",
+      "source": "비욘드포스트",
+      "link": "https://www.beyondpost.co.kr/view.php?ud=2026102306013242192aaae0046f_30",
+      "publishedAt": "Thu, 22 Oct 2026 21:07:49 GMT",
+      "date": "2026-10-23",
+      "category": "biz",
+      "bullets": [
+        "[비욘드포스트 이성구 전문위원] 메타의 '뮤즈(Muse)', 오픈AI의 '닷츠(Dots)'에 이어 앤트로픽도 인공지능(AI) 에이전트를 선보이면서 AI 에이전트 시장이 뜨거운 경쟁시대에 돌입하게 됐다.",
+        "앤트로픽은 차상위 AI 모델 '클로드 오퍼스 5.5'를 기반으로 한 에이전트 '클로드 듀엣'의 연구용 미리보기판을 22일(현지시간) 공개했다.",
+        "이 에이전트 도구는 이용자가 일일이 지시하지 않아도 스스로 연동된 자료와 앱을 지켜보며 필요한 업무를 찾아 수행한다."
       ],
       "contentVerified": true
     },
@@ -87,26 +115,40 @@
       "contentVerified": true
     },
     {
-      "title": "동남아시아에서 인공지능(AI) 수요가 급증하고 있습니다.",
-      "source": "Vietnam.vn",
-      "link": "https://www.vietnam.vn/ko/dong-nam-a-bung-no-nhu-cau-ai",
-      "publishedAt": "Thu, 22 Oct 2026 12:21:59 GMT",
-      "date": "2026-10-22",
-      "category": "biz",
+      "title": "“의료 AI 해외 진출, 기술력만으론 부족” '세계 바이오 서밋'서 현지화·규제 해법 논의",
+      "source": "약업신문",
+      "link": "http://m.yakup.com/news/index.html?mode=view&nid=334161",
+      "publishedAt": "Thu, 22 Oct 2026 21:01:00 GMT",
+      "date": "2026-10-23",
+      "category": "tech",
       "bullets": [
-        "구글, 테마섹, 베인앤컴퍼니가 10월 21일 발표한 연례 동남아시아 e-Conomy 보고서에 따르면, 동남아시아의 AI 사용자 수는 3년도 채 안 되는 기간 동안 약 2억 4300만 명에 달했습니다.",
-        "이 수치는 경제활동인구의 58%에 해당하며, 도입 속도는 모바일 인터넷 보급률보다 4배나 빠릅니다.",
-        "기업들은 인공지능을 활용하여 전자상거래 전환율을 개선하고 일상적인 고객 요청을 처리함으로써 직원들이 다른 업무에 집중할 수 있도록 하고 있습니다."
+        "“저소득·중소득국의 상황을 정확히 이해해야 한다.",
+        "변재학 NTL헬스케어 부대표는 한국 의료 인공지능(AI) 기술의 해외 진출에서 현지 의료환경에 적합한 제품 설계가 중요하다고 강조했다.",
+        "한국 의료 AI 기술의 해외 진출 경쟁력이 단순한 모델 성능을 넘어 현지 데이터 확보와 운영체계 구축으로 확대되고 있다."
       ],
       "contentVerified": true
     },
     {
-      "title": "네오소울, 프레딕트펀에 'AI 자동매매' 연동…\"모의거래로 선검증\"",
+      "title": "[AI 표준 전쟁 ③] 시시각각 변하는 AI 모델 검증은?…“기존 SW시험 체계론 한계”",
+      "source": "디지털데일리",
+      "link": "https://www.ddaily.co.kr/page/view/2026102215293079481",
+      "publishedAt": "Thu, 22 Oct 2026 21:00:00 GMT",
+      "date": "2026-10-23",
+      "category": "tech",
+      "bullets": [
+        "AI 경쟁이 기술 개발을 넘어 규칙을 정하는 국제 표준 무대로 번지고 있다.",
+        "미국과 유럽연합(EU), 중국, 일본은 자국 기술과 산업 경험을 표준에 담기 위해 정부와 기업 전문가를 함께 내세우고 있다.",
+        "추론 수요가 커지면서 AI 데이터센터로 경쟁 무대는 넓어지는 중이다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "버니 샌더스 \"AI 개발 당장 중단해야…글로벌 금융시스템 위험 경고\"",
       "source": "블루밍비트",
-      "link": "https://bloomingbit.io/feed/news/122742",
-      "publishedAt": "Thu, 22 Oct 2026 12:02:07 GMT",
-      "date": "2026-10-22",
-      "category": "biz",
+      "link": "https://bloomingbit.io/feed/news/122766",
+      "publishedAt": "Thu, 22 Oct 2026 20:40:14 GMT",
+      "date": "2026-10-23",
+      "category": "tech",
       "bullets": [
         "본 AI 분석은 참고용 정보 제공을 목적으로 하며, 그 정확성을 보장하지 않습니다.",
         "또한 본 내용은 투자 권유가 아니며, 모든 투자 판단과 그에 따른 책임은 이용자 본인에게 있습니다.",
@@ -129,65 +171,9 @@
       "contentVerified": true
     },
     {
-      "title": "\"AI가 스스로 더 강력한 AI를 만드는 세상\"…'재귀적 자기 개선', 초지능 경쟁의 새로운 분기점",
-      "source": "인공지능신문",
-      "link": "https://www.aitimes.kr/news/articleView.html?idxno=42402",
-      "publishedAt": "Thu, 22 Oct 2026 11:32:09 GMT",
-      "date": "2026-10-22",
-      "category": "tech",
-      "bullets": [
-        "인공지능(AI) 기술 경쟁의 초점이 더 큰 모델과 더 많은 데이터, 강력한 컴퓨팅 자원을 확보하는 것에서 AI가 스스로 자신의 성능을 개선하는 능력으로 이동하고 있다.",
-        "인간 연구자가 모델 구조를 설계하고 실험 결과를 분석하며 다음 세대 AI를 개발하던 방식에서 벗어나, AI가 직접 연구 가설을 세우고 코드를 수정하며 실험을 수행해 성능 향상에 기여하는 새로운 개발 체계가 주목받고 있다.",
-        "이러한 변화의 중심에 있는 개념이 '재귀적 자기 개선(Recursive Self-Improvement, RSI)'이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "오픈AI, 韓 개발자에 AI 기술·전략 공유…\"한국 AI 활용 뜨거워\"(종합)",
-      "source": "뉴스1",
-      "link": "https://www.news1.kr/it-science/internet-platform/6329233",
-      "publishedAt": "Thu, 22 Oct 2026 10:59:59 GMT",
-      "date": "2026-10-22",
-      "category": "tech",
-      "bullets": [
-        "오픈AI가 한국에서 개발자 행사를 열고 AI 기술 개발 현황 및 활용 경험을 공유했다.",
-        "AI 모델의 성능과 속도를 높이는 동시에 기업의 실제 업무를 수행하는 에이전트 개발 환경을 강화한다는 구상도 제시했다.",
-        "오픈AI는 22일 서울 강남구 라움 아트센터에서 '데브데이 익스체인지: 서울(DevDay Exchange: Seoul)'을 개최하고 차세대 AI 모델과 개발자 도구, 기업용 AI 활용 사례를 소개했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "[AI 브리프] 씽크포비엘, 프랑스·싱가포르 기업과 AI 신뢰성 기술 협력 확대",
-      "source": "아이티데일리",
-      "link": "https://www.itdaily.kr/news/articleView.html?idxno=242391",
-      "publishedAt": "Thu, 22 Oct 2026 08:23:36 GMT",
-      "date": "2026-10-22",
-      "category": "tech",
-      "bullets": [
-        "인공지능(AI) 기술이 산업과 일상을 빠르게 바꿔 놓고 있습니다.",
-        "아이티데일리는 매일 쏟아지는 국내외 주요 AI 소식을 한데 모은 ‘AI 브리프’를 선보입니다.",
-        "독자 여러분께서 복잡한 업계 이슈를 한눈에 파악하실 수 있기를 바랍니다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "\"규제 풀고 세제 넓혀야\"…경제계, 피지컬AI법 등 내년 정책과제 119건 건의",
-      "source": "아시아경제",
-      "link": "https://core.asiae.co.kr/article/2026102207390082492",
-      "publishedAt": "Wed, 21 Oct 2026 22:49:06 GMT",
-      "date": "2026-10-22",
-      "category": "policy",
-      "bullets": [
-        "숏 뉴스 AI 요약 기술은 핵심만 전달합니다.",
-        "한국경제인협회(한경협)가 피지컬 인공지능(AI) 산업 육성을 위한 통합지원법 제정 등 119건의 제도 개선 과제를 정부와 국회에 공식 전달했다.",
-        "한경협은 지난 19일과 20일 양일간 '2027 경제계 정책의견서'를 제출했다고 22일 밝혔다."
-      ],
-      "contentVerified": true
-    },
-    {
       "title": "FTC의 AI 차별 방지 지침, 기업 비용 구조를 다시 쓴다",
       "source": "한국공공정책신문",
-      "link": "http://knpp.co.kr/news/567296",
+      "link": "http://www.knpp.co.kr/news/567296",
       "publishedAt": "Thu, 22 Oct 2026 16:07:48 GMT",
       "date": "2026-10-23",
       "category": "policy",
@@ -225,104 +211,118 @@
         "엔비디아는 지난 1년간 유럽 스타트업과 파트너사 등에 약 100억 달러를 투자했다."
       ],
       "contentVerified": true
+    },
+    {
+      "title": "AI 법률·세무 서비스 확산...일본, 변호사·세무사 업무에 AI 활용 확대 추진",
+      "source": "데일리연합",
+      "link": "https://dailyan.com/news/article.html?no=781881",
+      "publishedAt": "Thu, 22 Oct 2026 06:51:06 GMT",
+      "date": "2026-10-22",
+      "category": "policy",
+      "bullets": [
+        "데일리연합 (SNSJTV) 박영우 기자 |일본 정부가 변호사와 세무사 등 전문자격 소지자에게만 허용해 온 업무에 인공지능(AI)을 활용할 수 있도록 관련 규제 정비에 나섰다.",
+        "AI를 통한 전문서비스 혁신을 촉진하는 동시에 사이버 공격과 인공지능 로봇 사고에 대응하기 위한 범정부 차원의 제도 개혁이다.",
+        "이번 정책은 전문직의 독점적 업무 영역과 AI 기술의 활용 범위를 재설정한다는 점에서 주목된다."
+      ],
+      "contentVerified": true
     }
   ],
   "weekly": [
     {
-      "title": "[알림]경향신문 편집국 생성형AI 활용 준칙 2.0",
-      "source": "경향신문",
-      "link": "https://www.khan.co.kr/article/202610210956001",
-      "publishedAt": "Wed, 21 Oct 2026 00:56:00 GMT",
+      "title": "군산시, '생성형 AI 콘텐츠 제작' 수강생 20명 모집",
+      "source": "연합뉴스",
+      "link": "https://www.yna.co.kr/view/AKR20261021032200055",
+      "publishedAt": "Wed, 21 Oct 2026 00:05:37 GMT",
       "date": "2026-10-21",
       "category": "genai",
       "bullets": [
-        "디지털 미디어 시대를 선도해 온 경향신문은 생성형 인공지능(Generative AI·이하 AI)을 포함한 모든 기술 발전과 함께합니다.",
-        "AI는 경향신문이 추구하는 저널리즘 가치 구현에 도움이 될 수 있습니다.",
-        "동시에 AI는 허위·편향·차별적인 정보를 담고 있거나 그 저작권이 불투명하기도 하기에 위험성이 있습니다."
+        "인공지능이 자동으로 줄인 '세 줄 요약' 기술을 사용합니다.",
+        "전체 내용을 이해하기 위해서는 기사 본문과 함께 읽어야 합니다.",
+        "전북 군산시는 급변하는 디지털 미디어 환경에 발맞춰 인공지능(AI)을 활용한 콘텐츠 창작 역량을 높이기 위해 '생성형 AI 콘텐츠 제작 교육' 수강생을 모집한다고 21일 밝혔다."
       ],
       "contentVerified": true
     },
     {
-      "title": "현대차그룹, 임직원 70% 생성형 AI 활용…73개 생산 공정에 AI 적용, 전사 AX 가속",
-      "source": "인공지능신문",
-      "link": "https://www.aitimes.kr/news/articleView.html?idxno=42393",
-      "publishedAt": "Thu, 22 Oct 2026 07:45:25 GMT",
+      "title": "예측 가능한 BigQuery AI 비용: 생성형 AI 함수의 비용 관리 기능 출시",
+      "source": "Google Cloud",
+      "link": "https://cloud.google.com/blog/ko/products/data-analytics/using-bigquerys-generative-ai-cost-management-features",
+      "publishedAt": "Thu, 22 Oct 2026 02:17:21 GMT",
       "date": "2026-10-22",
       "category": "genai",
       "bullets": [
-        "현대자동차그룹이 임직원 70% 이상이 활용하는 사내 생성형 인공지능(AI) 플랫폼을 기반으로 판매·정비·생산 등 핵심 사업 전반의 AI 전환(AX)을 가속화하고 있다.",
-        "특히 전 세계 1,200만대 커넥티드카에서 확보한 대규모 차량 데이터와 통합 AI 플랫폼을 활용해 개별 업무의 자동화를 넘어 기업 운영 전반의 생산성과 효율성을 높이는 데 주력하고 있다.",
-        "현대차그룹은 21일, 22일 양일간 서울 양재 본사에서 개최한 '소프티어 테크톡 오프데이 2026(Softeer Tech Talk Open Day 2026)'에서 이 같은 AI 전환 성과와 향후 인프라 구축 전략을 공개했다."
+        "이 콘텐츠는 AI 번역 도구를 사용하여 번역되었습니다.",
+        "정확성을 기하기 위해 노력하고 있으나, 자동 번역에는 오류나 누락이 포함될 수 있습니다.",
+        "정확한 정보는 영문 원본을 참고해 주시기 바랍니다."
       ],
       "contentVerified": true
     },
     {
-      "title": "BNK금융, 생성형 AI 플랫폼 구축 본격 추진…삼성SDS와 협상 완료",
-      "source": "뉴스핌",
-      "link": "https://www.newspim.com/news/view/20261022001031",
-      "publishedAt": "Thu, 22 Oct 2026 06:18:00 GMT",
-      "date": "2026-10-22",
+      "title": "Itaú가 전체 고객을 위한 생성형 AI를 구축하는 방법",
+      "source": "OpenAI",
+      "link": "https://openai.com/ko-KR/index/itau-generative-ai/",
+      "publishedAt": "Fri, 16 Oct 2026 21:46:06 GMT",
+      "date": "2026-10-17",
       "category": "genai",
       "bullets": [
-        "[부산=뉴스핌] 남경문 기자 = BNK금융그룹이 생성형 인공지능(AI)을 업무 전반에 적용하기 위해 그룹 공통 플랫폼 구축에 나선다.",
-        "BNK금융그룹은 '그룹 공동 생성형 AI 플랫폼 구축' 사업의 우선협상대상자로 삼성SDS를 선정했다고 22일 밝혔다.",
-        "BNK금융은 지난 9월 제안서 평가위원회를 열고 기술 역량과 플랫폼 구축 안정성, 사업 수행능력 등을 종합적으로 평가해 삼성SDS를 선정했다."
+        "브라질 같은 나라에서 수백만 고객에게 친밀한 맞춤형 경험을 제공하려면, 모델보다 먼저 생각해야 할 것은 단순함입니다.",
+        "Itaú의 CTO 카를루스 에두아르두 마제이는 말합니다.",
+        "“핵심은 단순하고 직관적이며 유용한 서비스를 만드는 것입니다."
       ],
       "contentVerified": true
     },
     {
-      "title": "상주시의회, 생성형 AI로 스마트 의정 역량 강화",
-      "source": "아시아경제",
-      "link": "https://www.asiae.co.kr/article/2026102212224069036",
-      "publishedAt": "Thu, 22 Oct 2026 03:47:30 GMT",
-      "date": "2026-10-22",
+      "title": "롯데백화점의 생성형 AI 기반 파트너 제안 채널 ‘AI 비즈센터’ 구축기",
+      "source": "Amazon Web Services (AWS)",
+      "link": "https://aws.amazon.com/ko/blogs/tech/lotte-department-store-ai-biz-center/",
+      "publishedAt": "Fri, 16 Oct 2026 02:40:13 GMT",
+      "date": "2026-10-16",
       "category": "genai",
       "bullets": [
-        "숏 뉴스 AI 요약 기술은 핵심만 전달합니다.",
-        "상주시의회가 생성형 인공지능(AI)을 활용한 의정업무 혁신에 나섰다.",
-        "상주시의회는 지난 20일 의회청사 대회의실에서 의원과 직원을 대상으로 생성형 AI 활용 역량강화 교육을 실시했다."
+        "롯데백화점은 수천 개의 입점 브랜드 및 파트너사와 협력하며 입점, 계약, 행사 기획, 마케팅 제휴 등 다양한 비즈니스 프로세스를 운영하고 있습니다.",
+        "고객용 앱에서 AI 컨시어지 ‘더스틴‘을 운영하는 등 생성형 AI를 고객 접점에 적용해 왔으며, 이번에는 그 활용 범위를 파트너사의 입점 및 협업 지원 영역으로 확장했습니다.",
+        "롯데백화점은 파트너사의 정보 탐색과 제안 준비, 제안서 작성, 담당 부서 연결, 접수 이후 관리를 하나의 흐름으로 지원하는 파트너사 전용 AI 에이전트 서비스 ‘AI 비즈센터’를 구축했습니다."
       ],
       "contentVerified": true
     },
     {
-      "title": "안양시, 피지컬 인공지능(AI) 로봇 실증사업에 선정...안양중앙시장에 순찰로봇 6대 투입",
-      "source": "중부일보",
-      "link": "https://www.joongboo.com/news/articleView.html?idxno=363740009",
-      "publishedAt": "Wed, 21 Oct 2026 05:14:00 GMT",
+      "title": "앤트로픽 1~2달러, 알리바바 6~12센트…AI 시장 뒤흔드는 ‘10배의 법칙’ [경제용어사전]",
+      "source": "더스쿠프",
+      "link": "https://www.thescoop.co.kr/news/articleView.html?idxno=311992",
+      "publishedAt": "Wed, 21 Oct 2026 09:04:23 GMT",
       "date": "2026-10-21",
       "category": "biz",
       "bullets": [
-        "요약 정보 인공지능이 자동으로 줄인 '세 줄 요약' 기술을 사용합니다.",
-        "전체 내용을 이해하기 위해서는 기사 본문과 함께 읽어야 합니다.",
-        "안양시가 인공지능(AI)과 자율주행 기술을 활용해 전통시장 안전관리 체계를 강화한다."
+        "앤프로픽이 최근 책정한 인공지능(AI) 모델 이용료다.",
+        "알리바바·즈에이 등의 값은 토큰 100만개당 6~12센트 수준에 불과하다.",
+        "둘의 가격 차이가 10배가량이라는 건데, 이런 간극이 시사하는 게 있다."
       ],
       "contentVerified": true
     },
     {
-      "title": "\"AI가 스스로 더 강력한 AI를 만드는 세상\"…'재귀적 자기 개선', 초지능 경쟁의 새로운 분기점",
-      "source": "인공지능신문",
-      "link": "https://www.aitimes.kr/news/articleView.html?idxno=42402",
-      "publishedAt": "Thu, 22 Oct 2026 11:32:09 GMT",
-      "date": "2026-10-22",
+      "title": "식물의 탄소흡수량 모니터링 주기 줄이고 공간은 더 촘촘하게 보는 AI 기술 개발",
+      "source": "헬로티",
+      "link": "https://www.hellot.net/news/article.html?no=115649",
+      "publishedAt": "Tue, 20 Oct 2026 10:53:59 GMT",
+      "date": "2026-10-20",
       "category": "tech",
       "bullets": [
-        "인공지능(AI) 기술 경쟁의 초점이 더 큰 모델과 더 많은 데이터, 강력한 컴퓨팅 자원을 확보하는 것에서 AI가 스스로 자신의 성능을 개선하는 능력으로 이동하고 있다.",
-        "인간 연구자가 모델 구조를 설계하고 실험 결과를 분석하며 다음 세대 AI를 개발하던 방식에서 벗어나, AI가 직접 연구 가설을 세우고 코드를 수정하며 실험을 수행해 성능 향상에 기여하는 새로운 개발 체계가 주목받고 있다.",
-        "이러한 변화의 중심에 있는 개념이 '재귀적 자기 개선(Recursive Self-Improvement, RSI)'이다."
+        "위성데이터로 식물 광합성으로 흡수된 이산화탄소의 양을 추정하는 인공지능 기술이 새롭게 개발됐다.",
+        "기후변화나 가뭄, 산불과 같은 재난에 따른 생태계 변화 분석과 탄소중립 정책 수립을 위한 토대를 마련하는 데 도움이 될 것으로 기대된다.",
+        "UNIST 지구환경도시건설공학과 임정호 교수팀은 서로 다른 위성 자료의 장점을 결합해 식물이 광합성으로 흡수한 탄소량 지도를 그리는 인공지능(AI) 기술 ‘유니크(UNIQUE)’를 개발했다고 20일 밝혔다."
       ],
       "contentVerified": true
     },
     {
-      "title": "\"규제 풀고 세제 넓혀야\"…경제계, 피지컬AI법 등 내년 정책과제 119건 건의",
-      "source": "아시아경제",
-      "link": "https://core.asiae.co.kr/article/2026102207390082492",
-      "publishedAt": "Wed, 21 Oct 2026 22:49:06 GMT",
-      "date": "2026-10-22",
+      "title": "“구체적 소송 개입 아니라면 유료 AI로 기업 법률사무 가능”",
+      "source": "법률신문",
+      "link": "https://www.lawtimes.co.kr/news/articleViewAmp.html?idxno=228029",
+      "publishedAt": "Tue, 20 Oct 2026 20:00:00 GMT",
+      "date": "2026-10-21",
       "category": "policy",
       "bullets": [
-        "숏 뉴스 AI 요약 기술은 핵심만 전달합니다.",
-        "한국경제인협회(한경협)가 피지컬 인공지능(AI) 산업 육성을 위한 통합지원법 제정 등 119건의 제도 개선 과제를 정부와 국회에 공식 전달했다.",
-        "한경협은 지난 19일과 20일 양일간 '2027 경제계 정책의견서'를 제출했다고 22일 밝혔다."
+        "일본 법무성이 AI리걸테크 운용 방안과 관련해 “AI가 계약 조건이나 법 조항을 살피는 업무를 할 경우 변호사법 위반이 아니다”라는 입장을 내놓았다.",
+        "앞서 일본 법무성은 2026년 8월 21일 ‘비즈니스 분야의 AI 등 법무업무 지원 서비스 제공과 변호사법 제72조의 관계에 관한 가이드라인’을 발표했다.",
+        "기업 법무업무를 지원하는 AI 서비스는 일정한 요건을 갖춘 경우 변호사법에 저촉되지 않는다는 것을 주 내용으로 한다."
       ],
       "contentVerified": true
     }
