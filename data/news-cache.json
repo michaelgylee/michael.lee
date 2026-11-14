@@ -1,7 +1,49 @@
 {
   "version": "3.2.4",
-  "generated_at": "2026-11-13T22:36:10Z",
+  "generated_at": "2026-11-14T03:13:08Z",
   "daily": [
+    {
+      "title": "한전KDN, 소통어워즈·AI 브랜드대상 ‘4관왕’ 쾌거",
+      "source": "에너지안전신문",
+      "link": "https://www.esnews.kr/news/articleView.html?idxno=7357",
+      "publishedAt": "Sat, 14 Nov 2026 02:25:16 GMT",
+      "date": "2026-11-14",
+      "category": "genai",
+      "bullets": [
+        "한전KDN(사장 박상형)이 11월 13일 서울 한국프레스센터에서 열린 ‘제19회 대한민국소통어워즈’와 ‘2026 대한민국 AI 브랜드대상’에서 총 4개 부문을 동시에 휩쓸며 4관왕에 올랐다.",
+        "어려운 전력 및 에너지 디지털 기술을 국민 눈높이에 맞춰 알기 쉽게 전달하고, 생성형 인공지능(AI) 생태계에서도 높은 브랜드 신뢰도를 확보한 결과다.",
+        "한국인터넷소통협회가 주최하고 과학기술정보통신부와 산업통상자원부 등이 후원하는 이번 시상식에서 한전KDN은 종합소통대상, CEO대상, 소셜미디어대상 등 3개 부문을 수상했다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "범죄 도구 악용되는 생성형 AI…막을 방법은 아직",
+      "source": "연합뉴스TV",
+      "link": "https://www.yonhapnewstv.co.kr/news/MYH20261114105459KKq",
+      "publishedAt": "Sat, 14 Nov 2026 01:55:00 GMT",
+      "date": "2026-11-14",
+      "category": "genai",
+      "bullets": [
+        "기사 읽어주기 서비스는 크롬기반의 브라우저에서만 사용하실 수 있습니다.",
+        "최근 범죄자들이 생성형 AI에 범행 수법을 묻는 경우가 많아지고 있습니다.",
+        "최근 감기약으로 필로폰을 만들다 검거된 일당 중 한 명의 챗GPT에선 수상한 기록이 발견됐습니다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "클라비, 생성형 AI·클라우드 성과로 과기정통부 장관 표창 수상",
+      "source": "파이낸셜리뷰",
+      "link": "http://www.financialreview.co.kr/news/articleView.html?idxno=46314",
+      "publishedAt": "Sat, 14 Nov 2026 00:47:00 GMT",
+      "date": "2026-11-14",
+      "category": "genai",
+      "bullets": [
+        "생성형 인공지능(AI)·클라우드 솔루션 기업 클라비가 ‘2026 대한민국 Digital Innovation Award’에서 부총리 겸 과학기술정보통신부장관 표창을 받았다.",
+        "클라비는 생성형 AI와 클라우드를 기반으로 공공·민간 분야의 디지털전환(DX)과 AI전환(AX)을 추진한 성과를 인정받아 이번 표창을 수상했다고 13일 밝혔다.",
+        "‘대한민국 Digital Innovation Award’는 정보통신기술(ICT) 개발과 융복합 활용을 통해 디지털 경제·사회 구현에 기여한 개인과 기관, 기업 등을 대상으로 하는 정부 포상이다."
+      ],
+      "contentVerified": true
+    },
     {
       "title": "생성형 AI가 바꾼 투자 지도…IT서비스주 강세 속 종목별 희비",
       "source": "핀포인트뉴스",
@@ -17,44 +59,44 @@
       "contentVerified": true
     },
     {
-      "title": "\"AI 신뢰할만 하다\" 설문에 얼마나 동의했을까",
-      "source": "조선일보",
-      "link": "https://www.chosun.com/economy/weeklybiz/2026/11/14/HYZ3SB4FABF67APMMUV75YNQY4/",
-      "publishedAt": "Fri, 13 Nov 2026 18:00:00 GMT",
+      "title": "인공지능 시장과 반도체 공급망에 있어 중대한 시험대가 될 것이다.",
+      "source": "Vietnam.vn",
+      "link": "https://www.vietnam.vn/ko/phep-thu-lon-doi-voi-thi-truong-ai-va-chuoi-cung-ung-ban-dan",
+      "publishedAt": "Sat, 14 Nov 2026 00:57:43 GMT",
       "date": "2026-11-14",
-      "category": "genai",
+      "category": "biz",
       "bullets": [
-        "글로벌 시장조사업체 유로모니터 인터내셔널이 설문조사를 해보니, 조사 대상 소비자의 81%가 “일상생활에서 생성형 AI를 활용하고 있다”고 답했다.",
-        "하지만 쇼핑에 필요한 정보를 얻을 때 AI를 ‘매우 신뢰할 만한 정보원’으로 평가한 소비자는 19%에 그쳤다.",
-        "건강 관련 정보와 조언에 대해서는 이 비율이 12%로 더 낮아졌다."
+        "인공지능(AI) 투자 열풍의 중심에 있는 기업인 엔비디아(NVIDIA)에서 현재 벌어지고 있는 혼란은 주식 시장, 기술 기업, 그리고 전 세계 반도체 제조 네트워크에 심각한 영향을 미치고 있습니다.",
+        "엔비디아 CEO 젠슨 황이 33년간의 재임 기간 중 11월 12일 퇴임하면서 반도체 역사상 가장 주목할 만한 리더십 시대가 막을 내렸습니다.",
+        "로이터 통신에 따르면 엔비디아의 최고재무책임자(CFO)인 콜레트 크레스가 후임 CEO를 물색하는 동안 임시 CEO로 임명되었습니다."
       ],
       "contentVerified": true
     },
     {
-      "title": "마포구의회, 생성형 AI 활용 의정 역량강화 특강 실시",
-      "source": "뉴스에이",
-      "link": "https://www.newsa.co.kr/news/articleView.html?idxno=403795",
-      "publishedAt": "Fri, 13 Nov 2026 16:48:04 GMT",
+      "title": "박찬대 인천시장 “AI 등 모든 혁신 중심에는 사람이 있어야”",
+      "source": "헤럴드경제",
+      "link": "https://biz.heraldcorp.com/article/10934838",
+      "publishedAt": "Fri, 13 Nov 2026 23:45:00 GMT",
       "date": "2026-11-14",
-      "category": "genai",
+      "category": "biz",
       "bullets": [
-        "마포구의회(의장 최은하)가 11월 9일 의회 1층 회의실에서 ‘생성형 AI 활용 의정 역량강화 특강’을 실시했다.",
-        "이날 교육에는 마포구의회 의원 전원이 참석해 생성형 AI를 활용한 예산안 검토와 심사 방법을 익혔다.",
-        "이번 특강은 이윤정 숙명여대 행정학 박사(現 날개달린코끼리 전임교수)가 강의를 진행했다."
+        "![Image 7: 박찬대 인천시장이 11일 오후 서울 중구 앰배서더 서울 풀만 호텔에서 열린 헤럴드미디어그룹 주최 글로벌비즈포럼(GBF)에 참석, 환영사를 하고 있다.",
+        "박찬대 인천시장이 11일 오후 서울 중구 앰배서더 서울 풀만 호텔에서 열린 헤럴드미디어그룹 주최 글로벌비즈포럼(GBF)에 참석, 환영사를 하고 있다.",
+        "박찬대 인천시장은 인공지능(AI) 등 여러 혁신의 중심에는 사람이 있어야 한다고 강조했다."
       ],
       "contentVerified": true
     },
     {
-      "title": "옴디아 \"2026년 AI 소프트웨어 매출 2000억달러 돌파\"… 생성형 AI 139% 급증",
-      "source": "테크수다",
-      "link": "https://www.techsuda.com/omdia-ai-software-revenue-to-top-200-billion-in-2026/amp/",
-      "publishedAt": "Fri, 13 Nov 2026 10:58:04 GMT",
-      "date": "2026-11-13",
-      "category": "genai",
+      "title": "비트코인과 인공지능이 파라과이 댐을 둘러싸고 3억 5천만 달러 규모의 분쟁을 벌이고 있습니다",
+      "source": "CoinDesk",
+      "link": "https://www.coindesk.com/ko/tech/2026/11/13/bitcoin-miners-pay-paraguay-usd350-million-a-year-but-ai-is-pushing-them-out",
+      "publishedAt": "Fri, 13 Nov 2026 23:30:00 GMT",
+      "date": "2026-11-14",
+      "category": "biz",
       "bullets": [
-        "옴디아가 최근 내놓은 '인공지능 소프트웨어 시장 전망(Artificial Intelligence Software Market Forecasts)' 보고서에 담긴 내용이다.",
-        "생성형 AI와 에이전틱 AI(Agentic AI) 수요가 함께 빨라지자 옴디아는 코로나19 팬데믹 이후 반기 전망 가운데 가장 큰 폭으로 수치를 끌어올렸다.",
-        "생성형 AI 매출은 2026년 139% 늘어 이전 전망치를 크게 웃돌 것으로 보인다."
+        "세계 비트코인 채굴량의 4%에 해당하는 전력을 메가와트시당 44달러에 판매하는 계약들이 2027년 12월 31일에 만료됩니다.",
+        "파라과이의 국영 전력회사는 이 날짜를 최종으로 규정했으며, 최근 파운더스 펀드가 지원하는 AI 캠퍼스에 전력을 공급하는 15년 계약을 체결했습니다.",
+        "파라과이 국영 전력회사는 국내 전력 수요가 증가하고 인공지능 기업들이 저렴한 수력 발전을 두고 경쟁함에 따라 모든 특별 암호화폐 전력 계약을 2027년 12월 31일에 만료시킬 계획이다."
       ],
       "contentVerified": true
     },
@@ -73,44 +115,16 @@
       "contentVerified": true
     },
     {
-      "title": "이모션웨이브, AI 기반 공간 미디어 플랫폼 공개…日, XR·로보틱스 시장 진출 추진",
-      "source": "인공지능신문",
-      "link": "https://www.aitimes.kr/news/articleView.html?idxno=42730",
-      "publishedAt": "Fri, 13 Nov 2026 13:55:14 GMT",
-      "date": "2026-11-13",
-      "category": "biz",
+      "title": "청주시, AI 활용한 장년층 고독사 예방 안전망 구축 나선다",
+      "source": "청주일보",
+      "link": "https://www.cj-ilbo.com/news/articleView.html?idxno=1187073",
+      "publishedAt": "Fri, 13 Nov 2026 23:53:10 GMT",
+      "date": "2026-11-14",
+      "category": "tech",
       "bullets": [
-        "AI 인프라 전문기업 이모션웨이브(대표 장순철)가 일본에서 확장현실(XR) 기반 공간 미디어 플랫폼을 선보이고, 자체 인공지능(AI) 인프라 기술을 활용한 해외 사업 확대에 나섰다.",
-        "콘텐츠 제작과 처리, 서비스 운영을 연결하는 인공지능 인프라를 XR과 로보틱스 분야에 적용하는 것이 핵심이다.",
-        "나루는 애플 비전 프로(Apple Vision Pro)를 기반으로 가상 공간에서 영상과 디지털 콘텐츠를 몰입감 있게 경험할 수 있도록 설계된 플랫폼이다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "삼성과 젠몬이 손잡은 ‘AI 안경’ 직접 써보니…",
-      "source": "조선일보",
-      "link": "https://www.chosun.com/economy/int_economy/2026/11/13/KO2KEISQA5A45EJO5UKCB32KFE/",
-      "publishedAt": "Fri, 13 Nov 2026 12:06:00 GMT",
-      "date": "2026-11-13",
-      "category": "biz",
-      "bullets": [
-        "젠틀몬스터가 마련한 인공지능(AI) 안경 시연장에서 삼성전자와 구글, 젠틀몬스터가 연합해 만든 AI(인공지능) 안경이 세상에 첫선을 보였다.",
-        "시연 행사장에서 중국인 직원이 아침에 뭘 먹었느냐고 중국어로 묻자, 안경 다리에 달린 작은 스피커에서 한국어 통역이 흘러나왔다.",
-        "41g의 안경테 안에 1200만 화소 카메라와 개방형 스피커 2개, 마이크 4개를 넣고, 구글의 AI ‘제미나이’를 탑재했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "스포츠 중계권부터 AI·팬 비즈니스까지…글로벌 전문가들이 제시한 스포츠산업의 미래",
-      "source": "SPOTV NEWS",
-      "link": "https://www.spotvnews.co.kr/news/articleView.html?idxno=1019687",
-      "publishedAt": "Fri, 13 Nov 2026 09:10:13 GMT",
-      "date": "2026-11-13",
-      "category": "biz",
-      "bullets": [
-        "스포츠 중계권 시장의 변화와 인공지능(AI)·데이터 기술의 발전, 글로벌 팬 비즈니스의 성장 전략을 논의하는 자리가 마련됐다.",
-        "호주오픈과 글로벌 스포츠 스트리밍 플랫폼 DAZN, 독일 프로축구 호펜하임, 스페인 아틀레티코 마드리드 등 글로벌 스포츠산업 관계자들이 한국을 찾아 각 분야의 사업 사례와 발전 방향을 소개했다.",
-        "문화체육관광부가 주최하고 한국스포츠과학원이 주관한 '2026 스포츠산업 글로벌 콘퍼런스'가 13일 서울 올림픽파크텔에서 열렸다."
+        "【청주일보】 김익환 기자 = 충북 청주시는 13일 충북과학기술혁신원에서 ㈜심심이, 충북과학기술혁신원과 ‘정서고립 선제감지 및 적시개입 에이전틱 AI 기술개발사업’의 원활한 추진을 위한 업무협약을 체결했다.",
+        "이번 협약은 인공지능(AI) 기술을 활용해 장년층 1인 가구의 정서적 고립을 조기에 감지하고, 고독사 위험에 선제적으로 대응하기 위한 협력체계를 구축하고자 마련됐다.",
+        "협약에 따라 시는 장년층 1인 가구 대상자 발굴과 사업 참여를 지원하고, ㈜심심이는 AI 기술의 실증과 보급을 담당한다."
       ],
       "contentVerified": true
     },
@@ -157,44 +171,16 @@
       "contentVerified": true
     },
     {
-      "title": "한전, AI 감사시스템으로 3500억원 부정 지출 예방…‘AI 코리아 대상’ 수상",
-      "source": "전기신문",
-      "link": "https://www.electimes.com/news/articleViewAmp.html?idxno=374742",
-      "publishedAt": "Fri, 13 Nov 2026 11:58:54 GMT",
-      "date": "2026-11-13",
-      "category": "tech",
-      "bullets": [
-        "한전이 자체 개발한 인공지능(AI) 기반 감사시스템을 통해 약 3500억원 규모의 부정 지출을 예방한 성과를 인정받았다.",
-        "한국전력(사장 김동철)은 지난 12일 열린 ‘2026 AI 코리아 대상’에서 사회적 책임 부문 대상을 수상했다고 밝혔다.",
-        "한국인공지능산업협회와 이데일리가 공동 주최하고 산업통상부, 과학기술정보통신부 등이 후원하는 ‘AI 코리아 대상’은 AI 산업 발전에 기여한 기업과 기관을 발굴하고 우수 기술과 활용 성과를 알리기 위해 마련된 행사다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "中 AI기업들 '美 규제 확대될라' 엔비디아칩 확보 총력전",
-      "source": "연합뉴스",
-      "link": "https://www.yna.co.kr/view/AKR20261113030500009",
-      "publishedAt": "Thu, 12 Nov 2026 23:43:05 GMT",
-      "date": "2026-11-13",
+      "title": "[AI 출근길] 딥마인드 AI, 시그널 암호 4주 만에 수학 검증… 메신저 보안 점검법",
+      "source": "코인리더스",
+      "link": "https://www.coinreaders.com/270200",
+      "publishedAt": "Sat, 14 Nov 2026 02:31:38 GMT",
+      "date": "2026-11-14",
       "category": "policy",
       "bullets": [
-        "인공지능이 자동으로 줄인 '세 줄 요약' 기술을 사용합니다.",
-        "전체 내용을 이해하기 위해서는 기사 본문과 함께 읽어야 합니다.",
-        "중국 인공지능(AI) 기업들이 엔비디아의 젠슨 황 스캔들이 터진 뒤 미국이 추가로 반도체 규제에 나설 것을 우려해 엔비디아 칩 확보 경쟁에 뛰어들었다고 로이터 통신이 12일(현지시간) 소식통을 인용해 보도했다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "한국인공지능검증원, 오스트리아 AIT와 AI 신뢰성 검증 플랫폼 개발…AI 에이전트까지 평가 확대",
-      "source": "인공지능신문",
-      "link": "https://www.aitimes.kr/news/articleView.html?idxno=42716",
-      "publishedAt": "Thu, 12 Nov 2026 23:23:08 GMT",
-      "date": "2026-11-13",
-      "category": "policy",
-      "bullets": [
-        "국내 AI 시험·검증기관이 오스트리아 연구기관과 손잡고 인공지능 모델부터 AI 에이전트까지 신뢰성과 안전성을 평가하는 국제 공동 검증 플랫폼 개발에 나선다.",
-        "유럽연합 인공지능법(EU AI Act) 등 해외 규제와 국제표준에 대응할 수 있는 평가 기술을 확보해 국내 AI 기업의 해외시장 진출을 지원한다는 목표다.",
-        "한국인공지능검증원(대표 강문정)은 오스트리아 기술연구소(Austrian Institute of Technology, AIT)와 AI 신뢰성 검증 플랫폼 개발을 위한 국제 공동연구에 착수했다고 13일 밝혔다."
+        "구글의 AI 연구 조직 딥마인드가 수학 정리 증명 인공지능(AI)으로 보안 메신저 시그널(Signal)의 핵심 암호 프로토콜을 4주 만에 형식 검증했다.",
+        "주요 IT 외신에 따르면 딥마인드는 차세대 정리 증명 AI '알파프루프 코드(AlphaProof Code)'로 완전한 수학적 검증(Formal Verification)을 마쳤다고 공식 발표했다.",
+        "형식 검증은 프로그램이 설계대로만 동작하고 암호학적 취약점이나 백도어가 없음을 수학적 정리로 증명하는 작업이다."
       ],
       "contentVerified": true
     },
@@ -209,6 +195,20 @@
         "추천 검색어는 많이 본 뉴스 기사의 키워드를 수집하여 선정하였습니다.",
         "‘젠슨 황 스캔들’ 여파로 미국의 대중(對中) 반도체 제재 수위가 높아질 것으로 예상되자 한국 기업들도 시장에 미칠 파장에 촉각을 곤두세우고 있다.",
         "삼성전자, SK하이닉스의 중국 팹(공장) 운영에 제약이 커질 수 있다는 우려가 제기된다."
+      ],
+      "contentVerified": true
+    },
+    {
+      "title": "파일럿 이후 Harvey 법률 AI를 전 부서로 확대 도입하는 Avianca",
+      "source": "Unite.AI",
+      "link": "https://www.unite.ai/ko/avianca-moves-harvey-legal-ai-into-department-wide-use-after-pilot/",
+      "publishedAt": "Fri, 13 Nov 2026 16:38:03 GMT",
+      "date": "2026-11-14",
+      "category": "policy",
+      "bullets": [
+        "Avianca는 14개 법무 관리 부서를 대상으로 한 파일럿을 통해 교육을 마친 후 Harvey의 법률 AI 플랫폼을 전사적으로 확장하고 있습니다.",
+        "Harvey의 Vault는 일반 모델이 아닌 Avianca 자체의 임대차, 규제 및 계약 라이브러리를 기반으로 문서 검색을 수행합니다.",
+        "보안 및 AI 거버넌스 검토가 배포에 앞서 이루어져, 광범위한 도입보다 감독이 우선시되었습니다."
       ],
       "contentVerified": true
     },
@@ -229,100 +229,58 @@
   ],
   "weekly": [
     {
-      "title": "\"AI가 답해도 판단은 인간이 한다\"…유네스코, 생성형 AI 시대 새로운 교육 지침 공개",
-      "source": "인공지능신문",
-      "link": "https://www.aitimes.kr/news/articleView.html?idxno=42692",
-      "publishedAt": "Wed, 11 Nov 2026 07:46:53 GMT",
-      "date": "2026-11-11",
+      "title": "생성형 AI는 기대에 부응할 것인가?",
+      "source": "IBM",
+      "link": "https://www.ibm.com/kr-ko/think/insights/gen-ai-live-up-to-hype",
+      "publishedAt": "Fri, 13 Nov 2026 15:38:06 GMT",
+      "date": "2026-11-14",
       "category": "genai",
       "bullets": [
-        "생성형 인공지능(AI)이 텍스트와 이미지, 음성, 영상 등 다양한 형태의 정보를 생산하면서 교육의 중심도 AI 도구 활용법에서 정보의 신뢰성을 판단하고 기술의 사회적 영향을 이해하는 방향으로 확대되고 있다.",
-        "AI가 제시한 답변을 그대로 받아들이는 것이 아니라 정보의 정확성과 편향 가능성을 검토하고, 최종 판단은 인간이 내릴 수 있도록 비판적 사고 능력을 길러야 한다는 것이다.",
-        "Teaching Media and Information Literacy in AI-Mediated Information Environments)'을 공개했다."
+        "Goldman Sachs가 최근 발표한 보고서 는 생성형 AI 의 비즈니스 가치에 관한 새로운 논쟁을 불러일으켰습니다.",
+        "\"생성형 AI: 과도한 투자, 부족한 성과\"라는 제목의 이 보고서는 초기 붐 이후 약 2년이 지난 현재, 해당 기술이 제공하는 것에 대한 상반된 견해를 제시합니다.",
+        "이 보고서는 생성형 AI가 그 기대에 부응하고 있는지에 대한 의문을 제기하는 최근 뉴스 보도들과 맥락을 같이합니다."
       ],
       "contentVerified": true
     },
     {
-      "title": "어피닛, 생성형 AI 심사 응답 위험지표 전환 특허 등록",
-      "source": "와우테일",
-      "link": "https://wowtale.net/2026/11/10/267766/",
-      "publishedAt": "Tue, 10 Nov 2026 00:13:54 GMT",
-      "date": "2026-11-10",
-      "category": "genai",
-      "bullets": [
-        "AI 금융 기업 어피닛(AFINIT)이 생성형 인공지능(GenAI)의 응답을 금융 심사 위험 지표로 전환하는 기술에 대해 특허 등록을 완료했다고 10일 밝혔다.",
-        "이번 특허는 AI 모델 전체를 다시 학습시키지 않고도 실제 연체 데이터를 활용한 보정으로 시장 변화에 대응할 수 있다는 점이 특징이다.",
-        "어피닛은 국가와 상품별로 다른 금융 환경에 맞춰 위험 지표를 조정할 수 있는 기술을 확보했고, 이를 해외 서비스 확장을 뒷받침할 기반으로 삼았다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "5년 동안 교실에서 생성형 AI 접속이 막힌다면",
-      "source": "시사IN",
-      "link": "https://www.sisain.co.kr/news/articleView.html?idxno=58803",
-      "publishedAt": "Thu, 12 Nov 2026 15:17:52 GMT",
+      "title": "생성형 AI 시대, 대학에서 사라지는 질문…청년들은 왜 침묵하는가",
+      "source": "헤드라인제주",
+      "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=602107",
+      "publishedAt": "Fri, 13 Nov 2026 05:53:28 GMT",
       "date": "2026-11-13",
       "category": "genai",
       "bullets": [
-        "교실 내 AI 활용을 어느 범위까지 할 수 있는지 그 구체적인 허용선을 아예 법이나 행정명령 등으로 못 박는 곳들이 해외 곳곳에서 늘어나는 추세다.이런 움직임이 가장 활발한 곳이 다름 아닌 AI 기술 본산지인 미국이다.",
-        "챗지피티, 제미나이 같은 생성형 AI의 활용이 학교 수업, 과제, 평가 등에 널리 확산하면서 교육 현장에서 여러 혼란이 이어지고 있다.",
-        "해외에서는 학교 교육에서의 생성형 AI 활용에 대한 지침을 명확하게 정비하려는 움직임이 빨라지고 있다."
+        "생성형 인공지능(AI)이 일상화되면서 대학 강의실의 풍경도 달라지고 있다.",
+        "궁금한 점이 생겨도 교수자에게 직접 질문하기보다 인터넷 검색이나 생성형 AI를 통해 답을 찾는 학생들이 늘고 있다.",
+        "소통을 돕기 위해 발전한 디지털 기술이 오히려 사람과 사람 사이의 질문과 대화를 줄이는 역설적인 현상이 나타나고 있는 것이다."
       ],
       "contentVerified": true
     },
     {
-      "title": "GC녹십자, 생성형 AI 기반 약물감시 문헌 모니터링 소프트웨어 'PVLitrieve' 개발",
-      "source": "팜뉴스",
-      "link": "https://www.pharmnews.com/news/articleView.html?idxno=307885",
-      "publishedAt": "Thu, 12 Nov 2026 05:47:13 GMT",
-      "date": "2026-11-12",
-      "category": "genai",
+      "title": "美 MIT, 사람의 말 속 숨은 의도까지 이해하는 로봇 AI 개발",
+      "source": "로봇신문",
+      "link": "https://www.irobotnews.com/news/articleView.html?idxno=49486",
+      "publishedAt": "Mon, 09 Nov 2026 11:13:55 GMT",
+      "date": "2026-11-09",
+      "category": "tech",
       "bullets": [
-        "GC녹십자는 생성형 인공지능(AI) 기반의 약물감시(Pharmacovigilance, PV) 문헌 모니터링 지원 소프트웨어 'PVLitrieve(피브이리트리브)'를 자체 개발했다고 12일 밝혔다.",
-        "약물감시 문헌 모니터링은 국내외 학술 논문과 학회 발표 등 과학 문헌에 포함된 자사 의약품의 안전성 정보를 확인하고 평가하는 업무다.",
-        "기존에는 담당자가 방대한 문헌을 직접 검토하고 정리하는 데 많은 시간이 소요됐다."
+        "미국 매사추세츠공과대학교(MIT)와 뉴욕대학교(NYU) 공동 연구팀이 사람의 언어 지시를 단순히 실행하는 데 그치지 않고, 그 속에 담긴 의도까지 추론해 로봇의 행동을 수정하는 인공지능(AI) 기술을 개발했다.",
+        "MIT는 9일 연구팀이 대규모 언어모델(LLM)을 활용해 로봇의 움직임을 계획하는 새로운 학습 플랫폼 '플렉스(FLEX)'를 개발했다고 밝혔다.",
+        "이 기술의 핵심은 사람이 구체적으로 설명하지 않은 행동 원칙까지 로봇이 스스로 파악한다는 점이다."
       ],
       "contentVerified": true
     },
     {
-      "title": "뉴엔AI, 美 뷰티 시장 공략…현지 영업망 확대",
+      "title": "호주, 첨단 AI 규제 칼 빼들었다…안전검증 의무화 추진",
       "source": "지디넷코리아",
-      "link": "https://zdnet.co.kr/view/?no=20261109160711",
-      "publishedAt": "Mon, 09 Nov 2026 07:07:11 GMT",
-      "date": "2026-11-09",
-      "category": "biz",
-      "bullets": [
-        "뉴엔AI가 북미 법인 뷰센스를 앞세워 미국 뷰티 시장 공략에 속도를 낸다.",
-        "현지 주요 기업들과 인공지능(AI) 분석 솔루션 도입 및 사업 협력 가능성을 논의하며 영업망 확대에 나섰다.",
-        "뉴엔AI는 북미 법인 뷰센스가 지난달 28일부터 30일까지 미국 로스앤젤레스(LA)에서 열린 '뷰티 산업 비즈니스 포럼'에 참가해 현지 기업들과 비즈니스 미팅을 진행했다고 9일 밝혔다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "AI 소프트웨어 2000억달러 돌파 전망…‘스스로 일하는 AI’가 시장 판도 바꾼다",
-      "source": "에너지안전신문",
-      "link": "https://www.esnews.kr/news/articleView.html?idxno=7353",
-      "publishedAt": "Fri, 13 Nov 2026 06:09:21 GMT",
-      "date": "2026-11-13",
-      "category": "biz",
-      "bullets": [
-        "세계 인공지능(AI) 소프트웨어 시장이 2026년 2000억달러를 넘어설 전망이다.",
-        "단순히 질문에 답하는 생성형 AI를 넘어 복잡한 업무를 스스로 수행하는 ‘에이전틱 AI(Agentic AI)’가 확산하면서 글로벌 소프트웨어 산업의 경쟁 구도도 빠르게 바뀌고 있다.",
-        "시장조사업체 옴디아(Omdia)는 10일 발표한 ‘인공지능 소프트웨어 시장 전망’에서 올해 글로벌 AI 소프트웨어 매출이 2024년의 두 배 수준으로 성장할 것으로 내다봤다."
-      ],
-      "contentVerified": true
-    },
-    {
-      "title": "\"AI 규제 법안 쏟아진다\"…현실화하는 '블루쓰나미' 공포 [이슈+]",
-      "source": "한국경제",
-      "link": "https://www.hankyung.com/article/202611094637g",
-      "publishedAt": "Mon, 09 Nov 2026 05:45:32 GMT",
-      "date": "2026-11-09",
+      "link": "https://zdnet.co.kr/view/?no=20261110153815",
+      "publishedAt": "Tue, 10 Nov 2026 07:04:49 GMT",
+      "date": "2026-11-10",
       "category": "policy",
       "bullets": [
-        "생성형 인공지능(AI)을 활용해 제작된 이미지입니다.",
-        "미국 의회의 인공지능(AI) 입법 기조가 산업 육성에서 안전성 검증과 기업 책임 강화로 이동할 조짐을 보이고 있다.",
-        "중간선거에서 상·하원 다수당을 확보한 민주당이 내년 새 의회 출범과 함께 AI 규제 법안을 대거 추진하기로 하면서다."
+        "호주가 첨단 인공지능(AI) 안전관리를 기업 자율에 맡기지 않고 법으로 의무화한다.",
+        "기업에 외부 평가와 사고 보고를 요구하고 이를 감독할 전담 규제기관도 세운다.",
+        "호주 정부는 10일(현지시간) 첨단 AI 기업에 안전·보안 의무를 부과하는 '호주 AI 표준' 입법 계획을 발표했다."
       ],
       "contentVerified": true
     }
