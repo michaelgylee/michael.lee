@@ -1,8 +1,27 @@
 {
   "version": "3.3.0",
-  "generated_at": "2026-11-26T15:13:42Z",
-  "generated_kst": "2026-11-27 00:13:42",
+  "generated_at": "2026-11-26T23:52:21Z",
+  "generated_kst": "2026-11-27 08:52:21",
   "posts": [
+    {
+      "date": "2026-11-27",
+      "postUrl": "https://treesoop.com/blog/ai-news-2026-11-27",
+      "entries": [
+        {
+          "title": "책임감 있는 사람일수록 도구를 쓴다",
+          "paragraphs": [
+            "LLM은 키보드 앞의 엔지니어를 증폭시킨다는 글입니다. 호기심 많은 개발자는 더 많이 만들고 검증하지만, 대충 하는 사람은 그대로 묻어간다는 주장으로, AI 활용 역량에 투자해야 하는 이유를 설명합니다.",
+            "나무숲은 매일 AI 개발 실무에 바로 쓸 수 있는 소식을 골라 전합니다. AI 도입이나 자동화가 고민이라면 treesoop.com에서 문의해 주세요.",
+            "관련 서비스: 기술 의사결정, 같이 짚어드립니다",
+            "vLLM 사용법 2026 — Ollama와 갈라서는 선은 처리량이 아니라 메모리 산술이다",
+            "포항공대, 카이스트 및 세계 TOP 1% 공대 출신 엔지니어로 구성된 AI-Native Team. Claude Code 기반 에이전트 개발 루프로 일하는 AI 개발사입니다.",
+            "경기도 성남시 분당구 판교역로 109A동 143호네이버 지도에서 보기 →070-8064-3349official@treesoop.com카카오톡 채널GitHubLinkedIn© 2026 TreeSoop. All rights reserved.",
+            "트리숲"
+          ],
+          "sourceUrl": "https://www.iankduncan.com/engineering/2026-11-19-smart-people-who-give-a-shit-use-tools"
+        }
+      ]
+    },
     {
       "date": "2026-11-24",
       "postUrl": "https://treesoop.com/blog/ai-news-2026-11-24",
@@ -167,76 +186,6 @@
             "트리숲"
           ],
           "sourceUrl": "https://github.com/Tracer-Cloud/opensre"
-        }
-      ]
-    },
-    {
-      "date": "2026-11-18",
-      "postUrl": "https://treesoop.com/blog/ai-news-2026-11-18",
-      "entries": [
-        {
-          "title": "클로드 코드 팀이 에이전트 작업을 검증하는 방법",
-          "paragraphs": [
-            "앤트로픽 클로드 코드 팀은 코드의 약 90%를 클로드가 작성하고 리뷰합니다. 이 정도 규모에서는 에이전트가 증거를 갖고 자기 작업을 검증하게 만드는 일이 가장 중요하다고 설명합니다. 검증 루프가 있으면 클로드를 수십, 수백 개씩 병렬로 돌릴 수 있지만, 없으면 사람이 전부 확인해야 해서 한두 개가 한계라는 것입니다.",
-            "팀이 가장 먼저 꼽는 것은 엔드투엔드 테스트입니다. 기능이 되거나 안 되거나 둘 중 하나라 속이기 어렵고, 무엇이 깨졌는지도 구체적으로 보여 준다는 이유입니다. 앱을 실행하는 방법을 .claude/skills/ 아래 verify 스킬로 정리해 두면 클로드가 커밋 전에 이를 써서 스모크 테스트를 돌립니다. 체크가 세 번 연속 실패하면 클로드가 멈추고 사람을 부르게 하고, 리뷰 기준은 PR이 아니라 기본 브랜치의 REVIEW.md에서 읽어 변경이 자기 심사 기준을 고치지 못하게 합니다. 테스트·빌드·린트는 PR을 열기 전에 훅으로 강제합니다."
-          ],
-          "sourceUrl": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/"
-        },
-        {
-          "title": "오픈코드 Browse, 에이전트에게 내 실제 브라우저를",
-          "paragraphs": [
-            "OpenCode가 코딩 에이전트가 사용자의 실제 브라우저를 쓰게 해 주는 MCP 서버와 크로미움 확장 프로그램 Browse를 공개했습니다. 에이전트는 이미 로그인된 사이트와 설치된 확장을 그대로 쓰면서 백그라운드 탭 그룹에서 페이지를 읽고, 클릭·입력·스크린샷·탭 녹화를 합니다.",
-            "로그인, 2FA, 결제처럼 사람이 해야 하는 단계에서는 탭을 사용자에게 넘기고, 사용자가 Continue를 누르면 다시 이어서 진행합니다. 열어 둔 탭을 에이전트에게 빌려주는 기능과 접근 가능한 사이트를 제한하는 기능도 있습니다. Chrome, Edge, Brave, Arc 등을 지원하고 OpenCode뿐 아니라 Claude Code, Cursor, Codex, Zed 같은 MCP 클라이언트에서 쓸 수 있습니다."
-          ],
-          "sourceUrl": "https://opencode.ai/product/browse"
-        },
-        {
-          "title": "윈도 11, 어떤 코딩 에이전트를 쓰는지 수집한다",
-          "paragraphs": [
-            "한 보안 연구자가 윈도 11의 MissionControlAggregator.dll을 리버스 엔지니어링해, 이 구성 요소가 사용자가 쓰는 코딩 에이전트와 개발 도구를 기록해 윈도 진단 데이터로 보내고 있다는 사실을 확인했습니다. CLI 에이전트로는 copilot.exe, claude.exe, codex.exe, agy.exe를, 데스크톱 에이전트로는 GitHub·Claude·Codex·Cursor·Antigravity를 검사하며, WSL 안에서 실행한 경우도 따로 잡습니다.",
-            "node.exe, python.exe, gcc.exe, code.exe 같은 일반 개발 도구도 목록에 있습니다. 프로세스를 직접 스캔하지 않고 기존 윈도 이벤트를 구독해 판별하며, 해당 기능 플래그 이름은 CLICodingAgentUsage입니다. 선택적 진단 데이터를 끄지 않았다면 이 정보가 보고된다고 연구자는 설명합니다. 흥미롭게도 이 조사 자체를 AI 에이전트에게 맡겨 단서를 찾았다고 합니다."
-          ],
-          "sourceUrl": "https://xusheng.dev/posts/windows-coding-agent-telemetry/"
-        },
-        {
-          "title": "에이전트에게 자격증명을 넘기지 않는 도구, lend",
-          "paragraphs": [
-            "pico.sh 개발자가 원격 VM에서 도는 코딩 에이전트가 노트북의 도구를 사용자 승인 하에 쓰게 해 주는 lend를 공개했습니다. 그는 Claude Code, Codex 등 여러 에이전트를 버려도 되는 VM에서 돌리고, SSH 키와 1Password 금고 같은 민감한 것은 노트북에만 둡니다. 문제는 에이전트가 노트북의 무언가를 필요로 할 때인데, lend는 자격증명 자체를 넘기지 않고 요청이 올 때마다 승인하는 방식으로 이를 풉니다.",
-            "글에서는 에이전트 전용 터미널 멀티플렉서 herdr로 여러 에이전트를 병렬로 돌리고, 브라우저·폰 클라이언트 Ovis로 에이전트의 질문과 승인 요청을 푸시 알림으로 받아 처리하는 워크플로도 함께 소개합니다."
-          ],
-          "sourceUrl": "https://blog.antonio.cx/running-agents-with-lend"
-        },
-        {
-          "title": "오픈AI, 외부 평가기관에 내부 모델 개방",
-          "paragraphs": [
-            "오픈AI가 Apollo Research, METR, Transluce, Goodfire 네 곳과 '임베디드 평가' 1단계 계약을 맺었습니다. 외부 전문가가 오픈AI 내부 모델과 시스템에 깊이 접근해 장기간 정렬 상태와 안전장치의 효과를 평가하는 방식으로, 평가 기관은 모델 체크포인트, 훈련 데이터, 모니터링 시스템 등 내부 연구자가 쓰는 자원 일부를 받습니다.",
-            "Apollo는 모델이 개발자 의도에 몰래 반하는 행동을 할 수 있는지, 그리고 안전장치가 이를 잡아내는지를 봅니다. METR은 오픈AI 사상 최대 규모 강화학습 실행에서 기존 테스트가 놓친 비정렬 행동을 찾습니다. 오픈AI는 평가 결과를 공개 보고하고, 접근과 보안의 균형을 맞추기 위해 만든 절차도 함께 공개했습니다."
-          ],
-          "sourceUrl": "https://openai.com/index/our-first-phase-of-embedded-assessments"
-        },
-        {
-          "title": "나토, 오픈AI 사이버 방어 모델 도입",
-          "paragraphs": [
-            "오픈AI가 나토 통신정보국(NCIA)과 협력해 나토 핵심 기관에 사이버 보안 모델을 제공하고 있다고 밝혔습니다. 보안 도구 Daybreak를 통해서이며, 나토는 이 작업에 월 최대 3천억 토큰을 쓰고 있습니다. 오픈AI는 나토 사이버방위센터(CCDCOE)의 2026 Crossed Swords 훈련도 지원했는데, 참가자들이 사이버 작전용 AI 에이전트를 직접 만들고 평가하는 과정이 새로 들어갔습니다.",
-            "유럽 사례도 함께 공개했습니다. EU 사이버보안청 ENISA는 오픈AI 모델로 EU 기관 소프트웨어의 취약점 4건을 찾아 모두 패치했고, CERT Polska는 MikroTik RouterOS 취약점 6건을 찾는 데 모델을 활용했습니다."
-          ],
-          "sourceUrl": "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai"
-        },
-        {
-          "title": "AI 노트 앱 Mem, 2027년 1월 서비스 종료",
-          "paragraphs": [
-            "AI 노트 앱 Mem이 2027년 1월 15일 서비스를 종료한다고 발표했습니다. 12월 18일부터 노트는 읽기 전용이 되고, 1월 15일 이후에는 접속할 수 없습니다. 결제는 이미 모두 중단됐고, Apple Notes, Notion, Obsidian, OneNote 등으로 옮기는 마이그레이션 가이드를 제공합니다.",
-            "Mem은 2021년부터 단축키 캡처, 노트 간 연결 찾기, AI 글쓰기, 내 지식과 대화하기 같은 기능으로 'AI 네이티브 노트'를 내세운 대표 서비스였습니다. 범용 AI 어시스턴트가 노트·메모 기능을 흡수하면서 단일 기능 AI 앱이 설 자리가 좁아지고 있다는 신호로도 읽힙니다."
-          ],
-          "sourceUrl": "https://get.mem.ai/blog/mem-is-shutting-down"
-        },
-        {
-          "title": "수능 AI 부정행위 막으려 재난문자까지",
-          "paragraphs": [
-            "AP통신에 따르면 한국 정부가 올해 수능에서 AI 부정행위를 막기 위해 시험 당일 아침 전국 휴대폰에 약 10초간 울리는 긴급 재난문자를 보내, 수험생이 숨긴 기기를 드러내기로 했습니다. 감독관은 의심스러운 수험생에게 금속탐지기를 쓰고, 안경과 셔츠 단추까지 점검합니다. 부정행위 적발 시 응시 제한은 1년에서 10년으로 늘어납니다.",
-            "계기는 세무사 시험 수석 합격자가 초소형 카메라와 스마트폰으로 생성형 AI에게 답을 받았다고 자백한 사건입니다. AI 안경 같은 기기가 대중화되면서 시험 부정행위 대응이 국가적 과제가 됐습니다."
-          ],
-          "sourceUrl": "https://apnews.com/article/south-korea-exam-cheating-ai-college-e25b5612dbf4bd09fdf9197254c4547e"
         }
       ]
     }
